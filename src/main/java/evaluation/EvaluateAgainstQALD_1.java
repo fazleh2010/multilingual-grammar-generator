@@ -51,7 +51,7 @@ public class EvaluateAgainstQALD_1 {
 
     }
 
-    public void evaluateAndOutput(GrammarWrapper grammarWrapper, String qaldOriginalFile, String qaldModifiedFile, String resultFileName, String qaldRaw, String languageCode, String questionType,Double similarityMeasure) throws IOException {
+    /*public void evaluateAndOutput(GrammarWrapper grammarWrapper, String qaldOriginalFile, String qaldModifiedFile, String resultFileName, String qaldRaw, String languageCode, String questionType,Double similarityMeasure) throws IOException {
         QALDImporter qaldImporter = new QALDImporter();
         List<EntryComparison> entryComparisons = new ArrayList<EntryComparison>();
         qaldImporter.qaldToCSV(qaldOriginalFile, qaldRaw, languageCode);
@@ -61,7 +61,7 @@ public class EvaluateAgainstQALD_1 {
         EvaluationResult result = doEvaluation(qaldModified, entryComparisons, languageCode,questionType);
         Writer.writeResult(qaldImporter, qaldOriginal, result, resultFileName, languageCode);
 
-    }
+    }*/
     
     public void evaluateAndOutput(Map<String, String[]> questions, String qaldOriginalFile, String qaldModifiedFile, String resultFileName, String qaldRaw, String languageCode, String questionType,Double similarityMeasure) throws IOException, Exception {
         QALDImporter qaldImporter = new QALDImporter();
@@ -156,7 +156,7 @@ public class EvaluateAgainstQALD_1 {
         return evaluationResult;
     }
     
-    private List<EntryComparison> getProtoTypeMatchedQuestions(QALD qaldFile, GrammarWrapper grammarWrapper, String languageCode, String matchType, double similarityPercentage) {
+    /*private List<EntryComparison> getProtoTypeMatchedQuestions(QALD qaldFile, GrammarWrapper grammarWrapper, String languageCode, String matchType, double similarityPercentage) {
         List<EntryComparison> matchingEntries = new ArrayList<EntryComparison>();
         List<String[]> realQuestions = new ArrayList<String[]>();
         List<String> qaldSentences
@@ -169,7 +169,7 @@ public class EvaluateAgainstQALD_1 {
                                 .map(qaldQuestion -> qaldQuestion.string))
                         .collect(Collectors.toList());
         return this.getMatchProtoQuestion(qaldFile, grammarWrapper, languageCode, matchType, similarityPercentage);
-    }
+    }*/
 
     private List<EntryComparison> getAllSentenceMatchesCsv(QALD qaldFile, Map<String, String[]> questions, String languageCode, String questionType, double similarityPercentage) throws Exception {
         List<EntryComparison> matchingEntries = new ArrayList<EntryComparison>();
@@ -558,7 +558,7 @@ public class EvaluateAgainstQALD_1 {
     }
 
 
-    private List<EntryComparison> getMatchProtoQuestion(QALD qaldFile, GrammarWrapper grammarWrapper, String languageCode, String matchType, double similarityPercentage) {
+    /*private List<EntryComparison> getMatchProtoQuestion(QALD qaldFile, GrammarWrapper grammarWrapper, String languageCode, String matchType, double similarityPercentage) {
         List<EntryComparison> entryComparisons = new ArrayList<EntryComparison>();
 
         List<String> list = new ArrayList<String>();
@@ -592,16 +592,14 @@ public class EvaluateAgainstQALD_1 {
             entryComparisons.add(entryComparison);
             
             if (!grammarEntities.isEmpty()) {
-                /*System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                System.out.println("getQaldEntry::::" + entryComparison.getQaldEntry().getQuestions());
-                System.out.println("getQueGGEntry::::" + entryComparison.getQueGGEntry().getQuestionList());*/
+                
               
             }
 
             //}
         }
         return entryComparisons;
-    }
+    }*/
     
     private List<EntryComparison> getMatchRealQuestion(QALD qaldFile, Map<String, String[]> realQuestions, String languageCode, double similarityPercentage) throws Exception {
         List<EntryComparison> entryComparisons = new ArrayList<EntryComparison>();
@@ -710,7 +708,7 @@ public class EvaluateAgainstQALD_1 {
         return content;
     }
 
-    public List<GrammarEntry> grammarMatchedEntities(String qaldsentence, List<GrammarEntry> grammarEntries, double similarityPercentage) {
+    /*public List<GrammarEntry> grammarMatchedEntities(String qaldsentence, List<GrammarEntry> grammarEntries, double similarityPercentage) {
         List<GrammarEntry> grammarEntities = new ArrayList<GrammarEntry>();
         qaldsentence = qaldsentence.toLowerCase().strip().trim();
         double cosineDistance = 0.0;
@@ -737,7 +735,7 @@ public class EvaluateAgainstQALD_1 {
             }
         }
         return grammarEntities;
-    }
+    }*/
     
     public Map<String, QueGGinfomation> matchedRealQuestions(String qaldsentence, String qaldSparqlQuery, Map<String, String[]> questions, double similarityPercentage, Integer index) {
         Map<String, QueGGinfomation> matchedQuestions = new TreeMap<String, QueGGinfomation>();

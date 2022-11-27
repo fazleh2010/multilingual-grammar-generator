@@ -8,6 +8,7 @@ package grammar.read.questions;
 import grammar.sparql.SparqlQuery;
 import util.io.FileProcessUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.CSVWriter;
 import static grammar.datasets.sentencetemplates.TempConstants.superlative;
 import grammar.sparql.PrepareSparqlQuery;
@@ -41,6 +42,7 @@ import static util.io.BashScript.FIND_IMAGE_LINK;
 import static util.io.BashScript.FIND_WIKI_LINK;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
+import util.io.JsonWriter;
 import util.io.OffLineResult;
 import util.io.Statistics;
 import util.io.StringMatcher;
@@ -121,6 +123,11 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         }
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
+        GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "missedProperty.json");
+        this.findCoverage(this.propertyDir,lexicalEntiryUris);
+        exit(1);
+        
         this.csvWriterSummary = new CSVWriter(new FileWriter(questionSummaryFile, true));
         this.writeInCSV(summaryHeader);
 
@@ -143,6 +150,9 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         if (offlineMatchedProperties.isEmpty() && this.inputCofiguration.getOfflineQuestion()) {
             throw new Exception("No off line properties to process!!");
         }
+        
+        System.out.println(lexicalEntiryUris.keySet());
+        exit(1);
 
         Integer total = lexicalEntiryUris.size();
 
@@ -630,9 +640,35 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
     /*private void writeBatchNumner(Integer batchNumber) {
         FileFolderUtils.stringToFiles(batchNumber.toString(), inputCofiguration.getBatchFile());
     }*/
-    
-   
 
-    
+    private void findCoverage(String propertyDir, Map<String, List<GrammarEntryUnit>> lexicalEntiryUris) {
+        String[] files = new File(propertyDir).list();
+        Set<String> properties = new TreeSet<String>();
+        Set<String> generatedProperties = new TreeSet<String>();
+        for (String property : files) {
+            if (property.contains(".txt")) {
+                property = property.replace(".txt", "");
+                property = property.replace("dbo_", "dbo:").trim();
+                property = property.replace("dbp_", "dbp:").trim();
+                properties.add(property);
+            }
+        }
+
+        for (String lex : lexicalEntiryUris.keySet()) {
+            List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lex);
+            System.out.println(lex + " " + grammarEntryUnits.size());
+            for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
+                String property = StringUtils.substringBetween(grammarEntryUnit.getSparqlQuery(), "<", ">");
+                property = property.replace("http://dbpedia.org/ontology/", "dbo:");
+                property = property.replace("http://dbpedia.org/property/", "dbp:");
+                if (!properties.contains(property)) {
+                    generatedProperties.add(property);
+                }
+            }
+        }
+        FileFolderUtils.setToFile(generatedProperties, propertyDir + "missedProperty.txt");
+
+    }
+
 
 }

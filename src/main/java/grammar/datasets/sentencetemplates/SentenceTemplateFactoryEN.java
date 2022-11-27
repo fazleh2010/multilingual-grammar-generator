@@ -57,28 +57,33 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       createSentenceTemplate(language,
         List.of(
           //What is the capital of Cameron?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(singular) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(plural) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(singular) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(plural) preposition adjunct(domain)?",
-          //"interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(singular) preposition adjunct(domain)?",
-          //What is Batman"s real name?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(singular)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(singular)?",
+          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+          //which city is the capital of Cameron?
+          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+        
+          ///What is Batman"s real name?
+          "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)?",
+          "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)?",
            //"Who is the mayor of Paris?",
-          "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(singular) preposition adjunct(domain)?", 
-          "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(singular) preposition adjunct(domain)?",   
+          "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?", 
+          "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",   
           //"Who was Samuel Schmid's vice president?", 
           //"interrogativePronoun verb(component_be:present:singular) determiner(component_the) adjunct(domain) appos noun(singular)?", 
           //"interrogativePronoun verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
            //List all the musicals von Elton John.
-          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(plural) preposition adjunct(domain)." ,
+          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)." ,
           //List all the musicals with music by Elton John.
           //"verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) noun(singular) preposition adjunct(domain)." 
           //Give me all members of Prodigy.
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(plural) preposition adjunct(domain).", 
+          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain).", 
           //Show me all books in Asimov's Foundation series.
-          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(plural) preposition adjunct(domain)." 
+          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)." 
         ),
         NounPPFrame,
         whQuestion
@@ -91,10 +96,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       createSentenceTemplate(language,
         List.of(
           //the capital of germany
-         "determiner(component_the) noun(singular) preposition adjunct(domain)?",
-         "determiner(component_the) noun(plural) preposition adjunct(domain)?",
+         "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+         "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
          //the Dracula's creator
-         "determiner adjunct(domain) Apostrophe noun(singular)?"
+         "determiner adjunct(domain) Apostrophe noun(reference:singular)?"
                 
                 ),
         NounPPFrame,

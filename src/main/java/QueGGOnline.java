@@ -126,7 +126,7 @@ public class QueGGOnline {
         //System.out.println(entityLabelDir+File.separator+"qaldEntities.txt");
         //FileUtils.stringToFile(string, entityLabelDir+File.separator+"qaldEntities.txt");
         
-        if (questionType.contains(PROTOTYPE_QUESTION)) {
+        /*if (questionType.contains(PROTOTYPE_QUESTION)) {
             EvaluateAgainstQALD_1 evaluateAgainstQALD_1 = new EvaluateAgainstQALD_1(languageCode, endpoint);
             for (String fileName : new File(outputDir).list()) {
                 if (fileName.contains("grammar_FULL_DATASET") && fileName.contains(language.name())) {
@@ -144,7 +144,8 @@ public class QueGGOnline {
         
             evaluateAgainstQALD_1.evaluateAndOutput(grammarWrapper, qaldFile, qaldModifiedFile, resultFileName, qaldRaw, languageCode, questionType, similarityMeasure);
 
-        } else if (questionType.contains(REAL_QUESTION)) {
+        } else*/ 
+        if (questionType.contains(REAL_QUESTION)) {
              
             Map<String, String[]> queGGQuestions = new HashMap<String, String[]>();
             List<String[]> rows = new ArrayList<String[]>();

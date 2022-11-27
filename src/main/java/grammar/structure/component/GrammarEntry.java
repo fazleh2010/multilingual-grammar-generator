@@ -24,6 +24,7 @@ public class GrammarEntry implements Serializable {
   private DomainOrRangeType bindingType;
   private DomainOrRangeType returnType;
   private FrameType frameType;
+  private String grammarRuleNo;
   private String sentenceTemplate;
   private List<String> sentences = new ArrayList<>();
   private QueryType queryType;
@@ -34,7 +35,7 @@ public class GrammarEntry implements Serializable {
   private String returnVariable; // aka selectVariable
   private boolean isCombination = false;
   private SentenceBindings sentenceBindings;
-  private String qaldMatchedQuestion;
+  //private String qaldMatchedQuestion;
   
  
 
@@ -66,11 +67,10 @@ public class GrammarEntry implements Serializable {
     grammarEntry.sentences.addAll(this.sentences);
     grammarEntry.queryType = this.queryType;
     grammarEntry.sparqlQuery = this.sparqlQuery;
-    grammarEntry.executable=this.executable;
+    //grammarEntry.executable=this.executable;
     grammarEntry.returnVariable = this.returnVariable;
-    grammarEntry.bindingListType = this.bindingListType;
+    //grammarEntry.bindingListType = this.bindingListType;
     grammarEntry.isCombination = this.isCombination;
-    grammarEntry.qaldMatchedQuestion=this.qaldMatchedQuestion;
     if (this.sentenceToSparqlParameterMapping != null) {
       grammarEntry.sentenceToSparqlParameterMapping = new HashMap<>(this.sentenceToSparqlParameterMapping);
     }

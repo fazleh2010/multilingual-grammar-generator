@@ -16,6 +16,7 @@
   lemon:otherForm  :timeZone-of_singular ;
   lemon:otherForm  :timeZone-of_plural ;
   lemon:sense          :timeZone-of_sense_1 ;
+  lemon:sense          :timeZone-of_sense_2 ;
   lemon:synBehavior    :timeZone-of_nounpp .
 
 :timeZone-of_form a lemon:Form ;
@@ -42,6 +43,17 @@
 
 :timeZone-of_sense_1_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:timeZone-of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :timeZone-of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/timeZone> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :timeZone-of_sense_2_condition .
+
+:timeZone-of_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City/dbo> ;
   lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
 
 :arg2 lemon:marker :timeZone-of_form_preposition .

@@ -22,6 +22,7 @@ import org.apache.jena.query.QueryType;
 public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements TempConstants {
 
     private static final Logger LOG = LogManager.getLogger(NPPGrammarRuleGenerator.class);
+    private String senTemplate=null;
 
     public NPPGrammarRuleGenerator(Language language) {
         super(FrameType.NPP, language, BindingConstants.DEFAULT_BINDING_VARIABLE);
@@ -40,13 +41,14 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
+        senTemplate=sentenceBuilder.getTemplate();
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesForward(getBindingVariable(), lexicalEntryUtil));
 
         generatedSentences.sort(String::compareToIgnoreCase);
         return generatedSentences;
     }
 
-    protected List<String> generateNounPhrase(LexicalEntryUtil lexicalEntryUtil,String type) throws
+    protected List<String> generateNounPhrase(LexicalEntryUtil lexicalEntryUtil, String type) throws
             QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
         SentenceBuilder sentenceBuilder = new SentenceBuilderAllFrame(
@@ -60,15 +62,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
             generatedSentences = new ArrayList<String>();
             generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
         }
-        //temporary closed of boolean question
-        /*else if (type.equals(booleanQuestionDomainRange)) {
-            generatedSentences = new ArrayList<String>();
-            generatedSentences.addAll(sentenceBuilder.generateBooleanQuestionDomainRange(getBindingVariable(), new String[]{}, lexicalEntryUtil));
-            System.out.println(generatedSentences);
-        } else if (type.equals(booleanQuestionDomain)) {
-            generatedSentences = new ArrayList<String>();
-            generatedSentences.addAll(sentenceBuilder.generateBooleanQuestionsDomain(getBindingVariable(), new String[]{}, lexicalEntryUtil));
-        }   */     generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
+        generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
         return generatedSentences;
     }
@@ -109,6 +103,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         fragmentEntry.setReturnType(grammarEntry.getReturnType());
         fragmentEntry.setBindingType(grammarEntry.getBindingType());
         fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+        fragmentEntry.setSentenceTemplate(senTemplate);
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
         sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
                 grammarEntry.getReturnVariable());

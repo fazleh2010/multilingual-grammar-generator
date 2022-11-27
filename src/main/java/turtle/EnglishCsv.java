@@ -21,6 +21,7 @@ import static turtle.GermanCsv.NounPPFrameCsv.rangeArticleIndex;
 import static turtle.GermanCsv.NounPPFrameCsv.rangeWrittenPlural;
 import static turtle.GermanCsv.NounPPFrameCsv.rangeWrittenSingular;
 import util.io.GenderUtils;
+import util.io.Property;
 import util.io.Tupples;
 
 /**
@@ -123,9 +124,25 @@ public class EnglishCsv implements TempConstants {
 
             return writtenForm + copulativeStr;
         }
-        public void setArticle(Tupples tupple,  String[] row) {
+        /*public void setArticle(Tupples tupple,  String[] row) {
             GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingular(row), getDomainWrittenPlural(row));
             GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
+        }*/
+        
+        public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
+                String domain=Property.shortPrefix(tupple.getDomain());
+                String range=Property.shortPrefix(tupple.getRange());
+                System.out.println("domain::"+domain+" range::"+range);
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row=domainOrRange.get(domain);
+                GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
+                   
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row=domainOrRange.get(range);
+                GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
+                 
+            }
+          
         }
 
         public static String getPreposition(String lemonEntry, String preposition, String language) {
@@ -193,7 +210,7 @@ public class EnglishCsv implements TempConstants {
             return row[rangeIndex];
         }
         
-         public String getDomainWrittenSingular(String[] row) {
+        /* public String getDomainWrittenSingular(String[] row) {
             return row[domainWrittenSingular];
         }
 
@@ -211,7 +228,7 @@ public class EnglishCsv implements TempConstants {
 
         public String getRangeWrittenPlural(String[] row) {
             return row[rangeWrittenPlural];
-        }
+        }*/
 
      
         public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {

@@ -16,6 +16,7 @@
   lemon:otherForm  :party-of_singular ;
   lemon:otherForm  :party-of_plural ;
   lemon:sense          :party-of_sense_1 ;
+  lemon:sense          :party-of_sense_2 ;
   lemon:synBehavior    :party-of_nounpp .
 
 :party-of_form a lemon:Form ;
@@ -41,6 +42,17 @@
   lemon:condition           :party-of_sense_1_condition .
 
 :party-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:party-of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :party-of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/party> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :party-of_sense_2_condition .
+
+:party-of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
   lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
 

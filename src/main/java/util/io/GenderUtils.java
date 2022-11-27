@@ -69,17 +69,21 @@ public class GenderUtils implements TempConstants {
     }
 
     public static String getWrittenFormSingular(String uri) {
+        String result = "XX";
+        uri = Property.shortPrefix(uri);
         if (nounWrittenForms.containsKey(uri)) {
-            return nounWrittenForms.get(uri)[0];
+            result = nounWrittenForms.get(uri)[0];
         }
-        return "XX";
+        return result;
     }
 
     public static String getWrittenFormPlural(String uri) {
+        String result = "XX";
+        uri = Property.shortPrefix(uri);
         if (nounWrittenForms.containsKey(uri)) {
-            return nounWrittenForms.get(uri)[1];
+            result =  nounWrittenForms.get(uri)[1];
         }
-        return "XX";
+        return result;
     }
 
     public static Pair<Boolean, String> getTrennVerbType(String key, String tense, String type) {
@@ -123,6 +127,8 @@ public class GenderUtils implements TempConstants {
         } else if (domainOrRange.contains(range) && numberType.contains(plural)) {
             word = getWrittenFormPlural(objectUri);
         }
+        
+        
 
         return word;
     }

@@ -16,6 +16,7 @@
   lemon:otherForm  :artisticMovement_of_singular ;
   lemon:otherForm  :artisticMovement_of_plural ;
   lemon:sense          :artisticMovement_of_sense_1 ;
+  lemon:sense          :artisticMovement_of_sense_2 ;
   lemon:synBehavior    :artisticMovement_of_nounpp .
 
 :artisticMovement_of_form a lemon:Form ;
@@ -41,6 +42,17 @@
   lemon:condition           :artisticMovement_of_sense_1_condition .
 
 :artisticMovement_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Artist> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:artisticMovement_of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :artisticMovement_of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/movement> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :artisticMovement_of_sense_2_condition .
+
+:artisticMovement_of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Artist> ;
   lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
 

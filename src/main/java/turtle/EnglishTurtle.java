@@ -18,11 +18,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
+import java.util.stream.Stream;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import util.io.GenderUtils;
+import util.io.Property;
 import util.io.Tupples;
 
 /**
@@ -40,6 +44,8 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private String writtenFormPerfect = "";
     private String preposition = "";
     private static Integer index = 0;
+    private Map<String,List<String>>domainOrRange=new TreeMap<String,List<String>>();
+
     private EnglishCsv.NounPPFrameCsv nounPPFrameCsv = new EnglishCsv.NounPPFrameCsv();
     private EnglishCsv.TransitFrameCsv transitiveFrameCsv = new EnglishCsv.TransitFrameCsv();
     private EnglishCsv.InTransitFrame IntransitiveFrameCsv = new EnglishCsv.InTransitFrame();
@@ -60,6 +66,12 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
+                if(fileName.contains("DomainOrRange.csv")){
+                    domainOrRange=this.findDomainorRangeEnglish(inputDir + File.separatorChar + pathname+ File.separatorChar +fileName);
+                    continue;
+                }
+                //System.out.println("fileName::"+fileName);
+                //exit(1);
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
@@ -110,13 +122,14 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
             }
 
         }
+       /*System.out.println("domainOrRange::"+this.domainOrRange.keySet());
+         System.out.println("nounWrittenForms::"+GenderUtils.nounWrittenForms);
+         exit(1);*/
     }
 
     private void setSyntacticFrame(String key, List<String[]> rows) throws Exception {
         String syntacticFrame = findSyntacticFrame(rows);
         key=key.trim().strip().stripLeading().stripTrailing();
-        System.out.println(syntacticFrame);
-
         if (syntacticFrame.equals(NounPPFrame)) {
             setNounPPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(TransitiveFrame)) {
@@ -157,7 +170,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     setReference(nounPPFrameCsv.getRangeIndex(row)));
             tupplesList.add(tupple);
             index = index + 1;
-             nounPPFrameCsv.setArticle(tupple, row);
+             nounPPFrameCsv.setArticle(tupple, domainOrRange);
         }
         this.turtleString
                 = nounPPFrameCsv.getNounPPFrameHeader(this.lemonEntry, this.preposition, this.language)
@@ -166,6 +179,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + nounPPFrameCsv.getSenseDetail(tupplesList, NounPPFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + nounPPFrameCsv.getPreposition(this.lemonEntry,this.preposition, language);
         this.tutleFileName = getFileName(syntacticFrame);
+         
     }
 
     @Override
@@ -341,6 +355,20 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private String getFileName(String syntacticFrame) {
         return syntacticFrame + "-lexicon" + "-" + lemonEntry.replace("/", "") + ".ttl";
 
+    }
+
+    private Map<String, List<String>> findDomainorRangeEnglish(String fileName) {
+        CsvFile csvFile = new CsvFile();
+        Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
+        List<String[]> rows = csvFile.getRows(new File(fileName));
+        for (String[] row : rows) {
+            String property=row[0].replace(" ", "");
+            List<String> rowT=new ArrayList<String>();
+            rowT.add(row[1]);
+            rowT.add(row[2]);
+            domainOrRange.put(property, rowT);
+        }
+        return domainOrRange;
     }
 
 }

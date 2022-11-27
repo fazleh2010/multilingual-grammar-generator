@@ -39,6 +39,8 @@ public interface TempConstants {
     public static String TrennVerbPart1 = "TrennVerbPart1";
     public static final String verb = "verb";
     public static final String pronounReflexive = "reflexive_pronoun";
+    public static final String reference = "reference";
+    
     
     public static final String dativeCase = "dativeCase";
     public static final String accusativeCase = "accusativeCase";

@@ -608,6 +608,14 @@ public class FileFolderUtils {
         
 
     }
+
+    public static void setToFile(Set<String> sets, String fileName) {
+        String str="";
+        for(String string:sets){
+            str+=string+"\n";
+        }
+        stringToFiles(str,fileName);
+    }
     
    
 

@@ -38,6 +38,7 @@ import grammar.generator.sentencebuilder.Spanish;
 import util.io.StringMatcher;
 import util.io.TemplateFeatures;
 import grammar.generator.sentencebuilder.TemplateFinder;
+import util.io.GenderUtils;
 
 public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
 
@@ -88,6 +89,9 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                 language, new String[]{frameType.getName(), whQuestion});
             sentences = nounPPframeSentence(bindingVariable, lexicalEntryUtil, sentenceTemplates);
+            //System.out.println("sentences::"+sentences);
+            //System.out.println("nounWrittenForms::"+GenderUtils.nounWrittenForms);
+            //exit(1);
              //exit(1);
             
         } else if (this.frameType.equals(FrameType.VP)) {
@@ -487,7 +491,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
        
         //System.out.println("sentenceTemplates:::" + sentenceTemplates);
         for (String sentenceTemplate : sentenceTemplates) {   
-             System.out.println("sentenceTemplate::"+sentenceTemplate);
+             //System.out.println("sentenceTemplate::"+sentenceTemplate);
             index = index + 1;
             TemplateFeatures templateFeatures = new TemplateFeatures(sentenceTemplate);
             List<String> positionTokens = templateFeatures.getPositionTokens();
@@ -522,8 +526,9 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 continue;
             }
             sentences.add(str);
-            System.out.println("generated sentence::"+str);
+            //System.out.println("generated sentence::"+str);
         }
+
         return new ArrayList<String>(sentences);
 
     }
