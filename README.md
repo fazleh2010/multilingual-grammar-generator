@@ -83,8 +83,8 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
 | :------------ |:---------------| :-----|:-----|:-----|:-----|
 | English       |[806 entries](https://docs.google.com/spreadsheets/d/1GnAGi3WE-qcx-YFTnCgNHBPgQQhR96FNfRfVvP1r0JA/edit?usp=sharing)| [141 templates](https://www.google.com)|[1727 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/grammar)|[189015434](https://www.google.com)|[en_QaSystem](https://github.com/fazleh2010/QueGG-web-en.git)|
 | German        |[404 entries](https://docs.google.com/spreadsheets/d/1jbmbmOuzwxf2g4G0olHfeozo3v2M85JyZFIZYJ-f9yE/edit?usp=sharing)| [160 templates](https://www.google.com) |[906 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/grammar)|[111832454](https://www.google.com)|[de_QaSystem](https://www.google.com)|
-| Italian       |[441 entries](https://docs.google.com/spreadsheets/d/1Lv_VUXG-0k5l-BRxo9GZ0AmcgSsUb2IeLnVR20qNu7k/edit?usp=sharing)| [48 templates](https://www.google.com) |[1042 rules](https://www.google.com)|[7522466](https://www.google.com)|[it_QaSystem](https://www.google.com)|
-| Spanish       |[587 entries](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [71 templates](https://www.google.com)|[1298 rules](https://www.google.com)|[44010153](https://www.google.com)|[es_QaSystem](https://www.google.com)|
+| Italian       |[441 entries](https://docs.google.com/spreadsheets/d/1Lv_VUXG-0k5l-BRxo9GZ0AmcgSsUb2IeLnVR20qNu7k/edit?usp=sharing)| [48 templates](https://www.google.com) |[1042 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/grammar)|[7522466](https://www.google.com)|[it_QaSystem](https://www.google.com)|
+| Spanish       |[587 entries](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [71 templates](https://www.google.com)|[1298 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/grammar)|[44010153](https://www.google.com)|[es_QaSystem](https://www.google.com)|
 
 
 
