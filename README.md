@@ -87,13 +87,6 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
 | Spanish       |[587 entries](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [71 templates](https://www.google.com)|[1298 rules](https://www.google.com)|[44010153](https://www.google.com)|[es_QaSystem](https://www.google.com)|
 
 
-| Language      | NounPPFrame    | TransitiveFrame | InTransitivePPFrame | Attributive Adjection | Gradable Adjection|
-| :------------ |:---------------| :-----|:-----|:-----|:-----|
-| English       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
-| German        | [316 entries](https:) [20 templates](https:)| [36 entries](https:) [38 templates](https:) |[37 entries](https:) [84 templates](https:)|[6 entries](https:) [11 templates](https:)|[9 entries](https:) [7 templates](https:)|
-| Italian       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
-| Spanish       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
-
 
 
 
