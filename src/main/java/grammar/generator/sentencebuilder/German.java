@@ -184,7 +184,11 @@ public class German implements TempConstants,MultilingualBuilder {
                 if (col.length == 2) {
                     word = this.getIntergativeAmountToken(subjectType, col[0], col[1]);
                 } else if (col.length == 3) {
-                    word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
+                    try {
+                        word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
+                    } catch (Exception ex) {
+                        Logger.getLogger(German.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             } else {
@@ -235,7 +239,11 @@ public class German implements TempConstants,MultilingualBuilder {
                 if (col.length == 2) {
                     word = this.getDeteminerToken(subjectType, col[0], col[1]);
                 } else if (col.length == 3) {
-                    word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
+                    try {
+                        word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
+                    } catch (Exception ex) {
+                        Logger.getLogger(German.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }
@@ -398,29 +406,37 @@ public class German implements TempConstants,MultilingualBuilder {
     }
 
   
-    private String getDeteminerTokenManual(SubjectType subjectType, String givenCase, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
+    private String getDeteminerTokenManual(SubjectType subjectType, String givenCase, String domainOrRange, String number) throws QueGGMissingFactoryClassException, Exception {
         String noun = this.getConditionLabelManually(domainOrRange, number);
         String article = this.getArticleFromUri(domainOrRange);
         String subjectString = subjectType.name();
 
         if (givenCase.contains(preposition)) {
-            givenCase = this.findPreposition(preposition, null, false);
-            givenCase = givenCase.toLowerCase().stripLeading().stripTrailing().trim();
-            givenCase = GenderUtils.getPrepositionCase(givenCase);
+            String prepositionT = this.findPreposition(preposition, null, false);
+            prepositionT = prepositionT.toLowerCase().stripLeading().stripTrailing().trim();
+            givenCase = GenderUtils.getPrepositionCase(prepositionT);
         }
         
        
-
         String questionWord = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, subjectType.name(), TempConstants.number, number, TempConstants.gender, article, TempConstants.caseType, givenCase);
 
         if (noun.contains("-")) {
             questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
             noun="";
         }
+        
+         if(givenCase.contains("nominativeCase")&&number.contains(singular))
+            questionWord="welche";
+         
+         
+        System.out.println();
         System.out.println("subjectType.name()::" + subjectType.name());
+        System.out.println("givenCase::" + givenCase);
+        System.out.println("domainOrRange::" + domainOrRange);
         System.out.println("noun::" + noun);
-        System.out.println("questionWord::" + questionWord);
-        //exit(1);
+        System.out.println("number::" + number);
+        System.out.println("questionWord " + questionWord + " " + noun);
+      
 
         return questionWord + " " + noun;
 
@@ -569,11 +585,10 @@ public class German implements TempConstants,MultilingualBuilder {
         String word = "XX";
         if (!flagReference) {
             reference = this.lexicalEntryUtil.getPrepositionReference();
-             //System.out.println("reference::"+reference);
+             System.out.println("reference::"+reference);
             
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);
-             ///System.out.println("word::"+word);
-            //exit(1);
+             System.out.println("word::"+word);
         } else if (flagReference) {
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);
 

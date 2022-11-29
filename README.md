@@ -5,7 +5,7 @@ The project creates QA system given a lemon lexica or Csv file (contains informa
 <p>The source code can be compiled and run using <em>Java 11</em> and <em>Maven</em>.</p>
 
 ```shell script
-git clone https://github.com/fazleh2010/question-grammar-generator.git -b italian
+git clone https://github.com/fazleh2010/question-grammar-generator.git 
 ```
 build the jar file
 ```shell script
@@ -77,86 +77,24 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
                                  
 ````  
 
+### results
 
-### Input example
-QueGG can take either csv or turtle file as input 
-- An example of csv input file (.csv)  (https://github.com/fazleh2010/question-grammar-generator/blob/italian/examples/article_Noun_Frame%20.csv) or
-- An example of turtle file (.ttl) (https://github.com/fazleh2010/question-grammar-generator/blob/italian/examples/NounPPFrame-lexicon-birthPlace_of.ttl). The lexical entries are defined using the Lexicon Model for Ontologies [Lemon](https://lemon-model.net/) and the data category ontology [LexInfo](https://lexinfo.net/).
+| Language      | Lexicon        | Sentene Templates | Grammar | Questions | Web Interface |
+| :------------ |:---------------| :-----|:-----|:-----|:-----|
+| English       |[en_lexicon](https://www.google.com)| [en_template](https://www.google.com)|[en_grammar](https://www.google.com)|[en_questions](https://www.google.com)|[en_Interface](https://www.google.com)|
+| German        |[de_lexicon](https://www.google.com)| [de_template](https://www.google.com) |[de_grammar](https://www.google.com)|[de_questions](https://www.google.com)|[de_Interface](https://www.google.com)|
+| Italian       |[it_lexicon](https://www.google.com)| [it_template](https://www.google.com) |[it_grammar](https://www.google.com)|[it_questions](https://www.google.com)|[it_Interface](https://www.google.com)|
+| Spanish       |[es_lexicon](https://www.google.com)| [es_template](https://www.google.com)|[es_grammar](https://www.google.com)|[es_questions](https://www.google.com)|[es_Interface](https://www.google.com)|
 
 
-### Output file example
-QueGG can generate two types of output file:
-- grammar entry (.json file)
-- question, sparql, and answer (.csv file)
+| Language      | NounPPFrame    | TransitiveFrame | InTransitivePPFrame | Attributive Adjection | Gradable Adjection|
+| :------------ |:---------------| :-----|:-----|:-----|:-----|
+| English       | some wordy textT| $1600 |:-----|:-----|:-----|
+| German        | centered       |   $12 |:-----|:-----|:-----|
+| Italian       | are neat       |    $1 |:-----|:-----|:-----|
+| Spanish       | are neat       |    $1 |:-----|:-----|:-----|
 
-######  grammar entry (.json file) that looks like this:
 
-```json
-{
-    "id" : "1",
-    "lexicalEntryUri" : "http://localhost:8080#birthPlace_of",
-    "language" : "IT",
-    "type" : "SENTENCE",
-    "bindingType" : "PERSON",
-    "returnType" : "PLACE",
-    "frameType" : "NPP",
-    "sentences" : [ "Qual era il luogo di nascita di ($x | PERSON_NP)?", "Qual è il luogo di nascita di ($x | PERSON_NP)?" ],
-    "queryType" : "SELECT",
-    "sparqlQuery" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
-    "sentenceToSparqlParameterMapping" : {
-      "$x" : "subjOfProp"
-    },
-    "returnVariable" : "objOfProp",
-    "sentenceBindings" : {
-      "bindingVariableName" : "$x",
-      "bindingList" : [ {
-        "label" : "Balraj Sahni",
-        "uri" : "http://dbpedia.org/resource/Balraj_Sahni"
-      }, {
-        "label" : "Balram Jakhar",
-        "uri" : "http://dbpedia.org/resource/Balram_Jakhar"
-      }, {
-        "label" : "Baltacı Mehmed Pascià",
-        "uri" : "http://dbpedia.org/resource/Baltacı_Mehmet_Pasha"
-      }
-        ]
-    },
-    "combination": false
-}
-```
-
-A detailed breakdown of the JSON keys and values:
-
-Key | Value
---- | -----
-id | The continuous number of the grammar entry
-language | The language of the grammar entry
-type | The SentenceType of the grammar entry (SENTENCE entries are the base for inserting bindings or entries of SentenceType 'NP')
-bindingType | The expected type of bindings in the bindingList and the sentences (bindingVariableName)
-returnType | The type of this sentence's subject or the expected type of answer to the sentences in this grammar entry
-frameType | The enum value of this entry's frame (e.g. NPP -> NounPPFrame), for combined sentences only the base frame type is listed
-sentences | The generated questions or clauses with placeholders for bindings or other grammar entries - the present or past tense does not have an impact on the generated SPARQL query
-queryType | The type of the SPARQL query
-sparqlQuery | An algebraic representation of the generated SPARQL query body
-sentenceToSparqlParameterMapping | The mapping between sentence parameters and SPARQL variables
-returnVariable | The SPARQL variable that (when used in the SELECT statement) will return the answer(s) to the generated question sentences
-sentenceBindings | Contains information about possible bindings for the parameters in the sentences
-sentenceBindings.bindingVariableName | The placeholder inside of the sentences that is used as binding variable
-sentenceBindings.bindingList | An incomplete list of up to 100 possible bindings that can be inserted into the sentences and the SPARQL query
-sentenceBindings.bindingList.label | The language specific label that was retrieved from the DBPedia ontology - can be used to insert into the sentences
-sentenceBindings.bindingList.uri | The DBPedia ontology reference URI, will be identical to label for literals - can be used to insert into the SPARQL query 
-combination | A flag that shows if this grammar entry is a combination of multiple grammar entries or a base entry
-
-######  question, sparql, and answer (.csv file)
-
-```csv
-"id","question","sparql","answer","frame"
-1,Qual era il luogo di nascita di Balraj Sahni?, select ?o {<http://dbpedia.org/resource/Balraj_Sahni> <http://dbpedia.org/ontology/birthPlace>  ?o },http://dbpedia.org/resource/Pakistan,Pakistan,NPP
-2,Qual è il luogo di nascita di Balraj Sahni?, select  ?o {<http://dbpedia.org/resource/Balraj_Sahni> <http://dbpedia.org/ontology/birthPlace>  ?o },http://dbpedia.org/resource/Pakistan,Pakistan,NPP
-3,il luogo di nascita di Balraj Sahni,select  ?o {<http://dbpedia.org/resource/Balraj_Sahni> <http://dbpedia.org/ontology/birthPlace> ?o},http://dbpedia.org/resource/Pakistan,Pakistan,NPP
-....
-...
-```
 
 
 ## Used Frameworks And Libraries

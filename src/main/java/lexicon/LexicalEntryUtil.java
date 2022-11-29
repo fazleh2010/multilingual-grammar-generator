@@ -1044,6 +1044,12 @@ public class LexicalEntryUtil implements TempConstants{
         LexInfo lexInfo = lexicalEntryUtil.getLexInfo();
         LexicalEntry lexicalEntry = new LexiconSearch(lexicalEntryUtil.getLexicon()).getReferencedResource(reference);
         Collection<LexicalForm> forms = lexicalEntry.getForms();
+        
+         System.out.println();
+        System.out.println("reference::" + reference);
+        System.out.println("attrFirst::" + attrFirst+ " " +valueFirst);
+        System.out.println("attrSecond::" + attrSecond + " " +valueSecond);
+        System.out.println("attrThrid " + attrThrid + " " + valueThrid);
 
         for (LexicalForm lexicalForm : forms) {
             Boolean firstMatchFlag = false, secondMatchFlag = false, thirdMatchFlag = false;

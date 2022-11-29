@@ -16,10 +16,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import util.io.GenderUtils;
+import util.io.Property;
 import util.io.Tupples;
 
 /**
@@ -46,6 +49,8 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
     private GermanCsv.InTransitFrameCsv intransitiveFrameCsv = new GermanCsv.InTransitFrameCsv();
     private GermanCsv.AttributiveAdjectiveFrameCsv attributiveAdjectiveFrame = new GermanCsv.AttributiveAdjectiveFrameCsv();
     private GermanCsv.GradbleAdjectiveFrameCsv gradableAdjectiveFrameCsv = new GermanCsv.GradbleAdjectiveFrameCsv();
+    private Map<String,List<String>>domainOrRange=new TreeMap<String,List<String>>();
+
 
 
 
@@ -63,6 +68,13 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
         for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
+                 System.out.println(fileName);
+
+                 if(fileName.contains("DomainOrRange.csv")){
+                    domainOrRange=this.findDomainorRangeGerman(inputDir + File.separatorChar + pathname+ File.separatorChar +fileName);
+                    continue;
+                }
+                 
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
@@ -156,7 +168,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                     setReference(nounPPFrameCsv.getRangeIndex(row)));
             tupplesList.add(tupple);
             index = index + 1;
-            nounPPFrameCsv.setArticle(tupple, this.gender, row);
+            nounPPFrameCsv.setArticle(tupple, this.gender, domainOrRange);
         }
        
         this.turtleString
@@ -192,7 +204,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(row[transitiveFrameCsv.domainIndex]),
                     this.setReference(row[transitiveFrameCsv.rangeIndex]));
 
-            transitiveFrameCsv.setArticle(tupple, this.gender, row);
+            transitiveFrameCsv.setArticle(tupple, this.gender, domainOrRange);
             transitiveFrameCsv.setVerbInfo(partOfSpeech, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect);
             tupples.add(tupple);
             index = index + 1;
@@ -232,7 +244,8 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(row[GermanCsv.InTransitFrameCsv.getRangeIndex()]));
             tupplesList.add(tupple);
             index = index + 1;
-            intransitiveFrameCsv.setNoun(tupple, this.gender, row);
+            intransitiveFrameCsv.setArticle(tupple, this.gender, domainOrRange);
+            intransitiveFrameCsv.setNoun(tupple, this.gender, domainOrRange);
             intransitiveFrameCsv.setVerbInfo(partOfSpeech, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect);
 
         }
@@ -299,7 +312,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
 
             tupplesList.add(tupple);
             index = index + 1;
-            gradableAdjectiveFrameCsv.setArticle(tupple, row);
+            gradableAdjectiveFrameCsv.setArticle(tupple, this.gender, domainOrRange);
         }
         this.turtleString
                 = gradableAdjectiveFrameCsv.getHeader(this.lemonEntry, this.language)
@@ -337,5 +350,21 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
           return "";*/
         return preposition;
     }
+    
+     private Map<String, List<String>> findDomainorRangeGerman(String fileName) {
+        CsvFile csvFile = new CsvFile();
+        Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
+        List<String[]> rows = csvFile.getRows(new File(fileName));
+        for (String[] row : rows) {
+            String property=row[0].replace(" ", "");
+            List<String> rowT=new ArrayList<String>();
+            rowT.add(row[1]);
+            rowT.add(row[2]);
+            rowT.add(row[3]);
+            domainOrRange.put(property, rowT);
+        }
+        return domainOrRange;
+    }
+     
 
 }

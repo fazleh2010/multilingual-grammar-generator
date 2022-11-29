@@ -205,7 +205,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(transitiveFrameCsv.getDomainIndex(row)),
                     this.setReference(transitiveFrameCsv.getRangeIndex(row)));
 
-            transitiveFrameCsv.setArticle(tupple, row);
+            transitiveFrameCsv.setArticle(tupple, domainOrRange);
             transitiveFrameCsv.setVerbInfo(partOfSpeech,  writtenFormInfinitive,  writtenForm3rdPerson,  writtenFormPast,writtenFormPerfect);
             tupples.add(tupple);
             index = index + 1;
@@ -242,7 +242,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(IntransitiveFrameCsv.getDomainIndex(row)),
                     this.setReference(IntransitiveFrameCsv.getRangeIndex(row)));
 
-            IntransitiveFrameCsv.setArticle(tupple, row);
+            IntransitiveFrameCsv.setArticle(tupple, domainOrRange);
             IntransitiveFrameCsv.setVerbInfo(partOfSpeech,  writtenFormInfinitive,  writtenForm3rdPerson,  writtenFormPast, this.writtenFormPerfect);
             tupples.add(tupple);
             subject=  GermanCsv.InTransitFrameCsv.getSubjectIndex(row);
@@ -310,7 +310,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
 
             tupplesList.add(tupple);
             index = index + 1;
-            gradableAdjectiveFrameCsv.setArticle(tupple, row);
+            gradableAdjectiveFrameCsv.setArticle(tupple, domainOrRange);;
         }
         this.turtleString
                 = gradableAdjectiveFrameCsv.getHeader(this.lemonEntry, this.language)

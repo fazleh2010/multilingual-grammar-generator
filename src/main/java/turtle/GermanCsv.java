@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 import static turtle.EnglishCsv.getSenseId;
 import util.io.GenderUtils;
+import static util.io.GenderUtils.referenceArticleMap;
+import util.io.Property;
 import util.io.Tupples;
 
 /**
@@ -149,12 +151,28 @@ public class GermanCsv {
                     + "  lexinfo:partOfSpeech lexinfo:preposition .";
         }
 
-        public void setArticle(Tupples tupple, String gender, String[] row) {
+        /*public void setArticle(Tupples tupple, String gender, String[] row) {
             GenderUtils.setArticles(tupple.getReference(), gender);
             GenderUtils.setArticles(tupple.getDomain(), getDomainArticleIndex(row));
             GenderUtils.setArticles(tupple.getRange(), getRangeArticleIndex(row));
             GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingular(row), getDomainWrittenPlural(row));
             GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
+        }*/
+        
+        public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setArticles(range, row.get(0));
+                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+            }
         }
 
         public String getLexicalIdIndex(String[] row) {
@@ -265,13 +283,13 @@ public class GermanCsv {
         public static Integer referenceIndex = 10;
         public static Integer domainIndex = 11;
         public static Integer rangeIndex = 12;
-        public static Integer domainArticleIndex = 13;
+        /*public static Integer domainArticleIndex = 13;
         public static Integer domainWrittenSingular = 14;
         public static Integer domainWrittenPlural = 15;
         public static Integer rangeArticleIndex = 16;
         public static Integer rangeWrittenSingular = 17;
-        public static Integer rangeWrittenPlural = 18;
-        public static Integer passivePrepositionIndex = 19;
+        public static Integer rangeWrittenPlural = 18;*/
+        public static Integer passivePrepositionIndex = 13;
 
         public static String getHeader(String lemonEntry, String prepositionAttr, String preposition, String language) {
             return "@prefix :        <http://localhost:8080/lexicon#> .\n"
@@ -339,12 +357,28 @@ public class GermanCsv {
                     + "\n";
         }
 
-        public void setArticle(Tupples tupple, String gender, String[] row) {
+        /*public void setArticle(Tupples tupple, String gender, String[] row) {
             GenderUtils.setArticles(tupple.getReference(), gender);
             GenderUtils.setArticles(tupple.getDomain(), row[getDomainArticleIndex()]);
             GenderUtils.setArticles(tupple.getRange(), row[getRangeArticleIndex()]);
             GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
             GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
+        }*/
+        
+        public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setArticles(range, row.get(0));
+                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+            }
         }
 
         public void setVerbInfo(String partOfSpeech, String writtenFromIn, String writtenForm3rd, String writtenFormPast, String writtenFormPerfect) {
@@ -411,7 +445,7 @@ public class GermanCsv {
             return passivePrepositionIndex;
         }
 
-        public Integer getDomainArticleIndex() {
+        /*public Integer getDomainArticleIndex() {
             return domainArticleIndex;
         }
 
@@ -433,7 +467,7 @@ public class GermanCsv {
 
         public Integer getRangeWrittenPlural() {
             return rangeWrittenPlural;
-        }
+        }*/
 
         public Integer getSyntacticFrameIndex() {
             return SyntacticFrame;
@@ -542,12 +576,38 @@ public class GermanCsv {
                     + "\n";
         }
 
-        public static void setNoun(Tupples tupple, String gender, String[] row) {
+       /* public static void setNoun(Tupples tupple, String gender, String[] row) {
             GenderUtils.setArticles(tupple.getReference(), gender);
             GenderUtils.setArticles(tupple.getDomain(), row[getDomainArticleIndex()]);
             GenderUtils.setArticles(tupple.getRange(), row[getRangeArticleIndex()]);
             GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
             GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
+        }*/
+        
+        public void setNoun(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            setArticle(tupple, gender, domainOrRange);
+        }
+        
+          public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(Property.shortPrefix(tupple.getReference()), gender);
+            
+            for(String lasName:domainOrRange.keySet()){
+                List<String> row = domainOrRange.get(lasName);
+                GenderUtils.setArticles(lasName, row.get(0));
+                GenderUtils.setWrittenForms(lasName, row.get(1), row.get(2));
+            }
+            /*String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setArticles(range, row.get(0));
+                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+            }*/
         }
 
         public static void setVerbInfo(String partOfSpeech, String writtenFromIn, String writtenForm3rd, String writtenFormPast, String writtenFormPerfect) {
@@ -730,6 +790,22 @@ public class GermanCsv {
 
         }
 
+        
+          public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setArticles(range, row.get(0));
+                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+            }
+        }
         public static Integer getSyntacticFrameIndex() {
             return SyntacticFrameIndex;
         }
@@ -1057,17 +1133,20 @@ public class GermanCsv {
                     + "";
         }
 
-        public void setArticle(Tupples tupple, String[] row) {
-            //GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingularFormIndex(row), getRangeWrittenSingularFormIndex(row));
-            //GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingularFormIndex(row), getRangeWrittenPluralFormIndex(row));
-            System.out.println("domainArticleIndex::"+domainArticleIndex);
-            System.out.println("rangeArticleIndex::"+rangeArticleIndex);
-            
-            GenderUtils.setArticles(tupple.getDomain(), row[this.domainArticleIndex]);
-            GenderUtils.setArticles(tupple.getRange(), row[this.rangeArticleIndex]);
-            GenderUtils.setWrittenForms(tupple.getDomain(), row[this.domainWrittenSingularFormIndex], row[this.domainWrittenPluralFormIndex]);
-            GenderUtils.setWrittenForms(tupple.getRange(), row[this.rangeWrittenSingularFormIndex], row[this.rangeWrittenPluralFormIndex]);
-
+         public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setArticles(range, row.get(0));
+                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+            }
         }
 
         public String getLemonEntryIndex(String[] row) {

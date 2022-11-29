@@ -82,7 +82,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         this.questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + questionsFile + "_" + language + ".csv";
         this.questionSummaryFile = this.inputCofiguration.getQuestionDir() + File.separator + summaryFile + "_" + language + ".csv";
         //this.batchNumber=this.getBatchNumner(inputCofiguration);
-        this.batchNumber=182;
+        this.batchNumber=1;
     }
 
     public void onlineQaGeneration(List<File> protoSimpleQFiles) throws Exception {
@@ -124,9 +124,9 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
-        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "missedProperty.json");
-        this.findCoverage(this.propertyDir,lexicalEntiryUris);
-        exit(1);
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "grammar.json");
+        this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
+        //exit(1);
         
         this.csvWriterSummary = new CSVWriter(new FileWriter(questionSummaryFile, true));
         this.writeInCSV(summaryHeader);
@@ -151,9 +151,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             throw new Exception("No off line properties to process!!");
         }
         
-        System.out.println(lexicalEntiryUris.keySet());
-        exit(1);
-
         Integer total = lexicalEntiryUris.size();
 
         index = index + 1;
@@ -251,9 +248,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                         this.summary.put(uri, summary);
                     }
                 }
-                /*if (this.inputCofiguration.getOfflineQuestion()) {
-                    this.csvWriterQuestions.close();
-                }*/
+                
             }
             this.csvWriterQuestions.close();
         }
@@ -641,7 +636,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         FileFolderUtils.stringToFiles(batchNumber.toString(), inputCofiguration.getBatchFile());
     }*/
 
-    private void findCoverage(String propertyDir, Map<String, List<GrammarEntryUnit>> lexicalEntiryUris) {
+    private void findCoverage(String propertyDir, Map<String, List<GrammarEntryUnit>> lexicalEntiryUris,String fileName) {
         String[] files = new File(propertyDir).list();
         Set<String> properties = new TreeSet<String>();
         Set<String> generatedProperties = new TreeSet<String>();
@@ -656,17 +651,18 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
         for (String lex : lexicalEntiryUris.keySet()) {
             List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lex);
-            System.out.println(lex + " " + grammarEntryUnits.size());
+            //System.out.println(lex + " " + grammarEntryUnits.size());
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
                 String property = StringUtils.substringBetween(grammarEntryUnit.getSparqlQuery(), "<", ">");
                 property = property.replace("http://dbpedia.org/ontology/", "dbo:");
                 property = property.replace("http://dbpedia.org/property/", "dbp:");
+                property=grammarEntryUnit.getLexicalEntryUri()+"="+property+"="+grammarEntryUnit.getFrameType();
                 if (!properties.contains(property)) {
                     generatedProperties.add(property);
                 }
             }
         }
-        FileFolderUtils.setToFile(generatedProperties, propertyDir + "missedProperty.txt");
+        FileFolderUtils.setToFile(generatedProperties, fileName);
 
     }
 

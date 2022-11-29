@@ -33,6 +33,9 @@ public class GenderUtils implements TempConstants {
         prepositionCase.put("durch", accusativeCase);
         prepositionCase.put("fuer", accusativeCase);
         prepositionCase.put("in", dativeCase);
+        prepositionCase.put("durch", accusativeCase);
+        prepositionCase.put("fuer", accusativeCase);
+        prepositionCase.put("mit", dativeCase);
     }
 
     public static void setPrepositionCase(String preposition, String genderCase) {
@@ -62,9 +65,13 @@ public class GenderUtils implements TempConstants {
 
     public static String getArticle(String domain) {
         String article = "XX";
+        domain = Property.shortPrefix(domain);
+
         if (referenceArticleMap.containsKey(domain)) {
             article = referenceArticleMap.get(domain)[0];
         }
+        System.out.println("domain::"+domain+" "+article+" "+referenceArticleMap.containsKey(domain));
+
         return article;
     }
 
@@ -187,11 +194,11 @@ public class GenderUtils implements TempConstants {
         return prepositionCase;
     }
 
-    public static String getPrepositionCase(String key) {
+    public static String getPrepositionCase(String key) throws Exception {
         if (prepositionCase.containsKey(key)) {
             return prepositionCase.get(key);
         }
-        return null;
+        else throw new Exception("The preposition is not defined the map!!!");
     }
 
 }
