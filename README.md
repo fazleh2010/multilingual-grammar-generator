@@ -89,15 +89,12 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
 
 | Language      | NounPPFrame    | TransitiveFrame | InTransitivePPFrame | Attributive Adjection | Gradable Adjection|
 | :------------ |:---------------| :-----|:-----|:-----|:-----|
-| English       | 722 | $1600 |:-----|:-----|:-----|
-| German        |        |   $12 |:-----|:-----|:-----|
-| Italian       |        |    $1 |:-----|:-----|:-----|
-| Spanish       | are neat       |    $1 |:-----|:-----|:-----|
+| English       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
+| German        | [316 entries](https:) [20 templates](https:)| [36 entries](https:) [38 templates](https:) |[37 entries](https:) [84 templates](https:)|[6 entries](https:) [11 templates](https:)|[9 entries](https:) [7 templates](https:)|
+| Italian       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
+| Spanish       | [722 entries](https:) [15 templates](https:)| [37 entries](https:) [45 templates](https:) |[27 entries](https:) [68 templates](https:)|[15 entries](https:) [5 templates](https:)|[5 entries](https:) [8 templates](https:)|
 
 
 
 
-## Used Frameworks And Libraries
 
-- Lemon API: QueGG uses the Lemon API to parse and access the properties of the turtle lexicon files. The API and more information on the Lemon API can be found here: https://github.com/monnetproject/lemon.api
-- DBPedia: QueGG uses the [DBPedia](https://wiki.dbpedia.org) [SPARQL endpoint](http://dbpedia.org/sparql) to access the DBPedia Ontology. 
