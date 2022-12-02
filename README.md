@@ -3,7 +3,7 @@ The project creates QA system given a lemon lexica or Csv file (contains informa
 
 ### Multilingual QA system
 
-| Language      | Lexical Entries        | Sentene Templates | Grammar | Questions | Browser |
+
 | :------------ |:---------------| :-----|:-----|:-----|:-----|
 | English       |[Lexical Entries](https://docs.google.com/spreadsheets/d/1GnAGi3WE-qcx-YFTnCgNHBPgQQhR96FNfRfVvP1r0JA/edit?usp=sharing)| [Sentene Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/sentenceTemplates)|[Grammar](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/grammar)|[Questions]()|[QASystem](https://github.com/fazleh2010/QueGG-web-en.git)|
 | German        |[Lexical Entries](https://docs.google.com/spreadsheets/d/1jbmbmOuzwxf2g4G0olHfeozo3v2M85JyZFIZYJ-f9yE/edit?usp=sharing)| [Sentene Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/sentenceTemplates) |[Grammar](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/grammar)|[Questions]()|[QASystem](https://github.com/fazleh2010/QueGG-web-en/tree/german)|
