@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -148,6 +149,7 @@ public class GrammarEntryUnit {
         Map<String, List<GrammarEntryUnit>> lexicalEntries = new TreeMap<String, List<GrammarEntryUnit>>();
 
         for (File file : protoSimpleQFiles) {
+            System.out.println(file.getName());
             ObjectMapper mapper = new ObjectMapper();
             try {
                 GrammarEntries grammarEntries = mapper.readValue(file, GrammarEntries.class);

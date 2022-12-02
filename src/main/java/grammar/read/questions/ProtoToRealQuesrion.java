@@ -124,7 +124,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
-        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "InTransitive-Grammar.json");
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "Grammar.json");
         this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
         exit(1);
         
@@ -669,5 +669,14 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
     }
 
+    
+    /*public static void main(String[] args) {
+        Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
+        GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntiryUris);
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "NounPPFrame-Grammar.json");
+        this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + "missedProperty.txt");
+        exit(1);
+
+    }*/
 
 }
