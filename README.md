@@ -10,6 +10,16 @@ The project creates QA system given a lemon lexica or Csv file (contains informa
 | Italian       |[441 entries](https://docs.google.com/spreadsheets/d/1Lv_VUXG-0k5l-BRxo9GZ0AmcgSsUb2IeLnVR20qNu7k/edit?usp=sharing)| [48 templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/sentenceTemplates) |[1042 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/grammar)|[7522466]()|[it_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/italian)|
 | Spanish       |[587 entries](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [71 templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/sentenceTemplates)|[1298 rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/grammar)|[44010153]()|[es_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/spanish)|
 
+
+
+| Language      | Lexical Entries        | Sentene Templates | Grammar | Questions | Browser |
+| :------------ |:---------------| :-----|:-----|:-----|:-----|
+| Lexical Entries       |[English](https://docs.google.com/spreadsheets/d/1GnAGi3WE-qcx-YFTnCgNHBPgQQhR96FNfRfVvP1r0JA/edit?usp=sharing)| [German](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/sentenceTemplates)|[Italian](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/grammar)|[Spanish]()|[en_QaSystem](https://github.com/fazleh2010/QueGG-web-en.git)|
+| Sentene Templates        |[English](https://docs.google.com/spreadsheets/d/1jbmbmOuzwxf2g4G0olHfeozo3v2M85JyZFIZYJ-f9yE/edit?usp=sharing)| [German](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/sentenceTemplates) |[Italian](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/grammar)|[Spanish]()|[de_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/german)|
+| Grammar       |[English](https://docs.google.com/spreadsheets/d/1Lv_VUXG-0k5l-BRxo9GZ0AmcgSsUb2IeLnVR20qNu7k/edit?usp=sharing)| [German](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/sentenceTemplates) |[Italian](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/grammar)|[Spanish]()|[it_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/italian)|
+|  Questions       |[English](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [German](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/sentenceTemplates)|[Italian](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/grammar)|[Spanish]()|[es_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/spanish)|
+|  Browser       |[English](https://docs.google.com/spreadsheets/d/1jls7tTbpSe9QZwqW8D4d-hmGdX-pw0UjTEunryeAIIk/edit?usp=sharing)| [German](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/sentenceTemplates)|[Italian](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/grammar)|[Spanish]()|[es_QaSystem](https://github.com/fazleh2010/QueGG-web-en/tree/spanish)|
+
 ## Compile And Run
 <p>The source code can be compiled and run using <em>Java 11</em> and <em>Maven</em>.</p>
 
