@@ -124,7 +124,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
-        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "TransitiveFrame-Grammar.json");
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "InTransitive-Grammar.json");
         this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
         exit(1);
         
@@ -165,7 +165,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             batchNumber=batchNumber+1;
             String uri = null, className;
             //String fileName=this.questionAnswerFile.replace(".csv", "_"+lexicalEntiryUri+"-"+this.batchNumber+".csv");
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+ questionsFile+".csv";
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
                 className = linkedData.getRdfPropertyClass(grammarEntryUnit.getReturnType());
@@ -645,20 +645,23 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 property = property.replace(".txt", "");
                 property = property.replace("dbo_", "dbo:").trim();
                 property = property.replace("dbp_", "dbp:").trim();
-                properties.add(property);
+                if(property.contains("dbo:")||property.contains("dbp:"))
+                   properties.add(property);
             }
         }
 
         for (String lex : lexicalEntiryUris.keySet()) {
             List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lex);
-            //System.out.println(lex + " " + grammarEntryUnits.size());
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
+                /*if(grammarEntryUnit.getFrameType().contains("APP")){
+                   continue; 
+                }*/
                 String property = StringUtils.substringBetween(grammarEntryUnit.getSparqlQuery(), "<", ">");
                 property = property.replace("http://dbpedia.org/ontology/", "dbo:");
                 property = property.replace("http://dbpedia.org/property/", "dbp:");
-                property=grammarEntryUnit.getLexicalEntryUri()+"="+property+"="+grammarEntryUnit.getFrameType();
+                property=property.strip().stripLeading().stripTrailing().trim();
                 if (!properties.contains(property)) {
-                    generatedProperties.add(property);
+                    generatedProperties.add(grammarEntryUnit.getLexicalEntryUri()+"="+property+"="+grammarEntryUnit.getFrameType());
                 }
             }
         }
