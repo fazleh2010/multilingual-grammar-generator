@@ -36,7 +36,7 @@
 
 
 :form_starr_in_3perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "starred"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

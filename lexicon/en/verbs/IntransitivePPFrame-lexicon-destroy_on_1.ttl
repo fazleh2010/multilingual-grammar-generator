@@ -29,14 +29,14 @@
   lexinfo:tense    lexinfo:present .
 
 :form_destroy_on_1_past a lemon:Form ;
-  lemon:writtenRep  "destroys"@en ;
+  lemon:writtenRep  "destroyed"@en ;
   lexinfo:number    lexinfo:singular ;
   lexinfo:person    lexinfo:thirdPerson ;
   lexinfo:tense     lexinfo:past .
 
 
 :form_destroy_on_1perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "destroyed"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

@@ -36,7 +36,7 @@
 
 
 :form_start_acting_on_1perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "started acting"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

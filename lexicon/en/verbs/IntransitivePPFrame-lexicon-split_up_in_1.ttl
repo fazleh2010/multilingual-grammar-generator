@@ -18,25 +18,25 @@
   lemon:synBehavior    :split_up_in_1_frame .
 
 :form_split_up_in_1 a           lemon:Form ;
-  lemon:writtenRep     "split up"@en ;
+  lemon:writtenRep     "split "@en ;
   lexinfo:verbFormMood lexinfo:infinitive .
 
 
 :form_split_up_in_1 a      lemon:Form ;
-  lemon:writtenRep "splits up"@en ;
+  lemon:writtenRep "splits "@en ;
   lexinfo:number   lexinfo:singular ;
   lexinfo:person   lexinfo:thirdPerson ;
   lexinfo:tense    lexinfo:present .
 
 :form_split_up_in_1_past a lemon:Form ;
-  lemon:writtenRep  "split up"@en ;
+  lemon:writtenRep  "splited"@en ;
   lexinfo:number    lexinfo:singular ;
   lexinfo:person    lexinfo:thirdPerson ;
   lexinfo:tense     lexinfo:past .
 
 
 :form_split_up_in_1perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "splited"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 
@@ -60,6 +60,6 @@
 
 ## Prepositions ##
 :form_split_up_in_1_preposition a                  lemon:SynRoleMarker ;
-  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lemon:canonicalForm  [ lemon:writtenRep "up"@en ] ;
   lexinfo:partOfSpeech lexinfo:preposition .
 

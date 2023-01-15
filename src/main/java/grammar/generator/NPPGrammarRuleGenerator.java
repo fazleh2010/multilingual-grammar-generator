@@ -48,6 +48,42 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         return generatedSentences;
     }
 
+    protected List<String> generateOppositeSentences(LexicalEntryUtil lexicalEntryUtil, String type) throws
+            QueGGMissingFactoryClassException {
+        List<String> generatedSentences = new ArrayList<String>();
+        SentenceBuilder sentenceBuilder = new SentenceBuilderAllFrame(
+                getLanguage(),
+                getFrameType(),
+                getSentenceTemplateRepository(),
+                getSentenceTemplateParser(),
+                lexicalEntryUtil
+        );
+        generatedSentences = new ArrayList<String>();
+        generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+        generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
+        generatedSentences.sort(String::compareToIgnoreCase);
+        return generatedSentences;
+    }
+    
+        protected List<String> generateForwardAmount(LexicalEntryUtil lexicalEntryUtil, String type) throws
+            QueGGMissingFactoryClassException {
+        List<String> generatedSentences = new ArrayList<String>();
+        SentenceBuilder sentenceBuilder = new SentenceBuilderAllFrame(
+                getLanguage(),
+                getFrameType(),
+                getSentenceTemplateRepository(),
+                getSentenceTemplateParser(),
+                lexicalEntryUtil
+        );
+        generatedSentences = new ArrayList<String>();
+        generatedSentences.addAll(sentenceBuilder.generateForwardAmount(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+        generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
+        generatedSentences.sort(String::compareToIgnoreCase);
+        return generatedSentences;
+    }
+    
+    
+    
     protected List<String> generateNounPhrase(LexicalEntryUtil lexicalEntryUtil, String type) throws
             QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
@@ -60,7 +96,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         );
         if (type.equals(nounPhrase)) {
             generatedSentences = new ArrayList<String>();
-            generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+            generatedSentences.addAll(sentenceBuilder.generateNounPhrase(getBindingVariable(), new String[]{}, lexicalEntryUtil));
         }
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
@@ -89,6 +125,16 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
             GrammarEntry booleanGrammarEntryDomain = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.SENTENCE, sentences,booleanQuestionDomain);
             grammarEntries.add(booleanGrammarEntryDomain);
         }*/
+        sentences = generateOppositeSentences(lexicalEntryUtil, backward);
+        if (!sentences.isEmpty()) {
+            GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil,SentenceType.SENTENCE, sentences,backward);
+            grammarEntries.add(fragmentEntry);
+        }
+        sentences = generateForwardAmount(lexicalEntryUtil, HOW_MANY_THING);
+        if (!sentences.isEmpty()) {
+            GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil,SentenceType.SENTENCE, sentences,HOW_MANY_THING);
+            grammarEntries.add(fragmentEntry);
+        }
         sentences = generateNounPhrase(lexicalEntryUtil, nounPhrase);
         if (!sentences.isEmpty()) {
             GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.NP, sentences,nounPhrase);
@@ -100,9 +146,19 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
     private GrammarEntry generateGrammarEntryforNP(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil, SentenceType sentenceType, List<String> generatedSentences, String type) throws QueGGMissingFactoryClassException {
         GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
         fragmentEntry.setType(sentenceType);
-        fragmentEntry.setReturnType(grammarEntry.getReturnType());
-        fragmentEntry.setBindingType(grammarEntry.getBindingType());
-        fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+        
+        if(type.contains(backward)){
+           fragmentEntry.setReturnType(grammarEntry.getBindingType());
+           fragmentEntry.setBindingType(grammarEntry.getReturnType());
+           fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        }
+        else{
+           fragmentEntry.setReturnType(grammarEntry.getReturnType());
+           fragmentEntry.setBindingType(grammarEntry.getBindingType());
+           fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+        }
+       
+        
         fragmentEntry.setSentenceTemplate(senTemplate);
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
         sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),

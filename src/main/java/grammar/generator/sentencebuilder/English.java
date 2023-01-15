@@ -134,7 +134,12 @@ public class English implements TempConstants, MultilingualBuilder {
             attribute = tokens[0];
         }
 
-        System.out.println("attribute::" + attribute + " reference::" + reference + " index::" + index);
+        System.out.println("attribute-" + attribute + " parameter-" + reference + " index-" + index);
+        
+        /*if (flagReference && (attribute.equals(copulativeSubject))) {
+            word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
+
+        } */
 
         if (flagReference && (attribute.equals(pronoun))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
@@ -231,7 +236,6 @@ public class English implements TempConstants, MultilingualBuilder {
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
         }
-        //new ode if problem then delete...
         else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
@@ -242,12 +246,14 @@ public class English implements TempConstants, MultilingualBuilder {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
                     word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
+                    
                 } else {
                     System.out.println("number of paramters are not correct::" + reference);
                 }
             } else {
                 word = this.getReferenceWrttienForm(reference);
             }
+            
 
         } else if (flagReference && attribute.contains(verb)) {
             word = new VerbFinderEnglish(this.frameType, this.lexicalEntryUtil, attribute, reference).getWord();
@@ -290,8 +296,14 @@ public class English implements TempConstants, MultilingualBuilder {
             } else if (reference.contains(domain)) {
                 word = this.domainVariable;
             }
+            else{
+                word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);    
+                 
+            }
+                
 
         }
+       
 
         if (attribute.contains(QuestionMark)) {
             word = word + QuestionMark;

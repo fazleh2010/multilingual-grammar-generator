@@ -65,10 +65,8 @@ public class TurtleCreation implements TempConstants {
     }
 
     public String findSyntacticFrame(String[] row) throws Exception {
-        System.out.println("row.length::"+row.length);
         String nounPPFrame = row[nounPPIndex];
-       
-    
+
         try {
             if (nounPPFrame.equals(NounPPFrame)) {
                 return NounPPFrame;
@@ -83,14 +81,8 @@ public class TurtleCreation implements TempConstants {
             } else {
                 throw new Exception("No grammar entry is found!!!!");
             }
-        } catch (NullPointerException ex) {
-            throw new Exception("no lexical entries found in csv file" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
         } catch (Exception ex) {
-             System.out.println("nounPPIndex::"+nounPPIndex);
-         System.out.println("row::"+row.length);
-         System.out.println("nounPPFrame::"+nounPPFrame);
-         exit(1);
-            throw new Exception("invalid entry." + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
+            throw new Exception("lexial entry:"+row[0]+" invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
         }
     }
 

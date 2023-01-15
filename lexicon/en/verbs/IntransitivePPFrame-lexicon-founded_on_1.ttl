@@ -18,12 +18,12 @@
   lemon:synBehavior    :founded_on_1_frame .
 
 :form_founded_on_1 a           lemon:Form ;
-  lemon:writtenRep     "find"@en ;
+  lemon:writtenRep     "found"@en ;
   lexinfo:verbFormMood lexinfo:infinitive .
 
 
 :form_founded_on_1 a      lemon:Form ;
-  lemon:writtenRep "finds"@en ;
+  lemon:writtenRep "founds"@en ;
   lexinfo:number   lexinfo:singular ;
   lexinfo:person   lexinfo:thirdPerson ;
   lexinfo:tense    lexinfo:present .
@@ -36,7 +36,7 @@
 
 
 :form_founded_on_1perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "founded"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

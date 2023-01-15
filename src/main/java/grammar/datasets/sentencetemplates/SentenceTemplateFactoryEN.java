@@ -57,38 +57,63 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       createSentenceTemplate(language,
         List.of(
           //What is the capital of Cameron?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
+          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
           //which city is the capital of Cameron?
-          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
-          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
-          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
-          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
+          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
         
           ///What is Batman"s real name?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)?",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)?",
+          "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
+          "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
            //"Who is the mayor of Paris?",
-          "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?", 
-          "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",   
+          "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)", 
+          "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",   
           //"Who was Samuel Schmid's vice president?", 
           //"interrogativePronoun verb(component_be:present:singular) determiner(component_the) adjunct(domain) appos noun(singular)?", 
           //"interrogativePronoun verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
            //List all the musicals von Elton John.
-          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)." ,
+          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)" ,
           //List all the musicals with music by Elton John.
           //"verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) noun(singular) preposition adjunct(domain)." 
           //Give me all members of Prodigy.
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain).", 
+          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)", 
           //Show me all books in Asimov's Foundation series.
-          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)." 
+          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
         ),
         NounPPFrame,
         whQuestion
       )
     );
+    
+     sentenceTemplateRepository.add(
+      createSentenceTemplate(language,
+        List.of(
+           //"<NPrange,dbo:mayor> is the mayor of which city? | <NPrange,dbo:mayor> was the mayor of which city?
+          "subject(range) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)", 
+          "subject(range) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)"  
+
+                ),
+        NounPPFrame,
+        backward
+      )
+    );
+    
+        sentenceTemplateRepository.add(
+      createSentenceTemplate(language,
+        List.of(
+        //"How many [NounPlural] does <NPmap(prepositionalAdjunct),Property> have?
+        "interrogativeAmount noun(reference:singular) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)"         
+              ),
+        NounPPFrame,
+        HOW_MANY_THING
+      )
+    );
+    
     
     
     //NounPPFrame
@@ -924,12 +949,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       createSentenceTemplate(
         language,
         List.of(
-        /*//How high is the lighthouse in Colombo?
+        //How high is the lighthouse in Colombo?
          //"interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) determiner(component_the) noun(range:singular) preposition adjunct(domain)?",
-        */
          //temporay closed       
          //How high is the lighthouse?
-         //"interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) object(range)?"
+         "interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) object(range)?"
         
                 
         /*
@@ -985,9 +1009,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //What is the largest country in the world?
-        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(domain)?",
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(component_obj)?"
          //What is the largest country?
-        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular)?"
+        //"interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular)?"
         ),
         AdjectiveSuperlativeFrame,
         superlativeWorld,

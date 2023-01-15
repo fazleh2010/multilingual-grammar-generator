@@ -37,7 +37,7 @@
 
 
 :form_study_at_1perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "studied"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

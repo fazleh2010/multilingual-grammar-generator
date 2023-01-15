@@ -33,6 +33,7 @@
   lemon:entry    :interrogativeTemporal ;
   lemon:entry    :particleLocation ;
   lemon:entry    :verb_location ;
+  lemon:entry    :component_obj ;
   lemon:entry    :appos ;
   lemon:entry    :for ;
   lemon:entry    :by ;
@@ -78,6 +79,23 @@
   lexinfo:person                          lexinfo:thirdPerson ;
   lexinfo:number                          lexinfo:singular ] ;
   lemon:otherForm      [ lemon:writtenRep "did"@en ;
+  lexinfo:tense                           lexinfo:past ;
+  lexinfo:person                          lexinfo:thirdPerson ;
+  lexinfo:number                          lexinfo:singular ] ;
+  lexinfo:partOfSpeech lexinfo:verb .
+
+  :component_have a        lemon:LexicalEntry ;
+  lemon:canonicalForm  [ lemon:writtenRep "have"@en ] ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:otherForm      [ lemon:writtenRep "has"@en ;
+  lexinfo:tense                           lexinfo:present ;
+  lexinfo:person                          lexinfo:thirdPerson ;
+  lexinfo:number                          lexinfo:singular ] ;
+  lemon:otherForm      [ lemon:writtenRep "have"@en ;
+  lexinfo:tense                           lexinfo:present ;
+  lexinfo:person                          lexinfo:thirdPerson ;
+  lexinfo:number                          lexinfo:plural ] ;
+  lemon:otherForm      [ lemon:writtenRep "had"@en ;
   lexinfo:tense                           lexinfo:past ;
   lexinfo:person                          lexinfo:thirdPerson ;
   lexinfo:number                          lexinfo:singular ] ;
@@ -157,9 +175,9 @@
   lexinfo:partOfSpeech lexinfo:verb .
 
 
-:component_have a      lemon:LexicalEntry ;
-  lemon:canonicalForm  [ lemon:writtenRep "have"@en ] ;
-  lexinfo:partOfSpeech lexinfo:verb .
+##:component_have a      lemon:LexicalEntry ; ##
+##  lemon:canonicalForm  [ lemon:writtenRep "have"@en ] ; ##
+##  lexinfo:partOfSpeech lexinfo:verb . ##
 
  ## Pronouns ##
 
@@ -245,6 +263,12 @@
 :component_an a        lemon:LexicalEntry ;
   lemon:canonicalForm  [ lemon:writtenRep "an"@en ] ;
   lexinfo:partOfSpeech lexinfo:determiner .
+
+## noun ##
+
+:component_obj a       lemon:LexicalEntry ;
+  lemon:canonicalForm  [ lemon:writtenRep "world"@en ] ;
+  lexinfo:partOfSpeech lexinfo:noun .
 
 ## other ##
 

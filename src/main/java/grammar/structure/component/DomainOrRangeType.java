@@ -107,6 +107,9 @@ public enum DomainOrRangeType {
     Surfing(List.of(URI.create(DBO.getUri() + "Surfing"))),
     Surfer(List.of(URI.create(DBO.getUri() + "Surfer"))),
     Brewery(List.of(URI.create(DBR.getUri() + "Brewery"))),
+    BroadcastNetwork(List.of(URI.create(DBR.getUri() + "BroadcastNetwork"))),
+    Device(List.of(URI.create(DBR.getUri() + "Device"))),
+    
 
   
     Name(List.of(

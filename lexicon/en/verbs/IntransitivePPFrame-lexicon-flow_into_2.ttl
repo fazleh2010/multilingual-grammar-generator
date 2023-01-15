@@ -36,7 +36,7 @@
 
 
 :form_flow_into_2perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "flown"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

@@ -36,7 +36,7 @@
 
 
 :form_belong_to_14perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "belonged"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

@@ -29,7 +29,6 @@ public class LexiconImporter {
   public LexiconImporter() {}
   
     public LemonModel loadModelFromDir(String dir, String internalResourceDir) throws IOException {
-        //System.out.println("dir::"+dir+"  internalResourceDir:"+internalResourceDir);
         final LemonSerializer serializer = LemonSerializer.newInstance();
         LemonModel model = null;
         try ( Stream<Path> paths = Files.walk(Paths.get(dir))) {
@@ -49,7 +48,6 @@ public class LexiconImporter {
                 }
             }
             assert model != null;
-
             LemonModel baseModel = loadBaseFileFromResources(internalResourceDir, serializer);
             mergeModels(model, baseModel);
             return model;

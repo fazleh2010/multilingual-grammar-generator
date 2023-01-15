@@ -564,13 +564,12 @@ public class FileFolderUtils {
         File f = new File(inputDir);
         String[] pathnames = f.list();
         for (String pathname : pathnames) {
-            System.out.println(pathname);
             String[] files = new File(inputDir + File.separator + pathname).list();
             for (String fileName : files) {
                 File file = new File(inputDir + File.separator + pathname + File.separator + fileName);
                 if (file.getName().contains(extension)) {
                     if (file.delete()) {
-                        System.out.println(fileName + " deleted successfully");
+                        //System.out.println(fileName + " deleted successfully");
                     } else {
                         System.out.println("Failed to delete the file");
                     }

@@ -36,7 +36,7 @@
 
 
 :form_build_in_2perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "built"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

@@ -36,7 +36,7 @@
 
 
 :form_locate_in_8perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "located"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

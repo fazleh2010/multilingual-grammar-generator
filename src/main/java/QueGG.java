@@ -195,16 +195,25 @@ public class QueGG {
         setDataSet(linkedData);
         TutleConverter tutleConverter = null;
         FileFolderUtils.deleteFiles(inputDir, ".ttl");
-        if (language.equals(Language.DE)) {
-            tutleConverter = new GermanTurtle(inputDir, linkedData, language);
-        } else if (language.equals(Language.EN)) {
-            tutleConverter = new EnglishTurtle(inputDir, linkedData, language);
-        }else if (language.equals(Language.ES)) {
-            tutleConverter = new SpanishTurtle(inputDir, linkedData, language);
-        }else if (language.equals(Language.IT)) {
-            tutleConverter = new ItalianTurtle(inputDir, linkedData, language);
+
+        try {
+            if (language.equals(Language.DE)) {
+                tutleConverter = new GermanTurtle(inputDir, linkedData, language);
+                return tutleConverter.getConversionFlag();
+            } else if (language.equals(Language.EN)) {
+                tutleConverter = new EnglishTurtle(inputDir, linkedData, language);
+                return tutleConverter.getConversionFlag();
+            } else if (language.equals(Language.ES)) {
+                tutleConverter = new SpanishTurtle(inputDir, linkedData, language);
+                return tutleConverter.getConversionFlag();
+            } else if (language.equals(Language.IT)) {
+                tutleConverter = new ItalianTurtle(inputDir, linkedData, language);
+                return tutleConverter.getConversionFlag();
+            }
+        } catch (Exception ex) {
+            System.out.println("ignore for time being!!!"+ex.getMessage());
         }
-        return tutleConverter.getConversionFlag();
+        return false;
     }
 
     private void turtleToProto(InputCofiguration inputCofiguration) throws IOException {

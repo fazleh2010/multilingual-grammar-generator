@@ -143,6 +143,7 @@ public interface TempConstants {
     public static final String component_ha = "component_ha";
     public static final String component_estado = "component_estado";
     public static final String component_esta = "component_esta";
+    public static final String copulativeSubject="copulativeSubject";
     
     public static final String component_aux_object_past = "component_aux_object_past";
     public static final String componentVerb = "componentVerb";

@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import util.io.GenderUtils;
 import util.io.Property;
+import util.io.Spliter;
 import util.io.Tupples;
 
 /**
@@ -198,11 +199,11 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getDomainIndex(String[] row) {
-            return row[domainIndex];
+            return Spliter.splitString(row[domainIndex]);       
         }
 
         public static String getRangeIndex(String[] row) {
-            return row[rangeIndex];
+            return Spliter.splitString(row[rangeIndex]);
         }
 
         /* public String getDomainWrittenSingular(String[] row) {
@@ -1065,7 +1066,8 @@ public class EnglishCsv implements TempConstants {
         public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
             String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            if (domainOrRange.containsKey(domain)) {
+
+            /*if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
 
@@ -1073,6 +1075,10 @@ public class EnglishCsv implements TempConstants {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
 
+            }*/
+            for(String key:domainOrRange.keySet()){
+               List<String> row= domainOrRange.get(key);
+               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }

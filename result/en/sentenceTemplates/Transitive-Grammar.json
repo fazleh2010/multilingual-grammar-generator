@@ -1,0 +1,48 @@
+{
+
+    "template_1" : {
+         "templateName" : "activeCase_1",
+         "genericTemplate" : "<INTERROGATIVE_PRONOUN> <VERB-1st-person> <OBJECT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_PRONOUN> <VERB-1st-person(PROPERTY)> <OBJECT(PROPERTY-DOMAIN)>?",
+         "Sample" : "Who presents [NP_TelevisionShow]?/Who directs [NP_Flim]?/Who writes [NP_Book], etc.?"
+    }, 
+    "template_2" : {
+         "templateName" : "activeCase_2",
+         "genericTemplate" : "<INTERROGATIVE_PRONOUN> <VERB-past> <OBJECT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_PRONOUN> <VERB-past(PROPERTY)> <OBJECT(PROPERTY-DOMAIN)>?",
+         "Sample" : "Who presented [NP_TelevisionShow]?/Who directed [NP_Flim]?/Who wrote [NP_Book]?"
+    }, 
+   "template_3" : {
+         "templateName" : "activeCase_3",
+         "genericTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-singular> <VERB-1st-person> <OBJECT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-singular(PROPERTY-RANGE)> <VERB-1st-person(PROPERTY)> <OBJECT(PROPERTY-DOMAIN)>?",
+         "Sample" : "Which person presents [NP_TelevisionShow]?/Which person directs [NP_Flim]?/Which person writes [NP_Book]?"
+    }, 
+    "template_4" : {
+         "templateName" : "activeCase_4",
+         "genericTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-plural> <VERB-1st-person> <OBJECT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-plural(PROPERTY-RANGE)> <VERB-1st-person(PROPERTY)> <OBJECT(PROPERTY-DOMAIN)>?",
+         "Sample" : "Which persons present [NP_TelevisionShow]?/Which persons direct [NP_Flim]?/Which persons write [NP_Book]?"
+    }, 
+   "template_5" : {
+         "templateName" : "activeCase_5",
+         "genericTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-plural> <VERB-past> <OBJECT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_DETERMINER> <NOUN-plural(PROPERTY-RANGE)> <VERB-past(PROPERTY)> <OBJECT(PROPERTY-DOMAIN)>?",
+         "Sample" : "Which persons presented [NP_TelevisionShow]?/Which persons directed [NP_Flim]?/Which persons wrote [NP_Book]?"
+    }, 
+    "template_6" : {
+        "templateName" : "passiveCase_1",
+         "genericTemplate" : "<INTERROGATIVE_PRONOUN> <AUXILARY-past-singular> <VERB-perfect> <PREPOSITION> <ADJUCNT>?",
+         "lexicalTemplate" : "<INTERROGATIVE_PRONOUN> <AUXILARY-past-singular> <VERB-perfect(PROPERTY)> <PREPOSITION> <ADJUCNT(PROPERTY-RANGE)>?",
+         "Sample" : "What was presented by [NP_Person]?/What was directed by [NP_Person]?/What was writtten by [NP_Person]?"
+    },
+    "template_7" : {
+        "templateName" : "passiveCase_3",
+         "genericTemplate" : "<IMPERATIVE-give> <PERSONAL_PRONOUN-me> <DETERMINER-all> <NOUN-plural> <VERB-perfect> <PREPOSITION> <ADJUCNT>?",
+         "lexicalTemplate" : "<IMPERATIVE-give> <PERSONAL_PRONOUN-me> <DETERMINER-all> <NOUN-plural(PROPERTY-DOMAIN)> <PREPOSITION> <ADJUCNT(PROPERTY-RANGE)>?",
+         "Sample" : "Give me all Televsion shows presented by [NP_Person]?/Give me all flims presented by [NP_Person]??/Give me all books writtten by [NP_Person]?"
+    }
+....
+....
+}
+

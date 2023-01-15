@@ -36,7 +36,7 @@
 
 
 :form_associate_with_3perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "associated"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 
