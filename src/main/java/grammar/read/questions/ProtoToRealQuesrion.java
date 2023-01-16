@@ -125,7 +125,11 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
         JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "Grammar.json");
+        System.out.println(propertyDir + "Grammar.json");
+       
+        
         this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
+         exit(1);
         
         this.csvWriterSummary = new CSVWriter(new FileWriter(questionSummaryFile, true));
         this.writeInCSV(summaryHeader);

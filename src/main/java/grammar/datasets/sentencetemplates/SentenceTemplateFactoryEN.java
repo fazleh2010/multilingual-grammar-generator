@@ -27,8 +27,8 @@ import static grammar.datasets.sentencetemplates.TempConstants.forward;
 import static grammar.datasets.sentencetemplates.TempConstants.location;
 import static grammar.datasets.sentencetemplates.TempConstants.noun;
 import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
-import static grammar.datasets.sentencetemplates.TempConstants.whQuestion;
 import static grammar.structure.component.FrameType.APP;
+import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
 
 
 class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,TempConstants{
@@ -53,8 +53,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
   private void initEN(Language language) {
 
     //NounPPFrame
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //What is the capital of Cameron?
           "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
@@ -86,7 +85,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
         ),
         NounPPFrame,
-        whQuestion
+        Prepositional_Adjuct
       )
     );
     
@@ -99,7 +98,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
 
                 ),
         NounPPFrame,
-        backward
+        Copulative_Subject
       )
     );
     
@@ -216,15 +215,15 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?",
         //Which river does the Brooklyn Bridge cross?
         "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
-        "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
-        //Which books did Muhammad Ali write?
+        //"interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+        //Which books did Muhammad Ali write?   //"Which films did Stanley Kubrick direct?"
         "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?",          
          //Give me all actors starring in X.
-         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
+         //"verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
         //List all actors starring in X.
-        "verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
+        //"verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
         //Who was the pope that founded the Vatican Television?
-        "interrogativePronoun(range:singular) verb(component_do:past:singular) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?"
+        "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?"
         ),
        TransitiveFrame,
        PERSON_CAUSE,
@@ -257,15 +256,54 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         //"Which books were developed by X?
         "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
          //"Which (X_Book) were developed by X?
-        "interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
         //Show me the book that Muhammad Ali wrote.
-         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) determiner(that) object(range) verb(mainVerb:past:thridPerson)." ,
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
          //Show me the books that Muhammad Ali wrote.
-         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         //"verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
 
         ),
         TransitiveFrame,
         PERSON_CAUSE,
+        passiveTransitive
+      )
+    );
+    
+        // TransitiveFrame passive
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(
+        //"What was developed by X?
+        "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"What were developed by X?
+        "interrogativePronoun(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ,
+        //"What was developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"What were developed by X?
+        "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //Which movies did Kurosawa direct?
+         "interrogativeDeterminer(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?",
+         //Which movies did Kurosawa direct?
+         "interrogativeDeterminer(domain:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?",
+         //Give me all video games published by Mean Hamster Software.
+         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //List all video games published by Mean Hamster Software.
+         "verb(imperative_verb:present:plural) determiner(all) noun(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //"Which books were developed by X?
+        "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"Which books were developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"Which books were developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //"Which (X_Book) were developed by X?
+        //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //Show me the book that Muhammad Ali wrote.
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         //Show me the books that Muhammad Ali wrote.
+         //"verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+
+        ),
+        TransitiveFrame,
+        PERSON_CAUSE_NOUN_PHRASE,
         passiveTransitive
       )
     );
@@ -499,8 +537,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         List.of(
         //How many languages are spoken in Turkmenistan? 
         "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ,
-        //How many ethnic groups live in Slovenia?
-        "interrogativeAmount(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?" ,
+        //How many ethnic groups live in Slovenia? this should be on aktive side.
+        //"interrogativeAmount(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?" ,
         ///How often did Jane Fonda marry?
         "interrogativeOften(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?"         
                 
@@ -591,8 +629,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         forward
       )
     );
-    
-    
+     
+     
     
       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
@@ -616,6 +654,18 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         backward
       )
     );
+      
+        sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(           
+        // How many rivers flow through <NPrange,dbo:city>?
+        "interrogativeAmount(domain:plural) verb(mainVerb:present:singular) preposition adjunct(range)?"  
+        ),
+        IntransitivePPFrame,
+        HOW_MANY_THING_BACKWARD+"_"+WHAT_WHICH_PRESENT_THING_1,
+        backward
+      )
+    );
+    
       
      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(           

@@ -114,7 +114,7 @@ public class SentenceBuilderCopulativePP extends SentenceBuilderImpl implements 
 
 
         List<String> sentenceTemplates = this.getSentenceTemplateRepository().findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                this.getLanguage(), new String[]{this.getFrameType().getName(), whQuestion,  this.getLanguage().toString()});
+                this.getLanguage(), new String[]{this.getFrameType().getName(), Prepositional_Adjuct,  this.getLanguage().toString()});
       
         //System.out.println("sentenceTemplates::" + type);
 
@@ -201,7 +201,7 @@ public class SentenceBuilderCopulativePP extends SentenceBuilderImpl implements 
         
 
         List<String> sentenceTemplates = this.getSentenceTemplateRepository().findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                this.getLanguage(), new String[]{this.getFrameType().getName(), whQuestion, this.getLanguage().toString()});
+                this.getLanguage(), new String[]{this.getFrameType().getName(), Prepositional_Adjuct, this.getLanguage().toString()});
 
        
 

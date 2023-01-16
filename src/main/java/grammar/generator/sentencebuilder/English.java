@@ -42,6 +42,7 @@ import lexicon.LexiconSearch;
 import net.lexinfo.LexInfo;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.GenderUtils;
+import static util.io.GenderUtils.nounWrittenForms;
 import util.io.ParamterFinder;
 import util.io.PronounFinder;
 import util.io.StringMatcher;
@@ -404,6 +405,8 @@ public class English implements TempConstants, MultilingualBuilder {
     private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
         String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
+        //System.out.println(GenderUtils.nounWrittenForms.keySet() + " " + questionWord + " " + noun);
+        //exit(1);
         return questionWord + " " + noun;
 
     }

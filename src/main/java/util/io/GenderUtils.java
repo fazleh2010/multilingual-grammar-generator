@@ -81,6 +81,7 @@ public class GenderUtils implements TempConstants {
         if (nounWrittenForms.containsKey(uri)) {
             result = nounWrittenForms.get(uri)[0];
         }
+
         return result;
     }
 
@@ -134,10 +135,6 @@ public class GenderUtils implements TempConstants {
         } else if (domainOrRange.contains(range) && numberType.contains(plural)) {
             word = getWrittenFormPlural(objectUri);
         }
-        
-        
-        
-       
 
         return word;
     }

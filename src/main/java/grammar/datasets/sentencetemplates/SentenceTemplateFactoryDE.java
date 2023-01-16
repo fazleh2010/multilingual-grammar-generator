@@ -68,7 +68,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
 
         ),
         NounPPFrame,
-        whQuestion
+        Prepositional_Adjuct
       )
     );
     

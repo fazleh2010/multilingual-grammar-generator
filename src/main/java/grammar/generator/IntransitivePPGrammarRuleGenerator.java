@@ -1,5 +1,6 @@
 package grammar.generator;
 
+import com.google.gdata.util.common.base.Pair;
 import grammar.datasets.annotated.AnnotatedVerb;
 import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
@@ -43,9 +44,10 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         return generatedSentences;
     }
 
-    protected List<String> generateOppositeSentences(LexicalEntryUtil lexicalEntryUtil) throws
+    protected Pair<String,List<String>> generateOppositeSentences(LexicalEntryUtil lexicalEntryUtil) throws
             QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
+        String sentTemplate=null;
         SentenceBuilder sentenceBuilder = new SentenceBuilderAllFrame(
                 getLanguage(),
                 getFrameType(),
@@ -55,8 +57,27 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         );
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
+        sentTemplate=sentenceBuilder.getTemplate();
         //generatedSentences.sort(String::compareToIgnoreCase);
-        return generatedSentences;
+        return new Pair<String,List<String>>(sentTemplate,generatedSentences);
+    }
+    
+    protected Pair<String,List<String>> generateBackwardAmount(LexicalEntryUtil lexicalEntryUtil) throws
+            QueGGMissingFactoryClassException {
+        List<String> generatedSentences = new ArrayList<String>();
+         String sentTemplate=null;
+        SentenceBuilder sentenceBuilder = new SentenceBuilderAllFrame(
+                getLanguage(),
+                getFrameType(),
+                getSentenceTemplateRepository(),
+                getSentenceTemplateParser(),
+                lexicalEntryUtil
+        );
+        generatedSentences.addAll(sentenceBuilder.generateBackwardAmount(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+        generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
+         sentTemplate=sentenceBuilder.getTemplate();
+        //generatedSentences.sort(String::compareToIgnoreCase);
+         return new Pair<String,List<String>>(sentTemplate,generatedSentences);
     }
 
     /**
@@ -66,6 +87,35 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
     public List<GrammarEntry> generateFragmentEntry(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil) throws
             QueGGMissingFactoryClassException {
         List<GrammarEntry> grammarEntries=new ArrayList<GrammarEntry>();
+        /*GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
+        fragmentEntry.setType(SentenceType.SENTENCE);
+        // Assign opposite values
+        fragmentEntry.setSentenceTemplate(this.template);
+        fragmentEntry.setReturnType(grammarEntry.getBindingType());
+        fragmentEntry.setBindingType(grammarEntry.getReturnType());
+        fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
+        sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
+                grammarEntry.getReturnVariable());
+        fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);*/
+
+        // sentences
+        GrammarEntry fragmentEntry1 =getOppositeFrame(grammarEntry);
+        Pair<String,List<String>> pair=generateOppositeSentences(lexicalEntryUtil);
+        fragmentEntry1.setSentenceTemplate(pair.getFirst());
+        fragmentEntry1.setSentences(pair.getSecond());
+        grammarEntries.add(fragmentEntry1);
+        
+        GrammarEntry fragmentEntry2 =getOppositeFrame(grammarEntry);
+        pair=generateBackwardAmount(lexicalEntryUtil);
+        fragmentEntry2.setSentenceTemplate(pair.getFirst());
+        fragmentEntry2.setSentences(pair.getSecond());
+        grammarEntries.add(fragmentEntry2);
+
+        return grammarEntries;
+    }
+    
+    private GrammarEntry getOppositeFrame(GrammarEntry grammarEntry) {
         GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
         fragmentEntry.setType(SentenceType.SENTENCE);
         // Assign opposite values
@@ -77,13 +127,8 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
                 grammarEntry.getReturnVariable());
         fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
+        return fragmentEntry;
 
-        // sentences
-        List<String> generatedSentences = generateOppositeSentences(lexicalEntryUtil);
-        fragmentEntry.setSentences(generatedSentences);
-        grammarEntries.add(fragmentEntry);
-
-        return grammarEntries;
     }
 
     

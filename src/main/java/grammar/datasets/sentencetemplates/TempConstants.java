@@ -88,7 +88,7 @@ public interface TempConstants {
     public static String thirdPerson = "thirdPerson";
     public static String secondPerson = "secondPerson";
 
-    public static final String whQuestion = "whQuestion";
+    public static final String Prepositional_Adjuct = "whQuestion";
 
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
@@ -111,6 +111,8 @@ public interface TempConstants {
 
     
     public static final String PERSON_PERSON = "PERSON_PERSON";
+    public static final String Copulative_Subject = "Copulative_Subject";
+    
     
     
      
@@ -120,6 +122,11 @@ public interface TempConstants {
      public static final String PERSON_CAUSE = "PERSON_CAUSE";
      public static final String PERSON_CAUSE_SUBJECT  = "PERSON_CAUSE_SUBJECT";
      public static final String PERSON_CAUSE_SUBJECT_PREPOSITION  = "PERSON_CAUSE_SUBJECT_PREPOSITION";
+     public static final String HOW_MANY_THING_BACKWARD="HOW_MANY_THING_BACKWARD";
+          public static final String HOW_MANY_THING_FORWARD="HOW_MANY_THING_FORWARD";
+
+     public static final String PERSON_CAUSE_NOUN_PHRASE="PERSON_CAUSE_NOUN_PHRASE";
+     
      
      public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
 

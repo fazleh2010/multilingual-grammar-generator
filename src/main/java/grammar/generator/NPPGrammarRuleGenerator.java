@@ -6,7 +6,6 @@ import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.Language;
 import grammar.structure.component.SentenceType;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import lexicon.LexicalEntryUtil;
@@ -41,10 +40,10 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
-        senTemplate=sentenceBuilder.getTemplate();
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesForward(getBindingVariable(), lexicalEntryUtil));
-
         generatedSentences.sort(String::compareToIgnoreCase);
+        this.senTemplate=sentenceBuilder.getTemplate();
+
         return generatedSentences;
     }
 
@@ -62,6 +61,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
+        this.senTemplate=sentenceBuilder.getTemplate();
         return generatedSentences;
     }
     
@@ -79,6 +79,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         generatedSentences.addAll(sentenceBuilder.generateForwardAmount(getBindingVariable(), new String[]{}, lexicalEntryUtil));
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
+        this.senTemplate=sentenceBuilder.getTemplate();
         return generatedSentences;
     }
     
@@ -97,6 +98,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         if (type.equals(nounPhrase)) {
             generatedSentences = new ArrayList<String>();
             generatedSentences.addAll(sentenceBuilder.generateNounPhrase(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+             this.senTemplate=sentenceBuilder.getTemplate();
         }
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
@@ -157,9 +159,9 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
            fragmentEntry.setBindingType(grammarEntry.getBindingType());
            fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
         }
-       
         
-        fragmentEntry.setSentenceTemplate(senTemplate);
+        fragmentEntry.setSentenceTemplate(this.senTemplate);
+        
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
         sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
                 grammarEntry.getReturnVariable());

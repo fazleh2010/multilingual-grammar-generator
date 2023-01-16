@@ -27,6 +27,7 @@ import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
 import util.io.DomainRangeDictionary;
 import util.io.GenderUtils;
+import static util.io.GenderUtils.nounWrittenForms;
 import util.io.Property;
 import util.io.Tupples;
 
@@ -167,7 +168,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     setReference(nounPPFrameCsv.getRangeIndex(row)));
             tupplesList.add(tupple);
             index = index + 1;
-             nounPPFrameCsv.setArticle(tupple, domainOrRange);
+             nounPPFrameCsv.setArticle(domainOrRange);
         }
         this.turtleString
                 = nounPPFrameCsv.getNounPPFrameHeader(this.lemonEntry, this.preposition, this.language)
@@ -184,6 +185,8 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         this.setLemonEntryId(key);
         List<Tupples> tupples = new ArrayList<Tupples>();
          String subject=null;
+          //System.out.println(GenderUtils.nounWrittenForms );
+          //exit(1);
          
         Integer index = 0;
         for (String[] row : rows) {
@@ -202,7 +205,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(transitiveFrameCsv.getDomainIndex(row)),
                     this.setReference(transitiveFrameCsv.getRangeIndex(row)));
 
-            transitiveFrameCsv.setArticle(tupple, domainOrRange);
+            transitiveFrameCsv.setArticle(domainOrRange);
             transitiveFrameCsv.setVerbInfo(partOfSpeech,  writtenFormInfinitive,  writtenForm3rdPerson,  writtenFormPast,writtenFormPerfect);
             tupples.add(tupple);
             index = index + 1;
