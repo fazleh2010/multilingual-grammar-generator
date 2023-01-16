@@ -89,6 +89,7 @@ public interface TempConstants {
     public static String secondPerson = "secondPerson";
 
     public static final String whQuestion = "whQuestion";
+
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
     public static final String nounPhrase = "nounPhrase";

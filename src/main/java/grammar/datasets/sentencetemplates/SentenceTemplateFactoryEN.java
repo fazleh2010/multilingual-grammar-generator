@@ -67,9 +67,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
           "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
         
-          ///What is Batman"s real name?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
+          ///What is Batman"s real name? Apostrophe temporary losed..
+          //"interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
+          //"interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
            //"Who is the mayor of Paris?",
           "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)", 
           "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",   

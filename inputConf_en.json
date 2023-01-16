@@ -21,8 +21,8 @@
   "turtleToProtoType" : true,
   "single": true,
   "composite": false,
-  "protoTypeToQuestion" : false,
-  "evalution" : false
+  "protoTypeToQuestion" : true,
+  "evalution" : true
 }
 
 
