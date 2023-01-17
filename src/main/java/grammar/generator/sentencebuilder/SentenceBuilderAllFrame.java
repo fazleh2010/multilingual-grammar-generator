@@ -93,6 +93,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                     language, new String[]{frameType.getName(), Prepositional_Adjuct});
             sentences = nounPPframeSentence(bindingVariable, lexicalEntryUtil, sentenceTemplates);
             this.setTemplate(Prepositional_Adjuct);
+            //exit(1);
              
 
         } else if (this.frameType.equals(FrameType.VP)) {
@@ -107,7 +108,6 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
             this.setTemplate(this.templateFinder.getSelectedTemplate());
             System.out.println(sentences);
-            //exit(1);
             /*System.out.println("selectVariable:::"+selectVariable);
             System.out.println("oppositeSelectVariable::"+oppositeSelectVariable);
             System.out.println("this.templateFinder.getSelectedTemplate()::"+this.templateFinder.getSelectedTemplate());
@@ -180,7 +180,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             //System.out.println("oppositeSelectVariable::"+oppositeSelectVariable);
             //System.out.println("this.templateFinder.getSelectedTemplate()::"+this.templateFinder.getSelectedTemplate());
             //System.out.println(passiveTransitive);
-            //  exit(1);
+            //exit(1);
 
         } else if (this.frameType.equals(FrameType.IPP)) {
             String template = this.templateFinder.getSelectedTemplate();
