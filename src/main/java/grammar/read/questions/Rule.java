@@ -18,7 +18,7 @@ import util.io.StringMatcher;
  *
  * @author elahi
  */
-public class Rule implements TempConstants{
+public class Rule implements TempConstants {
 
     @JsonProperty("grammarRuleNo")
     private Integer ruleNo = 0;
@@ -32,51 +32,50 @@ public class Rule implements TempConstants{
     private String nonTerminalSparqlQuery = null;
     @JsonProperty("answerSparqlQuery")
     private String answerSparqlQuery = null;
-    @JsonProperty("bindingType")
+
+    /*@JsonProperty("bindingType")
     private String bindingType = null;
     @JsonProperty("returnType")
-    private String returnType = null;
+    private String returnType = null;*/
 
     public Rule(Integer id, Integer ruleNo, List<String> sentencesT, String bindingVariable, String sparql,
             String bindingType, String returnType, String sentTemplate, String frameType) {
         this.ruleNo = ruleNo;
-        this.sentTemplate=sentTemplate;
-        this.bindingType=bindingType;
-        this.returnType=returnType;
+        this.sentTemplate = sentTemplate;
+        //this.bindingType=bindingType;
+        //this.returnType=returnType;
 
         String property = AddQuote.getProperty(sparql).replace("_", ":");
         String domainOrRange = null;
-        
-        
-        
-
 
         if (bindingType.contains("subjOfProp")) {
             domainOrRange = "domain";
-            this.nonTerminalSparqlQuery = "SELECT ?"+bindingType.toString()+" WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
+            this.nonTerminalSparqlQuery = "SELECT ?" + bindingType.toString() + " WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
 
-            if (this.isAmountForward(sentTemplate)) {
-                this.answerSparqlQuery = "SELECT Count("+"?"+returnType.toString()+") WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
-            } 
-            /*else if (this.isAmountBakward(sentTemplate)) {
+            if (this.isSuperlative(sentTemplate)) {
+                this.answerSparqlQuery = sparql;
+            } else if (this.isAmountForward(sentTemplate)) {
+                this.answerSparqlQuery = "SELECT Count(" + "?" + returnType.toString() + ") WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
+            } /*else if (this.isAmountBakward(sentTemplate)) {
                 this.answerSparqlQuery = "SELECT Count(?subjOfProp) WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
-            }*/else {
-                this.answerSparqlQuery = "SELECT ?"+returnType.toString()+" WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
+            }*/ else {
+                this.answerSparqlQuery = "SELECT ?" + returnType.toString() + " WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
             }
-            
 
         } else if (bindingType.contains("objOfProp")) {
             domainOrRange = "range";
-            this.nonTerminalSparqlQuery = "SELECT ?objOfProp. WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
-            
+            this.nonTerminalSparqlQuery = "SELECT ?objOfProp. WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
+
             /*if (this.isAmountForward(sentTemplate)) {
                 this.answerSparqlQuery = "SELECT Count(?subjOfProp) WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
             } 
-            else*/ 
-            if (this.isAmountBakward(sentTemplate)) {
-                this.answerSparqlQuery = "SELECT Count(?"+returnType.toString()+") WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
+            else*/
+            if (this.isSuperlative(sentTemplate)) {
+                this.answerSparqlQuery = sparql;
+            } else if (this.isAmountBakward(sentTemplate)) {
+                this.answerSparqlQuery = "SELECT Count(?" + returnType.toString() + ") WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
             } else {
-                this.answerSparqlQuery = "SELECT ?subjOfProp WHERE {?subjOfProp"+" " + property + " "+"?objOfProp.}";
+                this.answerSparqlQuery = "SELECT ?subjOfProp WHERE {?subjOfProp" + " " + property + " " + "?objOfProp.}";
             }
 
         }
@@ -84,6 +83,41 @@ public class Rule implements TempConstants{
         this.nonTerminal = this.generateNonTerminals(property, domainOrRange);
         this.sentences = StringMatcher.modifySentencesWithNonTerminals(sentencesT, nonTerminal);
 
+    }
+
+    private String generateNonTerminals(String property, String domainOrRange) {
+        String nonTerminal = null;
+        String nounPhrase = "NP";
+
+        nonTerminal = "<" + nounPhrase + "{" + domainOrRange + "," + property + "}>";
+        return nonTerminal;
+    }
+
+    private boolean isAmountForward(String sentTemplate) {
+        if (sentTemplate != null) {
+            if (sentTemplate.contains(HOW_MANY_THING_FORWARD)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isAmountBakward(String sentTemplate) {
+        if (sentTemplate != null) {
+            if (sentTemplate.contains(HOW_MANY_THING_BACKWARD)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isSuperlative(String sentTemplate) {
+        if (sentTemplate != null) {
+            if (sentTemplate.contains(superlativeCountry)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Integer getRuleNo() {
@@ -105,31 +139,4 @@ public class Rule implements TempConstants{
     public String getAnswerSparqlQuery() {
         return answerSparqlQuery;
     }
-
-    private String generateNonTerminals(String property, String domainOrRange) {
-        String nonTerminal = null;
-        String nounPhrase = "NP";
-
-        nonTerminal = "<" + nounPhrase + "{" + domainOrRange + "," + property + "}>";
-        return nonTerminal;
-    }
-
-    private boolean isAmountForward(String sentTemplate) {
-        if (sentTemplate != null) {
-            if (sentTemplate.contains(HOW_MANY_THING_FORWARD)) {
-               return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isAmountBakward(String sentTemplate) {
-        if (sentTemplate != null) {
-            if (sentTemplate.contains(HOW_MANY_THING_BACKWARD)) {
-               return true;
-            }
-        }
-        return false;
-    }
-
 }

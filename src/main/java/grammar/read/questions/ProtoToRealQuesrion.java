@@ -10,6 +10,7 @@ import util.io.FileProcessUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.CSVWriter;
+import static grammar.datasets.sentencetemplates.TempConstants.SYNTACTIC_FRAME;
 import static grammar.datasets.sentencetemplates.TempConstants.superlative;
 import grammar.sparql.PrepareSparqlQuery;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
@@ -121,15 +122,18 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         if (protoSimpleQFiles.isEmpty()) {
             throw new Exception("No proto file found to process!!");
         }
+        
+        this.writeGrammarRules(protoSimpleQFiles);
+         exit(1);
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
-        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "Grammar.json");
-        System.out.println(propertyDir + "Grammar.json");
-       
+        //NounPPFrame 
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "TransitiveFrame.json");       
         
-        this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
-         exit(1);
+        this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "TransitiveFrame"+"missedProperty.txt");
+        
+        
         
         this.csvWriterSummary = new CSVWriter(new FileWriter(questionSummaryFile, true));
         this.writeInCSV(summaryHeader);
@@ -681,5 +685,18 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         exit(1);
 
     }*/
+
+    private void writeGrammarRules(List<File> protoSimpleQFiles) {
+         for (String frameType : SYNTACTIC_FRAME.keySet()) {
+             String syntaktikFrame=SYNTACTIC_FRAME.get(frameType);
+             Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles,frameType);
+             GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntiryUris);
+             //NounPPFrame 
+             JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + syntaktikFrame+".json");
+
+             this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + syntaktikFrame + "MissedProperty.txt");
+         }
+    }
+
 
 }

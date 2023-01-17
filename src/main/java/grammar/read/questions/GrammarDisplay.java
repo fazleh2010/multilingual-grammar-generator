@@ -27,8 +27,8 @@ public class GrammarDisplay {
     private String Entry = null;
     @JsonProperty("syntacticFrame")
     private String syntacticFrame = null;
-    @JsonProperty("sentenceTemplates")
-    private String sentenceTemplates = null;
+    //@JsonProperty("sentenceTemplates")
+    //private String sentenceTemplates = null;
     @JsonProperty("rules")
     private List<Rule> rules = new ArrayList<Rule>();
 
@@ -78,8 +78,5 @@ public class GrammarDisplay {
         return Entry;
     }
 
-    public String getSentenceTemplates() {
-        return sentenceTemplates;
-    }
 
 }
