@@ -124,7 +124,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         }
         
         this.writeGrammarRules(protoSimpleQFiles);
-         exit(1);
 
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
@@ -149,11 +148,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionFile, true));
         }
 
-        /*//Map<String, String> wikiLink=FileUtils.tripleFileToHash(inputCofiguration.getWikiFile(),-1);
-        Map<String, String> abstracts=FileUtils.tripleFileToHash(inputCofiguration.getAbstractFile(),-1);
-        Map<String, String> wikiLink=new TreeMap<String, String>();
-        Map<String, String> abstracts=new TreeMap<String, String>();
-        Map<String, String>thumb= new TreeMap<String, String>();*/
         if (offlineMatchedProperties.isEmpty() && this.inputCofiguration.getOfflineQuestion()) {
             throw new Exception("No off line properties to process!!");
         }
@@ -207,8 +201,11 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                         //String questionAnswerFileTemp = this.questionAnswerFile.replace(".csv", "") + "-" + fileId + "-" + (fileIndex++).toString() + ".csv";
                         //this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFileTemp, true));
                         String propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
+                        System.out.println("propertyFile::"+propertyFile);
                         this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
                         bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
+                        //System.out.println(bindingList);
+                        //exit(1);
                     } catch (Exception ex) {
                         continue;
                     }

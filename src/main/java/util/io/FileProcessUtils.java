@@ -315,9 +315,8 @@ public class FileProcessUtils {
         }*/
         try {
             reader = new BufferedReader(new FileReader(propertyFile));
-            line = reader.readLine();
-            while (line != null) {
-                line = reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                //line = reader.readLine();
                 String subjectUri = null,subjectLabel = null, objectUri = null, objectLabel = null;
                 String subjectWiki=null,subjectThum=null,subjectAbstract=null,objectWiki=null,objectThum=null,objectAbstract=null;
 

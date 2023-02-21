@@ -90,7 +90,7 @@ public class QueGG {
                         queGG.turtleToProto(inputCofiguration);
                     }
                 }
-                if (inputCofiguration.isProtoTypeToQuestion()) {                   
+                if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                 }
                 if (inputCofiguration.isEvalution()) {
