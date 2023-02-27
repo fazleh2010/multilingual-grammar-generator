@@ -220,7 +220,11 @@ public class QueGG {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
-        this.init(language, inputDir, outputDir);
+        try {
+            loadInputAndGenerate(language, inputDir, outputDir);
+        } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
+            LOG.error("Could not create grammar: {}", e.getMessage());
+        }
     }
 
     private void protoToReal(InputCofiguration inputCofiguration, String grammar_FULL_DATASET, String grammar_COMBINATIONS) throws Exception {
@@ -265,13 +269,7 @@ public class QueGG {
 
     }
 
-    public void init(Language language, String inputDir, String outputDir) throws IOException {
-        try {
-            loadInputAndGenerate(language, inputDir, outputDir);
-        } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
-            LOG.error("Could not create grammar: {}", e.getMessage());
-        }
-    }
+  
 
     private void loadInputAndGenerate(Language lang, String inputDir, String outputDir) throws
             IOException,

@@ -1,5 +1,6 @@
 package lexicon;
 
+import com.ctc.wstx.exc.WstxUnexpectedCharException;
 import eu.monnetproject.lemon.LemonModel;
 import eu.monnetproject.lemon.LemonSerializer;
 import eu.monnetproject.lemon.model.LexicalEntry;
@@ -43,7 +44,8 @@ public class LexiconImporter {
                         LemonModel lm = serializer.read(new FileReader(file.toString()));
                         mergeModels(model, lm);
                     }
-                } catch (FileNotFoundException e) {
+                } 
+                catch (Exception e) {
                     LOG.error("FileNotFoundException: Could not read file {}", file);
                 }
             }
