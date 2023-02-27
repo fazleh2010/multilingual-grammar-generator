@@ -29,14 +29,15 @@ public class LexiconImporter {
 
   public LexiconImporter() {}
   
-    public LemonModel loadModelFromDir(String dir, String internalResourceDir) throws IOException {
+    public LemonModel loadModelFromDir(String dir, String internalResourceDir,List<Path> list) throws IOException {
         final LemonSerializer serializer = LemonSerializer.newInstance();
         LemonModel model = null;
-        try ( Stream<Path> paths = Files.walk(Paths.get(dir))) {
-            List<Path> list = filterFiles(paths);
+        //try ( Stream<Path> paths = Files.walk(Paths.get(dir))) {
+          //  List<Path> list = filterFiles(paths);
+          Integer index=0;
             for (Path file : list) {
                  System.out.println("file!!" + file.toString());
-
+                 index=index+1;
                 try {
                     if (model == null) {
                         model = serializer.read(new FileReader(file.toString()));
@@ -53,7 +54,7 @@ public class LexiconImporter {
             LemonModel baseModel = loadBaseFileFromResources(internalResourceDir, serializer);
             mergeModels(model, baseModel);
             return model;
-        }
+        //}
     }
 
   private LemonModel loadBaseFileFromResources(
@@ -66,12 +67,7 @@ public class LexiconImporter {
     return serializer.read(new BufferedReader(inputStreamReader));
   }
 
-  protected List<Path> filterFiles(Stream<Path> paths) {
-    return paths
-      .filter(Files::isRegularFile)
-      .filter(f -> f.getFileName().toString().endsWith("ttl"))
-      .collect(Collectors.toList());
-  }
+ 
 
   private void mergeModels(LemonModel model, LemonModel lm) {
     for (eu.monnetproject.lemon.model.Lexicon lexicon : lm.getLexica()) {

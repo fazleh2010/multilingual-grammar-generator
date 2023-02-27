@@ -37,9 +37,12 @@ import grammar.sparql.SPARQLRequest;
 import java.io.FileInputStream;
 import static java.lang.System.exit;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
+import java.util.stream.Stream;
 import org.apache.commons.text.similarity.CosineDistance;
 import turtle.EnglishTurtle;
 import util.io.GenderUtils;
@@ -85,11 +88,14 @@ public class QueGG {
                 online=inputCofiguration.getOnline();
                 externalEntittyListflag=inputCofiguration.getExternalEntittyList();
           
-                if (inputCofiguration.isCsvToTurtle()) {
-                    if (queGG.csvToProto(inputCofiguration)) {
-                        queGG.turtleToProto(inputCofiguration);
-                    }
-                }
+                /*if (inputCofiguration.isCsvToTurtle()) {
+                    queGG.csvToProto(inputCofiguration) ;
+                    
+                }*/
+                //if (inputCofiguration.getTurtleToProtoType()) {
+                    queGG.turtleToProto(inputCofiguration);
+
+                //}
                 if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                 }
@@ -270,7 +276,6 @@ public class QueGG {
     }
 
   
-
     private void loadInputAndGenerate(Language lang, String inputDir, String outputDir) throws
             IOException,
             InvocationTargetException,
@@ -278,11 +283,22 @@ public class QueGG {
             InstantiationException,
             IllegalAccessException {
         LexiconImporter lexiconImporter = new LexiconImporter();
-        LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase());
-        printInputSummary(lemonModel);
-        generateByFrameType(lang, lemonModel, outputDir);
-    }
+        Stream<Path> paths = Files.walk(Paths.get(inputDir));
+        List<Path> list = filterFiles(paths);
+        System.out.println("all: "+list.size());
+        Map<Integer, List<Path>> parameterFiles=splitFiles(list,1000);
+        for (Integer index : parameterFiles.keySet()) {
+            List<Path> listT= parameterFiles.get(index);
+            LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase(), listT);
+            printInputSummary(lemonModel);
+            generateByFrameType(lang, lemonModel, outputDir,index);
+            /*if(index>=4)
+                break;*/
+        }
 
+    }
+    
+   
     private void printInputSummary(LemonModel lemonModel) {
         lemonModel
                 .getLexica()
@@ -316,7 +332,7 @@ public class QueGG {
                 );
     }
 
-    private void generateByFrameType(Language language, LemonModel lemonModel, String outputDir) throws
+    private void generateByFrameType(Language language, LemonModel lemonModel, String outputDir,Integer parameter) throws
             IOException,
             NoSuchMethodException,
             IllegalAccessException,
@@ -336,8 +352,8 @@ public class QueGG {
         }
         // Make a GrammarRuleGeneratorRoot instance to use the combination function
         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
-        LOG.info("Start generation of combined entries");
-        grammarWrapper.getGrammarEntries().addAll(generatorRoot.generateCombinations(grammarWrapper.getGrammarEntries()));
+        //LOG.info("Start generation of combined entries");
+        //grammarWrapper.getGrammarEntries().addAll(generatorRoot.generateCombinations(grammarWrapper.getGrammarEntries()));
 
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
@@ -351,35 +367,39 @@ public class QueGG {
                         .filter(grammarEntry -> !grammarEntry.isCombination())
                         .collect(Collectors.toList())
         );
-        GrammarWrapper combinedEntries = new GrammarWrapper();
-        combinedEntries.setGrammarEntries(
+        
+        //combination and binding is temporarly closed
+        //GrammarWrapper combinedEntries = new GrammarWrapper();
+        
+        
+        /*combinedEntries.setGrammarEntries(
                 grammarWrapper.getGrammarEntries().stream().filter(GrammarEntry::isCombination).collect(Collectors.toList())
-        );
+        );*/
 
         // Generate bindings
-        LOG.info("Start generation of bindings");
-        grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
+        //LOG.info("Start generation of bindings");
+        //grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
 
         generatorRoot.dumpToJSON(
                 Path.of(
                         outputDir,
-                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
+                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language +"_"+parameter+ ".json"
                 ).toString(),
                 regularEntries
         );
-        generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_COMBINATIONS" + "_" + language + ".json").toString(),
+        /*generatorRoot.dumpToJSON(
+                Path.of(outputDir, "grammar_COMBINATIONS" + "_" + language +"_"+ ".json").toString(),
                 combinedEntries
-        );
+        );*/
 
         // Insert those bindings and write new files
-        LOG.info("Start resolving bindings");
+        /*LOG.info("Start resolving bindings");
         BindingResolver bindingResolver = new BindingResolver(grammarWrapper.getGrammarEntries());
         grammarWrapper = bindingResolver.resolve();
         generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_FULL_WITH_BINDINGS_" + language + ".json").toString(),
+                Path.of(outputDir, "grammar_FULL_WITH_BINDINGS_" + language +"_"+ ".json").toString(),
                 grammarWrapper
-        );
+        );*/
         
 
     }
@@ -402,5 +422,55 @@ public class QueGG {
         GrammarRuleGeneratorRoot.setEndpoint(endpoint);
 
     }
+   
+    private List<Path> filterFiles(Stream<Path> paths) {
+        return paths
+                .filter(Files::isRegularFile)
+                .filter(f -> f.getFileName().toString().endsWith("ttl"))
+                .collect(Collectors.toList());
+    }
+
+    /*private Map<String, List<Path>> findParameterFiles(Stream<Path> paths) {
+         List<Path> lexFile= paths
+                .filter(Files::isRegularFile)
+                .filter(f -> f.getFileName().toString().endsWith("csv"))
+                .collect(Collectors.toList());
+         
+         CsvFile csvFile=new CsvFile();
+         for(){
+         csvFile.getRows(qaldFile)
+         
+    }*/
+    
+    private Map<Integer, List<Path>> splitFiles(List<Path> list,Integer limit) {
+        Integer index = 0;
+        Map<Integer, List<Path>> seperatedFiles = new TreeMap<Integer, List<Path>>();
+        List<Path> pathT = new ArrayList<Path>();
+        List<Path> restT = new ArrayList<Path>();
+        Integer numberOfLimit=1;
+        for (Path path : list) {
+            index = index + 1;
+            pathT.add(path);
+            if (index >= limit) {
+                seperatedFiles.put(numberOfLimit, pathT);
+                pathT = new ArrayList<Path>();
+                restT = new ArrayList<Path>();
+                numberOfLimit=numberOfLimit+1;
+                index=0;                
+            }
+            else{
+                restT.add(path);
+                
+            }
+        }
+        seperatedFiles.put(numberOfLimit, pathT);
+       
+        return seperatedFiles;
+    }
+        
+         
+    
+
+  
 
 }
