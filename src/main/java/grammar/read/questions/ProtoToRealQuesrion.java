@@ -175,7 +175,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 String returnSubjOrObj = grammarEntryUnit.getReturnVariable();
                 String bindingType = grammarEntryUnit.getBindingType();
                 String returnType = grammarEntryUnit.getReturnType();
-                List<UriLabel> bindingList = grammarEntryUnit.getBindingList();
+                List<UriLabel> bindingList =new ArrayList<UriLabel>();
                 String property = AddQuote.getProperty(grammarEntryUnit.getSparqlQuery());
 
                 if (grammarEntryUnit.getLexicalEntryUri() != null) {
@@ -201,28 +201,28 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                         //String questionAnswerFileTemp = this.questionAnswerFile.replace(".csv", "") + "-" + fileId + "-" + (fileIndex++).toString() + ".csv";
                         //this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFileTemp, true));
                         String propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
-                        System.out.println("propertyFile::"+propertyFile);
                         this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
                         bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
-                        //System.out.println(bindingList);
-                        //exit(1);
+                                         System.out.println(property+"   bindingList::"+bindingList+" returnSubjOrObj::"+returnSubjOrObj);
+
                     } catch (Exception ex) {
                         continue;
                     }
-                } else if (this.inputCofiguration.getEvalutionQuestion()) {
+                } /*else if (this.inputCofiguration.getEvalutionQuestion()) {
                     String entityFileName = this.inputCofiguration.getEvalutionBindingFile();
                     File entityFile = new File(entityFileName);
                     List<UriLabel> qaldBindingList = this.getExtendedOffline(grammarEntryUnit.getBindingList(), entityFile, 0, 2, bindingType.toLowerCase());
                     bindingList.addAll(qaldBindingList);
-                }
+                }*/
 
                 if (grammarEntryUnit.getQueryType().equals(QueryType.ASK)) {
                     continue;
                 }
 
-                if (grammarEntryUnit.getBindingType().contains("date")) {
-                    bindingList = grammarEntryUnit.getBindingList();
-                }
+                //test
+                /*if (grammarEntryUnit.getBindingType().contains("date")) {
+                    bindingList = new ArrayList<UriLabel>();
+                }*/
 
                 try {
                     if (grammarEntryUnit.getFrameType().contains(FrameType.AG.toString()) && grammarEntryUnit.getSentenceTemplate().contains(superlative)) {
@@ -234,6 +234,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 } catch (Exception ex) {
                     continue;
                 }
+
 
                 if (grammarEntryUnit.getQueryType().equals(QueryType.SELECT)) {
                     noIndex = this.questionGeneration(uri, sparql, bindingList, questions, noIndex, "", grammarEntryUnit, entityLabels);
@@ -277,6 +278,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         if (questions.isEmpty()) {
             return rowIndex;
         }
+        System.out.println("uriLabels::"+uriLabels);
 
         for (UriLabel uriLabel : uriLabels) {
             String questionUri = uriLabel.getUri(), questionLabel = uriLabel.getLabel();
@@ -346,7 +348,8 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
                         }
 
-                        String id = uri + "_" + rowIndex.toString();
+                        String id = uri + "~" + rowIndex.toString();
+                        //test
                         String questionT = getQuestion(question, questionLabel);
 
                         if (questionLabel.isEmpty()) {

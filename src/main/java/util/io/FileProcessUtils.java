@@ -333,11 +333,11 @@ public class FileProcessUtils {
                         if (index == 1) {
                             subjectUri = clean(value);
                         } else if (index == 2) {
-                            subjectLabel = clean(value);
+                            subjectLabel = cleanLabels(value);
                         }  else if (index == 3) {
                             objectUri = clean(value);
                         } else if (index == 4) {
-                            objectLabel = clean(value);
+                            objectLabel = cleanLabels(value);
                         }
 
                     }
@@ -467,6 +467,23 @@ public class FileProcessUtils {
         value = value.trim().strip().stripLeading().stripTrailing();
         return value;
     }
+    
+     private static String cleanLabels(String value) {
+        value = value.replace("<", "");
+        value = value.replace(">", "");
+        if(value.contains("^")){
+            value=value.split("^")[0];
+            
+        }
+        if(value.contains("@")){
+            value=value.split("@")[0];
+            
+        }
+        value=value.replace("\"", "");
+        value = value.trim().strip().stripLeading().stripTrailing();
+        return value;
+    }
+
 
     /*public static Map<String, String> tripleFileToHash(String fileName) {
         Map<String, String> results = new TreeMap<String, String>();

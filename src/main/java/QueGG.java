@@ -88,14 +88,14 @@ public class QueGG {
                 online=inputCofiguration.getOnline();
                 externalEntittyListflag=inputCofiguration.getExternalEntittyList();
           
-                /*if (inputCofiguration.isCsvToTurtle()) {
+                if (inputCofiguration.isCsvToTurtle()) {
                     queGG.csvToProto(inputCofiguration) ;
                     
-                }*/
-                //if (inputCofiguration.getTurtleToProtoType()) {
+                }
+                if (inputCofiguration.getTurtleToProtoType()) {
                     queGG.turtleToProto(inputCofiguration);
 
-                //}
+                }
                 if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                 }
@@ -292,8 +292,9 @@ public class QueGG {
             LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase(), listT);
             printInputSummary(lemonModel);
             generateByFrameType(lang, lemonModel, outputDir,index);
-            /*if(index>=4)
-                break;*/
+            //test codes..
+            if(index>=4)
+                break;
         }
 
     }

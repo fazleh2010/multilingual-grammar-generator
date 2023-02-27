@@ -18,10 +18,10 @@
   "numberOfEntities" : 100,
   "similarityThresold" : 0.7,
   "csvToTurtle" : false,
-  "turtleToProtoType" : true,
+  "turtleToProtoType" : false,
   "single": true,
   "composite": false,
-  "protoTypeToQuestion" : false,
+  "protoTypeToQuestion" : true,
   "evalution" : false
 }
 
