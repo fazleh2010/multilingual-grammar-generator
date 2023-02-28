@@ -9,6 +9,7 @@
   "outputDir"    : "../resources/",
   "entityDir"    : "../resources/en/property/",
   "questionDir"  : "../resources/en/questions/",
+  "parameterDir"  : "../resources/en/parameter/",
   "classDir"     : "../resources/en/entity/",
   "wikiFile"     : "../resources/en/turtle/wikipedia_links_en_filter.ttl",
   "abstractFile" : "../resources/en/turtle/short_abstracts_sorted_en_filter.ttl",

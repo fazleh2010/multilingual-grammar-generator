@@ -226,8 +226,9 @@ public class QueGG {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
+        String parameterDir = inputCofiguration.getParameterDir();
         try {
-            loadInputAndGenerate(language, inputDir, outputDir);
+            loadInputAndGenerate(language, inputDir, outputDir,parameterDir);
         } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
             LOG.error("Could not create grammar: {}", e.getMessage());
         }
@@ -276,16 +277,17 @@ public class QueGG {
     }
 
   
-    private void loadInputAndGenerate(Language lang, String inputDir, String outputDir) throws
+    private void loadInputAndGenerate(Language lang, String inputDir, String outputDir,String parameterDir) throws
             IOException,
             InvocationTargetException,
             NoSuchMethodException,
             InstantiationException,
             IllegalAccessException {
-        LexiconImporter lexiconImporter = new LexiconImporter();
+        
+        
+       LexiconImporter lexiconImporter = new LexiconImporter();
         Stream<Path> paths = Files.walk(Paths.get(inputDir));
         List<Path> list = filterFiles(paths);
-        System.out.println("all: "+list.size());
         Map<Integer, List<Path>> parameterFiles=splitFiles(list,1000);
         for (Integer index : parameterFiles.keySet()) {
             List<Path> listT= parameterFiles.get(index);
@@ -468,9 +470,8 @@ public class QueGG {
        
         return seperatedFiles;
     }
-        
-         
-    
+
+ 
 
   
 

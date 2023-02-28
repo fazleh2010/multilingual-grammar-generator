@@ -33,6 +33,8 @@ public class InputCofiguration {
     private String inputDir = null;
     @JsonProperty("outputDir")
     private String outputDir = null;
+    @JsonProperty("parameterDir")
+    private String parameterDir = null;
     @JsonProperty("entityDir")
     private String entityDir = null;
     @JsonProperty("questionDir")
@@ -202,6 +204,10 @@ public class InputCofiguration {
 
     public String getBatchFile() {
         return batchFile;
+    }
+
+    public String getParameterDir() {
+        return parameterDir;
     }
 
     @Override

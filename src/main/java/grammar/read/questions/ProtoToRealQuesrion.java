@@ -15,9 +15,12 @@ import static grammar.datasets.sentencetemplates.TempConstants.superlative;
 import grammar.sparql.PrepareSparqlQuery;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
 import grammar.structure.component.FrameType;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -62,6 +65,8 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
     public String questionAnswerFile = null;
     public String questionSummaryFile = null;
     private Map<String, Statistics> summary = new TreeMap<String, Statistics>();
+    private Map<String, String> lexEntryParameter = new TreeMap<String, String>();
+
     private Integer maxNumberOfEntities = 100;
     private Integer batchNumber = 0;
     private String endpoint = null;
@@ -84,6 +89,11 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         this.questionSummaryFile = this.inputCofiguration.getQuestionDir() + File.separator + summaryFile + "_" + language + ".csv";
         //this.batchNumber=this.getBatchNumner(inputCofiguration);
         this.batchNumber=1;
+        String parameterFileName = "/media/elahi/Elements/A-project/resources/ldk/parameter/parameter.txt";
+        this.lexEntryParameter=this.findParameter(parameterFileName);
+        //System.out.println(lexEntryParameter.keySet());
+        //exit(1);
+
     }
 
     public void onlineQaGeneration(List<File> protoSimpleQFiles) throws Exception {
@@ -160,13 +170,37 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         List<String> questions = new ArrayList<String>();
         Integer fileIndex = 1;
         
+         /*for (String lexicalEntiryUri : lexicalEntiryUris.keySet()) {
+             String parameter = this.findParameterForLexEntry(lexicalEntiryUri);
+             if (parameter != null) {
+                 String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + parameter + "~" + lexicalEntiryUri + "~" + this.batchNumber.toString() + "~" + questionsFile + ".csv";
+                 //System.out.println(lexicalEntiryUri + " " + questionAnswerFile);
+
+             } else {
+                 System.out.println(lexicalEntiryUri);
+             }
+
+         }
+         exit(1);*/
 
         for (String lexicalEntiryUri : lexicalEntiryUris.keySet()) {
             List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lexicalEntiryUri);
             batchNumber=batchNumber+1;
             String uri = null, className;
             //String fileName=this.questionAnswerFile.replace(".csv", "_"+lexicalEntiryUri+"-"+this.batchNumber+".csv");
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
+            //String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
+            String parameter=this.findParameterForLexEntry(lexicalEntiryUri);
+             if (parameter != null) {
+                 parameter=parameter.replace("NounPPFrame", "");
+                  parameter=parameter.replace(".csv", "");
+                 ;
+             }
+             else
+                 continue;
+            
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"~"+parameter+"~"+lexicalEntiryUri+"~"+"~"+questionsFile+".csv";
+            //System.out.println(lexicalEntiryUri+" "+questionAnswerFile);
+            
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
                 className = linkedData.getRdfPropertyClass(grammarEntryUnit.getReturnType());
@@ -697,6 +731,38 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
              this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + syntaktikFrame + "MissedProperty.txt");
          }
     }
+
+   
+
+    private String findParameterForLexEntry(String key) {
+        if (this.lexEntryParameter.containsKey(key)) {
+            return this.lexEntryParameter.get(key);
+        }
+        return null;
+    }
+
+    public Map<String, String> findParameter(String fileName) throws FileNotFoundException, IOException {
+        BufferedReader reader;
+        String line = "";
+        Map<String, String> map = new TreeMap<String, String>();
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            while ((line = reader.readLine()) != null) {
+                if (line != null) {
+                    if (line.contains("=")) {
+                        String[] info = line.split("=");
+                        map.put(info[1], info[0]);
+                    }
+
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
 
 
 }
