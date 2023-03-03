@@ -206,7 +206,7 @@ public class InputCofiguration {
         return batchFile;
     }
 
-    public String getParameterDir() {
+    public String getParameter() {
         return parameterDir;
     }
 

@@ -563,20 +563,24 @@ public class FileFolderUtils {
     public static void deleteFiles(String inputDir, String extension) {
         File f = new File(inputDir);
         String[] pathnames = f.list();
-        for (String pathname : pathnames) {
-            String[] files = new File(inputDir + File.separator + pathname).list();
-            for (String fileName : files) {
-                File file = new File(inputDir + File.separator + pathname + File.separator + fileName);
-                if (file.getName().contains(extension)) {
-                    if (file.delete()) {
-                        //System.out.println(fileName + " deleted successfully");
-                    } else {
-                        System.out.println("Failed to delete the file");
+        try {
+            for (String pathname : pathnames) {
+                String[] files = new File(inputDir + File.separator + pathname).list();
+                for (String fileName : files) {
+                    File file = new File(inputDir + File.separator + pathname + File.separator + fileName);
+                    if (file.getName().contains(extension)) {
+                        if (file.delete()) {
+                            //System.out.println(fileName + " deleted successfully");
+                        } else {
+                            System.out.println("No fileto delete!!");
+                        }
                     }
+
                 }
 
             }
-
+        }catch(Exception ex){
+             System.out.println("Failed to delete the file!!"+ex.getMessage());
         }
 
     }

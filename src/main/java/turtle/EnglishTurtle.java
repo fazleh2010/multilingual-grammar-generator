@@ -12,7 +12,6 @@ import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
 import grammar.structure.component.Language;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

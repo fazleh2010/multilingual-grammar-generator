@@ -12,7 +12,6 @@ import static grammar.datasets.sentencetemplates.TempConstants.past;
 import static grammar.datasets.sentencetemplates.TempConstants.perfect;
 import static grammar.datasets.sentencetemplates.TempConstants.present;
 import static grammar.datasets.sentencetemplates.TempConstants.present3rd;
-import static java.lang.System.exit;
 import java.util.List;
 import java.util.Map;
 import util.io.GenderUtils;

@@ -10,6 +10,7 @@ import evaluation.QALDImporter;
 import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
+import grammar.read.questions.OffLineQuestionGeneration;
 import grammar.read.questions.ProtoToRealQuesrion;
 import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
@@ -35,7 +36,6 @@ import java.io.IOException;
 import grammar.sparql.SparqlQuery;
 import grammar.sparql.SPARQLRequest;
 import java.io.FileInputStream;
-import static java.lang.System.exit;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -89,7 +89,8 @@ public class QueGG {
                 externalEntittyListflag=inputCofiguration.getExternalEntittyList();
           
                 if (inputCofiguration.isCsvToTurtle()) {
-                    queGG.csvToProto(inputCofiguration) ;
+                    queGG.csvToTurle(inputCofiguration) ;
+                    System.out.println("csvToTurle generation is successfull!!!");
                     
                 }
                 if (inputCofiguration.getTurtleToProtoType()) {
@@ -192,7 +193,7 @@ public class QueGG {
 
     }
 
-    private Boolean csvToProto(InputCofiguration inputCofiguration) throws Exception {
+    private Boolean csvToTurle(InputCofiguration inputCofiguration) throws Exception {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
@@ -226,9 +227,8 @@ public class QueGG {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
-        String parameterDir = inputCofiguration.getParameterDir();
         try {
-            loadInputAndGenerate(language, inputDir, outputDir,parameterDir);
+            loadInputAndGenerate(language, inputDir, outputDir);
         } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
             LOG.error("Could not create grammar: {}", e.getMessage());
         }
@@ -257,11 +257,16 @@ public class QueGG {
         String langCode = language.name().toLowerCase().trim();
         //String questionAnswerFile = questionDir + File.separator + questionsFile + "_" + langCode + ".csv";
         //String questionSummaryFile = questionDir + File.separator + summaryFile + "_" + langCode + ".csv";
-        ProtoToRealQuesrion readAndWriteQuestions = new ProtoToRealQuesrion(linkedData,inputCofiguration);
-        if(online)
-         readAndWriteQuestions.onlineQaGeneration(protoToQuestions);
-        else
-         readAndWriteQuestions.offline(protoToQuestions);
+       
+        if (online) {
+            ProtoToRealQuesrion readAndWriteQuestions = new ProtoToRealQuesrion(linkedData, inputCofiguration);
+            readAndWriteQuestions.onlineQaGeneration(protoToQuestions);
+
+        } else{
+            OffLineQuestionGeneration offLineQuestionGeneration=new OffLineQuestionGeneration((inputCofiguration));
+            offLineQuestionGeneration.offline(protoToQuestions);
+        }
+           
 
     }
 
@@ -277,7 +282,7 @@ public class QueGG {
     }
 
   
-    private void loadInputAndGenerate(Language lang, String inputDir, String outputDir,String parameterDir) throws
+    private void loadInputAndGenerate(Language lang, String inputDir, String outputDir) throws
             IOException,
             InvocationTargetException,
             NoSuchMethodException,
