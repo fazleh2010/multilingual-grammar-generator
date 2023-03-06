@@ -1,10 +1,9 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.exceptions.CsvException;
 import eu.monnetproject.lemon.LemonModel;
 import evaluation.EvaluateAgainstQALD;
-import static evaluation.EvaluateAgainstQALD.PROTOTYPE_QUESTION;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
-import evaluation.EvaluateAgainstQALD_1;
 import evaluation.QALD;
 import evaluation.QALDImporter;
 import grammar.generator.BindingResolver;
@@ -35,7 +34,11 @@ import java.io.File;
 import java.io.IOException;
 import grammar.sparql.SparqlQuery;
 import grammar.sparql.SPARQLRequest;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import static java.lang.System.exit;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -51,6 +54,7 @@ import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
 import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
+import util.io.BashScript;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
 
@@ -69,11 +73,11 @@ public class QueGG {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args1) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
-        
+        String[] args=new String[]{"conf/inputConf_lexicon_1_en.json","dataset/dbpedia_en.json"};
          Properties batch = new Properties();
 
        
@@ -97,18 +101,29 @@ public class QueGG {
                     queGG.turtleToProto(inputCofiguration);
 
                 }
-                if (inputCofiguration.isProtoTypeToQuestion()) {  
+                if (inputCofiguration.isProtoTypeToQuestion()) {
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
+                    writeQuestionInSingleFile(inputCofiguration);
                 }
-                if (inputCofiguration.isEvalution()) {
+                
+                 if (inputCofiguration.isEvalution()) {
+                    Language language = inputCofiguration.getLanguage();
+                    String qaldDir = inputCofiguration.getQaldDir();
+                    String outputDir = inputCofiguration.getOutputDir();
+                    LinkedData linkedData = inputCofiguration.getLinkedData();
+                    Double similarity = inputCofiguration.getSimilarityThresold();
+                    BashScript BashScript=new BashScript(null);
+                }
+                 
+                /*if (inputCofiguration.isEvalution()) {
                     Language language = inputCofiguration.getLanguage();
                     String qaldDir = inputCofiguration.getQaldDir();
                     String outputDir = inputCofiguration.getOutputDir();
                     LinkedData linkedData = inputCofiguration.getLinkedData();
                     Double similarity = inputCofiguration.getSimilarityThresold();
                     queGG.evalution(qaldDir, outputDir, inputCofiguration,language, linkedData.getEndpoint(), EvaluateAgainstQALD.REAL_QUESTION, similarity);
-                }
-
+                }*/
+               
             }
 
         } catch (IllegalArgumentException | IOException e) {
@@ -197,6 +212,7 @@ public class QueGG {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
+        String domainAndRangeDir=inputCofiguration.getDomainAndRangeDir();
         Integer numberOfEntitiesString = inputCofiguration.getNumberOfEntities();
         LinkedData linkedData = inputCofiguration.getLinkedData();
         setDataSet(linkedData);
@@ -205,20 +221,21 @@ public class QueGG {
 
         try {
             if (language.equals(Language.DE)) {
-                tutleConverter = new GermanTurtle(inputDir, linkedData, language);
+                tutleConverter = new GermanTurtle(inputDir,domainAndRangeDir, linkedData, language);
                 return tutleConverter.getConversionFlag();
             } else if (language.equals(Language.EN)) {
-                tutleConverter = new EnglishTurtle(inputDir, linkedData, language);
+                tutleConverter = new EnglishTurtle(inputDir, domainAndRangeDir,linkedData, language);
                 return tutleConverter.getConversionFlag();
             } else if (language.equals(Language.ES)) {
-                tutleConverter = new SpanishTurtle(inputDir, linkedData, language);
+                tutleConverter = new SpanishTurtle(inputDir, domainAndRangeDir,linkedData, language);
                 return tutleConverter.getConversionFlag();
             } else if (language.equals(Language.IT)) {
-                tutleConverter = new ItalianTurtle(inputDir, linkedData, language);
+                tutleConverter = new ItalianTurtle(inputDir, domainAndRangeDir,linkedData, language);
                 return tutleConverter.getConversionFlag();
             }
         } catch (Exception ex) {
-            System.out.println("ignore for time being!!!"+ex.getMessage());
+            System.out.println("failed to geenrate turtle file from spreed sheet!!!\n"+ex.getMessage());
+            return false;
         }
         return false;
     }
@@ -227,6 +244,8 @@ public class QueGG {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
+        FileFolderUtils.deleteFilesE(outputDir, ".json");
+        FileFolderUtils.deleteFiles(inputCofiguration.getQuestionDir());
         try {
             loadInputAndGenerate(language, inputDir, outputDir);
         } catch (InvocationTargetException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
@@ -237,15 +256,13 @@ public class QueGG {
     private void protoToReal(InputCofiguration inputCofiguration, String grammar_FULL_DATASET, String grammar_COMBINATIONS) throws Exception {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getOutputDir();
-        String entityDir=inputCofiguration.getEntityDir();
-        String questionDir=inputCofiguration.getQuestionDir();
-        String classDir=inputCofiguration.getClassDir();
-        Integer maxNumberOfEntities = inputCofiguration.getNumberOfEntities();
         Boolean combinedFlag=inputCofiguration.getCompositeFlag();
         Boolean singleFlag=inputCofiguration.getSingleFlag();
         LinkedData linkedData = inputCofiguration.getLinkedData();
         List<File> protoToQuestions=new ArrayList<File>();
         setDataSet(linkedData);
+        
+        FileFolderUtils.deleteFiles(inputCofiguration.getQuestionDir());
 
         if (singleFlag) {
             protoToQuestions.addAll(FileProcessUtils.getFiles(inputDir + "/", grammar_FULL_DATASET + "_" + language.name(), ".json"));
@@ -475,9 +492,26 @@ public class QueGG {
        
         return seperatedFiles;
     }
-
- 
-
-  
+    
+    private static void writeQuestionInSingleFile(InputCofiguration inputCofiguration) throws IOException, FileNotFoundException, CsvException {
+        CsvFile outputCsvFile = new CsvFile();
+        String questionDir = inputCofiguration.getQuestionDir();
+        String parameter = inputCofiguration.getParameter();
+        String outputDir = inputCofiguration.getOutputDir() +File.separator;
+        String[] questionFiles = new File(inputCofiguration.getQuestionDir()).list();
+        List<String[]> csvData = new ArrayList<String[]>();
+        for (String fileName : questionFiles) {
+            if (fileName.contains("questions")) {
+                CsvFile csvFile = new CsvFile();
+                List<String[]> rows = csvFile.getRows(new File(questionDir + fileName));
+                if (rows.size() > 1) {
+                    System.out.println(fileName + "  elemetns size:::" + rows.size());
+                    csvData.addAll(rows);
+                }
+            }
+        }
+        File outputFile = new File(outputDir + parameter + ".csv");
+        outputCsvFile.writeToCSV(outputFile, csvData);
+    }
 
 }

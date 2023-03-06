@@ -33,12 +33,14 @@ public class InputCofiguration {
     private String inputDir = null;
     @JsonProperty("outputDir")
     private String outputDir = null;
-    @JsonProperty("parameterDir")
-    private String parameterDir = null;
+    @JsonProperty("parameter")
+    private String parameter = null;
     @JsonProperty("entityDir")
     private String entityDir = null;
     @JsonProperty("questionDir")
     private String questionDir = null;
+    @JsonProperty("domainAndRangeDir")
+    private String domainAndRangeDir = null;
     @JsonProperty("classDir")
     private String classDir = null;
     @JsonProperty("wikiFile")
@@ -56,6 +58,8 @@ public class InputCofiguration {
     private Boolean turtleToProtoType = false;
     @JsonProperty("protoTypeToQuestion")
     private Boolean protoTypeToQuestion = false;
+    @JsonProperty("inductive")
+    private Boolean inductive = false;
     @JsonProperty("evalution")
     private Boolean evalution;
     @JsonProperty("composite")
@@ -99,11 +103,11 @@ public class InputCofiguration {
     }
 
     public String getInputDir() {
-        return inputDir + File.separator + this.languageCode;
+        return inputDir ;
     }
 
     public String getOutputDir() {
-        return outputDir + File.separator + this.languageCode;
+        return outputDir ;
     }
 
     public Integer getNumberOfEntities() {
@@ -171,7 +175,7 @@ public class InputCofiguration {
     }
 
     public String getQuestionDir() {
-        return questionDir;
+        return questionDir ;
     }
 
     public String getClassDir() {
@@ -207,7 +211,15 @@ public class InputCofiguration {
     }
 
     public String getParameter() {
-        return parameterDir;
+        return parameter;
+    }
+
+    public String getDomainAndRangeDir() {
+        return domainAndRangeDir;
+    }
+
+    public Boolean getInductive() {
+        return inductive;
     }
 
     @Override

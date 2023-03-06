@@ -35,11 +35,13 @@ public class TurtleCreation implements TempConstants {
     private Integer InTransitiveIndex=0;
     private Integer adjectiveFrameIndex=0;
     private Integer gradableAdjectiveFrameIndex=0;
+    String domainAndRangeDir=null;
 
-    public TurtleCreation(String inputDir, LinkedData linkedData, Language language) throws Exception {
+    public TurtleCreation(String inputDir, String domainAndRangeDir,LinkedData linkedData, Language language) throws Exception {
         this.linkedData = linkedData;
         this.language = language.name().toLowerCase();
         this.inputDir = inputDir;
+        this.domainAndRangeDir=domainAndRangeDir;
     }
     
     public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex,Integer gradableAdjectiveFrameIndex) throws Exception {

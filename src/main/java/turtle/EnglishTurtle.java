@@ -53,8 +53,8 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private EnglishCsv.AttributiveAdjectiveFrame attributiveAdjectiveFrame = new EnglishCsv.AttributiveAdjectiveFrame();
     private EnglishCsv.GradbleAdjectiveFrameCsv gradableAdjectiveFrameCsv = new EnglishCsv.GradbleAdjectiveFrameCsv();
 
-    public EnglishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
-        super(inputDir, linkedData, language);
+    public EnglishTurtle(String inputDir, String domainAndRangeDir,LinkedData linkedData, Language language) throws Exception {
+        super(inputDir, domainAndRangeDir,linkedData, language);
         super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(), transitiveFrameCsv.getSyntacticFrameIndex(), IntransitiveFrameCsv.getSyntacticFrameIndex(), attributiveAdjectiveFrame.getSyntacticFrameIndex(), gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
         this.generateTurtle();
     }
@@ -64,15 +64,15 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
-        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(inputDir, pathnames);
+        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(domainAndRangeDir);
         domainOrRange=domainRangeDictionary.getDomainOrRange();
        
         for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
-                if(fileName.contains("DomainOrRange.csv")){
+                /*if(fileName.contains("DomainOrRange.csv")){
                     continue;
-                }
+                }*/
                 
                 if (!fileName.contains(".csv")) {
                     continue;

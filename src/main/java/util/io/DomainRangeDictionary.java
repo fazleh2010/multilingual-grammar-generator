@@ -22,32 +22,32 @@ public class DomainRangeDictionary {
     private String domainOrRangeInputFile = "RawDomainOrRange.csv";
     private String domainOrRangeOutputFile = "DomainOrRange.csv";
 
-    public DomainRangeDictionary(String inputDir, String[] pathnames) {
+    public DomainRangeDictionary(String inputDir) throws Exception {
+        File f = new File(inputDir);
+        String[] files = f.list();
         CsvFile inputCsvFile = new CsvFile();
-        Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
-
-        for (String pathname : pathnames) {
-            String[] files = new File(inputDir + File.separatorChar + pathname).list();
+        try {
             for (String fileName : files) {
                 if (fileName.contains(domainOrRangeInputFile)) {
-                    fileName = inputDir + File.separatorChar + pathname + File.separatorChar + fileName;
+                    fileName = inputDir + File.separatorChar + fileName;
                     domainOrRange = findDomainorRangeEnglish(new File(fileName));
-                    this.domainOrRangeOutputFile = inputDir + File.separatorChar + pathname + File.separatorChar + domainOrRangeOutputFile;
+                    this.domainOrRangeOutputFile = inputDir + File.separatorChar + domainOrRangeOutputFile;
                 }
+            }
+
+            List<String[]> csvData = new ArrayList<String[]>();
+            for (String key : domainOrRange.keySet()) {
+                List<String> rows = domainOrRange.get(key);
+                String[] values = {key, rows.get(0), rows.get(1)};
+                csvData.add(values);
 
             }
+
+            inputCsvFile.writeToCSV(new File(this.domainOrRangeOutputFile), csvData);
+            this.domainOrRange = findDomainorRangeEnglish(new File(this.domainOrRangeOutputFile));
+        } catch (Exception ex) {
+            throw new Exception("doamina and range file is not available!!!");
         }
-
-        List<String[]> csvData = new ArrayList<String[]>();
-        for (String key : domainOrRange.keySet()) {
-            List<String> rows = domainOrRange.get(key);
-            String[] values = {key, rows.get(0), rows.get(1)};
-            csvData.add(values);
-
-        }
-
-        inputCsvFile.writeToCSV(new File(this.domainOrRangeOutputFile), csvData);
-        this.domainOrRange = findDomainorRangeEnglish(new File(this.domainOrRangeOutputFile));
 
     }
 

@@ -80,33 +80,26 @@ public class OffLineQuestionGeneration {
         this.batchNumber = 1;
         this.parameter = inputCofiguration.getParameter();
         this.classDir = inputCofiguration.getClassDir();
-
     }
 
     public void offline(List<File> protoSimpleQFiles) throws Exception {
-        Integer index = 0;
 
         if (protoSimpleQFiles.isEmpty()) {
             throw new Exception("No proto file found to process!!");
         }
         this.writeGrammarRules(protoSimpleQFiles);
-        Map<String, List<GrammarEntryUnit>> lexicalEntiryUris =this.findCoverage(protoSimpleQFiles);
-       
+        Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = this.findCoverage(protoSimpleQFiles);
 
-      
-
-        index = index + 1;
         Integer idIndex = 0, noIndex = 0;
-        List<String> questions = new ArrayList<String>();
 
         for (String lexicalEntiryUri : lexicalEntiryUris.keySet()) {
             String uri = null;
             List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lexicalEntiryUri);
             batchNumber = batchNumber + 1;
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + parameter + "~" + lexicalEntiryUri + "~" + "~" + questionsFile + ".csv";
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + parameter + "~" + lexicalEntiryUri + "~" + questionsFile + ".csv";
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
-                questions = grammarEntryUnit.getSentences();
+                List<String> questions = grammarEntryUnit.getSentences();
                 String sparql = grammarEntryUnit.getSparqlQuery();
                 String returnSubjOrObj = grammarEntryUnit.getReturnVariable();
                 String bindingType = grammarEntryUnit.getBindingType();
@@ -158,8 +151,6 @@ public class OffLineQuestionGeneration {
             }
             this.csvWriterQuestions.close();
         }
-        questions = new ArrayList<String>();
-
     }
 
     private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException {
@@ -192,7 +183,7 @@ public class OffLineQuestionGeneration {
             String answerLabel = uriLabel.getAnswerLabel();
             String sparql = AddQuote.modifySparql(sparqlQuery);
             index = index + 1;
-            System.out.println("questions::"+questions);
+            System.out.println("questions::" + questions);
 
             try {
                 {
@@ -231,7 +222,6 @@ public class OffLineQuestionGeneration {
         return rowIndex;
     }
 
-  
     private List<UriLabel> getOffLineBindingList(Map<String, OffLineResult> entityLabels, String returnType) {
         List<UriLabel> uriLabels = new ArrayList<UriLabel>();
 
@@ -250,8 +240,6 @@ public class OffLineQuestionGeneration {
 
         return uriLabels;
     }
-
-   
 
     private String getQuestion(String question, String questionLabel) {
         String questionT = question.replaceAll("(X)", questionLabel);
@@ -337,8 +325,8 @@ public class OffLineQuestionGeneration {
         return map;
     }
 
-    private Map<String, List<GrammarEntryUnit>>  findCoverage(List<File> protoSimpleQFiles) {
-         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
+    private Map<String, List<GrammarEntryUnit>> findCoverage(List<File> protoSimpleQFiles) {
+        Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntiryUris);
         JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "TransitiveFrame.json");
         this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + "TransitiveFrame" + "missedProperty.txt");
