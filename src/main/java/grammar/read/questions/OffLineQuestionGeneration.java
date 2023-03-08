@@ -162,12 +162,18 @@ public class OffLineQuestionGeneration {
         }
 
         for (UriLabel uriLabel : uriLabels) {
-            String questionUri = uriLabel.getUri(), questionLabel = uriLabel.getLabel();
+            String questionUri = null, questionLabel=null;
+            try {
+                questionUri = uriLabel.getUri();
+                questionLabel = uriLabel.getLabel();
+           
+                if (questionUri != null && !questionLabel.isEmpty()) {
+                    questionUri = questionUri.trim().strip().stripLeading().stripTrailing();
+                    questionLabel = uriLabel.getLabel().replaceAll("\'", "").replaceAll("\"", "");
 
-            if (questionUri != null && !questionLabel.isEmpty()) {
-                questionUri = questionUri.trim().strip().stripLeading().stripTrailing();
-                questionLabel = uriLabel.getLabel().replaceAll("\'", "").replaceAll("\"", "");
-
+                }
+            } catch (Exception ex) {
+                continue;
             }
 
             if (!AddQuote.isKbValid(uriLabel)) {

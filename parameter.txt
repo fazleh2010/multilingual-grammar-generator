@@ -1,0 +1,2 @@
+lexicon_1=rules-predict_l_for_s_given_p-5-5-5-0.02-0.02-0.09-10
+lexicon_2=rules-predict_localized_l_for_s_given_p-5-5-5-0.02-0.02-0.09-10
