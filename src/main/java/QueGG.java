@@ -281,7 +281,7 @@ public class QueGG {
             readAndWriteQuestions.onlineQaGeneration(protoToQuestions);
 
         } else{
-            OffLineQuestionGeneration offLineQuestionGeneration=new OffLineQuestionGeneration((inputCofiguration));
+            OffLineQuestionGeneration offLineQuestionGeneration=new OffLineQuestionGeneration(linkedData,inputCofiguration);
             offLineQuestionGeneration.offline(protoToQuestions);
         }
            
