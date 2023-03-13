@@ -407,7 +407,7 @@ public class EnglishCsv implements TempConstants {
                     past, writtenFormPast,
                     perfect, writtenFormPerfect
             );
-
+            System.out.println(verbTypes);
             String[] verbs = new String[]{writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect};
             GenderUtils.setVerbTypes(partOfSpeech, verbs, verbTypes);
         }

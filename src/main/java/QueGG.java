@@ -73,12 +73,12 @@ public class QueGG {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args1) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;  
         //this is for test..pull it bak when test is over.
-        //String[] args=new String[]{"conf/inputConf_lexicon_1_en.json","dataset/dbpedia_en.json"};
+        String[] args=new String[]{"conf/inputConf_lexicon_1_en.json","dataset/dbpedia_en.json"};
          Properties batch = new Properties();
 
        
@@ -220,7 +220,7 @@ public class QueGG {
         TutleConverter tutleConverter = null;
         FileFolderUtils.deleteFiles(inputDir, ".ttl");
 
-        try {
+        //try {
             if (language.equals(Language.DE)) {
                 tutleConverter = new GermanTurtle(inputDir,domainAndRangeDir, linkedData, language);
                 return tutleConverter.getConversionFlag();
@@ -234,10 +234,10 @@ public class QueGG {
                 tutleConverter = new ItalianTurtle(inputDir, domainAndRangeDir,linkedData, language);
                 return tutleConverter.getConversionFlag();
             }
-        } catch (Exception ex) {
+        /*} catch (Exception ex) {
             System.out.println("failed to geenrate turtle file from spreed sheet!!!\n"+ex.getMessage());
             return false;
-        }
+        }*/
         return false;
     }
 
@@ -314,12 +314,14 @@ public class QueGG {
         Map<Integer, List<Path>> parameterFiles=splitFiles(list,1000);
         for (Integer index : parameterFiles.keySet()) {
             List<Path> listT= parameterFiles.get(index);
+            if(listT.isEmpty())
+               continue; 
             LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase(), listT);
             printInputSummary(lemonModel);
             generateByFrameType(lang, lemonModel, outputDir,index);
             //test codes..
-            if(index>=4)
-                break;
+           /*if(index>=4)
+                break;*/
         }
 
     }

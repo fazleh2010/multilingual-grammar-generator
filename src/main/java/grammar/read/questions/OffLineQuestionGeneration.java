@@ -162,7 +162,7 @@ public class OffLineQuestionGeneration {
         }
     }
     
-      private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException {
+      private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException, Exception {
         Integer index = 0;
         String returnSubjOrObj = grammarEntryUnit.getReturnVariable();
         String syntacticFrame = grammarEntryUnit.getFrameType();

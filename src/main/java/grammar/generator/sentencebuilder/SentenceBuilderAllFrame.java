@@ -87,6 +87,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     @Override
     public List<String> generateFullSentencesForward(String bindingVariable, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         List<String> sentences = new ArrayList<String>();
+        
 
         if (this.frameType.equals(FrameType.NPP)) {
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
@@ -97,6 +98,8 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
              
 
         } else if (this.frameType.equals(FrameType.VP)) {
+            if(lexicalEntryUtil.getReferenceUri().contains("discover"))
+               System.out.println("referenceUri::"+lexicalEntryUtil.getReferenceUri());
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
             if (selectVariable.equals(SelectVariable.subjOfProp) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
@@ -107,7 +110,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                     language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate(), activeTransitive});
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
             this.setTemplate(this.templateFinder.getSelectedTemplate());
-            System.out.println(sentences);
+            //System.out.println(sentences);
             /*System.out.println("selectVariable:::"+selectVariable);
             System.out.println("oppositeSelectVariable::"+oppositeSelectVariable);
             System.out.println("this.templateFinder.getSelectedTemplate()::"+this.templateFinder.getSelectedTemplate());
@@ -143,7 +146,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         }
 
         //System.out.println("this.templateFinder.getSelectedTemplate()::"+this.templateFinder.getSelectedTemplate());
-        System.out.println("sentences::" + sentences);
+        //System.out.println("sentences::" + sentences);
+        if(sentences.isEmpty())
+           throw new QueGGMissingFactoryClassException("no grammar for the property::"+lexicalEntryUtil.getReferenceUri());
+        
 
         /*List<String> sentenceTemplates = getSentenceTemplateRepository().findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                 getLanguage(), new String[]{getFrameType().getName(), FORWARD});*/
@@ -434,7 +440,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             System.out.println(sentence);
         }
         //System.out.println(sentences);
-
+          
         return new ArrayList<String>(sentences);
     }
 

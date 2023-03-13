@@ -36,7 +36,12 @@ public class LexiconImporter {
           //  List<Path> list = filterFiles(paths);
           Integer index=0;
             for (Path file : list) {
-                 System.out.println("file!!" + file.toString());
+                 System.out.println("now process!!" + file.toString());
+                 if(file!=null){
+                     ;
+                 }
+                 else
+                     continue;
                  index=index+1;
                 try {
                     if (model == null) {

@@ -64,16 +64,20 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
-        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(domainAndRangeDir);
-        domainOrRange=domainRangeDictionary.getDomainOrRange();
-       
+        DomainRangeDictionary domainRangeDictionary = new DomainRangeDictionary(domainAndRangeDir);
+        domainOrRange = domainRangeDictionary.getDomainOrRange();
+
         for (String pathname : pathnames) {
+            if (pathname.contains("questions")||pathname.contains(".json")||pathname.contains("lexicon_")) {
+                continue;
+            }
+           
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
                 /*if(fileName.contains("DomainOrRange.csv")){
                     continue;
                 }*/
-                
+
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
@@ -84,13 +88,13 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {
-                    
+
                     if (index == 0) {
                         index = index + 1;
                         continue;
                     }
-                    if(row.length<2){
-                       throw new Exception("the format of CSV file is wrong!!!!");
+                    if (row.length < 2) {
+                        throw new Exception("the format of CSV file is wrong!!!!");
                     }
                     String key = row[0];
 

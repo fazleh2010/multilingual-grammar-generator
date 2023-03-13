@@ -88,6 +88,7 @@ public class English implements TempConstants, MultilingualBuilder {
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
+        
         //System.out.println("subjectUri::"+subjectUri+" objectUri::"+objectUri+ " referenceUri::"+referenceUri);
 
     }
