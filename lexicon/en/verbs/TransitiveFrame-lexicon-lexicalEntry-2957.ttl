@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-2957 ;
+  lemon:entry    :lexicalEntry-2957ed ;
+  lemon:entry    :form_lexicalEntry-2957_preposition .
+
+:to_lexicalEntry-2957 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-2957 ;
+  lemon:otherForm      :form_lexicalEntry-2957s ;
+  lemon:otherForm      :form_lexicalEntry-2957ed ;
+  lemon:otherForm      :form_lexicalEntry-2957perfect ;
+  lemon:sense          :lexicalEntry-2957_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-2957_frame_transitive .
+
+:form_lexicalEntry-2957 a         lemon:Form ;
+  lemon:writtenRep     "based"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-2957s a    lemon:Form ;
+  lemon:writtenRep "based"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-2957ed a   lemon:Form ;
+  lemon:writtenRep "based"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-2957perfect a   lemon:Form ;
+  lemon:writtenRep "based"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-2957_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-2957_subj ;
+  lexinfo:directObject     :lexicalEntry-2957_obj .
+
+:lexicalEntry-2957_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-2957_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/targetAirport> ;
+  lemon:subjOfProp  :lexicalEntry-2957_obj ;
+  lemon:objOfProp   :lexicalEntry-2957_subj ;
+  lemon:condition   :lexicalEntry-2957_sense_1_condition .
+
+
+:lexicalEntry-2957_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Airline> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Airport> .
+
+:lexicalEntry-2957ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-2957ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-2957ed_by ;
+  lemon:synBehavior    :lexicalEntry-2957ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-2957ed_ontomap .
+
+:form_lexicalEntry-2957ed_canonical a lemon:Form ;
+  lemon:writtenRep         "based"@en .
+
+:form_lexicalEntry-2957ed_by a    lemon:Form ;
+  lemon:writtenRep     "based"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-2957ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-2957ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-2957ed_obj .
+
+:lexicalEntry-2957ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-2957ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/targetAirport> ;
+  lemon:subjOfProp  :lexicalEntry-2957ed_subj ;
+  lemon:objOfProp   :lexicalEntry-2957ed_obj ;
+  lemon:condition   :lexicalEntry-2957_sense_1_condition .
+:lexicalEntry-2957ed_obj lemon:marker :form_lexicalEntry-2957_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-2957_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

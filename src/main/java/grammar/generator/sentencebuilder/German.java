@@ -43,7 +43,6 @@ import net.lexinfo.LexInfo;
 import org.apache.commons.lang3.StringUtils;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.GenderUtils;
-import static util.io.GenderUtils.nounWrittenForms;
 import util.io.ParamterFinder;
 import util.io.PronounFinder;
 import util.io.StringMatcher;
@@ -237,19 +236,18 @@ public class German implements TempConstants,MultilingualBuilder {
             SubjectType subjectType = isInterrogativeDeterminer(attribute).second;
             if (reference.contains(colon)) {
                 String[] col = reference.split(colon);
-               
                 if (col.length == 2) {
                     word = this.getDeteminerToken(subjectType, col[0], col[1]);
                 } else if (col.length == 3) {
                     try {
                         word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
-                         System.out.println("subjectType::"+subjectType+" "+col[0]+" "+col[1]+" "+col[2]+" "+word);
                     } catch (Exception ex) {
                         Logger.getLogger(German.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            
+
             }
+
         } else if (flagReference && interrogativePlace(attribute).first) {
             SubjectType subjectType = interrogativePlace(attribute).second;
             if (reference.contains(colon)) {
@@ -291,8 +289,6 @@ public class German implements TempConstants,MultilingualBuilder {
                     String second = col[1];
                     String article = this.getArticleFromUri(second);
                     word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil,first, gender, article);
-                    //System.out.println("first:"+first+" "+"second::"+second+" article:"+article);
-                    //System.out.println("word:"+word);
                 } else if (col.length == 3) {
                     String baseReference = col[0];
                     String article = this.getArticleFromUri(col[1]);
@@ -303,7 +299,7 @@ public class German implements TempConstants,MultilingualBuilder {
             } else {
                 word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil,reference);
             }
-               
+
         } else if (flagReference && (attribute.equals(determiner) && reference.contains(subject))) {
             String numberType = singular;
             String domainOrRange = domain;
@@ -430,33 +426,26 @@ public class German implements TempConstants,MultilingualBuilder {
         }
         
          if(givenCase.contains("nominativeCase")&&number.contains(singular))
-            questionWord="welcher";
-         else if(givenCase.contains("nominativeCase")&&number.contains(plural))
             questionWord="welche";
          
          
-         
-       /* System.out.println();
+        System.out.println();
         System.out.println("subjectType.name()::" + subjectType.name());
         System.out.println("givenCase::" + givenCase);
         System.out.println("domainOrRange::" + domainOrRange);
         System.out.println("noun::" + noun);
         System.out.println("number::" + number);
         System.out.println("questionWord " + questionWord + " " + noun);
-        System.out.println("subjectUri " + this.subjectUri);
-         System.out.println("artile " + GenderUtils.referenceArticleMap.keySet());
-        exit(1);*/
+      
 
         return questionWord + " " + noun;
 
     }
 
     private String getConditionLabelManually(String domainOrRange, String numberType) {
-        /*System.out.println("domainOrRange::"+domainOrRange);
+        System.out.println("domainOrRange::"+domainOrRange);
         System.out.println("subjectUri::"+subjectUri);
         System.out.println("objectUri::"+objectUri);
-        System.out.println("nounWrittenForms::"+nounWrittenForms.keySet());*/
-
 
         if (domainOrRange.contains(domain) && numberType.contains(singular)) {
             return GenderUtils.getWrittenFormSingular(this.subjectUri);
@@ -596,9 +585,10 @@ public class German implements TempConstants,MultilingualBuilder {
         String word = "XX";
         if (!flagReference) {
             reference = this.lexicalEntryUtil.getPrepositionReference();
-             //System.out.println("reference::"+reference);
+             System.out.println("reference::"+reference);
+            
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);
-             //System.out.println("word::"+word);
+             System.out.println("word::"+word);
         } else if (flagReference) {
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);
 

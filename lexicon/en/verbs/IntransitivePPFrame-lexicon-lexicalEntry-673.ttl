@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-673 ;
+  lemon:entry    :form_lexicalEntry-673_preposition .
+
+:lexicalEntry-673 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-673 ;
+  lemon:otherForm      :form_lexicalEntry-673_past ;
+  lemon:sense          :lexicalEntry-673_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-673_frame .
+
+:form_lexicalEntry-673 a           lemon:Form ;
+  lemon:writtenRep     "it discovered"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-673 a      lemon:Form ;
+  lemon:writtenRep "it discovered"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-673_past a lemon:Form ;
+  lemon:writtenRep  "it discovered"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-673perfect a   lemon:Form ;
+  lemon:writtenRep "it discovered"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-673_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-673_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-673_obj .
+
+:lexicalEntry-673_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-673_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/discoverer> ;
+  lemon:subjOfProp  :lexicalEntry-673_obj ;
+  lemon:objOfProp   :lexicalEntry-673_subj ;
+  lemon:condition   :lexicalEntry-673_sense_1_condition .
+
+:lexicalEntry-673_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Planet> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:lexicalEntry-673_obj lemon:marker :form_lexicalEntry-673_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-673_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

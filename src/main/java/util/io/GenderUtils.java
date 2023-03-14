@@ -10,6 +10,7 @@ import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.sparql.SelectVariable;
 import static grammar.sparql.SelectVariable.reference;
 import grammar.structure.component.Language;
+import static java.lang.System.exit;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -47,13 +48,6 @@ public class GenderUtils implements TempConstants {
 
     public static void setArticles(String uri, String artile) {
         referenceArticleMap.put(uri, new String[]{artile});
-        /*for(String key:referenceArticleMap.keySet()){
-             System.out.println("key::"+key);
-             for(String value: referenceArticleMap.get(key)){
-                  System.out.print("value:"+value+ " ");
-             }
-              System.out.println();
-        }*/
     }
 
     public static void setVerbTypes(String partOfSpeech, String[] verbs, Map<String, String> verbTypes) {
@@ -76,12 +70,8 @@ public class GenderUtils implements TempConstants {
         if (referenceArticleMap.containsKey(domain)) {
             article = referenceArticleMap.get(domain)[0];
         }
-        /*System.out.println("domain::"+domain+" "+article+" "+referenceArticleMap.keySet());
-        for(String value: referenceArticleMap.get(domain)){
-                  System.out.print("value:"+value+ " ");
-             }
-              System.out.println();
-        */
+        System.out.println("domain::"+domain+" "+article+" "+referenceArticleMap.containsKey(domain));
+
         return article;
     }
 
@@ -91,7 +81,6 @@ public class GenderUtils implements TempConstants {
         if (nounWrittenForms.containsKey(uri)) {
             result = nounWrittenForms.get(uri)[0];
         }
-
         return result;
     }
 
@@ -145,6 +134,8 @@ public class GenderUtils implements TempConstants {
         } else if (domainOrRange.contains(range) && numberType.contains(plural)) {
             word = getWrittenFormPlural(objectUri);
         }
+        
+        
 
         return word;
     }

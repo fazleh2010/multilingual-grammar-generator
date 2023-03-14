@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-3007","verb","serve","serves","served","served","TransitiveFrame","range","domain","1","dbo:vicePresident","dbo:Politician","dbo:Politician","by","0.278147168995527","dbo:vicePresident","1-gram"
+"lexicalEntry-3008","verb","serve","serves","served","served","TransitiveFrame","domain","range","1","dbo:vicePresident","dbo:Politician","dbo:Politician","by","0.278147168995527","dbo:vicePresident","1-gram"
+"lexicalEntry-3009","verb","served as","served as","served as","served as","TransitiveFrame","range","domain","1","dbo:vicePresident","dbo:Politician","dbo:Politician","by","0.255268449786045","dbo:vicePresident","2-gram"
+"lexicalEntry-3010","verb","served as","served as","served as","served as","TransitiveFrame","domain","range","1","dbo:vicePresident","dbo:Politician","dbo:Politician","by","0.255268449786045","dbo:vicePresident","2-gram"

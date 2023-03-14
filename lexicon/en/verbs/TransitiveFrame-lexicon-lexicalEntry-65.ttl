@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-65 ;
+  lemon:entry    :lexicalEntry-65ed ;
+  lemon:entry    :form_lexicalEntry-65_preposition .
+
+:to_lexicalEntry-65 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-65 ;
+  lemon:otherForm      :form_lexicalEntry-65s ;
+  lemon:otherForm      :form_lexicalEntry-65ed ;
+  lemon:otherForm      :form_lexicalEntry-65perfect ;
+  lemon:sense          :lexicalEntry-65_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-65_frame_transitive .
+
+:form_lexicalEntry-65 a         lemon:Form ;
+  lemon:writtenRep     "ruled"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-65s a    lemon:Form ;
+  lemon:writtenRep "ruled"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-65ed a   lemon:Form ;
+  lemon:writtenRep "ruled"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-65perfect a   lemon:Form ;
+  lemon:writtenRep "ruled"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-65_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-65_subj ;
+  lexinfo:directObject     :lexicalEntry-65_obj .
+
+:lexicalEntry-65_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-65_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/capital> ;
+  lemon:subjOfProp  :lexicalEntry-65_obj ;
+  lemon:objOfProp   :lexicalEntry-65_subj ;
+  lemon:condition   :lexicalEntry-65_sense_1_condition .
+
+
+:lexicalEntry-65_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/City> .
+
+:lexicalEntry-65ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-65ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-65ed_by ;
+  lemon:synBehavior    :lexicalEntry-65ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-65ed_ontomap .
+
+:form_lexicalEntry-65ed_canonical a lemon:Form ;
+  lemon:writtenRep         "ruled"@en .
+
+:form_lexicalEntry-65ed_by a    lemon:Form ;
+  lemon:writtenRep     "ruled"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-65ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-65ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-65ed_obj .
+
+:lexicalEntry-65ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-65ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/capital> ;
+  lemon:subjOfProp  :lexicalEntry-65ed_subj ;
+  lemon:objOfProp   :lexicalEntry-65ed_obj ;
+  lemon:condition   :lexicalEntry-65_sense_1_condition .
+:lexicalEntry-65ed_obj lemon:marker :form_lexicalEntry-65_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-65_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

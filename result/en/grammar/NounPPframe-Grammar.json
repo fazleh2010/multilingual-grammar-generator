@@ -1,0 +1,3081 @@
+{
+  "grammarEntries" : [ {
+    "id" : 1,
+    "Entry" : "associate_with_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Band_NP) ?", "which band does ($x | Band_NP) associate with?", "which bands does ($x | Band_NP) associate with?", "with which band does ($x | Band_NP) associate?", "with which band is ($x | Band_NP) ?", "with which bands  ($x | Band_NP) associate?", "with which bands are ($x | Band_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/associatedBand> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What associated with ($x | Band_NP)?", "What does ($x | Band_NP) associate with?", "Where does ($x | Band_NP) associate?", "which band associated with ($x | Band_NP)?", "which bands associate with ($x | Band_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/associatedBand> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 2,
+    "Entry" : "associate_with_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Band_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/associatedMusicalArtist> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What associated with ($x | MusicalArtist_NP)?", "What does ($x | MusicalArtist_NP) associate with?", "Where does ($x | MusicalArtist_NP) associate?", "which band associated with ($x | MusicalArtist_NP)?", "which bands associate with ($x | MusicalArtist_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/associatedMusicalArtist> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 3,
+    "Entry" : "associate_with_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Artist_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/movement> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Thing_NP) associate?", "Who associated with ($x | Thing_NP)?", "Who does ($x | Thing_NP) associate with?", "which artist associated with ($x | Thing_NP)?", "which artists associate with ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/movement> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 4,
+    "Entry" : "be_from",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Agent_NP) ?", "from which settlement does ($x | Agent_NP) be?", "from which settlement is ($x | Agent_NP) ?", "from which settlements  ($x | Agent_NP) be?", "from which settlements are ($x | Agent_NP) ?", "which settlement does ($x | Agent_NP) be from?", "which settlements does ($x | Agent_NP) be from?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/hometown> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Settlement_NP) be?", "Who does ($x | Settlement_NP) be from?", "Who is from ($x | Settlement_NP)?", "Who was from ($x | Settlement_NP)?", "which agent is from ($x | Settlement_NP)?", "which agents be from ($x | Settlement_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/hometown> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 5,
+    "Entry" : "begin_at_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ?", "at which countries  ($x | River_NP) begin?", "at which countries are ($x | River_NP) ?", "at which country does ($x | River_NP) begin?", "at which country is ($x | River_NP) ?", "which countries does ($x | River_NP) begin at?", "which country does ($x | River_NP) begin at?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/source1Location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What began at ($x | Country_NP)?", "What begins at ($x | Country_NP)?", "What does ($x | Country_NP) begin at?", "Where does ($x | Country_NP) begin?", "which river begins at ($x | Country_NP)?", "which rivers begin at ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/source1Location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 6,
+    "Entry" : "begin_at_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ?", "at which cities  ($x | River_NP) begin?", "at which cities are ($x | River_NP) ?", "at which city does ($x | River_NP) begin?", "at which city is ($x | River_NP) ?", "which cities does ($x | River_NP) begin at?", "which city does ($x | River_NP) begin at?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/source2Location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What began at ($x | City_NP)?", "What begins at ($x | City_NP)?", "What does ($x | City_NP) begin at?", "Where does ($x | City_NP) begin?", "which river begins at ($x | City_NP)?", "which rivers begin at ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/source2Location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 7,
+    "Entry" : "belong_to_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Song_NP) ?", "to which album does ($x | Song_NP) belong?", "to which album is ($x | Song_NP) ?", "to which albums  ($x | Song_NP) belong?", "to which albums are ($x | Song_NP) ?", "which album does ($x | Song_NP) belong to?", "which albums does ($x | Song_NP) belong to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/album> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Album_NP)?", "What belongs to ($x | Album_NP)?", "What does ($x | Album_NP) belong to?", "Where does ($x | Album_NP) belong?", "which song belongs to ($x | Album_NP)?", "which songs belong to ($x | Album_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/album> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?", "to which politicalParties  ($x | Person_NP) belong?", "to which politicalParties are ($x | Person_NP) ?", "to which politicalParty does ($x | Person_NP) belong?", "to which politicalParty is ($x | Person_NP) ?", "which politicalParties does ($x | Person_NP) belong to?", "which politicalParty does ($x | Person_NP) belong to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/party> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "Where does ($x | PoliticalParty_NP) belong?", "Who belonged to ($x | PoliticalParty_NP)?", "Who belongs to ($x | PoliticalParty_NP)?", "Who does ($x | PoliticalParty_NP) belong to?", "which person belongs to ($x | PoliticalParty_NP)?", "which persons belong to ($x | PoliticalParty_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/party> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 8,
+    "Entry" : "belong_to_10",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?", "to which band does ($x | Person_NP) belong?", "to which band is ($x | Person_NP) ?", "to which bands  ($x | Person_NP) belong?", "to which bands are ($x | Person_NP) ?", "which band does ($x | Person_NP) belong to?", "which bands does ($x | Person_NP) belong to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/bandMember> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Band_NP) belong?", "Who belonged to ($x | Band_NP)?", "Who belongs to ($x | Band_NP)?", "Who does ($x | Band_NP) belong to?", "which person belongs to ($x | Band_NP)?", "which persons belong to ($x | Band_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/bandMember> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 9,
+    "Entry" : "belong_to_11",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Software_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Genre_NP)?", "What belongs to ($x | Genre_NP)?", "What does ($x | Genre_NP) belong to?", "Where does ($x | Genre_NP) belong?", "which software belongs to ($x | Genre_NP)?", "which softwares belong to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 10,
+    "Entry" : "belong_to_12",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Software_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/series> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Thing_NP)?", "What belongs to ($x | Thing_NP)?", "What does ($x | Thing_NP) belong to?", "Where does ($x | Thing_NP) belong?", "which software belongs to ($x | Thing_NP)?", "which softwares belong to ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/series> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 11,
+    "Entry" : "belong_to_13",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Artist_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Genre_NP) belong?", "Who belonged to ($x | Genre_NP)?", "Who belongs to ($x | Genre_NP)?", "Who does ($x | Genre_NP) belong to?", "which artist belongs to ($x | Genre_NP)?", "which artists belong to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 12,
+    "Entry" : "belong_to_14",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/team> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | SportsTeam_NP) belong?", "Who belonged to ($x | SportsTeam_NP)?", "Who belongs to ($x | SportsTeam_NP)?", "Who does ($x | SportsTeam_NP) belong to?", "which person belongs to ($x | SportsTeam_NP)?", "which persons belong to ($x | SportsTeam_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/team> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 13,
+    "Entry" : "belong_to_15",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Settlement_NP) ?", "to which place does ($x | Settlement_NP) belong?", "to which place is ($x | Settlement_NP) ?", "to which places  ($x | Settlement_NP) belong?", "to which places are ($x | Settlement_NP) ?", "which place does ($x | Settlement_NP) belong to?", "which places does ($x | Settlement_NP) belong to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/subdivision> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Place_NP)?", "What belongs to ($x | Place_NP)?", "What does ($x | Place_NP) belong to?", "Where does ($x | Place_NP) belong?", "which settlement belongs to ($x | Place_NP)?", "which settlements belong to ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/subdivision> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 14,
+    "Entry" : "belong_to_17",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/architecturalStyle> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Thing_NP)?", "What belongs to ($x | Thing_NP)?", "What does ($x | Thing_NP) belong to?", "Where does ($x | Thing_NP) belong?", "which ArchitecturalStructure belongs to ($x | Thing_NP)?", "which ArchitecturalStructures belong to ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/architecturalStyle> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 15,
+    "Entry" : "belong_to_18",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Athlete_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formerTeam> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | SportsTeam_NP) belong?", "Who belonged to ($x | SportsTeam_NP)?", "Who belongs to ($x | SportsTeam_NP)?", "Who does ($x | SportsTeam_NP) belong to?", "which athlete belong to ($x | SportsTeam_NP)?", "which athlete belongs to ($x | SportsTeam_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formerTeam> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 16,
+    "Entry" : "belong_to_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Album_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/genre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Genre_NP)?", "What belongs to ($x | Genre_NP)?", "What does ($x | Genre_NP) belong to?", "Where does ($x | Genre_NP) belong?", "which album belongs to ($x | Genre_NP)?", "which albums belong to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/genre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 17,
+    "Entry" : "belong_to_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Film_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Genre_NP)?", "What belongs to ($x | Genre_NP)?", "What does ($x | Genre_NP) belong to?", "Where does ($x | Genre_NP) belong?", "which film belong to ($x | Genre_NP)?", "which film belongs to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 18,
+    "Entry" : "belong_to_6",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Agent_NP) ?", "to which politicalParties  ($x | Agent_NP) belong?", "to which politicalParties are ($x | Agent_NP) ?", "to which politicalParty does ($x | Agent_NP) belong?", "to which politicalParty is ($x | Agent_NP) ?", "which politicalParties does ($x | Agent_NP) belong to?", "which politicalParty does ($x | Agent_NP) belong to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/party> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | PoliticalParty_NP) belong?", "Who belonged to ($x | PoliticalParty_NP)?", "Who belongs to ($x | PoliticalParty_NP)?", "Who does ($x | PoliticalParty_NP) belong to?", "which agent belongs to ($x | PoliticalParty_NP)?", "which agents belong to ($x | PoliticalParty_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/party> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 19,
+    "Entry" : "belong_to_7",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | WrittenWork_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/literaryGenre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Genre_NP)?", "What belongs to ($x | Genre_NP)?", "What does ($x | Genre_NP) belong to?", "Where does ($x | Genre_NP) belong?", "which written work belong to ($x | Genre_NP)?", "which written work belongs to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/literaryGenre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 20,
+    "Entry" : "belong_to_8",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Mountain_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mountainRange> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | MountainRange_NP)?", "What belongs to ($x | MountainRange_NP)?", "What does ($x | MountainRange_NP) belong to?", "Where does ($x | MountainRange_NP) belong?", "which countries belong to ($x | MountainRange_NP)?", "which country belongs to ($x | MountainRange_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mountainRange> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 21,
+    "Entry" : "belong_to_9",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Band_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What belonged to ($x | Genre_NP)?", "What belongs to ($x | Genre_NP)?", "What does ($x | Genre_NP) belong to?", "Where does ($x | Genre_NP) belong?", "which band belongs to ($x | Genre_NP)?", "which bands belong to ($x | Genre_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/genre> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 22,
+    "Entry" : "border_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | State_NP) ?", "in which state does ($x | State_NP) border?", "in which state is ($x | State_NP) ?", "in which states  ($x | State_NP) border?", "in which states are ($x | State_NP) ?", "which state does ($x | State_NP) border in?", "which states does ($x | State_NP) border in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/borderingstates> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What bordered in ($x | State_NP)?", "What borders in ($x | State_NP)?", "What does ($x | State_NP) border in?", "Where does ($x | State_NP) border?", "which state borders in ($x | State_NP)?", "which states border in ($x | State_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/borderingstates> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 23,
+    "Entry" : "born_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Person_NP) born?", "When was ($x | Person_NP) born?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | date_NP)?", "which person was born in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 24,
+    "Entry" : "born_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) born?", "Where was ($x | Person_NP) born?", "in which place did ($x | Person_NP) born?", "which place does ($x | Person_NP) born in?", "which place was ($x | Person_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | Place_NP)?", "which person was born in ($x | Place_NP)?", "which persons were born in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 25,
+    "Entry" : "born_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) born?", "Where was ($x | Person_NP) born?", "in which city did ($x | Person_NP) born?", "which city does ($x | Person_NP) born in?", "which city was ($x | Person_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | City_NP)?", "which person was born in ($x | City_NP)?", "which persons were born in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 26,
+    "Entry" : "born_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) born?", "Where was ($x | Person_NP) born?", "in which country did ($x | Person_NP) born?", "which country does ($x | Person_NP) born in?", "which country was ($x | Person_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | Country_NP)?", "which person was born in ($x | Country_NP)?", "which persons were born in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 27,
+    "Entry" : "born_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Actor_NP) born?", "Where was ($x | Actor_NP) born?", "in which country did ($x | Actor_NP) born?", "which country does ($x | Actor_NP) born in?", "which country was ($x | Actor_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | Country_NP)?", "which actor was born in ($x | Country_NP)?", "which actors were born in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 28,
+    "Entry" : "born_in_6",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Actor_NP) born?", "Where was ($x | Actor_NP) born?", "in which country did ($x | Actor_NP) born?", "which country does ($x | Actor_NP) born in?", "which country was ($x | Actor_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born in ($x | Country_NP)?", "which actor was born in ($x | Country_NP)?", "which actors were born in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 29,
+    "Entry" : "born_in_7",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Thing_NP) born?", "in which countries are ($x | Thing_NP) born?", "in which country are the ($x | Thing_NP)?", "in which country is ($x | Thing_NP) born?", "in which country is the ($x | Thing_NP)?", "what country is ($x | Thing_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What born in ($x | Country_NP)?", "What does ($x | Country_NP) born in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 30,
+    "Entry" : "born_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Person_NP) born?", "When was ($x | Person_NP) born?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was born on ($x | date_NP)?", "which person was born on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 31,
+    "Entry" : "build_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) build?", "When was ($x | ArchitecturalStructure_NP) built?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What built in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 32,
+    "Entry" : "build_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Bridge_NP) build?", "When was ($x | Bridge_NP) built?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What built in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 33,
+    "Entry" : "build_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Building_NP) build?", "When was ($x | Building_NP) built?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What built in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingStartDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 34,
+    "Entry" : "bury_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?", "Where was ($x | Person_NP) ?", "in which city did ($x | Person_NP) bury?", "which city does ($x | Person_NP) bury in?", "which city was ($x | Person_NP) bury in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/restingPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | City_NP)?", "which person was  in ($x | City_NP)?", "which persons were  in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/restingPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 35,
+    "Entry" : "bury_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?", "Where was ($x | Person_NP) ?", "in which city did ($x | Person_NP) bury?", "which city does ($x | Person_NP) bury in?", "which city was ($x | Person_NP) bury in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/burialPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | City_NP)?", "which person was  in ($x | City_NP)?", "which persons were  in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/burialPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 36,
+    "Entry" : "call_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "What did ($x | Person_NP) call ?", "What does ($x | Person_NP) call ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/nickname> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who is called  ($x | Thing_NP)?", "Who was called  ($x | Thing_NP)?", "which person is called  ($x | Thing_NP)?", "which person was called  ($x | Thing_NP)?", "which persons are called  ($x | Thing_NP)?", "which persons were called  ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/nickname> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 37,
+    "Entry" : "come_from",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) come?", "Where was ($x | Person_NP) come?", "from which country did ($x | Person_NP) come?", "which country does ($x | Person_NP) come from?", "which country was ($x | Person_NP) come from?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/nationality> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was come from ($x | Country_NP)?", "which person was come from ($x | Country_NP)?", "which persons were come from ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/nationality> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 38,
+    "Entry" : "commence_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | MilitaryConflict_NP) commence?", "When was ($x | MilitaryConflict_NP) commenced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/date> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What commenced on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/date> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 39,
+    "Entry" : "commence_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Event_NP) commence?", "When was ($x | Event_NP) commenced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/date> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What commenced on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/date> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 40,
+    "Entry" : "complete_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Ship_NP) complete?", "When was ($x | Ship_NP) completed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/completionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What completed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/completionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 41,
+    "Entry" : "complete_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) complete?", "When was ($x | ArchitecturalStructure_NP) completed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What completed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 42,
+    "Entry" : "complete_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Work_NP) complete?", "When was ($x | Work_NP) completed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/completionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What completed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/completionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 43,
+    "Entry" : "complete_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Bridge_NP) complete?", "When was ($x | Bridge_NP) completed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What completed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 44,
+    "Entry" : "complete_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Building_NP) complete?", "When was ($x | Building_NP) completed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What completed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/buildingEndDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 45,
+    "Entry" : "compose_for_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/musicComposer> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/musicComposer> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 46,
+    "Entry" : "compose_for_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Work_NP) ?", "for which person does ($x | Work_NP) compose?", "for which person is ($x | Work_NP) ?", "for which persons  ($x | Work_NP) compose?", "for which persons are ($x | Work_NP) ?", "which person does ($x | Work_NP) compose for?", "which persons does ($x | Work_NP) compose for?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/composer> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What composed for ($x | Person_NP)?", "What composes for ($x | Person_NP)?", "What does ($x | Person_NP) compose for?", "Where does ($x | Person_NP) compose?", "which work composes for ($x | Person_NP)?", "which works compose for ($x | Person_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/composer> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 47,
+    "Entry" : "compose_for_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Work_NP) ?", "for which person does ($x | Work_NP) compose?", "for which person is ($x | Work_NP) ?", "for which persons  ($x | Work_NP) compose?", "for which persons are ($x | Work_NP) ?", "which person does ($x | Work_NP) compose for?", "which persons does ($x | Work_NP) compose for?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/music> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What composed for ($x | Person_NP)?", "What composes for ($x | Person_NP)?", "What does ($x | Person_NP) compose for?", "Where does ($x | Person_NP) compose?", "which work composes for ($x | Person_NP)?", "which works compose for ($x | Person_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/music> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 48,
+    "Entry" : "currently_use_for_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/currentlyUsedFor> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What currently used for ($x | Thing_NP)?", "What currently uses for ($x | Thing_NP)?", "What does ($x | Thing_NP) currently use for?", "Where does ($x | Thing_NP) currently use?", "which ArchitecturalStructure currently uses for ($x | Thing_NP)?", "which ArchitecturalStructures currently use for ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/currentlyUsedFor> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 49,
+    "Entry" : "destroy_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) destroy?", "When was ($x | ArchitecturalStructure_NP) destroys?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/demolitionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What destroys in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/demolitionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 50,
+    "Entry" : "destroy_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) destroy?", "When was ($x | ArchitecturalStructure_NP) destroys?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/demolitionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What destroys on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/demolitionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 51,
+    "Entry" : "die_from_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "What did ($x | Person_NP) die from?", "What does ($x | Person_NP) die from?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who is  from ($x | Thing_NP)?", "Who was  from ($x | Thing_NP)?", "which person is  from ($x | Thing_NP)?", "which person was  from ($x | Thing_NP)?", "which persons are  from ($x | Thing_NP)?", "which persons were  from ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "What did ($x | Person_NP) die from?", "What does ($x | Person_NP) die from?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "Who is  from ($x | Thing_NP)?", "Who was  from ($x | Thing_NP)?", "which person is  from ($x | Thing_NP)?", "which person was  from ($x | Thing_NP)?", "which persons are  from ($x | Thing_NP)?", "which persons were  from ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 52,
+    "Entry" : "die_from_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/deathCause> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Disease_NP) die?", "Who died from ($x | Disease_NP)?", "Who dies from ($x | Disease_NP)?", "Who does ($x | Disease_NP) die from?", "which person dies from ($x | Disease_NP)?", "which persons die from ($x | Disease_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/deathCause> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 53,
+    "Entry" : "die_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Person_NP) die?", "When was ($x | Person_NP) died?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | date_NP)?", "which person was  in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 54,
+    "Entry" : "die_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Writer_NP) ?", "Where was ($x | Writer_NP) ?", "in which place did ($x | Writer_NP) die?", "which place does ($x | Writer_NP) die in?", "which place was ($x | Writer_NP) die in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | Place_NP)?", "which writer was  in ($x | Place_NP)?", "which writers were  in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 55,
+    "Entry" : "die_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Politician_NP) ?", "Where was ($x | Politician_NP) ?", "in which place did ($x | Politician_NP) die?", "which place does ($x | Politician_NP) die in?", "which place was ($x | Politician_NP) die in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | Place_NP)?", "which politician was  in ($x | Place_NP)?", "which politicians were  in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 56,
+    "Entry" : "die_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Writer_NP) ?", "Where was ($x | Writer_NP) ?", "in which city did ($x | Writer_NP) die?", "which city does ($x | Writer_NP) die in?", "which city was ($x | Writer_NP) die in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | City_NP)?", "which writer was  in ($x | City_NP)?", "which writers were  in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 57,
+    "Entry" : "die_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Politician_NP) ?", "Where was ($x | Politician_NP) ?", "in which city did ($x | Politician_NP) die?", "which city does ($x | Politician_NP) die in?", "which city was ($x | Politician_NP) die in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | City_NP)?", "which politician was  in ($x | City_NP)?", "which politicians were  in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 58,
+    "Entry" : "die_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Person_NP) die?", "When was ($x | Person_NP) died?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  on ($x | date_NP)?", "which person was  on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/deathDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 59,
+    "Entry" : "discontinue_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Beverage_NP) discontinue?", "When was ($x | Beverage_NP) discontinued?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/discontinued> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What discontinued in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/discontinued> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 60,
+    "Entry" : "discontinue_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Beverage_NP) discontinue?", "When was ($x | Beverage_NP) discontinued?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/discontinued> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What discontinued on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/discontinued> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 61,
+    "Entry" : "dissolve_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Place_NP) dissolve?", "When was ($x | Place_NP) dissolved?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/dissolutionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What dissolved on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/dissolutionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 62,
+    "Entry" : "draft_in",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | AmericanFootballPlayer_NP) draft?", "When was ($x | AmericanFootballPlayer_NP) drafted?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/draftYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | date_NP)?", "which american football player was  in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/draftYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 63,
+    "Entry" : "end_career_on",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Athlete_NP) end his active career?", "When was ($x | Athlete_NP) ended his active career?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was ended his active career on ($x | date_NP)?", "which athlete was ended his active career on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 64,
+    "Entry" : "end_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ended?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | PopulatedPlace_NP) end in?", "What ended in ($x | PopulatedPlace_NP)?", "What ends in ($x | PopulatedPlace_NP)?", "Where does ($x | PopulatedPlace_NP) end?", "which river ends in ($x | PopulatedPlace_NP)?", "which rivers end in ($x | PopulatedPlace_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | Road_NP) ended?", "in which cities  ($x | Road_NP) end?", "in which cities are ($x | Road_NP) ended?", "in which city does ($x | Road_NP) end?", "in which city is ($x | Road_NP) ended?", "which cities does ($x | Road_NP) end in?", "which city does ($x | Road_NP) end in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | City_NP) end in?", "What ended in ($x | City_NP)?", "What ends in ($x | City_NP)?", "Where does ($x | City_NP) end?", "which road ends in ($x | City_NP)?", "which roads end in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 65,
+    "Entry" : "end_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ended?", "in which countries  ($x | River_NP) end?", "in which countries are ($x | River_NP) ended?", "in which country does ($x | River_NP) end?", "in which country is ($x | River_NP) ended?", "which countries does ($x | River_NP) end in?", "which country does ($x | River_NP) end in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthCountry> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) end in?", "What ended in ($x | Country_NP)?", "What ends in ($x | Country_NP)?", "Where does ($x | Country_NP) end?", "which river ends in ($x | Country_NP)?", "which rivers end in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthCountry> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ended?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Location_NP) end in?", "What ended in ($x | Location_NP)?", "What ends in ($x | Location_NP)?", "Where does ($x | Location_NP) end?", "which ArchitecturalStructure ends in ($x | Location_NP)?", "which ArchitecturalStructures end in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 66,
+    "Entry" : "end_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Infrastructure_NP) ended?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Location_NP) end in?", "What ended in ($x | Location_NP)?", "What ends in ($x | Location_NP)?", "Where does ($x | Location_NP) end?", "which infrastructure ends in ($x | Location_NP)?", "which infrastructures end in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 67,
+    "Entry" : "end_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | RouteOfTransportation_NP) ended?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Location_NP) end in?", "What ended in ($x | Location_NP)?", "What ends in ($x | Location_NP)?", "Where does ($x | Location_NP) end?", "which route of transportation ends in ($x | Location_NP)?", "which routes of transportation end in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 68,
+    "Entry" : "end_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ended?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | PopulatedPlace_NP) end in?", "What ended in ($x | PopulatedPlace_NP)?", "What ends in ($x | PopulatedPlace_NP)?", "Where does ($x | PopulatedPlace_NP) end?", "which river ends in ($x | PopulatedPlace_NP)?", "which rivers end in ($x | PopulatedPlace_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 69,
+    "Entry" : "end_in_6",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ended?", "in which countries  ($x | River_NP) end?", "in which countries are ($x | River_NP) ended?", "in which country does ($x | River_NP) end?", "in which country is ($x | River_NP) ended?", "which countries does ($x | River_NP) end in?", "which country does ($x | River_NP) end in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthCountry> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) end in?", "What ended in ($x | Country_NP)?", "What ends in ($x | Country_NP)?", "Where does ($x | Country_NP) end?", "which river ends in ($x | Country_NP)?", "which rivers end in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/mouthCountry> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 70,
+    "Entry" : "establish_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Thing_NP) establish?", "When was ($x | Thing_NP) established?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/firstPublicationYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What established in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/firstPublicationYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 71,
+    "Entry" : "fight_in",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | MilitaryConflict_NP) fight?", "When was ($x | MilitaryConflict_NP) fought?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/date> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What fought in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/date> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 72,
+    "Entry" : "fight_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | MilitaryConflict_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/combatant> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Thing_NP) fight in?", "What fights in ($x | Thing_NP)?", "What fought in ($x | Thing_NP)?", "Where does ($x | Thing_NP) fight?", "which military conflict fights in ($x | Thing_NP)?", "which military conflicts fight in ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/combatant> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 73,
+    "Entry" : "flow_into",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) flown?", "into which river does ($x | River_NP) flow?", "into which river is ($x | River_NP) flown?", "into which rivers  ($x | River_NP) flow?", "into which rivers are ($x | River_NP) flown?", "which river does ($x | River_NP) flow into?", "which rivers does ($x | River_NP) flow into?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | River_NP) flow into?", "What flowed into ($x | River_NP)?", "What flows into ($x | River_NP)?", "Where does ($x | River_NP) flow?", "which river flows into ($x | River_NP)?", "which rivers flow into ($x | River_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 74,
+    "Entry" : "flow_into_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) flown?", "into which river does ($x | River_NP) flow?", "into which river is ($x | River_NP) flown?", "into which rivers  ($x | River_NP) flow?", "into which rivers are ($x | River_NP) flown?", "which river does ($x | River_NP) flow into?", "which rivers does ($x | River_NP) flow into?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | River_NP) flow into?", "What flowed into ($x | River_NP)?", "What flows into ($x | River_NP)?", "Where does ($x | River_NP) flow?", "which river flows into ($x | River_NP)?", "which rivers flow into ($x | River_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 75,
+    "Entry" : "flow_into_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | BodyOfWater_NP) flown?", "into which river does ($x | BodyOfWater_NP) flow?", "into which river is ($x | BodyOfWater_NP) flown?", "into which rivers  ($x | BodyOfWater_NP) flow?", "into which rivers are ($x | BodyOfWater_NP) flown?", "which river does ($x | BodyOfWater_NP) flow into?", "which rivers does ($x | BodyOfWater_NP) flow into?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | BodyOfWater_NP) flow into?", "What flowed into ($x | BodyOfWater_NP)?", "What flows into ($x | BodyOfWater_NP)?", "Where does ($x | BodyOfWater_NP) flow?", "which river flows into ($x | BodyOfWater_NP)?", "which rivers flow into ($x | BodyOfWater_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/inflow> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 76,
+    "Entry" : "flow_through_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) flown?", "through which cities  ($x | River_NP) flow?", "through which cities are ($x | River_NP) flown?", "through which city does ($x | River_NP) flow?", "through which city is ($x | River_NP) flown?", "which cities does ($x | River_NP) flow through?", "which city does ($x | River_NP) flow through?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/city> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | City_NP) flow through?", "What flowed through ($x | City_NP)?", "What flows through ($x | City_NP)?", "Where does ($x | City_NP) flow?", "which river flows through ($x | City_NP)?", "which rivers flow through ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/city> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 77,
+    "Entry" : "flow_through_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) flown?", "through which countries  ($x | River_NP) flow?", "through which countries are ($x | River_NP) flown?", "through which country does ($x | River_NP) flow?", "through which country is ($x | River_NP) flown?", "which countries does ($x | River_NP) flow through?", "which country does ($x | River_NP) flow through?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) flow through?", "What flowed through ($x | Country_NP)?", "What flows through ($x | Country_NP)?", "Where does ($x | Country_NP) flow?", "which river flows through ($x | Country_NP)?", "which rivers flow through ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 78,
+    "Entry" : "form_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Band_NP) form?", "When was ($x | Band_NP) formed?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsStartYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What formed in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsStartYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 79,
+    "Entry" : "found_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Organisation_NP) found?", "When was ($x | Organisation_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was founded in ($x | date_NP)?", "which organisation was founded in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 80,
+    "Entry" : "found_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Company_NP) founded?", "Where was ($x | Company_NP) founded?", "in which country did ($x | Company_NP) found?", "which country does ($x | Company_NP) found in?", "which country was ($x | Company_NP) found in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundationPlace> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was founded in ($x | Country_NP)?", "which company was founded in ($x | Country_NP)?", "which company were founded in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundationPlace> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 81,
+    "Entry" : "found_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Organisation_NP) find?", "When was ($x | Organisation_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was founded in ($x | date_NP)?", "which organisation was founded in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 82,
+    "Entry" : "found_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Settlement_NP) found?", "When was ($x | Settlement_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What founded in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 83,
+    "Entry" : "found_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | PoliticalParty_NP) found?", "When was ($x | PoliticalParty_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formationDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What founded in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formationDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 84,
+    "Entry" : "founded_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Organisation_NP) find?", "When was ($x | Organisation_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was founded on ($x | date_NP)?", "which organisation was founded on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 85,
+    "Entry" : "founded_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Settlement_NP) found?", "When was ($x | Settlement_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What founded on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 86,
+    "Entry" : "founded_on_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | PoliticalParty_NP) found?", "When was ($x | PoliticalParty_NP) founded?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formationDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What founded on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/formationDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 87,
+    "Entry" : "grow_in",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "What grew in ($x | WineRegion_NP)?", "What grow in ($x | WineRegion_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "in which wine region does ($x | Grape_NP) grow?", "in which wine region is ($x | Grape_NP) grown?", "in which wine regions are ($x | Grape_NP) grown?", "in which wine regions does ($x | Grape_NP) grow?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 88,
+    "Entry" : "grow_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "What grew in ($x | WineRegion_NP)?", "What grow in ($x | WineRegion_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "in which wine region does ($x | Grape_NP) grow?", "in which wine region is ($x | Grape_NP) grown?", "in which wine regions are ($x | Grape_NP) grown?", "in which wine regions does ($x | Grape_NP) grow?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 89,
+    "Entry" : "have_seat_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "How many had  ($x | Stadium_NP)?", "How many have  ($x | Stadium_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/seatingCapacity> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/seatingCapacity> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 90,
+    "Entry" : "inaugurate_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) inaugurate?", "When was ($x | ArchitecturalStructure_NP) inaugurated?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What inaugurated in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 91,
+    "Entry" : "inaugurate_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Bridge_NP) inaugurate?", "When was ($x | Bridge_NP) inaugurated?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What inaugurated in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 92,
+    "Entry" : "inaugurate_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Building_NP) inaugurate?", "When was ($x | Building_NP) inaugurated?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What inaugurated in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 93,
+    "Entry" : "initially_use_for_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/initiallyUsedFor> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Thing_NP) initially use for?", "What initially used for ($x | Thing_NP)?", "What initially uses for ($x | Thing_NP)?", "Where does ($x | Thing_NP) initially use?", "which ArchitecturalStructure initially uses for ($x | Thing_NP)?", "which ArchitecturalStructures initially use for ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/initiallyUsedFor> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 94,
+    "Entry" : "introduced_in__2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Beverage_NP) introduce?", "When was ($x | Beverage_NP) introduced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/introduced> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What introduced in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/introduced> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 95,
+    "Entry" : "introduced_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Beverage_NP) introduce?", "When was ($x | Beverage_NP) introduced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/introduced> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What introduced on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/introduced> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 96,
+    "Entry" : "knownfor_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "What did ($x | Scientist_NP) known for?", "What does ($x | Scientist_NP) known for?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/knownFor> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who is known for ($x | MilitaryUnit_NP)?", "Who was known for ($x | MilitaryUnit_NP)?", "which scientist is known for ($x | MilitaryUnit_NP)?", "which scientist was known for ($x | MilitaryUnit_NP)?", "which scientists are known for ($x | MilitaryUnit_NP)?", "which scientists were known for ($x | MilitaryUnit_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/knownFor> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 97,
+    "Entry" : "knownfor_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Who did ($x | Award_NP) known for?", "Who does ($x | Award_NP) known for?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/knownFor> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What is known for ($x | Person_NP)?", "What was known for ($x | Person_NP)?", "which award is known for ($x | Person_NP)?", "which award was known for ($x | Person_NP)?", "which awards are known for ($x | Person_NP)?", "which awards were known for ($x | Person_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/knownFor> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 98,
+    "Entry" : "live_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) lived?", "Where was ($x | Person_NP) lived?", "in which city did ($x | Person_NP) live?", "which city does ($x | Person_NP) live in?", "which city was ($x | Person_NP) live in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/residence> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was lived in ($x | City_NP)?", "which person was lived in ($x | City_NP)?", "which persons were lived in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/residence> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 99,
+    "Entry" : "live_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Single_NP) lived?", "in which cities  ($x | Single_NP) live?", "in which cities are ($x | Single_NP) lived?", "in which city does ($x | Single_NP) live?", "in which city is ($x | Single_NP) lived?", "which cities does ($x | Single_NP) live in?", "which city does ($x | Single_NP) live in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/residence> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | City_NP) live in?", "What lived in ($x | City_NP)?", "What lives in ($x | City_NP)?", "Where does ($x | City_NP) live?", "which person lives in ($x | City_NP)?", "which persons live in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/residence> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 100,
+    "Entry" : "live_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "How many People live in ($x | Country_NP)?", "How many People lived in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/populationTotal> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/populationTotal> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 101,
+    "Entry" : "live_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "How many People live in ($x | City_NP)?", "How many People lived in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/populationTotal> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/populationTotal> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 102,
+    "Entry" : "locate_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | City_NP) ?", "in which countries are ($x | City_NP) ?", "in which country are the ($x | City_NP)?", "in which country is ($x | City_NP) ?", "in which country is the ($x | City_NP)?", "what country is ($x | City_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which cities locate in ($x | Country_NP)?", "which city locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | City_NP) ?", "in which countries are ($x | City_NP) ?", "in which country are the ($x | City_NP)?", "in which country is ($x | City_NP) ?", "in which country is the ($x | City_NP)?", "what country is ($x | City_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which cities locate in ($x | Country_NP)?", "which city locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 103,
+    "Entry" : "locate_in_10",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | BodyOfWater_NP) ?", "in which countries are ($x | BodyOfWater_NP) ?", "in which country are the ($x | BodyOfWater_NP)?", "in which country is ($x | BodyOfWater_NP) ?", "in which country is the ($x | BodyOfWater_NP)?", "what country is ($x | BodyOfWater_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which river locate in ($x | Country_NP)?", "which rivers locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 104,
+    "Entry" : "locate_in_11",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Organisation_NP) ?", "Where was ($x | Organisation_NP) ?", "in which place did ($x | Organisation_NP) locate?", "which place does ($x | Organisation_NP) locate in?", "which place was ($x | Organisation_NP) locate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  in ($x | Place_NP)?", "which organisation was  in ($x | Place_NP)?", "which organisations were  in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 105,
+    "Entry" : "locate_in_12",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Airport_NP) ?", "in which cities  ($x | Airport_NP) locate?", "in which cities are ($x | Airport_NP) ?", "in which city does ($x | Airport_NP) locate?", "in which city is ($x | Airport_NP) ?", "which cities does ($x | Airport_NP) locate in?", "which city does ($x | Airport_NP) locate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/city> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | City_NP) locate in?", "What located in ($x | City_NP)?", "What locates in ($x | City_NP)?", "Where does ($x | City_NP) locate?", "which airport locates in ($x | City_NP)?", "which airports locate in ($x | City_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/city> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 106,
+    "Entry" : "locate_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | MilitaryUnit_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Location_NP) locate in?", "What located in ($x | Location_NP)?", "What locates in ($x | Location_NP)?", "Where does ($x | Location_NP) locate?", "which military unit locates in ($x | Location_NP)?", "which military units locate in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | MilitaryUnit_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Location_NP) locate in?", "What located in ($x | Location_NP)?", "What locates in ($x | Location_NP)?", "Where does ($x | Location_NP) locate?", "which military unit locates in ($x | Location_NP)?", "which military units locate in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 107,
+    "Entry" : "locate_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Location_NP) locate in?", "What located in ($x | Location_NP)?", "What locates in ($x | Location_NP)?", "Where does ($x | Location_NP) locate?", "which ArchitecturalStructure locates in ($x | Location_NP)?", "which ArchitecturalStructures locate in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | ArchitecturalStructure_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Location_NP) locate in?", "What located in ($x | Location_NP)?", "What locates in ($x | Location_NP)?", "Where does ($x | Location_NP) locate?", "which ArchitecturalStructure locates in ($x | Location_NP)?", "which ArchitecturalStructures locate in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 108,
+    "Entry" : "locate_in_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Lake_NP) ?", "in which countries are ($x | Lake_NP) ?", "in which country are the ($x | Lake_NP)?", "in which country is ($x | Lake_NP) ?", "in which country is the ($x | Lake_NP)?", "what country is ($x | Lake_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which lake locate in ($x | Country_NP)?", "which lakes locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | City_NP) ?", "in which countries  ($x | City_NP) locate?", "in which countries are ($x | City_NP) ?", "in which country does ($x | City_NP) locate?", "in which country is ($x | City_NP) ?", "which countries does ($x | City_NP) locate in?", "which country does ($x | City_NP) locate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What located in ($x | Country_NP)?", "What locates in ($x | Country_NP)?", "Where does ($x | Country_NP) locate?", "which cities locate in ($x | Country_NP)?", "which city locates in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 109,
+    "Entry" : "locate_in_5",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Airport_NP) ?", "in which place does ($x | Airport_NP) locate?", "in which place is ($x | Airport_NP) ?", "in which places  ($x | Airport_NP) locate?", "in which places are ($x | Airport_NP) ?", "which place does ($x | Airport_NP) locate in?", "which places does ($x | Airport_NP) locate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Place_NP) locate in?", "What located in ($x | Place_NP)?", "What locates in ($x | Place_NP)?", "Where does ($x | Place_NP) locate?", "which airport locates in ($x | Place_NP)?", "which airports locate in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | Mountain_NP) ?", "in which countries are ($x | Mountain_NP) ?", "in which country are the ($x | Mountain_NP)?", "in which country is ($x | Mountain_NP) ?", "in which country is the ($x | Mountain_NP)?", "what country is ($x | Mountain_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which countries locate in ($x | Country_NP)?", "which country locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 110,
+    "Entry" : "locate_in_6",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | BodyOfWater_NP) ?", "in which place does ($x | BodyOfWater_NP) locate?", "in which place is ($x | BodyOfWater_NP) ?", "in which places  ($x | BodyOfWater_NP) locate?", "in which places are ($x | BodyOfWater_NP) ?", "which place does ($x | BodyOfWater_NP) locate in?", "which places does ($x | BodyOfWater_NP) locate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Place_NP) locate in?", "What located in ($x | Place_NP)?", "What locates in ($x | Place_NP)?", "Where does ($x | Place_NP) locate?", "which river locates in ($x | Place_NP)?", "which rivers locate in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 111,
+    "Entry" : "locate_in_7",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Mountain_NP) ?", "in which countries are ($x | Mountain_NP) ?", "in which country are the ($x | Mountain_NP)?", "in which country is ($x | Mountain_NP) ?", "in which country is the ($x | Mountain_NP)?", "what country is ($x | Mountain_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which countries locate in ($x | Country_NP)?", "which country locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 112,
+    "Entry" : "locate_in_8",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Place_NP) ?", "in which place are the ($x | Place_NP)?", "in which place is ($x | Place_NP) ?", "in which place is the ($x | Place_NP)?", "in which places are ($x | Place_NP) ?", "what place is ($x | Place_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Place_NP) locate in?", "What locate in ($x | Place_NP)?", "What located in ($x | Place_NP)?", "which place locate in ($x | Place_NP)?", "which places locate in ($x | Place_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 113,
+    "Entry" : "locate_in_9",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Settlement_NP) ?", "in which countries are ($x | Settlement_NP) ?", "in which country are the ($x | Settlement_NP)?", "in which country is ($x | Settlement_NP) ?", "in which country is the ($x | Settlement_NP)?", "what country is ($x | Settlement_NP) in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) locate in?", "What locate in ($x | Country_NP)?", "What located in ($x | Country_NP)?", "which settlement locate in ($x | Country_NP)?", "which settlements locate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 114,
+    "Entry" : "name_after_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Settlement_NP) ?", "after which agent does ($x | Settlement_NP) name?", "after which agent is ($x | Settlement_NP) ?", "after which agents  ($x | Settlement_NP) name?", "after which agents are ($x | Settlement_NP) ?", "which agent does ($x | Settlement_NP) name after?", "which agents does ($x | Settlement_NP) name after?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/namedAfter> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Agent_NP) name after?", "What named after ($x | Agent_NP)?", "Where does ($x | Agent_NP) name?", "which settlement named after ($x | Agent_NP)?", "which settlements name after ($x | Agent_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/namedAfter> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 115,
+    "Entry" : "open_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Bridge_NP) open?", "When was ($x | Bridge_NP) opened?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What opened in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 116,
+    "Entry" : "open_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Bridge_NP) open?", "When was ($x | Bridge_NP) opened?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What opened on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/openingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 117,
+    "Entry" : "operate_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | LaunchPad_NP) operated?", "by which organisation does ($x | LaunchPad_NP) operate?", "by which organisation is ($x | LaunchPad_NP) operated?", "by which organisations  ($x | LaunchPad_NP) operate?", "by which organisations are ($x | LaunchPad_NP) operated?", "which organisation does ($x | LaunchPad_NP) operate by?", "which organisations does ($x | LaunchPad_NP) operate by?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/operator> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Organisation_NP) operate by?", "What operated by ($x | Organisation_NP)?", "What operates by ($x | Organisation_NP)?", "Where does ($x | Organisation_NP) operate?", "which launch pad operates by ($x | Organisation_NP)?", "which launch pads operate by ($x | Organisation_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/operator> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 118,
+    "Entry" : "originate_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) ?", "in which countries  ($x | River_NP) originate?", "in which countries are ($x | River_NP) ?", "in which country does ($x | River_NP) originate?", "in which country is ($x | River_NP) ?", "which countries does ($x | River_NP) originate in?", "which country does ($x | River_NP) originate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/sourceCountry> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) originate in?", "What originated in ($x | Country_NP)?", "What originates in ($x | Country_NP)?", "Where does ($x | Country_NP) originate?", "which stream originates in ($x | Country_NP)?", "which streams originate in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/sourceCountry> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 119,
+    "Entry" : "participate_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | MilitaryPerson_NP) participated?", "in which military conflict does ($x | MilitaryPerson_NP) participate?", "in which military conflict is ($x | MilitaryPerson_NP) participated?", "in which military conflicts  ($x | MilitaryPerson_NP) participate?", "in which military conflicts are ($x | MilitaryPerson_NP) participated?", "which military conflict does ($x | MilitaryPerson_NP) participate in?", "which military conflicts does ($x | MilitaryPerson_NP) participate in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/battle> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | MilitaryConflict_NP) participate?", "Who does ($x | MilitaryConflict_NP) participate in?", "Who participated in ($x | MilitaryConflict_NP)?", "Who participates in ($x | MilitaryConflict_NP)?", "which person participates in ($x | MilitaryConflict_NP)?", "which persons participate in ($x | MilitaryConflict_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/battle> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 120,
+    "Entry" : "play_for_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Athlete_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/debutTeam> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | SportsTeam_NP) play?", "Who does ($x | SportsTeam_NP) play for?", "Who played for ($x | SportsTeam_NP)?", "Who plays for ($x | SportsTeam_NP)?", "which athlete play for ($x | SportsTeam_NP)?", "which athlete plays for ($x | SportsTeam_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/debutTeam> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 121,
+    "Entry" : "play_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?", "in which band does ($x | Person_NP) play?", "in which band is ($x | Person_NP) ?", "in which bands  ($x | Person_NP) play?", "in which bands are ($x | Person_NP) ?", "which band does ($x | Person_NP) play in?", "which bands does ($x | Person_NP) play in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/member> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Band_NP) play?", "Who does ($x | Band_NP) play in?", "Who played in ($x | Band_NP)?", "Who plays in ($x | Band_NP)?", "which person plays in ($x | Band_NP)?", "which persons play in ($x | Band_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/member> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 122,
+    "Entry" : "play_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/member> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Play_NP) play?", "Who does ($x | Play_NP) play in?", "Who played in ($x | Play_NP)?", "Who plays in ($x | Play_NP)?", "which person plays in ($x | Play_NP)?", "which persons play in ($x | Play_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/member> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 123,
+    "Entry" : "play_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/position> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | Thing_NP) play?", "Who does ($x | Thing_NP) play in?", "Who played in ($x | Thing_NP)?", "Who plays in ($x | Thing_NP)?", "which person plays in ($x | Thing_NP)?", "which persons play in ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/position> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 124,
+    "Entry" : "produced_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Company_NP) produced?", "Where was ($x | Company_NP) produced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/wineProduced> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was produced in ($x | Location_NP)?", "which company was produced in ($x | Location_NP)?", "which company were produced in ($x | Location_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/wineProduced> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 125,
+    "Entry" : "produced_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Film_NP) produce?", "When was ($x | Film_NP) produced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What produced on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 126,
+    "Entry" : "produced_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Album_NP) produce?", "When was ($x | Album_NP) produced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What produced on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 127,
+    "Entry" : "produced_on_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Song_NP) produce?", "When was ($x | Song_NP) produced?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What produced in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/productionDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 128,
+    "Entry" : "published_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Song_NP) publish?", "When was ($x | Song_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 129,
+    "Entry" : "published_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Article_NP) publish?", "When was ($x | Article_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 130,
+    "Entry" : "published_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Book_NP) publish?", "When was ($x | Book_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/publicationDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/publicationDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 131,
+    "Entry" : "published_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Song_NP) publish?", "When was ($x | Song_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 132,
+    "Entry" : "published_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Article_NP) publish?", "When was ($x | Article_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/published> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 133,
+    "Entry" : "published_on_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Book_NP) publish?", "When was ($x | Book_NP) published?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/publicationDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What published on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/publicationDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 134,
+    "Entry" : "rebuild_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) rebuild?", "When was ($x | ArchitecturalStructure_NP) rebuilt?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/rebuildingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What rebuilt in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/rebuildingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 135,
+    "Entry" : "rebuild_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) rebuild?", "When was ($x | ArchitecturalStructure_NP) rebuilt?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/rebuildingDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What rebuilt on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/rebuildingDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 136,
+    "Entry" : "record_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | MusicalWork_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/recordedIn> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | PopulatedPlace_NP) record in?", "What records in ($x | PopulatedPlace_NP)?", "What recored in ($x | PopulatedPlace_NP)?", "Where does ($x | PopulatedPlace_NP) record?", "which musical work records in ($x | PopulatedPlace_NP)?", "which musical works record in ($x | PopulatedPlace_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/recordedIn> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 137,
+    "Entry" : "relate_to_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Beverage_NP) ?", "to which beverage does ($x | Beverage_NP) relate?", "to which beverage is ($x | Beverage_NP) ?", "to which beverages  ($x | Beverage_NP) relate?", "to which beverages are ($x | Beverage_NP) ?", "which beverage does ($x | Beverage_NP) relate to?", "which beverages does ($x | Beverage_NP) relate to?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/related> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Beverage_NP) relate to?", "What is related to ($x | Beverage_NP)?", "What related to ($x | Beverage_NP)?", "Where does ($x | Beverage_NP) relate?", "which beverage is related to ($x | Beverage_NP)?", "which beverages relate to ($x | Beverage_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/related> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 138,
+    "Entry" : "released_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | TelevisionShow_NP) release?", "When was ($x | TelevisionShow_NP) released?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What released at ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 139,
+    "Entry" : "released_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Song_NP) release?", "When was ($x | Song_NP) released?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What released at ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 140,
+    "Entry" : "released_on_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Software_NP) release?", "When was ($x | Software_NP) released?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What released at ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/releaseDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 141,
+    "Entry" : "released_on_4",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Software_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/computingPlatform> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Thing_NP) release on?", "What released on ($x | Thing_NP)?", "What releases on ($x | Thing_NP)?", "Where does ($x | Thing_NP) release?", "which software releases on ($x | Thing_NP)?", "which softwares release on ($x | Thing_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/computingPlatform> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 142,
+    "Entry" : "reopen_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) reopen?", "When was ($x | ArchitecturalStructure_NP) reopened?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/reopeningDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What reopened in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/reopeningDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 143,
+    "Entry" : "reopen_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | ArchitecturalStructure_NP) reopen?", "When was ($x | ArchitecturalStructure_NP) reopened?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/reopeningDate> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What reopened on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/reopeningDate> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 144,
+    "Entry" : "split_up_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Band_NP) split up?", "When was ($x | Band_NP) split up?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What split up in ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 145,
+    "Entry" : "stand_for_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Thing_NP) stood?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/abbreviation> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Thing_NP) stand for?", "What stands for ($x | Thing_NP)?", "What stood for ($x | Thing_NP)?", "Where does ($x | Thing_NP) stand?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/abbreviation> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 146,
+    "Entry" : "starr_in_3",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Film_NP) ?", "in which actor does ($x | Film_NP) star?", "in which actor is ($x | Film_NP) ?", "in which actors  ($x | Film_NP) star?", "in which actors are ($x | Film_NP) ?", "which actor does ($x | Film_NP) star in?", "which actors does ($x | Film_NP) star in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/starring> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Actor_NP) star in?", "What starred in ($x | Actor_NP)?", "What stars in ($x | Actor_NP)?", "Where does ($x | Actor_NP) star?", "which film star in ($x | Actor_NP)?", "which film stars in ($x | Actor_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/starring> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 147,
+    "Entry" : "start_acting_on_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Actor_NP) start acting?", "When was ($x | Actor_NP) started acting?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsStartYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  on ($x | date_NP)?", "which actor was  on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsStartYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 148,
+    "Entry" : "start_in_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Road_NP) started?", "in which road does ($x | Road_NP) start?", "in which road is ($x | Road_NP) started?", "in which roads  ($x | Road_NP) start?", "in which roads are ($x | Road_NP) started?", "which road does ($x | Road_NP) start in?", "which roads does ($x | Road_NP) start in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeStart> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Road_NP) start in?", "What started in ($x | Road_NP)?", "What starts in ($x | Road_NP)?", "Where does ($x | Road_NP) start?", "which road starts in ($x | Road_NP)?", "which roads start in ($x | Road_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/routeStart> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 149,
+    "Entry" : "start_in_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | River_NP) started?", "in which countries  ($x | River_NP) start?", "in which countries are ($x | River_NP) started?", "in which country does ($x | River_NP) start?", "in which country is ($x | River_NP) started?", "which countries does ($x | River_NP) start in?", "which country does ($x | River_NP) start in?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/mouthLocation> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Country_NP) start in?", "What started in ($x | Country_NP)?", "What starts in ($x | Country_NP)?", "Where does ($x | Country_NP) start?", "which river starts in ($x | Country_NP)?", "which rivers start in ($x | Country_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/mouthLocation> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 150,
+    "Entry" : "stop_acting_on_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "When did ($x | Actor_NP) stop acting?", "When was ($x | Actor_NP) stopped acting?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndYear> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Who was  on ($x | date_NP)?", "which actor was  on ($x | date_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/activeYearsEndYear> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 151,
+    "Entry" : "study_at_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/education> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "Where does ($x | EducationalInstitution_NP) study?", "Who does ($x | EducationalInstitution_NP) study at?", "Who studied at ($x | EducationalInstitution_NP)?", "Who studies at ($x | EducationalInstitution_NP)?", "which person studies at ($x | EducationalInstitution_NP)?", "which persons study at ($x | EducationalInstitution_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/education> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    }, {
+      "grammarRuleNo" : 3,
+      "grammarRules" : [ "Where is ($x | Person_NP) ?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/education> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 4,
+      "grammarRules" : [ "Where does ($x | EducationalInstitution_NP) study?", "Who does ($x | EducationalInstitution_NP) study at?", "Who studied at ($x | EducationalInstitution_NP)?", "Who studies at ($x | EducationalInstitution_NP)?", "which person studies at ($x | EducationalInstitution_NP)?", "which persons study at ($x | EducationalInstitution_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/education> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 152,
+    "Entry" : "unknown_0",
+    "syntacticFrame" : "FULL_DATASET",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is $x located?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(join\n  (union\n    (bgp (triple ?subjOfProp <http://dbpedia.org/ontology/country> ?objOfProp))\n    (bgp (triple ?subjOfProp <http://dbpedia.org/ontology/location> ?objOfProp)))\n  (bgp\n    (triple ?objOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Location>)\n    (triple ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Location>)\n  ))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    } ]
+  }, {
+    "id" : 153,
+    "Entry" : "work_for_1",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/keyPerson> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/keyPerson> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 154,
+    "Entry" : "work_for_2",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/keyPeople> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/property/keyPeople> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  }, {
+    "id" : 155,
+    "Entry" : "written_in",
+    "syntacticFrame" : "IPP",
+    "rules" : [ {
+      "grammarRuleNo" : 1,
+      "grammarRules" : [ "Where is ($x | Work_NP) written?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/programmingLanguage> ?objOfProp))\n",
+      "bindingType" : "subjOfProp",
+      "returnType" : "objOfProp"
+    }, {
+      "grammarRuleNo" : 2,
+      "grammarRules" : [ "What does ($x | Language_NP) write in?", "What writes in ($x | Language_NP)?", "What wrote in ($x | Language_NP)?", "Where does ($x | Language_NP) write?", "which work writes in ($x | Language_NP)?", "which works write in ($x | Language_NP)?" ],
+      "bindingVariable" : "$x",
+      "sparql" : "(bgp (triple ?subjOfProp <http://dbpedia.org/ontology/programmingLanguage> ?objOfProp))\n",
+      "bindingType" : "objOfProp",
+      "returnType" : "subjOfProp"
+    } ]
+  } ]
+}

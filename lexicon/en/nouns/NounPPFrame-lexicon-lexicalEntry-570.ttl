@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-570 ;
+  lemon:entry    :lexicalEntry-570_form_preposition .
+
+:lexicalEntry-570 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-570_form ;
+  lemon:otherForm  :lexicalEntry-570_singular ;
+  lemon:otherForm  :lexicalEntry-570_plural ;
+  lemon:sense          :lexicalEntry-570_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-570_nounpp .
+
+:lexicalEntry-570_form a lemon:Form ;
+  lemon:writtenRep "lunar impact"@en .
+
+:lexicalEntry-570_singular a    lemon:Form ;
+  lemon:writtenRep "lunar impact"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-570_plural a   lemon:Form ;
+  lemon:writtenRep "lunar impact"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-570_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-570_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-570_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/diameter> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-570_sense_1_condition .
+
+:lexicalEntry-570_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Device> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :lexicalEntry-570_form_preposition .
+## Prepositions ##
+:lexicalEntry-570_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

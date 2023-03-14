@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3275","verb","produce","produces","produced","produced","in","IntransitivePPFrame","domain","range","1","dbp:date","dbo:MilitaryConflict","xsd:date","""0.916875526900111""","dbp:date","""""""1-gram"""""""
+"lexicalEntry-3276","verb","produce","produces","produced","produced","in","IntransitivePPFrame","range","domain","1","dbp:date","dbo:MilitaryConflict","xsd:date","""0.916875526900111""","dbp:date","""""""1-gram"""""""

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_OBJECT;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_SUBJECT;
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,8 +28,6 @@ public class GrammarDisplay {
     private String Entry = null;
     @JsonProperty("syntacticFrame")
     private String syntacticFrame = null;
-    //@JsonProperty("sentenceTemplates")
-    //private String sentenceTemplates = null;
     @JsonProperty("rules")
     private List<Rule> rules = new ArrayList<Rule>();
 
@@ -55,8 +54,7 @@ public class GrammarDisplay {
                    bindingType,grammarEntryUnit.getReturnVariable(),grammarEntryUnit.getBindingType(),grammarEntryUnit.getReturnType()));*/
             rules.add(new Rule(grammarEntryUnit.getId(), index, grammarEntryUnit.getSentences(), 
                     grammarEntryUnit.getBindingVariableName(),grammarEntryUnit.getSparqlQuery(),
-                   bindingType,grammarEntryUnit.getReturnVariable(),
-                    grammarEntryUnit.getSentenceTemplate(),grammarEntryUnit.getFrameType()));
+                   bindingType,grammarEntryUnit.getReturnVariable()));
 
         }
 
@@ -69,14 +67,5 @@ public class GrammarDisplay {
     public List<Rule> getRules() {
         return rules;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getEntry() {
-        return Entry;
-    }
-
 
 }

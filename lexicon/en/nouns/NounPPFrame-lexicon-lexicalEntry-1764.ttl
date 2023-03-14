@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1764 ;
+  lemon:entry    :lexicalEntry-1764_form_preposition .
+
+:lexicalEntry-1764 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1764_form ;
+  lemon:otherForm  :lexicalEntry-1764_singular ;
+  lemon:otherForm  :lexicalEntry-1764_plural ;
+  lemon:sense          :lexicalEntry-1764_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1764_nounpp .
+
+:lexicalEntry-1764_form a lemon:Form ;
+  lemon:writtenRep "federal subject of"@en .
+
+:lexicalEntry-1764_singular a    lemon:Form ;
+  lemon:writtenRep "federal subject of"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1764_plural a   lemon:Form ;
+  lemon:writtenRep "federal subject of"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1764_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-1764_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1764_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/leaderName> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1764_sense_1_condition .
+
+:lexicalEntry-1764_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-1764_form_preposition .
+## Prepositions ##
+:lexicalEntry-1764_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

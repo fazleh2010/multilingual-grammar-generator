@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-3442 ;
+  lemon:entry    :form_lexicalEntry-3442_preposition .
+
+:lexicalEntry-3442 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-3442 ;
+  lemon:otherForm      :form_lexicalEntry-3442_past ;
+  lemon:sense          :lexicalEntry-3442_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3442_frame .
+
+:form_lexicalEntry-3442 a           lemon:Form ;
+  lemon:writtenRep     "formed"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-3442 a      lemon:Form ;
+  lemon:writtenRep "formed"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-3442_past a lemon:Form ;
+  lemon:writtenRep  "formed"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-3442perfect a   lemon:Form ;
+  lemon:writtenRep "formed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-3442_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-3442_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-3442_obj .
+
+:lexicalEntry-3442_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-3442_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/bandMember> ;
+  lemon:subjOfProp  :lexicalEntry-3442_obj ;
+  lemon:objOfProp   :lexicalEntry-3442_subj ;
+  lemon:condition   :lexicalEntry-3442_sense_1_condition .
+
+:lexicalEntry-3442_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Band> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/MusicalArtist> .
+
+
+:lexicalEntry-3442_obj lemon:marker :form_lexicalEntry-3442_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-3442_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

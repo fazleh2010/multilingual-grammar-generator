@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-618 ;
+  lemon:entry    :lexicalEntry-618ed ;
+  lemon:entry    :form_lexicalEntry-618_preposition .
+
+:to_lexicalEntry-618 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-618 ;
+  lemon:otherForm      :form_lexicalEntry-618s ;
+  lemon:otherForm      :form_lexicalEntry-618ed ;
+  lemon:otherForm      :form_lexicalEntry-618perfect ;
+  lemon:sense          :lexicalEntry-618_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-618_frame_transitive .
+
+:form_lexicalEntry-618 a         lemon:Form ;
+  lemon:writtenRep     "direct"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-618s a    lemon:Form ;
+  lemon:writtenRep "directs"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-618ed a   lemon:Form ;
+  lemon:writtenRep "directed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-618perfect a   lemon:Form ;
+  lemon:writtenRep "directed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-618_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-618_subj ;
+  lexinfo:directObject     :lexicalEntry-618_obj .
+
+:lexicalEntry-618_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-618_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/director> ;
+  lemon:subjOfProp  :lexicalEntry-618_obj ;
+  lemon:objOfProp   :lexicalEntry-618_subj ;
+  lemon:condition   :lexicalEntry-618_sense_1_condition .
+
+
+:lexicalEntry-618_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+:lexicalEntry-618ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-618ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-618ed_by ;
+  lemon:synBehavior    :lexicalEntry-618ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-618ed_ontomap .
+
+:form_lexicalEntry-618ed_canonical a lemon:Form ;
+  lemon:writtenRep         "direct"@en .
+
+:form_lexicalEntry-618ed_by a    lemon:Form ;
+  lemon:writtenRep     "direct"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-618ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-618ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-618ed_obj .
+
+:lexicalEntry-618ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-618ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/director> ;
+  lemon:subjOfProp  :lexicalEntry-618ed_subj ;
+  lemon:objOfProp   :lexicalEntry-618ed_obj ;
+  lemon:condition   :lexicalEntry-618_sense_1_condition .
+:lexicalEntry-618ed_obj lemon:marker :form_lexicalEntry-618_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-618_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

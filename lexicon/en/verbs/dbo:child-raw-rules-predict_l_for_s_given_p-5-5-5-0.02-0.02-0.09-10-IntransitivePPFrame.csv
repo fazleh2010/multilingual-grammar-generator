@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-111","verb","portrayed by","portrayed by","portrayed by","portrayed by","by","IntransitivePPFrame","domain","range","1","dbo:child","dbo:Person","dbo:Person","""0.290748333231606""","dbo:child","""""""2-gram"""""""
+"lexicalEntry-112","verb","portrayed by","portrayed by","portrayed by","portrayed by","by","IntransitivePPFrame","range","domain","1","dbo:child","dbo:Person","dbo:Person","""0.290748333231606""","dbo:child","""""""2-gram"""""""
+"lexicalEntry-113","verb","portrayed","portrayed","portrayed","portrayed","in","IntransitivePPFrame","domain","range","1","dbo:child","dbo:Person","dbo:Person","""0.289162426864139""","dbo:child","""""""1-gram"""""""
+"lexicalEntry-114","verb","portrayed","portrayed","portrayed","portrayed","in","IntransitivePPFrame","range","domain","1","dbo:child","dbo:Person","dbo:Person","""0.289162426864139""","dbo:child","""""""1-gram"""""""

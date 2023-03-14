@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-2957","verb","based","based","based","based","TransitiveFrame","range","domain","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.41018903233816","dbo:targetAirport","1-gram"
+"lexicalEntry-2958","verb","based","based","based","based","TransitiveFrame","domain","range","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.41018903233816","dbo:targetAirport","1-gram"
+"lexicalEntry-2965","verb","based in","based in","based in","based in","TransitiveFrame","range","domain","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.341618726280471","dbo:targetAirport","2-gram"
+"lexicalEntry-2966","verb","based in","based in","based in","based in","TransitiveFrame","domain","range","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.341618726280471","dbo:targetAirport","2-gram"
+"lexicalEntry-2967","verb","scheduled","scheduled","scheduled","scheduled","TransitiveFrame","range","domain","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.339347509327884","dbo:targetAirport","1-gram"
+"lexicalEntry-2968","verb","scheduled","scheduled","scheduled","scheduled","TransitiveFrame","domain","range","1","dbo:targetAirport","dbo:Airline","dbo:Airport","by","0.339347509327884","dbo:targetAirport","1-gram"

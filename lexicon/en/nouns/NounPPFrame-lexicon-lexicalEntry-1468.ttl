@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1468 ;
+  lemon:entry    :lexicalEntry-1468_form_preposition .
+
+:lexicalEntry-1468 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1468_form ;
+  lemon:otherForm  :lexicalEntry-1468_singular ;
+  lemon:otherForm  :lexicalEntry-1468_plural ;
+  lemon:sense          :lexicalEntry-1468_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1468_nounpp .
+
+:lexicalEntry-1468_form a lemon:Form ;
+  lemon:writtenRep "philosopher"@en .
+
+:lexicalEntry-1468_singular a    lemon:Form ;
+  lemon:writtenRep "philosopher"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1468_plural a   lemon:Form ;
+  lemon:writtenRep "philosopher"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1468_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-1468_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1468_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/influenced> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1468_sense_1_condition .
+
+:lexicalEntry-1468_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-1468_form_preposition .
+## Prepositions ##
+:lexicalEntry-1468_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

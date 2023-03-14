@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-4112","verb","held","held","held","held","TransitiveFrame","range","domain","1","dbp:location","dbo:ArchitecturalStructure","dbo:Location","by","0.985433973579359","dbp:location","1-gram"
+"lexicalEntry-4113","verb","held","held","held","held","TransitiveFrame","domain","range","1","dbp:location","dbo:ArchitecturalStructure","dbo:Location","by","0.985433973579359","dbp:location","1-gram"

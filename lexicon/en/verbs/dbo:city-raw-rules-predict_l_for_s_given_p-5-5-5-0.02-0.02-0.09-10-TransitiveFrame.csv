@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-195","verb","owned","owned","owned","owned","TransitiveFrame","range","domain","1","dbo:city","dbo:River","dbo:City","by","0.825941156963825","dbo:city","1-gram"
+"lexicalEntry-196","verb","owned","owned","owned","owned","TransitiveFrame","domain","range","1","dbo:city","dbo:River","dbo:City","by","0.825941156963825","dbo:city","1-gram"
+"lexicalEntry-203","verb","held","held","held","held","TransitiveFrame","range","domain","1","dbo:city","dbo:River","dbo:City","by","0.795210840898622","dbo:city","1-gram"
+"lexicalEntry-204","verb","held","held","held","held","TransitiveFrame","domain","range","1","dbo:city","dbo:River","dbo:City","by","0.795210840898622","dbo:city","1-gram"

@@ -8,15 +8,10 @@ package grammar.datasets.sentencetemplates;
 import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import grammar.generator.SubjectType;
 import static grammar.sparql.SelectVariable.reference;
-import grammar.structure.component.FrameType;
-import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  *
@@ -93,8 +88,7 @@ public interface TempConstants {
     public static String thirdPerson = "thirdPerson";
     public static String secondPerson = "secondPerson";
 
-    public static final String Prepositional_Adjuct = "whQuestion";
-
+    public static final String whQuestion = "whQuestion";
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
     public static final String nounPhrase = "nounPhrase";
@@ -116,8 +110,6 @@ public interface TempConstants {
 
     
     public static final String PERSON_PERSON = "PERSON_PERSON";
-    public static final String Copulative_Subject = "Copulative_Subject";
-    
     
     
      
@@ -127,11 +119,6 @@ public interface TempConstants {
      public static final String PERSON_CAUSE = "PERSON_CAUSE";
      public static final String PERSON_CAUSE_SUBJECT  = "PERSON_CAUSE_SUBJECT";
      public static final String PERSON_CAUSE_SUBJECT_PREPOSITION  = "PERSON_CAUSE_SUBJECT_PREPOSITION";
-     public static final String HOW_MANY_THING_BACKWARD="HOW_MANY_THING_BACKWARD";
-          public static final String HOW_MANY_THING_FORWARD="HOW_MANY_THING_FORWARD";
-
-     public static final String PERSON_CAUSE_NOUN_PHRASE="PERSON_CAUSE_NOUN_PHRASE";
-     
      
      public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
 
@@ -156,7 +143,6 @@ public interface TempConstants {
     public static final String component_ha = "component_ha";
     public static final String component_estado = "component_estado";
     public static final String component_esta = "component_esta";
-    public static final String copulativeSubject="copulativeSubject";
     
     public static final String component_aux_object_past = "component_aux_object_past";
     public static final String componentVerb = "componentVerb";
@@ -183,14 +169,5 @@ public interface TempConstants {
     public static String interrogativePronoun = "interrogativePronoun";
     public static String interrogativeDeterminer = "interrogativeDeterminer";
     public static String interrogativePronounThingPlural="interrogativePronounThingPlural";
-    public Map<String, String> SYNTACTIC_FRAME = Stream.of(
-            new AbstractMap.SimpleEntry<String, String>(FrameType.NPP.name(), "NounPPFrame"), 
-            new AbstractMap.SimpleEntry<String, String>(FrameType.VP.name(), "TransitiveFrame"),
-            new AbstractMap.SimpleEntry<String, String>(FrameType.IPP.name(), "InTransitivePPFrame"),
-            new AbstractMap.SimpleEntry<String, String>(FrameType.AA.name(), "AdjectivePredicativeFrame"),
-            new AbstractMap.SimpleEntry<String, String>(FrameType.AG.name(), "AdjectiveSuperlativeFrame"))
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
 
 }
-  

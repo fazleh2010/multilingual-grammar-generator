@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-1812","verb","based","based","based","based","TransitiveFrame","range","domain","1","dbo:league","dbo:HockeyTeam","dbo:IceHockeyLeague","by","0.759732471316426","dbo:league","1-gram"
+"lexicalEntry-1813","verb","based","based","based","based","TransitiveFrame","domain","range","1","dbo:league","dbo:HockeyTeam","dbo:IceHockeyLeague","by","0.759732471316426","dbo:league","1-gram"
+"lexicalEntry-1814","verb","based in","based in","based in","based in","TransitiveFrame","range","domain","1","dbo:league","dbo:HockeyTeam","dbo:IceHockeyLeague","by","0.7565003545994","dbo:league","2-gram"
+"lexicalEntry-1815","verb","based in","based in","based in","based in","TransitiveFrame","domain","range","1","dbo:league","dbo:HockeyTeam","dbo:IceHockeyLeague","by","0.7565003545994","dbo:league","2-gram"

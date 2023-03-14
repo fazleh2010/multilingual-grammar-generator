@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-3713","verb","develop","develops","developed","developed","TransitiveFrame","range","domain","1","dbo:composer","dbo:TelevisionShow","dbo:Person","by","0.384899851177446","dbo:composer","1-gram"
+"lexicalEntry-3714","verb","develop","develops","developed","developed","TransitiveFrame","domain","range","1","dbo:composer","dbo:TelevisionShow","dbo:Person","by","0.384899851177446","dbo:composer","1-gram"

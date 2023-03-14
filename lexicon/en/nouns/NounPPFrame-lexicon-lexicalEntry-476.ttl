@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-476 ;
+  lemon:entry    :lexicalEntry-476_form_preposition .
+
+:lexicalEntry-476 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-476_form ;
+  lemon:otherForm  :lexicalEntry-476_singular ;
+  lemon:otherForm  :lexicalEntry-476_plural ;
+  lemon:sense          :lexicalEntry-476_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-476_nounpp .
+
+:lexicalEntry-476_form a lemon:Form ;
+  lemon:writtenRep "to death"@en .
+
+:lexicalEntry-476_singular a    lemon:Form ;
+  lemon:writtenRep "to death"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-476_plural a   lemon:Form ;
+  lemon:writtenRep "to death"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-476_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-476_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-476_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathPlace> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-476_sense_1_condition .
+
+:lexicalEntry-476_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2 lemon:marker :lexicalEntry-476_form_preposition .
+## Prepositions ##
+:lexicalEntry-476_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

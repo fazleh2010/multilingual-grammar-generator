@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-669 ;
+  lemon:entry    :lexicalEntry-669_form_preposition .
+
+:lexicalEntry-669 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-669_form ;
+  lemon:otherForm  :lexicalEntry-669_singular ;
+  lemon:otherForm  :lexicalEntry-669_plural ;
+  lemon:sense          :lexicalEntry-669_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-669_nounpp .
+
+:lexicalEntry-669_form a lemon:Form ;
+  lemon:writtenRep "diameter"@en .
+
+:lexicalEntry-669_singular a    lemon:Form ;
+  lemon:writtenRep "diameter"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-669_plural a   lemon:Form ;
+  lemon:writtenRep "diameter"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-669_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-669_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-669_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/discoverer> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-669_sense_1_condition .
+
+:lexicalEntry-669_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Planet> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-669_form_preposition .
+## Prepositions ##
+:lexicalEntry-669_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -51,10 +51,6 @@ public class BashScript {
 
     }
 
-    public BashScript(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     private String findLink(String wikiFile, String answerUri) throws IOException, InterruptedException {
 
         String command = "grep -w" + " " + answerUri + " " + wikiFile;

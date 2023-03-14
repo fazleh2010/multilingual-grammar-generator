@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-279","noun","bridge","bridge",,"""NounPPFrame""","range","domain","1","dbo:crosses","dbo:Bridge","dbo:River","""0.876293741911895""","dbo:crosses","""""""1-gram"""""""
+"lexicalEntry-280","noun","bridge","bridge",,"""NounPPFrame""","domain","range","1","dbo:crosses","dbo:Bridge","dbo:River","""0.876293741911895""","dbo:crosses","""""""1-gram"""""""
+"lexicalEntry-283","noun","river","river",,"""NounPPFrame""","range","domain","1","dbo:crosses","dbo:Bridge","dbo:River","""0.779634231060206""","dbo:crosses","""""""1-gram"""""""
+"lexicalEntry-284","noun","river","river",,"""NounPPFrame""","domain","range","1","dbo:crosses","dbo:Bridge","dbo:River","""0.779634231060206""","dbo:crosses","""""""1-gram"""""""
+"lexicalEntry-289","noun","the bridge","the bridge",,"""NounPPFrame""","range","domain","1","dbo:crosses","dbo:Bridge","dbo:River","""0.588823250847323""","dbo:crosses","""""""2-gram"""""""
+"lexicalEntry-290","noun","the bridge","the bridge",,"""NounPPFrame""","domain","range","1","dbo:crosses","dbo:Bridge","dbo:River","""0.588823250847323""","dbo:crosses","""""""2-gram"""""""

@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1363 ;
+  lemon:entry    :form_lexicalEntry-1363_preposition .
+
+:lexicalEntry-1363 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-1363 ;
+  lemon:otherForm      :form_lexicalEntry-1363_past ;
+  lemon:sense          :lexicalEntry-1363_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1363_frame .
+
+:form_lexicalEntry-1363 a           lemon:Form ;
+  lemon:writtenRep     "publish"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-1363 a      lemon:Form ;
+  lemon:writtenRep "publishes"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-1363_past a lemon:Form ;
+  lemon:writtenRep  "published"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-1363perfect a   lemon:Form ;
+  lemon:writtenRep "published"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-1363_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-1363_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-1363_obj .
+
+:lexicalEntry-1363_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-1363_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/headquarter> ;
+  lemon:subjOfProp  :lexicalEntry-1363_obj ;
+  lemon:objOfProp   :lexicalEntry-1363_subj ;
+  lemon:condition   :lexicalEntry-1363_sense_1_condition .
+
+:lexicalEntry-1363_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/PopulatedPlace> .
+
+
+:lexicalEntry-1363_obj lemon:marker :form_lexicalEntry-1363_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-1363_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

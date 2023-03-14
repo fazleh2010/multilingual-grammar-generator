@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-959","verb","found","found","founded","founded","in","IntransitivePPFrame","domain","range","1","dbo:founder","dbo:Publisher","dbo:Agent","""0.393189015762311""","dbo:founder","""""""1-gram"""""""
+"lexicalEntry-960","verb","found","found","founded","founded","in","IntransitivePPFrame","range","domain","1","dbo:founder","dbo:Publisher","dbo:Agent","""0.393189015762311""","dbo:founder","""""""1-gram"""""""
+"lexicalEntry-971","verb","publish","publishes","published","published","in","IntransitivePPFrame","domain","range","1","dbo:founder","dbo:Publisher","dbo:Agent","""0.312672982276485""","dbo:founder","""""""1-gram"""""""
+"lexicalEntry-972","verb","publish","publishes","published","published","in","IntransitivePPFrame","range","domain","1","dbo:founder","dbo:Publisher","dbo:Agent","""0.312672982276485""","dbo:founder","""""""1-gram"""""""

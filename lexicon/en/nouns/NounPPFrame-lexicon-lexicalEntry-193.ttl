@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-193 ;
+  lemon:entry    :lexicalEntry-193_form_preposition .
+
+:lexicalEntry-193 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-193_form ;
+  lemon:otherForm  :lexicalEntry-193_singular ;
+  lemon:otherForm  :lexicalEntry-193_plural ;
+  lemon:sense          :lexicalEntry-193_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-193_nounpp .
+
+:lexicalEntry-193_form a lemon:Form ;
+  lemon:writtenRep "school"@en .
+
+:lexicalEntry-193_singular a    lemon:Form ;
+  lemon:writtenRep "school"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-193_plural a   lemon:Form ;
+  lemon:writtenRep "school"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-193_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-193_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-193_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/city> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-193_sense_1_condition .
+
+:lexicalEntry-193_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/River> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2 lemon:marker :lexicalEntry-193_form_preposition .
+## Prepositions ##
+:lexicalEntry-193_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

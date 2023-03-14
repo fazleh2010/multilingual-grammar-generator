@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-4365","verb","released","released","released","released","in","IntransitivePPFrame","domain","range","1","dbo:album","dbo:Song","dbo:Album","""0.780360859014006""","dbo:album","""""""1-gram"""""""
+"lexicalEntry-4366","verb","released","released","released","released","in","IntransitivePPFrame","range","domain","1","dbo:album","dbo:Song","dbo:Album","""0.780360859014006""","dbo:album","""""""1-gram"""""""

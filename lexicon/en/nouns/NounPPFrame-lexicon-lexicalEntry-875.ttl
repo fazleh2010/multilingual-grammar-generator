@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-875 ;
+  lemon:entry    :lexicalEntry-875_form_preposition .
+
+:lexicalEntry-875 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-875_form ;
+  lemon:otherForm  :lexicalEntry-875_singular ;
+  lemon:otherForm  :lexicalEntry-875_plural ;
+  lemon:sense          :lexicalEntry-875_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-875_nounpp .
+
+:lexicalEntry-875_form a lemon:Form ;
+  lemon:writtenRep "stratovolcano"@en .
+
+:lexicalEntry-875_singular a    lemon:Form ;
+  lemon:writtenRep "stratovolcano"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-875_plural a   lemon:Form ;
+  lemon:writtenRep "stratovolcano"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-875_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-875_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-875_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAscentPerson> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-875_sense_1_condition .
+
+:lexicalEntry-875_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mountain> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2 lemon:marker :lexicalEntry-875_form_preposition .
+## Prepositions ##
+:lexicalEntry-875_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

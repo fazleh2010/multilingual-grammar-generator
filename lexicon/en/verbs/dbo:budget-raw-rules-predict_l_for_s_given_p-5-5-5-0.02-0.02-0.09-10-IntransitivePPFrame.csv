@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-1168","verb","play","playes","played","played","in","IntransitivePPFrame","domain","range","1","dbo:budget","dbo:Film","xsd:double","""0.742512514417817""","dbo:budget","""""""1-gram"""""""
+"lexicalEntry-1169","verb","play","playes","played","played","in","IntransitivePPFrame","range","domain","1","dbo:budget","dbo:Film","xsd:double","""0.742512514417817""","dbo:budget","""""""1-gram"""""""
+"lexicalEntry-1172","verb","played on","played on","played on","played on","on","IntransitivePPFrame","domain","range","1","dbo:budget","dbo:Film","xsd:double","""0.740265503330204""","dbo:budget","""""""2-gram"""""""
+"lexicalEntry-1173","verb","played on","played on","played on","played on","on","IntransitivePPFrame","range","domain","1","dbo:budget","dbo:Film","xsd:double","""0.740265503330204""","dbo:budget","""""""2-gram"""""""

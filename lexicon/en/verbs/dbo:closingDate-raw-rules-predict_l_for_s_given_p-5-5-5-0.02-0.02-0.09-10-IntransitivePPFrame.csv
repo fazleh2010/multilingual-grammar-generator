@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3617","verb","operate","operates","operated","operated","in","IntransitivePPFrame","domain","range","1","dbo:closingDate","dbo:Company","xsd:date","""0.350248528521933""","dbo:closingDate","""""""1-gram"""""""
+"lexicalEntry-3618","verb","operate","operates","operated","operated","in","IntransitivePPFrame","range","domain","1","dbo:closingDate","dbo:Company","xsd:date","""0.350248528521933""","dbo:closingDate","""""""1-gram"""""""

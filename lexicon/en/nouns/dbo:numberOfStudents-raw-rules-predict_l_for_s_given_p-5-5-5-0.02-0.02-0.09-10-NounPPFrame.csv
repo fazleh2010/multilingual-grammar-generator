@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-2234","noun","school","school",,"""NounPPFrame""","range","domain","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.81952818614637""","dbo:numberOfStudents","""""""1-gram"""""""
+"lexicalEntry-2235","noun","school","school",,"""NounPPFrame""","domain","range","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.81952818614637""","dbo:numberOfStudents","""""""1-gram"""""""
+"lexicalEntry-2240","noun","high school","high school",,"""NounPPFrame""","range","domain","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.659471909221578""","dbo:numberOfStudents","""""""2-gram"""""""
+"lexicalEntry-2241","noun","high school","high school",,"""NounPPFrame""","domain","range","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.659471909221578""","dbo:numberOfStudents","""""""2-gram"""""""
+"lexicalEntry-2250","noun","public","public",,"""NounPPFrame""","range","domain","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.591519956473349""","dbo:numberOfStudents","""""""1-gram"""""""
+"lexicalEntry-2251","noun","public","public",,"""NounPPFrame""","domain","range","1","dbo:numberOfStudents","dbo:School","xsd:nonNegativeInteger","""0.591519956473349""","dbo:numberOfStudents","""""""1-gram"""""""

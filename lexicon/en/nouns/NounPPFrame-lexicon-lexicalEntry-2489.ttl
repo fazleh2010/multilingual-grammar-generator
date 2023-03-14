@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-2489 ;
+  lemon:entry    :lexicalEntry-2489_form_preposition .
+
+:lexicalEntry-2489 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-2489_form ;
+  lemon:otherForm  :lexicalEntry-2489_singular ;
+  lemon:otherForm  :lexicalEntry-2489_plural ;
+  lemon:sense          :lexicalEntry-2489_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-2489_nounpp .
+
+:lexicalEntry-2489_form a lemon:Form ;
+  lemon:writtenRep "manga"@en .
+
+:lexicalEntry-2489_singular a    lemon:Form ;
+  lemon:writtenRep "manga"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-2489_plural a   lemon:Form ;
+  lemon:writtenRep "manga"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-2489_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-2489_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-2489_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/publisher> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-2489_sense_1_condition .
+
+:lexicalEntry-2489_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/VideoGame> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Company> .
+
+:arg2 lemon:marker :lexicalEntry-2489_form_preposition .
+## Prepositions ##
+:lexicalEntry-2489_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-289 ;
+  lemon:entry    :lexicalEntry-289_form_preposition .
+
+:lexicalEntry-289 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-289_form ;
+  lemon:otherForm  :lexicalEntry-289_singular ;
+  lemon:otherForm  :lexicalEntry-289_plural ;
+  lemon:sense          :lexicalEntry-289_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-289_nounpp .
+
+:lexicalEntry-289_form a lemon:Form ;
+  lemon:writtenRep "the bridge"@en .
+
+:lexicalEntry-289_singular a    lemon:Form ;
+  lemon:writtenRep "the bridge"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-289_plural a   lemon:Form ;
+  lemon:writtenRep "the bridge"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-289_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-289_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-289_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/crosses> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-289_sense_1_condition .
+
+:lexicalEntry-289_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Bridge> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/River> .
+
+:arg2 lemon:marker :lexicalEntry-289_form_preposition .
+## Prepositions ##
+:lexicalEntry-289_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

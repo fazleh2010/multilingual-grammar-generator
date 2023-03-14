@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-2497","verb","publish","publishes","published","published","in","IntransitivePPFrame","domain","range","1","dbo:publisher","dbo:VideoGame","dbo:Company","""0.878870071721995""","dbo:publisher","""""""1-gram"""""""
+"lexicalEntry-2498","verb","publish","publishes","published","published","in","IntransitivePPFrame","range","domain","1","dbo:publisher","dbo:VideoGame","dbo:Company","""0.878870071721995""","dbo:publisher","""""""1-gram"""""""

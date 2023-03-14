@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-349 ;
+  lemon:entry    :lexicalEntry-349_form_preposition .
+
+:lexicalEntry-349 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-349_form ;
+  lemon:otherForm  :lexicalEntry-349_singular ;
+  lemon:otherForm  :lexicalEntry-349_plural ;
+  lemon:sense          :lexicalEntry-349_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-349_nounpp .
+
+:lexicalEntry-349_form a lemon:Form ;
+  lemon:writtenRep "martial"@en .
+
+:lexicalEntry-349_singular a    lemon:Form ;
+  lemon:writtenRep "martial"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-349_plural a   lemon:Form ;
+  lemon:writtenRep "martial"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-349_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-349_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-349_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/date> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-349_sense_1_condition .
+
+:lexicalEntry-349_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Event> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :lexicalEntry-349_form_preposition .
+## Prepositions ##
+:lexicalEntry-349_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

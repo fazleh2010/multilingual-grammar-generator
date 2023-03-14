@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1655 ;
+  lemon:entry    :lexicalEntry-1655_form_preposition .
+
+:lexicalEntry-1655 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1655_form ;
+  lemon:otherForm  :lexicalEntry-1655_singular ;
+  lemon:otherForm  :lexicalEntry-1655_plural ;
+  lemon:sense          :lexicalEntry-1655_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1655_nounpp .
+
+:lexicalEntry-1655_form a lemon:Form ;
+  lemon:writtenRep "entry in"@en .
+
+:lexicalEntry-1655_singular a    lemon:Form ;
+  lemon:writtenRep "entry in"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1655_plural a   lemon:Form ;
+  lemon:writtenRep "entry in"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1655_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-1655_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1655_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/language> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1655_sense_1_condition .
+
+:lexicalEntry-1655_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Language> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2 lemon:marker :lexicalEntry-1655_form_preposition .
+## Prepositions ##
+:lexicalEntry-1655_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

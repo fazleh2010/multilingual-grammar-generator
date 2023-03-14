@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-427","verb","die","dies","died","died","in","IntransitivePPFrame","domain","range","1","dbo:deathDate","dbo:Person","xsd:date","""0.788810637746616""","dbo:deathDate","""""""1-gram"""""""
+"lexicalEntry-428","verb","die","dies","died","died","in","IntransitivePPFrame","range","domain","1","dbo:deathDate","dbo:Person","xsd:date","""0.788810637746616""","dbo:deathDate","""""""1-gram"""""""

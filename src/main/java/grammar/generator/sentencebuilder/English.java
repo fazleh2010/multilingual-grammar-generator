@@ -42,7 +42,6 @@ import lexicon.LexiconSearch;
 import net.lexinfo.LexInfo;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.GenderUtils;
-import static util.io.GenderUtils.nounWrittenForms;
 import util.io.ParamterFinder;
 import util.io.PronounFinder;
 import util.io.StringMatcher;
@@ -88,7 +87,6 @@ public class English implements TempConstants, MultilingualBuilder {
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
-        
         //System.out.println("subjectUri::"+subjectUri+" objectUri::"+objectUri+ " referenceUri::"+referenceUri);
 
     }
@@ -136,12 +134,7 @@ public class English implements TempConstants, MultilingualBuilder {
             attribute = tokens[0];
         }
 
-        System.out.println("attribute-" + attribute + " parameter-" + reference + " index-" + index);
-        
-        /*if (flagReference && (attribute.equals(copulativeSubject))) {
-            word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
-
-        } */
+        System.out.println("attribute::" + attribute + " reference::" + reference + " index::" + index);
 
         if (flagReference && (attribute.equals(pronoun))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
@@ -238,6 +231,7 @@ public class English implements TempConstants, MultilingualBuilder {
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
         }
+        //new ode if problem then delete...
         else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
@@ -248,14 +242,12 @@ public class English implements TempConstants, MultilingualBuilder {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
                     word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
-                    
                 } else {
                     System.out.println("number of paramters are not correct::" + reference);
                 }
             } else {
                 word = this.getReferenceWrttienForm(reference);
             }
-            
 
         } else if (flagReference && attribute.contains(verb)) {
             word = new VerbFinderEnglish(this.frameType, this.lexicalEntryUtil, attribute, reference).getWord();
@@ -298,14 +290,8 @@ public class English implements TempConstants, MultilingualBuilder {
             } else if (reference.contains(domain)) {
                 word = this.domainVariable;
             }
-            else{
-                word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);    
-                 
-            }
-                
 
         }
-       
 
         if (attribute.contains(QuestionMark)) {
             word = word + QuestionMark;
@@ -406,8 +392,6 @@ public class English implements TempConstants, MultilingualBuilder {
     private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
         String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
-        //System.out.println(GenderUtils.nounWrittenForms.keySet() + " " + questionWord + " " + noun);
-        //exit(1);
         return questionWord + " " + noun;
 
     }

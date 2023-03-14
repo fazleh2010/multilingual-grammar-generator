@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-295","verb","built","built","built","built","in","IntransitivePPFrame","domain","range","1","dbo:crosses","dbo:Bridge","dbo:River","""0.471091594741354""","dbo:crosses","""""""1-gram"""""""
+"lexicalEntry-296","verb","built","built","built","built","in","IntransitivePPFrame","range","domain","1","dbo:crosses","dbo:Bridge","dbo:River","""0.471091594741354""","dbo:crosses","""""""1-gram"""""""

@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-2815","verb","marry","marries","married","married","TransitiveFrame","range","domain","1","dbo:spouse","dbo:Person","dbo:Person","by","0.543557306504609","dbo:spouse","1-gram"
+"lexicalEntry-2816","verb","marry","marries","married","married","TransitiveFrame","domain","range","1","dbo:spouse","dbo:Person","dbo:Person","by","0.543557306504609","dbo:spouse","1-gram"
+"lexicalEntry-2817","verb","married to","married to","married to","married to","TransitiveFrame","range","domain","1","dbo:spouse","dbo:Person","dbo:Person","by","0.512822594068371","dbo:spouse","2-gram"
+"lexicalEntry-2818","verb","married to","married to","married to","married to","TransitiveFrame","domain","range","1","dbo:spouse","dbo:Person","dbo:Person","by","0.512822594068371","dbo:spouse","2-gram"

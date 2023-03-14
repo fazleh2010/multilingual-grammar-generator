@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-4376 ;
+  lemon:entry    :lexicalEntry-4376_form_preposition .
+
+:lexicalEntry-4376 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-4376_form ;
+  lemon:otherForm  :lexicalEntry-4376_singular ;
+  lemon:otherForm  :lexicalEntry-4376_plural ;
+  lemon:sense          :lexicalEntry-4376_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4376_nounpp .
+
+:lexicalEntry-4376_form a lemon:Form ;
+  lemon:writtenRep "the song"@en .
+
+:lexicalEntry-4376_singular a    lemon:Form ;
+  lemon:writtenRep "the song"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-4376_plural a   lemon:Form ;
+  lemon:writtenRep "the song"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-4376_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-4376_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-4376_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/album> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-4376_sense_1_condition .
+
+:lexicalEntry-4376_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Song> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Album> .
+
+:arg2 lemon:marker :lexicalEntry-4376_form_preposition .
+## Prepositions ##
+:lexicalEntry-4376_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

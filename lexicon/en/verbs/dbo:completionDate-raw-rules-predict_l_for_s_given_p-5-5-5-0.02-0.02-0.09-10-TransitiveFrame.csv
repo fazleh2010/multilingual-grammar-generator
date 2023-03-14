@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-3669","verb","aired","aired","aired","aired","TransitiveFrame","range","domain","1","dbo:completionDate","dbo:Ship","xsd:date","by","0.548379344596482","dbo:completionDate","1-gram"
+"lexicalEntry-3670","verb","aired","aired","aired","aired","TransitiveFrame","domain","range","1","dbo:completionDate","dbo:Ship","xsd:date","by","0.548379344596482","dbo:completionDate","1-gram"
+"lexicalEntry-3675","verb","aired on","aired on","aired on","aired on","TransitiveFrame","range","domain","1","dbo:completionDate","dbo:Ship","xsd:date","by","0.45662081196515","dbo:completionDate","2-gram"
+"lexicalEntry-3676","verb","aired on","aired on","aired on","aired on","TransitiveFrame","domain","range","1","dbo:completionDate","dbo:Ship","xsd:date","by","0.45662081196515","dbo:completionDate","2-gram"

@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-869","noun","mount","mount",,"""NounPPFrame""","range","domain","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.2144047638592""","dbo:firstAscentPerson","""""""1-gram"""""""
+"lexicalEntry-870","noun","mount","mount",,"""NounPPFrame""","domain","range","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.2144047638592""","dbo:firstAscentPerson","""""""1-gram"""""""
+"lexicalEntry-875","noun","stratovolcano","stratovolcano",,"""NounPPFrame""","range","domain","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.194805194805195""","dbo:firstAscentPerson","""""""1-gram"""""""
+"lexicalEntry-876","noun","stratovolcano","stratovolcano",,"""NounPPFrame""","domain","range","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.194805194805195""","dbo:firstAscentPerson","""""""1-gram"""""""
+"lexicalEntry-881","noun","volcano","volcano",,"""NounPPFrame""","range","domain","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.188149099884056""","dbo:firstAscentPerson","""""""1-gram"""""""
+"lexicalEntry-882","noun","volcano","volcano",,"""NounPPFrame""","domain","range","1","dbo:firstAscentPerson","dbo:Mountain","dbo:Place","""0.188149099884056""","dbo:firstAscentPerson","""""""1-gram"""""""

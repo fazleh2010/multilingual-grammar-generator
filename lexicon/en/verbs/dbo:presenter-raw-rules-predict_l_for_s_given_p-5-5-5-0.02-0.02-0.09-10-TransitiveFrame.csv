@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-3954","verb","presented","presented","presented","presented","TransitiveFrame","range","domain","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.526127878211133","dbo:presenter","1-gram"
+"lexicalEntry-3955","verb","presented","presented","presented","presented","TransitiveFrame","domain","range","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.526127878211133","dbo:presenter","1-gram"
+"lexicalEntry-3958","verb","hosted","hosted","hosted","hosted","TransitiveFrame","range","domain","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.488185419777123","dbo:presenter","1-gram"
+"lexicalEntry-3959","verb","hosted","hosted","hosted","hosted","TransitiveFrame","domain","range","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.488185419777123","dbo:presenter","1-gram"
+"lexicalEntry-3962","verb","hosted by","hosted by","hosted by","hosted by","TransitiveFrame","range","domain","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.474305137151699","dbo:presenter","2-gram"
+"lexicalEntry-3963","verb","hosted by","hosted by","hosted by","hosted by","TransitiveFrame","domain","range","1","dbo:presenter","dbo:TelevisionShow","dbo:Person","by","0.474305137151699","dbo:presenter","2-gram"

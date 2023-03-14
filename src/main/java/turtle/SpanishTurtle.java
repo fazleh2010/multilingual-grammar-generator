@@ -34,8 +34,8 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
 
 
 
-    public SpanishTurtle(String inputDir, String parameter,LinkedData linkedData, Language language) throws Exception {
-        super(inputDir, parameter,linkedData, language);
+    public SpanishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
+        super(inputDir, linkedData, language);
         super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(),transitiveFrameCsv.getSyntacticFrameIndex(),intransitiveFrameCsv.getSyntacticFrameIndex(),attributiveAdjectiveFrame.getSyntacticFrameIndex(),gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
         this.generateTurtle();
     }

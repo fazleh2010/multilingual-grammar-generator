@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-308 ;
+  lemon:entry    :lexicalEntry-308_form_preposition .
+
+:lexicalEntry-308 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-308_form ;
+  lemon:otherForm  :lexicalEntry-308_singular ;
+  lemon:otherForm  :lexicalEntry-308_plural ;
+  lemon:sense          :lexicalEntry-308_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-308_nounpp .
+
+:lexicalEntry-308_form a lemon:Form ;
+  lemon:writtenRep "republic of"@en .
+
+:lexicalEntry-308_singular a    lemon:Form ;
+  lemon:writtenRep "republic of"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-308_plural a   lemon:Form ;
+  lemon:writtenRep "republic of"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-308_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-308_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-308_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/currency> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-308_sense_1_condition .
+
+:lexicalEntry-308_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Currency> .
+
+:arg2 lemon:marker :lexicalEntry-308_form_preposition .
+## Prepositions ##
+:lexicalEntry-308_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

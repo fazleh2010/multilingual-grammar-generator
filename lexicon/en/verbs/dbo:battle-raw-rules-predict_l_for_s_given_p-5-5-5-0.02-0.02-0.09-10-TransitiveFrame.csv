@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-3504","verb","serve","serves","served","served","TransitiveFrame","range","domain","1","dbo:battle","dbo:MilitaryPerson","dbo:MilitaryConflict","by","0.439815442910549","dbo:battle","1-gram"
+"lexicalEntry-3505","verb","serve","serves","served","served","TransitiveFrame","domain","range","1","dbo:battle","dbo:MilitaryPerson","dbo:MilitaryConflict","by","0.439815442910549","dbo:battle","1-gram"

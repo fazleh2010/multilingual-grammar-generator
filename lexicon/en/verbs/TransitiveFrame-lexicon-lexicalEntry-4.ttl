@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-4 ;
+  lemon:entry    :lexicalEntry-4ed ;
+  lemon:entry    :form_lexicalEntry-4_preposition .
+
+:to_lexicalEntry-4 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-4 ;
+  lemon:otherForm      :form_lexicalEntry-4s ;
+  lemon:otherForm      :form_lexicalEntry-4ed ;
+  lemon:otherForm      :form_lexicalEntry-4perfect ;
+  lemon:sense          :lexicalEntry-4_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4_frame_transitive .
+
+:form_lexicalEntry-4 a         lemon:Form ;
+  lemon:writtenRep     "create"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-4s a    lemon:Form ;
+  lemon:writtenRep "creates"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-4ed a   lemon:Form ;
+  lemon:writtenRep "created"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-4perfect a   lemon:Form ;
+  lemon:writtenRep "created"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-4_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-4_obj ;
+  lexinfo:directObject     :lexicalEntry-4_subj .
+
+:lexicalEntry-4_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-4_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/knownFor> ;
+  lemon:subjOfProp  :lexicalEntry-4_obj ;
+  lemon:objOfProp   :lexicalEntry-4_subj ;
+  lemon:condition   :lexicalEntry-4_sense_1_condition .
+
+
+:lexicalEntry-4_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Award> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+:lexicalEntry-4ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-4ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-4ed_by ;
+  lemon:synBehavior    :lexicalEntry-4ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-4ed_ontomap .
+
+:form_lexicalEntry-4ed_canonical a lemon:Form ;
+  lemon:writtenRep         "create"@en .
+
+:form_lexicalEntry-4ed_by a    lemon:Form ;
+  lemon:writtenRep     "create"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-4ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-4ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-4ed_obj .
+
+:lexicalEntry-4ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-4ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/knownFor> ;
+  lemon:subjOfProp  :lexicalEntry-4ed_subj ;
+  lemon:objOfProp   :lexicalEntry-4ed_obj ;
+  lemon:condition   :lexicalEntry-4_sense_1_condition .
+:lexicalEntry-4ed_obj lemon:marker :form_lexicalEntry-4_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-4_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

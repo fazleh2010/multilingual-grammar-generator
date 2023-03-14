@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-1646","verb","performed","performed","performed","performed","in","IntransitivePPFrame","domain","range","1","dbo:language","dbo:Language","dbo:Country","""0.890130855342811""","dbo:language","""""""1-gram"""""""
+"lexicalEntry-1647","verb","performed","performed","performed","performed","in","IntransitivePPFrame","range","domain","1","dbo:language","dbo:Language","dbo:Country","""0.890130855342811""","dbo:language","""""""1-gram"""""""
+"lexicalEntry-1652","verb","performed in","performed in","performed in","performed in","in","IntransitivePPFrame","domain","range","1","dbo:language","dbo:Language","dbo:Country","""0.873598684693551""","dbo:language","""""""2-gram"""""""
+"lexicalEntry-1653","verb","performed in","performed in","performed in","performed in","in","IntransitivePPFrame","range","domain","1","dbo:language","dbo:Language","dbo:Country","""0.873598684693551""","dbo:language","""""""2-gram"""""""

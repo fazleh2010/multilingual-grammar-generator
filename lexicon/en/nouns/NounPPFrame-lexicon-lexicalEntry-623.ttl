@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-623 ;
+  lemon:entry    :lexicalEntry-623_form_preposition .
+
+:lexicalEntry-623 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-623_form ;
+  lemon:otherForm  :lexicalEntry-623_singular ;
+  lemon:otherForm  :lexicalEntry-623_plural ;
+  lemon:sense          :lexicalEntry-623_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-623_nounpp .
+
+:lexicalEntry-623_form a lemon:Form ;
+  lemon:writtenRep "cartoon"@en .
+
+:lexicalEntry-623_singular a    lemon:Form ;
+  lemon:writtenRep "cartoon"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-623_plural a   lemon:Form ;
+  lemon:writtenRep "cartoon"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-623_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-623_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-623_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/director> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-623_sense_1_condition .
+
+:lexicalEntry-623_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-623_form_preposition .
+## Prepositions ##
+:lexicalEntry-623_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

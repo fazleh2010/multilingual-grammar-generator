@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-3678 ;
+  lemon:entry    :lexicalEntry-3678_form_preposition .
+
+:lexicalEntry-3678 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-3678_form ;
+  lemon:otherForm  :lexicalEntry-3678_singular ;
+  lemon:otherForm  :lexicalEntry-3678_plural ;
+  lemon:sense          :lexicalEntry-3678_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3678_nounpp .
+
+:lexicalEntry-3678_form a lemon:Form ;
+  lemon:writtenRep "the series"@en .
+
+:lexicalEntry-3678_singular a    lemon:Form ;
+  lemon:writtenRep "the series"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-3678_plural a   lemon:Form ;
+  lemon:writtenRep "the series"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-3678_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-3678_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-3678_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/completionDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-3678_sense_1_condition .
+
+:lexicalEntry-3678_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Ship> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :lexicalEntry-3678_form_preposition .
+## Prepositions ##
+:lexicalEntry-3678_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

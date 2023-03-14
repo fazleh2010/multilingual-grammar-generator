@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-2420","verb","launch","launch","launch","launch","TransitiveFrame","range","domain","1","dbo:operator","dbo:LaunchPad","dbo:Organisation","by","0.845597694529087","dbo:operator","1-gram"
+"lexicalEntry-2421","verb","launch","launch","launch","launch","TransitiveFrame","domain","range","1","dbo:operator","dbo:LaunchPad","dbo:Organisation","by","0.845597694529087","dbo:operator","1-gram"

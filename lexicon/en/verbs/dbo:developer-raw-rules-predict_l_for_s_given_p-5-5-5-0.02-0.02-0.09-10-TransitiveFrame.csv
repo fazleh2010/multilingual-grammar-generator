@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-549","verb","develop","develops","developed","developed","TransitiveFrame","range","domain","1","dbo:developer","dbo:VideoGame","dbo:Agent","by","0.705847019024764","dbo:developer","1-gram"
+"lexicalEntry-550","verb","develop","develops","developed","developed","TransitiveFrame","domain","range","1","dbo:developer","dbo:VideoGame","dbo:Agent","by","0.705847019024764","dbo:developer","1-gram"
+"lexicalEntry-557","verb","developed by","developed by","developed by","developed by","TransitiveFrame","range","domain","1","dbo:developer","dbo:VideoGame","dbo:Agent","by","0.618357837871357","dbo:developer","2-gram"
+"lexicalEntry-558","verb","developed by","developed by","developed by","developed by","TransitiveFrame","domain","range","1","dbo:developer","dbo:VideoGame","dbo:Agent","by","0.618357837871357","dbo:developer","2-gram"

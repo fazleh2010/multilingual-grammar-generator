@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-1159 ;
+  lemon:entry    :lexicalEntry-1159ed ;
+  lemon:entry    :form_lexicalEntry-1159_preposition .
+
+:to_lexicalEntry-1159 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-1159 ;
+  lemon:otherForm      :form_lexicalEntry-1159s ;
+  lemon:otherForm      :form_lexicalEntry-1159ed ;
+  lemon:otherForm      :form_lexicalEntry-1159perfect ;
+  lemon:sense          :lexicalEntry-1159_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1159_frame_transitive .
+
+:form_lexicalEntry-1159 a         lemon:Form ;
+  lemon:writtenRep     "it estimated"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-1159s a    lemon:Form ;
+  lemon:writtenRep "it estimated"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-1159ed a   lemon:Form ;
+  lemon:writtenRep "it estimated"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-1159perfect a   lemon:Form ;
+  lemon:writtenRep "it estimated"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-1159_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-1159_subj ;
+  lexinfo:directObject     :lexicalEntry-1159_obj .
+
+:lexicalEntry-1159_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-1159_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/areaCode> ;
+  lemon:subjOfProp  :lexicalEntry-1159_obj ;
+  lemon:objOfProp   :lexicalEntry-1159_subj ;
+  lemon:condition   :lexicalEntry-1159_sense_1_condition .
+
+
+:lexicalEntry-1159_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#string> .
+
+:lexicalEntry-1159ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-1159ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-1159ed_by ;
+  lemon:synBehavior    :lexicalEntry-1159ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-1159ed_ontomap .
+
+:form_lexicalEntry-1159ed_canonical a lemon:Form ;
+  lemon:writtenRep         "it estimated"@en .
+
+:form_lexicalEntry-1159ed_by a    lemon:Form ;
+  lemon:writtenRep     "it estimated"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-1159ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-1159ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-1159ed_obj .
+
+:lexicalEntry-1159ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-1159ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/areaCode> ;
+  lemon:subjOfProp  :lexicalEntry-1159ed_subj ;
+  lemon:objOfProp   :lexicalEntry-1159ed_obj ;
+  lemon:condition   :lexicalEntry-1159_sense_1_condition .
+:lexicalEntry-1159ed_obj lemon:marker :form_lexicalEntry-1159_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-1159_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

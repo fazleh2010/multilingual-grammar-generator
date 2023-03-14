@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-1051","verb","counted in","counted in","counted in","counted in","TransitiveFrame","range","domain","1","dbo:governmentType","dbo:Town","owl:Thing","by","0.629920629920945","dbo:governmentType","3-gram"
+"lexicalEntry-1052","verb","counted in","counted in","counted in","counted in","TransitiveFrame","domain","range","1","dbo:governmentType","dbo:Town","owl:Thing","by","0.629920629920945","dbo:governmentType","3-gram"
+"lexicalEntry-1065","verb","reflecting","reflecting","reflecting","reflecting","TransitiveFrame","range","domain","1","dbo:governmentType","dbo:Town","owl:Thing","by","0.624825178802072","dbo:governmentType","1-gram"
+"lexicalEntry-1066","verb","reflecting","reflecting","reflecting","reflecting","TransitiveFrame","domain","range","1","dbo:governmentType","dbo:Town","owl:Thing","by","0.624825178802072","dbo:governmentType","1-gram"

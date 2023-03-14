@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-68 ;
+  lemon:entry    :lexicalEntry-68_form_preposition .
+
+:lexicalEntry-68 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-68_form ;
+  lemon:otherForm  :lexicalEntry-68_singular ;
+  lemon:otherForm  :lexicalEntry-68_plural ;
+  lemon:sense          :lexicalEntry-68_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-68_nounpp .
+
+:lexicalEntry-68_form a lemon:Form ;
+  lemon:writtenRep "dynasty"@en .
+
+:lexicalEntry-68_singular a    lemon:Form ;
+  lemon:writtenRep "dynasty"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-68_plural a   lemon:Form ;
+  lemon:writtenRep "dynasty"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-68_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-68_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-68_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/capital> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-68_sense_1_condition .
+
+:lexicalEntry-68_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2 lemon:marker :lexicalEntry-68_form_preposition .
+## Prepositions ##
+:lexicalEntry-68_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

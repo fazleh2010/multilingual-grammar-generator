@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-293","verb","carries","carries","carries","carries","TransitiveFrame","range","domain","1","dbo:crosses","dbo:Bridge","dbo:River","by","0.47354341595496","dbo:crosses","1-gram"
+"lexicalEntry-294","verb","carries","carries","carries","carries","TransitiveFrame","domain","range","1","dbo:crosses","dbo:Bridge","dbo:River","by","0.47354341595496","dbo:crosses","1-gram"

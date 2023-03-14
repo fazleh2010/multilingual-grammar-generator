@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-1745","verb","elected","elected","elected","elected","TransitiveFrame","range","domain","1","dbo:leader","dbo:Legislature/dbo:Place","dbo:Person","by","0.509299945022024","dbo:leader","1-gram"
+"lexicalEntry-1746","verb","elected","elected","elected","elected","TransitiveFrame","domain","range","1","dbo:leader","dbo:Legislature/dbo:Place","dbo:Person","by","0.509299945022024","dbo:leader","1-gram"

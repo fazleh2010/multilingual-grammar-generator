@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-559 ;
+  lemon:entry    :form_lexicalEntry-559_preposition .
+
+:lexicalEntry-559 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-559 ;
+  lemon:otherForm      :form_lexicalEntry-559_past ;
+  lemon:sense          :lexicalEntry-559_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-559_frame .
+
+:form_lexicalEntry-559 a           lemon:Form ;
+  lemon:writtenRep     "published by"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-559 a      lemon:Form ;
+  lemon:writtenRep "published by"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-559_past a lemon:Form ;
+  lemon:writtenRep  "published by"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-559perfect a   lemon:Form ;
+  lemon:writtenRep "published by"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-559_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-559_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-559_obj .
+
+:lexicalEntry-559_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-559_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/developer> ;
+  lemon:subjOfProp  :lexicalEntry-559_obj ;
+  lemon:objOfProp   :lexicalEntry-559_subj ;
+  lemon:condition   :lexicalEntry-559_sense_1_condition .
+
+:lexicalEntry-559_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/VideoGame> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Agent> .
+
+
+:lexicalEntry-559_obj lemon:marker :form_lexicalEntry-559_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-559_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

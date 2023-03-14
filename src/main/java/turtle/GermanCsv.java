@@ -160,32 +160,19 @@ public class GermanCsv {
         }*/
         
         public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
-            /*String domain = Property.shortPrefix(tupple.getDomain());
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            
             if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setArticles(domain, row.get(0));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
                 GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
-                System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
-
             } else if (domainOrRange.containsKey(range)) {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setArticles(range, row.get(0));
                 GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
-                System.out.println(range+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
-            }*/
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
-                //System.out.println(key+" "+row.get(1)+" "+row.get(2));
-
             }
-            /*System.out.println(GenderUtils.nounWrittenForms.keySet());
-            System.out.println(GenderUtils.referenceArticleMap.keySet());*/
         }
 
         public String getLexicalIdIndex(String[] row) {
@@ -379,30 +366,19 @@ public class GermanCsv {
         }*/
         
         public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
-            /*String domain = Property.shortPrefix(tupple.getDomain());
+            GenderUtils.setArticles(tupple.getReference(), gender);
+            String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
             if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setArticles(domain, row.get(0));
-                System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
+                //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
                 GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
             } else if (domainOrRange.containsKey(range)) {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setArticles(range, row.get(0));
                 GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
-                System.out.println(range+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
-
-            }*/
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
             }
-            
         }
 
         public void setVerbInfo(String partOfSpeech, String writtenFromIn, String writtenForm3rd, String writtenFormPast, String writtenFormPerfect) {
@@ -613,20 +589,12 @@ public class GermanCsv {
         }
         
           public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
-            /*GenderUtils.setArticles(Property.shortPrefix(tupple.getReference()), gender);
+            GenderUtils.setArticles(Property.shortPrefix(tupple.getReference()), gender);
             
             for(String lasName:domainOrRange.keySet()){
                 List<String> row = domainOrRange.get(lasName);
                 GenderUtils.setArticles(lasName, row.get(0));
                 GenderUtils.setWrittenForms(lasName, row.get(1), row.get(2));
-            }*/
-            
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
             }
             /*String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
@@ -824,10 +792,9 @@ public class GermanCsv {
 
         
           public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
             String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
             if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setArticles(domain, row.get(0));
@@ -1167,10 +1134,9 @@ public class GermanCsv {
         }
 
          public void setArticle(Tupples tupple, String gender, Map<String, List<String>> domainOrRange) {
+            GenderUtils.setArticles(tupple.getReference(), gender);
             String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            String referene = Property.shortPrefix(tupple.getReference());
-            GenderUtils.setArticles(referene, gender);
             if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setArticles(domain, row.get(0));

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-870 ;
+  lemon:entry    :lexicalEntry-870_form_preposition .
+
+:lexicalEntry-870 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-870_form ;
+  lemon:otherForm  :lexicalEntry-870_singular ;
+  lemon:otherForm  :lexicalEntry-870_plural ;
+  lemon:sense          :lexicalEntry-870_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-870_nounpp .
+
+:lexicalEntry-870_form a lemon:Form ;
+  lemon:writtenRep "mount"@en .
+
+:lexicalEntry-870_singular a    lemon:Form ;
+  lemon:writtenRep "mount"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-870_plural a   lemon:Form ;
+  lemon:writtenRep "mount"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-870_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-870_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-870_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAscentPerson> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-870_sense_1_condition .
+
+:lexicalEntry-870_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mountain> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2 lemon:marker :lexicalEntry-870_form_preposition .
+## Prepositions ##
+:lexicalEntry-870_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

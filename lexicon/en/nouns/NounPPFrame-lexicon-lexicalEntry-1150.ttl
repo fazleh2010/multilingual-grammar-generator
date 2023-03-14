@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1150 ;
+  lemon:entry    :lexicalEntry-1150_form_preposition .
+
+:lexicalEntry-1150 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1150_form ;
+  lemon:otherForm  :lexicalEntry-1150_singular ;
+  lemon:otherForm  :lexicalEntry-1150_plural ;
+  lemon:sense          :lexicalEntry-1150_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1150_nounpp .
+
+:lexicalEntry-1150_form a lemon:Form ;
+  lemon:writtenRep "sea level"@en .
+
+:lexicalEntry-1150_singular a    lemon:Form ;
+  lemon:writtenRep "sea level"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1150_plural a   lemon:Form ;
+  lemon:writtenRep "sea level"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1150_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-1150_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1150_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaCode> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1150_sense_1_condition .
+
+:lexicalEntry-1150_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :lexicalEntry-1150_form_preposition .
+## Prepositions ##
+:lexicalEntry-1150_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

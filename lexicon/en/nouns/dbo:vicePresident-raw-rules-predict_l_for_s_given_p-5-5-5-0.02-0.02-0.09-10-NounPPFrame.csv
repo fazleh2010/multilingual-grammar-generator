@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-2999","noun","president of","president of",,"""NounPPFrame""","range","domain","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.450312848626474""","dbo:vicePresident","""""""2-gram"""""""
+"lexicalEntry-3000","noun","president of","president of",,"""NounPPFrame""","domain","range","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.450312848626474""","dbo:vicePresident","""""""2-gram"""""""
+"lexicalEntry-3001","noun","president","president",,"""NounPPFrame""","range","domain","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.448286883581824""","dbo:vicePresident","""""""1-gram"""""""
+"lexicalEntry-3002","noun","president","president",,"""NounPPFrame""","domain","range","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.448286883581824""","dbo:vicePresident","""""""1-gram"""""""
+"lexicalEntry-3011","noun","politician","politician",,"""NounPPFrame""","range","domain","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.251982232151511""","dbo:vicePresident","""""""1-gram"""""""
+"lexicalEntry-3012","noun","politician","politician",,"""NounPPFrame""","domain","range","1","dbo:vicePresident","dbo:Politician","dbo:Politician","""0.251982232151511""","dbo:vicePresident","""""""1-gram"""""""

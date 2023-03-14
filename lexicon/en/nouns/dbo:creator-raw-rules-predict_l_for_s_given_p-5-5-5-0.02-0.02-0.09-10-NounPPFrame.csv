@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-235","noun","comics","comics",,"""NounPPFrame""","range","domain","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.89506118235818""","dbo:creator","""""""1-gram"""""""
+"lexicalEntry-236","noun","comics","comics",,"""NounPPFrame""","domain","range","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.89506118235818""","dbo:creator","""""""1-gram"""""""
+"lexicalEntry-243","noun","character","character",,"""NounPPFrame""","range","domain","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.809549161151882""","dbo:creator","""""""1-gram"""""""
+"lexicalEntry-244","noun","character","character",,"""NounPPFrame""","domain","range","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.809549161151882""","dbo:creator","""""""1-gram"""""""
+"lexicalEntry-251","noun","books","books",,"""NounPPFrame""","range","domain","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.753528841491411""","dbo:creator","""""""1-gram"""""""
+"lexicalEntry-252","noun","books","books",,"""NounPPFrame""","domain","range","1","dbo:creator","dbo:TelevisionShow","dbo:Agent","""0.753528841491411""","dbo:creator","""""""1-gram"""""""

@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-4455","verb","held","held","held","held","TransitiveFrame","range","domain","1","dbo:location","dbo:Building","dbo:City","by","0.984092720028434","dbo:location","1-gram"
+"lexicalEntry-4456","verb","held","held","held","held","TransitiveFrame","domain","range","1","dbo:location","dbo:Building","dbo:City","by","0.984092720028434","dbo:location","1-gram"
+"lexicalEntry-4457","verb","wrestling","wrestling","wrestling","wrestling","TransitiveFrame","range","domain","1","dbo:location","dbo:Building","dbo:City","by","0.981147896972096","dbo:location","1-gram"
+"lexicalEntry-4458","verb","wrestling","wrestling","wrestling","wrestling","TransitiveFrame","domain","range","1","dbo:location","dbo:Building","dbo:City","by","0.981147896972096","dbo:location","1-gram"

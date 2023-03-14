@@ -12,11 +12,11 @@ import static grammar.datasets.sentencetemplates.TempConstants.past;
 import static grammar.datasets.sentencetemplates.TempConstants.perfect;
 import static grammar.datasets.sentencetemplates.TempConstants.present;
 import static grammar.datasets.sentencetemplates.TempConstants.present3rd;
+import static java.lang.System.exit;
 import java.util.List;
 import java.util.Map;
 import util.io.GenderUtils;
 import util.io.Property;
-import util.io.Spliter;
 import util.io.Tupples;
 
 /**
@@ -125,10 +125,17 @@ public class EnglishCsv implements TempConstants {
             GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
         }*/
 
-        public void setArticle(Map<String, List<String>> domainOrRange) {
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setWrittenForms(key, row.get(0), row.get(1));
+        public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
+
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
+
             }
 
         }
@@ -191,11 +198,11 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getDomainIndex(String[] row) {
-            return Spliter.splitString(row[domainIndex]);       
+            return row[domainIndex];
         }
 
         public static String getRangeIndex(String[] row) {
-            return Spliter.splitString(row[rangeIndex]);
+            return row[rangeIndex];
         }
 
         /* public String getDomainWrittenSingular(String[] row) {
@@ -392,10 +399,17 @@ public class EnglishCsv implements TempConstants {
            GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
            GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
         }*/
-        public void setArticle( Map<String, List<String>> domainOrRange) {
-               for(String key:domainOrRange.keySet()){
-               List<String> row= domainOrRange.get(key);
-               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
+        public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
+            String domain = Property.shortPrefix(tupple.getDomain());
+            String range = Property.shortPrefix(tupple.getRange());
+            if (domainOrRange.containsKey(domain)) {
+                List<String> row = domainOrRange.get(domain);
+                GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
+
+            } else if (domainOrRange.containsKey(range)) {
+                List<String> row = domainOrRange.get(range);
+                GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
+
             }
 
         }
@@ -407,7 +421,7 @@ public class EnglishCsv implements TempConstants {
                     past, writtenFormPast,
                     perfect, writtenFormPerfect
             );
-            System.out.println(verbTypes);
+
             String[] verbs = new String[]{writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect};
             GenderUtils.setVerbTypes(partOfSpeech, verbs, verbTypes);
         }
@@ -624,7 +638,7 @@ public class EnglishCsv implements TempConstants {
         public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
             String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-            /*if (domainOrRange.containsKey(domain)) {
+            if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
 
@@ -632,10 +646,6 @@ public class EnglishCsv implements TempConstants {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
 
-            }*/
-            for(String key:domainOrRange.keySet()){
-               List<String> row= domainOrRange.get(key);
-               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }
@@ -1055,8 +1065,7 @@ public class EnglishCsv implements TempConstants {
         public void setArticle(Tupples tupple, Map<String, List<String>> domainOrRange) {
             String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
-
-            /*if (domainOrRange.containsKey(domain)) {
+            if (domainOrRange.containsKey(domain)) {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setWrittenForms(domain, row.get(0), row.get(1));
 
@@ -1064,10 +1073,6 @@ public class EnglishCsv implements TempConstants {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
 
-            }*/
-            for(String key:domainOrRange.keySet()){
-               List<String> row= domainOrRange.get(key);
-               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }

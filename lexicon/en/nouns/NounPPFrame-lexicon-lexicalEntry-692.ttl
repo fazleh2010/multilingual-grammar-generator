@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-692 ;
+  lemon:entry    :lexicalEntry-692_form_preposition .
+
+:lexicalEntry-692 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-692_form ;
+  lemon:otherForm  :lexicalEntry-692_singular ;
+  lemon:otherForm  :lexicalEntry-692_plural ;
+  lemon:sense          :lexicalEntry-692_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-692_nounpp .
+
+:lexicalEntry-692_form a lemon:Form ;
+  lemon:writtenRep "town"@en .
+
+:lexicalEntry-692_singular a    lemon:Form ;
+  lemon:writtenRep "town"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-692_plural a   lemon:Form ;
+  lemon:writtenRep "town"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-692_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-692_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-692_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/dissolutionDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-692_sense_1_condition .
+
+:lexicalEntry-692_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :lexicalEntry-692_form_preposition .
+## Prepositions ##
+:lexicalEntry-692_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

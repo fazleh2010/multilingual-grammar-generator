@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1093 ;
+  lemon:entry    :lexicalEntry-1093_form_preposition .
+
+:lexicalEntry-1093 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1093_form ;
+  lemon:otherForm  :lexicalEntry-1093_singular ;
+  lemon:otherForm  :lexicalEntry-1093_plural ;
+  lemon:sense          :lexicalEntry-1093_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1093_nounpp .
+
+:lexicalEntry-1093_form a lemon:Form ;
+  lemon:writtenRep "south"@en .
+
+:lexicalEntry-1093_singular a    lemon:Form ;
+  lemon:writtenRep "south"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1093_plural a   lemon:Form ;
+  lemon:writtenRep "south"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1093_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-1093_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1093_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/governor> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1093_sense_1_condition .
+
+:lexicalEntry-1093_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-1093_form_preposition .
+## Prepositions ##
+:lexicalEntry-1093_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

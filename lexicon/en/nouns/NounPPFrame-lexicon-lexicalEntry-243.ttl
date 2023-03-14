@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-243 ;
+  lemon:entry    :lexicalEntry-243_form_preposition .
+
+:lexicalEntry-243 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-243_form ;
+  lemon:otherForm  :lexicalEntry-243_singular ;
+  lemon:otherForm  :lexicalEntry-243_plural ;
+  lemon:sense          :lexicalEntry-243_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-243_nounpp .
+
+:lexicalEntry-243_form a lemon:Form ;
+  lemon:writtenRep "character"@en .
+
+:lexicalEntry-243_singular a    lemon:Form ;
+  lemon:writtenRep "character"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-243_plural a   lemon:Form ;
+  lemon:writtenRep "character"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-243_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-243_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-243_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/creator> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-243_sense_1_condition .
+
+:lexicalEntry-243_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:arg2 lemon:marker :lexicalEntry-243_form_preposition .
+## Prepositions ##
+:lexicalEntry-243_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

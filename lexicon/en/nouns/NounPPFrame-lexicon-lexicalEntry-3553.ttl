@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-3553 ;
+  lemon:entry    :lexicalEntry-3553_form_preposition .
+
+:lexicalEntry-3553 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-3553_form ;
+  lemon:otherForm  :lexicalEntry-3553_singular ;
+  lemon:otherForm  :lexicalEntry-3553_plural ;
+  lemon:sense          :lexicalEntry-3553_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3553_nounpp .
+
+:lexicalEntry-3553_form a lemon:Form ;
+  lemon:writtenRep "sumo"@en .
+
+:lexicalEntry-3553_singular a    lemon:Form ;
+  lemon:writtenRep "sumo"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-3553_plural a   lemon:Form ;
+  lemon:writtenRep "sumo"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-3553_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-3553_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-3553_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/birthPlace> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-3553_sense_1_condition .
+
+:lexicalEntry-3553_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2 lemon:marker :lexicalEntry-3553_form_preposition .
+## Prepositions ##
+:lexicalEntry-3553_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

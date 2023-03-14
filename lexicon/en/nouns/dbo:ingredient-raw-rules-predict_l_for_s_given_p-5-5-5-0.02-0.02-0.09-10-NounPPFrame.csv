@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-1512","noun","dish","dish",,"""NounPPFrame""","range","domain","1","dbo:ingredient","dbo:Food","owl:Thing","""0.513560244446351""","dbo:ingredient","""""""1-gram"""""""
+"lexicalEntry-1513","noun","dish","dish",,"""NounPPFrame""","domain","range","1","dbo:ingredient","dbo:Food","owl:Thing","""0.513560244446351""","dbo:ingredient","""""""1-gram"""""""
+"lexicalEntry-1528","noun","sugar","sugar",,"""NounPPFrame""","range","domain","1","dbo:ingredient","dbo:Food","owl:Thing","""0.361738511507349""","dbo:ingredient","""""""1-gram"""""""
+"lexicalEntry-1529","noun","sugar","sugar",,"""NounPPFrame""","domain","range","1","dbo:ingredient","dbo:Food","owl:Thing","""0.361738511507349""","dbo:ingredient","""""""1-gram"""""""

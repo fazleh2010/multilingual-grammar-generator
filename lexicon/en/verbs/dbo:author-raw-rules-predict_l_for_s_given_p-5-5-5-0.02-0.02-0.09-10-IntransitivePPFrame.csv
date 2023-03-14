@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3378","verb","publish","publishes","published","published","in","IntransitivePPFrame","domain","range","1","dbo:author","dbo:Book","dbo:Person","""0.866840627909387""","dbo:author","""""""1-gram"""""""
+"lexicalEntry-3379","verb","publish","publishes","published","published","in","IntransitivePPFrame","range","domain","1","dbo:author","dbo:Book","dbo:Person","""0.866840627909387""","dbo:author","""""""1-gram"""""""
+"lexicalEntry-3384","verb","published in","published in","published in","published in","in","IntransitivePPFrame","domain","range","1","dbo:author","dbo:Book","dbo:Person","""0.808891094060294""","dbo:author","""""""2-gram"""""""
+"lexicalEntry-3385","verb","published in","published in","published in","published in","in","IntransitivePPFrame","range","domain","1","dbo:author","dbo:Book","dbo:Person","""0.808891094060294""","dbo:author","""""""2-gram"""""""

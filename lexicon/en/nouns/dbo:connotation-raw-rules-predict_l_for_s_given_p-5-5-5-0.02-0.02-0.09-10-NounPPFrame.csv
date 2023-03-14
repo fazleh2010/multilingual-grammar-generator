@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3734","noun","colors","colors",,"""NounPPFrame""","range","domain","1","dbo:connotation","dbo:Colour","owl:Thing","""0.235702260395516""","dbo:connotation","""""""1-gram"""""""
+"lexicalEntry-3735","noun","colors","colors",,"""NounPPFrame""","domain","range","1","dbo:connotation","dbo:Colour","owl:Thing","""0.235702260395516""","dbo:connotation","""""""1-gram"""""""
+"lexicalEntry-3740","noun","color","color",,"""NounPPFrame""","range","domain","1","dbo:connotation","dbo:Colour","owl:Thing","""0.198653716632253""","dbo:connotation","""""""1-gram"""""""
+"lexicalEntry-3741","noun","color","color",,"""NounPPFrame""","domain","range","1","dbo:connotation","dbo:Colour","owl:Thing","""0.198653716632253""","dbo:connotation","""""""1-gram"""""""

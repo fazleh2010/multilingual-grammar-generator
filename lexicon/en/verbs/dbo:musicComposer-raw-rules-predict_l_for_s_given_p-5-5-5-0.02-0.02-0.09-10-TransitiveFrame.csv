@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-2114","verb","direct","directs","directed","directed","TransitiveFrame","range","domain","1","dbo:musicComposer","dbo:Film","dbo:Person","by","0.682684598859724","dbo:musicComposer","1-gram"
+"lexicalEntry-2115","verb","direct","directs","directed","directed","TransitiveFrame","domain","range","1","dbo:musicComposer","dbo:Film","dbo:Person","by","0.682684598859724","dbo:musicComposer","1-gram"
+"lexicalEntry-2116","verb","directed by","directed by","directed by","directed by","TransitiveFrame","range","domain","1","dbo:musicComposer","dbo:Film","dbo:Person","by","0.666598470174319","dbo:musicComposer","2-gram"
+"lexicalEntry-2117","verb","directed by","directed by","directed by","directed by","TransitiveFrame","domain","range","1","dbo:musicComposer","dbo:Film","dbo:Person","by","0.666598470174319","dbo:musicComposer","2-gram"

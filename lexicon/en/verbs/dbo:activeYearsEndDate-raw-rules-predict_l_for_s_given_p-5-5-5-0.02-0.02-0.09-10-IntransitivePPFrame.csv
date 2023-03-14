@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-4287","verb","born","born","born","born","in","IntransitivePPFrame","domain","range","1","dbo:activeYearsEndDate","dbo:Athlete","xsd:date","""0.692135920684241""","dbo:activeYearsEndDate","""""""1-gram"""""""
+"lexicalEntry-4288","verb","born","born","born","born","in","IntransitivePPFrame","range","domain","1","dbo:activeYearsEndDate","dbo:Athlete","xsd:date","""0.692135920684241""","dbo:activeYearsEndDate","""""""1-gram"""""""

@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-4435 ;
+  lemon:entry    :form_lexicalEntry-4435_preposition .
+
+:lexicalEntry-4435 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-4435 ;
+  lemon:otherForm      :form_lexicalEntry-4435_past ;
+  lemon:sense          :lexicalEntry-4435_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4435_frame .
+
+:form_lexicalEntry-4435 a           lemon:Form ;
+  lemon:writtenRep     "published by"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-4435 a      lemon:Form ;
+  lemon:writtenRep "published by"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-4435_past a lemon:Form ;
+  lemon:writtenRep  "published by"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-4435perfect a   lemon:Form ;
+  lemon:writtenRep "published by"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-4435_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-4435_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-4435_obj .
+
+:lexicalEntry-4435_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-4435_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/abbreviation> ;
+  lemon:subjOfProp  :lexicalEntry-4435_obj ;
+  lemon:objOfProp   :lexicalEntry-4435_subj ;
+  lemon:condition   :lexicalEntry-4435_sense_1_condition .
+
+:lexicalEntry-4435_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://www.w3.org/2002/07/owl#Thing> ;
+  lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#string> .
+
+
+:lexicalEntry-4435_obj lemon:marker :form_lexicalEntry-4435_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-4435_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

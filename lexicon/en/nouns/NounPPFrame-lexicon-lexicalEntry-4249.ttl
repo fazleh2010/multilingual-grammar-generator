@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-4249 ;
+  lemon:entry    :lexicalEntry-4249_form_preposition .
+
+:lexicalEntry-4249 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-4249_form ;
+  lemon:otherForm  :lexicalEntry-4249_singular ;
+  lemon:otherForm  :lexicalEntry-4249_plural ;
+  lemon:sense          :lexicalEntry-4249_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4249_nounpp .
+
+:lexicalEntry-4249_form a lemon:Form ;
+  lemon:writtenRep "character"@en .
+
+:lexicalEntry-4249_singular a    lemon:Form ;
+  lemon:writtenRep "character"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-4249_plural a   lemon:Form ;
+  lemon:writtenRep "character"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-4249_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-4249_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-4249_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/portrayer> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-4249_sense_1_condition .
+
+:lexicalEntry-4249_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/FictionalCharacter> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-4249_form_preposition .
+## Prepositions ##
+:lexicalEntry-4249_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

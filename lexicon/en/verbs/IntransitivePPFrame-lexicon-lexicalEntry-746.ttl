@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-746 ;
+  lemon:entry    :form_lexicalEntry-746_preposition .
+
+:lexicalEntry-746 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-746 ;
+  lemon:otherForm      :form_lexicalEntry-746_past ;
+  lemon:sense          :lexicalEntry-746_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-746_frame .
+
+:form_lexicalEntry-746 a           lemon:Form ;
+  lemon:writtenRep     "established"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-746 a      lemon:Form ;
+  lemon:writtenRep "established"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-746_past a lemon:Form ;
+  lemon:writtenRep  "established"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-746perfect a   lemon:Form ;
+  lemon:writtenRep "established"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-746_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-746_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-746_obj .
+
+:lexicalEntry-746_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-746_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/editor> ;
+  lemon:subjOfProp  :lexicalEntry-746_obj ;
+  lemon:objOfProp   :lexicalEntry-746_subj ;
+  lemon:condition   :lexicalEntry-746_sense_1_condition .
+
+:lexicalEntry-746_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:lexicalEntry-746_obj lemon:marker :form_lexicalEntry-746_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-746_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

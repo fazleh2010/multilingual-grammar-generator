@@ -12,6 +12,7 @@ import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
 import grammar.structure.component.Language;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,9 +25,7 @@ import java.util.stream.Stream;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
-import util.io.DomainRangeDictionary;
 import util.io.GenderUtils;
-import static util.io.GenderUtils.nounWrittenForms;
 import util.io.Property;
 import util.io.Tupples;
 
@@ -53,8 +52,8 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private EnglishCsv.AttributiveAdjectiveFrame attributiveAdjectiveFrame = new EnglishCsv.AttributiveAdjectiveFrame();
     private EnglishCsv.GradbleAdjectiveFrameCsv gradableAdjectiveFrameCsv = new EnglishCsv.GradbleAdjectiveFrameCsv();
 
-    public EnglishTurtle(String inputDir, String domainAndRangeDir,LinkedData linkedData, Language language) throws Exception {
-        super(inputDir, domainAndRangeDir,linkedData, language);
+    public EnglishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
+        super(inputDir, linkedData, language);
         super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(), transitiveFrameCsv.getSyntacticFrameIndex(), IntransitiveFrameCsv.getSyntacticFrameIndex(), attributiveAdjectiveFrame.getSyntacticFrameIndex(), gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
         this.generateTurtle();
     }
@@ -64,20 +63,15 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
-        DomainRangeDictionary domainRangeDictionary = new DomainRangeDictionary(domainAndRangeDir);
-        domainOrRange = domainRangeDictionary.getDomainOrRange();
-
         for (String pathname : pathnames) {
-            if (pathname.contains("questions")||pathname.contains(".json")||pathname.contains("lexicon_")) {
-                continue;
-            }
-           
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
-                /*if(fileName.contains("DomainOrRange.csv")){
+                if(fileName.contains("DomainOrRange.csv")){
+                    domainOrRange=this.findDomainorRangeEnglish(inputDir + File.separatorChar + pathname+ File.separatorChar +fileName);
                     continue;
-                }*/
-
+                }
+                //System.out.println("fileName::"+fileName);
+                //exit(1);
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
@@ -88,15 +82,16 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {
-
+                    
                     if (index == 0) {
                         index = index + 1;
                         continue;
                     }
-                    if (row.length < 2) {
-                        throw new Exception("the format of CSV file is wrong!!!!");
+                    if(row.length<2){
+                       throw new Exception("the format of CSV file is wrong!!!!");
                     }
                     String key = row[0];
+                    System.out.println(row[0]);
 
                     List<String[]> values = new ArrayList<String[]>();
                     if (keyRows.containsKey(key)) {
@@ -127,7 +122,9 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
             }
 
         }
-
+       /*System.out.println("domainOrRange::"+this.domainOrRange.keySet());
+         System.out.println("nounWrittenForms::"+GenderUtils.nounWrittenForms);
+         exit(1);*/
     }
 
     private void setSyntacticFrame(String key, List<String[]> rows) throws Exception {
@@ -145,7 +142,9 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
             setAdjectiveGradableFrame(key, rows, syntacticFrame);
         }
         else {
-            System.out.println("no syntactic frame is found!!");            
+            System.out.println("no syntactic frame is found!!");
+            
+            //syntacticFrame = row[GoogleXslSheet.TransitFrameSyntacticFrameIndex];
         }
 
     }
@@ -171,7 +170,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     setReference(nounPPFrameCsv.getRangeIndex(row)));
             tupplesList.add(tupple);
             index = index + 1;
-             nounPPFrameCsv.setArticle(domainOrRange);
+             nounPPFrameCsv.setArticle(tupple, domainOrRange);
         }
         this.turtleString
                 = nounPPFrameCsv.getNounPPFrameHeader(this.lemonEntry, this.preposition, this.language)
@@ -188,8 +187,6 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         this.setLemonEntryId(key);
         List<Tupples> tupples = new ArrayList<Tupples>();
          String subject=null;
-          //System.out.println(GenderUtils.nounWrittenForms );
-          //exit(1);
          
         Integer index = 0;
         for (String[] row : rows) {
@@ -208,7 +205,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(transitiveFrameCsv.getDomainIndex(row)),
                     this.setReference(transitiveFrameCsv.getRangeIndex(row)));
 
-            transitiveFrameCsv.setArticle(domainOrRange);
+            transitiveFrameCsv.setArticle(tupple, domainOrRange);
             transitiveFrameCsv.setVerbInfo(partOfSpeech,  writtenFormInfinitive,  writtenForm3rdPerson,  writtenFormPast,writtenFormPerfect);
             tupples.add(tupple);
             index = index + 1;
@@ -335,6 +332,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         }
         this.turtleString = gradableAdjectiveFrameCsv.prepareTurtile(row, this.language);
         this.tutleFileName = getFileName(syntacticFrame);
+        System.out.println("turtleString::" + turtleString);
         exit(1);*/
     }
 
@@ -359,6 +357,18 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
 
     }
 
-    
+    private Map<String, List<String>> findDomainorRangeEnglish(String fileName) {
+        CsvFile csvFile = new CsvFile();
+        Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
+        List<String[]> rows = csvFile.getRows(new File(fileName));
+        for (String[] row : rows) {
+            String property=row[0].replace(" ", "");
+            List<String> rowT=new ArrayList<String>();
+            rowT.add(row[1]);
+            rowT.add(row[2]);
+            domainOrRange.put(property, rowT);
+        }
+        return domainOrRange;
+    }
 
 }

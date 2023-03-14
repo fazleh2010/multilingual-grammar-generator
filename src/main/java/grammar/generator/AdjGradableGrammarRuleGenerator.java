@@ -5,6 +5,7 @@ import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.Language;
 import grammar.structure.component.SentenceType;
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,9 +44,11 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         } catch (Exception ex) {
             System.out.println(this.frameType + " is not working");
             java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);
+            exit(1);
         }
 
         //System.out.println("getLanguage:::"+getLanguage());
+        //exit(1);
         return generatedSentences;
     }
     
@@ -71,6 +74,7 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         } catch (Exception ex) {
             System.out.println(this.frameType + " is not working");
             java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);
+            exit(1);
         }
 
         //System.out.println("generatedSentences:::"+generatedSentences);

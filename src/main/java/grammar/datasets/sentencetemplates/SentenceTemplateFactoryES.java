@@ -86,7 +86,7 @@ class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,
            "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(nominativeCase:singular)?" */
         ),
         NounPPFrame,
-        Prepositional_Adjuct
+        whQuestion
       )
     );
     

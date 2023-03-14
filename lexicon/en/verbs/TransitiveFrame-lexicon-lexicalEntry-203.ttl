@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-203 ;
+  lemon:entry    :lexicalEntry-203ed ;
+  lemon:entry    :form_lexicalEntry-203_preposition .
+
+:to_lexicalEntry-203 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-203 ;
+  lemon:otherForm      :form_lexicalEntry-203s ;
+  lemon:otherForm      :form_lexicalEntry-203ed ;
+  lemon:otherForm      :form_lexicalEntry-203perfect ;
+  lemon:sense          :lexicalEntry-203_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-203_frame_transitive .
+
+:form_lexicalEntry-203 a         lemon:Form ;
+  lemon:writtenRep     "held"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-203s a    lemon:Form ;
+  lemon:writtenRep "held"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-203ed a   lemon:Form ;
+  lemon:writtenRep "held"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-203perfect a   lemon:Form ;
+  lemon:writtenRep "held"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-203_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-203_subj ;
+  lexinfo:directObject     :lexicalEntry-203_obj .
+
+:lexicalEntry-203_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-203_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/city> ;
+  lemon:subjOfProp  :lexicalEntry-203_obj ;
+  lemon:objOfProp   :lexicalEntry-203_subj ;
+  lemon:condition   :lexicalEntry-203_sense_1_condition .
+
+
+:lexicalEntry-203_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/River> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/City> .
+
+:lexicalEntry-203ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-203ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-203ed_by ;
+  lemon:synBehavior    :lexicalEntry-203ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-203ed_ontomap .
+
+:form_lexicalEntry-203ed_canonical a lemon:Form ;
+  lemon:writtenRep         "held"@en .
+
+:form_lexicalEntry-203ed_by a    lemon:Form ;
+  lemon:writtenRep     "held"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-203ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-203ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-203ed_obj .
+
+:lexicalEntry-203ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-203ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/city> ;
+  lemon:subjOfProp  :lexicalEntry-203ed_subj ;
+  lemon:objOfProp   :lexicalEntry-203ed_obj ;
+  lemon:condition   :lexicalEntry-203_sense_1_condition .
+:lexicalEntry-203ed_obj lemon:marker :form_lexicalEntry-203_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-203_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

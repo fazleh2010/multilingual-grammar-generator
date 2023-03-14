@@ -179,50 +179,5 @@ public class GrammarEntryUnit {
         }
         return lexicalEntries;
     }
-    
-    public static Map<String, List<GrammarEntryUnit>> getLexicalEntries(List<File> protoSimpleQFiles,String givenFrame) {
-        Integer index = 0;
-        Map<String, List<GrammarEntryUnit>> lexicalEntries = new TreeMap<String, List<GrammarEntryUnit>>();
-
-        for (File file : protoSimpleQFiles) {
-            System.out.println(file.getName());
-            ObjectMapper mapper = new ObjectMapper();
-            try {
-                GrammarEntries grammarEntries = mapper.readValue(file, GrammarEntries.class);
-                for (GrammarEntryUnit grammarEntryUnit : grammarEntries.getGrammarEntries()) {
-                    if(grammarEntryUnit.getFrameType().toString().contains("APP")){
-                        continue;
-                    }
-                    if(!grammarEntryUnit.getFrameType().toString().contains(givenFrame)){
-                        continue;
-                    }
-                        
-                   
-                    String lexicalEntry = null;
-                    if (grammarEntryUnit.getLexicalEntryUri()==null) {
-                        lexicalEntry = baseUri+"unknown_" + index;
-                        index = index + 1;
-                    }
-                    else
-                        lexicalEntry = grammarEntryUnit.getLexicalEntryUri().toString();
-                    
-                    lexicalEntry =lexicalEntry.toLowerCase();
-                    lexicalEntry=GrammarEntryUnit.getLexicalEntrywithOutUri(lexicalEntry);                    
-                    List<GrammarEntryUnit> grammarEntryUnits = new ArrayList<GrammarEntryUnit>();
-
-                    if (lexicalEntries.containsKey(lexicalEntry)) {
-                        grammarEntryUnits = lexicalEntries.get(lexicalEntry);
-                    }
-                    grammarEntryUnits.add(grammarEntryUnit);
-                    lexicalEntries.put(lexicalEntry, grammarEntryUnits);
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return lexicalEntries;
-    }
-
-
 
 }

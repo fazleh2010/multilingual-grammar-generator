@@ -114,7 +114,7 @@ public class SentenceBuilderCopulativePP extends SentenceBuilderImpl implements 
 
 
         List<String> sentenceTemplates = this.getSentenceTemplateRepository().findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                this.getLanguage(), new String[]{this.getFrameType().getName(), Prepositional_Adjuct,  this.getLanguage().toString()});
+                this.getLanguage(), new String[]{this.getFrameType().getName(), whQuestion,  this.getLanguage().toString()});
       
         //System.out.println("sentenceTemplates::" + type);
 
@@ -201,7 +201,7 @@ public class SentenceBuilderCopulativePP extends SentenceBuilderImpl implements 
         
 
         List<String> sentenceTemplates = this.getSentenceTemplateRepository().findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                this.getLanguage(), new String[]{this.getFrameType().getName(), Prepositional_Adjuct, this.getLanguage().toString()});
+                this.getLanguage(), new String[]{this.getFrameType().getName(), whQuestion, this.getLanguage().toString()});
 
        
 
@@ -362,11 +362,6 @@ public class SentenceBuilderCopulativePP extends SentenceBuilderImpl implements 
 
     @Override
     public String getTemplate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<String> generateNounPhrase(String bindingVar, String[] argument, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

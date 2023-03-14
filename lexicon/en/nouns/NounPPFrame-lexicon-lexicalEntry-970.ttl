@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-970 ;
+  lemon:entry    :lexicalEntry-970_form_preposition .
+
+:lexicalEntry-970 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-970_form ;
+  lemon:otherForm  :lexicalEntry-970_singular ;
+  lemon:otherForm  :lexicalEntry-970_plural ;
+  lemon:sense          :lexicalEntry-970_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-970_nounpp .
+
+:lexicalEntry-970_form a lemon:Form ;
+  lemon:writtenRep "books"@en .
+
+:lexicalEntry-970_singular a    lemon:Form ;
+  lemon:writtenRep "books"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-970_plural a   lemon:Form ;
+  lemon:writtenRep "books"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-970_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-970_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-970_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/founder> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-970_sense_1_condition .
+
+:lexicalEntry-970_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Publisher> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:arg2 lemon:marker :lexicalEntry-970_form_preposition .
+## Prepositions ##
+:lexicalEntry-970_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

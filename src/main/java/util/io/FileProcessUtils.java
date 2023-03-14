@@ -295,7 +295,7 @@ public class FileProcessUtils {
 
     }*/
     
-    public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) throws Exception {
+    public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) {
         Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
         BufferedReader reader;
         String line = "";
@@ -315,8 +315,9 @@ public class FileProcessUtils {
         }*/
         try {
             reader = new BufferedReader(new FileReader(propertyFile));
-            while ((line = reader.readLine()) != null) {
-                //line = reader.readLine();
+            line = reader.readLine();
+            while (line != null) {
+                line = reader.readLine();
                 String subjectUri = null,subjectLabel = null, objectUri = null, objectLabel = null;
                 String subjectWiki=null,subjectThum=null,subjectAbstract=null,objectWiki=null,objectThum=null,objectAbstract=null;
 
@@ -333,11 +334,11 @@ public class FileProcessUtils {
                         if (index == 1) {
                             subjectUri = clean(value);
                         } else if (index == 2) {
-                            subjectLabel = cleanLabels(value);
+                            subjectLabel = clean(value);
                         }  else if (index == 3) {
                             objectUri = clean(value);
                         } else if (index == 4) {
-                            objectLabel = cleanLabels(value);
+                            objectLabel = clean(value);
                         }
 
                     }
@@ -377,9 +378,9 @@ public class FileProcessUtils {
                 }
             }
             reader.close();
-        } catch (Exception ex) {
-            //ex.printStackTrace();
-            throw new Exception("the property not found!! "+ex.getMessage());
+        } catch (IOException e) {
+            System.out.println("come here!!!");
+            e.printStackTrace();
         }
         return entityLabels;
     }
@@ -467,23 +468,6 @@ public class FileProcessUtils {
         value = value.trim().strip().stripLeading().stripTrailing();
         return value;
     }
-    
-     private static String cleanLabels(String value) {
-        value = value.replace("<", "");
-        value = value.replace(">", "");
-        if(value.contains("^")){
-            value=value.split("^")[0];
-            
-        }
-        if(value.contains("@")){
-            value=value.split("@")[0];
-            
-        }
-        value=value.replace("\"", "");
-        value = value.trim().strip().stripLeading().stripTrailing();
-        return value;
-    }
-
 
     /*public static Map<String, String> tripleFileToHash(String fileName) {
         Map<String, String> results = new TreeMap<String, String>();

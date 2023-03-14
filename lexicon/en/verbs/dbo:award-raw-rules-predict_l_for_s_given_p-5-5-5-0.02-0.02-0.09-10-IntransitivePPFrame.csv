@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3420","verb","born","born","born","born","in","IntransitivePPFrame","domain","range","1","dbo:award","dbo:Scientist","dbo:Award","""0.763581738415331""","dbo:award","""""""1-gram"""""""
+"lexicalEntry-3421","verb","born","born","born","born","in","IntransitivePPFrame","range","domain","1","dbo:award","dbo:Scientist","dbo:Award","""0.763581738415331""","dbo:award","""""""1-gram"""""""
+"lexicalEntry-3430","verb","play","playes","played","played","in","IntransitivePPFrame","domain","range","1","dbo:award","dbo:Scientist","dbo:Award","""0.615385495681585""","dbo:award","""""""1-gram"""""""
+"lexicalEntry-3431","verb","play","playes","played","played","in","IntransitivePPFrame","range","domain","1","dbo:award","dbo:Scientist","dbo:Award","""0.615385495681585""","dbo:award","""""""1-gram"""""""

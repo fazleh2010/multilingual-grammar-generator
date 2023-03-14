@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-698 ;
+  lemon:entry    :lexicalEntry-698_form_preposition .
+
+:lexicalEntry-698 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-698_form ;
+  lemon:otherForm  :lexicalEntry-698_singular ;
+  lemon:otherForm  :lexicalEntry-698_plural ;
+  lemon:sense          :lexicalEntry-698_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-698_nounpp .
+
+:lexicalEntry-698_form a lemon:Form ;
+  lemon:writtenRep "expanded city of"@en .
+
+:lexicalEntry-698_singular a    lemon:Form ;
+  lemon:writtenRep "expanded city of"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-698_plural a   lemon:Form ;
+  lemon:writtenRep "expanded city of"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-698_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-698_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-698_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/dissolutionDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-698_sense_1_condition .
+
+:lexicalEntry-698_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :lexicalEntry-698_form_preposition .
+## Prepositions ##
+:lexicalEntry-698_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

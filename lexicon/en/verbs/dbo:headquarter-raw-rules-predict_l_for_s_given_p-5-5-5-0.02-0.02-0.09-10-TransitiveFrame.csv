@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-1358","verb","based","based","based","based","TransitiveFrame","range","domain","1","dbo:headquarter","dbo:Organisation","dbo:PopulatedPlace","by","0.708258834474506","dbo:headquarter","1-gram"
+"lexicalEntry-1359","verb","based","based","based","based","TransitiveFrame","domain","range","1","dbo:headquarter","dbo:Organisation","dbo:PopulatedPlace","by","0.708258834474506","dbo:headquarter","1-gram"
+"lexicalEntry-1368","verb","based in","based in","based in","based in","TransitiveFrame","range","domain","1","dbo:headquarter","dbo:Organisation","dbo:PopulatedPlace","by","0.632770096855792","dbo:headquarter","2-gram"
+"lexicalEntry-1369","verb","based in","based in","based in","based in","TransitiveFrame","domain","range","1","dbo:headquarter","dbo:Organisation","dbo:PopulatedPlace","by","0.632770096855792","dbo:headquarter","2-gram"

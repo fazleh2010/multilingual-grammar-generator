@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-56 ;
+  lemon:entry    :lexicalEntry-56_form_preposition .
+
+:lexicalEntry-56 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-56_form ;
+  lemon:otherForm  :lexicalEntry-56_singular ;
+  lemon:otherForm  :lexicalEntry-56_plural ;
+  lemon:sense          :lexicalEntry-56_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-56_nounpp .
+
+:lexicalEntry-56_form a lemon:Form ;
+  lemon:writtenRep "republic"@en .
+
+:lexicalEntry-56_singular a    lemon:Form ;
+  lemon:writtenRep "republic"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-56_plural a   lemon:Form ;
+  lemon:writtenRep "republic"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-56_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-56_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-56_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/capital> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-56_sense_1_condition .
+
+:lexicalEntry-56_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2 lemon:marker :lexicalEntry-56_form_preposition .
+## Prepositions ##
+:lexicalEntry-56_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

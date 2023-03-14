@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","preposition","SyntacticFrame","subject","prepositionalAdjuct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3076","verb","grow","grows","grew","grown","in","IntransitivePPFrame","domain","range","1","dbo:wineRegion","dbo:Grape","dbo:Place","""0.579287385021587""","dbo:wineRegion","""""""1-gram"""""""
+"lexicalEntry-3077","verb","grow","grows","grew","grown","in","IntransitivePPFrame","range","domain","1","dbo:wineRegion","dbo:Grape","dbo:Place","""0.579287385021587""","dbo:wineRegion","""""""1-gram"""""""

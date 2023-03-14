@@ -1,0 +1,7 @@
+"lemon","partOfSpeech","writtenForm(singular)","writtenForm(plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","value","filename","gram"
+"lexicalEntry-3117","noun","comics","comics",,"""NounPPFrame""","range","domain","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.369391960311659""","dbp:alterEgo","""""""1-gram"""""""
+"lexicalEntry-3118","noun","comics","comics",,"""NounPPFrame""","domain","range","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.369391960311659""","dbp:alterEgo","""""""1-gram"""""""
+"lexicalEntry-3125","noun","dc comics","dc comics",,"""NounPPFrame""","range","domain","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.320459362405471""","dbp:alterEgo","""""""2-gram"""""""
+"lexicalEntry-3126","noun","dc comics","dc comics",,"""NounPPFrame""","domain","range","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.320459362405471""","dbp:alterEgo","""""""2-gram"""""""
+"lexicalEntry-3131","noun","character","character",,"""NounPPFrame""","range","domain","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.308416346659427""","dbp:alterEgo","""""""1-gram"""""""
+"lexicalEntry-3132","noun","character","character",,"""NounPPFrame""","domain","range","1","dbp:alterEgo","dbo:ComicsCharacter","dbo:Person/xsd:string","""0.308416346659427""","dbp:alterEgo","""""""1-gram"""""""

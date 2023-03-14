@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-3342 ;
+  lemon:entry    :lexicalEntry-3342_form_preposition .
+
+:lexicalEntry-3342 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-3342_form ;
+  lemon:otherForm  :lexicalEntry-3342_singular ;
+  lemon:otherForm  :lexicalEntry-3342_plural ;
+  lemon:sense          :lexicalEntry-3342_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3342_nounpp .
+
+:lexicalEntry-3342_form a lemon:Form ;
+  lemon:writtenRep "english"@en .
+
+:lexicalEntry-3342_singular a    lemon:Form ;
+  lemon:writtenRep "english"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-3342_plural a   lemon:Form ;
+  lemon:writtenRep "english"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-3342_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-3342_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-3342_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/associatedMusicalArtist> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-3342_sense_1_condition .
+
+:lexicalEntry-3342_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Band> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2 lemon:marker :lexicalEntry-3342_form_preposition .
+## Prepositions ##
+:lexicalEntry-3342_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

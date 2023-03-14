@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-4485 ;
+  lemon:entry    :lexicalEntry-4485_form_preposition .
+
+:lexicalEntry-4485 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-4485_form ;
+  lemon:otherForm  :lexicalEntry-4485_singular ;
+  lemon:otherForm  :lexicalEntry-4485_plural ;
+  lemon:sense          :lexicalEntry-4485_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4485_nounpp .
+
+:lexicalEntry-4485_form a lemon:Form ;
+  lemon:writtenRep "by henry"@en .
+
+:lexicalEntry-4485_singular a    lemon:Form ;
+  lemon:writtenRep "by henry"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-4485_plural a   lemon:Form ;
+  lemon:writtenRep "by henry"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-4485_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-4485_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-4485_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfPages> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-4485_sense_1_condition .
+
+:lexicalEntry-4485_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+
+:arg2 lemon:marker :lexicalEntry-4485_form_preposition .
+## Prepositions ##
+:lexicalEntry-4485_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

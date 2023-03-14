@@ -563,67 +563,25 @@ public class FileFolderUtils {
     public static void deleteFiles(String inputDir, String extension) {
         File f = new File(inputDir);
         String[] pathnames = f.list();
-        try {
-            for (String pathname : pathnames) {
-                String[] files = new File(inputDir + File.separator + pathname).list();
-                for (String fileName : files) {
-                    File file = new File(inputDir + File.separator + pathname + File.separator + fileName);
-                    if (file.getName().contains(extension)) {
-                        if (file.delete()) {
-                            //System.out.println(fileName + " deleted successfully");
-                        } else {
-                            System.out.println("No fileto delete!!");
-                        }
-                    }
-
-                }
-
-            }
-        }catch(Exception ex){
-             System.out.println("Failed to delete the file!!"+ex.getMessage());
-        }
-
-    }
-    
-    public static void deleteFiles(String inputDir) {
-        File f = new File(inputDir);
-        String[] pathnames = f.list();
-        try {
-            for (String fileName : pathnames) {
-                File file = new File(inputDir + File.separator + fileName);
-                if (file.delete()) {
-                    System.out.println(fileName + " deleted successfully");
-                } else {
-                    System.out.println("No fileto delete!!");
-                }
-
-            }
-        } catch (Exception ex) {
-            System.out.println("Failed to delete the file!!" + ex.getMessage());
-        }
-
-    }
-    public static void deleteFilesE(String inputDir, String extension) {
-        File f = new File(inputDir);
-        String[] pathnames = f.list();
-        try {
-            for (String fileName : pathnames) {
-
-                if (fileName.contains(extension)) {
-                    File file = new File(inputDir + File.separator + fileName);
+        for (String pathname : pathnames) {
+            System.out.println(pathname);
+            String[] files = new File(inputDir + File.separator + pathname).list();
+            for (String fileName : files) {
+                File file = new File(inputDir + File.separator + pathname + File.separator + fileName);
+                if (file.getName().contains(extension)) {
                     if (file.delete()) {
                         System.out.println(fileName + " deleted successfully");
                     } else {
-                        System.out.println("No fileto delete!!");
+                        System.out.println("Failed to delete the file");
                     }
                 }
+
             }
-        } catch (Exception ex) {
-            System.out.println("Failed to delete the file!!" + ex.getMessage());
+
         }
 
     }
-     
+
     
     
     public static void main(String[] args) throws IOException {

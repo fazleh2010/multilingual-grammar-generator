@@ -5,7 +5,6 @@
  */
 package util.io;
 
-import com.google.gdata.util.common.base.Pair;
 import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,31 +50,7 @@ public class StringMatcher {
 
         return answerLabel;
     }
-    
-    public static List<String> modifySentencesWithNonTerminals(List<String> sentences, String nonTerminal) {
-        List<String> modifiedSentences = new ArrayList<String>();
-        for (String question : sentences) {
-            Pair<String, String> pair = findVariable(question);
-            if (pair.first != null) {
-                question = pair.second;
-                question = question.replace("(X)", nonTerminal);
-                modifiedSentences.add(question);
-            }
 
-        }
-        return modifiedSentences;
-    }
-
-    private static Pair<String, String> findVariable(String question) {
-        if (question.contains("(") && question.contains(")")) {
-            String result = StringUtils.substringBetween(question, "(", ")");
-            question = question.replace(result, "X");
-            Pair<String, String> pair = new Pair<String, String>("(X)", question);
-            return pair;
-        }
-        return new Pair<String, String>(null, question);
-    }
-
-
+ 
     
 }

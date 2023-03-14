@@ -10,17 +10,13 @@ import util.io.FileProcessUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.CSVWriter;
-import static grammar.datasets.sentencetemplates.TempConstants.SYNTACTIC_FRAME;
 import static grammar.datasets.sentencetemplates.TempConstants.superlative;
 import grammar.sparql.PrepareSparqlQuery;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
 import grammar.structure.component.FrameType;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -65,8 +61,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
     public String questionAnswerFile = null;
     public String questionSummaryFile = null;
     private Map<String, Statistics> summary = new TreeMap<String, Statistics>();
-    //private Map<String, String> lexEntryParameter = new TreeMap<String, String>();
-
     private Integer maxNumberOfEntities = 100;
     private Integer batchNumber = 0;
     private String endpoint = null;
@@ -76,7 +70,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
     private InputCofiguration inputCofiguration = null;
     private Boolean online = false;
     private List<String> menus = Stream.of(FIND_WIKI_LINK, FIND_ABSTRACT, FIND_IMAGE_LINK).collect(Collectors.toCollection(ArrayList::new));
-    private String parameter=null;
+
     public ProtoToRealQuesrion(LinkedData linkedData, InputCofiguration inputCofiguration) throws Exception {
         this.maxNumberOfEntities = maxNumberOfEntities;
         this.linkedData = linkedData;
@@ -89,12 +83,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         this.questionSummaryFile = this.inputCofiguration.getQuestionDir() + File.separator + summaryFile + "_" + language + ".csv";
         //this.batchNumber=this.getBatchNumner(inputCofiguration);
         this.batchNumber=1;
-        this.parameter=inputCofiguration.getParameter();
-        //String parameterFileName = "/media/elahi/Elements/A-project/resources/ldk/parameter/parameter.txt";
-        //this.lexEntryParameter=this.findParameter(parameterFileName);
-        //System.out.println(lexEntryParameter.keySet());
-        //exit(1);
-
     }
 
     public void onlineQaGeneration(List<File> protoSimpleQFiles) throws Exception {
@@ -124,7 +112,152 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
     }
     
-  
+     public void offline(List<File> protoSimpleQFiles) throws Exception {
+        Integer index = 0;
+        String classDir = this.inputCofiguration.getClassDir();
+        
+        
+
+        if (protoSimpleQFiles.isEmpty()) {
+            throw new Exception("No proto file found to process!!");
+        }
+
+        Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
+        GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "Grammar.json");
+        this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "missedProperty.txt");
+        
+        this.csvWriterSummary = new CSVWriter(new FileWriter(questionSummaryFile, true));
+        this.writeInCSV(summaryHeader);
+
+        Set<String> existingEntries = this.getExistingLexicalEntries(questionSummaryFile);
+        Set<String> offlineMatchedProperties = new TreeSet<String>();
+
+        if (this.inputCofiguration.getOfflineQuestion()) {
+            ReferenceManagement referenceManagement = new ReferenceManagement(this.propertyDir, classDir, protoSimpleQFiles, GENERATED);
+            offlineMatchedProperties = referenceManagement.getMatchedProperties();
+        } else if (this.inputCofiguration.getEvalutionQuestion()) {
+            String questionFile = this.inputCofiguration.getQuestionDir() + questionsCsv;
+            this.csvWriterQuestions = new CSVWriter(new FileWriter(questionFile, true));
+        }
+
+        /*//Map<String, String> wikiLink=FileUtils.tripleFileToHash(inputCofiguration.getWikiFile(),-1);
+        Map<String, String> abstracts=FileUtils.tripleFileToHash(inputCofiguration.getAbstractFile(),-1);
+        Map<String, String> wikiLink=new TreeMap<String, String>();
+        Map<String, String> abstracts=new TreeMap<String, String>();
+        Map<String, String>thumb= new TreeMap<String, String>();*/
+        if (offlineMatchedProperties.isEmpty() && this.inputCofiguration.getOfflineQuestion()) {
+            throw new Exception("No off line properties to process!!");
+        }
+        
+        Integer total = lexicalEntiryUris.size();
+
+        index = index + 1;
+        ObjectMapper mapper = new ObjectMapper();
+        Integer idIndex = 0, noIndex = 0;
+        List<String> questions = new ArrayList<String>();
+        Integer fileIndex = 1;
+        
+
+        for (String lexicalEntiryUri : lexicalEntiryUris.keySet()) {
+            List<GrammarEntryUnit> grammarEntryUnits = lexicalEntiryUris.get(lexicalEntiryUri);
+            batchNumber=batchNumber+1;
+            String uri = null, className;
+            //String fileName=this.questionAnswerFile.replace(".csv", "_"+lexicalEntiryUri+"-"+this.batchNumber+".csv");
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
+            this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
+            for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
+                className = linkedData.getRdfPropertyClass(grammarEntryUnit.getReturnType());
+                questions = grammarEntryUnit.getSentences();
+                String sparql = grammarEntryUnit.getSparqlQuery();
+                String returnSubjOrObj = grammarEntryUnit.getReturnVariable();
+                String bindingType = grammarEntryUnit.getBindingType();
+                String returnType = grammarEntryUnit.getReturnType();
+                List<UriLabel> bindingList = grammarEntryUnit.getBindingList();
+                String property = AddQuote.getProperty(grammarEntryUnit.getSparqlQuery());
+
+                if (grammarEntryUnit.getLexicalEntryUri() != null) {
+                    uri = grammarEntryUnit.getLexicalEntryUri().toString();
+                    if (existingEntries.isEmpty() && existingEntries.contains(uri)) {
+                        continue;
+                    }
+                } else {
+                    continue;
+                }
+
+                if (questions.contains("Where is $x located?")) {
+                    continue;
+                }
+
+                if (!offlineMatchedProperties.contains(property) && this.inputCofiguration.getOfflineQuestion()) {
+                    continue;
+                }
+                if (this.inputCofiguration.getOfflineQuestion()) {
+                    try {
+                        //String fileId = grammarEntryUnit.getLexicalEntryUri().toString().replace("http://localhost:8080#", "") + "-" + "dbo_" + bindingType + "-" + property + "-" + "dbo_" + returnType + "-";
+                        //fileId = fileId + grammarEntryUnit.getFrameType() + "-" + grammarEntryUnit.getReturnVariable();
+                        //String questionAnswerFileTemp = this.questionAnswerFile.replace(".csv", "") + "-" + fileId + "-" + (fileIndex++).toString() + ".csv";
+                        //this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFileTemp, true));
+                        String propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
+                        this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
+                        bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
+                    } catch (Exception ex) {
+                        continue;
+                    }
+                } else if (this.inputCofiguration.getEvalutionQuestion()) {
+                    String entityFileName = this.inputCofiguration.getEvalutionBindingFile();
+                    File entityFile = new File(entityFileName);
+                    List<UriLabel> qaldBindingList = this.getExtendedOffline(grammarEntryUnit.getBindingList(), entityFile, 0, 2, bindingType.toLowerCase());
+                    bindingList.addAll(qaldBindingList);
+                }
+
+                if (grammarEntryUnit.getQueryType().equals(QueryType.ASK)) {
+                    continue;
+                }
+
+                if (grammarEntryUnit.getBindingType().contains("date")) {
+                    bindingList = grammarEntryUnit.getBindingList();
+                }
+
+                try {
+                    if (grammarEntryUnit.getFrameType().contains(FrameType.AG.toString()) && grammarEntryUnit.getSentenceTemplate().contains(superlative)) {
+                        sparql = grammarEntryUnit.getExecutable();
+                    } else {
+                        sparql = grammarEntryUnit.getSparqlQuery();
+
+                    }
+                } catch (Exception ex) {
+                    continue;
+                }
+
+                if (grammarEntryUnit.getQueryType().equals(QueryType.SELECT)) {
+                    noIndex = this.questionGeneration(uri, sparql, bindingList, questions, noIndex, "", grammarEntryUnit, entityLabels);
+                    noIndex = noIndex + 1;
+                    idIndex = idIndex + 1;
+                }
+
+                if (grammarEntryUnit.getLexicalEntryUri() != null) {
+                    uri = grammarEntryUnit.getLexicalEntryUri().toString();
+
+                    if (this.summary.containsKey(uri)) {
+                        Statistics summary = this.summary.get(uri);
+                        this.summary.put(uri, new Statistics(grammarEntryUnit.getFrameType(), summary.getNumberOfGrammarRules() + 1, noIndex, bindingList.size()));
+                    } else {
+                        Statistics summary = new Statistics(grammarEntryUnit.getFrameType(), 1, noIndex, bindingList.size());
+                        this.summary.put(uri, summary);
+                    }
+                }
+                
+            }
+            this.csvWriterQuestions.close();
+        }
+        questions = new ArrayList<String>();
+
+        this.writeSummary(this.summary);
+        this.csvWriterSummary.close();
+        //this.writeBatchNumner(batchNumber);
+
+    }
     
      private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException {
         Integer index = 0;
@@ -208,8 +341,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
                         }
 
-                        String id = uri + "~" + rowIndex.toString();
-                        //test
+                        String id = uri + "_" + rowIndex.toString();
                         String questionT = getQuestion(question, questionLabel);
 
                         if (questionLabel.isEmpty()) {
@@ -318,7 +450,46 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
     }
 
-   
+    private List<UriLabel> getExtendedOnline(List<UriLabel> bindingList, File classFile, Integer keyindex, Integer classIntex, String bindingType) throws IOException {
+        List<UriLabel> modifyLabels = new ArrayList<UriLabel>();
+        Map<String, String> map = new TreeMap<String, String>();
+        for (UriLabel uriLabel : bindingList) {
+            if (AddQuote.isKbValid(uriLabel)) {
+                map.put(uriLabel.getUri(), uriLabel.getLabel());
+            }
+        }
+        Map<String, String[]> temp = FileProcessUtils.getDataFromFile(classFile, keyindex, classIntex, bindingType);
+        for (String key : temp.keySet()) {
+            String[] values = temp.get(key);
+            String value = values[1];
+            UriLabel uriLabel = new UriLabel(key, value);
+            modifyLabels.add(uriLabel);
+        }
+        return modifyLabels;
+    }
+
+    private List<UriLabel> getExtendedOffline(List<UriLabel> bindingList, File classFile, Integer keyindex, Integer classIntex, String bindingType) throws IOException {
+        List<UriLabel> modifyLabels = new ArrayList<UriLabel>();
+        Map<String, String> map = new TreeMap<String, String>();
+        for (UriLabel uriLabel : bindingList) {
+            if (AddQuote.isKbValid(uriLabel)) {
+                map.put(uriLabel.getUri(), uriLabel.getLabel());
+            }
+        }
+        Map<String, String[]> row = FileProcessUtils.getDataFromFile(classFile, keyindex, classIntex, bindingType);
+        for (String bindingUri : row.keySet()) {
+            String[] values = row.get(bindingUri);
+            String bindingValue = values[1];
+            String className = values[2];
+            String answerUri = values[3];
+            String answerLabel = values[4];
+            String returnSubjOrObj = values[5];
+            //System.out.println("key:"+key+" value:"+value+" className:"+className+" answerUri:"+answerUri+" answerLable:"+answerLable+" returnSubjOrObj:"+returnSubjOrObj);
+            UriLabel uriLabel = new UriLabel(bindingUri, bindingValue, answerUri, answerLabel, returnSubjOrObj);
+            modifyLabels.add(uriLabel);
+        }
+        return modifyLabels;
+    }
 
     private void writeSummary(Map<String, Statistics> summary) {
         if (summary.isEmpty()) {
@@ -345,7 +516,24 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         return lexicalEntries;
     }
 
-  
+    private List<UriLabel> getOffLineBindingList(Map<String, OffLineResult> entityLabels, String returnType) {
+        List<UriLabel> uriLabels = new ArrayList<UriLabel>();
+
+        for (String uri : entityLabels.keySet()) {
+            OffLineResult offLineResult = entityLabels.get(uri);
+            UriLabel uriLabel = null;
+            if (returnType.contains(RETURN_TYPE_SUBJECT)) {
+                uriLabel = new UriLabel(offLineResult.getObjectUri(), offLineResult.getObjectLabel(), offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getSubjectWikiLink(), offLineResult.getSubjectThumbnail(), offLineResult.getSubjectAbstractText());
+
+            } else {
+                uriLabel = new UriLabel(offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getObjectUri(), offLineResult.getObjectLabel(), offLineResult.getObjectWikiLink(), offLineResult.getObjectThumbnail(), offLineResult.getObjectAbstractText());
+            }
+            uriLabels.add(uriLabel);
+
+        }
+
+        return uriLabels;
+    }
 
     private void writeInCSV(String []summaryHeader) {
         //this.csvWriterQuestions.writeNext(questionHeader);
@@ -425,7 +613,27 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         return questionT;
     }
 
-   
+    private Integer getBatchNumner(InputCofiguration inputCofiguration) throws Exception {
+        Integer batchNUmber=null;
+        Set<String> set = new HashSet<String>();
+        try {
+           set=FileFolderUtils.fileToSet(inputCofiguration.getBatchFile());
+           if(set.isEmpty())
+               throw new Exception("No batch number found!!!");
+           else{
+               batchNUmber= Integer.parseInt(set.iterator().next());
+
+           }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return batchNUmber;
+    }
+    
+    /*private void writeBatchNumner(Integer batchNumber) {
+        FileFolderUtils.stringToFiles(batchNumber.toString(), inputCofiguration.getBatchFile());
+    }*/
 
     private void findCoverage(String propertyDir, Map<String, List<GrammarEntryUnit>> lexicalEntiryUris,String fileName) {
         String[] files = new File(propertyDir).list();
@@ -469,50 +677,5 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         exit(1);
 
     }*/
-
-    private void writeGrammarRules(List<File> protoSimpleQFiles) {
-         for (String frameType : SYNTACTIC_FRAME.keySet()) {
-             String syntaktikFrame=SYNTACTIC_FRAME.get(frameType);
-             Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles,frameType);
-             GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntiryUris);
-             //NounPPFrame 
-             JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + syntaktikFrame+".json");
-
-             this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + syntaktikFrame + "MissedProperty.txt");
-         }
-    }
-
-   
-
-    /*private String findParameterForLexEntry(String key) {
-        if (this.lexEntryParameter.containsKey(key)) {
-            return this.lexEntryParameter.get(key);
-        }
-        return null;
-    }*/
-
-    public Map<String, String> findParameter(String fileName) throws FileNotFoundException, IOException {
-        BufferedReader reader;
-        String line = "";
-        Map<String, String> map = new TreeMap<String, String>();
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
-            while ((line = reader.readLine()) != null) {
-                if (line != null) {
-                    if (line.contains("=")) {
-                        String[] info = line.split("=");
-                        map.put(info[1], info[0]);
-                    }
-
-                }
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map;
-    }
-
-
 
 }

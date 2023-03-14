@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-3951 ;
+  lemon:entry    :lexicalEntry-3951_form_preposition .
+
+:lexicalEntry-3951 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-3951_form ;
+  lemon:otherForm  :lexicalEntry-3951_singular ;
+  lemon:otherForm  :lexicalEntry-3951_plural ;
+  lemon:sense          :lexicalEntry-3951_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3951_nounpp .
+
+:lexicalEntry-3951_form a lemon:Form ;
+  lemon:writtenRep "award"@en .
+
+:lexicalEntry-3951_singular a    lemon:Form ;
+  lemon:writtenRep "award"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-3951_plural a   lemon:Form ;
+  lemon:writtenRep "award"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-3951_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-3951_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-3951_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/presenter> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-3951_sense_1_condition .
+
+:lexicalEntry-3951_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-3951_form_preposition .
+## Prepositions ##
+:lexicalEntry-3951_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-754 ;
+  lemon:entry    :lexicalEntry-754_form_preposition .
+
+:lexicalEntry-754 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-754_form ;
+  lemon:otherForm  :lexicalEntry-754_singular ;
+  lemon:otherForm  :lexicalEntry-754_plural ;
+  lemon:sense          :lexicalEntry-754_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-754_nounpp .
+
+:lexicalEntry-754_form a lemon:Form ;
+  lemon:writtenRep "university"@en .
+
+:lexicalEntry-754_singular a    lemon:Form ;
+  lemon:writtenRep "university"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-754_plural a   lemon:Form ;
+  lemon:writtenRep "university"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-754_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-754_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-754_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/editor> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-754_sense_1_condition .
+
+:lexicalEntry-754_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-754_form_preposition .
+## Prepositions ##
+:lexicalEntry-754_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

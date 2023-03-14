@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-679 ;
+  lemon:entry    :lexicalEntry-679_form_preposition .
+
+:lexicalEntry-679 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-679_form ;
+  lemon:otherForm  :lexicalEntry-679_singular ;
+  lemon:otherForm  :lexicalEntry-679_plural ;
+  lemon:sense          :lexicalEntry-679_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-679_nounpp .
+
+:lexicalEntry-679_form a lemon:Form ;
+  lemon:writtenRep "kilometers"@en .
+
+:lexicalEntry-679_singular a    lemon:Form ;
+  lemon:writtenRep "kilometers"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-679_plural a   lemon:Form ;
+  lemon:writtenRep "kilometers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-679_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-679_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-679_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/discoverer> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-679_sense_1_condition .
+
+:lexicalEntry-679_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Planet> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-679_form_preposition .
+## Prepositions ##
+:lexicalEntry-679_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

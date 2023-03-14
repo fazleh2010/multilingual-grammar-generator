@@ -1,0 +1,87 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_lexicalEntry-3007 ;
+  lemon:entry    :lexicalEntry-3007ed ;
+  lemon:entry    :form_lexicalEntry-3007_preposition .
+
+:to_lexicalEntry-3007 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-3007 ;
+  lemon:otherForm      :form_lexicalEntry-3007s ;
+  lemon:otherForm      :form_lexicalEntry-3007ed ;
+  lemon:otherForm      :form_lexicalEntry-3007perfect ;
+  lemon:sense          :lexicalEntry-3007_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-3007_frame_transitive .
+
+:form_lexicalEntry-3007 a         lemon:Form ;
+  lemon:writtenRep     "serve"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_lexicalEntry-3007s a    lemon:Form ;
+  lemon:writtenRep "serves"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_lexicalEntry-3007ed a   lemon:Form ;
+  lemon:writtenRep "served"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_lexicalEntry-3007perfect a   lemon:Form ;
+  lemon:writtenRep "served"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-3007_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :lexicalEntry-3007_subj ;
+  lexinfo:directObject     :lexicalEntry-3007_obj .
+
+:lexicalEntry-3007_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-3007_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/vicePresident> ;
+  lemon:subjOfProp  :lexicalEntry-3007_obj ;
+  lemon:objOfProp   :lexicalEntry-3007_subj ;
+  lemon:condition   :lexicalEntry-3007_sense_1_condition .
+
+
+:lexicalEntry-3007_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Politician> .
+
+:lexicalEntry-3007ed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_lexicalEntry-3007ed_canonical ;
+  lemon:otherForm      :form_lexicalEntry-3007ed_by ;
+  lemon:synBehavior    :lexicalEntry-3007ed_frame_adjectivepp ;
+  lemon:sense          :lexicalEntry-3007ed_ontomap .
+
+:form_lexicalEntry-3007ed_canonical a lemon:Form ;
+  lemon:writtenRep         "serve"@en .
+
+:form_lexicalEntry-3007ed_by a    lemon:Form ;
+  lemon:writtenRep     "serve"@en ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:lexicalEntry-3007ed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :lexicalEntry-3007ed_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-3007ed_obj .
+
+:lexicalEntry-3007ed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-3007ed_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/vicePresident> ;
+  lemon:subjOfProp  :lexicalEntry-3007ed_subj ;
+  lemon:objOfProp   :lexicalEntry-3007ed_obj ;
+  lemon:condition   :lexicalEntry-3007_sense_1_condition .
+:lexicalEntry-3007ed_obj lemon:marker :form_lexicalEntry-3007_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-3007_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

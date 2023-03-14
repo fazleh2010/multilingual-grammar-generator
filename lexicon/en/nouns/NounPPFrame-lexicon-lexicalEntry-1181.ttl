@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-1181 ;
+  lemon:entry    :lexicalEntry-1181_form_preposition .
+
+:lexicalEntry-1181 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-1181_form ;
+  lemon:otherForm  :lexicalEntry-1181_singular ;
+  lemon:otherForm  :lexicalEntry-1181_plural ;
+  lemon:sense          :lexicalEntry-1181_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-1181_nounpp .
+
+:lexicalEntry-1181_form a lemon:Form ;
+  lemon:writtenRep "part of"@en .
+
+:lexicalEntry-1181_singular a    lemon:Form ;
+  lemon:writtenRep "part of"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-1181_plural a   lemon:Form ;
+  lemon:writtenRep "part of"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-1181_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-1181_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-1181_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/budget> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-1181_sense_1_condition .
+
+:lexicalEntry-1181_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :lexicalEntry-1181_form_preposition .
+## Prepositions ##
+:lexicalEntry-1181_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

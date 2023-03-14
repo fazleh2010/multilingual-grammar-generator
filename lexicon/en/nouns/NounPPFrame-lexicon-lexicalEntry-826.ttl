@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-826 ;
+  lemon:entry    :lexicalEntry-826_form_preposition .
+
+:lexicalEntry-826 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-826_form ;
+  lemon:otherForm  :lexicalEntry-826_singular ;
+  lemon:otherForm  :lexicalEntry-826_plural ;
+  lemon:sense          :lexicalEntry-826_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-826_nounpp .
+
+:lexicalEntry-826_form a lemon:Form ;
+  lemon:writtenRep "largest city"@en .
+
+:lexicalEntry-826_singular a    lemon:Form ;
+  lemon:writtenRep "largest city"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-826_plural a   lemon:Form ;
+  lemon:writtenRep "largest city"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-826_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lexicalEntry-826_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-826_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/ethnicGroup> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-826_sense_1_condition .
+
+:lexicalEntry-826_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/EthnicGroup> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2 lemon:marker :lexicalEntry-826_form_preposition .
+## Prepositions ##
+:lexicalEntry-826_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

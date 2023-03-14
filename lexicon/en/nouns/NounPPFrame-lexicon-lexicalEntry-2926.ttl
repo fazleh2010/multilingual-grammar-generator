@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-2926 ;
+  lemon:entry    :lexicalEntry-2926_form_preposition .
+
+:lexicalEntry-2926 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lexicalEntry-2926_form ;
+  lemon:otherForm  :lexicalEntry-2926_singular ;
+  lemon:otherForm  :lexicalEntry-2926_plural ;
+  lemon:sense          :lexicalEntry-2926_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-2926_nounpp .
+
+:lexicalEntry-2926_form a lemon:Form ;
+  lemon:writtenRep "playmate"@en .
+
+:lexicalEntry-2926_singular a    lemon:Form ;
+  lemon:writtenRep "playmate"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lexicalEntry-2926_plural a   lemon:Form ;
+  lemon:writtenRep "playmate"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lexicalEntry-2926_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
+
+:lexicalEntry-2926_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lexicalEntry-2926_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/successor> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lexicalEntry-2926_sense_1_condition .
+
+:lexicalEntry-2926_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :lexicalEntry-2926_form_preposition .
+## Prepositions ##
+:lexicalEntry-2926_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-1151","verb","estimated","estimated","estimated","estimated","TransitiveFrame","range","domain","1","dbo:areaCode","dbo:City","xsd:string","by","0.90179242178255","dbo:areaCode","1-gram"
+"lexicalEntry-1152","verb","estimated","estimated","estimated","estimated","TransitiveFrame","domain","range","1","dbo:areaCode","dbo:City","xsd:string","by","0.90179242178255","dbo:areaCode","1-gram"
+"lexicalEntry-1159","verb","it estimated","it estimated","it estimated","it estimated","TransitiveFrame","range","domain","1","dbo:areaCode","dbo:City","xsd:string","by","0.897467253339709","dbo:areaCode","4-gram"
+"lexicalEntry-1160","verb","it estimated","it estimated","it estimated","it estimated","TransitiveFrame","domain","range","1","dbo:areaCode","dbo:City","xsd:string","by","0.897467253339709","dbo:areaCode","4-gram"

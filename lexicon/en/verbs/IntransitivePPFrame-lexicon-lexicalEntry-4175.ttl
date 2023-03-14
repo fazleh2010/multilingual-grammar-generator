@@ -1,0 +1,65 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lexicalEntry-4175 ;
+  lemon:entry    :form_lexicalEntry-4175_preposition .
+
+:lexicalEntry-4175 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_lexicalEntry-4175 ;
+  lemon:otherForm      :form_lexicalEntry-4175_past ;
+  lemon:sense          :lexicalEntry-4175_sense_1 ;
+  lemon:synBehavior    :lexicalEntry-4175_frame .
+
+:form_lexicalEntry-4175 a           lemon:Form ;
+  lemon:writtenRep     "it flows"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_lexicalEntry-4175 a      lemon:Form ;
+  lemon:writtenRep "it flows"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_lexicalEntry-4175_past a lemon:Form ;
+  lemon:writtenRep  "it flows"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_lexicalEntry-4175perfect a   lemon:Form ;
+  lemon:writtenRep "it flows"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:lexicalEntry-4175_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :lexicalEntry-4175_subj ;
+  lexinfo:prepositionalAdjunct :lexicalEntry-4175_obj .
+
+:lexicalEntry-4175_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :lexicalEntry-4175_ontomap ;
+  lemon:reference   <http://dbpedia.org/property/mouthLocation> ;
+  lemon:subjOfProp  :lexicalEntry-4175_obj ;
+  lemon:objOfProp   :lexicalEntry-4175_subj ;
+  lemon:condition   :lexicalEntry-4175_sense_1_condition .
+
+:lexicalEntry-4175_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/River> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Country> .
+
+
+:lexicalEntry-4175_obj lemon:marker :form_lexicalEntry-4175_preposition .
+
+## Prepositions ##
+:form_lexicalEntry-4175_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

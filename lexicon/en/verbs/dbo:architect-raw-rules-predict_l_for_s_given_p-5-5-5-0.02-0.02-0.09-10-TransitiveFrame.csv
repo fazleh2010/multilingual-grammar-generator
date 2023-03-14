@@ -1,0 +1,5 @@
+"lemon","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","value","filename","gram"
+"lexicalEntry-4421","verb","design","designs","designed","designed","TransitiveFrame","range","domain","1","dbo:architect","dbo:ArchitecturalStructure","dbo:Architect","by","0.450544155465391","dbo:architect","1-gram"
+"lexicalEntry-4422","verb","design","designs","designed","designed","TransitiveFrame","domain","range","1","dbo:architect","dbo:ArchitecturalStructure","dbo:Architect","by","0.450544155465391","dbo:architect","1-gram"
+"lexicalEntry-4423","verb","designed by","designed by","designed by","designed by","TransitiveFrame","range","domain","1","dbo:architect","dbo:ArchitecturalStructure","dbo:Architect","by","0.427975747479209","dbo:architect","2-gram"
+"lexicalEntry-4424","verb","designed by","designed by","designed by","designed by","TransitiveFrame","domain","range","1","dbo:architect","dbo:ArchitecturalStructure","dbo:Architect","by","0.427975747479209","dbo:architect","2-gram"
