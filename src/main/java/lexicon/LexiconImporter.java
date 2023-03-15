@@ -24,12 +24,14 @@ import java.util.stream.Stream;
 
 @Data
 public class LexiconImporter {
-  private static final String PATH_TO_BASE_FILE = "/base/base.ttl";
-  private static Logger LOG = LogManager.getLogger(LexiconImporter.class);
 
-  public LexiconImporter() {}
-  
-    public LemonModel loadModelFromDir(String dir, String internalResourceDir,List<Path> list) throws IOException {
+    private static final String PATH_TO_BASE_FILE = "/base/base.ttl";
+    private static Logger LOG = LogManager.getLogger(LexiconImporter.class);
+
+    public LexiconImporter() {
+    }
+
+    /*public LemonModel loadModelFromDir(String dir, String internalResourceDir,List<Path> list) throws IOException {
         final LemonSerializer serializer = LemonSerializer.newInstance();
         LemonModel model = null;
         //try ( Stream<Path> paths = Files.walk(Paths.get(dir))) {
@@ -60,25 +62,56 @@ public class LexiconImporter {
             mergeModels(model, baseModel);
             return model;
         //}
+    }*/
+    public LemonModel loadModelFromDir(String dir, String internalResourceDir) throws IOException {
+        final LemonSerializer serializer = LemonSerializer.newInstance();
+        LemonModel model = null;
+        try (Stream<Path> paths = Files.walk(Paths.get(dir))) {
+            List<Path> list = filterFiles(paths);
+            for (Path file : list) {
+                System.out.println("file!!" + file.toString());
+
+                try {
+                    if (model == null) {
+                        model = serializer.read(new FileReader(file.toString()));
+                         System.out.println("file!!" + file.toString().contains("-3536"));
+                    } else {
+                        LemonModel lm = serializer.read(new FileReader(file.toString()));
+                        mergeModels(model, lm);
+                    }
+                } catch (FileNotFoundException e) {
+                    LOG.error("FileNotFoundException: Could not read file {}", file);
+                }
+            }
+            assert model != null;
+            LemonModel baseModel = loadBaseFileFromResources(internalResourceDir, serializer);
+            mergeModels(model, baseModel);
+            return model;
+        }
     }
 
-  private LemonModel loadBaseFileFromResources(
-    String internalResourceDir,
-    LemonSerializer serializer
-  ) {
-    InputStream inputStream = ClassLoader.getSystemResourceAsStream(internalResourceDir + PATH_TO_BASE_FILE);
-    assert inputStream != null;
-    InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-    return serializer.read(new BufferedReader(inputStreamReader));
-  }
-
- 
-
-  private void mergeModels(LemonModel model, LemonModel lm) {
-    for (eu.monnetproject.lemon.model.Lexicon lexicon : lm.getLexica()) {
-      for (LexicalEntry lexicalEntry : lexicon.getEntrys()) {
-        model.getLexica().iterator().next().addEntry(lexicalEntry);
-      }
+    private LemonModel loadBaseFileFromResources(
+            String internalResourceDir,
+            LemonSerializer serializer
+    ) {
+        InputStream inputStream = ClassLoader.getSystemResourceAsStream(internalResourceDir + PATH_TO_BASE_FILE);
+        assert inputStream != null;
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        return serializer.read(new BufferedReader(inputStreamReader));
     }
-  }
+
+    private void mergeModels(LemonModel model, LemonModel lm) {
+        for (eu.monnetproject.lemon.model.Lexicon lexicon : lm.getLexica()) {
+            for (LexicalEntry lexicalEntry : lexicon.getEntrys()) {
+                model.getLexica().iterator().next().addEntry(lexicalEntry);
+            }
+        }
+    }
+    
+    private List<Path> filterFiles(Stream<Path> paths) {
+        return paths
+                .filter(Files::isRegularFile)
+                .filter(f -> f.getFileName().toString().endsWith("ttl"))
+                .collect(Collectors.toList());
+    }
 }

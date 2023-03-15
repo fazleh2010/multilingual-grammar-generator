@@ -80,7 +80,7 @@ public class QueGG {
         //this is for test..pull it bak when test is over.
         String[] args=new String[]{"conf/inputConf_lexicon_1_en.json","dataset/dbpedia_en.json"};
          Properties batch = new Properties();
-
+        Integer fileLimit=50000;
        
         try {
             if (args.length < 2) {
@@ -92,6 +92,15 @@ public class QueGG {
                 inputCofiguration.setLinkedData(args[1]);                
                 online=inputCofiguration.getOnline();
                 externalEntittyListflag=inputCofiguration.getExternalEntittyList();
+                 
+                /*String questionDir="/media/elahi/Elements/A-project/LDK2023/resources/en/lexicons/lexicon_1/";
+                 String frameTypeT="IntransitivePPFrame";
+                 String outputDirT="/media/elahi/Elements/A-project/LDK2023/resources/en/lexicons/lexicon_1/";
+                 
+                writeQuestionInSingleFileT(questionDir+"verbs/","IntransitivePPFrame",questionDir+"verbs/");
+                writeQuestionInSingleFileT(questionDir+"verbs/","TransitiveFrame",questionDir+"verbs/");
+                 //writeQuestionInSingleFileT(questionDir+"verbs/","NounPPFrame",questionDir+"nouns/");
+                exit(1);*/
           
                 if (inputCofiguration.isCsvToTurtle()) {
                     queGG.csvToTurle(inputCofiguration) ;
@@ -99,7 +108,7 @@ public class QueGG {
                     
                 }
                 if (inputCofiguration.getTurtleToProtoType()) {
-                    queGG.turtleToProto(inputCofiguration);
+                    queGG.turtleToProto(inputCofiguration,fileLimit);
 
                 }
                 if (inputCofiguration.isProtoTypeToQuestion()) {
@@ -220,7 +229,7 @@ public class QueGG {
         TutleConverter tutleConverter = null;
         FileFolderUtils.deleteFiles(inputDir, ".ttl");
 
-        //try {
+        try {
             if (language.equals(Language.DE)) {
                 tutleConverter = new GermanTurtle(inputDir,domainAndRangeDir, linkedData, language);
                 return tutleConverter.getConversionFlag();
@@ -234,14 +243,14 @@ public class QueGG {
                 tutleConverter = new ItalianTurtle(inputDir, domainAndRangeDir,linkedData, language);
                 return tutleConverter.getConversionFlag();
             }
-        /*} catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("failed to geenrate turtle file from spreed sheet!!!\n"+ex.getMessage());
             return false;
-        }*/
+        }
         return false;
     }
 
-    private void turtleToProto(InputCofiguration inputCofiguration) throws IOException {
+    private void turtleToProto(InputCofiguration inputCofiguration,Integer fileLimit) throws IOException {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
         String outputDir = inputCofiguration.getOutputDir();
@@ -300,31 +309,19 @@ public class QueGG {
     }
 
   
+    
     private void loadInputAndGenerate(Language lang, String inputDir, String outputDir) throws
             IOException,
             InvocationTargetException,
             NoSuchMethodException,
             InstantiationException,
             IllegalAccessException {
-        
-        
-       LexiconImporter lexiconImporter = new LexiconImporter();
-        Stream<Path> paths = Files.walk(Paths.get(inputDir));
-        List<Path> list = filterFiles(paths);
-        Map<Integer, List<Path>> parameterFiles=splitFiles(list,1000);
-        for (Integer index : parameterFiles.keySet()) {
-            List<Path> listT= parameterFiles.get(index);
-            if(listT.isEmpty())
-               continue; 
-            LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase(), listT);
-            printInputSummary(lemonModel);
-            generateByFrameType(lang, lemonModel, outputDir,index);
-            //test codes..
-           /*if(index>=4)
-                break;*/
-        }
-
+        LexiconImporter lexiconImporter = new LexiconImporter();
+        LemonModel lemonModel = lexiconImporter.loadModelFromDir(inputDir, lang.toString().toLowerCase());
+        printInputSummary(lemonModel);
+        generateByFrameType(lang, lemonModel, outputDir);
     }
+
     
    
     private void printInputSummary(LemonModel lemonModel) {
@@ -360,7 +357,7 @@ public class QueGG {
                 );
     }
 
-    private void generateByFrameType(Language language, LemonModel lemonModel, String outputDir,Integer parameter) throws
+  private void generateByFrameType(Language language, LemonModel lemonModel, String outputDir) throws
             IOException,
             NoSuchMethodException,
             IllegalAccessException,
@@ -380,8 +377,8 @@ public class QueGG {
         }
         // Make a GrammarRuleGeneratorRoot instance to use the combination function
         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
-        //LOG.info("Start generation of combined entries");
-        //grammarWrapper.getGrammarEntries().addAll(generatorRoot.generateCombinations(grammarWrapper.getGrammarEntries()));
+        LOG.info("Start generation of combined entries");
+        grammarWrapper.getGrammarEntries().addAll(generatorRoot.generateCombinations(grammarWrapper.getGrammarEntries()));
 
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
@@ -395,39 +392,35 @@ public class QueGG {
                         .filter(grammarEntry -> !grammarEntry.isCombination())
                         .collect(Collectors.toList())
         );
-        
-        //combination and binding is temporarly closed
-        //GrammarWrapper combinedEntries = new GrammarWrapper();
-        
-        
-        /*combinedEntries.setGrammarEntries(
+        GrammarWrapper combinedEntries = new GrammarWrapper();
+        combinedEntries.setGrammarEntries(
                 grammarWrapper.getGrammarEntries().stream().filter(GrammarEntry::isCombination).collect(Collectors.toList())
-        );*/
+        );
 
         // Generate bindings
-        //LOG.info("Start generation of bindings");
-        //grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
+        LOG.info("Start generation of bindings");
+        grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
 
         generatorRoot.dumpToJSON(
                 Path.of(
                         outputDir,
-                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language +"_"+parameter+ ".json"
+                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
                 ).toString(),
                 regularEntries
         );
-        /*generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_COMBINATIONS" + "_" + language +"_"+ ".json").toString(),
+        generatorRoot.dumpToJSON(
+                Path.of(outputDir, "grammar_COMBINATIONS" + "_" + language + ".json").toString(),
                 combinedEntries
-        );*/
+        );
 
         // Insert those bindings and write new files
-        /*LOG.info("Start resolving bindings");
+        LOG.info("Start resolving bindings");
         BindingResolver bindingResolver = new BindingResolver(grammarWrapper.getGrammarEntries());
         grammarWrapper = bindingResolver.resolve();
         generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_FULL_WITH_BINDINGS_" + language +"_"+ ".json").toString(),
+                Path.of(outputDir, "grammar_FULL_WITH_BINDINGS_" + language + ".json").toString(),
                 grammarWrapper
-        );*/
+        );
         
 
     }
@@ -514,6 +507,25 @@ public class QueGG {
             }
         }
         File outputFile = new File(outputDir + parameter + ".csv");
+        outputCsvFile.writeToCSV(outputFile, csvData);
+    }
+    
+    private static void writeQuestionInSingleFileT(String questionDir,String frameType,String outputDir) throws IOException, FileNotFoundException, CsvException {
+        CsvFile outputCsvFile = new CsvFile();
+      
+        String[] questionFiles = new File(questionDir).list();
+        List<String[]> csvData = new ArrayList<String[]>();
+        for (String fileName : questionFiles) {
+            //if (fileName.contains(frameType)&&fileName.contains(".csv")) {
+                CsvFile csvFile = new CsvFile();
+                List<String[]> rows = csvFile.getRows(new File(questionDir + fileName));
+                if (rows.size() > 1) {
+                    System.out.println(fileName + "  elemetns size:::" + rows.size());
+                    csvData.addAll(rows);
+                }
+            //}
+        }
+        File outputFile = new File(outputDir + "final-"+frameType + ".csv");
         outputCsvFile.writeToCSV(outputFile, csvData);
     }
 

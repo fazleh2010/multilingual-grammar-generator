@@ -97,6 +97,10 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                         throw new Exception("the format of CSV file is wrong!!!!");
                     }
                     String key = row[0];
+                    
+                    if(key.contains("lemon")){
+                       continue; 
+                    }
 
                     List<String[]> values = new ArrayList<String[]>();
                     if (keyRows.containsKey(key)) {

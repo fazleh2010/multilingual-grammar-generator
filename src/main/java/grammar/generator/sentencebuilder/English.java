@@ -88,9 +88,11 @@ public class English implements TempConstants, MultilingualBuilder {
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
-        
-        //System.out.println("subjectUri::"+subjectUri+" objectUri::"+objectUri+ " referenceUri::"+referenceUri);
-
+        System.out.println("this.referenceUri::"+this.referenceUri);
+        if( this.referenceUri.contains("birthPlace")||referenceUri.contains("birthYear")){
+                System.out.println(referenceUri);
+            }
+            
     }
 
     public static List<String> parseTemplate(String sentenceTemplate) {
@@ -136,7 +138,7 @@ public class English implements TempConstants, MultilingualBuilder {
             attribute = tokens[0];
         }
 
-        System.out.println("attribute-" + attribute + " parameter-" + reference + " index-" + index);
+        //System.out.println("attribute-" + attribute + " parameter-" + reference + " index-" + index);
         
         /*if (flagReference && (attribute.equals(copulativeSubject))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
@@ -312,7 +314,7 @@ public class English implements TempConstants, MultilingualBuilder {
 
         }
 
-        System.out.println("word:::" + word);
+        //System.out.println("word:::" + word);
 
         //exit(1);
         return word;
@@ -578,7 +580,6 @@ public class English implements TempConstants, MultilingualBuilder {
         List<AnnotatedNounOrQuestionWord> annotatedLexicalEntryNouns = lexicalEntryUtil.parseLexicalEntryToAnnotatedAnnotatedNounOrQuestionWords();
         String result = "";
         for (AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord : annotatedLexicalEntryNouns) {
-            System.out.println(annotatedNounOrQuestionWord);
             if (annotatedNounOrQuestionWord.getNumber().toString().contains(numberType)) {
                 result = annotatedNounOrQuestionWord.getWrittenRepValue();
                 break;
@@ -608,14 +609,6 @@ public class English implements TempConstants, MultilingualBuilder {
         String property = this.lexicalEntryUtil.getOlisRestriction().getProperty();
         String value = this.lexicalEntryUtil.getOlisRestriction().getValue();
         word = this.lexicalEntryUtil.getAdjectiveReference(reference);
-        /*String givenDegree = null;
-            System.out.println("property::" + property + " objectUri::" + this.objectUri + " subjectUri::" + this.subjectUri);
-            System.out.println("value::" + value);
-            System.out.println("col::" + col[0]);
-            System.out.println("col::" + col[1]);*/
-        System.out.println("word::" + word);
-
-        exit(1);
         /*if (reference.contains(colon)) {
             String[] col = reference.split(colon);
             word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, baseReference, gender, col[0], number, col[1]);
