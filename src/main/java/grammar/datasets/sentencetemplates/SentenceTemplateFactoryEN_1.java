@@ -29,12 +29,17 @@ import static grammar.datasets.sentencetemplates.TempConstants.noun;
 import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import static grammar.structure.component.FrameType.APP;
 import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepository>,TempConstants{
 
   private final SentenceTemplateRepository sentenceTemplateRepository;
   private final Language language;
+  
+  public static Set<String> nounPPTemplates=new HashSet<String>(Arrays.asList(Prepositional_Adjuct_What,Prepositional_Adjuct_Who,HOW_MANY_THING,nounPhrase));
 
   public SentenceTemplateFactoryEN_1() {
     this.language = Language.EN;
@@ -56,40 +61,50 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //What is the capital of Cameron?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
+          "What is the (reference:singular) preposition Variable"+"\n"+
+          "What are the (reference:plural) preposition Variable"+"\n"+
+          "What was the (reference:singular) preposition Variable"+"\n"+
+          "What were the (reference:plural) preposition Variable"+"\n"+
           //which city is the capital of Cameron?
-          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
-        
-          ///What is Batman"s real name? Apostrophe temporary losed..
-          //"interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
-          //"interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
-           //"Who is the mayor of Paris?",
-          "interrogativePronoun verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)", 
-          "interrogativePronoun verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",   
-          //"Who was Samuel Schmid's vice president?", 
-          //"interrogativePronoun verb(component_be:present:singular) determiner(component_the) adjunct(domain) appos noun(singular)?", 
-          //"interrogativePronoun verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
+          "which (range:singular) is the (reference:singular) preposition Variable"+"\n"+
+          "which (range:plural) are the (reference:plural) preposition Variable"+"\n"+
+          "which (range:singular) was the (reference:singular) preposition Variable"+"\n"+
+          "which (range:plural) are the (reference:plural) preposition Variable"+"\n"+        
            //List all the musicals von Elton John.
-          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)" ,
+          "List all the (reference:plural) preposition Variable" +"\n"+
           //List all the musicals with music by Elton John.
           //"verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) noun(singular) preposition adjunct(domain)." 
           //Give me all members of Prodigy.
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)", 
+          "Give me all (reference:plural) preposition Variable"+"\n"+ 
           //Show me all books in Asimov's Foundation series.
-          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
+          "Show me all (reference:plural) preposition Variable" 
         ),
         NounPPFrame,
-        Prepositional_Adjuct
+        Prepositional_Adjuct_What
+      )
+    );
+     
+      //NounPPFrame
+     sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(
+           //"Who is the mayor of Paris?",
+          "Who is the (reference:singular) preposition Variable"+"\n"+ 
+          "Who was the (reference:singular) preposition Variable"+"\n"+   
+          //"Who was Samuel Schmid's vice president?", 
+          "Who was Variable appos (reference:singular)?"+"\n"+ 
+           //List all the musicals von Elton John.
+          "List all the (reference:plural) preposition Variable" +"\n"+
+          //Give me all members of Prodigy.
+          "Give me all reference:plural preposition Variable"+"\n"+ 
+          //Show me all books in Asimov's Foundation series.
+          "Show me all (reference:plural) preposition Variable" 
+        ),
+        NounPPFrame,
+        Prepositional_Adjuct_Who
       )
     );
     
-     sentenceTemplateRepository.add(
+    /* sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
            //"<NPrange,dbo:mayor> is the mayor of which city? | <NPrange,dbo:mayor> was the mayor of which city?
@@ -100,13 +115,13 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         NounPPFrame,
         Copulative_Subject
       )
-    );
+    );*/
     
         sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
         //"How many [NounPlural] does <NPmap(prepositionalAdjunct),Property> have?
-        "interrogativeAmount noun(reference:singular) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)"         
+        "How many (reference:singular) does Variable have"         
               ),
         NounPPFrame,
         HOW_MANY_THING
@@ -120,10 +135,10 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       createSentenceTemplate(language,
         List.of(
           //the capital of germany
-         "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
-         "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
+         "the (reference:singular) preposition Variable?"+"\n"+
+         "the (reference:plural) preposition Variable?"+"\n"+
          //the Dracula's creator
-         "determiner adjunct(domain) Apostrophe noun(reference:singular)?"
+         "the Variable Apostrophe (reference:singular)?"
                 
                 ),
         NounPPFrame,

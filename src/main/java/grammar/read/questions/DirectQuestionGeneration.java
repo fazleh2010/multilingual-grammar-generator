@@ -56,6 +56,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
     private InputCofiguration inputCofiguration = null;
     private String parameter = null;
     private String endpoint = null;
+    private Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
 
     public DirectQuestionGeneration(LinkedData linkedData, InputCofiguration inputCofiguration) throws Exception {
         this.inputCofiguration = inputCofiguration;
@@ -69,6 +70,8 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         this.online = this.inputCofiguration.getOnline();
         this.linkedData = linkedData;
         this.endpoint = this.linkedData.getEndpoint();
+        DomainRangeDictionary domainRangeDictionary = new DomainRangeDictionary(inputCofiguration.getDomainAndRangeDir());
+        this.domainOrRange = domainRangeDictionary.getDomainOrRange();
     }
 
     public void offline(String dir) throws Exception {
@@ -76,17 +79,20 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         for (File file : files) {
             CsvFile csvFile = new CsvFile();
             List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
-            offline(rows);
+            offline(file.getName(),rows);
         }
 
     }
 
-    public void offline(List<String[]> rows) throws Exception {
+    public void offline(String fileName,List<String[]> rows) throws Exception {
 
         if (rows.isEmpty()) {
             throw new Exception("No proto file found to process!!");
         }
         Integer rowIndex = 0, idIndex = 0;
+        String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString()+ "~" +  fileName + "~" + questionsFile + ".csv";
+        this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
+        
         for (String[] row : rows) {
             if (idIndex == 0) {
                 idIndex = idIndex + 1;
@@ -96,21 +102,19 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
             batchNumber = batchNumber + 1;
             String syntacticFrame = this.findSyntacticFrame(row);
             String property = this.findProperty(row, syntacticFrame);
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + parameter + "~" + lexicalEntiryUri + "~" + property + "~" + questionsFile + ".csv";
-            this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
-            Set<String> sentenceTemplate = findSeneteneTemplate(row, syntacticFrame);
+            
+
             String returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame);
-            String bindingType = findBindingType(syntacticFrame,returnSubjOrObj, row);
-            String returnType = findReturnType(syntacticFrame,returnSubjOrObj, row);
-            Map<String, List<String>> templateQuestions = findQuestions(syntacticFrame, sentenceTemplate);
+            String bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
+            String returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
+            Map<String, String[]> templateQuestions = findQuestions(syntacticFrame, bindingType, returnType, row);
             String sparqlQuery = findSparql(property, returnSubjOrObj);
 
-            if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
+            /*if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
                 sparqlQuery = findAdjektive(property);
             } else {
                 sparqlQuery = findSparql(property, returnSubjOrObj);
-            }
-
+            }*/
             List<UriLabel> bindingList = new ArrayList<UriLabel>();
 
             try {
@@ -128,21 +132,19 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
                 continue;
             }
             for (String template : templateQuestions.keySet()) {
-                List<String> templateQues = templateQuestions.get(template);
-                List<String> questions = this.findRealQuestions(templateQues);
+                String[] questions = templateQuestions.get(template);
                 rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQuery, bindingList,
                         questions, rowIndex,
                         syntacticFrame, returnSubjOrObj, QueryType.SELECT, returnType, template);
                 rowIndex = rowIndex + 1;
                 idIndex = idIndex + 1;
             }
-
-            this.csvWriterQuestions.close();
         }
+         this.csvWriterQuestions.close();
     }
 
     private Integer questionGeneration(String lexicalEntiryUri, String sparqlQuery, List<UriLabel> bindingList,
-            List<String> questions, Integer rowIndex,
+            String[] questions, Integer rowIndex,
             String syntacticFrame, String returnSubjOrObj, QueryType queryType, String returnType, String sentenceTemplate) throws IOException, Exception {
         Integer index = 0;
 
@@ -151,7 +153,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         String template = sentenceTemplate;
         List< String[]> rows = new ArrayList<String[]>();
 
-        if (questions.isEmpty()) {
+        if (questions.length == 0) {
             return rowIndex;
         }
 
@@ -180,7 +182,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
             if (!AddQuote.isKbValid(uriLabel)) {
                 continue;
             }
-            String questionForShow = questions.iterator().next();
+            String questionForShow = questions[0];
 
             if (questionForShow.contains("Where is $x located?")) {
                 continue;
@@ -221,6 +223,10 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
                     }
 
                     for (String question : questions) {
+
+                        if (question.contains("XX")) {
+                            continue;
+                        }
                         if (question.contains("(") && question.contains(")")) {
                             String result = StringUtils.substringBetween(question, "(", ")");
                             question = question.replace(result, "X");
@@ -387,18 +393,40 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         }
     }
 
-    private Map<String, List<String>> findQuestions(String syntacticFrame, Set<String> sentenceTemplate) {
-        Map<String, List<String>> templateQuestions = new TreeMap<String, List<String>>();
+    /*
+       public static Integer lemonEntryIndex = 0;
+        public static Integer partOfSpeechIndex = 1;
+        public static Integer writtenFormInfinitive = 2;
+        public static Integer writtenFormPluralIndex = 3;
+        public static Integer prepositionIndex = 4;
+        public static Integer syntacticFrameIndex = 5;
+        public static Integer copulativeArgIndex = 6;
+        public static Integer prepositionalAdjunctIndex = 7;
+        public static Integer senseIndex = 8;
+        public static Integer referenceIndex = 9;
+        public static Integer domainIndex = 10;
+        public static Integer rangeIndex = 11;
+        public static Integer domainWrittenSingular = 12;
+        public static Integer domainWrittenPlural = 13;
+        public static Integer rangeWrittenSingular = 14;
+        public static Integer rangeWrittenPlural = 15;
+        private static String proeposition_id;
+     */
+    private Map<String, String[]> findQuestions(String syntacticFrame, String bindingType, String returnType, String[] row) {
+        Map<String, String[]> templateQuestions = new TreeMap<String, String[]>();
         SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
-        SentenceTemplateRepository sentenceTemplateRepositoryT=sentenceTemplateRepository.init();
+        SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
         if (syntacticFrame.contains(NounPPFrame)) {
+            Set<String> sentenceTemplate = findSeneteneTemplate(row, syntacticFrame);
             for (String template : sentenceTemplate) {
                 List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
-                        SentenceType.SENTENCE, 
-                        Language.EN, 
-                        new String[]{syntacticFrame, template});
-                System.out.println(template+" "+questions);
-                templateQuestions.put(template, questions);
+                        SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, template});
+                if (!questions.isEmpty()) {
+                    String templateAllQuestions = questions.iterator().next();
+                    String[] realQuestions = findNounPPQuestions(bindingType,returnType,templateAllQuestions,row);
+                    templateQuestions.put(template, realQuestions);
+                }
+
             }
         }
         return templateQuestions;
@@ -438,23 +466,23 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
 
         if (syntacticFrame.contains(NounPPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex];
+                return row[nounPPFrameDomainIndex].split(":")[1];
             } else {
-                return row[nounPPFrameDomainIndex + 1];
+                return row[nounPPFrameDomainIndex + 1].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(TransitiveFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex];
+                return row[transitiveFrameDomainIndex].split(":")[1];
             } else {
-                return row[transitiveFrameDomainIndex + 1];
+                return row[transitiveFrameDomainIndex + 1].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(IntransitivePPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex];
+                return row[inTransitiveFrameDomainIndex].split(":")[1];
             } else {
-                return row[inTransitiveFrameDomainIndex + 1];
+                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
             }
 
         }
@@ -468,23 +496,23 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
 
         if (syntacticFrame.contains(NounPPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex + 1];
+                return row[nounPPFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[nounPPFrameDomainIndex];
+                return row[nounPPFrameDomainIndex].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(TransitiveFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex + 1];
+                return row[transitiveFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[transitiveFrameDomainIndex];
+                return row[transitiveFrameDomainIndex].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(IntransitivePPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex + 1];
+                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[inTransitiveFrameDomainIndex];
+                return row[inTransitiveFrameDomainIndex].split(":")[1];
             }
 
         }
@@ -493,27 +521,22 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
 
     private Set<String> findSeneteneTemplate(String[] row, String syntacticFrame) {
         if (syntacticFrame.contains(NounPPFrame)) {
-            return new HashSet<String>(Arrays.asList(Prepositional_Adjuct, HOW_MANY_THING, nounPhrase));
+            return SentenceTemplateFactoryEN_1.nounPPTemplates;
         }
         return new HashSet<String>();
     }
 
     private String findSparql(String property, String questionType) throws Exception {
-        if(property.contains("dbo:")){
-            String []info=property.split(":");
-            property=info[1];
-            return "(bgp (triple ?subjOfProp "+"<http://dbpedia.org/ontology/"+property+">"+" ?objOfProp))";
+        if (property.contains("dbo:")) {
+            String[] info = property.split(":");
+            property = info[1];
+            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/ontology/" + property + ">" + " ?objOfProp))";
+        } else if (property.contains("dbp:")) {
+            String[] info = property.split(":");
+            property = info[1];
+            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/property/" + property + ">" + " ?objOfProp))";
         }
-        else if(property.contains("dbp:")){
-            String []info=property.split(":");
-            property=info[1];
-            return "(bgp (triple ?subjOfProp "+"<http://dbpedia.org/property/"+property+">"+" ?objOfProp))";
-        }
-          throw new Exception("No sparql query is found!!!");
-    }
-
-    private String findAdjektive(String property) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new Exception("No sparql query is found!!!");
     }
 
     private String findProperty(String[] row, String syntacticFrame) {
@@ -531,12 +554,41 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         return null;
     }
 
-    private List<String> findRealQuestions(String[] row, List<String> templateQuestions) {
-        return templateQuestions;
+
+    private String makeVairable(String bindingType) {
+        return "($x | " + bindingType + "_NP)";
     }
 
-    private List<String> findRealQuestions(List<String> templateQues) {
-        return templateQues;
+    public List<String> findSingularPlural(String domainOrRangeStr) {
+        if (domainOrRange.containsKey(domainOrRangeStr)) {
+            return domainOrRange.get(domainOrRangeStr);
+
+        }
+        return new ArrayList<String>();
+    }
+
+    private String[] findNounPPQuestions(String bindingType,String returnType, String templateAllQuestions,String []row) {
+        bindingType = this.makeVairable(bindingType);
+        List<String> singularPlural = findSingularPlural(returnType);
+        String rangeSingular = "XX";
+        String rangePlural = "XX";
+        if (!singularPlural.isEmpty()) {
+            rangeSingular = singularPlural.get(0);
+            rangePlural = singularPlural.get(1);
+        }
+
+        String refereneSingular = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
+        String referenePlural = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
+        String preposition = row[EnglishCsv.NounPPFrameCsv.prepositionIndex];
+
+        templateAllQuestions = templateAllQuestions.replace("Variable", bindingType);
+        templateAllQuestions = templateAllQuestions.replace("(reference:singular)", refereneSingular);
+        templateAllQuestions = templateAllQuestions.replace("(reference:plural)", referenePlural);
+        templateAllQuestions = templateAllQuestions.replace("(range:singular)", rangeSingular);
+        templateAllQuestions = templateAllQuestions.replace("(range:plural)", rangePlural);
+        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
+        String[] realQuestions = templateAllQuestions.split("\n");
+        return realQuestions;
     }
 
 }

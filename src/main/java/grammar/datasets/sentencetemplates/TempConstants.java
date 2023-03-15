@@ -94,6 +94,9 @@ public interface TempConstants {
     public static String secondPerson = "secondPerson";
 
     public static final String Prepositional_Adjuct = "whQuestion";
+    
+     public static final String Prepositional_Adjuct_What = "Prepositional_Adjuct_What";
+      public static final String Prepositional_Adjuct_Who = "Prepositional_Adjuct_Who";
 
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
