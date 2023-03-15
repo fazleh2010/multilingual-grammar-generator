@@ -9,6 +9,7 @@ import evaluation.QALDImporter;
 import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
+import grammar.read.questions.DirectQuestionGeneration;
 import grammar.read.questions.OffLineQuestionGeneration;
 import grammar.read.questions.ProtoToRealQuesrion;
 import grammar.structure.component.DomainOrRangeType;
@@ -290,8 +291,8 @@ public class QueGG {
             readAndWriteQuestions.onlineQaGeneration(protoToQuestions);
 
         } else{
-            OffLineQuestionGeneration offLineQuestionGeneration=new OffLineQuestionGeneration(linkedData,inputCofiguration);
-            offLineQuestionGeneration.offline(protoToQuestions);
+            DirectQuestionGeneration directQuestionGeneration=new DirectQuestionGeneration(linkedData,inputCofiguration);
+            directQuestionGeneration.offline(inputCofiguration.getInputDir()+"/nouns/");
         }
            
 

@@ -245,20 +245,20 @@ public class EnglishCsv implements TempConstants {
 
         //LemonEntry	partOfSpeech	writtenFormInfinitive/2ndPerson	writtenForm3rdPerson	writtenFormPast	SyntacticFrame	subject	directObject	sense	reference	domain	range	GrammarRule 1:question1	GrammarRule 1:question2	GrammarRule 1:sparql	GrammarRule 2:question1	GrammarRule2: sparql
         //compose	        verb	compose	composes	composed	TransitiveFrame	range	domain	1	dbo:musicComposer	dbo:Work	dbo:Person	Which dbo:Person (X) composes,composed Y(dbo:Work)?	Who dbo:Person (X) composes,composed Y(dbo:Work)?	SELECT ?X WHERE { Y dbo:musicComposer ?X.}	Which dbo:Work(X) was composed by Y(dbo:Person)?	SELECT ?X WHERE { ?X dbo:Person Y.}
-        private Integer lemonEntryIndex = 0;
-        private Integer partOfSpeechIndex = 1;
-        private Integer writtenFormInfinitive = 2;
-        private Integer writtenForm3rdPerson = 3;
-        private Integer writtenFormPast = 4;
-        private Integer writtenFormPerfect = 5;
-        private Integer syntacticFrameIndex = 6;
-        private Integer subjectIndex = 7;
-        private Integer directObjectIndex = 8;
-        private Integer senseIndex = 9;
-        private Integer referenceIndex = 10;
-        private Integer domainIndex = 11;
-        private Integer rangeIndex = 12;
-        private Integer passivePrepositionIndex = 13;
+        public Integer lemonEntryIndex = 0;
+        public Integer partOfSpeechIndex = 1;
+        public Integer writtenFormInfinitive = 2;
+        public Integer writtenForm3rdPerson = 3;
+        public Integer writtenFormPast = 4;
+        public Integer writtenFormPerfect = 5;
+        public Integer syntacticFrameIndex = 6;
+        public Integer subjectIndex = 7;
+        public Integer directObjectIndex = 8;
+        public Integer senseIndex = 9;
+        public Integer referenceIndex = 10;
+        public Integer domainIndex = 11;
+        public Integer rangeIndex = 12;
+        public Integer passivePrepositionIndex = 13;
         /*private Integer domainWrittenSingularFormIndex=14;
         private Integer domainWrittenPluralFormIndex=15;
         private Integer rangeWrittenSingularFormIndex=16;

@@ -6,10 +6,23 @@
 package grammar.read.questions;
 
 import com.opencsv.CSVWriter;
+import grammar.datasets.sentencetemplates.SentenceTemplateFactoryEN_1;
+import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
+import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveAttributiveFrame;
+import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveSuperlativeFrame;
+import static grammar.datasets.sentencetemplates.TempConstants.HOW_MANY_THING;
+import static grammar.datasets.sentencetemplates.TempConstants.IntransitivePPFrame;
+import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
+import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
+import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
+import static grammar.datasets.sentencetemplates.TempConstants.domain;
+import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import static grammar.datasets.sentencetemplates.TempConstants.superlative;
 import grammar.sparql.PrepareSparqlQuery;
 import grammar.sparql.SparqlQuery;
 import grammar.structure.component.FrameType;
+import grammar.structure.component.Language;
+import grammar.structure.component.SentenceType;
 import java.io.BufferedReader;
 import java.io.*;
 import java.util.*;
@@ -17,6 +30,9 @@ import linkeddata.LinkedData;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.query.QueryType;
 import org.apache.logging.log4j.LogManager;
+import turtle.EnglishCsv;
+import turtle.EnglishCsv.NounPPFrameCsv;
+import turtle.EnglishCsv.TransitFrameCsv;
 import util.io.*;
 
 /**
@@ -60,6 +76,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         for (File file : files) {
             CsvFile csvFile = new CsvFile();
             List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
+            offline(rows);
         }
 
     }
@@ -71,23 +88,27 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         }
         Integer rowIndex = 0, idIndex = 0;
         for (String[] row : rows) {
+            if (idIndex == 0) {
+                idIndex = idIndex + 1;
+                continue;
+            }
             String lexicalEntiryUri = row[0];
             batchNumber = batchNumber + 1;
-            String property = this.findProperty(row);
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + parameter + "~" + lexicalEntiryUri + "~" + questionsFile + ".csv";
+            String syntacticFrame = this.findSyntacticFrame(row);
+            String property = this.findProperty(row, syntacticFrame);
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + parameter + "~" + lexicalEntiryUri + "~" + property + "~" + questionsFile + ".csv";
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
-            String syntacticFrame = findFrameType(row);
-            List<String> questions = findQuestions(property);
-
+            Set<String> sentenceTemplate = findSeneteneTemplate(row, syntacticFrame);
             String returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame);
-            String bindingType = findBindingType(row, syntacticFrame);
-            String returnType = findReturnType(row, syntacticFrame);
-            String sentenceTemplate = findSeneteneTemplate(row, syntacticFrame);
-            String sparqlQuery = findSparql(property);
+            String bindingType = findBindingType(syntacticFrame,returnSubjOrObj, row);
+            String returnType = findReturnType(syntacticFrame,returnSubjOrObj, row);
+            Map<String, List<String>> templateQuestions = findQuestions(syntacticFrame, sentenceTemplate);
+            String sparqlQuery = findSparql(property, returnSubjOrObj);
+
             if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
                 sparqlQuery = findAdjektive(property);
             } else {
-                sparqlQuery = findSparql(property);
+                sparqlQuery = findSparql(property, returnSubjOrObj);
             }
 
             List<UriLabel> bindingList = new ArrayList<UriLabel>();
@@ -106,12 +127,16 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
             } catch (Exception ex) {
                 continue;
             }
+            for (String template : templateQuestions.keySet()) {
+                List<String> templateQues = templateQuestions.get(template);
+                List<String> questions = this.findRealQuestions(templateQues);
+                rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQuery, bindingList,
+                        questions, rowIndex,
+                        syntacticFrame, returnSubjOrObj, QueryType.SELECT, returnType, template);
+                rowIndex = rowIndex + 1;
+                idIndex = idIndex + 1;
+            }
 
-            rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQuery, bindingList,
-                    questions, rowIndex,
-                    syntacticFrame, returnSubjOrObj, QueryType.SELECT, returnType, sentenceTemplate);
-            rowIndex = rowIndex + 1;
-            idIndex = idIndex + 1;
             this.csvWriterQuestions.close();
         }
     }
@@ -326,40 +351,192 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         return map;
     }
 
-    private String findProperty(String[] row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String findSyntacticFrame(String[] row) throws Exception {
+
+        Integer nounPPIndex = 5;
+        Integer transitiveIndex = 6;
+        Integer InTransitiveIndex = 7;
+        Integer adjectiveFrameIndex = 3;
+        Integer gradableAdjectiveFrameIndex = 5;
+        String nounPPFrame = row[nounPPIndex];
+
+        /*Integer index=0;
+        for (String string:row) {
+          System.out.println(index+" "+string);
+          index=index+1;
+        }
+        System.out.println(transitiveIndex+" "+row[transitiveIndex]);
+         System.out.println(InTransitiveIndex+" "+row[InTransitiveIndex]);
+         */
+        try {
+            if (nounPPFrame.contains(NounPPFrame)) {
+                return NounPPFrame;
+            } else if (row[transitiveIndex].contains(TransitiveFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
+                return TransitiveFrame;
+            } else if (row[InTransitiveIndex].contains(IntransitivePPFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
+                return IntransitivePPFrame;
+            } else if (row[adjectiveFrameIndex].contains(AdjectiveAttributiveFrame)) {
+                return AdjectiveAttributiveFrame;
+            } else if (row[gradableAdjectiveFrameIndex].contains(AdjectiveSuperlativeFrame)) {
+                return AdjectiveSuperlativeFrame;
+            } else {
+                throw new Exception("No grammar entry is found!!!!");
+            }
+        } catch (Exception ex) {
+            throw new Exception("lexial entry:" + row[0] + " invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
+        }
     }
 
-    private String findFrameType(String[] row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private Map<String, List<String>> findQuestions(String syntacticFrame, Set<String> sentenceTemplate) {
+        Map<String, List<String>> templateQuestions = new TreeMap<String, List<String>>();
+        SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
+        SentenceTemplateRepository sentenceTemplateRepositoryT=sentenceTemplateRepository.init();
+        if (syntacticFrame.contains(NounPPFrame)) {
+            for (String template : sentenceTemplate) {
+                List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
+                        SentenceType.SENTENCE, 
+                        Language.EN, 
+                        new String[]{syntacticFrame, template});
+                System.out.println(template+" "+questions);
+                templateQuestions.put(template, questions);
+            }
+        }
+        return templateQuestions;
     }
 
-    private List<String> findQuestions(String property) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String findReturnSubjOrObj(String[] row, String syntacticFrame) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (row[nounPPFrameDomainIndex].contains(domain)) {
+                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            } else {
+                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            }
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (row[transitiveFrameDomainIndex].contains(domain)) {
+                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            } else {
+                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            }
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (row[inTransitiveFrameDomainIndex].contains(domain)) {
+                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            } else {
+                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            }
+        }
+
+        throw new Exception("No return Type is found!!!");
     }
 
-    private String findReturnSubjOrObj(String[] row, String syntacticFrame) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String findBindingType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[nounPPFrameDomainIndex];
+            } else {
+                return row[nounPPFrameDomainIndex + 1];
+            }
+
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[transitiveFrameDomainIndex];
+            } else {
+                return row[transitiveFrameDomainIndex + 1];
+            }
+
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[inTransitiveFrameDomainIndex];
+            } else {
+                return row[inTransitiveFrameDomainIndex + 1];
+            }
+
+        }
+        throw new Exception("No binding Type is found!!!");
     }
 
-    private String findBindingType(String[] row, String syntacticFrame) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String findReturnType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[nounPPFrameDomainIndex + 1];
+            } else {
+                return row[nounPPFrameDomainIndex];
+            }
+
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[transitiveFrameDomainIndex + 1];
+            } else {
+                return row[transitiveFrameDomainIndex];
+            }
+
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[inTransitiveFrameDomainIndex + 1];
+            } else {
+                return row[inTransitiveFrameDomainIndex];
+            }
+
+        }
+        throw new Exception("No binding Type is found!!!");
     }
 
-    private String findReturnType(String[] row, String syntacticFrame) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private Set<String> findSeneteneTemplate(String[] row, String syntacticFrame) {
+        if (syntacticFrame.contains(NounPPFrame)) {
+            return new HashSet<String>(Arrays.asList(Prepositional_Adjuct, HOW_MANY_THING, nounPhrase));
+        }
+        return new HashSet<String>();
     }
 
-    private String findSeneteneTemplate(String[] row, String syntacticFrame) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private String findSparql(String property) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String findSparql(String property, String questionType) throws Exception {
+        if(property.contains("dbo:")){
+            String []info=property.split(":");
+            property=info[1];
+            return "(bgp (triple ?subjOfProp "+"<http://dbpedia.org/ontology/"+property+">"+" ?objOfProp))";
+        }
+        else if(property.contains("dbp:")){
+            String []info=property.split(":");
+            property=info[1];
+            return "(bgp (triple ?subjOfProp "+"<http://dbpedia.org/property/"+property+">"+" ?objOfProp))";
+        }
+          throw new Exception("No sparql query is found!!!");
     }
 
     private String findAdjektive(String property) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String findProperty(String[] row, String syntacticFrame) {
+        Integer nounPPIndex = 9;
+        Integer transitiveIndex = 10;
+        Integer InTransitiveIndex = 11;
+
+        if (syntacticFrame.contains(NounPPFrame)) {
+            return row[nounPPIndex];
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            return row[transitiveIndex];
+        } else if (syntacticFrame.contains(IntransitivePPFrame) || syntacticFrame.contains("InTransitivePPFrame")) {
+            return row[InTransitiveIndex];
+        }
+        return null;
+    }
+
+    private List<String> findRealQuestions(String[] row, List<String> templateQuestions) {
+        return templateQuestions;
+    }
+
+    private List<String> findRealQuestions(List<String> templateQues) {
+        return templateQues;
     }
 
 }
