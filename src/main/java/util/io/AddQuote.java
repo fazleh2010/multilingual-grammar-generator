@@ -41,13 +41,15 @@ public class AddQuote {
         return sparql;
     }
 
-    public static String getProperty(String entityDir, String sparqlQueryOrg) {
-        String property = StringUtils.substringBetween(sparqlQueryOrg, "<", ">");
+    public static String getProperty(String entityDir,String property) {
         property = property.replace("http://dbpedia.org/ontology/", "dbo_");
         property = property.replace("http://dbpedia.org/property/", "dbp_");
+        property = property.replace("dbo:", "dbo_");
+        property = property.replace("dbp:", "dbp_");
         return entityDir + property + ".txt";
     }
 
+   
     public static String getEntity(String entityDir, String bindingType) {
         return entityDir + bindingType + ".txt";
     }

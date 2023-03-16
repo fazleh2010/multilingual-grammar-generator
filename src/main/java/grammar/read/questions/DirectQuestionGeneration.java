@@ -18,6 +18,7 @@ import grammar.structure.component.Language;
 import grammar.structure.component.SentenceType;
 import java.io.BufferedReader;
 import java.io.*;
+import static java.lang.System.exit;
 import java.util.*;
 import linkeddata.LinkedData;
 import org.apache.commons.lang3.StringUtils;
@@ -92,7 +93,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
 
         for (String[] row : rows) {
-            String syntacticFrame = null, property = null, returnSubjOrObj = null, bindingType = null, sparqlQuery = null, returnType = null;
+            String syntacticFrame = null, property = null;
             Map<String, Pair<String, GrammarInfor>> templateQuestions = new HashMap<String, Pair<String, GrammarInfor>>();
             if (idIndex == 0) {
                 idIndex = idIndex + 1;
@@ -104,11 +105,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             try {
                 syntacticFrame = this.findSyntacticFrame(row);
                 property = this.findProperty(row, syntacticFrame);
-                //logString+="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"+"property="+property+" returnSubjOrObj="+returnSubjOrObj+" bindingType::"+bindingType+" returnType::"+returnType+"\n";
-                returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame, property);
-                bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
-                returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
-                templateQuestions = ProtoQuestionGeneration(syntacticFrame, property, returnSubjOrObj, bindingType, returnType, row);
+                templateQuestions = ProtoQuestionGeneration(syntacticFrame, property, row);
 
             } catch (Exception ex) {
                 continue;
@@ -121,32 +118,22 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }*/
             List<UriLabel> bindingList = new ArrayList<UriLabel>();
 
-            try {
-                String propertyFile = AddQuote.getProperty(this.propertyDir, sparqlQuery);
-                this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
-                bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
-                //logString+=bindingList+"\n";
-                /*if (!bindingList.isEmpty()) {
-                        System.out.println(property + "   bindingList::" + bindingList + " returnSubjOrObj::" + returnSubjOrObj);
-                        System.out.println("   entityLabels::" + entityLabels);
-                        System.out.println("   questions::" + questions);
-                        exit(1);
-                    }*/
-
-            } catch (Exception ex) {
-                continue;
-            }
             for (String template : templateQuestions.keySet()) {
                 //logString+=template+"\n";
                 Pair<String, GrammarInfor> pair = templateQuestions.get(template);
-                sparqlQuery = pair.first;
+                String sparqlQuery = pair.first;
                 GrammarInfor grammarInfor = pair.second;
-                System.out.println("template::"+template+ " GrammarInfor:"+grammarInfor);
-                String sparqlQueryT=grammarInfor.getBindingType();
-                String returnTypeT=grammarInfor.getReturnType();
-                String returnSubjOrObjT=grammarInfor.getReturnSubjOrObj();
-                String []questionsT=grammarInfor.getRealQuestions();
-                
+                System.out.println("template::" + template + " GrammarInfor:" + grammarInfor);
+                String sparqlQueryT = grammarInfor.getSparqlQuery();
+                String bindingTypeT = grammarInfor.getBindingType();
+                String returnTypeT = grammarInfor.getReturnType();
+                String returnSubjOrObjT = grammarInfor.getReturnSubjOrObj();
+                String[] questionsT = grammarInfor.getRealQuestions();
+                String propertyFile = AddQuote.getProperty(this.propertyDir, property);
+
+                this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObjT, bindingTypeT, returnTypeT);
+                bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObjT);
+
                 rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQueryT, bindingList,
                         questionsT, rowIndex,
                         syntacticFrame, returnSubjOrObjT, QueryType.SELECT, returnTypeT, template);
@@ -258,7 +245,6 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
 
                         String[] record = {id, questionT, sparql, answerUri, answerLabel, syntacticFrame, "single"};
                         String[] newRecord = AddQuote.doubleQuote(record);
-                        //System.out.println("answerWiki::" + answerWiki + " answerThumb::" + answerThumb+" answerAbstract::"+answerAbstract);
 
                         if (this.online) {
                             if (answerUri != null) {
@@ -270,7 +256,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                             }
                         } else {
                             //logString+="index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql;
-                            //System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
+                            System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
                             this.csvWriterQuestions.writeNext(newRecord);
                             rowIndex = rowIndex + 1;
                         }
@@ -325,12 +311,24 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         }
     }
 
-    private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String returnSubjOrObj, String bindingType, String returnType, String[] row) throws Exception {
+    private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String[] row) {
         Map<String, Pair<String, GrammarInfor>> templateQuestions = new TreeMap<String, Pair<String, GrammarInfor>>();
-        List<String> ways=new ArrayList<String>(); 
+        List<String> ways = new ArrayList<String>();
         ways.add(FORWARD);
         ways.add(BACKWARD);
-         
+        String returnSubjOrObj = null, bindingType = null, returnType = null;
+        List<UriLabel> bindingList = new ArrayList<UriLabel>();
+
+        try {
+            returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame, property);
+            bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
+            returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
+
+        } catch (Exception ex) {
+            List<String> wordList = Arrays.asList(row);
+            System.out.println(property + wordList + " error!!!" + ex.getMessage() + " " + returnSubjOrObj);
+        }
+
         SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
         SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
         if (syntacticFrame.contains(NounPPFrame)) {
@@ -342,7 +340,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                     String templateAllQuestions = questions.iterator().next();
                     String[] realQuestions = findNounPPQuestions(bindingType, returnType, templateAllQuestions, row);
                     String sparqlQuery = findSparql(property, returnSubjOrObj);
-                    GrammarInfor grammarInfor=new GrammarInfor(returnSubjOrObj,bindingType, returnType, template,realQuestions,sparqlQuery);    
+                    GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
                     Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
                     templateQuestions.put(template, pair);
                 }
@@ -353,15 +351,15 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
             for (String template : sentenceTemplate) {
                 for (String way : ways) {
-                    String templateT=null;
+                    String templateT = null;
                     if (way.contains(FORWARD)) {
                         templateT = template + "_" + FORWARD;
-                    } else if (way.contains(BACKWARD)){
+                    } else if (way.contains(BACKWARD)) {
                         templateT = template + "_" + BACKWARD;
-                        String[] result=this.makeReverse(returnSubjOrObj, returnType, bindingType);
-                        returnSubjOrObj=result[0];
-                        returnType=result[1];
-                        bindingType=result[2];
+                        String[] result = this.makeReverse(returnSubjOrObj, returnType, bindingType);
+                        returnSubjOrObj = result[0];
+                        returnType = result[1];
+                        bindingType = result[2];
                     }
 
                     List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
@@ -370,8 +368,8 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                         String templateAllQuestions = questions.iterator().next();
                         String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
                         String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor=new GrammarInfor(returnSubjOrObj,bindingType, returnType, template,realQuestions,sparqlQuery);
-                        
+                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
+
                         Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
                         templateQuestions.put(template, pair);
                     }
@@ -383,105 +381,105 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         return templateQuestions;
     }
 
-    private String findReturnSubjOrObj(String[] row, String syntacticFrame, String property) throws Exception {
-        Integer nounPPFrameDomainIndex = 10;
-        Integer transitiveFrameDomainIndex = 11;
-        Integer inTransitiveFrameDomainIndex = 12;
+    private String findReturnSubjOrObj(String[] row, String syntacticFrame, String property) {
+        String returnSubjOrObj = null;
         if (syntacticFrame.contains(NounPPFrame)) {
-            if (row[nounPPFrameDomainIndex].contains(domain)) {
-                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            if (row[6].contains(range)) {
+                returnSubjOrObj = RETURN_TYPE_OBJECT;
             } else {
-                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+                returnSubjOrObj = RETURN_TYPE_SUBJECT;
             }
         } else if (syntacticFrame.contains(TransitiveFrame)) {
-            if (this.transitiveFrameEntries.contains(property)) {
-                if (row[transitiveFrameDomainIndex].contains(domain)) {
-                    return null;
-                } else {
-                    return ReadWriteConstants.RETURN_TYPE_OBJECT;
-                }
-            }
-        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
-            if (row[inTransitiveFrameDomainIndex].contains(domain)) {
-                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            if (row[7].contains(range)) {
+                returnSubjOrObj = RETURN_TYPE_OBJECT;
             } else {
-                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+                returnSubjOrObj = RETURN_TYPE_SUBJECT;
+            }
+            System.out.println(property + " " + row[7] + " " + syntacticFrame + " " + returnSubjOrObj);
+
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (row[8].contains(range)) {
+                returnSubjOrObj = ReadWriteConstants.RETURN_TYPE_OBJECT;
+            } else {
+                returnSubjOrObj = ReadWriteConstants.RETURN_TYPE_SUBJECT;
             }
         }
-
-        throw new Exception("No return Type is found!!!");
+        return returnSubjOrObj;
     }
 
-    private String findBindingType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+    private String findBindingType(String syntacticFrame, String returnSubjOrObj, String[] row) {
         Integer nounPPFrameDomainIndex = 10;
         Integer transitiveFrameDomainIndex = 11;
         Integer inTransitiveFrameDomainIndex = 12;
+        String bindingType = null;
 
         if (syntacticFrame.contains(NounPPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex].split(":")[1];
+                bindingType = row[nounPPFrameDomainIndex].split(":")[1];
             } else {
-                return row[nounPPFrameDomainIndex + 1].split(":")[1];
+                bindingType = row[nounPPFrameDomainIndex + 1].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(TransitiveFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex].split(":")[1];
+                bindingType = row[transitiveFrameDomainIndex].split(":")[1];
             } else {
-                return row[transitiveFrameDomainIndex + 1].split(":")[1];
+                bindingType = row[transitiveFrameDomainIndex + 1].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(IntransitivePPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex].split(":")[1];
+                bindingType = row[inTransitiveFrameDomainIndex].split(":")[1];
             } else {
-                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
+                bindingType = row[inTransitiveFrameDomainIndex + 1].split(":")[1];
             }
 
         }
-        throw new Exception("No binding Type is found!!!");
+        return bindingType;
     }
 
-    private String findReturnType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+    private String findReturnType(String syntacticFrame, String returnSubjOrObj, String[] row) {
         Integer nounPPFrameDomainIndex = 10;
         Integer transitiveFrameDomainIndex = 11;
         Integer inTransitiveFrameDomainIndex = 12;
+        String returnType = null;
 
         if (syntacticFrame.contains(NounPPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex + 1].split(":")[1];
+                returnType = row[nounPPFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[nounPPFrameDomainIndex].split(":")[1];
+                returnType = row[nounPPFrameDomainIndex].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(TransitiveFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex + 1].split(":")[1];
+                returnType = row[transitiveFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[transitiveFrameDomainIndex].split(":")[1];
+                returnType = row[transitiveFrameDomainIndex].split(":")[1];
             }
 
         } else if (syntacticFrame.contains(IntransitivePPFrame)) {
             if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
+                returnType = row[inTransitiveFrameDomainIndex + 1].split(":")[1];
             } else {
-                return row[inTransitiveFrameDomainIndex].split(":")[1];
+                returnType = row[inTransitiveFrameDomainIndex].split(":")[1];
             }
 
         }
-        throw new Exception("No binding Type is found!!!");
+        System.out.println("returnTYpe::" + returnType + " " + row[11] + " " + row[12]);
+        return returnType;
     }
-    
-    private String[] makeReverse(String returnSubjOrObjT,String returnTypeT,String bindingTypeT) {
-        String returnSubjOrObj=null,returnType,bindingType;
+
+    private String[] makeReverse(String returnSubjOrObjT, String returnTypeT, String bindingTypeT) {
+        String returnSubjOrObj = null, returnType, bindingType;
         if (returnSubjOrObjT.contains(RETURN_TYPE_OBJECT)) {
             returnSubjOrObj = RETURN_TYPE_SUBJECT;
         } else if (returnSubjOrObjT.contains(RETURN_TYPE_SUBJECT)) {
             returnSubjOrObj = RETURN_TYPE_OBJECT;
         }
-        returnType=bindingTypeT;
-        bindingType=returnTypeT;
-        return new String[]{returnSubjOrObj,returnType,bindingType};
+        returnType = bindingTypeT;
+        bindingType = returnTypeT;
+        return new String[]{returnSubjOrObj, returnType, bindingType};
     }
 
     /*
@@ -519,17 +517,18 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         return templates;
     }
 
-    private String findSparql(String property, String questionType) throws Exception {
+    private String findSparql(String property, String questionType) {
+        String sparqlQuery = null;
         if (property.contains("dbo:")) {
             String[] info = property.split(":");
             property = info[1];
-            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/ontology/" + property + ">" + " ?objOfProp))";
+            sparqlQuery = "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/ontology/" + property + ">" + " ?objOfProp))";
         } else if (property.contains("dbp:")) {
             String[] info = property.split(":");
             property = info[1];
-            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/property/" + property + ">" + " ?objOfProp))";
+            sparqlQuery = "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/property/" + property + ">" + " ?objOfProp))";
         }
-        throw new Exception("No sparql query is found!!!");
+        return sparqlQuery;
     }
 
     private String findProperty(String[] row, String syntacticFrame) throws Exception {
@@ -558,7 +557,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
     }
 
     public List<String> findSingularPlural(String domainOrRangeStr) {
-         
+
         if (domainOrRange.containsKey(domainOrRangeStr)) {
             return domainOrRange.get(domainOrRangeStr);
 
