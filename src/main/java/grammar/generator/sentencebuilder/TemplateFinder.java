@@ -32,7 +32,7 @@ public class TemplateFinder implements TempConstants{
     
     public TemplateFinder(FrameType frameType,String referenceUri,String subjectUri,String objectUri) {         
         if (frameType.equals(FrameType.IPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
+            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.VP)) {
@@ -40,7 +40,7 @@ public class TemplateFinder implements TempConstants{
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.NPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
+            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
         }
         else if (frameType.equals(FrameType.AG)) {
           
@@ -57,27 +57,25 @@ public class TemplateFinder implements TempConstants{
 
 
     public TemplateFinder(LexicalEntryUtil lexicalEntryUtil, FrameType frameType) {
-       this.lexicalEntryUtil=lexicalEntryUtil;
-        if (frameType.equals(FrameType.IPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
-            this.findForwardDomainAndRange();
-        }
-        else if (frameType.equals(FrameType.VP)) {
+        this.lexicalEntryUtil = lexicalEntryUtil;
         String subjectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         String objectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         String referenceUri = this.lexicalEntryUtil.getReferenceUri();
 
-            this.selectedTemplate = this.findTransitiveTemplates(referenceUri,subjectUri,objectUri);
+        if (frameType.equals(FrameType.IPP)) {
+            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
             this.findForwardDomainAndRange();
-        }
-        else if (frameType.equals(FrameType.NPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
-        }
-        else if (frameType.equals(FrameType.AG)) {
-          
-                this.selectedTemplate = this.findGradableTemplate();
-                this.propertyReference = this.findReference();
-                /*System.out.println("selectedTemplate::::"+selectedTemplate);
+        } else if (frameType.equals(FrameType.VP)) {
+
+            this.selectedTemplate = this.findTransitiveTemplates(referenceUri, subjectUri, objectUri);
+            this.findForwardDomainAndRange();
+        } else if (frameType.equals(FrameType.NPP)) {
+            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
+        } else if (frameType.equals(FrameType.AG)) {
+
+            this.selectedTemplate = this.findGradableTemplate();
+            this.propertyReference = this.findReference();
+            /*System.out.println("selectedTemplate::::"+selectedTemplate);
                 System.out.println("propertyReference::::"+propertyReference);
                 exit(1);*/
 
@@ -104,12 +102,9 @@ public class TemplateFinder implements TempConstants{
 
     }
 
-    private String findINtransitiveTemplate() {
+    private String findInTransitiveTemplate(String referenceUri,String subjectUri,String objectUri) {
         String type = null;
-        String subjectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
-        String objectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
-        String referenceUri = lexicalEntryUtil.getReferenceUri();
-
+      
         /*String qWord = null;
         try {
             qWord = this.lexicalEntryUtil.getSubjectBySubjectType(subjectType, language, null);
@@ -124,15 +119,15 @@ public class TemplateFinder implements TempConstants{
             //type = WHERE_WHAT_PRESENT_THING;
         } else if (isPerson(subjectUri) && isDate(referenceUri)) {
             type = WHEN_WHO_PAST_PERSON;
-        }  else if (isPerson(subjectUri) && isPerson(objectUri)) {
+        }  /*else if (isPerson(subjectUri) && isPerson(objectUri)) {
             type = WHO_WHO_PERSON;
-        } else if (isPerson(subjectUri) && isCause(referenceUri)) {
+        }*/ else if (isPerson(subjectUri) && isCause(referenceUri)) {
             type = PERSON_CAUSE;
         }else if (isPerson(objectUri) && isCause(referenceUri)) {
             type = PERSON_CAUSE;
-        } else if (isPerson(objectUri) && isActivity(referenceUri)) {
+        } /*else if (isPerson(objectUri) && isActivity(referenceUri)) {
             type = PERSON_ACTIVITY;
-        } else if (!isPerson(subjectUri) && isDate(referenceUri)) {
+        }*/ else if (!isPerson(subjectUri) && isDate(referenceUri)) {
             type = WHEN_WHAT_PAST_THING;
         } 
         else if (isAmountTotalCheck(referenceUri)) {

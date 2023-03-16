@@ -14,10 +14,8 @@ import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveSuperlat
 import static grammar.datasets.sentencetemplates.TempConstants.HOW_MANY_THING;
 import static grammar.datasets.sentencetemplates.TempConstants.IntransitivePPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.PERSON_ACTIVITY;
 import static grammar.datasets.sentencetemplates.TempConstants.PERSON_CAUSE;
 import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.WHAT_WHICH_PRESENT_THING_1;
 import static grammar.datasets.sentencetemplates.TempConstants.WHEN_WHAT_PAST_THING;
 import static grammar.datasets.sentencetemplates.TempConstants.WHEN_WHO_PAST_PERSON;
 import static grammar.datasets.sentencetemplates.TempConstants.WHERE_WHO_PAST_PERSON;
@@ -522,50 +520,26 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       )
     );
     
-    
-    /*sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(           
-        //Which country does X flow through?
-        "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", 
-        "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?",
-         //"In which city does the Chile Route 68 end?
-        "preposition interrogativeDeterminer(range:singular) verb(component_do:present:singular) determiner(component_the) object(domain) verb(mainVerb:present:singular)?",
-        "preposition interrogativeDeterminer(range:plural) verb(component_do:present:plural) object(domain) verb(mainVerb:present:singular)?",
-         //In which programming language is GIMP written?
-        "preposition interrogativeDeterminer(range:plural) verb(component_be:present:plural) object(domain) verb(mainVerb:perfect:singular)?",
-        "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?",
-         //Where is Fort Knox located?
-         "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?",
-         //In which countries do people speak Japanese?
-         "preposition interrogativeDeterminer(range:plural) verb(component_do:present:singular) verb(mainVerb:present:singular) object(domain)?"
 
-                
-                ),
-        IntransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        forward
-      )
-    );*/
     
      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(           
         //Which country does X flow through?
-        "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", 
-        "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?",
+        "Which (range:singular) does "+Variable+" (infinitive) preposition?"+"\n"+
+        "Which (range:plural) does "+Variable+" (infinitive) preposition?"+"\n"+
          //"In which city does the Chile Route 68 end?
-        "preposition interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular)?",
-        "preposition interrogativeDeterminer(range:plural) verb(component_do:present:plural) object(domain) verb(mainVerb:present:singular)?",
+        "preposition which (range:singular) does "+Variable+" (infinitive)?"+"\n"+
+        "preposition which (range:plural) does "+Variable+" (infinitive)?"+"\n"+
          //In which programming language is GIMP written?
-        "preposition interrogativeDeterminer(range:plural) verb(component_be:present:plural) object(domain) verb(mainVerb:perfect:singular)?",
-        "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?",
+        "preposition which (range:singular) is "+Variable+" (perfect)?"+"\n"+
+        "preposition which (range:plural) are "+Variable+" (perfect)?"+"\n"+
          //Where is Fort Knox located?
-         "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?"
+         "Where is Variable (perfect)?"
          //In which countries do people speak Japanese?
          //"preposition interrogativeDeterminer(range:plural) verb(component_do:present:singular) verb(mainVerb:present:singular) object(domain)?"
           ),
         IntransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        forward
+        WHAT_WHICH_PRESENT_THING_1_FORWARD
       )
     );
      
@@ -574,24 +548,22 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //what flows through Germany?
-          "interrogativePronoun(domain) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+          "what (3rd-present) preposition "+Variable+"?"+"\n"+
           //what does X stand for?
-          "interrogativePronoun(domain) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?",
+          "what does "+Variable+" (infinitive) preposition?"+"\n"+
           //Which river flows through Germany?
-          "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+          "Which (domain:singular) (3rd-present) preposition "+Variable+"?"+"\n"+
           //what flew through Germany?
-          "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
+          "what (past) preposition "+Variable+"?"+"\n"+
           //Which rivers flow through Germany?
-          "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
+          "Which (domain:plural) (infinitive) preposition "+Variable+"?"+"\n"+
           //Give me all launch pads operated by NASA.
            //"verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) object(range) verb(mainVerb:present:thridPerson) preposition adjunct(domain)."
            //Where does Piccadilly start? 
-           "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?"
+           "where does "+Variable+" (infinitive)?"
         ),
         IntransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        backward
-      )
+        WHAT_WHICH_PRESENT_THING_1_BACKWARD)
     );
       
         sentenceTemplateRepository.add(createSentenceTemplate(language,
@@ -600,29 +572,26 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         "interrogativeAmount(domain:plural) verb(mainVerb:present:singular) preposition adjunct(range)?"  
         ),
         IntransitivePPFrame,
-        HOW_MANY_THING_BACKWARD+"_"+WHAT_WHICH_PRESENT_THING_1,
-        backward
-      )
+        HOW_MANY_THING_BACKWARD      )
     );
     
       
      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(           
         //In which country is the Limerick Lake?
-        "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) object(domain)?",
-        "preposition interrogativeDeterminer(range:singular) verb(component_be:present:plural) determiner(component_the) object(domain)?",
+        "preposition which (range:singular) is the "+Variable+"?"+"\n"+
+        "preposition which (range:singular) are the "+Variable+"?"+"\n"+
         //What country is Mount Everest in?
-         "interrogativePronounDeterminer(range:singular) verb(component_be:present:singular) adjunct(domain) preposition?",
+         "What (range:singular) is "+Variable+" preposition?"+"\n"+
         //In which programming language is GIMP written?
-        "preposition interrogativeDeterminer(range:plural) verb(component_be:present:plural) object(domain) verb(mainVerb:perfect:singular)?",
-        "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?",
+        "preposition which (range:plural) is "+Variable+" (perfect)?"+"\n"+
+        "preposition which (range:singular) are "+Variable+" (perfect)?"+"\n"+
          //Where is Fort Knox located?
-         "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?"
+         "Where is "+Variable+" (perfect)?"
                 
                 ),
         IntransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        forward
+        WHAT_WHICH_LOCATION_FORWARD
       )
     );
     
@@ -632,19 +601,18 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //what flows through Germany?
-          "interrogativePronoun(domain) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
+          "what (3rd-present) preposition "+Variable+"?"+"\n"+
           //what does X stand for?
-          "interrogativePronoun(domain) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?",
+          "interrogativePronoun(domain) (component_do:present:singular) "+Variable+" (infinitive) preposition?",
           //Which river flows through Germany?
-          "interrogativeDeterminer(domain:singular) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
+          "interrogativeDeterminer(domain:singular) (infinitive) preposition "+Variable+"?",
           //what flew through Germany?
-          "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
+          "interrogativePronoun(domain) (past) preposition "+Variable+"?",
           //Which rivers flow through Germany?
-          "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?"             
+          "interrogativeDeterminer(domain:plural) (infinitive) preposition "+Variable+"?"             
             ),
         IntransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        backward
+        WHAT_WHICH_LOCATION_BACKWARD
       )
     );
       
@@ -696,15 +664,28 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         language,
         List.of(
           //When was X completed?
-          "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
+          "When was "+Variable+" (past)?"+"\n"+
            //When were X completed?
-          //"interrogativeTemporal verb(component_do:past:plural) object(domain) verb(mainVerb:past:thridPerson)?"
+          "When were "+Variable+" (past)?"+"\n"+
           //When did Operation Overlord commence?
-          "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?"
+          "When did "+Variable+" (infinitive)?"
         ),
         IntransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        forward
+        WHEN_WHAT_PAST_THING_FORWARD      
+        )
+    );
+       
+      sentenceTemplateRepository.add(
+      createSentenceTemplate(
+        language,
+        List.of(
+         //what took place in Date?  
+        //"interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
+         ////what happened in Date?
+        //"interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
+              ),
+        IntransitivePPFrame,
+        WHEN_WHAT_PAST_BACKWARD
       )
     );
        
@@ -721,35 +702,23 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       )
     );
     
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
-        List.of(
-         //what took place in Date?  
-        "interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
-         ////what happened in Date?
-        //"interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
-              ),
-        IntransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        backward
-      )
-    );
+    
     ///////////////////////////////
        sentenceTemplateRepository.add(
       createSentenceTemplate(
         language,
         List.of(
          //When was X completed?
-         "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
+         "When was "+Variable+" (past)?"+"\n"+
          //In which year was Joanna MacGregor born?
-         "preposition interrogativeDeterminer(range:singular) verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
+         "preposition which year was "+Variable+" (past)?"+"\n"+
+         //In which year was Joanna MacGregor born?
+         "preposition which date was "+Variable+" (past)?"+"\n"+
          //When did Elisabeth of Saxony die?
-         "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?"
+         "When did "+Variable+" (infinitive)?"
         ),
-        IntransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        forward
+        "IntransitivePPFrame",
+        WHEN_WHO_PAST_PERSON_FORWARD
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -758,12 +727,9 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       createSentenceTemplate(
         language,
         List.of(
-         "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
-         "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
-        ),
-        IntransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        backward
+           ),
+        "IntransitivePPFrame",
+        WHEN_WHO_PAST_PERSON      
       )
     );
       
@@ -773,25 +739,24 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         language,
         List.of(
          //Where was Bach born? and Where was Sparkling wine produced?
-         "interrogativePlace verb(component_be:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
+         "Where was "+Variable+" (perfect)?"+"\n"+
          //Where is Sparkling wine produced?
-         "interrogativePlace verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
+         "Where was "+Variable+" (perfect)?"+"\n"+
          /* //Where in France is sparkling wine produced?
          "interrogativePlace preposition noun(range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:singular)?", 
           //Where in France is sparkling wine produced?
-         "interrogativePlace preposition noun(range:singular) verb(component_be:past:singular) adjunct(domain) verb(mainVerb:perfect:singular)?", 
+         "interrogativePlace preposition noun(range:singular) verb(component_be:past:singular) adjunct(domain) (mainVerb:perfect:singular)?", 
          */
          //In which city did John F. Kennedy die?
-         "preposition interrogativeDeterminer(range:singular) verb(component_do:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?",
+         "preposition which (range:singular) did "+Variable+" (infinitive)?"+"\n"+
           //Which country was Bill Gates born in?
-         "interrogativeDeterminer(range:singular) verb(component_be:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?",
+         "which (range:singular) was "+Variable+" (infinitive) preposition?"+"\n"+
           //Which country does X come from?
-         "interrogativeDeterminer(range:singular) verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?"
+         "which (range:singular) does "+Variable+" (infinitive) preposition?"
           
              ),
         IntransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        forward
+        WHERE_WHO_PAST_PERSON_FORWARD
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -801,16 +766,15 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         language,
         List.of(
          //Who was born in X?
-         "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         "Who (domain:singular) was (perfect) preposition "+Variable+"?"+"\n"+
          //Which actors were born on the Philippines?
-         "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         "Which (domain:singular) was (perfect) preposition "+Variable+"?"+"\n"+
          //Which actors were born on the Philippines?
-         "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
+         "Which (domain:plural) were (perfect) preposition "+Variable+"?"
 
         ),
         IntransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        backward
+        WHERE_WHO_PAST_PERSON_BACKWARD
       )
     );
       
@@ -877,32 +841,30 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //What did Abraham Lincoln die from?
-        "interrogativePronoun(range:singular) verb(component_do:past:singular) object(domain) verb(mainVerb:present:singular) preposition?",
-         //What did Abraham Lincoln die from?
-        "interrogativePronoun(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?" 
+        "What did "+Variable+" (infinitive) preposition?"+"\n"+         
+        //What did Abraham Lincoln die from?
+        "What does "+Variable+" (infinitive) preposition?" 
       
         ),
        IntransitivePPFrame,
-       PERSON_CAUSE,
-        forward
-      )
+       PERSON_CAUSE_FORWARD      
+       )
     );
     // IntransitivePPFrame 
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //Which person is died from X?
-        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?",
-        "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?",
-        "interrogativeDeterminer(domain:singular) verb(component_be:present:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?",
-        "interrogativeDeterminer(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?",
+        "Which (domain:singular) is (perfect) preposition "+Variable+"?"+"\n"+  
+        "Which (domain:plural) are (perfect) preposition "+Variable+"?"+"\n"+  
+        "Which (domain:singular) was (perfect) preposition "+Variable+"?"+"\n"+  
+        "Which (domain:plural) were (perfect) preposition "+Variable+"?"+"\n"+  
         //Who is died from X?
-         "interrogativePronoun(domain:singular) verb(component_be:present:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?",
+         "Who is (perfect) preposition "+Variable+"?"+"\n"+  
          //Who was died from X?
-         "interrogativePronoun(domain:plural) verb(component_be:past:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?"
+         "Who is (perfect) preposition "+Variable+"?"
           ),
         IntransitivePPFrame,
-        PERSON_CAUSE,
-        backward
+        PERSON_CAUSE_BACKWARD
       )
     );
       

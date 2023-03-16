@@ -314,74 +314,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         }
     }
 
-    private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String[] row) {
-        Map<String, Pair<String, GrammarInfor>> templateQuestions = new TreeMap<String, Pair<String, GrammarInfor>>();
-        List<String> ways = new ArrayList<String>();
-        ways.add(FORWARD);
-        ways.add(BACKWARD);
-        String returnSubjOrObj = null, bindingType = null, returnType = null;
-        List<UriLabel> bindingList = new ArrayList<UriLabel>();
-
-        try {
-            returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame, property);
-            bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
-            returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
-
-        } catch (Exception ex) {
-            List<String> wordList = Arrays.asList(row);
-            System.out.println(property + wordList + " error!!!" + ex.getMessage() + " " + returnSubjOrObj);
-        }
-
-        SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
-        SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
-        if (syntacticFrame.contains(NounPPFrame)) {
-            List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
-            for (String template : sentenceTemplate) {
-                List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
-                        SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, template});
-                if (!questions.isEmpty()) {
-                    String templateAllQuestions = questions.iterator().next();
-                    String[] realQuestions = findNounPPQuestions(bindingType, returnType, templateAllQuestions, row);
-                    String sparqlQuery = findSparql(property, returnSubjOrObj);
-                    GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
-                    Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
-                    templateQuestions.put(template, pair);
-                }
-
-            }
-        }
-        if (syntacticFrame.contains(TransitiveFrame)) {
-            List<String> sentenceTemplates = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
-            for (String genericTemplate : sentenceTemplates) {
-                for (String way : ways) {
-                    String senTemplate = null;
-                    if (way.contains(FORWARD)) {
-                        senTemplate = genericTemplate + "_" + FORWARD;
-                    } else if (way.contains(BACKWARD)) {
-                        senTemplate = genericTemplate + "_" + BACKWARD;
-                        String[] result = this.makeReverse(returnSubjOrObj, returnType, bindingType);
-                        returnSubjOrObj = result[0];
-                        returnType = result[1];
-                        bindingType = result[2];
-                    }
-
-                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, senTemplate});
-                    if (!questions.isEmpty()) {
-                        String templateAllQuestions = questions.iterator().next();
-                        String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
-                        String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
-
-                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
-                        templateQuestions.put(senTemplate, pair);
-                    }
-
-                }
-
-            }
-        }
-        return templateQuestions;
-    }
+   
 
     private String findReturnSubjOrObj(String[] row, String syntacticFrame, String property) {
         String returnSubjOrObj = null;
@@ -510,13 +443,123 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             String objUri = resourceUri(row[12]);
             this.templateFinder = new TemplateFinder(FrameType.VP, referUri, subjUri, objUri);
             String template = this.templateFinder.getSelectedTemplate();
-            templates.add(PERSON_CAUSE);
-
+            templates.add(template);
+            /*if (returnSubjOrObj.contains(RETURN_TYPE_SUBJECT) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
+                this.templateFinder.setSelectedTemplate(PERSON_CAUSE_SUBJECT);
+            }*/
+        }
+        else if (syntacticFrame.contains(IntransitivePPFrame)||syntacticFrame.contains("inTransitivePPFrame")) {
+            String referUri = resourceUri(row[11]);
+            String subjUri = resourceUri(row[12]);
+            String objUri = resourceUri(row[13]);
+            this.templateFinder = new TemplateFinder(FrameType.IPP, referUri, subjUri, objUri);
+            String template = this.templateFinder.getSelectedTemplate();
+            templates.add(template);
             /*if (returnSubjOrObj.contains(RETURN_TYPE_SUBJECT) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
                 this.templateFinder.setSelectedTemplate(PERSON_CAUSE_SUBJECT);
             }*/
         }
         return templates;
+    }
+    
+     private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String[] row) {
+        Map<String, Pair<String, GrammarInfor>> templateQuestions = new TreeMap<String, Pair<String, GrammarInfor>>();
+        List<String> ways = new ArrayList<String>();
+        ways.add(FORWARD);
+        ways.add(BACKWARD);
+        String returnSubjOrObj = null, bindingType = null, returnType = null;
+        List<UriLabel> bindingList = new ArrayList<UriLabel>();
+
+        try {
+            returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame, property);
+            bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
+            returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
+
+        } catch (Exception ex) {
+            List<String> wordList = Arrays.asList(row);
+            System.out.println(property + wordList + " error!!!" + ex.getMessage() + " " + returnSubjOrObj);
+        }
+
+        SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
+        SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
+        if (syntacticFrame.contains(NounPPFrame)) {
+            List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String template : sentenceTemplate) {
+                List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
+                        SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, template});
+                if (!questions.isEmpty()) {
+                    String templateAllQuestions = questions.iterator().next();
+                    String[] realQuestions = findNounPPQuestions(bindingType, returnType, templateAllQuestions, row);
+                    String sparqlQuery = findSparql(property, returnSubjOrObj);
+                    GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
+                    Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
+                    templateQuestions.put(template, pair);
+                }
+
+            }
+        }
+        if (syntacticFrame.contains(TransitiveFrame)) {
+            List<String> sentenceTemplates = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String genericTemplate : sentenceTemplates) {
+                for (String way : ways) {
+                    String senTemplate = null;
+                    if (way.contains(FORWARD)) {
+                        senTemplate = genericTemplate + "_" + FORWARD;
+                    } else if (way.contains(BACKWARD)) {
+                        senTemplate = genericTemplate + "_" + BACKWARD;
+                        String[] result = this.makeReverse(returnSubjOrObj, returnType, bindingType);
+                        returnSubjOrObj = result[0];
+                        returnType = result[1];
+                        bindingType = result[2];
+                    }
+
+                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, senTemplate});
+                    if (!questions.isEmpty()) {
+                        String templateAllQuestions = questions.iterator().next();
+                        String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
+                        String sparqlQuery = findSparql(property, returnSubjOrObj);
+                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
+
+                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
+                        templateQuestions.put(senTemplate, pair);
+                    }
+
+                }
+
+            }
+        }
+        if (syntacticFrame.contains(IntransitivePPFrame)) {
+            List<String> sentenceTemplates = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String genericTemplate : sentenceTemplates) {
+                for (String way : ways) {
+                    String senTemplate = null;
+                    if (way.contains(FORWARD)) {
+                        senTemplate = genericTemplate + "_" + FORWARD;
+                    } else if (way.contains(BACKWARD)) {
+                        senTemplate = genericTemplate + "_" + BACKWARD;
+                        String[] result = this.makeReverse(returnSubjOrObj, returnType, bindingType);
+                        returnSubjOrObj = result[0];
+                        returnType = result[1];
+                        bindingType = result[2];
+                    }
+
+                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, senTemplate});
+                    System.out.println("syntacticFrame:"+syntacticFrame+" senTemplate::"+senTemplate);
+                    if (!questions.isEmpty()) {
+                        String templateAllQuestions = questions.iterator().next();
+                        String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
+                        String sparqlQuery = findSparql(property, returnSubjOrObj);
+                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
+
+                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
+                        templateQuestions.put(senTemplate, pair);
+                    }
+
+                }
+
+            }
+        }
+        return templateQuestions;
     }
 
     private String findSparql(String property, String questionType) {
@@ -594,11 +637,11 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
     private String[] findVerbQuestions(String syntacticFrame, String bindingType, String returnType, String templateAllQuestions, String[] row) {
         bindingType = this.makeVairable(bindingType);
         List<String> singularPlural = findSingularPlural(returnType);
-        String rangeSingular = "XX";
-        String rangePlural = "XX";
+        String singular = "XX";
+        String plural = "XX";
         if (!singularPlural.isEmpty()) {
-            rangeSingular = singularPlural.get(0);
-            rangePlural = singularPlural.get(1);
+            singular = singularPlural.get(0);
+            plural = singularPlural.get(1);
         }
 
         String mainVerbPresent = row[2];
@@ -614,15 +657,15 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         }
 
         templateAllQuestions = templateAllQuestions.replace("Variable", bindingType);
+        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
+        templateAllQuestions = templateAllQuestions.replace("(range:singular)", singular);
+        templateAllQuestions = templateAllQuestions.replace("(range:plural)", plural);
+        templateAllQuestions = templateAllQuestions.replace("(domain:singular)", singular);
+        templateAllQuestions = templateAllQuestions.replace("(domain:plural)", plural);
         templateAllQuestions = templateAllQuestions.replace("(infinitive)", mainVerbPresent);
         templateAllQuestions = templateAllQuestions.replace("(3rd-present)", mainVerbPresentThird);
         templateAllQuestions = templateAllQuestions.replace("(past)", mainVerbPast);
         templateAllQuestions = templateAllQuestions.replace("(perfect)", mainVerbPerfekt);
-        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
-        templateAllQuestions = templateAllQuestions.replace("(range:singular)", rangeSingular);
-        templateAllQuestions = templateAllQuestions.replace("(range:plural)", rangePlural);
-        templateAllQuestions = templateAllQuestions.replace("(domain:singular)", rangeSingular);
-        templateAllQuestions = templateAllQuestions.replace("(domain:plural)", rangePlural);
 
         String[] realQuestions = templateAllQuestions.split("\n");
         return realQuestions;

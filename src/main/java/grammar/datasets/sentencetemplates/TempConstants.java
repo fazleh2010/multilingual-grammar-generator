@@ -109,12 +109,22 @@ public interface TempConstants {
     public static Set<String> PERSONS = new HashSet<String>(Arrays.asList(secondPerson, thirdPerson));
 
     public static final String WHEN_WHAT_PAST_THING = "WHEN_WHAT_PAST_THING";
-    public static final String WHAT_WHICH_PRESENT_THING_1 = "WHAT_WHICH_PRESENT_THING_1";
+    public static final String WHEN_WHAT_PAST_THING_FORWARD = "WHEN_WHAT_PAST_THING_FORWARD";
+    public static final String WHEN_WHAT_PAST_BACKWARD = "WHEN_WHAT_PAST_BACKWARD";
+    
+    public static final String WHAT_WHICH_PRESENT_THING_1_FORWARD = "WHAT_WHICH_PRESENT_THING_1_FORWARD";
+     public static final String WHAT_WHICH_PRESENT_THING_1_BACKWARD = "WHAT_WHICH_PRESENT_THING_1_BACKWARD";
+    public static final String Variable="Variable";
     public static final String WHAT_WHICH_PRESENT_THING_2 = "WHAT_WHICH_PRESENT_THING_2";
+    public static final String WHAT_WHICH_PRESENT_THING_1 = "WHAT_WHICH_PRESENT_THING_1";
     public static final String HOW_MANY_TOTAL = "HOW_MANY_TOTAL";
     public static final String HOW_MANY_THING = "HOW_MANY_THING";
     public static final String WHERE_WHAT_PRESENT_THING = "WHERE_WHAT_PRESENT_THING";
     public static final String WHAT_WHICH_LOCATION = "WHAT_WHICH_LOCATION";
+    public static final String WHAT_WHICH_LOCATION_FORWARD = "WHAT_WHICH_LOCATION_FORWARD";
+    public static final String WHAT_WHICH_LOCATION_BACKWARD = "WHAT_WHICH_LOCATION_FORWARD";
+    
+    
     public static final String WHAT_WHICH_LOCATION_COMPANY = "WHAT_WHICH_LOCATION_COMPANY";
 
     
@@ -126,12 +136,16 @@ public interface TempConstants {
      
     public static final String WHO_WHO_PERSON = "WHO_WHO_PERSON";
      public static final String WHEN_WHO_PAST_PERSON = "WHEN_WHO_PAST_PERSON";
+     public static final String WHEN_WHO_PAST_PERSON_FORWARD="WHEN_WHO_PAST_PERSON_FORWARD";
      public static final String WHERE_WHO_PAST_PERSON = "WHERE_WHO_PAST_PERSON";
      public static final String PERSON_CAUSE = "PERSON_CAUSE";
      public static final String PERSON_CAUSE_FORWARD = "PERSON_CAUSE_FORWARD";
      public static final String PERSON_CAUSE_BACKWARD = "PERSON_CAUSE_BACKWARD";
+     public static final String WHERE_WHO_PAST_PERSON_FORWARD="WHERE_WHO_PAST_PERSON_FORWARD";
      public static final String FORWARD = "FORWARD";
      public static final String BACKWARD = "BACKWARD";
+     
+     public static final String WHERE_WHO_PAST_PERSON_BACKWARD="WHERE_WHO_PAST_PERSON_BACKWARD";
      
      public static final String HOW_MANY_THING_AKTIVE="HOW_MANY_THING_AKTIVE";
      public static final String HOW_MANY_THING_PASSIVE="HOW_MANY_THING_PASSIVE";
