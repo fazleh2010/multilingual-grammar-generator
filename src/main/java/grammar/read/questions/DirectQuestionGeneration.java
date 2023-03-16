@@ -5,19 +5,12 @@
  */
 package grammar.read.questions;
 
+import com.google.gdata.util.common.base.Pair;
 import com.opencsv.CSVWriter;
 import grammar.datasets.sentencetemplates.SentenceTemplateFactoryEN_1;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
-import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveAttributiveFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveSuperlativeFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.HOW_MANY_THING;
-import static grammar.datasets.sentencetemplates.TempConstants.IntransitivePPFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
-import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.domain;
-import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
-import static grammar.datasets.sentencetemplates.TempConstants.superlative;
+import grammar.datasets.sentencetemplates.TempConstants;
+import grammar.generator.sentencebuilder.TemplateFinder;
 import grammar.sparql.PrepareSparqlQuery;
 import grammar.sparql.SparqlQuery;
 import grammar.structure.component.FrameType;
@@ -31,15 +24,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.query.QueryType;
 import org.apache.logging.log4j.LogManager;
 import turtle.EnglishCsv;
-import turtle.EnglishCsv.NounPPFrameCsv;
-import turtle.EnglishCsv.TransitFrameCsv;
 import util.io.*;
 
 /**
  *
  * @author elahi
  */
-public class DirectQuestionGeneration implements ReadWriteConstants {
+public class DirectQuestionGeneration implements ReadWriteConstants, TempConstants {
 
     private static String language = "en";
     private String propertyDir = null;
@@ -49,6 +40,8 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
     public String classDir = null;
     private Boolean online = false;
     private LinkedData linkedData = null;
+    private TemplateFinder templateFinder = null;
+    //private String logString="";
 
     private Integer batchNumber = 0;
     private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger(ProtoToRealQuesrion.class);
@@ -57,6 +50,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
     private String parameter = null;
     private String endpoint = null;
     private Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
+    private Set<String> transitiveFrameEntries = new HashSet<String>();
 
     public DirectQuestionGeneration(LinkedData linkedData, InputCofiguration inputCofiguration) throws Exception {
         this.inputCofiguration = inputCofiguration;
@@ -72,43 +66,53 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         this.endpoint = this.linkedData.getEndpoint();
         DomainRangeDictionary domainRangeDictionary = new DomainRangeDictionary(inputCofiguration.getDomainAndRangeDir());
         this.domainOrRange = domainRangeDictionary.getDomainOrRange();
+        this.transitiveFrameEntries = FileFolderUtils.fileToSet("src/main/resources/TransitiveFrame.txt");
     }
 
-    public void offline(String dir) throws Exception {
+    public void offline(String dir, String logFile) throws Exception {
         File[] files = new File(dir).listFiles();
+        Integer numberOfFiles = 0;
         for (File file : files) {
             CsvFile csvFile = new CsvFile();
             List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
-            offline(file.getName(),rows);
+            System.out.println("total files::" + files.length + " now::" + numberOfFiles + " file:" + file.getName() + " rows::" + rows.size() + " folder:" + dir);
+            offline(file.getName(), rows);
+            numberOfFiles = numberOfFiles + 1;
         }
-
+        //FileFolderUtils.stringToFiles(logString, logFile);
     }
 
-    public void offline(String fileName,List<String[]> rows) throws Exception {
+    public void offline(String fileName, List<String[]> rows) throws Exception {
 
         if (rows.isEmpty()) {
             throw new Exception("No proto file found to process!!");
         }
         Integer rowIndex = 0, idIndex = 0;
-        String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString()+ "~" +  fileName + "~" + questionsFile + ".csv";
+        String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator + this.batchNumber.toString() + "~" + fileName + "~" + questionsFile + ".csv";
         this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
-        
+
         for (String[] row : rows) {
+            String syntacticFrame = null, property = null, returnSubjOrObj = null, bindingType = null, sparqlQuery = null, returnType = null;
+            Map<String, Pair<String, GrammarInfor>> templateQuestions = new HashMap<String, Pair<String, GrammarInfor>>();
             if (idIndex == 0) {
                 idIndex = idIndex + 1;
                 continue;
             }
             String lexicalEntiryUri = row[0];
             batchNumber = batchNumber + 1;
-            String syntacticFrame = this.findSyntacticFrame(row);
-            String property = this.findProperty(row, syntacticFrame);
-            
 
-            String returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame);
-            String bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
-            String returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
-            Map<String, String[]> templateQuestions = findQuestions(syntacticFrame, bindingType, returnType, row);
-            String sparqlQuery = findSparql(property, returnSubjOrObj);
+            try {
+                syntacticFrame = this.findSyntacticFrame(row);
+                property = this.findProperty(row, syntacticFrame);
+                //logString+="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"+"property="+property+" returnSubjOrObj="+returnSubjOrObj+" bindingType::"+bindingType+" returnType::"+returnType+"\n";
+                returnSubjOrObj = findReturnSubjOrObj(row, syntacticFrame, property);
+                bindingType = findBindingType(syntacticFrame, returnSubjOrObj, row);
+                returnType = findReturnType(syntacticFrame, returnSubjOrObj, row);
+                templateQuestions = ProtoQuestionGeneration(syntacticFrame, property, returnSubjOrObj, bindingType, returnType, row);
+
+            } catch (Exception ex) {
+                continue;
+            }
 
             /*if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
                 sparqlQuery = findAdjektive(property);
@@ -121,6 +125,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
                 String propertyFile = AddQuote.getProperty(this.propertyDir, sparqlQuery);
                 this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
                 bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
+                //logString+=bindingList+"\n";
                 /*if (!bindingList.isEmpty()) {
                         System.out.println(property + "   bindingList::" + bindingList + " returnSubjOrObj::" + returnSubjOrObj);
                         System.out.println("   entityLabels::" + entityLabels);
@@ -132,15 +137,24 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
                 continue;
             }
             for (String template : templateQuestions.keySet()) {
-                String[] questions = templateQuestions.get(template);
-                rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQuery, bindingList,
-                        questions, rowIndex,
-                        syntacticFrame, returnSubjOrObj, QueryType.SELECT, returnType, template);
+                //logString+=template+"\n";
+                Pair<String, GrammarInfor> pair = templateQuestions.get(template);
+                sparqlQuery = pair.first;
+                GrammarInfor grammarInfor = pair.second;
+                System.out.println("template::"+template+ " GrammarInfor:"+grammarInfor);
+                String sparqlQueryT=grammarInfor.getBindingType();
+                String returnTypeT=grammarInfor.getReturnType();
+                String returnSubjOrObjT=grammarInfor.getReturnSubjOrObj();
+                String []questionsT=grammarInfor.getRealQuestions();
+                
+                rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQueryT, bindingList,
+                        questionsT, rowIndex,
+                        syntacticFrame, returnSubjOrObjT, QueryType.SELECT, returnTypeT, template);
                 rowIndex = rowIndex + 1;
                 idIndex = idIndex + 1;
             }
         }
-         this.csvWriterQuestions.close();
+        this.csvWriterQuestions.close();
     }
 
     private Integer questionGeneration(String lexicalEntiryUri, String sparqlQuery, List<UriLabel> bindingList,
@@ -255,7 +269,8 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
                                 continue;
                             }
                         } else {
-                            System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
+                            //logString+="index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql;
+                            //System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
                             this.csvWriterQuestions.writeNext(newRecord);
                             rowIndex = rowIndex + 1;
                         }
@@ -272,6 +287,344 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         }
 
         return rowIndex;
+    }
+
+    public String findSyntacticFrame(String[] row) throws Exception {
+
+        Integer nounPPIndex = 5;
+        Integer transitiveIndex = 6;
+        Integer InTransitiveIndex = 7;
+        Integer adjectiveFrameIndex = 3;
+        Integer gradableAdjectiveFrameIndex = 5;
+        String nounPPFrame = row[nounPPIndex];
+
+        /*Integer index=0;
+        for (String string:row) {
+          System.out.println(index+" "+string);
+          index=index+1;
+        }
+        System.out.println(transitiveIndex+" "+row[transitiveIndex]);
+         System.out.println(InTransitiveIndex+" "+row[InTransitiveIndex]);
+         */
+        try {
+            if (nounPPFrame.contains(NounPPFrame)) {
+                return NounPPFrame;
+            } else if (row[transitiveIndex].contains(TransitiveFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
+                return TransitiveFrame;
+            } else if (row[InTransitiveIndex].contains(IntransitivePPFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
+                return IntransitivePPFrame;
+            } else if (row[adjectiveFrameIndex].contains(AdjectiveAttributiveFrame)) {
+                return AdjectiveAttributiveFrame;
+            } else if (row[gradableAdjectiveFrameIndex].contains(AdjectiveSuperlativeFrame)) {
+                return AdjectiveSuperlativeFrame;
+            } else {
+                throw new Exception("No grammar entry is found!!!!");
+            }
+        } catch (Exception ex) {
+            throw new Exception("lexial entry:" + row[0] + " invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
+        }
+    }
+
+    private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String returnSubjOrObj, String bindingType, String returnType, String[] row) throws Exception {
+        Map<String, Pair<String, GrammarInfor>> templateQuestions = new TreeMap<String, Pair<String, GrammarInfor>>();
+        List<String> ways=new ArrayList<String>(); 
+        ways.add(FORWARD);
+        ways.add(BACKWARD);
+         
+        SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
+        SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
+        if (syntacticFrame.contains(NounPPFrame)) {
+            List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String template : sentenceTemplate) {
+                List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
+                        SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, template});
+                if (!questions.isEmpty()) {
+                    String templateAllQuestions = questions.iterator().next();
+                    String[] realQuestions = findNounPPQuestions(bindingType, returnType, templateAllQuestions, row);
+                    String sparqlQuery = findSparql(property, returnSubjOrObj);
+                    GrammarInfor grammarInfor=new GrammarInfor(returnSubjOrObj,bindingType, returnType, template,realQuestions,sparqlQuery);    
+                    Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
+                    templateQuestions.put(template, pair);
+                }
+
+            }
+        }
+        if (syntacticFrame.contains(TransitiveFrame)) {
+            List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String template : sentenceTemplate) {
+                for (String way : ways) {
+                    String templateT=null;
+                    if (way.contains(FORWARD)) {
+                        templateT = template + "_" + FORWARD;
+                    } else if (way.contains(BACKWARD)){
+                        templateT = template + "_" + BACKWARD;
+                        String[] result=this.makeReverse(returnSubjOrObj, returnType, bindingType);
+                        returnSubjOrObj=result[0];
+                        returnType=result[1];
+                        bindingType=result[2];
+                    }
+
+                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
+                            SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, templateT});
+                    if (!questions.isEmpty()) {
+                        String templateAllQuestions = questions.iterator().next();
+                        String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
+                        String sparqlQuery = findSparql(property, returnSubjOrObj);
+                        GrammarInfor grammarInfor=new GrammarInfor(returnSubjOrObj,bindingType, returnType, template,realQuestions,sparqlQuery);
+                        
+                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
+                        templateQuestions.put(template, pair);
+                    }
+
+                }
+
+            }
+        }
+        return templateQuestions;
+    }
+
+    private String findReturnSubjOrObj(String[] row, String syntacticFrame, String property) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (row[nounPPFrameDomainIndex].contains(domain)) {
+                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            } else {
+                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            }
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (this.transitiveFrameEntries.contains(property)) {
+                if (row[transitiveFrameDomainIndex].contains(domain)) {
+                    return null;
+                } else {
+                    return ReadWriteConstants.RETURN_TYPE_OBJECT;
+                }
+            }
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (row[inTransitiveFrameDomainIndex].contains(domain)) {
+                return ReadWriteConstants.RETURN_TYPE_OBJECT;
+            } else {
+                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
+            }
+        }
+
+        throw new Exception("No return Type is found!!!");
+    }
+
+    private String findBindingType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[nounPPFrameDomainIndex].split(":")[1];
+            } else {
+                return row[nounPPFrameDomainIndex + 1].split(":")[1];
+            }
+
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[transitiveFrameDomainIndex].split(":")[1];
+            } else {
+                return row[transitiveFrameDomainIndex + 1].split(":")[1];
+            }
+
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[inTransitiveFrameDomainIndex].split(":")[1];
+            } else {
+                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
+            }
+
+        }
+        throw new Exception("No binding Type is found!!!");
+    }
+
+    private String findReturnType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
+        Integer nounPPFrameDomainIndex = 10;
+        Integer transitiveFrameDomainIndex = 11;
+        Integer inTransitiveFrameDomainIndex = 12;
+
+        if (syntacticFrame.contains(NounPPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[nounPPFrameDomainIndex + 1].split(":")[1];
+            } else {
+                return row[nounPPFrameDomainIndex].split(":")[1];
+            }
+
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[transitiveFrameDomainIndex + 1].split(":")[1];
+            } else {
+                return row[transitiveFrameDomainIndex].split(":")[1];
+            }
+
+        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
+            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
+                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
+            } else {
+                return row[inTransitiveFrameDomainIndex].split(":")[1];
+            }
+
+        }
+        throw new Exception("No binding Type is found!!!");
+    }
+    
+    private String[] makeReverse(String returnSubjOrObjT,String returnTypeT,String bindingTypeT) {
+        String returnSubjOrObj=null,returnType,bindingType;
+        if (returnSubjOrObjT.contains(RETURN_TYPE_OBJECT)) {
+            returnSubjOrObj = RETURN_TYPE_SUBJECT;
+        } else if (returnSubjOrObjT.contains(RETURN_TYPE_SUBJECT)) {
+            returnSubjOrObj = RETURN_TYPE_OBJECT;
+        }
+        returnType=bindingTypeT;
+        bindingType=returnTypeT;
+        return new String[]{returnSubjOrObj,returnType,bindingType};
+    }
+
+    /*
+     public Integer lemonEntryIndex = 0;
+        public Integer partOfSpeechIndex = 1;
+        public Integer writtenFormInfinitive = 2;
+        public Integer writtenForm3rdPerson = 3;
+        public Integer writtenFormPast = 4;
+        public Integer writtenFormPerfect = 5;
+        public Integer syntacticFrameIndex = 6;
+        public Integer subjectIndex = 7;
+        public Integer directObjectIndex = 8;
+        public Integer senseIndex = 9;
+        public Integer referenceIndex = 10;
+        public Integer domainIndex = 11;
+        public Integer rangeIndex = 12;
+        public Integer passivePrepositionIndex = 13;
+     */
+    private List<String> findSeneteneTemplate(String[] row, String returnSubjOrObj, String syntacticFrame) {
+        List<String> templates = new ArrayList<String>();
+        if (syntacticFrame.contains(NounPPFrame)) {
+            templates = SentenceTemplateFactoryEN_1.nounPPTemplates;
+        } else if (syntacticFrame.contains(TransitiveFrame)) {
+            String referUri = resourceUri(row[10]);
+            String subjUri = resourceUri(row[11]);
+            String objUri = resourceUri(row[12]);
+            this.templateFinder = new TemplateFinder(FrameType.VP, referUri, subjUri, objUri);
+            String template = this.templateFinder.getSelectedTemplate();
+            templates.add(PERSON_CAUSE);
+
+            /*if (returnSubjOrObj.contains(RETURN_TYPE_SUBJECT) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
+                this.templateFinder.setSelectedTemplate(PERSON_CAUSE_SUBJECT);
+            }*/
+        }
+        return templates;
+    }
+
+    private String findSparql(String property, String questionType) throws Exception {
+        if (property.contains("dbo:")) {
+            String[] info = property.split(":");
+            property = info[1];
+            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/ontology/" + property + ">" + " ?objOfProp))";
+        } else if (property.contains("dbp:")) {
+            String[] info = property.split(":");
+            property = info[1];
+            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/property/" + property + ">" + " ?objOfProp))";
+        }
+        throw new Exception("No sparql query is found!!!");
+    }
+
+    private String findProperty(String[] row, String syntacticFrame) throws Exception {
+        Integer nounPPIndex = 9;
+        Integer transitiveIndex = 10;
+        Integer InTransitiveIndex = 11;
+
+        try {
+            if (syntacticFrame.contains(NounPPFrame)) {
+                return row[nounPPIndex];
+            } else if (syntacticFrame.contains(TransitiveFrame)) {
+                return row[transitiveIndex];
+            } else if (syntacticFrame.contains(IntransitivePPFrame) || syntacticFrame.contains("InTransitivePPFrame")) {
+                return row[InTransitiveIndex];
+            } else {
+                throw new Exception("No syntactic frame found!!");
+            }
+        } catch (Exception ex) {
+            System.out.println("No syntactic frame found!!" + ex.getMessage());
+        }
+        throw new Exception("No syntactic frame found!!");
+    }
+
+    private String makeVairable(String bindingType) {
+        return "($x | " + bindingType + "_NP)";
+    }
+
+    public List<String> findSingularPlural(String domainOrRangeStr) {
+         
+        if (domainOrRange.containsKey(domainOrRangeStr)) {
+            return domainOrRange.get(domainOrRangeStr);
+
+        }
+        return new ArrayList<String>();
+    }
+
+    private String[] findNounPPQuestions(String bindingType, String returnType, String templateAllQuestions, String[] row) {
+        bindingType = this.makeVairable(bindingType);
+        List<String> singularPlural = findSingularPlural(returnType);
+        String rangeSingular = "XX";
+        String rangePlural = "XX";
+        if (!singularPlural.isEmpty()) {
+            rangeSingular = singularPlural.get(0);
+            rangePlural = singularPlural.get(1);
+        }
+
+        String refereneSingular = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
+        String referenePlural = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
+        String preposition = row[EnglishCsv.NounPPFrameCsv.prepositionIndex];
+
+        templateAllQuestions = templateAllQuestions.replace("Variable", bindingType);
+        templateAllQuestions = templateAllQuestions.replace("(reference:singular)", refereneSingular);
+        templateAllQuestions = templateAllQuestions.replace("(reference:plural)", referenePlural);
+        templateAllQuestions = templateAllQuestions.replace("(range:singular)", rangeSingular);
+        templateAllQuestions = templateAllQuestions.replace("(range:plural)", rangePlural);
+        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
+        String[] realQuestions = templateAllQuestions.split("\n");
+        return realQuestions;
+    }
+
+    private String[] findVerbQuestions(String syntacticFrame, String bindingType, String returnType, String templateAllQuestions, String[] row) {
+        bindingType = this.makeVairable(bindingType);
+        List<String> singularPlural = findSingularPlural(returnType);
+        String rangeSingular = "XX";
+        String rangePlural = "XX";
+        if (!singularPlural.isEmpty()) {
+            rangeSingular = singularPlural.get(0);
+            rangePlural = singularPlural.get(1);
+        }
+
+        String mainVerbPresent = row[2];
+        String mainVerbPresentThird = row[3];
+        String mainVerbPast = row[4];
+        String mainVerbPerfekt = row[5];
+        String preposition = "";
+        if (syntacticFrame.contains(TransitiveFrame)) {
+            preposition = "by";
+        }
+        if (syntacticFrame.contains(IntransitivePPFrame)) {
+            preposition = row[6];
+        }
+
+        templateAllQuestions = templateAllQuestions.replace("Variable", bindingType);
+        templateAllQuestions = templateAllQuestions.replace("(infinitive)", mainVerbPresent);
+        templateAllQuestions = templateAllQuestions.replace("(3rd-present)", mainVerbPresentThird);
+        templateAllQuestions = templateAllQuestions.replace("(past)", mainVerbPast);
+        templateAllQuestions = templateAllQuestions.replace("(perfect)", mainVerbPerfekt);
+        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
+        templateAllQuestions = templateAllQuestions.replace("(range:singular)", rangeSingular);
+        templateAllQuestions = templateAllQuestions.replace("(range:plural)", rangePlural);
+        templateAllQuestions = templateAllQuestions.replace("(domain:singular)", rangeSingular);
+        templateAllQuestions = templateAllQuestions.replace("(domain:plural)", rangePlural);
+
+        String[] realQuestions = templateAllQuestions.split("\n");
+        return realQuestions;
     }
 
     public String[] getAnswerFromWikipedia(String template, String rdfPropertyType, String className, String domainEntityUri,
@@ -357,44 +710,21 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         return map;
     }
 
-    public String findSyntacticFrame(String[] row) throws Exception {
-
-        Integer nounPPIndex = 5;
-        Integer transitiveIndex = 6;
-        Integer InTransitiveIndex = 7;
-        Integer adjectiveFrameIndex = 3;
-        Integer gradableAdjectiveFrameIndex = 5;
-        String nounPPFrame = row[nounPPIndex];
-
-        /*Integer index=0;
-        for (String string:row) {
-          System.out.println(index+" "+string);
-          index=index+1;
+    private String resourceUri(String resource) {
+        if (resource.contains("http:")) {
+            return resource;
+        } else if (resource.contains("dbo:")) {
+            return resource.replace("dbo:", "http://dbpedia.org/ontology/");
+        } else if (resource.contains("dbp:")) {
+            return resource.replace("dbp:", "http://dbpedia.org/property/");
         }
-        System.out.println(transitiveIndex+" "+row[transitiveIndex]);
-         System.out.println(InTransitiveIndex+" "+row[InTransitiveIndex]);
-         */
-        try {
-            if (nounPPFrame.contains(NounPPFrame)) {
-                return NounPPFrame;
-            } else if (row[transitiveIndex].contains(TransitiveFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
-                return TransitiveFrame;
-            } else if (row[InTransitiveIndex].contains(IntransitivePPFrame) || row[InTransitiveIndex].contains("InTransitivePPFrame")) {
-                return IntransitivePPFrame;
-            } else if (row[adjectiveFrameIndex].contains(AdjectiveAttributiveFrame)) {
-                return AdjectiveAttributiveFrame;
-            } else if (row[gradableAdjectiveFrameIndex].contains(AdjectiveSuperlativeFrame)) {
-                return AdjectiveSuperlativeFrame;
-            } else {
-                throw new Exception("No grammar entry is found!!!!");
-            }
-        } catch (Exception ex) {
-            throw new Exception("lexial entry:" + row[0] + " invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
-        }
+        return resource;
     }
 
     /*
-       public static Integer lemonEntryIndex = 0;
+        nounPPFrame 
+    
+        public static Integer lemonEntryIndex = 0;
         public static Integer partOfSpeechIndex = 1;
         public static Integer writtenFormInfinitive = 2;
         public static Integer writtenFormPluralIndex = 3;
@@ -412,183 +742,42 @@ public class DirectQuestionGeneration implements ReadWriteConstants {
         public static Integer rangeWrittenPlural = 15;
         private static String proeposition_id;
      */
-    private Map<String, String[]> findQuestions(String syntacticFrame, String bindingType, String returnType, String[] row) {
-        Map<String, String[]> templateQuestions = new TreeMap<String, String[]>();
-        SentenceTemplateFactoryEN_1 sentenceTemplateRepository = new SentenceTemplateFactoryEN_1();
-        SentenceTemplateRepository sentenceTemplateRepositoryT = sentenceTemplateRepository.init();
-        if (syntacticFrame.contains(NounPPFrame)) {
-            Set<String> sentenceTemplate = findSeneteneTemplate(row, syntacticFrame);
-            for (String template : sentenceTemplate) {
-                List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
-                        SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, template});
-                if (!questions.isEmpty()) {
-                    String templateAllQuestions = questions.iterator().next();
-                    String[] realQuestions = findNounPPQuestions(bindingType,returnType,templateAllQuestions,row);
-                    templateQuestions.put(template, realQuestions);
-                }
-
-            }
-        }
-        return templateQuestions;
-    }
-
-    private String findReturnSubjOrObj(String[] row, String syntacticFrame) throws Exception {
-        Integer nounPPFrameDomainIndex = 10;
-        Integer transitiveFrameDomainIndex = 11;
-        Integer inTransitiveFrameDomainIndex = 12;
-        if (syntacticFrame.contains(NounPPFrame)) {
-            if (row[nounPPFrameDomainIndex].contains(domain)) {
-                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
-            } else {
-                return ReadWriteConstants.RETURN_TYPE_OBJECT;
-            }
-        } else if (syntacticFrame.contains(TransitiveFrame)) {
-            if (row[transitiveFrameDomainIndex].contains(domain)) {
-                return ReadWriteConstants.RETURN_TYPE_OBJECT;
-            } else {
-                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
-            }
-        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
-            if (row[inTransitiveFrameDomainIndex].contains(domain)) {
-                return ReadWriteConstants.RETURN_TYPE_OBJECT;
-            } else {
-                return ReadWriteConstants.RETURN_TYPE_SUBJECT;
-            }
-        }
-
-        throw new Exception("No return Type is found!!!");
-    }
-
-    private String findBindingType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
-        Integer nounPPFrameDomainIndex = 10;
-        Integer transitiveFrameDomainIndex = 11;
-        Integer inTransitiveFrameDomainIndex = 12;
-
-        if (syntacticFrame.contains(NounPPFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex].split(":")[1];
-            } else {
-                return row[nounPPFrameDomainIndex + 1].split(":")[1];
-            }
-
-        } else if (syntacticFrame.contains(TransitiveFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex].split(":")[1];
-            } else {
-                return row[transitiveFrameDomainIndex + 1].split(":")[1];
-            }
-
-        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex].split(":")[1];
-            } else {
-                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
-            }
-
-        }
-        throw new Exception("No binding Type is found!!!");
-    }
-
-    private String findReturnType(String syntacticFrame, String returnSubjOrObj, String[] row) throws Exception {
-        Integer nounPPFrameDomainIndex = 10;
-        Integer transitiveFrameDomainIndex = 11;
-        Integer inTransitiveFrameDomainIndex = 12;
-
-        if (syntacticFrame.contains(NounPPFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[nounPPFrameDomainIndex + 1].split(":")[1];
-            } else {
-                return row[nounPPFrameDomainIndex].split(":")[1];
-            }
-
-        } else if (syntacticFrame.contains(TransitiveFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[transitiveFrameDomainIndex + 1].split(":")[1];
-            } else {
-                return row[transitiveFrameDomainIndex].split(":")[1];
-            }
-
-        } else if (syntacticFrame.contains(IntransitivePPFrame)) {
-            if (returnSubjOrObj.contains(RETURN_TYPE_OBJECT)) {
-                return row[inTransitiveFrameDomainIndex + 1].split(":")[1];
-            } else {
-                return row[inTransitiveFrameDomainIndex].split(":")[1];
-            }
-
-        }
-        throw new Exception("No binding Type is found!!!");
-    }
-
-    private Set<String> findSeneteneTemplate(String[] row, String syntacticFrame) {
-        if (syntacticFrame.contains(NounPPFrame)) {
-            return SentenceTemplateFactoryEN_1.nounPPTemplates;
-        }
-        return new HashSet<String>();
-    }
-
-    private String findSparql(String property, String questionType) throws Exception {
-        if (property.contains("dbo:")) {
-            String[] info = property.split(":");
-            property = info[1];
-            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/ontology/" + property + ">" + " ?objOfProp))";
-        } else if (property.contains("dbp:")) {
-            String[] info = property.split(":");
-            property = info[1];
-            return "(bgp (triple ?subjOfProp " + "<http://dbpedia.org/property/" + property + ">" + " ?objOfProp))";
-        }
-        throw new Exception("No sparql query is found!!!");
-    }
-
-    private String findProperty(String[] row, String syntacticFrame) {
-        Integer nounPPIndex = 9;
-        Integer transitiveIndex = 10;
-        Integer InTransitiveIndex = 11;
-
-        if (syntacticFrame.contains(NounPPFrame)) {
-            return row[nounPPIndex];
-        } else if (syntacticFrame.contains(TransitiveFrame)) {
-            return row[transitiveIndex];
-        } else if (syntacticFrame.contains(IntransitivePPFrame) || syntacticFrame.contains("InTransitivePPFrame")) {
-            return row[InTransitiveIndex];
-        }
-        return null;
-    }
-
-
-    private String makeVairable(String bindingType) {
-        return "($x | " + bindingType + "_NP)";
-    }
-
-    public List<String> findSingularPlural(String domainOrRangeStr) {
-        if (domainOrRange.containsKey(domainOrRangeStr)) {
-            return domainOrRange.get(domainOrRangeStr);
-
-        }
-        return new ArrayList<String>();
-    }
-
-    private String[] findNounPPQuestions(String bindingType,String returnType, String templateAllQuestions,String []row) {
-        bindingType = this.makeVairable(bindingType);
-        List<String> singularPlural = findSingularPlural(returnType);
-        String rangeSingular = "XX";
-        String rangePlural = "XX";
-        if (!singularPlural.isEmpty()) {
-            rangeSingular = singularPlural.get(0);
-            rangePlural = singularPlural.get(1);
-        }
-
-        String refereneSingular = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
-        String referenePlural = row[EnglishCsv.NounPPFrameCsv.writtenFormInfinitive];
-        String preposition = row[EnglishCsv.NounPPFrameCsv.prepositionIndex];
-
-        templateAllQuestions = templateAllQuestions.replace("Variable", bindingType);
-        templateAllQuestions = templateAllQuestions.replace("(reference:singular)", refereneSingular);
-        templateAllQuestions = templateAllQuestions.replace("(reference:plural)", referenePlural);
-        templateAllQuestions = templateAllQuestions.replace("(range:singular)", rangeSingular);
-        templateAllQuestions = templateAllQuestions.replace("(range:plural)", rangePlural);
-        templateAllQuestions = templateAllQuestions.replace("preposition", preposition);
-        String[] realQuestions = templateAllQuestions.split("\n");
-        return realQuestions;
-    }
-
+ /*
+      transitive frame
+      public Integer lemonEntryIndex = 0;
+        public Integer partOfSpeechIndex = 1;
+        public Integer writtenFormInfinitive = 2;
+        public Integer writtenForm3rdPerson = 3;
+        public Integer writtenFormPast = 4;
+        public Integer writtenFormPerfect = 5;
+        public Integer syntacticFrameIndex = 6;
+        public Integer subjectIndex = 7;
+        public Integer directObjectIndex = 8;
+        public Integer senseIndex = 9;
+        public Integer referenceIndex = 10;
+        public Integer domainIndex = 11;
+        public Integer rangeIndex = 12;
+        public Integer passivePrepositionIndex = 13;
+     */
+ /*
+     private Integer lemonEntryIndex = 0;
+        private Integer partOfSpeechIndex = 1;
+        private Integer writtenFormInfinitive = 2;
+        private Integer writtenForm3rdPerson = 3;
+        private Integer writtenFormPast = 4;
+        private Integer writtenFormPerfect = 5;
+        private Integer preposition = 6;
+        private Integer syntacticFrameIndex = 7;
+        private Integer subject = 8;
+        private Integer prepositionalAdjunct = 9;
+        private Integer senseIndex = 10;
+        private Integer referenceIndex = 11;
+        private Integer domainIndex = 12;
+        private Integer rangeIndex = 13;
+        private Integer domainWrittenSingularFormIndex = rangeIndex + 1;
+        private Integer domainWrittenPluralFormIndex = domainWrittenSingularFormIndex + 1;
+        private Integer rangeWrittenSingularFormIndex = domainWrittenPluralFormIndex + 1;
+        private Integer rangeWrittenPluralFormIndex = rangeWrittenSingularFormIndex + 1;
+        private static String preposition_id;
+     */
 }

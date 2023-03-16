@@ -344,7 +344,7 @@ public class FileProcessUtils {
 
                     lineNumber = lineNumber + 1;
                     
-                    System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel);
+                    //System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel);
                     //        + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
 
                     //if (match(subjectClass,subjectUri) && match(objectClass,objectUri)) {

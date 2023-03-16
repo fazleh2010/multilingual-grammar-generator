@@ -292,7 +292,7 @@ public class QueGG {
 
         } else{
             DirectQuestionGeneration directQuestionGeneration=new DirectQuestionGeneration(linkedData,inputCofiguration);
-            directQuestionGeneration.offline(inputCofiguration.getInputDir()+"/nouns/");
+            directQuestionGeneration.offline(inputCofiguration.getInputDir()+"/verbs/",inputCofiguration.getInputDir()+"log.txt");
         }
            
 

@@ -38,6 +38,8 @@ public class DomainRangeDictionary {
             List<String[]> csvData = new ArrayList<String[]>();
             for (String key : domainOrRange.keySet()) {
                 List<String> rows = domainOrRange.get(key);
+                key = key.replace("dbo:", "").replace("dbp:", "");
+                key = key.trim().strip();
                 String[] values = {key, rows.get(0), rows.get(1)};
                 csvData.add(values);
 

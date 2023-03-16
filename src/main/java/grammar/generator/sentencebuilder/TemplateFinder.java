@@ -28,6 +28,32 @@ public class TemplateFinder implements TempConstants{
     private String selectedTemplate = null;
     private String propertyReference = null;
     private DomainOrRangeType oppositeDomainOrRange = null;
+    
+    
+    public TemplateFinder(FrameType frameType,String referenceUri,String subjectUri,String objectUri) {         
+        if (frameType.equals(FrameType.IPP)) {
+            this.selectedTemplate = this.findINtransitiveTemplate();
+            this.findForwardDomainAndRange();
+        }
+        else if (frameType.equals(FrameType.VP)) {
+            this.selectedTemplate = this.findTransitiveTemplates(referenceUri,subjectUri,objectUri);
+            this.findForwardDomainAndRange();
+        }
+        else if (frameType.equals(FrameType.NPP)) {
+            this.selectedTemplate = this.findINtransitiveTemplate();
+        }
+        else if (frameType.equals(FrameType.AG)) {
+          
+                this.selectedTemplate = this.findGradableTemplate();
+                this.propertyReference = this.findReference();
+                /*System.out.println("selectedTemplate::::"+selectedTemplate);
+                System.out.println("propertyReference::::"+propertyReference);
+                exit(1);*/
+
+        }
+        //System.out.println("selectedTemplate::::"+selectedTemplate);
+        //exit(1);
+    }
 
 
     public TemplateFinder(LexicalEntryUtil lexicalEntryUtil, FrameType frameType) {
@@ -37,7 +63,11 @@ public class TemplateFinder implements TempConstants{
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.VP)) {
-            this.selectedTemplate = this.findTransitiveTemplates();
+        String subjectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
+        String objectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
+        String referenceUri = this.lexicalEntryUtil.getReferenceUri();
+
+            this.selectedTemplate = this.findTransitiveTemplates(referenceUri,subjectUri,objectUri);
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.NPP)) {
@@ -130,34 +160,29 @@ public class TemplateFinder implements TempConstants{
 
     }
     
-    private String findTransitiveTemplates() {
-        String type = null;
-        String subjectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
-        String objectUri = this.lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
-        String referenceUri = lexicalEntryUtil.getReferenceUri();
-
-        
-        if (isAmountTotalCheck(referenceUri)) {
-            type = HOW_MANY_TOTAL;
-        } else if (isAmountThingCheck(referenceUri)) {
-            type = HOW_MANY_THING;
-        }else if(isPerson(subjectUri) && isPerson(objectUri)) {
-            type = PERSON_PERSON;
-        }else  {
-            type=PERSON_CAUSE;
+    private String findTransitiveTemplates(String referenceUri, String subjectUri, String objectUri) {       
+        if (isPerson(objectUri)&&!isPerson(subjectUri)) {
+            return  PERSON_CAUSE;
         }
-        /*System.out.println("subjectUri::"+subjectUri);
-        System.out.println("objectUri::"+objectUri);
-        System.out.println("referenceUri::"+referenceUri);
-        System.out.println("isPerson(subjectUri)::"+isPerson(subjectUri));
-         System.out.println("isPerson(objectUri)::"+isPerson(objectUri));
-         System.out.println("isCause(referenceUri)::"+isCause(referenceUri));
-        System.out.println("isDate(referenceUri)::"+isDate(referenceUri));
-        System.out.println("isPlace(referenceUri)::"+isPlace(objectUri));
-          System.out.println("type::"+type);
-         exit(1);*/
-       
-        return type;
+        else if (isAmountTotalCheck(referenceUri)) {
+            return HOW_MANY_TOTAL;
+        } else if (isAmountThingCheck(referenceUri)) {
+           return HOW_MANY_THING;
+        } else if (isPerson(subjectUri) && isPerson(objectUri)) {
+            return PERSON_PERSON;
+        } else {
+            return PERSON_CAUSE;
+        }
+        /*System.out.println("subjectUri::" + subjectUri);
+        System.out.println("objectUri::" + objectUri);
+        System.out.println("referenceUri::" + referenceUri);
+        System.out.println("isPerson(subjectUri)::" + isPerson(subjectUri));
+        System.out.println("isPerson(objectUri)::" + isPerson(objectUri));
+        System.out.println("isCause(referenceUri)::" + isCause(referenceUri));
+        System.out.println("isDate(referenceUri)::" + isDate(referenceUri));
+        System.out.println("isPlace(referenceUri)::" + isPlace(objectUri));
+        System.out.println("type::" + type);
+        exit(1);*/
 
     }
 
