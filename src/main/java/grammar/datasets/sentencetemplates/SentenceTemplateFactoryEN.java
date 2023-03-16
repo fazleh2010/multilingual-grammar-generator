@@ -26,9 +26,9 @@ import static grammar.datasets.sentencetemplates.TempConstants.booleanQuestionDo
 import static grammar.datasets.sentencetemplates.TempConstants.forward;
 import static grammar.datasets.sentencetemplates.TempConstants.location;
 import static grammar.datasets.sentencetemplates.TempConstants.noun;
-import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import static grammar.structure.component.FrameType.APP;
 import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
+import static grammar.datasets.sentencetemplates.TempConstants.NOUN_PHRASE;
 
 
 class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,TempConstants{
@@ -116,8 +116,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     
     
     //NounPPFrame
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //the capital of germany
          "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
@@ -127,7 +126,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
                 
                 ),
         NounPPFrame,
-        nounPhrase
+        NOUN_PHRASE
       )
     );
     

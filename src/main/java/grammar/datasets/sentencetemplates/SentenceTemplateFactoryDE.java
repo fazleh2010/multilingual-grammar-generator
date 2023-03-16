@@ -141,7 +141,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
           //"verb(reference:component_imperative_transitive) pronoun(reference:object_pronoun) determiner(reference:component_the_accusative) noun(root:accusativeCase) preposition prepositionalAdjunct"
           ),
         NounPPFrame,
-        nounPhrase
+        NOUN_PHRASE
       )
     );
     
@@ -803,7 +803,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
           //"verb(reference:component_imperative_transitive) pronoun(reference:object_pronoun) determiner(reference:component_the_accusative) noun(root:accusativeCase) preposition prepositionalAdjunct"
           ),
         NounPPFrame,
-        nounPhrase
+        NOUN_PHRASE
       )
     );
     

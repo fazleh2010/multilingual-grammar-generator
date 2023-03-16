@@ -207,10 +207,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         List<String> sentences = new ArrayList<String>();
         if (this.frameType.equals(FrameType.NPP)) {
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                    language, new String[]{frameType.getName(), nounPhrase});
+                    language, new String[]{frameType.getName(), NOUN_PHRASE});
             sentences = nounPPframeSentence(bindingVariable, lexicalEntryUtil, sentenceTemplates);
             sentences = nounPhrase(bindingVariable, lexicalEntryUtil);
-            this.setTemplate(nounPhrase);
+            this.setTemplate(NOUN_PHRASE);
         }
         return this.filter(sentences);
     }
@@ -382,7 +382,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 if (npCategory.isEmpty()) {
                     String[] parseToken = StringMatcher.parseToken(positionString);
                     positionWord = multilingualBuilder.getWords(parseToken, index, templateFeatures);
-                } else if (npCategory.equals(nounPhrase)) {
+                } else if (npCategory.equals(NOUN_PHRASE)) {
                     List<String> nps = nounPhrase(bindingVariable, lexicalEntryUtil);
                     positionWord = nps.iterator().next();
                 } else if (npCategory.equals(noun)) {
@@ -469,7 +469,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 if (npCategory.isEmpty()) {
                     String[] parseToken = StringMatcher.parseToken(positionString);
                     positionWord = sentenceBuilderFromTemplates.getWords(parseToken, index, templateFeatures);
-                } else if (npCategory.equals(nounPhrase)) {
+                } else if (npCategory.equals(NOUN_PHRASE)) {
                     List<String> nps = nounPhrase(bindingVariable, lexicalEntryUtil);
                     positionWord = nps.iterator().next();
                 } else if (npCategory.equals(noun)) {
@@ -517,7 +517,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 if (npCategory.isEmpty()) {
                     String[] parseToken = StringMatcher.parseToken(positionString);
                     positionWord = bultilingualBuilder.getWords(parseToken, index, templateFeatures);
-                } else if (npCategory.equals(nounPhrase)) {
+                } else if (npCategory.equals(NOUN_PHRASE)) {
                     List<String> nps = nounPhrase(bindingVariable, lexicalEntryUtil);
                     positionWord = nps.iterator().next();
                 } else if (npCategory.equals(noun)) {
@@ -576,7 +576,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 SentenceType.NP
         );*/
         List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                language, new String[]{frameType.getName(), nounPhrase});
+                language, new String[]{frameType.getName(), NOUN_PHRASE});
         German sentenceBuilderFromTemplates = new German(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
 
         for (String sentenceTemplate : sentenceTemplates) {
@@ -616,7 +616,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(lexicalEntryUtil.getSelectVariable());
 
         List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                language, new String[]{frameType.getName(), nounPhrase});
+                language, new String[]{frameType.getName(), NOUN_PHRASE});
         English sentenceBuilderFromTemplates = new English(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
 
         for (String sentenceTemplate : sentenceTemplates) {
@@ -675,7 +675,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             token = token.replace(".", "");
             if (token.equals(noun)) {
                 return token;
-            } else if (token.equals(nounPhrase)) {
+            } else if (token.equals(NOUN_PHRASE)) {
                 return token;
             }
         }

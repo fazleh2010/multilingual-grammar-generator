@@ -95,7 +95,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
-        if (type.equals(nounPhrase)) {
+        if (type.equals(NOUN_PHRASE)) {
             generatedSentences = new ArrayList<String>();
             generatedSentences.addAll(sentenceBuilder.generateNounPhrase(getBindingVariable(), new String[]{}, lexicalEntryUtil));
              this.senTemplate=sentenceBuilder.getTemplate();
@@ -137,9 +137,9 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
             GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil,SentenceType.SENTENCE, sentences,HOW_MANY_THING);
             grammarEntries.add(fragmentEntry);
         }
-        sentences = generateNounPhrase(lexicalEntryUtil, nounPhrase);
+        sentences = generateNounPhrase(lexicalEntryUtil, NOUN_PHRASE);
         if (!sentences.isEmpty()) {
-            GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.NP, sentences,nounPhrase);
+            GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.NP, sentences,NOUN_PHRASE);
             grammarEntries.add(fragmentEntry);
         }
         return grammarEntries;

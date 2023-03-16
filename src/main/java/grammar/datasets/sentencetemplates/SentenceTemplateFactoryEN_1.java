@@ -25,13 +25,13 @@ import static grammar.datasets.sentencetemplates.TempConstants.booleanQuestionDo
 import static grammar.datasets.sentencetemplates.TempConstants.forward;
 import static grammar.datasets.sentencetemplates.TempConstants.location;
 import static grammar.datasets.sentencetemplates.TempConstants.noun;
-import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import static grammar.structure.component.FrameType.APP;
 import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import static grammar.datasets.sentencetemplates.TempConstants.NOUN_PHRASE;
 
 
 public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepository>,TempConstants{
@@ -39,7 +39,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
   private final SentenceTemplateRepository sentenceTemplateRepository;
   private final Language language;
   
-  public static List<String> nounPPTemplates=new ArrayList<String>(Arrays.asList(Prepositional_Adjuct_What,Prepositional_Adjuct_Who,HOW_MANY_THING,nounPhrase));
+  public static List<String> nounPPTemplates=new ArrayList<String>(Arrays.asList(Prepositional_Adjuct_What,Prepositional_Adjuct_Who,HOW_MANY_THING,NOUN_PHRASE));
 
   
   public SentenceTemplateFactoryEN_1() {
@@ -81,7 +81,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
           "Show me all (reference:plural) preposition Variable" 
         ),
         NounPPFrame,
-        Prepositional_Adjuct_What
+        THING_SENTENCE
       )
     );
      
@@ -92,7 +92,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
           "Who is the (reference:singular) preposition Variable"+"\n"+ 
           "Who was the (reference:singular) preposition Variable"+"\n"+   
           //"Who was Samuel Schmid's vice president?", 
-          "Who was Variable appos (reference:singular)?"+"\n"+ 
+          "Who was Variable's (reference:singular)?"+"\n"+ 
            //List all the musicals von Elton John.
           "List all the (reference:plural) preposition Variable" +"\n"+
           //Give me all members of Prodigy.
@@ -101,7 +101,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
           "Show me all (reference:plural) preposition Variable" 
         ),
         NounPPFrame,
-        Prepositional_Adjuct_Who
+        PERSON_SENTENCE
       )
     );
     
@@ -132,40 +132,22 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
     
     
     //NounPPFrame
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //the capital of germany
          "the (reference:singular) preposition Variable?"+"\n"+
-         "the (reference:plural) preposition Variable?"+"\n"+
+         "the (reference:plural) preposition Variable?"
          //the Dracula's creator
-         "the Variable Apostrophe (reference:singular)?"
+         //"the Variable's (reference:singular)?"
                 
                 ),
         NounPPFrame,
-        nounPhrase
+        NOUN_PHRASE
       )
     );
     
     
-    
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //Was ist die Hauptstadt von Kamerun?
-         "noun(singular)"
-          //Welche Person ist das Mitglied von...?
-          //"interrogativeDeterminer noun(condition:copulativeArg) verb(reference:component_be) NP(prepositionalAdjunct)?"
-          //Wer ist das Mitglied von...?
-          //"interrogativePronoun verb(reference:component_be) NP(prepositionalAdjunct)?",
-          //Gib mir das Mitglied von...?
-          //"verb(reference:component_imperative_transitive) pronoun(reference:object_pronoun) determiner(reference:component_the_accusative) noun(root:accusativeCase) preposition prepositionalAdjunct"
-          ),
-        NounPPFrame,
-        noun
-      )
-    );
-    
+  
     sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
@@ -223,7 +205,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
          //Give me all video games published by Mean Hamster Software.
          "Give me all (domain:plural) (perfect) preposition Variable?"+"\n"+
          //List all video games published by Mean Hamster Software.
-         "List all noun(domain:plural) (perfect) preposition Variable?"+"\n"+
+         "List all (domain:plural) (perfect) preposition Variable?"+"\n"+
          //"Which books were developed by X?
         "Which (domain:plural) were (perfect) preposition Variable?"+"\n"+
         //"Which books were developed by X?
@@ -622,7 +604,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
          //Which types of grapes grow in Oregon?
          "Which (range:plural) (infinitive) preposition "+Variable+"?"+"\n"+ 
          //What types of grapes grows in Oregon?
-         "interrogativePronoun(range:plural) (infinitive) preposition "+Variable+"?"+"\n"+ 
+         "what (range:plural) (infinitive) preposition "+Variable+"?"+"\n"+ 
           //Which types of grapes grow in Oregon?
          "Which (range:singular) (past) preposition "+Variable+"?"+"\n"+ 
          //Which types of grapes grow in Oregon?

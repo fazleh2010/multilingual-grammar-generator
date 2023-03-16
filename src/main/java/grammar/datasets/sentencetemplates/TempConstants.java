@@ -46,6 +46,12 @@ public interface TempConstants {
     public static final String pronounReflexive = "reflexive_pronoun";
     public static final String reference = "reference";
     
+    public static final String THING_SENTENCE="THING_SENTENCE";
+    public static final String PERSON_SENTENCE="PERSON_SENTENCE";
+    
+    public static final String verbs="verbs";
+    public static final String nouns="nouns";
+    
     
     public static final String dativeCase = "dativeCase";
     public static final String accusativeCase = "accusativeCase";
@@ -100,7 +106,7 @@ public interface TempConstants {
 
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
-    public static final String nounPhrase = "nounPhrase";
+    public static final String NOUN_PHRASE = "NOUN_PHRASE";
     public static final String noun = "noun";
     public static final String location = "location";
 

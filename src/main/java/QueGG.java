@@ -6,6 +6,7 @@ import evaluation.EvaluateAgainstQALD;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
 import evaluation.QALD;
 import evaluation.QALDImporter;
+import static grammar.datasets.sentencetemplates.TempConstants.verbs;
 import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
@@ -285,7 +286,7 @@ public class QueGG {
 
         } else {
             DirectQuestionGeneration directQuestionGeneration = new DirectQuestionGeneration(linkedData, inputCofiguration);
-            directQuestionGeneration.offline(inputCofiguration.getInputDir() + "/verbs/", inputCofiguration.getInputDir() + "log.txt");
+            directQuestionGeneration.offline(inputCofiguration.getInputDir() + "/"+verbs+"/", inputCofiguration.getInputDir() + "log.txt");
         }
 
     }

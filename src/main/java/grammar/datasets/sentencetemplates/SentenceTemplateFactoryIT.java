@@ -99,7 +99,7 @@ public class SentenceTemplateFactoryIT  implements Factory<SentenceTemplateRepos
          "determiner(component_li) noun(singular) preposition adjunct(domain)?"
                 ),
         NounPPFrame,
-        nounPhrase
+        NOUN_PHRASE
       )
     );
     

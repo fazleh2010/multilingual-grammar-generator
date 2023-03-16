@@ -32,7 +32,7 @@ public class TemplateFinder implements TempConstants{
     
     public TemplateFinder(FrameType frameType,String referenceUri,String subjectUri,String objectUri) {         
         if (frameType.equals(FrameType.IPP)) {
-            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
+            this.selectedTemplate = this.findTemplate(referenceUri, subjectUri, objectUri);
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.VP)) {
@@ -40,7 +40,7 @@ public class TemplateFinder implements TempConstants{
             this.findForwardDomainAndRange();
         }
         else if (frameType.equals(FrameType.NPP)) {
-            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
+            this.selectedTemplate = this.findNounPPTemplate(referenceUri, subjectUri, objectUri);
         }
         else if (frameType.equals(FrameType.AG)) {
           
@@ -63,14 +63,14 @@ public class TemplateFinder implements TempConstants{
         String referenceUri = this.lexicalEntryUtil.getReferenceUri();
 
         if (frameType.equals(FrameType.IPP)) {
-            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
+            this.selectedTemplate = this.findTemplate(referenceUri, subjectUri, objectUri);
             this.findForwardDomainAndRange();
         } else if (frameType.equals(FrameType.VP)) {
 
             this.selectedTemplate = this.findTransitiveTemplates(referenceUri, subjectUri, objectUri);
             this.findForwardDomainAndRange();
         } else if (frameType.equals(FrameType.NPP)) {
-            this.selectedTemplate = this.findInTransitiveTemplate(referenceUri, subjectUri, objectUri);
+            this.selectedTemplate = this.findTemplate(referenceUri, subjectUri, objectUri);
         } else if (frameType.equals(FrameType.AG)) {
 
             this.selectedTemplate = this.findGradableTemplate();
@@ -102,7 +102,7 @@ public class TemplateFinder implements TempConstants{
 
     }
 
-    private String findInTransitiveTemplate(String referenceUri,String subjectUri,String objectUri) {
+    private String findTemplate(String referenceUri,String subjectUri,String objectUri) {
         String type = null;
       
         /*String qWord = null;
@@ -138,6 +138,30 @@ public class TemplateFinder implements TempConstants{
             type = WHAT_WHICH_PRESENT_THING_2;
         }else{
            type = WHAT_WHICH_PRESENT_THING_1; 
+        }
+        /*System.out.println("subjectUri::" + subjectUri);
+        System.out.println("objectUri::" + objectUri);
+        System.out.println("referenceUri::" + referenceUri);
+        System.out.println("isPerson(subjectUri)::" + isPerson(subjectUri));
+        System.out.println("isPerson(objectUri)::" + isPerson(objectUri));
+        System.out.println("isCause(referenceUri)::" + isCause(referenceUri));
+        System.out.println("isDate(referenceUri)::" + isDate(referenceUri));
+        System.out.println("isPlace(objectUri)::" + isPlace(objectUri));
+         System.out.println("isPlace(referenceUri)::" + isPlace(referenceUri));
+          System.out.println("isActivity(referenceUri)::" + isActivity(referenceUri));
+        System.out.println("type::" + type);
+        exit(1);*/
+        return type;
+
+    }
+    
+     private String findNounPPTemplate(String referenceUri,String subjectUri,String objectUri) {
+        String type = null;
+      
+        if (isPerson(objectUri)) {
+            type = PERSON_SENTENCE;
+        } else {
+             type =THING_SENTENCE;
         }
         /*System.out.println("subjectUri::" + subjectUri);
         System.out.println("objectUri::" + objectUri);
