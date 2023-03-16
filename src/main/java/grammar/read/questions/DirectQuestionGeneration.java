@@ -46,9 +46,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
 
     private Integer batchNumber = 0;
     private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger(ProtoToRealQuesrion.class);
-    private Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
     private InputCofiguration inputCofiguration = null;
-    private String parameter = null;
     private String endpoint = null;
     private Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
     private Set<String> transitiveFrameEntries = new HashSet<String>();
@@ -60,7 +58,6 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         this.questionAnswerFile = inputCofiguration.getQuestionDir() + File.separator + questionsFile + "_" + language + ".csv";
         this.questionSummaryFile = inputCofiguration.getQuestionDir() + File.separator + summaryFile + "_" + language + ".csv";
         this.batchNumber = 1;
-        this.parameter = inputCofiguration.getParameter();
         this.classDir = inputCofiguration.getClassDir();
         this.online = this.inputCofiguration.getOnline();
         this.linkedData = linkedData;
@@ -75,6 +72,9 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         Integer numberOfFiles = 0;
         for (File file : files) {
             CsvFile csvFile = new CsvFile();
+            if (file.getName().contains(".~lock.")) {
+                 continue;
+            }
             List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
             System.out.println("total files::" + files.length + " now::" + numberOfFiles + " file:" + file.getName() + " rows::" + rows.size() + " folder:" + dir);
             offline(file.getName(), rows);
@@ -101,14 +101,18 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }
             String lexicalEntiryUri = row[0];
             batchNumber = batchNumber + 1;
+            Map<String, OffLineResult>entityLabels=new HashMap<String, OffLineResult>();
 
             try {
                 syntacticFrame = this.findSyntacticFrame(row);
                 property = this.findProperty(row, syntacticFrame);
+                String propertyFile = AddQuote.getProperty(this.propertyDir, property);
+                 entityLabels = FileProcessUtils.getEntityLabels(propertyFile);
+
                 templateQuestions = ProtoQuestionGeneration(syntacticFrame, property, row);
 
             } catch (Exception ex) {
-                continue;
+                System.out.println(" problems in getting all information for question generation!!"+ex.getMessage());
             }
 
             /*if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
@@ -129,9 +133,8 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                 String returnTypeT = grammarInfor.getReturnType();
                 String returnSubjOrObjT = grammarInfor.getReturnSubjOrObj();
                 String[] questionsT = grammarInfor.getRealQuestions();
-                String propertyFile = AddQuote.getProperty(this.propertyDir, property);
+               
 
-                this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObjT, bindingTypeT, returnTypeT);
                 bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObjT);
 
                 rowIndex = this.questionGeneration(lexicalEntiryUri, sparqlQueryT, bindingList,
@@ -348,30 +351,29 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }
         }
         if (syntacticFrame.contains(TransitiveFrame)) {
-            List<String> sentenceTemplate = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
-            for (String template : sentenceTemplate) {
+            List<String> sentenceTemplates = findSeneteneTemplate(row, returnSubjOrObj, syntacticFrame);
+            for (String genericTemplate : sentenceTemplates) {
                 for (String way : ways) {
-                    String templateT = null;
+                    String senTemplate = null;
                     if (way.contains(FORWARD)) {
-                        templateT = template + "_" + FORWARD;
+                        senTemplate = genericTemplate + "_" + FORWARD;
                     } else if (way.contains(BACKWARD)) {
-                        templateT = template + "_" + BACKWARD;
+                        senTemplate = genericTemplate + "_" + BACKWARD;
                         String[] result = this.makeReverse(returnSubjOrObj, returnType, bindingType);
                         returnSubjOrObj = result[0];
                         returnType = result[1];
                         bindingType = result[2];
                     }
 
-                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(
-                            SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, templateT});
+                    List<String> questions = sentenceTemplateRepositoryT.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE, Language.EN, new String[]{syntacticFrame, senTemplate});
                     if (!questions.isEmpty()) {
                         String templateAllQuestions = questions.iterator().next();
                         String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
                         String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
+                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
 
-                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
-                        templateQuestions.put(template, pair);
+                        Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
+                        templateQuestions.put(senTemplate, pair);
                     }
 
                 }

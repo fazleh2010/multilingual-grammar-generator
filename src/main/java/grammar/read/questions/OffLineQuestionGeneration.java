@@ -118,7 +118,7 @@ public class OffLineQuestionGeneration {
 
                 try {
                     String propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
-                    this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
+                    this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile);
                     bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
                     /*if (!bindingList.isEmpty()) {
                         System.out.println(property + "   bindingList::" + bindingList + " returnSubjOrObj::" + returnSubjOrObj);

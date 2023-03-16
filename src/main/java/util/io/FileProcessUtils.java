@@ -295,7 +295,7 @@ public class FileProcessUtils {
 
     }*/
     
-    public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) throws Exception {
+    public static Map<String, OffLineResult> getEntityLabels(String propertyFile) throws Exception {
         Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
         BufferedReader reader;
         String line = "";
