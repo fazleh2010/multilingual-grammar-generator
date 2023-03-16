@@ -434,13 +434,12 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //How much does Pulp Fiction cost?
-        "interrogativeMuch verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+        "How much does Variable (infinitive)?"+"\n"+
         //How much did Pulp Fiction cost?
-        "interrogativeMuch verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?"
-              
+        "How much did Variable (infinitive)?"
         ),
        TransitiveFrame,
-       HOW_MANY_TOTAL)
+       HOW_MANY_TOTAL_FORWARD)
     );
     
      // TransitiveFrame passive amount
@@ -493,19 +492,16 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //How many people live in Poland?
-        "interrogativeAmount verb(mainVerb:present:thridPerson) preposition adjunct(domain)?",
+        "How many (range:singular) (infinitive) preposition "+Variable+"?"+"\n"+
         //How many people lived in Poland?
-        "interrogativeAmount verb(mainVerb:past:thridPerson) preposition adjunct(domain)?",
+        "How many (past) preposition "+Variable+"?"+"\n"+
          //How many seats does (X_Statdium) have?        
-        "interrogativeAmount(range:singular) verb(component_do:present:singular) object(domain:plural) verb(mainVerb:present:thridPerson)?"
-        //       
-        //"interrogativeAmount(range:singular) object(domain) verb(component_be:present:plural) particleLocation?"
-   
+        "How many(range:singular) does "+Variable+" (infinitive)?"
+      
            ),
        IntransitivePPFrame,
-       HOW_MANY_TOTAL,
-       forward
-      )
+       HOW_MANY_TOTAL_FORWARD      
+       )
     );
     
      // InTransitiveFrame active
@@ -515,8 +511,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         //"interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
            ),
        IntransitivePPFrame,
-       HOW_MANY_TOTAL,
-       backward
+       HOW_MANY_TOTAL_BACKWARD
       )
     );
     
@@ -623,21 +618,20 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
        sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(    
          //Which types of grapes grow in Oregon?
-         "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:singular) preposition object(domain)?", 
+         "What (range:singular) (3rd-present) preposition "+Variable+"?"+"\n"+ 
          //Which types of grapes grow in Oregon?
-         "interrogativeDeterminer(range:plural) verb(mainVerb:present:singular) preposition object(domain)?",
+         "Which (range:plural) (infinitive) preposition "+Variable+"?"+"\n"+ 
          //What types of grapes grows in Oregon?
-         "interrogativePronoun(range:plural) verb(mainVerb:present:singular) preposition object(domain)?",
+         "interrogativePronoun(range:plural) (infinitive) preposition "+Variable+"?"+"\n"+ 
           //Which types of grapes grow in Oregon?
-         "interrogativeDeterminer(range:singular) verb(mainVerb:past:singular) preposition object(domain)?", 
+         "Which (range:singular) (past) preposition "+Variable+"?"+"\n"+ 
          //Which types of grapes grow in Oregon?
-         "interrogativeDeterminer(range:plural) verb(mainVerb:past:singular) preposition object(domain)?",
+         "Which (range:plural) (past) preposition "+Variable+"?"+"\n"+ 
          //What types of grapes grows in Oregon?
-         "interrogativePronoun(range:plural) verb(mainVerb:past:singular) preposition object(domain)?"
+         "What (range:plural) (past) preposition "+Variable+"?"
                ),
         IntransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        forward
+        WHAT_WHICH_PRESENT_THING_2_FORWARD
       )
     );
     
@@ -647,15 +641,14 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //"In which city does the Chile Route 68 end?
-        "preposition interrogativeDeterminer(domain:singular) verb(component_do:present:singular) object(range) verb(mainVerb:present:singular)?",
-        "preposition interrogativeDeterminer(domain:plural) verb(component_do:present:singular) object(range) verb(mainVerb:present:singular)?",
+        "preposition which (domain:singular) does "+Variable+" (infinitive)?"+"\n"+
+        "preposition which (domain:plural) does "+Variable+" (infinitive)?"+"\n"+
          //In which programming language is GIMP written?
-        "preposition interrogativeDeterminer(domain:plural) verb(component_be:present:plural) object(range) verb(mainVerb:perfect:singular)?",
-        "preposition interrogativeDeterminer(domain:singular) verb(component_be:present:singular) object(range) verb(mainVerb:perfect:singular)?"
+        "preposition which (domain:plural) is "+Variable+" (perfect)?"+"\n"+
+        "preposition which (domain:singular) was "+Variable+" (perfect)?"
                  ),
         IntransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        backward
+        WHAT_WHICH_PRESENT_THING_2_BACKWARD      
       )
     );
       ///////////////////////////////
@@ -873,13 +866,12 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
       createSentenceTemplate(language,
         List.of(
         //How many people live in Poland?
-        "interrogativeAmount(nominativeCase:range:plural) verb(component_werden:present:plural) preposition object(domain) verb(mainVerb:perfect:thridPerson)?"
+        "How many (range:plural) preposition "+Variable+" preposition (perfect)?"
     
         ),
         IntransitivePPFrame,
-        HOW_MANY_THING,
-        forward
-      )
+        HOW_MANY_THING_FORWARD      
+       )
     );
    
       sentenceTemplateRepository.add(
@@ -888,8 +880,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
              
         ),
         IntransitivePPFrame,
-        HOW_MANY_THING,
-        backward
+        HOW_MANY_THING_BACKWARD     
       )
     );
       

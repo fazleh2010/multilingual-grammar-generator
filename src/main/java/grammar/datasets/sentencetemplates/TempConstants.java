@@ -116,8 +116,15 @@ public interface TempConstants {
      public static final String WHAT_WHICH_PRESENT_THING_1_BACKWARD = "WHAT_WHICH_PRESENT_THING_1_BACKWARD";
     public static final String Variable="Variable";
     public static final String WHAT_WHICH_PRESENT_THING_2 = "WHAT_WHICH_PRESENT_THING_2";
+    public static final String WHAT_WHICH_PRESENT_THING_2_FORWARD = "WHAT_WHICH_PRESENT_THING_2_FORWARD";
+    public static final String WHAT_WHICH_PRESENT_THING_2_BACKWARD = "WHAT_WHICH_PRESENT_THING_2_BACKWARD";
+    
     public static final String WHAT_WHICH_PRESENT_THING_1 = "WHAT_WHICH_PRESENT_THING_1";
     public static final String HOW_MANY_TOTAL = "HOW_MANY_TOTAL";
+    
+    public static final String HOW_MANY_TOTAL_FORWARD="HOW_MANY_TOTAL_FORWARD";
+    public static final String HOW_MANY_TOTAL_BACKWARD="HOW_MANY_TOTAL_BACKWARD";
+    
     public static final String HOW_MANY_THING = "HOW_MANY_THING";
     public static final String WHERE_WHAT_PRESENT_THING = "WHERE_WHAT_PRESENT_THING";
     public static final String WHAT_WHICH_LOCATION = "WHAT_WHICH_LOCATION";
