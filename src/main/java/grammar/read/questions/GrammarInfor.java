@@ -11,15 +11,20 @@ package grammar.read.questions;
  */
 public class GrammarInfor {
 
+    private String lex = null;
+    private String property = null;
     private String returnSubjOrObj = null;
     private String returnType = null;
     private String bindingType = null;
     private String template = null;
     private String[] realQuestions = null;
+
     private String sparqlQuery = null;
 
-
-    public GrammarInfor(String returnSubjOrObj, String bindingType, String returnType, String template, String[] realQuestions, String sparqlQuery) {
+    public GrammarInfor(String lex,String property,String returnSubjOrObj, String bindingType, String returnType, 
+                        String template, String[] realQuestions, String sparqlQuery) {
+        this.lex=lex;
+        this.property=property;
         this.returnSubjOrObj = returnSubjOrObj;
         this.returnType = bindingType;
         this.bindingType = returnType;
@@ -51,6 +56,14 @@ public class GrammarInfor {
 
     public String getSparqlQuery() {
         return sparqlQuery;
+    }
+
+    public String getLex() {
+        return lex;
+    }
+
+    public String getProperty() {
+        return property;
     }
 
     @Override

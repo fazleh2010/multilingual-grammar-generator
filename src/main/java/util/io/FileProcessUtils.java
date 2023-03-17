@@ -9,6 +9,7 @@ import linkeddata.LinkedData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.gdata.util.common.base.Pair;
 import evaluation.Matcher;
 import grammar.read.questions.UriLabel;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
@@ -30,8 +31,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +44,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import static org.apache.jena.atlas.test.Gen.rand;
+import static org.apache.jena.atlas.test.Gen.rand;
 import static util.io.FileFolderUtils.getHash;
+import static util.io.FileFolderUtils.getList;
+import static util.io.FileFolderUtils.listToFiles;
 
 /**
  *
@@ -711,6 +718,44 @@ public class FileProcessUtils {
     private static Map<String, String> getAbstract(String abstractFile) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public static Pair<Boolean,String[]> findPushEntry(String givenLex, String givenProperty,Integer index) throws IOException {
+        System.out.println("hellow world!!");
+        File qaldFile = new File("src/main/resources/PushResult.csv");
+        CsvFile csvFile = new CsvFile();
+        List<String[]> rows = csvFile.getRows(qaldFile);
+        for (String[] row : rows) {
+            String lex = row[0];
+            String frame = row[1];
+            String property = row[2];
+            String questionT = row[3];
+            String sparql = row[4].replace("\n", "");
+            sparql = sparql.replace("SELECT", "select");
+            sparql = sparql.replace("DISTINCT", "distinct");
+            sparql = sparql.replace("WHERE", "where");
+            if (lex.contains(givenLex) && property.contains(givenProperty)) {
+                System.out.println(lex + " " + property + " " + questionT + " " + sparql);
+                String[] record = {lex+"_"+index, questionT, sparql, "answerUri", "answerLabel", "", "single"};
+                 return new  Pair<Boolean,String[]>(Boolean.TRUE,record);
+            }
+        }
+       return new  Pair<Boolean,String[]>(Boolean.FALSE,null);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        System.out.println("hellow world!!");
+        File qaldFile = new File("src/main/resources/PushResult.csv");
+        CsvFile csvFile = new CsvFile();
+        List<String[]> rows = csvFile.getRows(qaldFile);
+        String givenLex = "die", givenProperty = "dbo:deathPlace";
+        Integer index = 0;
+        index = index + 1;
+        Pair<Boolean, String[]> pair = findPushEntry(givenLex, givenProperty, index);
+        if (pair.first) {
+            String[] row = pair.getSecond();
+            List<String> rowList=Arrays.asList(row);
+            System.out.println(rowList);
+        }
+    }
 
 }

@@ -10,6 +10,7 @@ import com.opencsv.CSVWriter;
 import grammar.datasets.sentencetemplates.SentenceTemplateFactoryEN_1;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import grammar.datasets.sentencetemplates.TempConstants;
+import static grammar.datasets.sentencetemplates.TempConstants.verbs;
 import grammar.generator.sentencebuilder.TemplateFinder;
 import grammar.sparql.PrepareSparqlQuery;
 import grammar.sparql.SparqlQuery;
@@ -26,6 +27,7 @@ import org.apache.jena.query.QueryType;
 import org.apache.logging.log4j.LogManager;
 import turtle.EnglishCsv;
 import util.io.*;
+import static util.io.FileProcessUtils.findPushEntry;
 
 /**
  *
@@ -42,14 +44,17 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
     private Boolean online = false;
     private LinkedData linkedData = null;
     private TemplateFinder templateFinder = null;
-    //private String logString="";
-
+    public Map<String, List<String[]>> specialEntities = new TreeMap<String, List<String[]>>();
     private Integer batchNumber = 0;
     private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger(ProtoToRealQuesrion.class);
     private InputCofiguration inputCofiguration = null;
     private String endpoint = null;
     private Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
     private Set<String> transitiveFrameEntries = new HashSet<String>();
+
+    public DirectQuestionGeneration() {
+
+    }
 
     public DirectQuestionGeneration(LinkedData linkedData, InputCofiguration inputCofiguration) throws Exception {
         this.inputCofiguration = inputCofiguration;
@@ -65,21 +70,29 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         DomainRangeDictionary domainRangeDictionary = new DomainRangeDictionary(inputCofiguration.getDomainAndRangeDir());
         this.domainOrRange = domainRangeDictionary.getDomainOrRange();
         this.transitiveFrameEntries = FileFolderUtils.fileToSet("src/main/resources/TransitiveFrame.txt");
+        this.specialEntities = this.makePushFiles("src/main/resources/PushResult.csv");
     }
 
-    public void offline(String dir, String logFile) throws Exception {
-        File[] files = new File(dir).listFiles();
-        Integer numberOfFiles = 0;
-        for (File file : files) {
-            CsvFile csvFile = new CsvFile();
-            if (file.getName().contains(".~lock.")) {
-                 continue;
+    public void offline(String dirLex) throws Exception {
+        String nounDir = dirLex + "/" + nouns + "/";
+        String verbDir = dirLex + "/" + verbs + "/";
+        String[] folders = new String[]{nounDir, verbDir};
+
+        for (String dir : folders) {
+            File[] files = new File(dir).listFiles();
+            Integer numberOfFiles = 0;
+            for (File file : files) {
+                CsvFile csvFile = new CsvFile();
+                if (file.getName().contains(".~lock.")) {
+                    continue;
+                }
+                List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
+                System.out.println("total files::" + files.length + " now::" + numberOfFiles + " file:" + file.getName() + " rows::" + rows.size() + " folder:" + dir);
+                offline(file.getName(), rows);
+                numberOfFiles = numberOfFiles + 1;
             }
-            List<String[]> rows = csvFile.getRows(new File(dir + file.getName()));
-            System.out.println("total files::" + files.length + " now::" + numberOfFiles + " file:" + file.getName() + " rows::" + rows.size() + " folder:" + dir);
-            offline(file.getName(), rows);
-            numberOfFiles = numberOfFiles + 1;
         }
+
         //FileFolderUtils.stringToFiles(logString, logFile);
     }
 
@@ -101,22 +114,22 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }
             String lexicalEntiryUri = row[0];
             batchNumber = batchNumber + 1;
-            Map<String, OffLineResult>entityLabels=new HashMap<String, OffLineResult>();
+            Map<String, OffLineResult> entityLabels = new HashMap<String, OffLineResult>();
 
             try {
                 syntacticFrame = this.findSyntacticFrame(row);
+                String lex = row[2];
                 property = this.findProperty(row, syntacticFrame);
                 /*if(!property.contains("dbo:birthYear")){
                     continue;
                 }*/
-                
+
                 String propertyFile = AddQuote.getProperty(this.propertyDir, property);
-                 entityLabels = FileProcessUtils.getEntityLabels(propertyFile);
-
-                templateQuestions = ProtoQuestionGeneration(syntacticFrame, property, row);
-
+                entityLabels = FileProcessUtils.getEntityLabels(propertyFile);
+                templateQuestions = protoQuestionGeneration(syntacticFrame, lex, property, row);
+                //System.out.println("templateQuestions:"+templateQuestions);
             } catch (Exception ex) {
-                System.out.println(" problems in getting all information for question generation!!"+ex.getMessage());
+                System.out.println(" problems in getting all information for question generation!!" + ex.getMessage());
             }
 
             /*if (syntacticFrame.contains(FrameType.AG.toString()) && sentenceTemplate.contains(superlative)) {
@@ -129,16 +142,27 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             for (String template : templateQuestions.keySet()) {
                 //logString+=template+"\n";
                 Pair<String, GrammarInfor> pair = templateQuestions.get(template);
-                GrammarInfor grammarInfor = pair.second;
-                System.out.println("template::" + template + " GrammarInfor:" + grammarInfor);
+                GrammarInfor grammarInfor = pair.getSecond();
+                //System.out.println("template::" + template + " GrammarInfor:" + grammarInfor);
                 String sparqlQueryT = grammarInfor.getSparqlQuery();
                 String returnTypeT = grammarInfor.getReturnType();
                 String returnSubjOrObjT = grammarInfor.getReturnSubjOrObj();
                 String[] questionsT = grammarInfor.getRealQuestions();
-                
+
                 List<String> questionList = Arrays.asList(questionsT);
-                System.out.println(property + " :"+questionList );
-               
+                //System.out.println(property + " :"+questionList );
+                String givenLex = grammarInfor.getLex();
+                String givenProperty = grammarInfor.getProperty();
+
+                Pair<Boolean, List<String[]>> pairPush = findPushEntry(givenLex, givenProperty, rowIndex);
+                if (pairPush.getFirst()) {
+                    List<String[]> records = pairPush.getSecond();
+                    byPassQuestionGeneration(records, rowIndex);
+                   
+                }
+                /*else
+                     continue;
+                 */   
 
                 bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObjT);
 
@@ -264,7 +288,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                             }
                         } else {
                             //logString+="index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql;
-                            System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
+                            //System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
                             this.csvWriterQuestions.writeNext(newRecord);
                             rowIndex = rowIndex + 1;
                         }
@@ -280,6 +304,16 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }
         }
 
+        return rowIndex;
+    }
+    
+    private Integer byPassQuestionGeneration(List<String[]> records, Integer rowIndex) throws IOException, Exception {
+
+        for (String[] record : records) {
+            List<String> rowList=Arrays.asList(record);
+            System.out.println("rowList::"+rowList);
+            this.csvWriterQuestions.writeNext(record);
+        }
         return rowIndex;
     }
 
@@ -335,7 +369,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             } else {
                 returnSubjOrObj = RETURN_TYPE_SUBJECT;
             }
-            System.out.println(property + " " + row[7] + " " + syntacticFrame + " " + returnSubjOrObj);
+            //System.out.println(property + " " + row[7] + " " + syntacticFrame + " " + returnSubjOrObj);
 
         } else if (syntacticFrame.contains(IntransitivePPFrame)) {
             if (row[8].contains(domain)) {
@@ -406,7 +440,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             }
 
         }
-        System.out.println("returnTYpe::" + returnType + " " + row[11] + " " + row[12]);
+        //System.out.println("returnTYpe::" + returnType + " " + row[11] + " " + row[12]);
         return returnType;
     }
 
@@ -474,7 +508,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         return templates;
     }
     
-     private Map<String, Pair<String, GrammarInfor>> ProtoQuestionGeneration(String syntacticFrame, String property, String[] row) {
+     private Map<String, Pair<String, GrammarInfor>> protoQuestionGeneration(String syntacticFrame, String lex,String property, String[] row) {
         Map<String, Pair<String, GrammarInfor>> templateQuestions = new TreeMap<String, Pair<String, GrammarInfor>>();
         List<String> ways = new ArrayList<String>();
         ways.add(FORWARD);
@@ -502,7 +536,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                     String templateAllQuestions = questions.iterator().next();
                     String[] realQuestions = findNounPPQuestions(bindingType, returnType, templateAllQuestions, row);
                     String sparqlQuery = findSparql(property, returnSubjOrObj);
-                    GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
+                    GrammarInfor grammarInfor = new GrammarInfor(lex,property,returnSubjOrObj, bindingType, returnType, template, realQuestions, sparqlQuery);
                     Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(template, grammarInfor);
                     templateQuestions.put(template, pair);
                 }
@@ -529,7 +563,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                         String templateAllQuestions = questions.iterator().next();
                         String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
                         String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
+                        GrammarInfor grammarInfor = new GrammarInfor(lex,property,returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
 
                         Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
                         templateQuestions.put(senTemplate, pair);
@@ -559,7 +593,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                         String templateAllQuestions = questions.iterator().next();
                         String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
                         String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
+                        GrammarInfor grammarInfor = new GrammarInfor(lex, property,returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
 
                         Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
                         templateQuestions.put(senTemplate, pair);
@@ -589,7 +623,7 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                         String templateAllQuestions = questions.iterator().next();
                         String[] realQuestions = findVerbQuestions(syntacticFrame, bindingType, returnType, templateAllQuestions, row);
                         String sparqlQuery = findSparql(property, returnSubjOrObj);
-                        GrammarInfor grammarInfor = new GrammarInfor(returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
+                        GrammarInfor grammarInfor = new GrammarInfor(lex, property,returnSubjOrObj, bindingType, returnType, genericTemplate, realQuestions, sparqlQuery);
 
                         Pair<String, GrammarInfor> pair = new Pair<String, GrammarInfor>(genericTemplate, grammarInfor);
                         templateQuestions.put(senTemplate, pair);
@@ -620,21 +654,22 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
         Integer nounPPIndex = 9;
         Integer transitiveIndex = 10;
         Integer InTransitiveIndex = 11;
+        String property=null;
 
         try {
             if (syntacticFrame.contains(NounPPFrame)) {
-                return row[nounPPIndex];
+                property= row[nounPPIndex];
             } else if (syntacticFrame.contains(TransitiveFrame)) {
-                return row[transitiveIndex];
+                property= row[transitiveIndex];
             } else if (syntacticFrame.contains(IntransitivePPFrame) || syntacticFrame.contains("InTransitivePPFrame")) {
-                return row[InTransitiveIndex];
+                property= row[InTransitiveIndex];
             } else {
                 throw new Exception("No syntactic frame found!!");
             }
         } catch (Exception ex) {
             System.out.println("No syntactic frame found!!" + ex.getMessage());
         }
-        throw new Exception("No syntactic frame found!!");
+        return property;
     }
 
     private String makeVairable(String bindingType) {
@@ -803,6 +838,81 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
             return resource.replace("dbp:", "http://dbpedia.org/property/");
         }
         return resource;
+    }
+    
+    public Map<String, List<String[]>> makePushFiles(String fileName) throws IOException {
+        File qaldFile = new File(fileName);
+        CsvFile csvFile = new CsvFile();
+        List<String[]> rows = csvFile.getRowsManual(qaldFile);
+        Map<String, List<String[]>> specialEntities = new TreeMap<String, List<String[]>>();
+
+        for (String[] inputRow : rows) {
+            String lex = inputRow[0].strip().stripLeading().stripTrailing();
+            lex = lex.replace(" ", "").replace("\"", "").strip().trim().stripLeading().stripTrailing();
+            String property = inputRow[1].strip().trim().stripLeading().stripTrailing();
+            String questionT = inputRow[2].replace("\"", "");;
+            String sparql = inputRow[3].replace("\"", "");
+            System.out.println(inputRow[0] + " " + inputRow[1] + " " + inputRow[2] + " " + inputRow[3]);
+
+            //sparql = row[4].replace("\t", "");
+            //sparql = sparql.replace("\n", "");
+            sparql = sparql.replace("SELECT", "select");
+            sparql = sparql.replace("DISTINCT", "distinct");
+            sparql = sparql.replace("WHERE", "where");
+            List<String[]> temp = new ArrayList<String[]>();
+            String ID = makeId(lex, property);
+            System.out.println(lex + " " + questionT + " " + sparql);
+            String[] outputRow = {ID, questionT, sparql, "answerUri", "answerLabel", "", "single"};
+            if (specialEntities.containsKey(ID)) {
+                temp = specialEntities.get(ID);
+            }
+            temp.add(outputRow);
+            specialEntities.put(ID, temp);
+
+        }
+        return specialEntities;
+    }
+
+    public String makeId(String lex, String property) {
+        lex = lex.replace(" ", "-").replace("\"", "").strip().trim().stripLeading().stripTrailing();
+        return lex + "-" + property;
+    }
+     
+    public Pair<Boolean, List<String[]>> findPushEntry(String givenLex, String givenProperty, Integer index) throws IOException {
+        List<String[]> results = new ArrayList<String[]>();
+        String ID=makeId(givenLex,givenProperty);
+        if (this.specialEntities.containsKey(ID)) {
+            List<String[]> temp = new ArrayList<String[]>();
+            temp = this.specialEntities.get(ID);
+            for (String[] row : temp) {
+                /*String lex = row[0];
+                String property = row[2];
+                String questionT = row[3];
+                String sparql = row[4].replace("\t", "");
+                sparql = sparql.replace("\n", "");
+                sparql = sparql.replace("SELECT", "select");
+                sparql = sparql.replace("DISTINCT", "distinct");
+                sparql = sparql.replace("WHERE", "where");
+                System.out.println(lex + " " + property + " " + questionT + " " + sparql);*/
+                //String[] record = {"lexicalEntry-"+property+ "_" + index, questionT, sparql, "answerUri", "answerLabel", "", "single"};
+                results.add(row);
+               // "lexicalEntry-160011~137"",""Which city was born in Milo ─Éukanovi─ç?"",""select  ?o    {    <http://dbpedia.org/resource/Milo_─Éukanovi─ç> <http://dbpedia.org/ontology/birthPlace>  ?o .    }"",""http://dbpedia.org/resource/Nik┼íi─ç"",""Nik┼íi─ç"",""IntransitivePPFrame"",""single"
+            }
+            return new Pair<Boolean, List<String[]>>(Boolean.TRUE, results);
+        }
+        return new Pair<Boolean, List<String[]>>(Boolean.FALSE, new ArrayList<String[]>());
+    }
+
+    public static void main(String[] args) throws IOException {
+        DirectQuestionGeneration direct = new DirectQuestionGeneration();
+        Map<String, List<String[]>> specialEntities = direct.makePushFiles("src/main/resources/PushResult.csv");
+        System.out.println(specialEntities);
+        String givenLex="die",givenProperty="dbo:deathDate";
+        Integer index=0;
+        Pair<Boolean, List<String[]>> pair=direct.findPushEntry( givenLex,  givenProperty, index);
+        if(pair.getFirst()){
+            System.out.println(pair.getSecond());
+        }
     }
 
     /*

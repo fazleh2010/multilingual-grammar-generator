@@ -1,0 +1,14 @@
+height=How high is the lighthouse in Colombo?=Select ?o where { <http://dbpedia.org/resource/Colombo_Lighthouse> <http://dbpedia.org/ontology/height> ?o . }=29.0
+host=Who is the host of BBC Wildlife Specials?=select ?o {<http://dbpedia.org/resource/BBC_Wildlife_Specials> <http://dbpedia.org/ontology/presenter> ?o . }
+cost=How much did Pulp Fiction cost?=select ?o {<http://dbpedia.org/resource/Pulp_Fiction> <http://dbpedia.org/ontology/budget> ?o . }=
+"which books were published by Viking Press?"
+
+
+SELECT ?s WHERE { 
+ ?s <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Surfing> . 
+ ?s <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Australia> . 
+}
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX res: <http://dbpedia.org/resource/>
+SELECT ?o WHERE { <http://dbpedia.org/resource/Nile> <http://dbpedia.org/ontology/sourceCountry> ?o .}

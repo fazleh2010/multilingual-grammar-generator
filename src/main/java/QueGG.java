@@ -4,16 +4,13 @@ import com.opencsv.exceptions.CsvException;
 import eu.monnetproject.lemon.LemonModel;
 import evaluation.EvaluateAgainstQALD;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
-import evaluation.QALD;
-import evaluation.QALDImporter;
+import static grammar.datasets.sentencetemplates.TempConstants.nouns;
 import static grammar.datasets.sentencetemplates.TempConstants.verbs;
 import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
 import grammar.read.questions.DirectQuestionGeneration;
-import grammar.read.questions.OffLineQuestionGeneration;
 import grammar.read.questions.ProtoToRealQuesrion;
-import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.GrammarWrapper;
@@ -34,27 +31,15 @@ import util.io.FileProcessUtils;
 import turtle.GermanTurtle;
 import java.io.File;
 import java.io.IOException;
-import grammar.sparql.SparqlQuery;
 import grammar.sparql.SPARQLRequest;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import static java.lang.System.exit;
-import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.stream.Stream;
-import org.apache.commons.text.similarity.CosineDistance;
 import turtle.EnglishTurtle;
-import util.io.GenderUtils;
 import linkeddata.LinkedData;
 import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
-import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.BashScript;
 import util.io.FileFolderUtils;
@@ -73,12 +58,12 @@ public class QueGG {
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
 
-    public static void main(String[] args1) throws Exception {
+    public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;
         //this is for test..pull it bak when test is over.
-        String[] args = new String[]{"conf/inputConf_lexicon_1_en.json", "dataset/dbpedia_en.json"};
+        //String[] args = new String[]{"conf/inputConf_lexicon_10_en.json", "dataset/dbpedia_en.json"};
         Properties batch = new Properties();
         Integer fileLimit = 50000;
 
@@ -286,7 +271,8 @@ public class QueGG {
 
         } else {
             DirectQuestionGeneration directQuestionGeneration = new DirectQuestionGeneration(linkedData, inputCofiguration);
-            directQuestionGeneration.offline(inputCofiguration.getInputDir() + "/"+verbs+"/", inputCofiguration.getInputDir() + "log.txt");
+            //directQuestionGeneration.offline(inputCofiguration.getInputDir() + "log.txt");
+             directQuestionGeneration.offline(inputCofiguration.getInputDir());
         }
 
     }
