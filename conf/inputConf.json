@@ -1,0 +1,21 @@
+{
+  "languageCode" : "en",
+  "inputDir" : "lexicon",
+  "outputDir" : "/media/elahi/Elements/A-project/LDK2023/Client.Java/output/",
+  "online" : "true",
+  "qaldDir" : "/media/elahi/Elements/A-project/LDK2023/Client.Java/QALD/7",
+  "dataset" : "QALD",
+  "fileType" : "train",
+  "numberOfEntities" : 100,
+  "similarityThresold" : 0.5,
+  "csvToTurtle" : false,
+  "turtleToProtoType" : false,
+  "single": false,
+  "composite": false,
+  "protoTypeToQuestion" : true,
+  "evalution" : true,
+  "calculation" : false,
+  "numberOfQuestion":false
+}
+
+

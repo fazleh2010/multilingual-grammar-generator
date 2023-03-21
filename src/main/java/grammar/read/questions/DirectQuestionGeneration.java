@@ -120,9 +120,9 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                 syntacticFrame = this.findSyntacticFrame(row);
                 String lex = row[2];
                 property = this.findProperty(row, syntacticFrame);
-                /*if(!property.contains("dbo:birthYear")){
+                if(!property.contains("dbo:country")){
                     continue;
-                }*/
+                }
 
                 String propertyFile = AddQuote.getProperty(this.propertyDir, property);
                 entityLabels = FileProcessUtils.getEntityLabels(propertyFile);
@@ -256,6 +256,10 @@ public class DirectQuestionGeneration implements ReadWriteConstants, TempConstan
                     }
 
                     for (String question : questions) {
+                        
+                        if(question.contains("city is Canada")){
+                            System.out.println(question);
+                        }
 
                         if (question.contains("XX")) {
                             continue;

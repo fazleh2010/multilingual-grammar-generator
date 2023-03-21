@@ -552,7 +552,7 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         HOW_MANY_THING_BACKWARD      )
     );
     
-      
+      //lst working
      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(           
         //In which country is the Limerick Lake?
@@ -571,6 +571,27 @@ public class SentenceTemplateFactoryEN_1 implements Factory<SentenceTemplateRepo
         WHAT_WHICH_LOCATION_FORWARD
       )
     );
+     
+    /*sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(           
+        //In which country is the Limerick Lake?
+        "preposition which (range:singular) is the "+Variable+" "+"(perfect)"+"?" +"\n"+
+        "preposition which (range:singular) are the "+Variable+" "+"(perfect)"+"?" +"\n"+
+        //What country is Mount Everest in?
+         "What (range:singular) is "+Variable+" "+"(perfect)"+" preposition?"+"\n"+
+        //In which programming language is GIMP written?
+        "preposition which (range:plural) is "+Variable+" (perfect)?"+"\n"+
+        "preposition which (range:singular) are "+Variable+" (perfect)?"+"\n"+
+         //Where is Fort Knox located?
+         "Where is "+Variable+" (perfect)?"
+                
+                ),
+        IntransitivePPFrame,
+        WHAT_WHICH_LOCATION_FORWARD
+      )
+    );*/
+    
+    
     
     
     

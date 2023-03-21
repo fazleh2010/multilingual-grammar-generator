@@ -38,6 +38,7 @@ import java.util.logging.Level;
 import java.util.stream.Stream;
 import turtle.EnglishTurtle;
 import linkeddata.LinkedData;
+import org.linkeddatafragments.main.QueggEvalution;
 import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
 import turtle.TutleConverter;
@@ -58,12 +59,12 @@ public class QueGG {
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] arg1) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;
         //this is for test..pull it bak when test is over.
-        //String[] args = new String[]{"conf/inputConf_lexicon_10_en.json", "dataset/dbpedia_en.json"};
+        String[] args = new String[]{"conf/inputConf_lexicon_1_en.json", "dataset/dbpedia_en.json"};
         Properties batch = new Properties();
         Integer fileLimit = 50000;
 
@@ -99,15 +100,18 @@ public class QueGG {
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                     writeQuestionInSingleFile(inputCofiguration);
                 }
+                
+              
 
-                if (inputCofiguration.isEvalution()) {
+                /*if (inputCofiguration.isEvalution()) {
                     Language language = inputCofiguration.getLanguage();
                     String qaldDir = inputCofiguration.getQaldDir();
                     String outputDir = inputCofiguration.getOutputDir();
                     LinkedData linkedData = inputCofiguration.getLinkedData();
                     Double similarity = inputCofiguration.getSimilarityThresold();
                     BashScript BashScript = new BashScript(null);
-                }
+                }*/
+                
 
                 /*if (inputCofiguration.isEvalution()) {
                     Language language = inputCofiguration.getLanguage();
@@ -271,8 +275,10 @@ public class QueGG {
 
         } else {
             DirectQuestionGeneration directQuestionGeneration = new DirectQuestionGeneration(linkedData, inputCofiguration);
-            //directQuestionGeneration.offline(inputCofiguration.getInputDir() + "log.txt");
+             //directQuestionGeneration.offline(inputCofiguration.getInputDir() + "log.txt");
              directQuestionGeneration.offline(inputCofiguration.getInputDir());
+             //QueggEvalution queggEvalution=new QueggEvalution();
+             //queggEvalution.runEvaluation(inputCofiguration.getInputDir());
         }
 
     }
