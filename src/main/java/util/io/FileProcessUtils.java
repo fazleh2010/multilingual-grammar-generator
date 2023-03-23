@@ -33,6 +33,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -46,6 +47,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import static org.apache.jena.atlas.test.Gen.rand;
 import static org.apache.jena.atlas.test.Gen.rand;
+import org.linkeddatafragments.util.io.FileUtils;
 import static util.io.FileFolderUtils.getHash;
 import static util.io.FileFolderUtils.getList;
 import static util.io.FileFolderUtils.listToFiles;
@@ -742,7 +744,7 @@ public class FileProcessUtils {
        return new  Pair<Boolean,String[]>(Boolean.FALSE,null);
     }
     
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         System.out.println("hellow world!!");
         File qaldFile = new File("src/main/resources/PushResult.csv");
         CsvFile csvFile = new CsvFile();
@@ -756,6 +758,147 @@ public class FileProcessUtils {
             List<String> rowList=Arrays.asList(row);
             System.out.println(rowList);
         }
+    }*/
+    
+    public static void main(String[] args) throws IOException {
+        System.out.println("hellow world!!");
+        File qaldFile = new File("src/main/resources/PushResultNew.csv");
+        String sortFile = "/media/elahi/Elements/A-project/LDK2023/resources/ldk/sort_data_0.1_03_2023/";
+        CsvFile csvFile = new CsvFile();
+        List<String[]> rows = csvFile.getRows(qaldFile);
+        File[]files=new File(sortFile).listFiles();
+        Set<String> properties=new HashSet<String>();
+        Set<String> parameters=new HashSet<String>();
+        for (File file : files) {
+            String[] info = file.getName().split("-raw-");
+            //System.out.println(file.getName());
+            try {
+                if(!file.getName().contains("Anew-")&&!file.getName().contains(".sh")){
+                  properties.add(info[0]);
+                }
+                parameters.add(file.getName());
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        String str="";
+        String header="#!/bin/sh"+"\n";
+        Map<String,List<String>>map=new HashMap<String,List<String>>();
+        Integer index=0,lexNumber=1,total=0;
+        /*for (String row[] : rows) {
+            String lex = row[0].strip().stripLeading().stripTrailing();
+            String lexMod=lex.replace(" ", "_");
+            String property = row[1].strip().stripLeading().stripTrailing();
+            List<String> fileNames=findPropertyFile(property,parameters);            
+            for (String fileName : fileNames) {
+                   String line = "grep " + "'" + lex + "' " +fileName+ ">>" + "Anew-" + lexMod + "-" + fileName+"\n";
+                   str+=line;
+                    //System.out.println(grep1);
+                    //greps.add(grep1);  
+                
+            }
+            //map.put(lexNumber+"-"+lex, greps);
+            //lexNumber=lexNumber+1;
+        }
+          System.out.println(header + str);
+        FileFolderUtils.stringToFiles(header + str, sortFile + "lexicalEntry" + ".sh");
+        */
+        
+        //find qald7 properties....
+        Set<String> qald7Properties=findQALD7Properties();  
+        // seperate property files...
+        makePropertySeperationFile(qald7Properties);
+      
+       
+        
+        //System.out.println(sr_2);
+        /*index=0;
+      
+        for (String lex : map.keySet()) {
+            List<String> grepsT=map.get(lex);
+            String str="";
+            for(String line:grepsT){
+               str+=line+"\n" ;
+            }
+           //System.out.println(str);
+            FileFolderUtils.stringToFiles(header+str, baseDir+lex+".sh");
+        }*/
+        
+        
+            }
+
+    private static List<String> findPropertyFile(String property, Set<String> parameters) {
+        List<String> fileNames=new ArrayList<String>();
+        for(String paramter: parameters){
+            if(paramter.contains(property)){
+                fileNames.add(paramter);
+            }
+        }
+        return fileNames;
+    }
+
+    private static Set<String> findQALD7Properties() throws IOException {
+        String qald7PropertyFile = "src/main/resources/qald7-properties.txt";
+        String qald7PropertyResult = "src/main/resources/qald7-result.txt";
+        String finalOutput="src/main/resources/qald7-properties-output.txt";
+        String fileString = FileUtils.fileToString(qald7PropertyFile);
+        fileString = fileString.replace("http://:", "\n" + "http://");
+        fileString = fileString.replace("dbo:", "\n" + "http://dbpedia.org/ontoloy/");
+        fileString = fileString.replace("dbp:", "\n" + "http://dbpedia.org/property/");
+        fileString = fileString.replace(" ", "+");
+        fileString = fileString.replace("+", "\n");
+        fileString = fileString.replace("<", "");
+        fileString = fileString.replace(">", "");
+        String[] lines = fileString.split("\n");
+        Set<String> qald7Properties = new HashSet<String>();
+        String sr_2 = "";
+        for (String line : lines) {
+            if (line.contains("http://") || line.contains("http:")) {
+                if (!(line.contains("http://dbpedia.org/resource/") || line.contains("http://www.w3.org/"))) {
+                    line = line.strip().stripLeading().stripTrailing().trim() + "\n";
+                    sr_2 += line;
+                    qald7Properties.add(line);
+                }
+
+            }
+        }
+
+        FileFolderUtils.setToFile(qald7Properties, qald7PropertyResult);
+        //mannuall filter the file and save it to finalOutput
+        qald7Properties = new HashSet<String>();
+        qald7Properties = FileFolderUtils.fileToSet(finalOutput);
+        return qald7Properties;
+    }
+
+    private static String shortForm(String property) {
+       property=property.replace("http://dbpedia.org/ontology/", "dbo:");
+       property=property.replace("http://dbpedia.org/property/", "dbp:");
+       return property;
+    }
+    private static String largeForm(String property) {
+       property=property.replace( "dbo:","http://dbpedia.org/ontoloy/");
+       property=property.replace( "dbp:","http://dbpedia.org/property/");
+       return property;
+    }
+
+    private static void makePropertySeperationFile(Set<String> qald7Properties) {
+        String str = "";
+        String rawFile="/media/elahi/Elements/A-project/LDK2023/resources/ldk/raw/z-seperate-property.sh";
+        String output = "/media/elahi/Elements/A-project/LDK2023/resources/ldk/property/";
+        for (String property : qald7Properties) {
+            //String property = propertyOrg.replace("dbo:", "http://dbpedia.org/ontoloy/");
+            //property = property.replace("dbp:", "http://dbpedia.org/property/");
+            //String shortForm=propertyOrg.replace("http://dbpedia.org/ontoloy/", "dbo:");
+            //shortForm=propertyOrg.replace("http://dbpedia.org/property/", "dbp:");
+            //if (property.contains("http")) {
+            String line = "grep " + "'" + largeForm(property) + "' " + "*.csv" + ">>" + output + "Aproperty-" + shortForm(property) + ".csv" + "\n";
+            str += line;
+            //}
+
+        }
+        System.out.println(str);
+        FileFolderUtils.stringToFiles(str, rawFile);
+
     }
 
 }
