@@ -58,13 +58,17 @@ public class QueGG {
     private static String grammar_FULL_DATASET = "grammar_FULL_DATASET";
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
+    private static String parameterFileName = "/media/elahi/Elements/A-project/LDK2023/resources/en/lexicons/parameter.txt";
+    public static final String sortDir="../resources/ldk/sort_data_0.1_03_2023/";
 
-    public static void main(String[] arg1) throws Exception {
+
+
+    public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;
         //this is for test..pull it bak when test is over.
-        String[] args = new String[]{"conf/inputConf_lexicon_1_en.json", "dataset/dbpedia_en.json"};
+        //String[] args = new String[]{"conf/inputConf_lexicon_1_en.json", "dataset/dbpedia_en.json"};
         Properties batch = new Properties();
         Integer fileLimit = 50000;
 
@@ -78,6 +82,9 @@ public class QueGG {
                 inputCofiguration.setLinkedData(args[1]);
                 online = inputCofiguration.getOnline();
                 externalEntittyListflag = inputCofiguration.getExternalEntittyList();
+                Map<String,String> lexParameter=FileFolderUtils.fileToHashOrg(parameterFileName, "=");
+                String parameter=lexParameter.get(inputCofiguration.getParameter());
+                
 
                 /*String questionDir="/media/elahi/Elements/A-project/LDK2023/resources/en/lexicons/lexicon_1/";
                  String frameTypeT="IntransitivePPFrame";
@@ -97,7 +104,7 @@ public class QueGG {
 
                 }
                 if (inputCofiguration.isProtoTypeToQuestion()) {
-                    queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
+                    queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS,parameter);
                     writeQuestionInSingleFile(inputCofiguration);
                 }
                 
@@ -247,7 +254,7 @@ public class QueGG {
         }
     }
 
-    private void protoToReal(InputCofiguration inputCofiguration, String grammar_FULL_DATASET, String grammar_COMBINATIONS) throws Exception {
+    private void protoToReal(InputCofiguration inputCofiguration, String grammar_FULL_DATASET, String grammar_COMBINATIONS,String parameter) throws Exception {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getOutputDir();
         Boolean combinedFlag = inputCofiguration.getCompositeFlag();
@@ -256,7 +263,8 @@ public class QueGG {
         List<File> protoToQuestions = new ArrayList<File>();
         setDataSet(linkedData);
 
-        FileFolderUtils.deleteFiles(inputCofiguration.getQuestionDir());
+        //dont delete question files..now we add some mathed results
+        //FileFolderUtils.deleteFiles(inputCofiguration.getQuestionDir());
 
         if (singleFlag) {
             protoToQuestions.addAll(FileProcessUtils.getFiles(inputDir + "/", grammar_FULL_DATASET + "_" + language.name(), ".json"));
@@ -276,7 +284,8 @@ public class QueGG {
         } else {
             DirectQuestionGeneration directQuestionGeneration = new DirectQuestionGeneration(linkedData, inputCofiguration);
              //directQuestionGeneration.offline(inputCofiguration.getInputDir() + "log.txt");
-             directQuestionGeneration.offline(inputCofiguration.getInputDir());
+             //directQuestionGeneration.offline(inputCofiguration.getInputDir());
+              directQuestionGeneration.offlineSort(sortDir,parameter);
              //QueggEvalution queggEvalution=new QueggEvalution();
              //queggEvalution.runEvaluation(inputCofiguration.getInputDir());
         }
@@ -478,7 +487,7 @@ public class QueGG {
         for (String fileName : questionFiles) {
             if (fileName.contains("questions")) {
                 CsvFile csvFile = new CsvFile();
-                List<String[]> rows = csvFile.getRows(new File(questionDir + fileName));
+                List<String[]> rows = csvFile.getRowsManual(new File(questionDir + fileName));
                 if (rows.size() > 1) {
                     System.out.println(fileName + "  elemetns size:::" + rows.size());
                     csvData.addAll(rows);

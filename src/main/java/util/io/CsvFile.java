@@ -158,14 +158,11 @@ public class CsvFile implements CsvConstants {
             reader = new CSVReader(new FileReader(qaldFile));
             rows = reader.readAll();
 
-        } catch (FileNotFoundException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
             LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        } catch (IOException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        } catch (CsvException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            return new ArrayList<String[]>();
         }
 
         return rows;

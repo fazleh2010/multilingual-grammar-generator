@@ -838,7 +838,7 @@ public class FileProcessUtils {
     }
 
     private static Set<String> findQALD7Properties() throws IOException {
-        String qald7PropertyFile = "src/main/resources/qald7-properties.txt";
+        String qald7PropertyFile = "src/main/resources/qald7-done-properties.txt";
         String qald7PropertyResult = "src/main/resources/qald7-result.txt";
         String finalOutput="src/main/resources/qald7-properties-output.txt";
         String fileString = FileUtils.fileToString(qald7PropertyFile);
@@ -852,6 +852,7 @@ public class FileProcessUtils {
         String[] lines = fileString.split("\n");
         Set<String> qald7Properties = new HashSet<String>();
         String sr_2 = "";
+        
         for (String line : lines) {
             if (line.contains("http://") || line.contains("http:")) {
                 if (!(line.contains("http://dbpedia.org/resource/") || line.contains("http://www.w3.org/"))) {
@@ -862,6 +863,7 @@ public class FileProcessUtils {
 
             }
         }
+        
 
         FileFolderUtils.setToFile(qald7Properties, qald7PropertyResult);
         //mannuall filter the file and save it to finalOutput
@@ -883,22 +885,42 @@ public class FileProcessUtils {
 
     private static void makePropertySeperationFile(Set<String> qald7Properties) {
         String str = "";
-        String rawFile="/media/elahi/Elements/A-project/LDK2023/resources/ldk/raw/z-seperate-property.sh";
+        String rawFile = "/media/elahi/Elements/A-project/LDK2023/resources/ldk/raw/z-seperate-property.sh";
         String output = "/media/elahi/Elements/A-project/LDK2023/resources/ldk/property/";
-        for (String property : qald7Properties) {
-            //String property = propertyOrg.replace("dbo:", "http://dbpedia.org/ontoloy/");
-            //property = property.replace("dbp:", "http://dbpedia.org/property/");
-            //String shortForm=propertyOrg.replace("http://dbpedia.org/ontoloy/", "dbo:");
-            //shortForm=propertyOrg.replace("http://dbpedia.org/property/", "dbp:");
-            //if (property.contains("http")) {
-            String line = "grep " + "'" + largeForm(property) + "' " + "*.csv" + ">>" + output + "Aproperty-" + shortForm(property) + ".csv" + "\n";
-            str += line;
-            //}
+        Set<String> alreadyDone = new HashSet<String>();
+        String qald7AlreadyDone = "src/main/resources/qald7-done-properties.txt";
+        alreadyDone = findDoneProperties(qald7AlreadyDone);
+        System.out.println(alreadyDone.toString());
 
+        Integer index = 0;
+        for (String property : qald7Properties) {
+                String line = "grep " + "'" + largeForm(property) + "' " + "*.csv" + ">>" + output + "Aproperty-" + shortForm(property) + ".csv" + "\n";
+                str += line;
+                index = index + 1;
+            
         }
-        System.out.println(str);
+        System.out.println(str + "\n" + qald7Properties.size() + " " + alreadyDone.size());
         FileFolderUtils.stringToFiles(str, rawFile);
 
+    }
+
+     public static Set<String> findDoneProperties(String fileName) {
+        BufferedReader reader;
+        String line = "";
+        Set<String> set = new TreeSet<String>();
+        try {
+            reader = new BufferedReader(new FileReader(fileName));
+            while ((line = reader.readLine()) != null) {
+                line = line.replace(" ", "").strip().stripLeading().stripTrailing().trim();
+                line=largeForm(line);
+                set.add(line);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return set;
     }
 
 }

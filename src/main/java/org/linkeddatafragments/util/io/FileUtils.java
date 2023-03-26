@@ -450,7 +450,7 @@ public class FileUtils {
         return set;
     }
 
-    public static Set<String> FileToSet(String fileName) {
+    public static Set<String> FileToSetEqual(String fileName) {
         BufferedReader reader;
         String line = "";
         Set<String> set = new TreeSet<String>();
@@ -472,7 +472,8 @@ public class FileUtils {
         }
         return set;
     }
-
    
+
+
 
 }

@@ -1,0 +1,90 @@
+dbo:activeYearsEndDate
+dbo:creator
+dbo:height
+dbo:numberOfVisitors
+dbo:spouse
+dbo:areaTotal
+           dbo:currency
+         dbo:industry
+           dbo:parent
+            dbo:starring
+dbo:artist
+              dbo:date
+             dbo:influenced
+         dbo:party
+             dbo:subsidiary
+
+dbo:author
+              dbo:deathDate
+        dbo:ingredient
+         dbo:populationTotal
+   dbo:targetAirport
+
+dbo:award
+               dbo:deathPlace
+       dbo:language
+           dbo:portrayer
+         dbo:team
+dbo:bandMember
+          dbo:developer
+        dbo:leader
+             dbo:presenter
+         dbo:timeZone
+dbo:birthPlace
+          dbo:director
+         dbo:leaderTitle
+        dbo:producer
+          dbo:writer
+dbo:birthYear
+           dbo:discoverer
+       dbo:league
+             dbo:product
+           dbp:alterEgo
+
+dbo:budget
+              dbo:doctoralAdvisor
+  dbo:literaryGenre
+      dbo:publisher
+         dbp:artist
+dbo:capital
+             dbo:ethnicGroup
+      dbo:locationCity
+       dbo:races
+             dbp:country
+dbo:child
+               dbo:field
+            dbo:location
+           dbo:releaseDate
+       dbp:father
+
+dbo:city
+                dbo:foundationPlace
+  dbo:manufacturer
+       dbo:residence
+         dbp:location
+dbo:coach
+               dbo:foundedBy
+        dbo:mayor
+              dbo:restingPlace
+      dbp:nickname
+dbo:composer
+            dbo:foundingYear
+     dbo:movement
+           dbo:routeEnd
+          dbp:office
+dbo:connotation
+         dbo:governmentType
+   dbo:musicComposer
+      dbo:routeStart
+        dbp:populationTotal
+
+dbo:conservationStatus
+  dbo:ground
+           dbo:numberOfEmployees
+  dbo:seatingCapacity
+   dbp:portrayer
+dbo:country
+             dbo:growingGrape
+     dbo:numberOfLocations
+  dbo:series
+            dbp:timezone

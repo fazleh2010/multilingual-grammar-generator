@@ -138,7 +138,7 @@ public class QueggEvalution implements Constants {
     
     private static Map<String, List<File>> findSingleParameterFile(String parameterFileName,String lexicon) throws IOException, FileNotFoundException, CsvException {
 
-        Set<String> parameters = FileUtils.FileToSet(parameterFileName);
+        Set<String> parameters = FileUtils.FileToSetEqual(parameterFileName);
 
         Map<String, List<File>> ruleFiles = new TreeMap<String, List<File>>();
             String dir =  lexicon ;
@@ -155,7 +155,7 @@ public class QueggEvalution implements Constants {
     }
 
     private static Map<String, List<File>> findMultipleParameterFile(String lexiconsDir, String parameterFileName) throws IOException, FileNotFoundException, CsvException {
-        Set<String> parameters = FileUtils.FileToSet(parameterFileName);
+        Set<String> parameters = FileUtils.FileToSetEqual(parameterFileName);
         Map<String, List<File>> ruleFiles = new TreeMap<String, List<File>>();
         for (String paramter : parameters) {
             String dir = lexiconsDir + paramter + File.separator + "questions/";

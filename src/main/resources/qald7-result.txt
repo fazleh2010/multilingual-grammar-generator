@@ -1,394 +1,154 @@
-http://dbpedia.org/ontoloy/currency
+http://dbpedia.org/ontoloy/producer
 
-http://dbpedia.org/ontology/series
-
-http://dbpedia.org/ontology/field
-
-http://dbpedia.org/ontology/musicComposer
-
-http://dbpedia.org/ontology/subsidiary
-
-http://dbpedia.org/ontoloy/Beverage
-
-http://dbpedia.org/ontology/deathPlace
-
-http://dbpedia.org/ontoloy/genre
-
-http://dbpedia.org/ontology/foundationPlace
-
-http://dbpedia.org/ontology/populationTotal
-
-http://dbpedia.org/ontology/numberOfLocations
-
-http://dbpedia.org/ontoloy/crosses
-
-http://dbpedia.org/ontoloy/birthDate
-
-http://dbpedia.org/ontology/governmentType
-
-http://dbpedia.org/ontoloy/office
-
-http://dbpedia.org/ontoloy/mayor
-
-http://dbpedia.org/ontoloy/operator
-
-http://dbpedia.org/ontoloy/vicePresident
-
-http://dbpedia.org/property/populationTotal
-
-http://dbpedia.org/ontoloy/party
-
-http://dbpedia.org/ontoloy/numberOfPages
-
-http://dbpedia.org/ontology/conservationStatus
-
-http://dbpedia.org/ontology/City
-
-http://dbpedia.org/ontology/discoverer
-
-http://dbpedia.org/ontology/BasketballPlayer
-
-http://dbpedia.org/ontology/Language
-
-http://dbpedia.org/ontoloy/locatedInArea
-
-http://dbpedia.org/ontoloy/developer
-
-http://dbpedia.org/ontoloy/artist
-
-http://dbpedia.org/ontoloy/child
-
-http://dbpedia.org/ontoloy/deathPlace
-
-http://dbpedia.org/ontology/portrayer
-
-http://dbpedia.org/ontology/height
-
-http://dbpedia.org/ontology/budget
-
-http://dbpedia.org/ontoloy/populationTotal
-
-http://dbpedia.org/ontology/Person
-
-http://dbpedia.org/ontology/activeYearsEndDate
-
-http://dbpedia.org/ontoloy/areaCode
-
-http://dbpedia.org/ontology/Stadium
-
-http://dbpedia.org/ontoloy/spouse
-
-http://dbpedia.org/ontology/ground
-
-http://dbpedia.org/ontology/birthPlace
-
-http://dbpedia.org/ontoloy/Protein
-
-http://dbpedia.org/ontoloy/birthPlace
-
-http://dbpedia.org/property/location
-
-http://dbpedia.org/ontology/Book
-
-http://dbpedia.org/ontoloy/wineRegion
-
-http://dbpedia.org/ontology/presenter
-
-http://dbpedia.org/ontology/numberOfVisitors
-
-http://dbpedia.org/ontoloy/largestCity
-
-http://dbpedia.org/ontoloy/programmingLanguage
-
-http://dbpedia.org/ontoloy/TelevisionShow
-
-http://dbpedia.org/ontoloy/occupation
-
-http://dbpedia.org/ontology/residence
-
-http://dbpedia.org/ontology/league
-
-http://dbpedia.org/property/portrayer
-
-http://dbpedia.org/ontology/language
-
-http://dbpedia.org/ontoloy/wineProduced
-
-http://dbpedia.org/ontology/publisher
-
-http://dbpedia.org/ontoloy/creator
-
-http://dbpedia.org/property/
-
-http://dbpedia.org/ontology/location
-
-http://dbpedia.org/ontology/routeStart
-
-http://dbpedia.org/ontology/city
-
-http://dbpedia.org/ontoloy/location
-
-http://dbpedia.org/ontology/composer
-
-http://dbpedia.org/ontoloy/architect
-
-http://dbpedia.org/ontoloy/deathCause
-
-http://dbpedia.org/ontoloy/author
-
-http://purl.org/dc/elements/1.1/description
-
-http://dbpedia.org/ontoloy/team
-
-http://dbpedia.org/ontoloy/musicBy
-
-http://dbpedia.org/ontoloy/date
-
-http://dbpedia.org/ontology/locationCity
-
-http://dbpedia.org/property/alterEgo
-
-http://dbpedia.org/ontology/influenced
-
-http://dbpedia.org/ontology/producer
-
-http://dbpedia.org/ontoloy/officialLanguage
-
-http://dbpedia.org/ontology/date
-
-http://dbpedia.org/ontoloy/Bridge
-
-http://dbpedia.org/ontoloy/abbreviation
-
-http://dbpedia.org/ontoloy/releaseDate
-
-http://purl.org/dc/terms/subject
-
-http://dbpedia.org/ontology/product
-
-http://dbpedia.org/ontoloy/Album
-
-http://dbpedia.org/ontoloy/editor
-
-http://dbpedia.org/ontology/award
-
-http://dbpedia.org/ontoloy/seasonNumber
-
-http://dbpedia.org/ontoloy/subsidiary
-
-http://dbpedia.org/ontoloy/recordLabel
-
-http://dbpedia.org/ontoloy/class
-
-http://dbpedia.org/ontology/coach
-
-http://dbpedia.org/ontoloy/orderInOffice
-
-http://dbpedia.org/ontology/doctoralAdvisor
-
-http://dbpedia.org/ontoloy/Book
-
-http://dbpedia.org/ontology/FormulaOneRacer
-
-http://dbpedia.org/ontology/releaseDate
-
-http://dbpedia.org/ontoloy/height
-
-http://dbpedia.org/ontoloy/RecordLabel
-
-http://dbpedia.org/ontology/
-
-http://dbpedia.org/ontology/Country
-
-http://dbpedia.org/ontology/numberOfEmployees
-
-http://dbpedia.org/ontology/country
-
-http://dbpedia.org/ontoloy/firstAscentPerson
-
-http://dbpedia.org/ontology/starring
-
-http://dbpedia.org/ontoloy/University
-
-http://dbpedia.org/ontology/targetAirport
-
-http://dbpedia.org/ontology/developer
+http://dbpedia.org/ontoloy/manufacturer
 
 http://dbpedia.org/ontoloy/musicComposer
 
-http://dbpedia.org/ontology/restingPlace
-
-http://dbpedia.org/ontology/spouse
+http://dbpedia.org/ontoloy/currency
 
 http://dbpedia.org/ontoloy/field
 
-http://dbpedia.org/ontoloy/elevation
+http://dbpedia.org/property/portrayer
 
-http://dbpedia.org/ontoloy/battle
+http://dbpedia.org/ontoloy/growingGrape
 
-http://dbpedia.org/ontoloy/museum
+http://dbpedia.org/ontoloy/presenter
 
-http://dbpedia.org/ontology/birthYear
+http://dbpedia.org/ontoloy/ingredient
 
-http://dbpedia.org/ontoloy/completionDate
+http://dbpedia.org/ontoloy/numberOfEmployees
 
-http://dbpedia.org/ontology/party
+http://dbpedia.org/ontoloy/bandMember
 
-http://dbpedia.org/ontoloy/sourceCountry
+http://dbpedia.org/ontoloy/creator
 
-http://dbpedia.org/ontoloy/City
+http://dbpedia.org/ontoloy/numberOfVisitors
 
-http://dbpedia.org/ontology/Film
+http://dbpedia.org/ontoloy/ethnicGroup
 
-http://dbpedia.org/ontology/leader
+http://dbpedia.org/ontoloy/activeYearsEndDate
 
-http://dbpedia.org/ontology/movement
+http://dbpedia.org/ontoloy/numberOfLocations
+
+http://dbpedia.org/ontoloy/product
+
+http://dbpedia.org/ontoloy/location
+
+http://dbpedia.org/ontoloy/director
+
+http://dbpedia.org/ontoloy/leaderTitle
+
+http://dbpedia.org/ontoloy/industry
 
 http://dbpedia.org/ontoloy/parent
 
-http://dbpedia.org/ontoloy/leaderName
-
 http://dbpedia.org/ontoloy/budget
 
-http://dbpedia.org/ontoloy/Scientist
+http://dbpedia.org/ontoloy/mayor
 
-http://dbpedia.org/ontoloy/mainspan
+http://dbpedia.org/property/populationTotal
+
+http://dbpedia.org/ontoloy/coach
+
+http://dbpedia.org/ontoloy/author
 
 http://dbpedia.org/property/timezone
 
-http://dbpedia.org/ontology/artist
+http://dbpedia.org/ontoloy/portrayer
 
-http://dbpedia.org/ontoloy/successor
+http://dbpedia.org/ontoloy/team
 
-http://dbpedia.org/ontology/bandMember
+http://dbpedia.org/ontoloy/races
 
-http://dbpedia.org/ontoloy/dissolutionDate
+http://dbpedia.org/ontoloy/date
+
+http://dbpedia.org/ontoloy/party
+
+http://dbpedia.org/ontoloy/residence
+
+http://dbpedia.org/ontoloy/foundedBy
+
+http://dbpedia.org/ontoloy/seatingCapacity
+
+http://dbpedia.org/property/alterEgo
+
+http://dbpedia.org/ontoloy/routeEnd
+
+http://dbpedia.org/ontoloy/discoverer
+
+http://dbpedia.org/ontoloy/composer
+
+http://dbpedia.org/ontoloy/doctoralAdvisor
+
+http://dbpedia.org/ontoloy/developer
 
 http://dbpedia.org/ontoloy/capital
 
 http://dbpedia.org/ontoloy/country
 
-http://dbpedia.org/ontology/connotation
+http://dbpedia.org/ontoloy/ground
 
-http://dbpedia.org/ontology/ethnicGroup
+http://dbpedia.org/ontoloy/governmentType
+
+http://dbpedia.org/ontoloy/releaseDate
+
+http://dbpedia.org/ontoloy/conservationStatus
+
+http://dbpedia.org/ontoloy/artist
+
+http://dbpedia.org/ontoloy/timeZone
+
+http://dbpedia.org/ontoloy/deathPlace
+
+http://dbpedia.org/ontoloy/child
 
 http://dbpedia.org/ontoloy/areaTotal
 
-http://dbpedia.org/ontoloy/DartsPlayer
+http://dbpedia.org/ontoloy/routeStart
 
-http://dbpedia.org/ontology/routeEnd
+http://dbpedia.org/ontoloy/populationTotal
+
+http://dbpedia.org/ontoloy/language
+
+http://dbpedia.org/ontoloy/city
+
+http://dbpedia.org/ontoloy/subsidiary
 
 http://dbpedia.org/property/office
 
-http://dbpedia.org/ontology/team
-
-http://dbpedia.org/ontology/deathDate
-
-http://dbpedia.org/ontoloy/publisher
-
-http://dbpedia.org/ontoloy/almaMater
-
-http://dbpedia.org/ontoloy/Mountain
-
-http://dbpedia.org/ontoloy/influencedBy
-
-http://dbpedia.org/ontoloy/knownFor
-
-http://dbpedia.org/ontoloy/starring
-
-http://dbpedia.org/ontology/Company
-
-http://dbpedia.org/ontoloy/nationality
-
-http://dbpedia.org/ontology/child
-
-http://dbpedia.org/ontology/currency
-
-http://dbpedia.org/ontoloy/numberOfEpisodes
-
-http://dbpedia.org/ontology/manufacturer
-
-http://dbpedia.org/ontology/seatingCapacity
-
-http://dbpedia.org/ontology/ingredient
-
-http://dbpedia.org/ontoloy/Lake
-
-http://dbpedia.org/ontoloy/isPartOf
-
-http://dbpedia.org/ontology/Museum
-
-http://dbpedia.org/ontoloy/headquarter
-
-http://dbpedia.org/ontology/foundedBy
-
-http://dbpedia.org/ontoloy/
-
-http://dbpedia.org/ontology/Bird
-
-http://dbpedia.org/ontoloy/director
-
-http://dbpedia.org/ontology/foundingYear
-
-http://dbpedia.org/ontoloy/founder
-
-http://dbpedia.org/ontoloy/Country
-
-http://dbpedia.org/ontoloy/foundedBy
-
-http://dbpedia.org/ontology/areaTotal
-
-http://dbpedia.org/ontology/timeZone
-
-http://dbpedia.org/ontoloy/Pope
-
-http://dbpedia.org/ontoloy/website
-
-http://dbpedia.org/ontology/writer
-
-http://dbpedia.org/ontology/growingGrape
-
-http://dbpedia.org/ontology/parent
-
-http://dbpedia.org/ontology/races
-
-http://dbpedia.org/ontology/literaryGenre
-
-http://dbpedia.org/ontology/author
-
 http://dbpedia.org/ontoloy/award
 
-http://dbpedia.org/ontology/mayor
-
-http://dbpedia.org/ontology/creator
+http://dbpedia.org/ontoloy/locationCity
 
 http://dbpedia.org/ontoloy/league
 
-http://dbpedia.org/ontology/leaderTitle
+http://dbpedia.org/ontoloy/publisher
 
-http://dbpedia.org/ontology/Album
+http://dbpedia.org/ontoloy/spouse
 
-http://dbpedia.org/ontoloy/Film
+http://dbpedia.org/ontoloy/birthYear
 
-http://dbpedia.org/ontology/Royalty
+http://dbpedia.org/ontoloy/foundingYear
 
-http://dbpedia.org/ontoloy/VideoGame
+http://dbpedia.org/ontoloy/restingPlace
 
-http://dbpedia.org/ontology/capital
-
-http://dbpedia.org/ontology/director
-
-http://dbpedia.org/ontology/Town
-
-http://dbpedia.org/ontology/industry
+http://dbpedia.org/ontoloy/height
 
 http://dbpedia.org/ontoloy/targetAirport
 
+http://dbpedia.org/ontoloy/writer
+
+http://dbpedia.org/ontoloy/movement
+
+http://dbpedia.org/ontoloy/influenced
+
 http://dbpedia.org/ontoloy/deathDate
 
-http://dbpedia.org/ontoloy/Musical
+http://dbpedia.org/ontoloy/birthPlace
 
-http://dbpedia.org/ontoloy/inflow
+http://dbpedia.org/property/location
+
+http://dbpedia.org/ontoloy/starring
 
 http://dbpedia.org/property/artist
 
@@ -396,9 +156,15 @@ http://dbpedia.org/ontoloy/series
 
 http://dbpedia.org/property/country
 
+http://dbpedia.org/ontoloy/literaryGenre
+
 http://dbpedia.org/property/nickname
+
+http://dbpedia.org/ontoloy/foundationPlace
 
 http://dbpedia.org/property/father
 
-http://dbpedia.org/ontoloy/LaunchPad
+http://dbpedia.org/ontoloy/leader
+
+http://dbpedia.org/ontoloy/connotation
 
