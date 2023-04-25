@@ -66,11 +66,11 @@ public class QueGG {
 
 
 
-    public static void main(String[] args1) throws Exception {
+    public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
-        String[] args = new String[]{"conf/inputConf_en.json", "dataset/dbpedia_en.json"};
+        //String[] args = new String[]{"conf/inputConf_en.json", "dataset/dbpedia_en.json"};
 
         
          Properties batch = new Properties();
