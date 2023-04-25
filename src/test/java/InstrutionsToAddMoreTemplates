@@ -1,0 +1,6 @@
+For example for nounPPFrame
+
+1. Extend sentence builder interface (SentenceBuilder)
+2. implement the function  sentence builder interface (SentenceBuilder)
+3. After that write a function NPPGrammarRuleGenerator.java
+4. add the function in the generateFragmentEntry funtion.
