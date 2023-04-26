@@ -166,7 +166,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             batchNumber=batchNumber+1;
             String uri = null, className;
             //String fileName=this.questionAnswerFile.replace(".csv", "_"+lexicalEntiryUri+"-"+this.batchNumber+".csv");
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+ "_"+questionsFile+".csv";
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
                 className = linkedData.getRdfPropertyClass(grammarEntryUnit.getReturnType());
@@ -197,10 +197,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 }
                 if (this.inputCofiguration.getOfflineQuestion()) {
                     try {
-                        //String fileId = grammarEntryUnit.getLexicalEntryUri().toString().replace("http://localhost:8080#", "") + "-" + "dbo_" + bindingType + "-" + property + "-" + "dbo_" + returnType + "-";
-                        //fileId = fileId + grammarEntryUnit.getFrameType() + "-" + grammarEntryUnit.getReturnVariable();
-                        //String questionAnswerFileTemp = this.questionAnswerFile.replace(".csv", "") + "-" + fileId + "-" + (fileIndex++).toString() + ".csv";
-                        //this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFileTemp, true));
                         propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
                         System.out.println(grammarEntryUnits.size()+" now property::"+propertyFile+" "+grammarEntryUnit.getLexicalEntryUri());
                         this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
@@ -208,7 +204,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                         //System.out.println(bindingList);
                         //exit(1);
                     } catch (Exception ex) {
-                         throw new Exception ("property subj or obj is not right!!"+propertyFile);
+                         throw new Exception ("property subj or obj is not right!!"+propertyFile+ " "+ex.getMessage());
                     }
                 } else if (this.inputCofiguration.getEvalutionQuestion()) {
                     String entityFileName = this.inputCofiguration.getEvalutionBindingFile();
@@ -295,7 +291,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                     questionLabel = getUriLabel(questionUri, classType);
                 }
                 else{
-                    throw new Exception ("question Uri is null!!"+questionUri);
+                    throw new Exception ("question Uri is null!!"+uriLabel);
                 }
             }
 

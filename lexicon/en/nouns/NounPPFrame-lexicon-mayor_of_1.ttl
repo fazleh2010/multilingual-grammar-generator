@@ -41,7 +41,7 @@
   lemon:condition           :mayor_of_1_sense_1_condition .
 
 :mayor_of_1_sense_1_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Settlement> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
 
 :arg2 lemon:marker :mayor_of_1_form_preposition .
