@@ -29,7 +29,9 @@ public class DomainRangeDictionary {
         for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
-                if (fileName.contains(domainOrRangeInputFile)) {
+                if (fileName.contains(domainOrRangeOutputFile)) {
+                    if(fileName.contains(".~lock."))
+                       continue; 
                     fileName = inputDir + File.separatorChar + pathname + File.separatorChar + fileName;
                     domainOrRange = findDomainorRangeEnglish(new File(fileName));
                     this.domainOrRangeOutputFile = inputDir + File.separatorChar + pathname + File.separatorChar + domainOrRangeOutputFile;

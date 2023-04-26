@@ -159,7 +159,7 @@ public class FileProcessUtils {
         return mapper.readValue(file, InputCofiguration.class);
     }
 
-    public static Map<String, String> tripleFileToHash(String fileName,Integer limit) {
+    /*public static Map<String, String> tripleFileToHash(String fileName,Integer limit) {
         Map<String, String> results = new TreeMap<String, String>();
         BufferedReader reader;
         String line = "";
@@ -205,7 +205,7 @@ public class FileProcessUtils {
 
         return results;
 
-    }
+    }*/
  
     /*public static void matchLabelsWithEntities(String propertyFile, String labelFileName,Integer numberOfTriples) {
         BufferedReader reader;
@@ -358,53 +358,41 @@ public class FileProcessUtils {
         Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
         BufferedReader reader;
         String line = "";
-        File file = new File(propertyFile);
-        String content = "";
         Integer lineNumber = 0;
 
-        
         try {
             reader = new BufferedReader(new FileReader(propertyFile));
             while ((line = reader.readLine()) != null) {
-                //line = reader.readLine();
                 String subjectUri = null, subjectLabel = null, objectUri = null, objectLabel = null;
-                if (line != null) {
-                    //line = line.replace(".", "");
-                    String[] lines = line.split(" ");
-                    
+                line=filterLine(line);
+                String[] lines = line.split(" ");
+
                     Integer index = 0;
                     Boolean flag = false;
                     for (String value : lines) {
                         index = index + 1;
-                        //value = value.replace("<", "");
-                        //value = value.replace(">", "");
-                        //value = value.replace("\"", "");
                         if (index == 1) {
                             subjectUri = clean(value);
                             Pair<Boolean, String> pair = findLabel(subjectUri);
                             if (pair.getFirst()) {
                                 subjectLabel = pair.getSecond();
-                            } 
+                            }
                         } else if (index == 3) {
                             objectUri = clean(value);
                             Pair<Boolean, String> pair = findLabel(objectUri);
                             if (pair.getFirst()) {
                                 objectLabel = pair.getSecond();
-                            } 
+                            }
                         }
 
                     }
 
                     lineNumber = lineNumber + 1;
-                    
-                    System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel
-                            + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
 
-                        
+                    //System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel
+                    //        + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
                     OffLineResult offLineResult = new OffLineResult(subjectUri, subjectLabel, objectUri, objectLabel);
                     entityLabels.put(line, offLineResult);
-
-                    }
             }
             reader.close();
         } catch (IOException e) {
@@ -488,13 +476,12 @@ public class FileProcessUtils {
     }*/
 
     private static String clean(String value) {
-        value = value.replace("<", "");
-        value = value.replace(">", "");
+        value = value.replace("<", "").replace(">", "").trim().strip().stripLeading().stripTrailing();
         //value = value.replace("http://dbpedia.org/resource/", "");
         //value = value.replace("http://dbpedia.org/ontology/", "");
         //value = value.replace("^^<http://www.w3.org/2001/XMLSchema#date>", "");
         //value = value.replace("\"", "");
-        value = value.trim().strip().stripLeading().stripTrailing();
+        //value = value.trim().strip().stripLeading().stripTrailing();
         return value;
     }
 
@@ -735,6 +722,14 @@ public class FileProcessUtils {
         String label=pair.getSecond();
         System.out.println(label);
         
+    }
+
+    private static String filterLine(String line) {
+        if (line.contains(".ttl:")) {
+            String[] info = line.split(".ttl:");
+            return info[1];
+        }
+        return line;
     }
 
 

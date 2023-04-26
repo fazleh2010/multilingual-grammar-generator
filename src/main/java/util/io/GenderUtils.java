@@ -90,6 +90,7 @@ public class GenderUtils implements TempConstants {
         uri = Property.shortPrefix(uri);
         if (nounWrittenForms.containsKey(uri)) {
             result = nounWrittenForms.get(uri)[0];
+            //System.out.println(nounWrittenForms.get(uri)[0]+" "+nounWrittenForms.get(uri)[1]);
         }
 
         return result;
