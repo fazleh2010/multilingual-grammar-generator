@@ -45,7 +45,7 @@ public class AddQuote {
         String property = StringUtils.substringBetween(sparqlQueryOrg, "<", ">");
         property = property.replace("http://dbpedia.org/ontology/", "dbo_");
         property = property.replace("http://dbpedia.org/property/", "dbp_");
-        return entityDir + property + ".ttl";
+        return entityDir + property + ".txt";
     }
 
     public static String getEntity(String entityDir, String bindingType) {

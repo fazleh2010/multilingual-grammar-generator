@@ -31,7 +31,10 @@ public class UriLabel {
     
     private String answerUri;
     private String answerLabel;
-    ;
+    
+    private String abstractText;
+    private String wikiLink;
+    private String thumbnail;
     private String returnSubjOrObj;
 
 
@@ -53,11 +56,14 @@ public class UriLabel {
         this.returnSubjOrObj=returnSubjOrObj;
     }
     
-    public UriLabel(String uri, String label, String answerUri, String answerLabel) {
+    public UriLabel(String uri, String label, String answerUri, String answerLabel,String wikiLink,String thumbnail,String abstractText) {
         this.uri = uri;
         this.label = label;
         this.answerUri = answerUri;
         this.answerLabel = answerLabel;
+        this.abstractText = abstractText;
+        this.wikiLink = wikiLink;
+        this.thumbnail = thumbnail;
     }
 
     public String getLabel() {
@@ -75,6 +81,19 @@ public class UriLabel {
     public String getAnswerLabel() {
         return answerLabel;
     }
+
+    public String getAbstractText() {
+        return abstractText;
+    }
+
+    public String getWikiLink() {
+        return wikiLink;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+    
 
     @Override
     public String toString() {

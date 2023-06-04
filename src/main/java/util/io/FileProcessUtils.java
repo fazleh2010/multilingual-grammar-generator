@@ -9,7 +9,6 @@ import linkeddata.LinkedData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.gdata.util.common.base.Pair;
 import evaluation.Matcher;
 import grammar.read.questions.UriLabel;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
@@ -26,7 +25,6 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import static java.lang.System.exit;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -50,6 +48,7 @@ import static util.io.FileFolderUtils.getHash;
  * @author elahi
  */
 public class FileProcessUtils {
+    
 
     public static void stringToFile(String content, String fileName)
             throws IOException {
@@ -58,6 +57,8 @@ public class FileProcessUtils {
         writer.close();
 
     }
+    
+    
 
     public static String fileToString(String fileName) {
         InputStream is;
@@ -156,7 +157,7 @@ public class FileProcessUtils {
         return mapper.readValue(file, InputCofiguration.class);
     }
 
-    /*public static Map<String, String> tripleFileToHash(String fileName,Integer limit) {
+    public static Map<String, String> tripleFileToHash(String fileName,Integer limit) {
         Map<String, String> results = new TreeMap<String, String>();
         BufferedReader reader;
         String line = "";
@@ -202,8 +203,9 @@ public class FileProcessUtils {
 
         return results;
 
-    }*/
- /*public static void matchLabelsWithEntities(String propertyFile, String labelFileName,Integer numberOfTriples) {
+    }
+ 
+    /*public static void matchLabelsWithEntities(String propertyFile, String labelFileName,Integer numberOfTriples) {
         BufferedReader reader;
         String line = "";
         File file = new File(labelFileName);
@@ -292,7 +294,8 @@ public class FileProcessUtils {
         }
 
     }*/
- /*public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) {
+    
+    public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) {
         Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
         BufferedReader reader;
         String line = "";
@@ -300,7 +303,16 @@ public class FileProcessUtils {
         String content = "";
         Integer lineNumber = 0;
 
-        
+        /*Set<String> subjectClass=new TreeSet<String>();
+        Set<String> objectClass=new TreeSet<String>();
+
+        if (returnSubjOrObj.contains(RETURN_TYPE_SUBJECT)) {
+            subjectClass = FileUtils.getClassHash(getClass(classDir, returnType, ".txt"));
+            objectClass = FileUtils.getClassHash(getClass(classDir, bindingType, ".txt"));
+        } else {
+            objectClass = FileUtils.getClassHash(getClass(classDir, returnType, ".txt"));
+            subjectClass = FileUtils.getClassHash(getClass(classDir, bindingType, ".txt"));
+        }*/
         try {
             reader = new BufferedReader(new FileReader(propertyFile));
             while ((line = reader.readLine()) != null) {
@@ -335,56 +347,34 @@ public class FileProcessUtils {
                     System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel);
                     //        + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
 
+                    //if (match(subjectClass,subjectUri) && match(objectClass,objectUri)) {
+                    
+                    /*if (wikilink.containsKey(subjectUri)) {
+                        subjectWiki = wikilink.get(subjectUri);
+                    } else if (thumbnail.containsKey(subjectUri)) {
+                        subjectThum = thumbnail.get(subjectUri);
+                    } else if (thumbnail.containsKey(subjectUri)) {
+                        subjectAbstract = thumbnail.get(subjectUri);
+                    }
+
+                    if (wikilink.containsKey(objectUri)) {
+                        objectWiki = wikilink.get(objectUri);
+                    } else if (thumbnail.containsKey(objectUri)) {
+                         objectThum = thumbnail.get(objectUri);
+                    } else if (thumbnail.containsKey(objectUri)) {
+                         objectAbstract = thumbnail.get(objectUri);
+                    }*/
+                    
                         
                     OffLineResult offLineResult = new OffLineResult(subjectUri, subjectLabel, objectUri, objectLabel, subjectWiki, subjectThum, subjectAbstract, objectWiki, objectThum, objectAbstract);
+                    /*System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel
+                                + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);*/
                     entityLabels.put(line, offLineResult);
 
-                    }
-            }
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("come here!!!");
-            e.printStackTrace();
-        }
-        return entityLabels;
-    }*/
-    public static Map<String, OffLineResult> getEntityLabels(String propertyFile, String classDir, String returnSubjOrObj, String bindingType, String returnType) {
-        Map<String, OffLineResult> entityLabels = new TreeMap<String, OffLineResult>();
-        BufferedReader reader;
-        String line = "";
-        Integer lineNumber = 0;
-
-        try {
-            reader = new BufferedReader(new FileReader(propertyFile));
-            while ((line = reader.readLine()) != null) {
-                String subjectUri = "", subjectLabel = "", objectUri = "", objectLabel = "", property = "";
-                line = filterLine(line);
-                line = line.replace(">", ">\n");
-                String[] lines = line.split("\n");
-
-                subjectUri = clean(lines[0]);
-                objectUri = clean(lines[2]);
-                //System.out.println(" subjectUri::" + subjectUri + " objectUri::" + objectUri);
-                
-                Pair<String, String> subjInfo=getUriLabel(subjectUri);
-                subjectUri=subjInfo.getFirst();
-                subjectLabel =subjInfo.getSecond();
-                
-                Pair<String, String> objInfo=getUriLabel(objectUri);
-                objectUri=objInfo.getFirst();
-                objectLabel=objInfo.getSecond();
-
-                if (subjectUri.isEmpty() || objectUri.isEmpty() || subjectLabel.isEmpty() || objectLabel.isEmpty()) {
-                    //System.out.println(line);
-                    System.out.println(lineNumber + " subject:" + subjectUri + " subjectLabel:" + subjectLabel
-                            + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
-                    //exit(1);
+                    //}
+                    //System.out.println(lineNumber+" subject:" + subjectUri + " subjectLabel:" + subjectLabel
+                    //        + " " + " objectUri:" + objectUri + " " + " objectLabel:" + objectLabel);
                 }
-
-                lineNumber = lineNumber + 1;
-
-                OffLineResult offLineResult = new OffLineResult(subjectUri, subjectLabel, objectUri, objectLabel);
-                entityLabels.put(line, offLineResult);
             }
             reader.close();
         } catch (IOException e) {
@@ -392,41 +382,13 @@ public class FileProcessUtils {
             e.printStackTrace();
         }
         return entityLabels;
-    }
-    
-    private static Pair<String, String> getUriLabel(String objectUri) {
-        String objectLabel="";
-        if (objectUri.contains("^^<http://")) {
-            String[] info = objectUri.split("^^<http://");
-            objectUri = info[0].trim().strip();
-            objectLabel = objectUri;
-        } else if (objectUri.contains("http://dbpedia.org/resource/")) {
-            Pair<Boolean, String> pair = findLabel(objectUri);
-            if (pair.getFirst()) {
-                objectLabel = pair.getSecond();
-            }
-
-        } else {
-            if (objectUri.contains("@")) {
-                objectUri = objectUri.replace("@en", "");
-                objectUri = objectUri.replace("@de", "");
-                objectUri = objectUri.replace("@it", "");
-                objectUri = objectUri.replace("@es", "");
-                objectLabel = objectUri;
-            } else {
-                objectLabel = objectUri;
-            }
-
-        }
-        objectUri = objectUri.replace("\"", "");
-        objectLabel = objectLabel.replace("\"", "");
-
-        return new Pair<String, String> (objectUri,objectLabel);
     }
 
     private static String getClass(String classDir, String entity, String extension) {
         return classDir + "dbo_" + entity + extension;
     }
+
+
 
     /*public static Map<String, OffLineResult> matchLabelsWithEntities( String classFileName,String labelFileName) {
         Map<String, OffLineResult> results = new TreeMap<String, OffLineResult>();
@@ -482,7 +444,7 @@ public class FileProcessUtils {
         return results;
     }*/
 
- /*public static Map<String, String> tripleFileToHash(String labelFileName, String classFileName) {
+    /*public static Map<String, String> tripleFileToHash(String labelFileName, String classFileName) {
         Map<String, String> results = new TreeMap<String, String>();
 
         Map<String, String> classEntities = tripleFileToHash(classFileName);
@@ -494,13 +456,15 @@ public class FileProcessUtils {
         return results;
 
     }*/
+
     private static String clean(String value) {
-        value = value.replace("<", "").replace(">", "").trim().strip().stripLeading().stripTrailing();
+        value = value.replace("<", "");
+        value = value.replace(">", "");
         //value = value.replace("http://dbpedia.org/resource/", "");
         //value = value.replace("http://dbpedia.org/ontology/", "");
         //value = value.replace("^^<http://www.w3.org/2001/XMLSchema#date>", "");
         //value = value.replace("\"", "");
-        //value = value.trim().strip().stripLeading().stripTrailing();
+        value = value.trim().strip().stripLeading().stripTrailing();
         return value;
     }
 
@@ -638,9 +602,9 @@ public class FileProcessUtils {
     }
 
     private static Map<String, String> reverseHash(Map<String, String> propertySubObjEntities) {
-        Map<String, String> reverseHash = new TreeMap<String, String>();
-        for (String key : propertySubObjEntities.keySet()) {
-            String value = propertySubObjEntities.get(key);
+        Map<String, String> reverseHash=new TreeMap<String, String>();
+        for(String key:propertySubObjEntities.keySet()){
+            String value=propertySubObjEntities.get(key);
             reverseHash.put(value, key);
         }
         return reverseHash;
@@ -668,15 +632,15 @@ public class FileProcessUtils {
     }
 
     private static boolean match(Set<String> subjectClass, String subjectUri) throws MalformedURLException {
-        subjectUri = Matcher.cleanLine(Matcher.cleanUrl(subjectUri));
-        if (subjectClass.contains(subjectUri)) {
+        subjectUri=Matcher.cleanLine(Matcher.cleanUrl(subjectUri));
+        if(subjectClass.contains(subjectUri)){
             return true;
         }
         return false;
     }
 
     public static Set<String> filetoSet(String fileName) {
-        Set<String> results = new TreeSet<String>();
+          Set<String> results = new TreeSet<String>();
         String line = "";
         BufferedReader reader = null;
         File file = new File(fileName);
@@ -695,6 +659,7 @@ public class FileProcessUtils {
         return results;
     }
 
+  
     public static Set<String> getSetFromFile(String propertyFile) {
         Set<String> results = new TreeSet<String>();
 
@@ -716,37 +681,19 @@ public class FileProcessUtils {
 
         return results;
     }
-
+    
     public static <T> Set<T> findCommonElements(Set<T> common, Set<T> second) {
         common.retainAll(second);
         return common;
     }
 
-    private static Pair<Boolean, String> findLabel(String url) {
-        try {
-            String label = new File(new URL(url).getPath()).getName();
-            label = label.replace("_", " ");
-            return new Pair<Boolean, String>(Boolean.TRUE, label);
-        } catch (MalformedURLException ex) {
-            return new Pair<Boolean, String>(Boolean.FALSE, null);
-        }
-
+    private static Map<String, String> getWikiLinks(String wikilinkFile) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static void main(String[] args) throws MalformedURLException {
-        String uri = "";
-        Pair<Boolean, String> pair = findLabel(uri);
-        String label = pair.getSecond();
-        System.out.println(label);
-
+    private static Map<String, String> getAbstract(String abstractFile) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static String filterLine(String line) {
-        if (line.contains(".ttl:")) {
-            String[] info = line.split(".ttl:");
-            return info[1];
-        }
-        return line;
-    }
 
 }

@@ -55,7 +55,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     //NounPPFrame
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
-         //What is the capital of Cameron?
+          //What is the capital of Cameron?
           "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
           "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
           "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
@@ -123,7 +123,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
          "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
          //the Dracula's creator
-         "determiner adjunct(domain) Apostrophe noun(reference:singular)?"      
+         "determiner adjunct(domain) Apostrophe noun(reference:singular)?"
+                
                 ),
         NounPPFrame,
         nounPhrase

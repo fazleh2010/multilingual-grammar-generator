@@ -166,7 +166,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             batchNumber=batchNumber+1;
             String uri = null, className;
             //String fileName=this.questionAnswerFile.replace(".csv", "_"+lexicalEntiryUri+"-"+this.batchNumber+".csv");
-            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+ "_"+questionsFile+".csv";
+            String questionAnswerFile = this.inputCofiguration.getQuestionDir() + File.separator +this.batchNumber.toString()+"_"+lexicalEntiryUri+"_"+"NPP"+ "_"+questionsFile+".csv";
             this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFile, true));
             for (GrammarEntryUnit grammarEntryUnit : grammarEntryUnits) {
                 className = linkedData.getRdfPropertyClass(grammarEntryUnit.getReturnType());
@@ -177,7 +177,6 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 String returnType = grammarEntryUnit.getReturnType();
                 List<UriLabel> bindingList = grammarEntryUnit.getBindingList();
                 String property = AddQuote.getProperty(grammarEntryUnit.getSparqlQuery());
-                String propertyFile =null;
 
                 if (grammarEntryUnit.getLexicalEntryUri() != null) {
                     uri = grammarEntryUnit.getLexicalEntryUri().toString();
@@ -197,14 +196,18 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                 }
                 if (this.inputCofiguration.getOfflineQuestion()) {
                     try {
-                        propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
-                        System.out.println(grammarEntryUnits.size()+" now property::"+propertyFile+" "+grammarEntryUnit.getLexicalEntryUri());
+                        //String fileId = grammarEntryUnit.getLexicalEntryUri().toString().replace("http://localhost:8080#", "") + "-" + "dbo_" + bindingType + "-" + property + "-" + "dbo_" + returnType + "-";
+                        //fileId = fileId + grammarEntryUnit.getFrameType() + "-" + grammarEntryUnit.getReturnVariable();
+                        //String questionAnswerFileTemp = this.questionAnswerFile.replace(".csv", "") + "-" + fileId + "-" + (fileIndex++).toString() + ".csv";
+                        //this.csvWriterQuestions = new CSVWriter(new FileWriter(questionAnswerFileTemp, true));
+                        String propertyFile = AddQuote.getProperty(this.propertyDir, grammarEntryUnit.getSparqlQuery());
+                        System.out.println("propertyFile::"+propertyFile);
                         this.entityLabels = FileProcessUtils.getEntityLabels(propertyFile, classDir, returnSubjOrObj, bindingType, returnType);
                         bindingList = this.getOffLineBindingList(entityLabels, returnSubjOrObj);
                         //System.out.println(bindingList);
                         //exit(1);
                     } catch (Exception ex) {
-                         throw new Exception ("property subj or obj is not right!!"+propertyFile+ " "+ex.getMessage());
+                        continue;
                     }
                 } else if (this.inputCofiguration.getEvalutionQuestion()) {
                     String entityFileName = this.inputCofiguration.getEvalutionBindingFile();
@@ -261,7 +264,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
 
     }
     
-     private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException, Exception {
+     private Integer questionGeneration(String uri, String sparqlQuery, List<UriLabel> uriLabels, List<String> questions, Integer rowIndex, String lexicalEntry, GrammarEntryUnit grammarEntryUnit, Map<String, OffLineResult> entityLabels) throws IOException {
         Integer index = 0;
         String returnSubjOrObj = grammarEntryUnit.getReturnVariable();
         String syntacticFrame = grammarEntryUnit.getFrameType();
@@ -279,19 +282,16 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             String questionUri = uriLabel.getUri(), questionLabel = uriLabel.getLabel();
             String answerWiki = null, answerThumb = null, answerAbstract = null;
 
-            if (questionUri != null && questionLabel!=null) {
+            if (questionUri != null && !questionLabel.isEmpty()) {
                 questionUri = questionUri.trim().strip().stripLeading().stripTrailing();
                 questionLabel = uriLabel.getLabel().replaceAll("\'", "").replaceAll("\"", "");
                 //bashScript=  new BashScript(menus, inputCofiguration.getWikiFile(), inputCofiguration.getAbstractFile(),inputCofiguration.getWikiFile(),  questionUri);
 
-            } else {
+            } else if (questionLabel.isEmpty()) {
                 //find labels for the specific database
                 if (this.online) {
                     String classType = this.linkedData.getClassProperty();
                     questionLabel = getUriLabel(questionUri, classType);
-                }
-                else{
-                    throw new Exception ("question Uri is null!!"+uriLabel);
                 }
             }
 
@@ -353,8 +353,8 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                             continue;
                         }
 
-                        String[] newRecord = {id, questionT, sparql, answerUri, answerLabel, syntacticFrame, "single"};
-                        //String[] newRecord = AddQuote.doubleQuote(record);
+                        String[] record = {id, questionT, sparql, answerUri, answerLabel, syntacticFrame, "single"};
+                        String[] newRecord = AddQuote.doubleQuote(record);
                         //System.out.println("answerWiki::" + answerWiki + " answerThumb::" + answerThumb+" answerAbstract::"+answerAbstract);
 
                         if (this.online) {
@@ -367,7 +367,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
                             }
                         }
                         else {
-                            //System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
+                            System.out.println("index::" + index + " questionT::" + questionT + " answerUri:" + answerUri + " answerLabel:" + answerLabel + " sparql:" + sparql);
                             this.csvWriterQuestions.writeNext(newRecord);
                             rowIndex = rowIndex + 1;
                         }
@@ -528,10 +528,10 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
             OffLineResult offLineResult = entityLabels.get(uri);
             UriLabel uriLabel = null;
             if (returnType.contains(RETURN_TYPE_SUBJECT)) {
-                uriLabel = new UriLabel(offLineResult.getObjectUri(), offLineResult.getObjectLabel(), offLineResult.getSubjectUri(), offLineResult.getSubjectLabel());
+                uriLabel = new UriLabel(offLineResult.getObjectUri(), offLineResult.getObjectLabel(), offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getSubjectWikiLink(), offLineResult.getSubjectThumbnail(), offLineResult.getSubjectAbstractText());
 
             } else {
-                uriLabel = new UriLabel(offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getObjectUri(), offLineResult.getObjectLabel());
+                uriLabel = new UriLabel(offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getObjectUri(), offLineResult.getObjectLabel(), offLineResult.getObjectWikiLink(), offLineResult.getObjectThumbnail(), offLineResult.getObjectAbstractText());
             }
             uriLabels.add(uriLabel);
 
@@ -549,7 +549,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         List<UriLabel> urlLabels = new ArrayList<UriLabel>();
         for (String key : entityLabels.keySet()) {
             OffLineResult offLineResult = entityLabels.get(key);
-            UriLabel uriLabel = new UriLabel(offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getObjectUri(), offLineResult.getObjectLabel());
+            UriLabel uriLabel = new UriLabel(offLineResult.getSubjectUri(), offLineResult.getSubjectLabel(), offLineResult.getObjectUri(), offLineResult.getObjectLabel(), null, null, null);
             urlLabels.add(uriLabel);
         }
         return urlLabels;
