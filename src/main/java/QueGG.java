@@ -1,11 +1,20 @@
 
+import evalution.Evalution;
+import evalution.QALD;
 import lombok.NoArgsConstructor;
+import parser.Grammar;
+import parser.GrammarFactory;
 
 @NoArgsConstructor
 public class QueGG {
+    private static String grammarFileName="";
+    private static String qaldFileName="";
 
     public static void main(String[] args) throws Exception {
         System.out.println("Grammar Parser!!!");
+        String sentence="";
+        Grammar grammar=new GrammarFactory(grammarFileName).getGrammar();
+        Evalution evalution=new Evalution(new QALD(qaldFileName));
 
         try {
             if (args.length < 2) {
