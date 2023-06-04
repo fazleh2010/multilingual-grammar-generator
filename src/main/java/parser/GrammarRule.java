@@ -1,9 +1,11 @@
 package parser;
 
+import utils.QAElement;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import utils.UriLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,21 +27,34 @@ public class GrammarRule {
     private QAElement qaElement = null;
     private Map<String, String> entityMap = new TreeMap<String, String>();
 
-    public GrammarRule(String rule, String sparql, Map<String, String> entityMap) {
-        this.qaElement = new QAElement(rule, sparql);
-
+    public GrammarRule(List<String> questions, String sparql, List<UriLabel> bindingList) {
+       this.qaElement = new QAElement(questions, sparql);
+       this.findUriLables(bindingList);
+    }
+    
+    private void findUriLables(List<UriLabel> bindingList) {
+        for(UriLabel uriLabel:bindingList){
+            entityMap.put(uriLabel.getUri(), uriLabel.getLabel());
+        }
     }
 
     public Map<String, String> getEntityMap() {
         return entityMap;
     }
 
-    String getQuestion() {
+    public List<String> getQuestion() {
         return this.qaElement.getQuestion();
     }
 
-    String getSparql() {
+    public String getSparql() {
         return this.qaElement.getSparql();
     }
+
+    @Override
+    public String toString() {
+        return "GrammarRule{" + "qaElement=" + qaElement + ", entityMap=" + entityMap + '}';
+    }
+
+   
 
 }

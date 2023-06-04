@@ -21,21 +21,20 @@ public class Grammar {
         this.grammarRules = grammarRules;
     }
 
-    Grammar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     //The methods return a SPARQL query or „null“ if there is no parse.
     public String parser(String sentence) {
         String sparqlQuery = null;
 
         for (GrammarRule grammarRule : grammarRules) {
             if (this.isMatch(sentence, grammarRule)) {
-                String uri = this.findEntityUri(grammarRule.getQuestion());
-                sparqlQuery = this.prepareSparql(grammarRule.getSparql(), uri);
-                break;
+                List<String> questions = grammarRule.getQuestion();
+                if (!questions.isEmpty()) {
+                    String question = grammarRule.getQuestion().iterator().next();
+                    String uri = this.findEntityUri(question);
+                    sparqlQuery = this.prepareSparql(grammarRule.getSparql(), uri);
+                    break;
+                }
             }
-
         }
         return sparqlQuery;
 
