@@ -563,6 +563,7 @@ public class FileFolderUtils {
     public static void deleteFiles(String inputDir, String extension) {
         File f = new File(inputDir);
         String[] pathnames = f.list();
+        try{
         for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separator + pathname).list();
             for (String fileName : files) {
@@ -577,6 +578,9 @@ public class FileFolderUtils {
 
             }
 
+        }
+        }catch(Exception ex){
+            return;
         }
 
     }

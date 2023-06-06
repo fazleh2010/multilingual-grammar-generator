@@ -58,7 +58,8 @@ import static grammar.datasets.sentencetemplates.TempConstants.superlativeLocati
 public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
     private static final Logger LOG = LogManager.getLogger(GrammarRuleGeneratorRoot.class);
-    private static String endpoint;
+    private static String endpoint=null;
+    //"https://dbpedia.org/sparql";
 
 
     /**
@@ -132,6 +133,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
     @Override
     public void generateBindings(GrammarEntry grammarEntry) {
+        System.out.println("endpoint:::"+endpoint);
         if (endpoint.contains("dbpedia")) {
             generateBindingsDBpedia(grammarEntry);
         } else  {

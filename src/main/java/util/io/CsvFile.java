@@ -154,7 +154,7 @@ public class CsvFile implements CsvConstants {
         Stack<String> stack = new Stack<String>();
         CSVReader reader;
         try {
-
+            System.out.println(qaldFile);
             reader = new CSVReader(new FileReader(qaldFile));
             rows = reader.readAll();
 

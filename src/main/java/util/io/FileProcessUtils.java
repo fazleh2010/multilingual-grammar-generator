@@ -84,7 +84,6 @@ public class FileProcessUtils {
     public static List<File> getFiles(String fileDir, String category, String extension) {
         String[] files = new File(fileDir).list();
         List<File> selectedFiles = new ArrayList<File>();
-        System.out.println(fileDir);
         for (String fileName : files) {
             if (fileName.contains(category) && fileName.contains(extension)) {
                 selectedFiles.add(new File(fileDir + fileName));

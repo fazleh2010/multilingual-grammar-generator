@@ -26,7 +26,7 @@ public class DomainRangeDictionary {
         CsvFile inputCsvFile = new CsvFile();
         Map<String, List<String>> domainOrRange = new TreeMap<String, List<String>>();
 
-        for (String pathname : pathnames) {
+        /*for (String pathname : pathnames) {
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
                 if (fileName.contains(domainOrRangeInputFile)) {
@@ -46,8 +46,8 @@ public class DomainRangeDictionary {
 
         }
 
-        inputCsvFile.writeToCSV(new File(this.domainOrRangeOutputFile), csvData);
-        this.domainOrRange = findDomainorRangeEnglish(new File(this.domainOrRangeOutputFile));
+        inputCsvFile.writeToCSV(new File(this.domainOrRangeOutputFile), csvData);*/
+        this.domainOrRange = findDomainorRangeEnglish(new File(inputDir + File.separatorChar +this.domainOrRangeOutputFile));
 
     }
 

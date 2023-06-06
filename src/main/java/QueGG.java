@@ -72,7 +72,7 @@ public class QueGG {
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-
+         args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
        
         try {
             if (args.length < 2) {
@@ -87,11 +87,18 @@ public class QueGG {
           
                 if (inputCofiguration.isCsvToTurtle()) {
                     if (queGG.csvToProto(inputCofiguration)) {
-                        queGG.turtleToProto(inputCofiguration);
+                        //queGG.turtleToProto(inputCofiguration);
+                        System.out.println("successfully converted csv files to turtle file!!");
                     }
+                }
+                if (inputCofiguration.getTurtleToProtoType()) {
+                    queGG.turtleToProto(inputCofiguration);
+                    System.out.println("successfully converted csv files to turtle file!!");
+                   
                 }
                 if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
+                    System.out.println("successfully converted turtle files to grammar file (.json)!!");
                 }
                 if (inputCofiguration.isEvalution()) {
                     Language language = inputCofiguration.getLanguage();
@@ -189,8 +196,6 @@ public class QueGG {
     private Boolean csvToProto(InputCofiguration inputCofiguration) throws Exception {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getInputDir();
-        String outputDir = inputCofiguration.getOutputDir();
-        Integer numberOfEntitiesString = inputCofiguration.getNumberOfEntities();
         LinkedData linkedData = inputCofiguration.getLinkedData();
         setDataSet(linkedData);
         TutleConverter tutleConverter = null;
@@ -226,10 +231,6 @@ public class QueGG {
     private void protoToReal(InputCofiguration inputCofiguration, String grammar_FULL_DATASET, String grammar_COMBINATIONS) throws Exception {
         Language language = inputCofiguration.getLanguage();
         String inputDir = inputCofiguration.getOutputDir();
-        String entityDir=inputCofiguration.getEntityDir();
-        String questionDir=inputCofiguration.getQuestionDir();
-        String classDir=inputCofiguration.getClassDir();
-        Integer maxNumberOfEntities = inputCofiguration.getNumberOfEntities();
         Boolean combinedFlag=inputCofiguration.getCompositeFlag();
         Boolean singleFlag=inputCofiguration.getSingleFlag();
         LinkedData linkedData = inputCofiguration.getLinkedData();
@@ -360,7 +361,7 @@ public class QueGG {
 
         // Generate bindings
         LOG.info("Start generation of bindings");
-        grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
+        //grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
 
         generatorRoot.dumpToJSON(
                 Path.of(
