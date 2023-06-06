@@ -87,7 +87,7 @@ public class QueGG {
           
                 if (inputCofiguration.isCsvToTurtle()) {
                     if (queGG.csvToProto(inputCofiguration)) {
-                        //queGG.turtleToProto(inputCofiguration);
+                        queGG.turtleToProto(inputCofiguration);
                         System.out.println("successfully converted csv files to turtle file!!");
                     }
                 }

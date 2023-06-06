@@ -17,7 +17,7 @@
   "qaldDir"      : "qald7Modified/",
   "numberOfEntities" : 100,
   "similarityThresold" : 0.7,
-  "csvToTurtle" : false,
+  "csvToTurtle" : true,
   "turtleToProtoType" : true,
   "single": false,
   "composite": false,
