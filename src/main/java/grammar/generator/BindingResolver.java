@@ -27,7 +27,7 @@ public class BindingResolver {
     GrammarWrapper grammarWrapper = new GrammarWrapper();
 
     // only include full sentences into the final dataset
-    List<GrammarEntry> sentenceEntries = grammarEntries
+    /*List<GrammarEntry> sentenceEntries = grammarEntries
       .parallelStream()
       .filter(grammarEntry -> grammarEntry.getType().equals(SentenceType.SENTENCE))
       .collect(Collectors.toList());
@@ -69,7 +69,7 @@ public class BindingResolver {
 
                         //insert binding into SPARQL query
                         grammarEntryNew.setSparqlQuery(insertBindingInSPARQL(
-                          grammarEntryNew.getBindingVariable(),
+                          "",
                           binding.getUri(),
                           grammarEntryNew.getSparqlQuery()
                         ));
@@ -78,7 +78,7 @@ public class BindingResolver {
         } else {
           LOG.warn("There are no bindings for grammarEntry id {}", grammarEntry.getId());
         }
-      });
+      });*/
     return grammarWrapper;
   }
 

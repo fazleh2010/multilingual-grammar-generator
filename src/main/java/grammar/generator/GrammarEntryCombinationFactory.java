@@ -67,7 +67,7 @@ public class GrammarEntryCombinationFactory {
 
                         String matchToken = String.format(
                                 "\\(%s \\| %s_%s\\)",
-                                sentenceEntry.getSentenceBindings().getBindingVariableName(),
+                                "",
                                 sentenceEntry.getBindingType(),
                                 sentenceType
                         );
@@ -81,7 +81,7 @@ public class GrammarEntryCombinationFactory {
                 }
                 String newQueryPattern = combineSPARQL(
                         sentenceEntry.getSparqlQuery(),
-                        sentenceEntry.getBindingVariable(),
+                        "",
                         filteredEntry.getSparqlQuery(),
                         filteredEntry.getReturnVariable(),
                         newMappingForBindingVariable
@@ -99,15 +99,15 @@ public class GrammarEntryCombinationFactory {
 
                 // Get binding-related properties from filteredEntry
                 SentenceBindings combinedBindings = new SentenceBindings();
-                combinedBindings.setBindingVariableName(filteredEntry.getSentenceBindings().getBindingVariableName());
-                combinedEntry.setSentenceBindings(combinedBindings);
+                combinedBindings.setBindingVariableName("");
+                //combinedEntry.setSentenceBindings(combinedBindings);
                 combinedEntry.setBindingType(filteredEntry.getBindingType());
 
-                if (!isNull(filteredEntry.getSentenceToSparqlParameterMapping())) {
+                /*if (!isNull(filteredEntry.getSentenceToSparqlParameterMapping())) {
                     Map<String, String> combinedMap = new HashMap<>();
                     combinedMap.put(filteredEntry.getSentenceBindings().getBindingVariableName(), filteredEntry.getBindingVariable() + newMappingForBindingVariable);
                     combinedEntry.setSentenceToSparqlParameterMapping(combinedMap);
-                }
+                }*/
 
                 combinations.add(combinedEntry);
             }

@@ -152,7 +152,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         if(type.contains(backward)){
            fragmentEntry.setReturnType(grammarEntry.getBindingType());
            fragmentEntry.setBindingType(grammarEntry.getReturnType());
-           fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+           //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
         }
         else{
            fragmentEntry.setReturnType(grammarEntry.getReturnType());
@@ -163,9 +163,9 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         fragmentEntry.setSentenceTemplate(this.senTemplate);
         
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
-        sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
-                grammarEntry.getReturnVariable());
-        fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
+        //sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
+        //        grammarEntry.getReturnVariable());
+        //fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
         String reference = "", sparql = "";
         if (type.contains(booleanQuestionDomainRange) || type.contains(booleanQuestionDomain)) {
             fragmentEntry.setQueryType(QueryType.ASK);

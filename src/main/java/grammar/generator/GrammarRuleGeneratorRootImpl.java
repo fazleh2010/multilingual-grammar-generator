@@ -78,11 +78,11 @@ public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
     String returnVariableName = SelectVariable.objOfProp.getVariableName();
     Map<String, String> sentenceSparqlMap = new HashMap<>();
     sentenceSparqlMap.put(getBindingVariable(), bindingVariableName);
-    grammarEntry.setSentenceToSparqlParameterMapping(sentenceSparqlMap);
+    //grammarEntry.setSentenceToSparqlParameterMapping(sentenceSparqlMap);
     grammarEntry.setReturnVariable(returnVariableName);
     SentenceBindings sentenceBindings = new SentenceBindings();
     sentenceBindings.setBindingVariableName(getBindingVariable());
-    grammarEntry.setSentenceBindings(sentenceBindings);
+    //grammarEntry.setSentenceBindings(sentenceBindings);
     String sparqlQuery = makeUnionQuery(
       bindingVariableName,
       returnVariableName,

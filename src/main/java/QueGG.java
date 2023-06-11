@@ -4,7 +4,6 @@ import eu.monnetproject.lemon.LemonModel;
 import evaluation.EvaluateAgainstQALD;
 import static evaluation.EvaluateAgainstQALD.PROTOTYPE_QUESTION;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
-import evaluation.EvaluateAgainstQALD_1;
 import evaluation.QALD;
 import evaluation.QALDImporter;
 import grammar.generator.BindingResolver;

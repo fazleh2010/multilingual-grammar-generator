@@ -322,10 +322,7 @@ public class EvaluateAgainstQALD {
                 .trim());
     }*/
 
-    private String getVarNameFromQueGGBinding(GrammarEntry grammarEntry) {
-        return !isNull(grammarEntry) ? Var.alloc(grammarEntry.getBindingVariable()).toString() : "";
-    }
-
+   
     
 
     private List<EntryComparison> sortMatches(List<EntryComparison> matchingEntries) {

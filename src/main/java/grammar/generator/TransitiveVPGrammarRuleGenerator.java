@@ -154,12 +154,12 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
         // Assign opposite values
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
-        fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
 
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
-        sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
-                grammarEntry.getReturnVariable());
-        fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
+        //sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
+        //        grammarEntry.getReturnVariable());
+        //fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
         // sentences
         Pair<String,List<String>> pair = generateOppositeSentences(lexicalEntryUtil);
         fragmentEntry.setSentenceTemplate(pair.getFirst());
@@ -184,7 +184,7 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
             fragmentEntry.setSentences(generatedSentences);
              fragmentEntry.setReturnType(grammarEntry.getBindingType());
              fragmentEntry.setBindingType(grammarEntry.getReturnType());
-             fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+             //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
             
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);

@@ -55,8 +55,8 @@ public class RequestCompiler {
   public static Query compileBindingQuery(GrammarEntry grammarEntry) {
     return compile(
       grammarEntry,
-      !isNull(grammarEntry.getSentenceToSparqlParameterMapping()) ?
-      grammarEntry.getBindingVariable() :
+      !isNull("") ?
+      "" :
       ""
     );
   }

@@ -97,7 +97,7 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot {
             SentenceBindings sentenceBindings = new SentenceBindings();
             sentenceBindings.setBindingVariableName(getBindingVariable()); // maybe retrieve from sentence generation
 
-            grammarEntry.setSentenceBindings(sentenceBindings);
+           // grammarEntry.setSentenceBindings(sentenceBindings);
 
             // generate sentences
             List<String> sentences = generateSentences(properties, lexicalEntryUtil);

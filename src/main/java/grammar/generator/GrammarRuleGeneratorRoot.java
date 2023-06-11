@@ -143,7 +143,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
     private void generateBindingsDBpedia(GrammarEntry grammarEntry) {
         SentenceBindings newSentenceBindings = new SentenceBindings();
-        newSentenceBindings.setBindingVariableName(grammarEntry.getSentenceBindings().getBindingVariableName());
+        //newSentenceBindings.setBindingVariableName(grammarEntry.getSentenceBindings().getBindingVariableName());
         List<Binding> bindingList = new ArrayList<Binding>();
         Query bindingQuery = RequestCompiler.compileBindingQuery(grammarEntry);
         if ((isNull(bindingQuery.getQueryPattern())
@@ -168,13 +168,13 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
         }
         newSentenceBindings.setBindingList(bindingList);
-        grammarEntry.setSentenceBindings(newSentenceBindings);
+        //grammarEntry.setSentenceBindings(newSentenceBindings);
     }
 
     private void generateBindingsFromDataSet(GrammarEntry grammarEntry) {
         //System.out.println("Inside into Wikidata!!!!");
         SentenceBindings newSentenceBindings = new SentenceBindings();
-        newSentenceBindings.setBindingVariableName(grammarEntry.getSentenceBindings().getBindingVariableName());
+        //newSentenceBindings.setBindingVariableName(grammarEntry.getSentenceBindings().getBindingVariableName());
         List<Binding> bindingList = new ArrayList<>();
         Query bindingQuery = RequestCompiler.compileBindingQuery(grammarEntry);
         if ((isNull(bindingQuery.getQueryPattern())
@@ -195,7 +195,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
             //System.out.println(bindingList);
         }
         newSentenceBindings.setBindingList(bindingList);
-        grammarEntry.setSentenceBindings(newSentenceBindings);
+        //grammarEntry.setSentenceBindings(newSentenceBindings);
     }
 
     @Override
@@ -259,7 +259,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                        //exit(1);
 
                         //String sparqlBinding=this.generateBindingQueryL(lexicalEntryUtil,DEFAULT_LIMIT);
-                        grammarEntry.setBindingListType(domain);
+                        //grammarEntry.setBindingListType(domain);
                         grammarEntry.setReturnVariable(SparqlQuery.RETURN_TYPE_OBJECT);
                         //grammarEntry.setSparqlQuery(executableSparql);
                         // }
@@ -279,9 +279,9 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                             this.bindingVariable,
                             LexicalEntryUtil.getOppositeSelectVariable(selectVariable).getVariableName()
                     );
-                    grammarEntry.setSentenceToSparqlParameterMapping(sparqlParameterMapping);
+                    //grammarEntry.setSentenceToSparqlParameterMapping(sparqlParameterMapping);
 
-                    grammarEntry.setSentenceBindings(sentenceBindings);
+                    //grammarEntry.setSentenceBindings(sentenceBindings);
 
                     // generate sentences
                     List<String> sentences = generateSentences(lexicalEntryUtil);
@@ -344,7 +344,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         SPARQLRequest sparqlRequest = new SPARQLRequest();
         bindingQuery = sparqlRequest.addOptionalLabelQueryWithFilter(
                 getLanguage(),
-                grammarEntry.getBindingVariable(),
+                "",
                 bindingQuery
         );
         bindingQuery.setDistinct(true);
@@ -393,11 +393,11 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         fragmentEntry.setReturnType(grammarEntry.getReturnType());
         fragmentEntry.setLanguage(grammarEntry.getLanguage());
         fragmentEntry.setFrameType(grammarEntry.getFrameType());
-        fragmentEntry.setSentenceBindings(grammarEntry.getSentenceBindings());
+        //fragmentEntry.setSentenceBindings(grammarEntry.getSentenceBindings());
         fragmentEntry.setQueryType(grammarEntry.getQueryType());
         fragmentEntry.setSparqlQuery(grammarEntry.getSparqlQuery());
         fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
-        fragmentEntry.setSentenceToSparqlParameterMapping(grammarEntry.getSentenceToSparqlParameterMapping());
+        //fragmentEntry.setSentenceToSparqlParameterMapping(grammarEntry.getSentenceToSparqlParameterMapping());
         return fragmentEntry;
     }
 

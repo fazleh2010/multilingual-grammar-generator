@@ -24,17 +24,16 @@ public class GrammarEntry implements Serializable {
   private DomainOrRangeType bindingType;
   private DomainOrRangeType returnType;
   private FrameType frameType;
-  private String grammarRuleNo;
   private String sentenceTemplate;
   private List<String> sentences = new ArrayList<>();
   private QueryType queryType;
   private String sparqlQuery;
   private String executable;
-  private String bindingListType;
-  private Map<String, String> sentenceToSparqlParameterMapping;
+  //private String bindingListType;
+  //private Map<String, String> sentenceToSparqlParameterMapping;
   private String returnVariable; // aka selectVariable
   private boolean isCombination = false;
-  private SentenceBindings sentenceBindings;
+  //private SentenceBindings sentenceBindings;
   //private String qaldMatchedQuestion;
   
  
@@ -46,12 +45,12 @@ public class GrammarEntry implements Serializable {
    *
    * @return the string binding variable name (e.g. subjOfProp)
    */
-  @Transient
+  /*@Transient
   public String getBindingVariable() {
     assert this.getSentenceToSparqlParameterMapping() != null;
     return this.getSentenceToSparqlParameterMapping()
                .get(sentenceBindings.getBindingVariableName());
-  }
+  }*/
 
   @Transient
   public GrammarEntry deepCopy() {
@@ -71,12 +70,12 @@ public class GrammarEntry implements Serializable {
     grammarEntry.returnVariable = this.returnVariable;
     //grammarEntry.bindingListType = this.bindingListType;
     grammarEntry.isCombination = this.isCombination;
-    if (this.sentenceToSparqlParameterMapping != null) {
+    /*if (this.sentenceToSparqlParameterMapping != null) {
       grammarEntry.sentenceToSparqlParameterMapping = new HashMap<>(this.sentenceToSparqlParameterMapping);
     }
     if (this.sentenceBindings != null) {
       grammarEntry.sentenceBindings = this.sentenceBindings.deepCopy();
-    }
+    }*/
     return grammarEntry;
   }
 
@@ -85,7 +84,7 @@ public class GrammarEntry implements Serializable {
       "GrammarEntry(\n" +
       "  type =\t" + this.getType() + "\n" +
       "  bindingType =\t" + this.getBindingType() + "\n" +
-      "  bindingListType =\t" + this.getBindingListType() + "\n" +
+      //"  bindingListType =\t" + this.getBindingListType() + "\n" +
       "  returnType =\t" + this.getReturnType() + "\n" +
       "  frameType =\t" + this.getFrameType() + ",\n" +
       "  S =\t" + this.getSentences() + ",\n" +
@@ -96,11 +95,11 @@ public class GrammarEntry implements Serializable {
       "executableSparqlQuery =\n" +
       this.getExecutable() + ",\n" +
       "-".repeat(30) + "\n" +
-      "  sentenceToSparqlParameterMapping = \t" + this.getSentenceToSparqlParameterMapping() + ",\n" +
+      //"  sentenceToSparqlParameterMapping = \t" + this.getSentenceToSparqlParameterMapping() + ",\n" +
       "  returnVariable =\t" + this.getReturnVariable() + ",\n" +
       "  isCombination =\t" + this.isCombination() + ",\n" +
       "  bindings =\n" +
-      (!isNull(this.getSentenceBindings()) ? this.getSentenceBindings().toString() : Collections.EMPTY_LIST) + "\n" +
+      //(!isNull(this.getSentenceBindings()) ? this.getSentenceBindings().toString() : Collections.EMPTY_LIST) + "\n" +
       ")";
   }
 }

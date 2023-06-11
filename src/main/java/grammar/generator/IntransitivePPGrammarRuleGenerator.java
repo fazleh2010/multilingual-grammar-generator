@@ -122,11 +122,11 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         fragmentEntry.setSentenceTemplate(this.template);
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
-        fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
-        sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
-                grammarEntry.getReturnVariable());
-        fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
+        //sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
+        //        grammarEntry.getReturnVariable());
+        //fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
         return fragmentEntry;
 
     }
