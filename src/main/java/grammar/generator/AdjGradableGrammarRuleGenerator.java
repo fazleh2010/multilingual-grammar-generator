@@ -35,7 +35,6 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
             this.template=sentenceBuilder.getTemplateFinder().getSelectedTemplate();
             generatedSentences = sentenceBuilder.generateFullSentencesForward(bindingVar, lexicalEntryUtil);
@@ -62,7 +61,6 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil,
                     adjectiveBaseForm);
 
@@ -88,7 +86,6 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil,
                     this.template);
             generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);

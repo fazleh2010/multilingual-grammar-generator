@@ -27,7 +27,6 @@ import static grammar.datasets.sentencetemplates.TempConstants.forward;
 import static grammar.datasets.sentencetemplates.TempConstants.location;
 import static grammar.datasets.sentencetemplates.TempConstants.noun;
 import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
-import static grammar.structure.component.FrameType.APP;
 import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
 
 

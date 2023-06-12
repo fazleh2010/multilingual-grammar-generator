@@ -43,7 +43,6 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
             generatedSentences = sentenceBuilder.generateFullSentencesForward(bindingVar, lexicalEntryUtil);
             //this.template=sentenceBuilder.getTemplateFinder().getSelectedTemplate();
@@ -66,7 +65,6 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
             generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);
             //this.template=sentenceBuilder.getTemplateFinder().getSelectedTemplate();
@@ -87,7 +85,6 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
             generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);
             //generatedSentences.sort(String::compareToIgnoreCase);
@@ -176,7 +173,6 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
            List<String> generatedSentences = sentenceBuilder.generateBackwardAmount(bindingVar, new String[2], lexicalEntryUtil);
             fragmentEntry.setType(SentenceType.SENTENCE);
@@ -202,7 +198,6 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     getLanguage(),
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
-                    this.getSentenceTemplateParser(),
                     lexicalEntryUtil);
             generatedSentences = sentenceBuilder.generateBackwardAmount(bindingVar, new String[2], lexicalEntryUtil);
             //generatedSentences.sort(String::compareToIgnoreCase);

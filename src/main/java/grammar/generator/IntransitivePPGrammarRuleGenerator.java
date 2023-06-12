@@ -34,7 +34,6 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesForward(getBindingVariable(), lexicalEntryUtil));
@@ -52,7 +51,6 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
@@ -70,7 +68,6 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences.addAll(sentenceBuilder.generateBackwardAmount(getBindingVariable(), new String[]{}, lexicalEntryUtil));

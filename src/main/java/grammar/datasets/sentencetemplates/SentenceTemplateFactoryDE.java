@@ -7,7 +7,6 @@ import static grammar.datasets.sentencetemplates.SentenceTemplate.createSentence
 import static grammar.datasets.sentencetemplates.SentenceTemplate.createVPTemplate;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import static grammar.datasets.sentencetemplates.TempConstants.PERSON_CAUSE;
-import static grammar.structure.component.FrameType.APP;
 import grammar.structure.component.Language;
 import java.util.List;
 
@@ -329,7 +328,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
     );
     
     
-    sentenceTemplateRepository.add(
+    /*sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
         "interrogativePronoun(nominativeCase:domain:singular) verb(component_be:future:singular) preposition object(range) verb(mainVerb:past:thridPerson)?",
@@ -343,7 +342,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
         TransitiveFrame,
         APP.toString()
       )
-    );
+    );*/
     //In welchem Museum ist der Schrei ausgestellt?
     sentenceTemplateRepository.add(
       createSentenceTemplate(language,

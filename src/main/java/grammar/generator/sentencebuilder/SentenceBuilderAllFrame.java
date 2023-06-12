@@ -47,7 +47,6 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     private final Language language;
     private final FrameType frameType;
     private SentenceTemplateRepository sentenceTemplateRepository;
-    private SentenceTemplateParser sentenceTemplateParser;
     private final LexicalEntryUtil lexicalEntryUtil;
     private TemplateFinder templateFinder = null;
     private String sentenceTemplate=null;
@@ -56,14 +55,12 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             Language language,
             FrameType frameType,
             SentenceTemplateRepository sentenceTemplateRepository,
-            SentenceTemplateParser sentenceTemplateParser,
             LexicalEntryUtil lexicalEntryUtil
     ) {
         this.language = language;
         this.lexicalEntryUtil = lexicalEntryUtil;
         this.templateFinder = new TemplateFinder(lexicalEntryUtil, frameType);
         this.frameType = frameType;
-        this.sentenceTemplateParser = sentenceTemplateParser;
         this.sentenceTemplateRepository = sentenceTemplateRepository;
     }
 
@@ -71,7 +68,6 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             Language language,
             FrameType frameType,
             SentenceTemplateRepository sentenceTemplateRepository,
-            SentenceTemplateParser sentenceTemplateParser,
             LexicalEntryUtil lexicalEntryUtil,
             String template
     ) {
@@ -80,7 +76,6 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         this.templateFinder = new TemplateFinder(lexicalEntryUtil, frameType);
         this.templateFinder.setSelectedTemplate(template);
         this.frameType = frameType;
-        this.sentenceTemplateParser = sentenceTemplateParser;
         this.sentenceTemplateRepository = sentenceTemplateRepository;
     }
 

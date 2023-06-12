@@ -84,8 +84,8 @@ public class LexicalEntryUtil implements TempConstants{
         this.lexicalSense = lexicalSense;
         this.lexInfo = new LexInfo();
         this.language = Language.stringToLanguage(lexicon.getLanguage());
-        if(frameType.equals(FrameType.AA))
-           this.owlRestriction = new OWLRestriction(lexicon, lexicalSense.getReference()).invoke();
+        /*if(frameType.equals(FrameType.AA))
+           this.owlRestriction = new OWLRestriction(lexicon, lexicalSense.getReference()).invoke();*/
         if(frameType.equals(FrameType.AG))
           this.olisRestriction=new OlisRestriction(lexicon, lexicalSense.getReference()).invoke();
     }

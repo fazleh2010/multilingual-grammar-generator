@@ -76,7 +76,6 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
     private Lexicon lexicon;
 
     private final SentenceTemplateRepository sentenceTemplateRepository;
-    private final SentenceTemplateParser sentenceTemplateParser;
 
     @SneakyThrows
     public GrammarRuleGeneratorRoot(FrameType frameType, Language language, String bindingVariable) {
@@ -84,7 +83,6 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         this.language = language;
         this.bindingVariable = bindingVariable;
         this.sentenceTemplateRepository = new SentenceTemplateFactory(this.language).init();
-        this.sentenceTemplateParser = new SentenceTemplateParser(this.language, this.sentenceTemplateRepository);
     }
 
     
@@ -148,10 +146,10 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                 && newSentenceBindings.getBindingVariableName().equals(BindingConstants.NONE)) {
             // This will happen for all attributive adjective entries, so they are ignored here!
             // It will also happen to all combinations with AA frame
-            if (!grammarEntry.getFrameType().equals(FrameType.AA)
+            /*if (!grammarEntry.getFrameType().equals(FrameType.AA)
                     && !newSentenceBindings.getBindingVariableName().equals(BindingConstants.NONE)) {
                 LOG.warn("generateBindings failed for GrammarEntry with SPARQL Query {}", grammarEntry.getSparqlQuery());
-            }
+            }*/
         } else {
             // limited to 1000 distinct bindings
             /*if (grammarEntry.getQueryType().equals(QueryType.ASK)) {
@@ -179,10 +177,10 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                 && newSentenceBindings.getBindingVariableName().equals(BindingConstants.NONE)) {
             // This will happen for all attributive adjective entries, so they are ignored here!
             // It will also happen to all combinations with AA frame
-            if (!grammarEntry.getFrameType().equals(FrameType.AA)
+            /*if (!grammarEntry.getFrameType().equals(FrameType.AA)
                     && !newSentenceBindings.getBindingVariableName().equals(BindingConstants.NONE)) {
                 LOG.warn("generateBindings failed for GrammarEntry with SPARQL Query {}", grammarEntry.getSparqlQuery());
-            }
+            }*/
         } else {
             // limited to 1000 distinct bindings
             SPARQLRequest sparqlRequest = getBindingSparqlRequest(grammarEntry, bindingQuery);

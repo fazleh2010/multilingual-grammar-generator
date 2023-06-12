@@ -37,7 +37,6 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences.addAll(sentenceBuilder.generateFullSentencesForward(getBindingVariable(), lexicalEntryUtil));
@@ -54,7 +53,6 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences = new ArrayList<String>();
@@ -72,7 +70,6 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         generatedSentences = new ArrayList<String>();
@@ -92,7 +89,6 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 getLanguage(),
                 getFrameType(),
                 getSentenceTemplateRepository(),
-                getSentenceTemplateParser(),
                 lexicalEntryUtil
         );
         if (type.equals(nounPhrase)) {

@@ -187,7 +187,7 @@ public interface TempConstants {
             new AbstractMap.SimpleEntry<String, String>(FrameType.NPP.name(), "NounPPFrame"), 
             new AbstractMap.SimpleEntry<String, String>(FrameType.VP.name(), "TransitiveFrame"),
             new AbstractMap.SimpleEntry<String, String>(FrameType.IPP.name(), "InTransitivePPFrame"),
-            new AbstractMap.SimpleEntry<String, String>(FrameType.AA.name(), "AdjectivePredicativeFrame"),
+            //new AbstractMap.SimpleEntry<String, String>(FrameType.AA.name(), "AdjectivePredicativeFrame"),
             new AbstractMap.SimpleEntry<String, String>(FrameType.AG.name(), "AdjectiveSuperlativeFrame"))
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
