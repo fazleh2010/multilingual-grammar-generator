@@ -14,12 +14,9 @@ import eu.monnetproject.lemon.model.SynArg;
 import eu.monnetproject.lemon.model.SyntacticRoleMarker;
 import grammar.generator.OWLRestriction;
 import grammar.generator.SubjectType;
-import grammar.datasets.questionword.QuestionWordFactory;
-import grammar.datasets.questionword.QuestionWordRepository;
 import grammar.datasets.annotated.AnnotatedNoun;
 import grammar.datasets.annotated.AnnotatedNounOrQuestionWord;
 import grammar.datasets.annotated.AnnotatedVerb;
-import grammar.datasets.questionword.QuestionWordFactoryIT;
 import grammar.datasets.sentencetemplates.TempConstants;
 import static grammar.datasets.sentencetemplates.TempConstants.plural;
 import static grammar.datasets.sentencetemplates.TempConstants.singular;
@@ -105,168 +102,8 @@ public class LexicalEntryUtil implements TempConstants{
                 : SelectVariable.subjOfProp;
     }
 
-    /**
-     * Get the string representation of the pronoun or determiner that is or is
-     * part of the subject for the generated sentence.
-     *
-     * @param subjectType the {@link SubjectType} of the current lexical entry
-     * and sense.
-     * @param language the current language
-     * @param annotatedNounOrQuestionWord
-     * <p>
-     * a noun or descendent class word that the output word should match to (by
-     * number, gender).<br> Can be {@code null} if the {@link SubjectType} is
-     * not a determiner or if there is no need to match the output word to any
-     * noun.</p>
-     * @return the string representation of a {@link SubjectType} matching by
-     * language and (if provided) by a noun's gender and number.
-     */
-    public String getSubjectBySubjectType(
-            SubjectType subjectType,
-            Language language,
-            AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord
-    ) throws QueGGMissingFactoryClassException {
-        String sbjType = "";
-        QuestionWordRepository questionWordRepository = new QuestionWordFactory(language).init();
-        List<AnnotatedNounOrQuestionWord> questionWords;
-        questionWords = questionWordRepository
-                .findByLanguageAndSubjectType(language, subjectType);      
 
-        if (questionWords.size() != 1) {
-            questionWords = questionWordRepository
-                    .findByLanguageAndSubjectTypeAndNumberAndGender(
-                            language,
-                            subjectType,
-                            lexInfo.getPropertyValue("singular"),
-                            lexInfo.getPropertyValue("commonGender")
-                    );
-        }
-        if (!isNull(annotatedNounOrQuestionWord)) {
-            if (questionWords.size() != 1) {
-                questionWords = questionWordRepository
-                        .findByLanguageAndSubjectTypeAndNumber(
-                                language,
-                                subjectType,
-                                annotatedNounOrQuestionWord.getNumber()
-                        );
-            }
-            if (questionWords.size() != 1) {
-                questionWords = questionWordRepository
-                        .findByLanguageAndSubjectTypeAndNumberAndGender(
-                                language,
-                                subjectType,
-                                annotatedNounOrQuestionWord.getNumber(),
-                                annotatedNounOrQuestionWord.getGender()
-                        );
-            }
-        }
-        if (questionWords.size() != 1) {
-            LOG.error("Cannot find a matching subject in QuestionWordFactory({})", language);
-        } else {
-            sbjType = questionWords.get(0).getWrittenRepValue();
-        }
-        return sbjType;
-    }
-    
-    
-    /**
-     * Get the string representation of the pronoun or determiner that is or is
-     * part of the subject for the generated sentence.
-     *
-     * @param subjectType the {@link SubjectType} of the current lexical entry
-     * and sense.
-     * @param language the current language
-     * @param number the current number (singular or plural)
-     * @param annotatedNounOrQuestionWord
-     * <p>
-     * a noun or descendent class word that the output word should match to (by
-     * number, gender).<br> Can be {@code null} if the {@link SubjectType} is
-     * not a determiner or if there is no need to match the output word to any
-     * noun.</p>
-     * @return the string representation of a {@link SubjectType} matching by
-     * language and (if provided) by a noun's gender and number.
-     */
-    /**
-     * Get the string representation of the pronoun or determiner that is or is
-     * part of the subject for the generated sentence.
-     *
-     * @param subjectType the {@link SubjectType} of the current lexical entry
-     * and sense.
-     * @param language the current language
-     * @param number the current number (singular or plural)
-     * @param annotatedNounOrQuestionWord
-     * <p>
-     * a noun or descendent class word that the output word should match to (by
-     * number, gender).<br> Can be {@code null} if the {@link SubjectType} is
-     * not a determiner or if there is no need to match the output word to any
-     * noun.</p>
-     * @return the string representation of a {@link SubjectType} matching by
-     * language and (if provided) by a noun's gender and number.
-     */
-    public String getSubjectBySubjectTypeAndNumber(
-            SubjectType subjectType,
-            Language language,
-            PropertyValue number,
-            AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord
-    ) throws QueGGMissingFactoryClassException {
-        String sbjType = "";
-        QuestionWordRepository questionWordRepository = new QuestionWordFactory(language).init();
-        List<AnnotatedNounOrQuestionWord> questionWords;
-        questionWords = questionWordRepository
-                .findByLanguageAndSubjectType(language, subjectType);
-        if (questionWords.size() != 1 && (language.equals(Language.DE))) {
-            questionWords = questionWordRepository
-                    .findByLanguageAndSubjectTypeAndNumberAndGender(
-                            language,
-                            subjectType,
-                            number,
-                            lexInfo.getPropertyValue(DomainOrRangeMorphologicalProperties.getMatchingGender(getConditionUriBySelectVariable(getSelectVariable())).toString().toLowerCase())
-                    );
-        }
-        if (questionWords.size() != 1 && (language.equals(Language.IT))) {
-            questionWords = questionWordRepository
-                    .findByLanguageAndSubjectTypeAndNumberAndGender(
-                            language,
-                            subjectType,
-                            number,
-                            lexInfo.getPropertyValue(DomainOrRangeMorphologicalPropertiesIT.getMatchingGender(getConditionUriBySelectVariable(getSelectVariable())).toString().toLowerCase())
-                    );
-        }
-        if (questionWords.size() != 1) {
-            questionWords = questionWordRepository
-                    .findByLanguageAndSubjectTypeAndNumberAndGender(
-                            language,
-                            subjectType,
-                            number,
-                            lexInfo.getPropertyValue("commonGender")
-                    );
-        }
-        if (!isNull(annotatedNounOrQuestionWord)) {
-            if (questionWords.size() != 1) {
-                questionWords = questionWordRepository
-                        .findByLanguageAndSubjectTypeAndNumber(
-                                language,
-                                subjectType,
-                                annotatedNounOrQuestionWord.getNumber()
-                        );
-            }
-            if (questionWords.size() != 1) {
-                questionWords = questionWordRepository
-                        .findByLanguageAndSubjectTypeAndNumberAndGender(
-                                language,
-                                subjectType,
-                                annotatedNounOrQuestionWord.getNumber(),
-                                annotatedNounOrQuestionWord.getGender()
-                        );
-            }
-        }
-        if (questionWords.size() != 1) {
-            LOG.error("Cannot find a matching subject in QuestionWordFactory({})", language);
-        } else {
-            sbjType = questionWords.get(0).getWrittenRepValue();
-        }
-        return sbjType;
-    }
+   
     
 
     /**

@@ -2,8 +2,6 @@ package grammar.generator;
 
 import eu.monnetproject.lemon.model.Property;
 import eu.monnetproject.lemon.model.PropertyValue;
-import grammar.datasets.questionword.QuestionWordFactory;
-import grammar.datasets.questionword.QuestionWordRepository;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import grammar.datasets.annotated.AnnotatedNoun;
 import grammar.datasets.annotated.AnnotatedNounOrQuestionWord;
@@ -126,119 +124,6 @@ public abstract class SentenceBuilderImpl implements SentenceBuilder {
     return lexInfo.getSynArgsForFrame(lexInfo.getFrameClass(frameType.getName()))
                   .stream()
                   .map(synArg -> synArg.getURI().getFragment()).toArray(String[]::new);
-  }
-
-
-  protected AnnotatedNounOrQuestionWord getAnnotatedQuestionWordBySubjectType(
-    SubjectType subjectType,
-    Language language,
-    AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord
-  ) throws QueGGMissingFactoryClassException {
-    AnnotatedNounOrQuestionWord sbjType = new AnnotatedNoun("", "singular", language);
-    QuestionWordRepository questionWordRepository = new QuestionWordFactory(language).init();
-    List<AnnotatedNounOrQuestionWord> questionWords;
-    questionWords = questionWordRepository
-      .findByLanguageAndSubjectType(language, subjectType);
-    if (questionWords.size() != 1) {
-      questionWords = questionWordRepository
-        .findByLanguageAndSubjectTypeAndNumberAndGender(
-          language,
-          subjectType,
-          lexInfo.getPropertyValue("singular"),
-          lexInfo.getPropertyValue("commonGender")
-        );
-    }
-    if (!isNull(annotatedNounOrQuestionWord)) {
-      if (questionWords.size() != 1) {
-        questionWords = questionWordRepository
-          .findByLanguageAndSubjectTypeAndNumber(
-            language,
-            subjectType,
-            annotatedNounOrQuestionWord.getNumber()
-          );
-      }
-      if (questionWords.size() != 1) {
-        questionWords = questionWordRepository
-          .findByLanguageAndSubjectTypeAndNumberAndGender(
-            language,
-            subjectType,
-            annotatedNounOrQuestionWord.getNumber(),
-            annotatedNounOrQuestionWord.getGender()
-          );
-      }
-    }
-    if (questionWords.size() != 1) {
-      LOG.error("Cannot find a matching subject in QuestionWordFactory({})", language);
-    } else {
-      sbjType = questionWords.get(0);
-    }
-    return sbjType;
-  }
-  
-  protected AnnotatedNounOrQuestionWord getAnnotatedQuestionWordBySubjectTypeAndNumber(
-    SubjectType subjectType,
-    Language language,
-    LexicalEntryUtil lexicalEntryUtil,
-    PropertyValue number,
-    AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord
-  ) throws QueGGMissingFactoryClassException {
-    AnnotatedNounOrQuestionWord sbjType = new AnnotatedNoun("", "singular", language);
-    QuestionWordRepository questionWordRepository = new QuestionWordFactory(language).init();
-    List<AnnotatedNounOrQuestionWord> questionWords;
-    questionWords = questionWordRepository
-      .findByLanguageAndSubjectType(language, subjectType);
-    if (questionWords.size() != 1 && language.equals(Language.DE)) {
-      questionWords = questionWordRepository
-        .findByLanguageAndSubjectTypeAndNumberAndGender(
-          language,
-          subjectType,
-          number,
-          lexInfo.getPropertyValue(DomainOrRangeMorphologicalProperties.getMatchingGender(lexicalEntryUtil.getConditionUriBySelectVariable(lexicalEntryUtil.getSelectVariable())).toString().toLowerCase())
-        );
-    }
-    if (questionWords.size() != 1 && language.equals(Language.IT)) {
-      questionWords = questionWordRepository
-        .findByLanguageAndSubjectTypeAndNumberAndGender(
-          language,
-          subjectType,
-          number,
-          lexInfo.getPropertyValue(DomainOrRangeMorphologicalPropertiesIT.getMatchingGender(lexicalEntryUtil.getConditionUriBySelectVariable(lexicalEntryUtil.getSelectVariable())).toString().toLowerCase())
-        );
-    }
-    if (questionWords.size() != 1) {
-      questionWords = questionWordRepository
-        .findByLanguageAndSubjectTypeAndNumberAndGender(
-          language,
-          subjectType,
-          number,
-          lexInfo.getPropertyValue("commonGender")
-        );
-    }
-    if (!isNull(annotatedNounOrQuestionWord)) {
-      if (questionWords.size() != 1) {
-        questionWords = questionWordRepository
-          .findByLanguageAndSubjectTypeAndNumber(
-            language,
-            subjectType,
-            annotatedNounOrQuestionWord.getNumber()
-          );
-      }
-      if (questionWords.size() != 1) {
-        questionWords = questionWordRepository
-          .findByLanguageAndSubjectTypeAndNumberAndGender(
-            language,
-            subjectType,
-            annotatedNounOrQuestionWord.getNumber(),
-            annotatedNounOrQuestionWord.getGender()
-          );
-      }
-    }
-    if (questionWords.size() != 1) {
-      LOG.error("Cannot find a matching subject in QuestionWordFactory({})", language);
-    } else {
-      sbjType = questionWords.get(0);
-    }
-    return sbjType;
   }
 
   protected String buildSentence(List<String> sentenceTokens) {

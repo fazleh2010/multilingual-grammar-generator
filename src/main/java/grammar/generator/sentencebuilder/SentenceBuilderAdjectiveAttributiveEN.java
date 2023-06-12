@@ -29,7 +29,7 @@ public class SentenceBuilderAdjectiveAttributiveEN implements SentenceBuilder {
   public List<String> generateFullSentencesForward(String bindingVar, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
     List<String> generatedSentences = new ArrayList<>();
     // get to be forms
-    LexicalEntry entry = new LexiconSearch(this.lexicalEntryUtil.getLexicon()).getReferencedResource("component_be");
+    /*LexicalEntry entry = new LexiconSearch(this.lexicalEntryUtil.getLexicon()).getReferencedResource("component_be");
     List<AnnotatedVerb> toBeVerbs = this.lexicalEntryUtil.parseLexicalEntryToAnnotatedVerbs(entry.getOtherForms());
     String subject = this.lexicalEntryUtil.getSubjectBySubjectType(SubjectType.interrogativeDeterminerSingular, language, null);
 
@@ -49,7 +49,7 @@ public class SentenceBuilderAdjectiveAttributiveEN implements SentenceBuilder {
         generatedSentences.add(stringBuilder.toString());
       }
     }
-    generatedSentences.sort(String::compareToIgnoreCase);
+    generatedSentences.sort(String::compareToIgnoreCase);*/
     return generatedSentences;
   }
 
