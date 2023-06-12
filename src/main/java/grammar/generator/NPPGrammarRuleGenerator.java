@@ -157,7 +157,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         else{
            fragmentEntry.setReturnType(grammarEntry.getReturnType());
            fragmentEntry.setBindingType(grammarEntry.getBindingType());
-           fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+           //fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
         }
         
         fragmentEntry.setSentenceTemplate(this.senTemplate);
@@ -168,7 +168,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         //fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);
         String reference = "", sparql = "";
         if (type.contains(booleanQuestionDomainRange) || type.contains(booleanQuestionDomain)) {
-            fragmentEntry.setQueryType(QueryType.ASK);
+            //fragmentEntry.setQueryType(QueryType.ASK);
         }
 
         fragmentEntry.setSentences(generatedSentences);

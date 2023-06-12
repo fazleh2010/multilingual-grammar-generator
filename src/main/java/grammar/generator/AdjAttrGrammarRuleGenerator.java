@@ -82,12 +82,12 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot {
             grammarEntry.setLanguage(getLanguage());
 
             // generate SPARQL query
-            grammarEntry.setQueryType(QueryType.SELECT);
+            //grammarEntry.setQueryType(QueryType.SELECT);
             SPARQLRequest sparqlRequest = generateSPARQL(selectVariable, properties, lexicalEntryUtil);
             grammarEntry.setSparqlQuery(sparqlRequest.toString());
 
             // set return variable
-            grammarEntry.setReturnVariable(selectVariable.getVariableName());
+            //grammarEntry.setReturnVariable(selectVariable.getVariableName());
 
             // set return and binding type
             grammarEntry.setReturnType(DomainOrRangeType.getMatchingType(URI.create(properties.getUri())));

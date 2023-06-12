@@ -19,9 +19,9 @@ public class RequestCompiler {
    * @param grammarEntry the grammar entry that is used for query compilation
    * @return an executable SPARQL query string
    */
-  public static Query compileAnswerQuery(GrammarEntry grammarEntry) {
+  /*public static Query compileAnswerQuery(GrammarEntry grammarEntry) {
     return compile(grammarEntry, grammarEntry.getReturnVariable());
-  }
+  }*/
 
     /*
     Query q = OpAsQuery.asQuery(Algebra.parse(Algebra.compile(elementGroup).toString()));
@@ -35,12 +35,14 @@ public class RequestCompiler {
     if (resultVar.isEmpty()) {
       return query;
     }
+    
+    String findQueryType= findQueryType(grammarEntry.getSparqlQuery());
 
 
     query.addResultVar(resultVar);
-    if (grammarEntry.getQueryType().equals(QueryType.SELECT)) {
+    if (findQueryType.contains(QueryType.SELECT.name())) {
       query.setQuerySelectType();
-    } else if (grammarEntry.getQueryType().equals(QueryType.ASK)) {
+    } else if (findQueryType.contains(QueryType.ASK.name())) {
       query.setQueryAskType();
     }
 
@@ -60,4 +62,12 @@ public class RequestCompiler {
       ""
     );
   }
+
+    private static String findQueryType(String sparqlQuery) {
+        if (sparqlQuery.contains(QueryType.SELECT.name())) {
+            return QueryType.SELECT.name();
+        } else {
+            return QueryType.ASK.name();
+        }
+    }
 }

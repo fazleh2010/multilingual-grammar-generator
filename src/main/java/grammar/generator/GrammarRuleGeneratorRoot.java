@@ -87,10 +87,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         this.sentenceTemplateParser = new SentenceTemplateParser(this.language, this.sentenceTemplateRepository);
     }
 
-    public List<GrammarEntry> generateCombinations(List<GrammarEntry> grammarEntries) {
-        GrammarEntryCombinationFactory grammarEntryCombinationFactory = new GrammarEntryCombinationFactory();
-        return grammarEntryCombinationFactory.generateCombinations(grammarEntries, bindingVariable);
-    }
+    
 
     /**
      * Generates the SPARQL query that will later be saved as part of the
@@ -157,13 +154,13 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
             }
         } else {
             // limited to 1000 distinct bindings
-            if (grammarEntry.getQueryType().equals(QueryType.ASK)) {
+            /*if (grammarEntry.getQueryType().equals(QueryType.ASK)) {
                 bindingList = new ArrayList<Binding>();
             } else {
-                /*SPARQLRequest sparqlRequest = getBindingSparqlRequest(grammarEntry, bindingQuery);
-                List<Map<String, String>> sparqlSelectResultList = sparqlRequest.getSparqlSelectResultList();
-                bindingList = makeBindingsFromSPARQLRequestResult(sparqlSelectResultList);*/
-            }
+                //SPARQLRequest sparqlRequest = getBindingSparqlRequest(grammarEntry, bindingQuery);
+                //List<Map<String, String>> sparqlSelectResultList = sparqlRequest.getSparqlSelectResultList();
+                //bindingList = makeBindingsFromSPARQLRequestResult(sparqlSelectResultList);
+            }*/
 
 
         }
@@ -227,13 +224,14 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                     LexicalEntryUtil lexicalEntryUtil = new LexicalEntryUtil(lexicon, lexicalEntry, frameType, lexicalSense);
                     // the subject or object of this lexical entry's reference property that is bound to the subject of this frame
                     SelectVariable selectVariable = lexicalEntryUtil.getSelectVariable();
+                    String returnVaribale=null;
                     GrammarEntry grammarEntry = new GrammarEntry();
                     grammarEntry.setFrameType(frameType);
                     grammarEntry.setLanguage(getLanguage());
                     grammarEntry.setLexicalEntryUri(lexicalEntryUtil.getLexicalEntry().getURI());
 
                     // generate SPARQL query
-                    grammarEntry.setQueryType(QueryType.SELECT);
+                    //grammarEntry.setQueryType(QueryType.SELECT);
                     SPARQLRequest sparqlRequest = generateSPARQL(lexicalEntryUtil);
                     String sparql=sparqlRequest.toString();
                     grammarEntry.setSparqlQuery(sparqlRequest.toString());
@@ -245,32 +243,25 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                         String range = LexicalEntryUtil.getRange(lexicalEntryUtil);
                         String reference = lexicalEntryUtil.getOlisRestriction().getProperty();
                         sparql=this.generateSparql(reference);
-                        grammarEntry.setSparqlQuery(sparql);
                         String executableSparql = generateExecutableSparql(lexicalEntryUtil, grammarEntry.getFrameType());
                         
                         //System.out.println(executableSparql);
                         //exit(1);
                         if(executableSparql!=null)
-                           grammarEntry.setExecutable(executableSparql);
-                        else
-                            grammarEntry.setExecutable(sparql);
+                          sparql=executableSparql;
+                        //else
+                       //     grammarEntry.setExecutable(sparql);
                        
-                       //System.out.println(executableSparql);
-                       //exit(1);
-
-                        //String sparqlBinding=this.generateBindingQueryL(lexicalEntryUtil,DEFAULT_LIMIT);
-                        //grammarEntry.setBindingListType(domain);
-                        grammarEntry.setReturnVariable(SparqlQuery.RETURN_TYPE_OBJECT);
-                        //grammarEntry.setSparqlQuery(executableSparql);
-                        // }
+                        returnVaribale=SparqlQuery.RETURN_TYPE_OBJECT;
                     }
                     else 
-                          grammarEntry.setReturnVariable(selectVariable.getVariableName());
+                         returnVaribale=selectVariable.getVariableName();
 
-                    // set return variable
                   
+                    sparql=PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), sparql);
+                    sparql=sparql.replace(returnVaribale,"Answer");
+                    grammarEntry.setSparqlQuery(sparql);
 
-                    // generate bindings for result sentence
                     SentenceBindings sentenceBindings = new SentenceBindings();
                     sentenceBindings.setBindingVariableName(getBindingVariable()); // maybe retrieve from sentence generation
 
@@ -279,11 +270,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                             this.bindingVariable,
                             LexicalEntryUtil.getOppositeSelectVariable(selectVariable).getVariableName()
                     );
-                    //grammarEntry.setSentenceToSparqlParameterMapping(sparqlParameterMapping);
-
-                    //grammarEntry.setSentenceBindings(sentenceBindings);
-
-                    // generate sentences
+                  
                     List<String> sentences = generateSentences(lexicalEntryUtil);
                     grammarEntry.setSentences(sentences);
 
@@ -394,9 +381,9 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         fragmentEntry.setLanguage(grammarEntry.getLanguage());
         fragmentEntry.setFrameType(grammarEntry.getFrameType());
         //fragmentEntry.setSentenceBindings(grammarEntry.getSentenceBindings());
-        fragmentEntry.setQueryType(grammarEntry.getQueryType());
+        //fragmentEntry.setQueryType(grammarEntry.getQueryType());
         fragmentEntry.setSparqlQuery(grammarEntry.getSparqlQuery());
-        fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+        //fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
         //fragmentEntry.setSentenceToSparqlParameterMapping(grammarEntry.getSentenceToSparqlParameterMapping());
         return fragmentEntry;
     }

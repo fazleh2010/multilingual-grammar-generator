@@ -14,17 +14,14 @@ import static java.lang.System.exit;
 import java.util.Map;
 import java.util.TreeMap;
 import linkeddata.LinkedData;
+import org.apache.commons.lang3.StringUtils;
 import util.io.UrlUtils;
 
 /**
  *
  * @author elahi
  */
-public class PrepareSparqlQuery {
-
-   
-   
-    
+public class PrepareSparqlQuery { 
     private String rdfType = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
     private LinkedData linkedData=null;
     //"<http://www.w3.org/2000/01/rdf-schema#label>"
@@ -484,6 +481,26 @@ public class PrepareSparqlQuery {
         return classSparql;
     }
 
+
+    
+    public static String getRealSparql(String template, String sparql) {
+        System.out.println(template + " " + sparql);
+        String property = findProperty(sparql);
+
+        //if (frameType.equals("NPP") || frameType.equals("VP") || frameType.equals("IPP") || frameType.equals("AG")) {
+        if (template != null && template.contains("HOW_MANY_THING")) {
+            sparql = "SELECT COUNT(?" + "Answer" + " ) WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else {
+            sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        }
+        //}
+
+        return sparql;
+    }
+
+    private static String findProperty(String triple) {
+        return StringUtils.substringBetween(triple, "<", ">");
+    }
 
 
 }

@@ -26,12 +26,12 @@ public class GrammarEntry implements Serializable {
   private FrameType frameType;
   private String sentenceTemplate;
   private List<String> sentences = new ArrayList<>();
-  private QueryType queryType;
+  //private QueryType queryType;
   private String sparqlQuery;
-  private String executable;
+  //private String executable;
   //private String bindingListType;
   //private Map<String, String> sentenceToSparqlParameterMapping;
-  private String returnVariable; // aka selectVariable
+  //private String returnVariable; // aka selectVariable
   private boolean isCombination = false;
   //private SentenceBindings sentenceBindings;
   //private String qaldMatchedQuestion;
@@ -64,10 +64,10 @@ public class GrammarEntry implements Serializable {
     grammarEntry.frameType = this.frameType;
     grammarEntry.sentenceTemplate = this.sentenceTemplate;
     grammarEntry.sentences.addAll(this.sentences);
-    grammarEntry.queryType = this.queryType;
+    //grammarEntry.queryType = this.queryType;
     grammarEntry.sparqlQuery = this.sparqlQuery;
     //grammarEntry.executable=this.executable;
-    grammarEntry.returnVariable = this.returnVariable;
+    //grammarEntry.returnVariable = this.returnVariable;
     //grammarEntry.bindingListType = this.bindingListType;
     grammarEntry.isCombination = this.isCombination;
     /*if (this.sentenceToSparqlParameterMapping != null) {
@@ -88,15 +88,15 @@ public class GrammarEntry implements Serializable {
       "  returnType =\t" + this.getReturnType() + "\n" +
       "  frameType =\t" + this.getFrameType() + ",\n" +
       "  S =\t" + this.getSentences() + ",\n" +
-      "  queryType =\t" + this.getQueryType() + ",\n" +
+      //"  queryType =\t" + this.getQueryType() + ",\n" +
       "-".repeat(30) + "\n" +
       "sparqlQuery =\n" +
       this.getSparqlQuery() + ",\n" +
-      "executableSparqlQuery =\n" +
-      this.getExecutable() + ",\n" +
+      //"executableSparqlQuery =\n" +
+      //this.getExecutable() + ",\n" +
       "-".repeat(30) + "\n" +
       //"  sentenceToSparqlParameterMapping = \t" + this.getSentenceToSparqlParameterMapping() + ",\n" +
-      "  returnVariable =\t" + this.getReturnVariable() + ",\n" +
+      //"  returnVariable =\t" + this.getReturnVariable() + ",\n" +
       "  isCombination =\t" + this.isCombination() + ",\n" +
       "  bindings =\n" +
       //(!isNull(this.getSentenceBindings()) ? this.getSentenceBindings().toString() : Collections.EMPTY_LIST) + "\n" +

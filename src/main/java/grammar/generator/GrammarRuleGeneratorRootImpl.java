@@ -73,13 +73,13 @@ public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
         getBindingVariable()
       )
     );
-    grammarEntry.setQueryType(QueryType.SELECT);
+    //grammarEntry.setQueryType(QueryType.SELECT);
     String bindingVariableName = SelectVariable.subjOfProp.getVariableName();
     String returnVariableName = SelectVariable.objOfProp.getVariableName();
     Map<String, String> sentenceSparqlMap = new HashMap<>();
     sentenceSparqlMap.put(getBindingVariable(), bindingVariableName);
     //grammarEntry.setSentenceToSparqlParameterMapping(sentenceSparqlMap);
-    grammarEntry.setReturnVariable(returnVariableName);
+    //grammarEntry.setReturnVariable(returnVariableName);
     SentenceBindings sentenceBindings = new SentenceBindings();
     sentenceBindings.setBindingVariableName(getBindingVariable());
     //grammarEntry.setSentenceBindings(sentenceBindings);
