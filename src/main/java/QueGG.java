@@ -10,6 +10,7 @@ import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
 import grammar.read.questions.ProtoToRealQuesrion;
+import grammar.sparql.PrepareSparqlQuery;
 import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
@@ -342,6 +343,11 @@ public class QueGG {
 
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
+            String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
+            if (grammarEntry.getReturnVariable() != null) {
+                sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
+            }
+            grammarEntry.setSparqlQuery(sparql);
         }
 
         // Output file is too big, make two files
@@ -352,34 +358,13 @@ public class QueGG {
                         .filter(grammarEntry -> !grammarEntry.isCombination())
                         .collect(Collectors.toList())
         );
-        GrammarWrapper combinedEntries = new GrammarWrapper();
-        combinedEntries.setGrammarEntries(
-                grammarWrapper.getGrammarEntries().stream().filter(GrammarEntry::isCombination).collect(Collectors.toList())
-        );
-
-        // Generate bindings
-        LOG.info("Start generation of bindings");
-        //grammarWrapper.getGrammarEntries().forEach(generatorRoot::generateBindings);
-
+        
         generatorRoot.dumpToJSON(
                 Path.of(
                         outputDir,
                         "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
                 ).toString(),
                 regularEntries
-        );
-        generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_COMBINATIONS" + "_" + language + ".json").toString(),
-                combinedEntries
-        );
-
-        // Insert those bindings and write new files
-        LOG.info("Start resolving bindings");
-        BindingResolver bindingResolver = new BindingResolver(grammarWrapper.getGrammarEntries());
-        grammarWrapper = bindingResolver.resolve();
-        generatorRoot.dumpToJSON(
-                Path.of(outputDir, "grammar_FULL_WITH_BINDINGS_" + language + ".json").toString(),
-                grammarWrapper
         );
         
 

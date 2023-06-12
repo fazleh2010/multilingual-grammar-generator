@@ -488,14 +488,18 @@ public class PrepareSparqlQuery {
         String property = findProperty(sparql);
 
         //if (frameType.equals("NPP") || frameType.equals("VP") || frameType.equals("IPP") || frameType.equals("AG")) {
-        if (template != null && template.contains("HOW_MANY_THING")) {
-            sparql = "SELECT COUNT(?" + "Answer" + " ) WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        if (template != null && template.contains("HOW_MANY")) {
+            return "SELECT COUNT(?" + "Answer" + " ) WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else if (template != null && template.contains("booleanQuestion")) {
+            return "ASK WHERE {?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else if (template != null && template.contains("adjectiveBaseForm")) {
+            return "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else if (template != null && template.contains("superlative")) {
+            return sparql;
         } else {
-            sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+            return sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         }
-        //}
-
-        return sparql;
+      
     }
 
     private static String findProperty(String triple) {

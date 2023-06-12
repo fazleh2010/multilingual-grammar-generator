@@ -21,8 +21,8 @@ public class GrammarEntry implements Serializable {
   private URI lexicalEntryUri;
   private Language language;
   private SentenceType type;
-  private DomainOrRangeType bindingType;
-  private DomainOrRangeType returnType;
+  private List<DomainOrRangeType> bindingType;
+  private List<DomainOrRangeType> returnType;
   private FrameType frameType;
   private String sentenceTemplate;
   private List<String> sentences = new ArrayList<>();
@@ -31,7 +31,7 @@ public class GrammarEntry implements Serializable {
   //private String executable;
   //private String bindingListType;
   //private Map<String, String> sentenceToSparqlParameterMapping;
-  //private String returnVariable; // aka selectVariable
+  private String returnVariable; // aka selectVariable
   private boolean isCombination = false;
   //private SentenceBindings sentenceBindings;
   //private String qaldMatchedQuestion;
@@ -67,7 +67,7 @@ public class GrammarEntry implements Serializable {
     //grammarEntry.queryType = this.queryType;
     grammarEntry.sparqlQuery = this.sparqlQuery;
     //grammarEntry.executable=this.executable;
-    //grammarEntry.returnVariable = this.returnVariable;
+    grammarEntry.returnVariable = this.returnVariable;
     //grammarEntry.bindingListType = this.bindingListType;
     grammarEntry.isCombination = this.isCombination;
     /*if (this.sentenceToSparqlParameterMapping != null) {
@@ -92,11 +92,11 @@ public class GrammarEntry implements Serializable {
       "-".repeat(30) + "\n" +
       "sparqlQuery =\n" +
       this.getSparqlQuery() + ",\n" +
-      //"executableSparqlQuery =\n" +
+       "  sentenceTemplate =\t" + this.getSentenceTemplate() + ",\n" +
       //this.getExecutable() + ",\n" +
       "-".repeat(30) + "\n" +
       //"  sentenceToSparqlParameterMapping = \t" + this.getSentenceToSparqlParameterMapping() + ",\n" +
-      //"  returnVariable =\t" + this.getReturnVariable() + ",\n" +
+      "  returnVariable =\t" + this.getReturnVariable() + ",\n" +
       "  isCombination =\t" + this.isCombination() + ",\n" +
       "  bindings =\n" +
       //(!isNull(this.getSentenceBindings()) ? this.getSentenceBindings().toString() : Collections.EMPTY_LIST) + "\n" +

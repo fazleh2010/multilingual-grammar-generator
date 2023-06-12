@@ -52,6 +52,7 @@ import static grammar.sparql.SparqlQuery.VARIABLE;
 import static java.lang.System.exit;
 import static grammar.datasets.sentencetemplates.TempConstants.superlativeCountry;
 import static grammar.datasets.sentencetemplates.TempConstants.superlativeLocation;
+import java.util.Arrays;
 
 @Getter
 @Setter
@@ -220,45 +221,36 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
                 for (LexicalSense lexicalSense : lexicalEntry.getSenses()) {
                     LexicalEntryUtil lexicalEntryUtil = new LexicalEntryUtil(lexicon, lexicalEntry, frameType, lexicalSense);
-                    // the subject or object of this lexical entry's reference property that is bound to the subject of this frame
                     SelectVariable selectVariable = lexicalEntryUtil.getSelectVariable();
                     String returnVaribale=null;
                     GrammarEntry grammarEntry = new GrammarEntry();
                     grammarEntry.setFrameType(frameType);
                     grammarEntry.setLanguage(getLanguage());
                     grammarEntry.setLexicalEntryUri(lexicalEntryUtil.getLexicalEntry().getURI());
-
-                    // generate SPARQL query
-                    //grammarEntry.setQueryType(QueryType.SELECT);
                     SPARQLRequest sparqlRequest = generateSPARQL(lexicalEntryUtil);
                     String sparql=sparqlRequest.toString();
-                    grammarEntry.setSparqlQuery(sparqlRequest.toString());
-                    //System.out.println(grammarEntry);
-                    
+                    //sparql=PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), sparql);
+                    //grammarEntry.setSparqlQuery(sparqlRequest.toString());
+                   
                     if (grammarEntry.getFrameType().equals(FrameType.AG)) {
                         //if (grammarEntry.getSentenceTemplate().contains(superlative)) {
-                        String domain = LexicalEntryUtil.getDomain(lexicalEntryUtil);
-                        String range = LexicalEntryUtil.getRange(lexicalEntryUtil);
-                        String reference = lexicalEntryUtil.getOlisRestriction().getProperty();
-                        sparql=this.generateSparql(reference);
+                        //String reference = lexicalEntryUtil.getOlisRestriction().getProperty();
+                        //sparql=this.generateSparql(reference);
                         String executableSparql = generateExecutableSparql(lexicalEntryUtil, grammarEntry.getFrameType());
-                        
-                        //System.out.println(executableSparql);
-                        //exit(1);
-                        if(executableSparql!=null)
-                          sparql=executableSparql;
-                        //else
-                       //     grammarEntry.setExecutable(sparql);
-                       
-                        returnVaribale=SparqlQuery.RETURN_TYPE_OBJECT;
+
+                        if (executableSparql != null) {
+                            sparql = executableSparql;
+                        }
+
+                        returnVaribale = SparqlQuery.RETURN_TYPE_OBJECT;
+                    } else {
+                        returnVaribale = selectVariable.getVariableName();
                     }
-                    else 
-                         returnVaribale=selectVariable.getVariableName();
 
                   
-                    sparql=PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), sparql);
-                    sparql=sparql.replace(returnVaribale,"Answer");
+                    //sparql=sparql.replace(returnVaribale,"Answer");
                     grammarEntry.setSparqlQuery(sparql);
+                    grammarEntry.setReturnVariable(returnVaribale);
 
                     SentenceBindings sentenceBindings = new SentenceBindings();
                     sentenceBindings.setBindingVariableName(getBindingVariable()); // maybe retrieve from sentence generation
@@ -271,13 +263,13 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                   
                     List<String> sentences = generateSentences(lexicalEntryUtil);
                     grammarEntry.setSentences(sentences);
-
-                    grammarEntry.setReturnType(DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
-                            selectVariable
-                    )));
-                    grammarEntry.setBindingType(DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
+                    List<DomainOrRangeType> returnTypes=Arrays.asList(DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
+                            selectVariable)));
+                    grammarEntry.setReturnType(returnTypes);
+                    List<DomainOrRangeType> bindingTypes=Arrays.asList(DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
                             LexicalEntryUtil.getOppositeSelectVariable(selectVariable)
                     )));
+                    grammarEntry.setBindingType(bindingTypes);
 
                     grammarEntry.setType(SentenceType.SENTENCE);
 

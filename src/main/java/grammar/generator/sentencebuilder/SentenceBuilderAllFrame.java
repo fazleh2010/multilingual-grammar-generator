@@ -299,7 +299,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     }
 
     @Override
-    public List<String> generateBooleanQuestionDomainRange(String bindingVariable, String[] string, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
+    public List<String> generateBooleanSentences(String bindingVariable, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
         List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                 language, new String[]{frameType.getName(), booleanQuestionDomainRange});
@@ -313,7 +313,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     }
 
     @Override
-    public List<String> generateBooleanQuestionsDomain(String bindingVariable, String[] string, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
+    public List<String> generateBooleanQuestionsDomain(String bindingVariable,LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
         List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                 language, new String[]{frameType.getName(), booleanQuestionDomainRange});

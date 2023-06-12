@@ -253,7 +253,8 @@ public enum DomainOrRangeType {
     TechnicalStaff(List.of(URI.create(AIFD.getUri() + "TechnicalStaff"))),
     Undergraduate(List.of(URI.create(AIFD.getUri() + "Undergraduate"))),
 
-
+    BooleanDataType(List.of(URI.create(DBO.getUri() + "Boolean_data_type"))),
+    BooleanFlag(List.of(URI.create(DBO.getUri() + "Boolean_flag"))),
     
     Thing(List.of(URI.create("http://www.w3.org/2002/07/owl#Thing"))); // default if no other matches
 

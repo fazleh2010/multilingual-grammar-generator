@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import static grammar.sparql.Prefix.DBO;
+import java.util.Arrays;
 
 public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
   private static final Logger LOG = LogManager.getLogger(GrammarRuleGeneratorRootImpl.class);
@@ -65,8 +66,8 @@ public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
     grammarEntry.setLanguage(getLanguage());
     grammarEntry.setType(SentenceType.SENTENCE);
     grammarEntry.setFrameType(getFrameType());
-    grammarEntry.setBindingType(DomainOrRangeType.Location);
-    grammarEntry.setReturnType(DomainOrRangeType.Location);
+    grammarEntry.setBindingType(Arrays.asList(DomainOrRangeType.Location));
+    grammarEntry.setReturnType(Arrays.asList(DomainOrRangeType.Location));
     grammarEntry.getSentences().add(
       String.format(
         "Where is %s located?",
@@ -99,11 +100,11 @@ public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
   private String makeUnionQuery(
     String bindingVariableName,
     String returnVariableName,
-    DomainOrRangeType bindingType,
-    DomainOrRangeType returnType,
+    List<DomainOrRangeType> bindingType,
+    List<DomainOrRangeType> returnType,
     String... unionParams
   ) {
-    ElementGroup elementGroup = new ElementGroup();
+    /*ElementGroup elementGroup = new ElementGroup();
     ElementUnion elementUnion = new ElementUnion();
     for (String param : unionParams) {
       ElementTriplesBlock block = new ElementTriplesBlock();
@@ -129,8 +130,8 @@ public class GrammarRuleGeneratorRootImpl extends GrammarRuleGeneratorRoot {
         RDF.type.asNode(),
         NodeFactory.createURI(bindingType.getReferences().get(0).toString())
       );
-    elementGroup.addTriplePattern(bindingCondition);
+    elementGroup.addTriplePattern(bindingCondition);*/
 
-    return Algebra.compile(elementGroup).toString();
+    return "";
   }
 }

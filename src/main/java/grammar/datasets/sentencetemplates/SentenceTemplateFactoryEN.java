@@ -135,7 +135,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
-      
+         //"Is Rita Wilson the wife of Tom Hanks?"
+        "verb(component_be:present:singular) subject(range) determiner(component_the) noun(reference:singular) preposition adjunct(domain)?"
                  ),
         NounPPFrame,
         booleanQuestionDomainRange

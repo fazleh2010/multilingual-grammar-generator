@@ -264,6 +264,7 @@
   lemon:canonicalForm  [ lemon:writtenRep "an"@en ] ;
   lexinfo:partOfSpeech lexinfo:determiner .
 
+
 ## noun ##
 
 :component_obj a       lemon:LexicalEntry ;
