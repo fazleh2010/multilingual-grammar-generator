@@ -35,6 +35,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         sentences = generateBooleanSentences(lexicalEntryUtil, booleanQuestionDomainRange);
         if (!sentences.isEmpty()) {
             GrammarEntry booleanGrammarEntryDomainRange = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.SENTENCE, sentences,booleanQuestionDomainRange);
+            booleanGrammarEntryDomainRange.setSentenceTemplate(booleanQuestionDomainRange);
             grammarEntries.add(booleanGrammarEntryDomainRange);
         }
         /*sentences = generateBooleanSentences(lexicalEntryUtil, booleanQuestionDomain);
@@ -50,11 +51,13 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
         sentences = generateForwardAmount(lexicalEntryUtil, HOW_MANY_THING);
         if (!sentences.isEmpty()) {
             GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.SENTENCE, sentences, HOW_MANY_THING);
+            fragmentEntry.setSentenceTemplate(HOW_MANY_THING);
             grammarEntries.add(fragmentEntry);
         }
         sentences = generateNounPhrase(lexicalEntryUtil, nounPhrase);
         if (!sentences.isEmpty()) {
             GrammarEntry fragmentEntry = this.generateGrammarEntryforNP(grammarEntry, lexicalEntryUtil, SentenceType.NP, sentences, nounPhrase);
+            fragmentEntry.setSentenceTemplate(nounPhrase);
             grammarEntries.add(fragmentEntry);
         }
         return grammarEntries;

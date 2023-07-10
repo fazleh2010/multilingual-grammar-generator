@@ -76,7 +76,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //"interrogativePronoun verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
            //List all the musicals von Elton John.
           "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)" ,
-          //List all the musicals with music by Elton John.
+          "verb(imperative_verb:present:plural) determiner(all) noun(reference:plural) preposition adjunct(domain)" ,
+           //List all the musicals with music by Elton John.
           //"verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) noun(singular) preposition adjunct(domain)." 
           //Give me all members of Prodigy.
           "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)", 
@@ -215,6 +216,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?",
         //Which river does the Brooklyn Bridge cross?
         "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+         //Which river does the Brooklyn Bridge cross?
+        "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
         //"interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
         //Which books did Muhammad Ali write?   //"Which films did Stanley Kubrick direct?"
         "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?",          
@@ -224,7 +227,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         //"verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
         //Who was the pope that founded the Vatican Television?
         "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?"
-        ),
+                ),
        TransitiveFrame,
        PERSON_CAUSE,
         activeTransitive
@@ -847,8 +850,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //Which country was Bill Gates born in?
          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?",
           //Which country does X come from?
-         "interrogativeDeterminer(range:singular) verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?"
-          
+         "interrogativeDeterminer(range:singular) verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?",
+          //"Where did Abraham Lincoln die?"
+         "interrogativePlace verb(component_do:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?"
+        
              ),
         IntransitivePPFrame,
         WHERE_WHO_PAST_PERSON,

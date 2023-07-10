@@ -19,6 +19,7 @@
   lemon:entry    :component_an ;
   lemon:entry    :pronoun_personal;
   lemon:entry    :Apostrophe;
+  lemon:entry    :interrogative ;
   lemon:entry    :interrogativeDeterminer ;
   lemon:entry    :interrogativePronounDeterminer ;
   lemon:entry    :interrogativeVariableDeterminer ;

@@ -151,7 +151,12 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
         // Assign opposite values
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
-        //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        if(grammarEntry.getReturnVariable().contains("objOfProp")){
+            fragmentEntry.setReturnVariable("?subjOfProp");
+        }
+        else
+            fragmentEntry.setReturnVariable("objOfProp");
+       
 
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
         //sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
