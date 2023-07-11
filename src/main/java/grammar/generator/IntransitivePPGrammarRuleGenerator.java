@@ -119,6 +119,11 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         fragmentEntry.setSentenceTemplate(this.template);
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
+        if (grammarEntry.getReturnVariable().contains("objOfProp")) {
+            fragmentEntry.setReturnVariable("?subjOfProp");
+        } else {
+            fragmentEntry.setReturnVariable("objOfProp");
+        }
         //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
         Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
         //sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),

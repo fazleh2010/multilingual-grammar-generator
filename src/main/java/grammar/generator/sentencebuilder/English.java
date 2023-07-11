@@ -88,8 +88,6 @@ public class English implements TempConstants, MultilingualBuilder {
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
-        //System.out.println("subjectUri::"+subjectUri+" objectUri::"+objectUri+ " referenceUri::"+referenceUri);
-
     }
 
     public static List<String> parseTemplate(String sentenceTemplate) {
@@ -135,29 +133,13 @@ public class English implements TempConstants, MultilingualBuilder {
             attribute = tokens[0];
         }
 
-        System.out.println("attribute-" + attribute + " parameter-" + reference + " index-" + index);
-        
-        /*if (flagReference && (attribute.equals(copulativeSubject))) {
-            word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
-
-        } */
-
         if (flagReference && (attribute.equals(pronoun))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
 
-        } /*else if (!flagReference&& attribute.equals(appos)) {
-             word=LexicalEntryUtil.getSingle(lexicalEntryUtil, appos);
-        }*/ //adjective(degree:superlative)
-        else if (flagReference && attribute.contains(adjective)) {
+        } else if (flagReference && attribute.contains(adjective)) {
             word = this.lexicalEntryUtil.getAdjectiveReference(reference);
 
-        } /*else if (flagReference &&attribute.equals(noun)) {
-             if (reference.contains(colon)) {
-                String[] col = reference.split(colon);
-                word = this.getNoun(col[0], col[1]);              
-             } 
-  
-        }*/ else if (attribute.contains(preposition)) {
+        } else if (attribute.contains(preposition)) {
             word = this.findPreposition(attribute, reference, flagReference);
 
         } else if (attribute.contains(Apostrophe)) {
@@ -236,8 +218,7 @@ public class English implements TempConstants, MultilingualBuilder {
             SubjectType subjectType = interrogativeTemporal(attribute).second;
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
-        }
-        else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
+        } else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
                 word = this.getReferenceWrttienForm(col[1]);
@@ -247,14 +228,13 @@ public class English implements TempConstants, MultilingualBuilder {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
                     word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
-                    
+
                 } else {
                     System.out.println("number of paramters are not correct::" + reference);
                 }
             } else {
                 word = this.getReferenceWrttienForm(reference);
             }
-            
 
         } else if (flagReference && attribute.contains(verb)) {
             word = new VerbFinderEnglish(this.frameType, this.lexicalEntryUtil, attribute, reference).getWord();
@@ -296,24 +276,18 @@ public class English implements TempConstants, MultilingualBuilder {
                 word = this.rangeVariable;
             } else if (reference.contains(domain)) {
                 word = this.domainVariable;
+            } else {
+                word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);
+
             }
-            else{
-                word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, reference);    
-                 
-            }
-                
 
         }
-       
 
         if (attribute.contains(QuestionMark)) {
             word = word + QuestionMark;
 
         }
-
-        System.out.println("word:::" + word);
-
-        //exit(1);
+        System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index + " " + "word::" + word);
         return word;
     }
 

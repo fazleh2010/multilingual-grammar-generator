@@ -1,0 +1,9 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range
+boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,range,domain,1,dbo:publisher,dbo:Work,dbo:Agent
+mayor_of_1,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:mayor,dbo:City,dbo:Person
+mayor_of_2,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:leaderName,dbo:City,dbo:Person
+officialLanguage-of_1,noun,official language,official languages,of,NounPPFrame,range,domain,1,dbo:officialLanguage,dbo:Country,dbo:Language
+child_of,noun,child,children,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person
+owner_of_1,noun,owner,owners,of,NounPPFrame,range,domain,1,dbo:owner,dbo:Company,dbo:Person
+astronaut_of,noun,astronaut ,astronauts,of,NounPPFrame,range,domain,1,dbo:mission,dbo:Person,dbo:SpaceMission
+president_of,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Country,dbo:Person

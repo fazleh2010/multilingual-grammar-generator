@@ -236,8 +236,6 @@ public class LexicalEntryUtil implements TempConstants{
     public List<AnnotatedNounOrQuestionWord> parseLexicalEntryToAnnotatedAnnotatedNounOrQuestionWords(Collection<LexicalForm> lexicalForms) {
         List<AnnotatedNounOrQuestionWord> annotatedNouns = new ArrayList<>();
         for (LexicalForm lexicalForm : lexicalForms) {
-            //System.out.println("lexicalForm::" + lexicalForm);
-            //System.out.println("lexicalForm::" + lexicalForm.getWrittenRep().value);
             String numberType = singular;
             if (lexicalForm.toString().contains(singular)) {
                 numberType = singular;
@@ -254,7 +252,6 @@ public class LexicalEntryUtil implements TempConstants{
             annotatedNoun.setGender(getPropertyValueOrDefaultFromLexicalForm("gender", null, lexicalForm));
             annotatedNoun.setGrammaticalCase(getPropertyValueOrDefaultFromLexicalForm("case", null, lexicalForm));
             annotatedNouns.add(annotatedNoun);
-            //System.out.println("annotatedNoun::"+annotatedNoun);
 
         }
         return annotatedNouns;
@@ -299,7 +296,6 @@ public class LexicalEntryUtil implements TempConstants{
             annotatedVerb.setVerbFormMood(getPropertyValueOrDefaultFromLexicalForm("verbFormMood", null, lexicalForm));
             annotatedVerb.setAspect(getPropertyValueOrDefaultFromLexicalForm("aspect", null, lexicalForm));
             annotatedVerbs.add(annotatedVerb);
-            //System.out.println("!!!!!!!!!!!annotatedVerb:::"+annotatedVerb.getWrittenRepValue());
         }
         return annotatedVerbs;
     }
@@ -388,7 +384,6 @@ public class LexicalEntryUtil implements TempConstants{
         
         //many things are hard coded currently, this is temporary code to solve the problem, it will be refactored later on.
         domainOrRangeResponse = "https://www.w3.org/2001/XMLSchema#gYear";
-        //System.out.println(mapsToWho.toString());
         for (String key : mapsToWho) {
             if (key.contains("Year")) {
                 return SubjectType.interrogativeTemporal;
@@ -439,7 +434,6 @@ public class LexicalEntryUtil implements TempConstants{
         
         //many things are hard coded currently, this is temporary code to solve the problem, it will be refactored later on.
         domainOrRangeResponse = "https://www.w3.org/2001/XMLSchema#gYear";
-        //System.out.println(mapsToWho.toString());
         for (String key : mapsToWho) {
             if (key.contains("Year")) {
                 return SubjectType.interrogativeTemporal;
@@ -647,12 +641,10 @@ public class LexicalEntryUtil implements TempConstants{
 
         for (LexicalForm lexicalForm : this.lexicalEntry.getForms()) {
             String uri = lexicalForm.toString();
-            System.out.println(uri);
             Pair<Boolean, String> pair = this.getLastPart(uri);
             if (pair.component1()) {
                 if (pair.component2().contains("form")) {
                     reference =pair.component2() + "_preposition";
-                     System.out.println(reference);
                     break;
                 }
             }
@@ -688,7 +680,6 @@ public class LexicalEntryUtil implements TempConstants{
             if (lexicalForm.toString().contains(superlative) || lexicalForm.toString().contains(comperative)) {
                 continue;
             } else {
-                 System.out.println(lexicalForm.getWrittenRep().value);
                 return lexicalForm.getWrittenRep().value;
             }
         }
@@ -712,7 +703,6 @@ public class LexicalEntryUtil implements TempConstants{
                 }
             }
         }
-        System.out.println("reference::"+reference);
         return reference;
 
     }
@@ -881,13 +871,6 @@ public class LexicalEntryUtil implements TempConstants{
         LexInfo lexInfo = lexicalEntryUtil.getLexInfo();
         LexicalEntry lexicalEntry = new LexiconSearch(lexicalEntryUtil.getLexicon()).getReferencedResource(reference);
         Collection<LexicalForm> forms = lexicalEntry.getForms();
-        
-         System.out.println();
-        System.out.println("reference::" + reference);
-        System.out.println("attrFirst::" + attrFirst+ " " +valueFirst);
-        System.out.println("attrSecond::" + attrSecond + " " +valueSecond);
-        System.out.println("attrThrid " + attrThrid + " " + valueThrid);
-
         for (LexicalForm lexicalForm : forms) {
             Boolean firstMatchFlag = false, secondMatchFlag = false, thirdMatchFlag = false;
             for (PropertyValue first : lexicalForm.getProperty(lexInfo.getProperty(attrFirst))) {
