@@ -132,6 +132,8 @@ public class English implements TempConstants, MultilingualBuilder {
         } else if (tokens.length == 1) {
             attribute = tokens[0];
         }
+       System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index );
+
 
         if (flagReference && (attribute.equals(pronoun))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
@@ -139,7 +141,10 @@ public class English implements TempConstants, MultilingualBuilder {
         } else if (flagReference && attribute.contains(adjective)) {
             word = this.lexicalEntryUtil.getAdjectiveReference(reference);
 
-        } else if (attribute.contains(preposition)) {
+        } else if (flagReference && attribute.equals(preposition)) {
+           word = LexicalEntryUtil.getSingle(lexicalEntryUtil, reference);
+
+        }else if (attribute.contains(preposition)) {
             word = this.findPreposition(attribute, reference, flagReference);
 
         } else if (attribute.contains(Apostrophe)) {
@@ -287,7 +292,9 @@ public class English implements TempConstants, MultilingualBuilder {
             word = word + QuestionMark;
 
         }
-        System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index + " " + "word::" + word);
+        //System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index + " " + "word::" + word);
+         System.out.println( "word::" + word);
+
         return word;
     }
 
@@ -551,7 +558,7 @@ public class English implements TempConstants, MultilingualBuilder {
         List<AnnotatedNounOrQuestionWord> annotatedLexicalEntryNouns = lexicalEntryUtil.parseLexicalEntryToAnnotatedAnnotatedNounOrQuestionWords();
         String result = "";
         for (AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord : annotatedLexicalEntryNouns) {
-            System.out.println(annotatedNounOrQuestionWord);
+            //System.out.println(annotatedNounOrQuestionWord);
             if (annotatedNounOrQuestionWord.getNumber().toString().contains(numberType)) {
                 result = annotatedNounOrQuestionWord.getWrittenRepValue();
                 break;

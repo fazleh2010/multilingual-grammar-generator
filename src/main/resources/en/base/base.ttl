@@ -19,6 +19,7 @@
   lemon:entry    :component_an ;
   lemon:entry    :pronoun_personal;
   lemon:entry    :Apostrophe;
+  lemon:entry    :Which_people;
   lemon:entry    :interrogativeDeterminerPeople ;
   lemon:entry    :interrogativeDeterminer ;
   lemon:entry    :interrogativePronounDeterminer ;
@@ -240,6 +241,11 @@
  :interrogativeDeterminerPeople a      lemon:LexicalEntry ;
   lemon:canonicalForm  [ lemon:writtenRep "which people"@en ] ;
   lexinfo:partOfSpeech lexinfo:article .
+
+## temporary ##
+  :Which_people a               lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "Which people"@en ] ;
+   lexinfo:partOfSpeech lexinfo:verb .
 
 ## Apostrophe ##
 

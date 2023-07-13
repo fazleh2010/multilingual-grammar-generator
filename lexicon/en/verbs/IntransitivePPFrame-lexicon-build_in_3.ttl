@@ -15,6 +15,7 @@
   lemon:canonicalForm  :form_build_in_3 ;
   lemon:otherForm      :form_build_in_3_past ;
   lemon:sense          :build_in_3_sense_1 ;
+  lemon:sense          :build_in_3_sense_2 ;
   lemon:synBehavior    :build_in_3_frame .
 
 :form_build_in_3 a           lemon:Form ;
@@ -46,12 +47,23 @@
 
 :build_in_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :build_in_3_ontomap ;
-  lemon:reference   <http://dbpedia.org/ontology/buildingStartDate> ;
+  lemon:reference   <http://dbpedia.org/ontology/beginningDate> ;
   lemon:subjOfProp  :build_in_3_obj ;
   lemon:objOfProp   :build_in_3_subj ;
   lemon:condition   :build_in_3_sense_1_condition .
 
 :build_in_3_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Building> ;
+  lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#gYear> .
+
+:build_in_3_sense_2 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :build_in_3_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/buildingStartDate> ;
+  lemon:subjOfProp  :build_in_3_obj ;
+  lemon:objOfProp   :build_in_3_subj ;
+  lemon:condition   :build_in_3_sense_2_condition .
+
+:build_in_3_sense_2_condition a      lemon:condition ;
   lemon:propertyDomain <http://dbpedia.org/ontology/Building> ;
   lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#gYear> .
 

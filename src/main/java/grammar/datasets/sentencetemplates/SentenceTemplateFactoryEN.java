@@ -86,17 +86,20 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //"Who was Samuel Schmid's vice president?", 
           "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjunct(domain) appos noun(singular)?", 
           "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
-           //List all the musicals von Elton John.
+           //List all the musicals by Elton John.
           "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)" ,
           "verb(imperative_verb:present:plural) determiner(all) noun(reference:plural) preposition adjunct(domain)" ,
-           //List all the musicals with music by Elton John.
-          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) noun(singular) preposition adjunct(domain)." ,
+          //List all the musicals with music by Leonard Bernstein.
+          "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) determiner(with) noun(singular) preposition adjunct(domain)." ,
           //Give me all members of Prodigy.
           "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)", 
-          //"Give me the Apollo 14 astronauts?
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:plural)", 
+           //"Give me the Apollo 14 astronauts?
+            "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:singular)",
+            "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:plural)" ,
+      
           //Show me all books in Asimov's Foundation series.
           "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
+        
         ),
         NounPPFrame,
         Prepositional_Adjuct
@@ -106,11 +109,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
      sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
-           //"<NPrange,dbo:mayor> is the mayor of which city? | <NPrange,dbo:mayor> was the mayor of which city?
-          "subject(range) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)", 
-          "subject(range) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)"  
-
-                ),
+        //"<NPrange,dbo:mayor> is the mayor of which city? | <NPrange,dbo:mayor> was the mayor of which city?
+        "subject(range) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)", 
+        "subject(range) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition interrogativeDeterminer(domain:singular)"  
+                  ),
         NounPPFrame,
         Copulative_Subject
       )
@@ -119,8 +121,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
+        //"How many [NounSingular] does <NPmap(prepositionalAdjunct),Property> have?
+        //"interrogativeAmount noun(reference:singular) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)" ,
         //"How many [NounPlural] does <NPmap(prepositionalAdjunct),Property> have?
-        "interrogativeAmount noun(reference:singular) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)"         
+        "interrogativeAmount noun(reference:plural) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)?"         
+               
               ),
         NounPPFrame,
         HOW_MANY_THING
@@ -227,7 +232,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?",
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the)  object(domain)?",
          //"Who created the song Captain America?
-        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) noun(domain:plural) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) noun(domain:singular) object(domain)?",
         "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) noun(domain:plural) object(domain)?",
          //Who presented BBC Wildlife Specials?
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) object(domain)?",
@@ -248,7 +253,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         //"interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
         //Which books did Muhammad Ali write?   //"Which films did Stanley Kubrick direct?"
         "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?",          
-         //Give me all actors starring in X.
+         //Give me all actors starring in X.Give me all films produced by Hal Roach.
          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
         //List all actors starring in X.
         //"verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
@@ -295,6 +300,94 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         ),
         TransitiveFrame,
         PERSON_CAUSE,
+        passiveTransitive
+      )
+    );
+    
+      // TransitiveFrame active
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(
+         //"What was developed by X?
+        "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"What were developed by X?
+        "interrogativePronoun(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ,
+        //"What was developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"What were developed by X?
+        "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //Which movie/movies did Kurosawa direct?
+         "interrogativeDeterminer(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?",
+         "interrogativeDeterminer(domain:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?",
+         //Which country/countries adopted the Euro?
+         "interrogativeDeterminer(domain:singular) verb(mainVerb:present:thridPerson) adjunct(range)?",
+         "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) adjunct(range)?",
+         "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) adjunct(range)?",
+         "interrogativeDeterminer(domain:plural) verb(mainVerb:past:thridPerson) adjunct(range)?",
+         //Give me all video games published by Mean Hamster Software.
+         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //List all video games published by Mean Hamster Software.
+         "verb(imperative_verb:present:plural) determiner(all) noun(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //"Which books were developed by X?
+        "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"Which books were developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //"Which books were developed by X?
+        "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //"Which (X_Book) were developed by X?
+        //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+        //Show me the book that Muhammad Ali wrote.
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         //Show me the books that Muhammad Ali wrote.
+         //"verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+
+         
+         ),
+       TransitiveFrame,
+       PERSON_CAUSE_OPPOSITITE,
+        activeTransitive
+      )
+    );
+    // TransitiveFrame passive
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(                
+             //"Who creates the song Captain America?
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) noun(domain:singular) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) noun(domain:plural) object(domain)?",
+         //"Who creates the song Captain America?
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the)  object(domain)?",
+         //"Who created the song Captain America?
+        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) noun(domain:plural) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) noun(domain:plural) object(domain)?",
+         //Who presented BBC Wildlife Specials?
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) object(domain)?",
+        //Who wrote the Game of Thrones?
+        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?",
+        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) object(domain)?",
+        //Which person presented BBC Wildlife Specials?
+        //"which river crosses Brooklyn Bridge?"
+        "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?",
+        "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?",
+        "interrogativeDeterminer(range:plural) verb(mainVerb:present:thridPerson) object(domain)?",
+        "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?",
+        //Which river does the Brooklyn Bridge cross?
+        "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+         //Which river does the Brooklyn Bridge cross?
+        "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+        //"interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+        //Which books did Muhammad Ali write?   //"Which films did Stanley Kubrick direct?"
+        "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?",          
+         //Give me all actors starring in X.
+         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
+        //List all actors starring in X.
+        //"verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
+        //Who was the pope that founded the Vatican Television?
+        "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?"
+       
+        ),
+        TransitiveFrame,
+        PERSON_CAUSE_OPPOSITITE,
         passiveTransitive
       )
     );
@@ -667,20 +760,22 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     
       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
-          //what flows through Germany?
+          //what flows/flew through Germany?
           "interrogativePronoun(domain) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+          "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
           //what does X stand for?
           "interrogativePronoun(domain) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?",
-          //Which river flows through Germany?
-          "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
-          //what flew through Germany?
-          "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
-          //Which rivers flow through Germany?
-          "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
+          //Which river/rivers flows/flew through Germany?
+           "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+           "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
+           "interrogativeDeterminer(domain:plural) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+           "interrogativeDeterminer(domain:plural) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
           //Give me all launch pads operated by NASA.
            //"verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) object(range) verb(mainVerb:present:thridPerson) preposition adjunct(domain)."
            //Where does Piccadilly start? 
-           "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?"
+           "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?",
+           //What movies does Jesse Eisenberg play in?
+           "interrogativeDeterminer(domain:singular) noun(plural) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?"
         ),
         IntransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,
@@ -691,7 +786,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(           
         // How many rivers flow through <NPrange,dbo:city>?
-        "interrogativeAmount(domain:plural) verb(mainVerb:present:singular) preposition adjunct(range)?"  
+        "interrogativeAmount(domain:plural) verb(mainVerb:present:singular) preposition adjunct(range)?" ,
+        //How many films did X star in?        
+        "interrogativeAmount(domain:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:singular) preposition?" 
         ),
         IntransitivePPFrame,
         HOW_MANY_THING_BACKWARD+"_"+WHAT_WHICH_PRESENT_THING_1,
@@ -792,9 +889,17 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //When was X completed?
           "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
            //When were X completed?
+          "interrogativeTemporal verb(component_be:past:plural) object(domain) verb(mainVerb:past:thridPerson)?",
+           //When was the X completed?
+          "interrogativeTemporal verb(component_be:past:singular) determiner(component_the) object(domain) verb(mainVerb:past:thridPerson)?",
+           //When were the X completed?
+          "interrogativeTemporal verb(component_be:past:plural) determiner(component_the) object(domain) verb(mainVerb:past:thridPerson)?",
+           //When were X completed?
           //"interrogativeTemporal verb(component_do:past:plural) object(domain) verb(mainVerb:past:thridPerson)?"
           //When did Operation Overlord commence?
-          "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?"
+          "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?",
+           //When did Operation Overlord commence?
+          "interrogativeTemporal verb(component_do:past:singular) determiner(component_the) object(domain) verb(mainVerb:present:thridPerson)?"
         ),
         IntransitivePPFrame,
         WHEN_WHAT_PAST_THING,
@@ -905,8 +1010,12 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          //Which actors were born on the Philippines?
          "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
          //Which actors were born on the Philippines?
-         "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
-
+         "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         //Give me all actors who were born in Berlin.
+         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) interrogativePronoun(domain:singular) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+          //Which people were born in Heraklion?
+         "determiner(Which_people) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
+    
         ),
         IntransitivePPFrame,
         WHERE_WHO_PAST_PERSON,

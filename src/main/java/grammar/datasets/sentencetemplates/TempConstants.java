@@ -125,6 +125,8 @@ public interface TempConstants {
      public static final String WHEN_WHO_PAST_PERSON = "WHEN_WHO_PAST_PERSON";
      public static final String WHERE_WHO_PAST_PERSON = "WHERE_WHO_PAST_PERSON";
      public static final String PERSON_CAUSE = "PERSON_CAUSE";
+     public static final String PERSON_CAUSE_OPPOSITITE = "PERSON_CAUSE_OPPOSITITE";
+
      public static final String PERSON_CAUSE_SUBJECT  = "PERSON_CAUSE_SUBJECT";
      public static final String PERSON_CAUSE_SUBJECT_PREPOSITION  = "PERSON_CAUSE_SUBJECT_PREPOSITION";
      public static final String HOW_MANY_THING_BACKWARD="HOW_MANY_THING_BACKWARD";

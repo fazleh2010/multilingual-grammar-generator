@@ -143,6 +143,8 @@ public class TemplateFinder implements TempConstants{
             type = HOW_MANY_THING;
         }else if(isPerson(subjectUri) && isPerson(objectUri)) {
             type = PERSON_PERSON;
+        }else if(referenceUri.contains("currency")) {
+            type = PERSON_CAUSE_OPPOSITITE;
         }else  {
             type=PERSON_CAUSE;
         }

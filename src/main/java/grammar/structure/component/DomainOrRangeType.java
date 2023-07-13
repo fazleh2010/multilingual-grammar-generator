@@ -109,7 +109,8 @@ public enum DomainOrRangeType {
     Brewery(List.of(URI.create(DBR.getUri() + "Brewery"))),
     BroadcastNetwork(List.of(URI.create(DBR.getUri() + "BroadcastNetwork"))),
     Device(List.of(URI.create(DBR.getUri() + "Device"))),
-    
+    SpaceMission(List.of(URI.create(DBO.getUri() + "SpaceMission"))),  
+    SpaceStation(List.of(URI.create(DBO.getUri() + "SpaceStation"))), 
 
   
     Name(List.of(

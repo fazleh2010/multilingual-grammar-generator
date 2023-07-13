@@ -38,7 +38,7 @@ dbo:EducationalInstitution,educational institution,educational institutions
 dbo:EthnicGroup,ethnic group,ethnic groups
 dbo:Event,event,events
 dbo:FictionalCharacter,fictional character,fictional characters
-dbo:Film,film,film
+dbo:Film,film,films
 dbo:Food,food,foods
 dbo:Foundation_series,book,book
 dbo:Genre,genre,genres
@@ -111,3 +111,5 @@ xsd:positiveInteger,-,-
 xsd:string,-,-
 dbo:SpaceMission,space mission,Space missions
 dbo:ProgrammingLanguage,programming language,programming languages
+dbo:EducationalInstitution,educational institution,educational institutions
+dbo:SpaceStation,space flight,space flight
