@@ -50,7 +50,7 @@
 
 
 :win_2_sense_1_condition a    lemon:condition ;
-  lemon:propertyDomain <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Writer> ;
   lemon:propertyRange  <http://dbpedia.org/ontology/Award> .
 
 :win_2ed a            lemon:LexicalEntry ;

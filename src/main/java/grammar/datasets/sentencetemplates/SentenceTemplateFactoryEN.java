@@ -293,10 +293,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          //"Which (X_Book) were developed by X?
         //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
         //Show me the book that Muhammad Ali wrote.
-         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).", 
          //Show me the books that Muhammad Ali wrote.
-         //"verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
-
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." ,
+         //"Give me all writers that won the Nobel Prize in literature."
+         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) determiner(that) verb(mainVerb:past:thridPerson) determiner(component_the) object(range)."
         ),
         TransitiveFrame,
         PERSON_CAUSE,
@@ -768,9 +769,12 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //Which river/rivers flows/flew through Germany?
            "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
            "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
-           "interrogativeDeterminer(domain:plural) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
+           "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
            "interrogativeDeterminer(domain:plural) verb(mainVerb:past:thridPerson) preposition adjunct(range)?",
-          //Give me all launch pads operated by NASA.
+           //Which river/rivers was/were flawn through Germany?
+           "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+           "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+           //Give me all launch pads operated by NASA.
            //"verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) object(range) verb(mainVerb:present:thridPerson) preposition adjunct(domain)."
            //Where does Piccadilly start? 
            "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?",

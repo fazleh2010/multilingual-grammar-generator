@@ -112,4 +112,5 @@ xsd:string,-,-
 dbo:SpaceMission,space mission,Space missions
 dbo:ProgrammingLanguage,programming language,programming languages
 dbo:EducationalInstitution,educational institution,educational institutions
-dbo:SpaceStation,space flight,space flight
+dbo:SpaceStation,spaceflight,spaceflights
+dbo:Writer,writer,writers
