@@ -50,6 +50,8 @@
   lemon:entry    :since ;
   lemon:entry    :all ;
   lemon:entry    :that ;
+  lemon:entry    :than ;
+  lemon:entry    :meters ;
   lemon:entry    :until .
 
 :component_be a        lemon:LexicalEntry ;
@@ -288,9 +290,23 @@
   lemon:canonicalForm  [ lemon:writtenRep "all"@en ] ;
   lexinfo:partOfSpeech lexinfo:particle .
 
+## that ##
 :that a                 lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "that"@en ] ;
   lexinfo:partOfSpeech lexinfo:particle .
+
+## than ##
+:than a                 lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "than"@en ] ;
+  lexinfo:partOfSpeech lexinfo:particle .
+
+## meters ##
+:meters a                 lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "meters"@en ] ;
+  lexinfo:partOfSpeech lexinfo:particle .
+
+
+## appos ##
 
  :appos a                 lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "'s"@en ] ;

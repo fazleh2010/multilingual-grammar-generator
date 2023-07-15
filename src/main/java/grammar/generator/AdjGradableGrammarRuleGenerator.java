@@ -1,19 +1,18 @@
 package grammar.generator;
 
 import grammar.datasets.sentencetemplates.TempConstants;
+import grammar.sparql.PrepareSparqlQuery;
 import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.Language;
 import grammar.structure.component.SentenceType;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import lexicon.LexicalEntryUtil;
 import util.exceptions.QueGGMissingFactoryClassException;
 
-public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements TempConstants{
+public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements TempConstants {
 
     private String template = null;
 
@@ -36,7 +35,7 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
                     lexicalEntryUtil);
-            this.template=sentenceBuilder.getTemplateFinder().getSelectedTemplate();
+            this.template = sentenceBuilder.getTemplateFinder().getSelectedTemplate();
             generatedSentences = sentenceBuilder.generateFullSentencesForward(bindingVar, lexicalEntryUtil);
             generatedSentences.sort(String::compareToIgnoreCase);
         } catch (Exception ex) {
@@ -47,7 +46,7 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         //System.out.println("getLanguage:::"+getLanguage());
         return generatedSentences;
     }
-    
+
     public List<String> generateSentencesAdjectiveBaseForm(
             LexicalEntryUtil lexicalEntryUtil
     ) throws QueGGMissingFactoryClassException {
@@ -76,6 +75,34 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         return generatedSentences;
     }
 
+    public List<String> generateSentencesComperativeForm(
+            LexicalEntryUtil lexicalEntryUtil
+    ) throws QueGGMissingFactoryClassException {
+        List<String> generatedSentences = new ArrayList<String>();
+
+        String bindingVar = getBindingVariable();
+        SentenceBuilderAllFrame sentenceBuilder = null;
+
+        try {
+            sentenceBuilder = new SentenceBuilderAllFrame(
+                    getLanguage(),
+                    this.getFrameType(),
+                    this.getSentenceTemplateRepository(),
+                    lexicalEntryUtil,
+                    comperative);
+
+            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, lexicalEntryUtil);
+            generatedSentences.sort(String::compareToIgnoreCase);
+        } catch (Exception ex) {
+            System.out.println(this.frameType + " is not working");
+            java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //System.out.println("generatedSentences:::"+generatedSentences);
+        //exit(1);
+        return generatedSentences;
+    }
+
     protected List<String> generateOppositeSentences(LexicalEntryUtil lexicalEntryUtil) throws
             QueGGMissingFactoryClassException {
         List<String> generatedSentences = new ArrayList<String>();
@@ -88,7 +115,7 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
                     this.getSentenceTemplateRepository(),
                     lexicalEntryUtil,
                     this.template);
-            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);
+            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar,  lexicalEntryUtil);
             //generatedSentences.sort(String::compareToIgnoreCase);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,10 +130,11 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
 
         GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil);
         grammarEntries.add(baseGrammarEntry);
-        
+        GrammarEntry comperativeGrammarEntry = getComperativeGrammarEntry(grammarEntry, lexicalEntryUtil);
+        grammarEntries.add(comperativeGrammarEntry);
+
         /*GrammarEntry baseFormGrammarEntry = getSuperlativeGrammarEntry(grammarEntry, lexicalEntryUtil);
         grammarEntries.add(oppositeGrammarEntry);*/
-
         return grammarEntries;
     }
 
@@ -116,7 +144,7 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         // Assign opposite values
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
-        //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
+        fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
         fragmentEntry.setSentenceTemplate(grammarEntry.getSentenceTemplate());
         fragmentEntry.setFrameType(FrameType.AG);
 
@@ -126,12 +154,36 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);*/
         // sentences
         List<String> generatedSentences = generateSentencesAdjectiveBaseForm(lexicalEntryUtil);
-        this.template=TempConstants.adjectiveBaseForm;
+        this.template = TempConstants.adjectiveBaseForm;
         fragmentEntry.setSentenceTemplate(this.template);
         fragmentEntry.setSentences(generatedSentences);
+        //fragmentEntry.setSparqlQuery(PrepareSparqlQuery.getRealSparql(this.template, lexicalEntryUtil.get));
         return fragmentEntry;
     }
-    
+
+    private GrammarEntry getComperativeGrammarEntry(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
+        GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
+        fragmentEntry.setType(SentenceType.SENTENCE);
+        // Assign opposite values
+        fragmentEntry.setReturnType(grammarEntry.getBindingType());
+        fragmentEntry.setBindingType(grammarEntry.getReturnType());
+        fragmentEntry.setReturnVariable(grammarEntry.getReturnVariable());
+        fragmentEntry.setSentenceTemplate(grammarEntry.getSentenceTemplate());
+        fragmentEntry.setFrameType(FrameType.AG);
+
+        /*Map<String, String> sentenceToSparqlParameterMapping = new HashMap<String, String>();
+        sentenceToSparqlParameterMapping.put(grammarEntry.getSentenceBindings().getBindingVariableName(),
+                grammarEntry.getReturnVariable());
+        fragmentEntry.setSentenceToSparqlParameterMapping(sentenceToSparqlParameterMapping);*/
+        // sentences
+        List<String> generatedSentences = generateSentencesComperativeForm(lexicalEntryUtil);
+        this.template = TempConstants.comperative;
+        fragmentEntry.setSentenceTemplate(this.template);
+        fragmentEntry.setSentences(generatedSentences);
+        //fragmentEntry.setSparqlQuery(PrepareSparqlQuery.getRealSparql(this.template, lexicalEntryUtil.get));
+        return fragmentEntry;
+    }
+
     /*private GrammarEntry getAdjectiveBaseForm(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
         fragmentEntry.setType(SentenceType.SENTENCE);
@@ -151,6 +203,4 @@ public class AdjGradableGrammarRuleGenerator extends GrammarRuleGeneratorRoot im
         fragmentEntry.setSentences(generatedSentences);
         return fragmentEntry;
     }*/
-
-   
 }

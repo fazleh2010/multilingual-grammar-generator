@@ -92,7 +92,7 @@ public class NPPGrammarRuleGenerator extends GrammarRuleGeneratorRoot implements
                 lexicalEntryUtil
         );
         generatedSentences = new ArrayList<String>();
-        generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+        generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), lexicalEntryUtil));
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         generatedSentences.sort(String::compareToIgnoreCase);
         this.senTemplate = sentenceBuilder.getTemplate();

@@ -290,7 +290,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
         //"Which books were developed by X?
         "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
-         //"Which (X_Book) were developed by X?
+         //"Which bridges  cross the X?
+        "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) determiner(component_the) adjunct(range)?", 
+        //"Which bridge  crosses the X?
+        "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) determiner(component_the) adjunct(range)?", 
+        //"Which (X_Book) were developed by X?
         //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
         //Show me the book that Muhammad Ali wrote.
          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).", 
@@ -421,9 +425,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          //"Which (X_Book) were developed by X?
         //interrogativeVariableDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
         //Show me the book that Muhammad Ali wrote.
-         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).", 
          //Show me the books that Muhammad Ali wrote.
-         //"verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." 
 
         ),
         TransitiveFrame,
@@ -1018,8 +1022,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          //Give me all actors who were born in Berlin.
          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) interrogativePronoun(domain:singular) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
           //Which people were born in Heraklion?
-         "determiner(Which_people) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
-    
+         "determiner(Which_people) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
+         // Give all swimmers that were born in Moscow.
+         "verb(component_imperative_transitive:present:singular) determiner(all) noun(domain:plural) determiner(that) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
+                
         ),
         IntransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
@@ -1155,8 +1161,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
          //"interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) determiner(component_the) noun(range:singular) preposition adjunct(domain)?",
          //temporay closed       
          //How high is the lighthouse?
-         "interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) object(range)?"
-        
+         "interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) object(range)?",
+         //How high is the lighthouse?
+         "interrogativeEvalution adjective(adjectiveBaseForm) verb(component_be:present:singular) determiner(component_the) object(range)?"
                 
         /*
         //How high is the lighthouse in Colombo?
@@ -1175,10 +1182,15 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     // AdjectivePPFrame...comparative
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
-         
+        //Show me all basketball players that are higher than 2 meters. 
+        "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) determiner(that) verb(component_be:present:plural) adjective(comperative) determiner(than) object(domain)." 
+        //Which mountains are higher than the object(domain?
+        //"interrogativeDeterminer(domain:singular) verb(component_be:present:plural) adjective(comperative) determiner(than) determiner(the) object(domain)?"
+        //"interrogativeDeterminer(range:singular) verb(component_be:past:plural) adjective(comperative) determiner(than) determiner(the) adjunct(range)?"       
         ),
         AdjectiveSuperlativeFrame,
-        comperative
+        comperative,
+        backward
       )
     );
     
@@ -1187,6 +1199,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         List.of(
         //What is the highest mountain in Australia?
         "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition adjunct(domain)?"
+           
         ),
         AdjectiveSuperlativeFrame,
         superlativeCountry,
@@ -1210,6 +1223,8 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
      // AdjectivePPFrame...superlative
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
+        //What is the highest mountain?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular)?",
          //What is the largest country in the world?
         "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(component_obj)?"
          //What is the largest country?

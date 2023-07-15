@@ -13,6 +13,7 @@ import grammar.structure.component.Language;
 import static java.lang.System.exit;
 import java.util.Map;
 import java.util.TreeMap;
+import lexicon.LexicalEntryUtil;
 import linkeddata.LinkedData;
 import org.apache.commons.lang3.StringUtils;
 import util.io.UrlUtils;
@@ -482,7 +483,7 @@ public class PrepareSparqlQuery {
     }
 
 
-    
+    //SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/BasketballPlayer> ; <http://dbpedia.org/ontology/height> ?n FILTER ( ?n > 2.0 ) }
     public static String getRealSparql(String template, String sparql) {
         System.out.println(template + " " + sparql);
         String property = findProperty(sparql);
@@ -493,17 +494,37 @@ public class PrepareSparqlQuery {
         } else if (template != null && template.contains("booleanQuestion")) {
             return "ASK WHERE {?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         } else if (template != null && template.contains("adjectiveBaseForm")) {
+            property=findPropertyAdjective(sparql);
             return "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         } else if (template != null && template.contains("superlative")) {
             return sparql;
-        } else {
+        } else if (template != null && template.contains("comperative")) {
+             property=findPropertyAdjective(sparql);
+            return "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp "+ "<" +property+ ">" +" ?objOfProp FILTER ( ?objOfProp > "+"VARIABLE"+" ) }";
+        }else {
             return sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         }
       
     }
-
+    
     private static String findProperty(String triple) {
         return StringUtils.substringBetween(triple, "<", ">");
+    }
+    
+    private static String findPropertyAdjective(String triple) {
+        triple = triple.replace("<", "\n" + "<");
+        String[] lines = triple.split("\n");
+        String property = null;
+        for (String line : lines) {
+            if (line.contains("http://dbpedia.org/ontology/") || line.contains("http://dbpedia.org/property/")) {
+                if(line.contains("Country")){
+                    continue;
+                }
+                property = findProperty(line);
+            }
+
+        }
+        return property;
     }
 
 

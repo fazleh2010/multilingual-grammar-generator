@@ -53,7 +53,7 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
                 getSentenceTemplateRepository(),
                 lexicalEntryUtil
         );
-        generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), new String[]{}, lexicalEntryUtil));
+        generatedSentences.addAll(sentenceBuilder.generateFullSentencesBackward(getBindingVariable(), lexicalEntryUtil));
         generatedSentences = generatedSentences.stream().distinct().collect(Collectors.toList());
         sentTemplate=sentenceBuilder.getTemplate();
         //generatedSentences.sort(String::compareToIgnoreCase);

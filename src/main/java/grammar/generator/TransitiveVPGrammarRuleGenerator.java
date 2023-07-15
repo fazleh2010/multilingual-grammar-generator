@@ -66,7 +66,7 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
                     lexicalEntryUtil);
-            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);
+            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar,  lexicalEntryUtil);
             //this.template=sentenceBuilder.getTemplateFinder().getSelectedTemplate();
             sentenceTemplate=sentenceBuilder.getTemplate();
             //generatedSentences.sort(String::compareToIgnoreCase);
@@ -86,7 +86,8 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
                     this.getFrameType(),
                     this.getSentenceTemplateRepository(),
                     lexicalEntryUtil);
-            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, new String[2], lexicalEntryUtil);
+            generatedSentences = sentenceBuilder.generateFullSentencesBackward(bindingVar, 
+                    lexicalEntryUtil);
             //generatedSentences.sort(String::compareToIgnoreCase);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(TransitiveVPGrammarRuleGenerator.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,6 +15,7 @@
   lemon:canonicalForm  :form_born_in_1 ;
   lemon:otherForm      :form_born_in_1_past ;
   lemon:sense          :born_in_1_sense_1 ;
+  lemon:sense          :born_in_1_sense_2 ;
   lemon:synBehavior    :born_in_1_frame .
 
 :form_born_in_1 a           lemon:Form ;
@@ -53,6 +54,17 @@
 
 :born_in_1_sense_1_condition a      lemon:condition ;
   lemon:propertyDomain <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#date> .
+
+:born_in_1_sense_2 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :born_in_1_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/birthDate> ;
+  lemon:subjOfProp  :born_in_1_obj ;
+  lemon:objOfProp   :born_in_1_subj ;
+  lemon:condition   :born_in_1_sense_2_condition .
+
+:born_in_1_sense_2_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/President> ;
   lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#date> .
 
 

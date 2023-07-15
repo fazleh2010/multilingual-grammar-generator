@@ -69,6 +69,10 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         domainOrRange=domainRangeDictionary.getDomainOrRange();
        
         for (String pathname : pathnames) {
+            if(pathname.contains(".csv#")){
+                continue;
+            }
+            System.out.println(pathname);
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
                 if(fileName.contains("DomainOrRange.csv")){

@@ -989,54 +989,6 @@ public class EnglishCsv implements TempConstants {
             return str;
         }
 
-        /*public String prepareTurtile(Tupples tupple,String row[],String language) {
-            String lemonEntry=this.getLemonEntryIndex(row);
-            String writtenForm=this.getWrittenFormIndex(row);
-            
-            String header = "@prefix :        <http://localhost:8080/#> .\n"
-                    + "\n"
-                    + "@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .\n"
-                    + "@prefix lemon:   <http://lemon-model.net/lemon#> .\n"
-                    + "@prefix oils:     <http://lemon-model.net/oils#> .\n"
-                    + "\n"
-                    + "@base            <http://localhost:8080#> .\n"
-                    + "\n"
-                    + ":lexicon_en a    lemon:Lexicon ;\n"
-                    + "  lemon:language \"" + language + "\" ;\n"
-                    + "  lemon:entry    :" + lemonEntry + " ;\n"
-                    + "  lemon:entry    :" + lemonEntry + "_res .\n";
-
-            String index
-                    = ":" + lemonEntry + " a             lemon:LexicalEntry ;\n"
-                    + "  lexinfo:partOfSpeech lexinfo:adjective ;\n"
-                    + "  lemon:canonicalForm  :" + lemonEntry + "_lemma" + " ;\n"
-                    + "  lemon:synBehavior    :" + lemonEntry + "_predFrame" + " ;\n"
-                    + "  lemon:sense          :" + lemonEntry + "_sense" + " .\n"
-                    + "\n";
-            String writtenFormLema
-                    = ":" + lemonEntry + "_lemma" + " lemon:writtenRep \"" + writtenForm + "\"@" + language + " .\n"
-                    + "\n";
-            String predFrame
-                    = ":" + lemonEntry + "_predFrame" + " a        lexinfo:AdjectivePPFrame ;\n"
-                    + "  lexinfo:copulativeSubject :" + lemonEntry + "_PredSynArg .\n"
-                    + "\n";
-            String sense
-                    = ":" + lemonEntry + "_sense" + " a  lemon:LexicalSense ;\n"
-                    + "  lemon:reference :" + lemonEntry + "_res" + " ;\n"
-                    + "  lemon:isA       :" + lemonEntry + "_PredSynArg" + " ;\n"
-                    + "  lemon:condition :" + lemonEntry + "_condition" + " .\n"
-                    + "\n";
-            String res
-                    = ":" + lemonEntry + "_res" + " a   oils:CovariantScalar ;\n"
-                    + "  oils:boundTo  <" +tupple.getReference() + "> ;\n"
-                    + "  oils:degree   <"+tupple.getOils_degree() + "> .\n"
-                    + "\n";
-            String condition
-                    = ":" + lemonEntry + "_condition" + " a lemon:condition ;\n"
-                    + "  lemon:propertyDomain   <" + tupple.getDomain() + "> ;\n"
-                    + "  lemon:propertyRange    <" + tupple.getRange() + "> .";
-            return header+index+writtenFormLema+predFrame+sense+res+condition;
-        }*/
         public String getPrepostion(String lemonEntry, String preposition, String language) {
             if (preposition.contains("X")) {
                 preposition = "";

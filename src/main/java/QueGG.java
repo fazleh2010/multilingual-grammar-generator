@@ -165,7 +165,6 @@ public class QueGG {
 
         } else*/ 
         if (questionType.contains(REAL_QUESTION)) {
-             
             Map<String, String[]> queGGQuestions = new HashMap<String, String[]>();
             List<String[]> rows = new ArrayList<String[]>();
             String questionDir=inputCofiguration.getQuestionDir();
@@ -217,6 +216,7 @@ public class QueGG {
             }
         } catch (Exception ex) {
             System.out.println("ignore for time being!!!"+ex.getMessage());
+            ex.printStackTrace();
         }
         return false;
     }

@@ -168,13 +168,13 @@ public interface TempConstants {
     public static String adjective = "adjective";
     public static String superlative = "superlative";
 
-    public static String comperative = "comparative";
     public static String superlativeCountry = "superlativeCountry";
     public static String superlativePerson = "superlativePerson";
     public static String superlativeLocation="superlativeLocation";
 
     public static String superlativeWorld = "superlativeWorld";
     public static String adjectiveBaseForm="adjectiveBaseForm";
+    public static String comperative="comperative";
     public static String degree = "degree";
     
     public static String past_imperfect="past_imperfect";
