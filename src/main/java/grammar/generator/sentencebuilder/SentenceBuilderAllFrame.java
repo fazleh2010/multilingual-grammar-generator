@@ -82,6 +82,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     @Override
     public List<String> generateFullSentencesForward(String bindingVariable, LexicalEntryUtil lexicalEntryUtil) throws QueGGMissingFactoryClassException {
         List<String> sentences = new ArrayList<String>();
+        System.out.println(this.frameType.getName());
 
         if (this.frameType.equals(FrameType.NPP)) {
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
@@ -113,7 +114,19 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             this.setTemplate(this.templateFinder.getSelectedTemplate());
             //this.templateFinder.setSelectedTemplate(forward);
 
-        } else if (this.frameType.equals(FrameType.AG)) {
+        } 
+        else if (this.frameType.equals(FrameType.AA)) {
+            SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
+            SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
+            this.setTemplate(this.templateFinder.getSelectedTemplate());
+            List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
+                    language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate(), forward});
+            System.out.println(frameType.getName()+" "+this.templateFinder.getSelectedTemplate()+" "+forward);
+            System.out.println(" sentenceTemplates::"+sentenceTemplates);
+            sentences = this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
+        }
+
+        else if (this.frameType.equals(FrameType.AG)) {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
             String template = this.getTemplateFinder().getSelectedTemplate();

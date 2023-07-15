@@ -28,6 +28,7 @@ public interface TempConstants {
     public static String TransitiveFrame = "TransitiveFrame";
     public static String IntransitivePPFrame = "IntransitivePPFrame";
     public static String AdjectiveAttributiveFrame = "AdjectiveAttributiveFrame";
+    public static String AdjectivePredicateFrame="AdjectivePredicateFrame";
     public static String AdjectivePPFrame = "AdjectivePPFrame";
     public static String AdjectiveSuperlativeFrame = "AdjectiveSuperlativeFrame";
     public static String FULL_DATASET = "FULL_DATASET";
@@ -173,6 +174,7 @@ public interface TempConstants {
     public static String superlativeLocation="superlativeLocation";
 
     public static String superlativeWorld = "superlativeWorld";
+    public static String attributiveSimple="attributiveSimple";
     public static String adjectiveBaseForm="adjectiveBaseForm";
     public static String comperative="comperative";
     public static String degree = "degree";

@@ -6,6 +6,7 @@ import static evaluation.EvaluateAgainstQALD.PROTOTYPE_QUESTION;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
 import evaluation.QALD;
 import evaluation.QALDImporter;
+import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
 import grammar.generator.GrammarRuleGeneratorRootImpl;
@@ -343,11 +344,17 @@ public class QueGG {
 
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
-            String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
-            if (grammarEntry.getReturnVariable() != null) {
-                sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
+            if (!grammarEntry.getFrameType().equals(FrameType.AA)) {
+                String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
+                if (grammarEntry.getReturnVariable() != null) {
+                    sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
+                }
+                grammarEntry.setSparqlQuery(sparql);
             }
-            grammarEntry.setSparqlQuery(sparql);
+            /*if(grammarEntry.getSentenceTemplate()!=null&!grammarEntry.getSentenceTemplate().contains(nounPhrase)){
+                grammarEntry.setCombination(true);
+            }*/
+
         }
 
         // Output file is too big, make two files

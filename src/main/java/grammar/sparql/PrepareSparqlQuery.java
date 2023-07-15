@@ -507,6 +507,16 @@ public class PrepareSparqlQuery {
       
     }
     
+    public static String getRealSparql(String template, String property, String value,String className) {
+
+        String sparql
+                = "SELECT DISTINCT ?Answer WHERE { "
+                + "?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + className+ ">" +" ; "
+                + "<" + property + ">" + " " + "<" + value + "> }";
+
+        return sparql;
+    }
+    
     private static String findProperty(String triple) {
         return StringUtils.substringBetween(triple, "<", ">");
     }

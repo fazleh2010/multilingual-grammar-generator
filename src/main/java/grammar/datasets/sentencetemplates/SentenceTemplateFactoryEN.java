@@ -1150,7 +1150,23 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       )
     );
       
-    
+    sentenceTemplateRepository.add(
+      createSentenceTemplate(
+        language,
+        List.of(
+        //Give me all Danish films.
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjective(adjectiveBaseForm)",
+        //what is a Danish film.
+        "interrogativePronoun(domain:plural) verb(component_be:present:singular) adjective(adjectiveBaseForm)",
+        //what are Danish film.
+        "interrogativePronoun(domain:plural) verb(component_be:present:plural) adjective(adjectiveBaseForm)"
+ 
+        ),
+        AdjectivePredicateFrame,
+        adjectiveBaseForm,
+        forward
+      )
+    );
     
        
     sentenceTemplateRepository.add(
@@ -1198,8 +1214,14 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //What is the highest mountain in Australia?
-        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition adjunct(domain)?"
-           
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition adjunct(domain)?",
+          //What is the highest mountain in Australia?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) determiner(component_the) noun(range:singular) preposition adjunct(domain)?",
+        //What is the highest mountain in the ?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(domain)?",
+          //What is the highest mountain in the ?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) determiner(component_the) noun(range:singular) preposition determiner(component_the) adjunct(domain)?"
+       
         ),
         AdjectiveSuperlativeFrame,
         superlativeCountry,

@@ -101,12 +101,14 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         Pair<String,List<String>> pair=generateOppositeSentences(lexicalEntryUtil);
         fragmentEntry1.setSentenceTemplate(pair.getFirst());
         fragmentEntry1.setSentences(pair.getSecond());
+        fragmentEntry1.setCombination(true);
         grammarEntries.add(fragmentEntry1);
         
         GrammarEntry fragmentEntry2 =getOppositeFrame(grammarEntry);
         pair=generateBackwardAmount(lexicalEntryUtil);
         fragmentEntry2.setSentenceTemplate(pair.getFirst());
         fragmentEntry2.setSentences(pair.getSecond());
+        fragmentEntry1.setCombination(true);
         grammarEntries.add(fragmentEntry2);
 
         return grammarEntries;
@@ -119,6 +121,7 @@ public class IntransitivePPGrammarRuleGenerator extends GrammarRuleGeneratorRoot
         fragmentEntry.setSentenceTemplate(this.template);
         fragmentEntry.setReturnType(grammarEntry.getBindingType());
         fragmentEntry.setBindingType(grammarEntry.getReturnType());
+        fragmentEntry.setCombination(true);
         if (grammarEntry.getReturnVariable().contains("objOfProp")) {
             fragmentEntry.setReturnVariable("?subjOfProp");
         } else {

@@ -18,7 +18,6 @@
   lemon:otherForm      :form_high_1_comperative ;
   lemon:otherForm      :form_high_1_superlative ;
   lemon:sense          :high_1_sense_1 ;
-  lemon:sense          :high_1_sense_2 ;
   lemon:synBehavior    :high_1_predFrame .
 
 :form_high_1 lemon:writtenRep "high"@en .
@@ -41,18 +40,7 @@
 
 :high_1_sense_1_condition a lemon:condition ;
   lemon:propertyDomain   <http://dbpedia.org/ontology/Country> ;
-  lemon:propertyRange    <http://dbpedia.org/ontology/Mountain> .:high_1_sense_2 a  lemon:LexicalSense ;
-  lemon:reference :high_1_res ;
-  lemon:isA       :high_1_PredSynArg ;
-  lemon:condition :high_1_sense_2_condition .
-
-:high_1_res a   oils:CovariantScalar ;
-  oils:boundTo  <http://dbpedia.org/ontology/height> ;
-  oils:degree   <http://lemon-model.net/oils/high> .
-
-:high_1_sense_2_condition a lemon:condition ;
-  lemon:propertyDomain   <http://dbpedia.org/ontology/Country> ;
-  lemon:propertyRange    <http://dbpedia.org/ontology/Lighthouse> .## Prepositions ##
+  lemon:propertyRange    <http://dbpedia.org/ontology/Mountain> .## Prepositions ##
 :form_high_1_preposition a                  lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
   lexinfo:partOfSpeech lexinfo:preposition .

@@ -84,8 +84,8 @@ public class LexicalEntryUtil implements TempConstants{
         this.lexicalSense = lexicalSense;
         this.lexInfo = new LexInfo();
         this.language = Language.stringToLanguage(lexicon.getLanguage());
-        /*if(frameType.equals(FrameType.AA))
-           this.owlRestriction = new OWLRestriction(lexicon, lexicalSense.getReference()).invoke();*/
+        if(frameType.equals(FrameType.AA))
+           this.owlRestriction = new OWLRestriction(lexicon, lexicalSense.getReference()).invoke();
         if(frameType.equals(FrameType.AG))
           this.olisRestriction=new OlisRestriction(lexicon, lexicalSense.getReference()).invoke();
     }
@@ -584,6 +584,7 @@ public class LexicalEntryUtil implements TempConstants{
     public SelectVariable getSelectVariable() {
         SelectVariable selectVariable;
         // URI value of the subject syn arg
+        //System.out.println(getFrameByGrammarType());
         URI argValue = getFrameByGrammarType()
                 .getSynArg(this.frameType.getSubjectEquivalentSynArg())
                 .iterator().next().getURI();
@@ -664,9 +665,9 @@ public class LexicalEntryUtil implements TempConstants{
 
         for (LexicalForm lexicalForm : this.lexicalEntry.getForms()) {
             Pair<Boolean, String> pair = getLastPart(lexicalForm.toString());
-            //System.out.println(lexicalForm.toString());
+            System.out.println(lexicalForm.toString());
             if (reference.contains(superlative) || reference.contains(comperative)) {
-                //System.out.println(pair.component1()+" "+pair.component2());
+                System.out.println(pair.component1()+" "+pair.component2());
                 if (pair.component1() && pair.component2().contains(reference)) {
                     return lexicalForm.getWrittenRep().value;
                 }
@@ -674,6 +675,8 @@ public class LexicalEntryUtil implements TempConstants{
         }
         return reference;
     }
+    
+    
 
     public String getAdjectiveReference() {
 

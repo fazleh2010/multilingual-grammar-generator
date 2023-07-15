@@ -136,9 +136,11 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
         grammarEntry.setSentenceTemplate(this.template);
         
         GrammarEntry oppositeGrammarEntry = getOppositeGrammarEntry(grammarEntry, lexicalEntryUtil);
+        oppositeGrammarEntry.setCombination(true);
         grammarEntries.add(oppositeGrammarEntry);
         
         GrammarEntry amountGrammarEntry = getAmountGrammarEntry(grammarEntry, lexicalEntryUtil);
+        amountGrammarEntry.setCombination(true);
         grammarEntries.add(amountGrammarEntry);
         
         
@@ -167,6 +169,7 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
         Pair<String,List<String>> pair = generateOppositeSentences(lexicalEntryUtil);
         fragmentEntry.setSentenceTemplate(pair.getFirst());
         fragmentEntry.setSentences(pair.getSecond());
+        fragmentEntry.setCombination(true);
         return fragmentEntry;
     }
     
@@ -186,6 +189,7 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
             fragmentEntry.setSentences(generatedSentences);
              fragmentEntry.setReturnType(grammarEntry.getBindingType());
              fragmentEntry.setBindingType(grammarEntry.getReturnType());
+                     fragmentEntry.setCombination(true);
              //fragmentEntry.setReturnVariable(grammarEntry.getBindingVariable());
             
         } catch (Exception ex) {

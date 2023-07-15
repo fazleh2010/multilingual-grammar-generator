@@ -52,6 +52,16 @@ public class TemplateFinder implements TempConstants{
                 exit(1);*/
 
         }
+         else if (frameType.equals(FrameType.AA)) {
+                this.selectedTemplate = adjectiveBaseForm;
+                this.propertyReference = this.findReference();
+                /*System.out.println("selectedTemplate::::"+selectedTemplate);
+                System.out.println("propertyReference::::"+propertyReference);
+                exit(1);*/
+
+        }
+        
+        
         //System.out.println("selectedTemplate::::"+selectedTemplate);
         //exit(1);
     }
