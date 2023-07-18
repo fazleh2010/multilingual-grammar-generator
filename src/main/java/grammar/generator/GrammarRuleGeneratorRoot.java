@@ -8,6 +8,7 @@ import eu.monnetproject.lemon.model.LexicalSense;
 import eu.monnetproject.lemon.model.Lexicon;
 import grammar.datasets.sentencetemplates.SentenceTemplateFactory;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
+import static grammar.datasets.sentencetemplates.TempConstants.forward;
 import static grammar.datasets.sentencetemplates.TempConstants.superlativePerson;
 import grammar.sparql.SparqlQuery;
 import grammar.sparql.Prefix;
@@ -251,6 +252,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                     //sparql=sparql.replace(returnVaribale,"Answer");
                     grammarEntry.setSparqlQuery(sparql);
                     grammarEntry.setReturnVariable(returnVaribale);
+                    grammarEntry.setSentenceTemplate(forward);
 
                     SentenceBindings sentenceBindings = new SentenceBindings();
                     sentenceBindings.setBindingVariableName(getBindingVariable()); // maybe retrieve from sentence generation
