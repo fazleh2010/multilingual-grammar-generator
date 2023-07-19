@@ -65,9 +65,9 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
             QueGGMissingFactoryClassException {
         List<GrammarEntry> grammarEntries = new ArrayList<GrammarEntry>();
         Map<String, String> classNamesMap = new HashMap<String, String>();
-        classNamesMap.put("flim", "http://dbpedia.org/ontology/Flim");
-        classNamesMap.put("movie", "http://dbpedia.org/ontology/Movie");
-        classNamesMap.put("person", "http://dbpedia.org/ontology/Person");
+        classNamesMap.put("movies", "http://dbpedia.org/ontology/Movie");
+        classNamesMap.put("persons", "http://dbpedia.org/ontology/Person");
+        classNamesMap.put("flims", "http://dbpedia.org/ontology/Flim");
         for (String className : classNamesMap.keySet()) {
             String classNameUrl=classNamesMap.get(className);
             grammarEntry.setSentenceTemplate(this.template);

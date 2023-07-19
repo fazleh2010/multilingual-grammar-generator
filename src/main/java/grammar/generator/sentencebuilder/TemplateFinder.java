@@ -414,13 +414,16 @@ public class TemplateFinder implements TempConstants{
         else if (this.isPlace(string)&&!this.isArchitecturalStructureCheck(objectUri)) {
             type= superlativeCountry;
         }
+        else if(this.isPerson(objectUri)&&this.isTeam(subjectUri)){
+            type= superlativeTeamPlayer;
+        }
         else if (this.isPerson(string)) {
             type= superlativePerson;
         }
         else if(isSuperlativeThing(string)){
              type= superlativeWorld;
         }
-      
+        
        return type;
     }
     
@@ -431,6 +434,9 @@ public class TemplateFinder implements TempConstants{
         }
         else if (this.selectedTemplate.equals(superlativeCountry)) {
            return DomainOrRangeTypeCheck.locatedInArea.getReferences().get(0).toString();
+        }
+        else if(this.selectedTemplate.equals(superlativeTeamPlayer)){
+             return DomainOrRangeTypeCheck.team.getReferences().get(0).toString();
         }
         else if (this.selectedTemplate.equals(superlativeLocation)) {
             /* System.out.println(selectedTemplate);
@@ -444,6 +450,20 @@ public class TemplateFinder implements TempConstants{
         
        return null;
     }
+    
+    public static Boolean isTeam(String string) {
+        if (StringUtils.isBlank(string)) {
+            return false;
+        }
+        for (URI key : DomainOrRangeTypeCheck.TeamCheck.getReferences()) {
+
+            if (string.equals(key.toString())) {
+                return true;
+            }
+        }
+          return false;
+    }
+
     
     public static Boolean isSuperlativePlace(String string) {
         if (StringUtils.isBlank(string)) {
@@ -479,6 +499,7 @@ public class TemplateFinder implements TempConstants{
         return propertyReference;
     }
 
+    
     
    
 

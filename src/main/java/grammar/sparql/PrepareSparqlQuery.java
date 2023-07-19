@@ -6,6 +6,7 @@
 package grammar.sparql;
 
 import grammar.generator.sentencebuilder.TemplateFinder;
+import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_SUBJECT;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_OBJECT;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
 import grammar.structure.component.DomainOrRangeTypeCheck;
@@ -331,6 +332,15 @@ public class PrepareSparqlQuery {
         String newSparqlQuery = "SELECT DISTINCT ?" + RETURN_TYPE_SUBJECT + " "
                 + "WHERE {" + " "
                 + "?" + RETURN_TYPE_SUBJECT + " " + "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + domain + ">" + " ." + " "
+                + "?" + RETURN_TYPE_SUBJECT + " " + "<" + reference + ">" + " ?" + "num" + " ." + " "
+                + "} " + "ORDER BY DESC(?num) LIMIT 1";
+        return newSparqlQuery;
+    }
+    
+     public static String descTeam(String locationProperty, String reference, String variable) {
+        String newSparqlQuery = "SELECT DISTINCT ?" + RETURN_TYPE_SUBJECT + " "
+                + "WHERE {" + " "
+                + "?" + RETURN_TYPE_SUBJECT + " " + locationProperty + " " + "?" + variable + " ." + " "
                 + "?" + RETURN_TYPE_SUBJECT + " " + "<" + reference + ">" + " ?" + "num" + " ." + " "
                 + "} " + "ORDER BY DESC(?num) LIMIT 1";
         return newSparqlQuery;

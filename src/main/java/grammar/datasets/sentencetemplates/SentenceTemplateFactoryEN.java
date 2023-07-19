@@ -1234,11 +1234,30 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         List.of(
         //What is the highest mountain in Australia?
         "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition adjunct(domain)?",
-        //What is the highest mountain in Australia?
-        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative)?"
+          //What is the highest mountain in Australia?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) determiner(component_the) noun(range:singular) preposition adjunct(domain)?",
+        //What is the highest mountain in the ?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(domain)?",
+          //What is the highest mountain in the ?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) determiner(component_the) noun(range:singular) preposition determiner(component_the) adjunct(domain)?"
+       
         ),
         AdjectiveSuperlativeFrame,
-        superlativePerson,
+        superlativeCountry,
+        forward
+      )
+    );
+    
+     // AdjectivePPFrame...superlative
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(
+        //Who is the tallest player of the Atlanta Falcons?
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition adjunct(domain)?",
+        "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjective(superlative) noun(range:singular) preposition determiner(component_the) adjunct(domain)?"
+
+        ),
+        AdjectiveSuperlativeFrame,
+        superlativeTeamPlayer,
         forward
       )
     );
@@ -1272,11 +1291,5 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     
     
   }
-  
-   /*//Where in France is sparkling wine produced?
-     "interrogativePlace preposition noun(range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:singular)?", 
-     //Where in France was sparkling wine produced?
-     "interrogativePlace preposition noun(range:singular) verb(component_be:past:singular) adjunct(domain) verb(mainVerb:perfect:singular)?" 
-     */  
-          
+ 
 }

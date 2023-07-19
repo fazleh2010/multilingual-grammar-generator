@@ -53,6 +53,7 @@ import static grammar.sparql.SparqlQuery.VARIABLE;
 import static java.lang.System.exit;
 import static grammar.datasets.sentencetemplates.TempConstants.superlativeCountry;
 import static grammar.datasets.sentencetemplates.TempConstants.superlativeLocation;
+import static grammar.read.questions.ReadWriteConstants.VARIABLE;
 import java.util.Arrays;
 
 @Getter
@@ -416,6 +417,9 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
                 sparql= PrepareSparqlQuery.descObjOfPropPerson(range, propertyReference, reference, VARIABLE);
             } else if (sentenceTemplate.equals(TemplateFinder.superlativeWorld)) {
                sparql= PrepareSparqlQuery.desc(range, reference);
+            }
+            else if (sentenceTemplate.equals(TemplateFinder.superlativeTeamPlayer)) {
+                sparql= PrepareSparqlQuery.descTeam(propertyReference, reference, VARIABLE);
             }
 
         } else if (this.isLow(lexicalEntryUtil)) {

@@ -117,3 +117,4 @@ dbo:Writer,writer,writers
 dbo:Swimmer,swimmer,swimmers
 dbo:President,president,presidents
 dbo:VolleyballPlayer,player,players
+dbo:SportsTeam,sport team,sport teams

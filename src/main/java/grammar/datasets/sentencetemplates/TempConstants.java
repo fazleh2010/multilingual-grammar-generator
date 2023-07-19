@@ -172,6 +172,7 @@ public interface TempConstants {
     public static String superlativeCountry = "superlativeCountry";
     public static String superlativePerson = "superlativePerson";
     public static String superlativeLocation="superlativeLocation";
+    public static String superlativeTeamPlayer="superlativeTeamPlayer";
 
     public static String superlativeWorld = "superlativeWorld";
     public static String attributiveSimple="attributiveSimple";
