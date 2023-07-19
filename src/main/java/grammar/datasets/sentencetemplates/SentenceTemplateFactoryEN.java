@@ -258,7 +258,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         //List all actors starring in X.
         //"verb(imperative_verb:present:plural) determiner(all) noun(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?",
         //Who was the pope that founded the Vatican Television?
-        "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?"
+        "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?",
+          //"Give me all writers that won the Nobel Prize in literature."
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(range:plural) determiner(that) verb(mainVerb:past:thridPerson) determiner(component_the) adjunct(domain)."
+ 
                 ),
        TransitiveFrame,
        PERSON_CAUSE,
@@ -299,10 +302,10 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         //Show me the book that Muhammad Ali wrote.
          "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).", 
          //Show me the books that Muhammad Ali wrote.
-         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." ,
-         //"Give me all writers that won the Nobel Prize in literature."
-         "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:plural) determiner(that) verb(mainVerb:past:thridPerson) determiner(component_the) object(range)."
-        ),
+         "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).",
+         //"What kind of music did Lou Reed play?
+        "interrogativePronoun(domain) determiner(component_kind) determiner(of) noun(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?"
+            ),
         TransitiveFrame,
         PERSON_CAUSE,
         passiveTransitive
@@ -783,7 +786,9 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
            //Where does Piccadilly start? 
            "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?",
            //What movies does Jesse Eisenberg play in?
-           "interrogativeDeterminer(domain:singular) noun(plural) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?"
+           "interrogativePronoun(domain:singular) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?",
+           "interrogativePronoun(domain:plural) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?"
+
         ),
         IntransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,

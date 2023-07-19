@@ -9,6 +9,7 @@
   lemon:language "en" ;
   lemon:entry    :component_be ;
   lemon:entry    :component_do ;
+  lemon:entry    :component_kind ;
   lemon:entry    :component_aux_object_past ;
   lemon:entry    :imperative_verb ;
   lemon:entry    :component_imperative_transitive ;
@@ -289,6 +290,11 @@
 :all a                 lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "all"@en ] ;
   lexinfo:partOfSpeech lexinfo:particle .
+
+:component_kind a                 lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "kind"@en ] ;
+  lexinfo:partOfSpeech lexinfo:particle .
+
 
 ## that ##
 :that a                 lemon:SynRoleMarker ;

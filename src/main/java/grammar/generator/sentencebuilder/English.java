@@ -159,9 +159,14 @@ public class English implements TempConstants, MultilingualBuilder {
             } else {
                 subjectType = findIntergativePronoun(lexicalEntryUtil, this.domainSelectable);
             }
-
-            word = LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType.name());
-
+            
+            if (reference.contains(colon)) {
+                String[] col = reference.split(colon);
+                word = this.getDeteminerTokenManual(subjectType, col[0], col[1]);
+            }
+            else{
+               word = LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType.name());
+            }
         } else if (flagReference && isInterrogativeAmount(attribute).first) {
             SubjectType subjectType = isInterrogativeAmount(attribute).second;
             if (reference.contains(colon)) {

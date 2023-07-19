@@ -111,6 +111,7 @@ public enum DomainOrRangeType {
     Device(List.of(URI.create(DBR.getUri() + "Device"))),
     SpaceMission(List.of(URI.create(DBO.getUri() + "SpaceMission"))),  
     SpaceStation(List.of(URI.create(DBO.getUri() + "SpaceStation"))), 
+    President(List.of(URI.create(DBO.getUri() + "President"))), 
 
   
     Name(List.of(

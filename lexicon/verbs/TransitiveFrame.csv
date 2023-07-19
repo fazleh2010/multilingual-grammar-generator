@@ -1,0 +1,2 @@
+LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition,GrammarRule 1:question1,GrammarRule 1:question2,GrammarRule 1:sparql,GrammarRule 2:question1,GrammarRule2: sparql
+Win_4,verb,win,wins,won,won,TransitiveFrame,range,domain,1,dbo:award,dbo:Work,dbo:Writer,by,,,,,
