@@ -177,6 +177,7 @@ public interface TempConstants {
     public static String superlativeWorld = "superlativeWorld";
     public static String attributiveSimple="attributiveSimple";
     public static String adjectiveBaseForm="adjectiveBaseForm";
+    public static String predicateAdjectiveBaseForm="predicateAdjectiveBaseForm";
     public static String comperative="comperative";
     public static String degree = "degree";
     

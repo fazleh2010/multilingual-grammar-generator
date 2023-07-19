@@ -67,7 +67,7 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         Map<String, String> classNamesMap = new HashMap<String, String>();
         classNamesMap.put("movies", "http://dbpedia.org/ontology/Movie");
         classNamesMap.put("persons", "http://dbpedia.org/ontology/Person");
-        classNamesMap.put("flims", "http://dbpedia.org/ontology/Flim");
+        classNamesMap.put("films", "http://dbpedia.org/ontology/Film");
         for (String className : classNamesMap.keySet()) {
             String classNameUrl=classNamesMap.get(className);
             grammarEntry.setSentenceTemplate(this.template);
@@ -90,10 +90,10 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         List<String> generatedSentences = generateSentences(lexicalEntryUtil);
          List<String> sentences = new ArrayList<String>();
         for(String sentence:generatedSentences){
-            sentence=sentence+" "+className;
+            sentence=sentence+" "+className+".";
             sentences.add(sentence);
         }
-        this.template = TempConstants.adjectiveBaseForm;
+        this.template = TempConstants.predicateAdjectiveBaseForm;
         fragmentEntry.setSentenceTemplate(this.template);
         fragmentEntry.setSentences(sentences);
         OWLRestriction owlRestriction = lexicalEntryUtil.getOwlRestriction();
