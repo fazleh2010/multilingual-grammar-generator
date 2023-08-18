@@ -38,8 +38,8 @@
   lexinfo:person   lexinfo:thirdPerson .
 
 :serve_1_frame_transitive a lexinfo:TransitiveFrame ;
-  lexinfo:subject          :serve_1_subj ;
-  lexinfo:directObject     :serve_1_obj .
+  lexinfo:subject          :serve_1_obj ;
+  lexinfo:directObject     :serve_1_subj .
 
 :serve_1_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :serve_1_sense_1 ;
