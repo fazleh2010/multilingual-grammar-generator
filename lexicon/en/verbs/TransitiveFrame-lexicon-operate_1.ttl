@@ -26,15 +26,15 @@
   lexinfo:verbFormMood lexinfo:infinitive .
 
 :form_operate_1s a    lemon:Form ;
-  lemon:writtenRep "designs"@en ;
+  lemon:writtenRep "operates"@en ;
   lexinfo:person   lexinfo:secondPerson .
 
 :form_operate_1ed a   lemon:Form ;
-  lemon:writtenRep "designed"@en ;
+  lemon:writtenRep "operated"@en ;
   lexinfo:tense    lexinfo:past .
 
 :form_operate_1perfect a   lemon:Form ;
-  lemon:writtenRep "designed"@en ;
+  lemon:writtenRep "operated"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

@@ -4720,45 +4720,6 @@
     "combination" : false
   }, {
     "id" : "663",
-    "lexicalEntryUri" : "http://localhost:8080#to_Compose_for_2",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Film" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all persons compose the soundtrack for (X)?", "Give me all persons that compose the soundtrack for (X)?", "Give me all persons that compose the soundtrack for the (X)", "List all persons compose the soundtrack for (X)?", "Who compose the soundtrack for (X)?", "Who compose the soundtrack for the (X)?", "Who compose the soundtrack for the film (X)?", "Who compose the soundtrack for the films (X)?", "Who was the person that compose the soundtrack for (X)?", "which (X) compose the soundtrack for (X)?", "which (X) did (X) compose the soundtrack for?", "which (X) does (X) compose the soundtrack for?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/musicComposer> ?Answer .}",
-    "returnVariable" : "objOfProp",
-    "combination" : false
-  }, {
-    "id" : "664",
-    "lexicalEntryUri" : "http://localhost:8080#to_Compose_for_2",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Film" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all films compose the soundtrack for by (X)?", "Give me all films that compose the soundtrack for (X)?", "List all films compose the soundtrack for by (X)?", "What (X) was compose the soundtrack for by (X)?", "What (X) were compose the soundtrack for by (X)?", "What kind of film did (X) compose the soundtrack for?", "show me all film that (X) compose the soundtrack for", "show me the film that (X) compose the soundtrack for", "which (X) compose the soundtrack for the (X)?", "which (X) did (X) compose the soundtrack for?", "which (X) was compose the soundtrack for by (X)?", "which (X) were compose the soundtrack for by (X)?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "665",
-    "lexicalEntryUri" : "http://localhost:8080#to_Compose_for_2",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Film" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) are compose the soundtrack for by (X)?", "How often did (X) compose the soundtrack for?" ],
-    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "666",
     "lexicalEntryUri" : "http://localhost:8080#to_found_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4771,7 +4732,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "667",
+    "id" : "664",
     "lexicalEntryUri" : "http://localhost:8080#to_found_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4784,7 +4745,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "668",
+    "id" : "665",
     "lexicalEntryUri" : "http://localhost:8080#to_found_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4797,7 +4758,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "669",
+    "id" : "666",
     "lexicalEntryUri" : "http://localhost:8080#to_Develop_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4810,7 +4771,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "670",
+    "id" : "667",
     "lexicalEntryUri" : "http://localhost:8080#to_Develop_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4823,7 +4784,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "671",
+    "id" : "668",
     "lexicalEntryUri" : "http://localhost:8080#to_Develop_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4836,7 +4797,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "672",
+    "id" : "669",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4849,7 +4810,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "673",
+    "id" : "670",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4862,7 +4823,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "674",
+    "id" : "671",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4875,7 +4836,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "675",
+    "id" : "672",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4888,7 +4849,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "676",
+    "id" : "673",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4901,7 +4862,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "677",
+    "id" : "674",
     "lexicalEntryUri" : "http://localhost:8080#to_create_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4914,46 +4875,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "678",
-    "lexicalEntryUri" : "http://localhost:8080#to_compose_for_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Film" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all persons compose the music for (X)?", "Give me all persons that compose the music for (X)?", "Give me all persons that compose the music for the (X)", "List all persons compose the music for (X)?", "Who compose the music for (X)?", "Who compose the music for the (X)?", "Who compose the music for the film (X)?", "Who compose the music for the films (X)?", "Who was the person that compose the music for (X)?", "which (X) compose the music for (X)?", "which (X) did (X) compose the music for?", "which (X) does (X) compose the music for?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/musicComposer> ?Answer .}",
-    "returnVariable" : "objOfProp",
-    "combination" : false
-  }, {
-    "id" : "679",
-    "lexicalEntryUri" : "http://localhost:8080#to_compose_for_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Film" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all films compose the music for by (X)?", "Give me all films that compose the music for (X)?", "List all films compose the music for by (X)?", "What (X) was compose the music for by (X)?", "What (X) were compose the music for by (X)?", "What kind of film did (X) compose the music for?", "show me all film that (X) compose the music for", "show me the film that (X) compose the music for", "which (X) compose the music for the (X)?", "which (X) did (X) compose the music for?", "which (X) was compose the music for by (X)?", "which (X) were compose the music for by (X)?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "680",
-    "lexicalEntryUri" : "http://localhost:8080#to_compose_for_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Film" ],
-    "frameType" : "VP",
-    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) are compose the music for by (X)?", "How often did (X) compose the music for?" ],
-    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "681",
+    "id" : "675",
     "lexicalEntryUri" : "http://localhost:8080#to_call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4966,7 +4888,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "682",
+    "id" : "676",
     "lexicalEntryUri" : "http://localhost:8080#to_call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4979,7 +4901,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "683",
+    "id" : "677",
     "lexicalEntryUri" : "http://localhost:8080#to_call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -4992,7 +4914,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "684",
+    "id" : "678",
     "lexicalEntryUri" : "http://localhost:8080#to_own_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5005,7 +4927,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "685",
+    "id" : "679",
     "lexicalEntryUri" : "http://localhost:8080#to_own_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5018,7 +4940,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "686",
+    "id" : "680",
     "lexicalEntryUri" : "http://localhost:8080#to_own_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5031,7 +4953,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "687",
+    "id" : "681",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5044,7 +4966,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "688",
+    "id" : "682",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5057,7 +4979,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "689",
+    "id" : "683",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5070,7 +4992,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "690",
+    "id" : "684",
     "lexicalEntryUri" : "http://localhost:8080#to_win_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5083,7 +5005,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "691",
+    "id" : "685",
     "lexicalEntryUri" : "http://localhost:8080#to_win_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5096,7 +5018,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "692",
+    "id" : "686",
     "lexicalEntryUri" : "http://localhost:8080#to_win_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5109,7 +5031,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "693",
+    "id" : "687",
     "lexicalEntryUri" : "http://localhost:8080#to_border",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5122,7 +5044,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "694",
+    "id" : "688",
     "lexicalEntryUri" : "http://localhost:8080#to_border",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5135,7 +5057,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "695",
+    "id" : "689",
     "lexicalEntryUri" : "http://localhost:8080#to_border",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5148,7 +5070,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "696",
+    "id" : "690",
     "lexicalEntryUri" : "http://localhost:8080#to_found_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5161,7 +5083,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "697",
+    "id" : "691",
     "lexicalEntryUri" : "http://localhost:8080#to_found_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5174,7 +5096,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "698",
+    "id" : "692",
     "lexicalEntryUri" : "http://localhost:8080#to_found_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5187,7 +5109,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "699",
+    "id" : "693",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5200,7 +5122,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "700",
+    "id" : "694",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5213,7 +5135,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "701",
+    "id" : "695",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5226,7 +5148,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "702",
+    "id" : "696",
     "lexicalEntryUri" : "http://localhost:8080#to_play_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5239,7 +5161,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "703",
+    "id" : "697",
     "lexicalEntryUri" : "http://localhost:8080#to_play_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5252,7 +5174,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "704",
+    "id" : "698",
     "lexicalEntryUri" : "http://localhost:8080#to_play_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5265,7 +5187,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "705",
+    "id" : "699",
     "lexicalEntryUri" : "http://localhost:8080#to_write_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5278,7 +5200,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "706",
+    "id" : "700",
     "lexicalEntryUri" : "http://localhost:8080#to_write_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5291,7 +5213,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "707",
+    "id" : "701",
     "lexicalEntryUri" : "http://localhost:8080#to_write_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5304,7 +5226,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "708",
+    "id" : "702",
     "lexicalEntryUri" : "http://localhost:8080#to_compose_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5317,7 +5239,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "709",
+    "id" : "703",
     "lexicalEntryUri" : "http://localhost:8080#to_compose_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5325,12 +5247,12 @@
     "returnType" : [ "Work" ],
     "frameType" : "VP",
     "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all works  by (X)?", "Give me all works that composed (X)?", "List all works  by (X)?", "What (X) was  by (X)?", "What (X) were  by (X)?", "What kind of work did (X) compose?", "show me all work that (X) composed", "show me the work that (X) composed", "which (X) compose the (X)?", "which (X) composes the (X)?", "which (X) did (X) compose?", "which (X) was  by (X)?", "which (X) were  by (X)?" ],
+    "sentences" : [ "Give me all works composed by (X)?", "Give me all works that composed (X)?", "List all works composed by (X)?", "What (X) was composed by (X)?", "What (X) were composed by (X)?", "What kind of work did (X) compose?", "show me all work that (X) composed", "show me the work that (X) composed", "which (X) compose the (X)?", "which (X) composes the (X)?", "which (X) did (X) compose?", "which (X) was composed by (X)?", "which (X) were composed by (X)?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "710",
+    "id" : "704",
     "lexicalEntryUri" : "http://localhost:8080#to_compose_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5338,12 +5260,12 @@
     "returnType" : [ "Work" ],
     "frameType" : "VP",
     "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) are  by (X)?", "How often did (X) compose?" ],
+    "sentences" : [ "How many (X) are composed by (X)?", "How often did (X) compose?" ],
     "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/musicComposer> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "711",
+    "id" : "705",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5356,7 +5278,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "712",
+    "id" : "706",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5369,7 +5291,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "713",
+    "id" : "707",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5382,7 +5304,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "714",
+    "id" : "708",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5395,7 +5317,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "715",
+    "id" : "709",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5408,7 +5330,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "716",
+    "id" : "710",
     "lexicalEntryUri" : "http://localhost:8080#to_publish_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5421,7 +5343,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "717",
+    "id" : "711",
     "lexicalEntryUri" : "http://localhost:8080#to_drain_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5434,7 +5356,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "718",
+    "id" : "712",
     "lexicalEntryUri" : "http://localhost:8080#to_drain_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5447,7 +5369,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "719",
+    "id" : "713",
     "lexicalEntryUri" : "http://localhost:8080#to_drain_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5460,7 +5382,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "720",
+    "id" : "714",
     "lexicalEntryUri" : "http://localhost:8080#to_write_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5473,7 +5395,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "721",
+    "id" : "715",
     "lexicalEntryUri" : "http://localhost:8080#to_write_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5486,7 +5408,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "722",
+    "id" : "716",
     "lexicalEntryUri" : "http://localhost:8080#to_write_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5499,7 +5421,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "723",
+    "id" : "717",
     "lexicalEntryUri" : "http://localhost:8080#to_inspire",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5512,7 +5434,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "724",
+    "id" : "718",
     "lexicalEntryUri" : "http://localhost:8080#to_inspire",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5525,7 +5447,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "725",
+    "id" : "719",
     "lexicalEntryUri" : "http://localhost:8080#to_inspire",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5538,7 +5460,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "726",
+    "id" : "720",
     "lexicalEntryUri" : "http://localhost:8080#to_paint_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5551,7 +5473,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "727",
+    "id" : "721",
     "lexicalEntryUri" : "http://localhost:8080#to_paint_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5564,7 +5486,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "728",
+    "id" : "722",
     "lexicalEntryUri" : "http://localhost:8080#to_paint_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5577,7 +5499,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "729",
+    "id" : "723",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5590,7 +5512,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "730",
+    "id" : "724",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5598,12 +5520,12 @@
     "returnType" : [ "Airport" ],
     "frameType" : "VP",
     "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all airports designed by (X)?", "Give me all airports that operated (X)?", "List all airports designed by (X)?", "What (X) was designed by (X)?", "What (X) were designed by (X)?", "What kind of airport did (X) operate?", "show me all airport that (X) operated", "show me the airport that (X) operated", "which (X) did (X) operate?", "which (X) operate the (X)?", "which (X) operates the (X)?", "which (X) was designed by (X)?", "which (X) were designed by (X)?" ],
+    "sentences" : [ "Give me all airports operated by (X)?", "Give me all airports that operated (X)?", "List all airports operated by (X)?", "What (X) was operated by (X)?", "What (X) were operated by (X)?", "What kind of airport did (X) operate?", "show me all airport that (X) operated", "show me the airport that (X) operated", "which (X) did (X) operate?", "which (X) operate the (X)?", "which (X) operates the (X)?", "which (X) was operated by (X)?", "which (X) were operated by (X)?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/property/operator> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "731",
+    "id" : "725",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5611,12 +5533,12 @@
     "returnType" : [ "Airport" ],
     "frameType" : "VP",
     "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) are designed by (X)?", "How often did (X) operate?" ],
+    "sentences" : [ "How many (X) are operated by (X)?", "How often did (X) operate?" ],
     "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/property/operator> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "732",
+    "id" : "726",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5629,7 +5551,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "733",
+    "id" : "727",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5637,12 +5559,12 @@
     "returnType" : [ "Organisation" ],
     "frameType" : "VP",
     "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Give me all organizations designed by (X)?", "Give me all organizations that operated (X)?", "List all organizations designed by (X)?", "Who kind of organization did (X) operate?", "Who was designed by (X)?", "Who were designed by (X)?", "show me all organization that (X) operated", "show me the organization that (X) operated", "which (X) did (X) operate?", "which (X) operate the (X)?", "which (X) operates the (X)?", "which (X) was designed by (X)?", "which (X) were designed by (X)?" ],
+    "sentences" : [ "Give me all organizations operated by (X)?", "Give me all organizations that operated (X)?", "List all organizations operated by (X)?", "Who kind of organization did (X) operate?", "Who was operated by (X)?", "Who were operated by (X)?", "show me all organization that (X) operated", "show me the organization that (X) operated", "which (X) did (X) operate?", "which (X) operate the (X)?", "which (X) operates the (X)?", "which (X) was operated by (X)?", "which (X) were operated by (X)?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/operator> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "734",
+    "id" : "728",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5650,12 +5572,12 @@
     "returnType" : [ "Organisation" ],
     "frameType" : "VP",
     "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) are designed by (X)?", "How often did (X) operate?" ],
+    "sentences" : [ "How many (X) are operated by (X)?", "How often did (X) operate?" ],
     "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/operator> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "735",
+    "id" : "729",
     "lexicalEntryUri" : "http://localhost:8080#to_design_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5668,7 +5590,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "736",
+    "id" : "730",
     "lexicalEntryUri" : "http://localhost:8080#to_design_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5681,7 +5603,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "737",
+    "id" : "731",
     "lexicalEntryUri" : "http://localhost:8080#to_design_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5694,7 +5616,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "738",
+    "id" : "732",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5707,7 +5629,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "739",
+    "id" : "733",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5720,7 +5642,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "740",
+    "id" : "734",
     "lexicalEntryUri" : "http://localhost:8080#to_operate_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5733,7 +5655,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "741",
+    "id" : "735",
     "lexicalEntryUri" : "http://localhost:8080#to_write_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5746,7 +5668,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "742",
+    "id" : "736",
     "lexicalEntryUri" : "http://localhost:8080#to_write_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5759,7 +5681,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "743",
+    "id" : "737",
     "lexicalEntryUri" : "http://localhost:8080#to_write_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5772,7 +5694,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "744",
+    "id" : "738",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5785,7 +5707,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "745",
+    "id" : "739",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5798,7 +5720,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "746",
+    "id" : "740",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5811,7 +5733,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "747",
+    "id" : "741",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5824,7 +5746,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "748",
+    "id" : "742",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5837,7 +5759,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "749",
+    "id" : "743",
     "lexicalEntryUri" : "http://localhost:8080#to_distribute_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5850,7 +5772,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "750",
+    "id" : "744",
     "lexicalEntryUri" : "http://localhost:8080#to_write_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5863,7 +5785,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "751",
+    "id" : "745",
     "lexicalEntryUri" : "http://localhost:8080#to_write_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5876,7 +5798,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "752",
+    "id" : "746",
     "lexicalEntryUri" : "http://localhost:8080#to_write_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5889,7 +5811,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "753",
+    "id" : "747",
     "lexicalEntryUri" : "http://localhost:8080#to_present_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5902,7 +5824,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "754",
+    "id" : "748",
     "lexicalEntryUri" : "http://localhost:8080#to_present_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5915,7 +5837,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "755",
+    "id" : "749",
     "lexicalEntryUri" : "http://localhost:8080#to_present_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5928,7 +5850,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "756",
+    "id" : "750",
     "lexicalEntryUri" : "http://localhost:8080#to_cross",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5941,7 +5863,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "757",
+    "id" : "751",
     "lexicalEntryUri" : "http://localhost:8080#to_cross",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5954,7 +5876,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "758",
+    "id" : "752",
     "lexicalEntryUri" : "http://localhost:8080#to_cross",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5967,7 +5889,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "759",
+    "id" : "753",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5980,7 +5902,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "760",
+    "id" : "754",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -5993,7 +5915,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "761",
+    "id" : "755",
     "lexicalEntryUri" : "http://localhost:8080#to_precede_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6006,7 +5928,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "762",
+    "id" : "756",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6019,7 +5941,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "763",
+    "id" : "757",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6032,7 +5954,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "764",
+    "id" : "758",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6045,7 +5967,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "765",
+    "id" : "759",
     "lexicalEntryUri" : "http://localhost:8080#to_leave_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6058,7 +5980,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "766",
+    "id" : "760",
     "lexicalEntryUri" : "http://localhost:8080#to_leave_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6071,7 +5993,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "767",
+    "id" : "761",
     "lexicalEntryUri" : "http://localhost:8080#to_leave_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6084,7 +6006,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "768",
+    "id" : "762",
     "lexicalEntryUri" : "http://localhost:8080#to_create_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6097,7 +6019,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "769",
+    "id" : "763",
     "lexicalEntryUri" : "http://localhost:8080#to_create_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6110,7 +6032,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "770",
+    "id" : "764",
     "lexicalEntryUri" : "http://localhost:8080#to_create_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6123,7 +6045,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "771",
+    "id" : "765",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6136,7 +6058,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "772",
+    "id" : "766",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6149,7 +6071,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "773",
+    "id" : "767",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6162,7 +6084,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "774",
+    "id" : "768",
     "lexicalEntryUri" : "http://localhost:8080#to_create_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6175,7 +6097,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "775",
+    "id" : "769",
     "lexicalEntryUri" : "http://localhost:8080#to_create_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6188,7 +6110,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "776",
+    "id" : "770",
     "lexicalEntryUri" : "http://localhost:8080#to_create_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6201,7 +6123,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "777",
+    "id" : "771",
     "lexicalEntryUri" : "http://localhost:8080#to_found_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6214,7 +6136,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "778",
+    "id" : "772",
     "lexicalEntryUri" : "http://localhost:8080#to_found_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6227,7 +6149,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "779",
+    "id" : "773",
     "lexicalEntryUri" : "http://localhost:8080#to_found_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6240,7 +6162,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "780",
+    "id" : "774",
     "lexicalEntryUri" : "http://localhost:8080#to_manage_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6253,7 +6175,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "781",
+    "id" : "775",
     "lexicalEntryUri" : "http://localhost:8080#to_manage_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6266,7 +6188,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "782",
+    "id" : "776",
     "lexicalEntryUri" : "http://localhost:8080#to_manage_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6279,7 +6201,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "783",
+    "id" : "777",
     "lexicalEntryUri" : "http://localhost:8080#to_join_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6292,7 +6214,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "784",
+    "id" : "778",
     "lexicalEntryUri" : "http://localhost:8080#to_join_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6305,7 +6227,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "785",
+    "id" : "779",
     "lexicalEntryUri" : "http://localhost:8080#to_join_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6318,7 +6240,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "786",
+    "id" : "780",
     "lexicalEntryUri" : "http://localhost:8080#to_succeed_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6331,7 +6253,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "787",
+    "id" : "781",
     "lexicalEntryUri" : "http://localhost:8080#to_succeed_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6344,7 +6266,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "788",
+    "id" : "782",
     "lexicalEntryUri" : "http://localhost:8080#to_succeed_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6357,7 +6279,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "789",
+    "id" : "783",
     "lexicalEntryUri" : "http://localhost:8080#to_write_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6370,7 +6292,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "790",
+    "id" : "784",
     "lexicalEntryUri" : "http://localhost:8080#to_write_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6383,7 +6305,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "791",
+    "id" : "785",
     "lexicalEntryUri" : "http://localhost:8080#to_write_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6396,7 +6318,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "792",
+    "id" : "786",
     "lexicalEntryUri" : "http://localhost:8080#to_express",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6409,7 +6331,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "793",
+    "id" : "787",
     "lexicalEntryUri" : "http://localhost:8080#to_express",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6422,7 +6344,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "794",
+    "id" : "788",
     "lexicalEntryUri" : "http://localhost:8080#to_express",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6435,7 +6357,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "795",
+    "id" : "789",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6448,7 +6370,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "796",
+    "id" : "790",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6461,7 +6383,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "797",
+    "id" : "791",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6474,7 +6396,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "798",
+    "id" : "792",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6487,7 +6409,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "799",
+    "id" : "793",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6500,7 +6422,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "800",
+    "id" : "794",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6513,7 +6435,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "801",
+    "id" : "795",
     "lexicalEntryUri" : "http://localhost:8080#to_adopt",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6526,7 +6448,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "802",
+    "id" : "796",
     "lexicalEntryUri" : "http://localhost:8080#to_adopt",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6539,7 +6461,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "803",
+    "id" : "797",
     "lexicalEntryUri" : "http://localhost:8080#to_adopt",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6552,7 +6474,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "804",
+    "id" : "798",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6565,7 +6487,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "805",
+    "id" : "799",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6578,7 +6500,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "806",
+    "id" : "800",
     "lexicalEntryUri" : "http://localhost:8080#to_follow_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6591,7 +6513,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "807",
+    "id" : "801",
     "lexicalEntryUri" : "http://localhost:8080#to_rent_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6604,7 +6526,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "808",
+    "id" : "802",
     "lexicalEntryUri" : "http://localhost:8080#to_rent_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6617,7 +6539,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "809",
+    "id" : "803",
     "lexicalEntryUri" : "http://localhost:8080#to_rent_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6630,7 +6552,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "810",
+    "id" : "804",
     "lexicalEntryUri" : "http://localhost:8080#to_discover_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6643,7 +6565,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "811",
+    "id" : "805",
     "lexicalEntryUri" : "http://localhost:8080#to_discover_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6656,7 +6578,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "812",
+    "id" : "806",
     "lexicalEntryUri" : "http://localhost:8080#to_discover_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6669,7 +6591,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "813",
+    "id" : "807",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6682,7 +6604,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "814",
+    "id" : "808",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6695,7 +6617,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "815",
+    "id" : "809",
     "lexicalEntryUri" : "http://localhost:8080#to_Play_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6708,7 +6630,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "816",
+    "id" : "810",
     "lexicalEntryUri" : "http://localhost:8080#to_Publish_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6721,7 +6643,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "817",
+    "id" : "811",
     "lexicalEntryUri" : "http://localhost:8080#to_Publish_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6734,7 +6656,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "818",
+    "id" : "812",
     "lexicalEntryUri" : "http://localhost:8080#to_Publish_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6747,7 +6669,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "819",
+    "id" : "813",
     "lexicalEntryUri" : "http://localhost:8080#to_write_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6760,7 +6682,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "820",
+    "id" : "814",
     "lexicalEntryUri" : "http://localhost:8080#to_write_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6773,7 +6695,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "821",
+    "id" : "815",
     "lexicalEntryUri" : "http://localhost:8080#to_write_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6786,7 +6708,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "822",
+    "id" : "816",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6799,7 +6721,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "823",
+    "id" : "817",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6812,7 +6734,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "824",
+    "id" : "818",
     "lexicalEntryUri" : "http://localhost:8080#to_produce_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6825,7 +6747,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "825",
+    "id" : "819",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6838,7 +6760,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "826",
+    "id" : "820",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6851,7 +6773,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "827",
+    "id" : "821",
     "lexicalEntryUri" : "http://localhost:8080#to_starr_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6864,7 +6786,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "828",
+    "id" : "822",
     "lexicalEntryUri" : "http://localhost:8080#to_edit_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6877,7 +6799,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "829",
+    "id" : "823",
     "lexicalEntryUri" : "http://localhost:8080#to_edit_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6890,7 +6812,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "830",
+    "id" : "824",
     "lexicalEntryUri" : "http://localhost:8080#to_edit_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6903,7 +6825,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "831",
+    "id" : "825",
     "lexicalEntryUri" : "http://localhost:8080#fight_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6916,7 +6838,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "832",
+    "id" : "826",
     "lexicalEntryUri" : "http://localhost:8080#fight_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6929,7 +6851,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "833",
+    "id" : "827",
     "lexicalEntryUri" : "http://localhost:8080#fight_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6942,7 +6864,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "834",
+    "id" : "828",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6955,7 +6877,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "835",
+    "id" : "829",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6968,7 +6890,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "836",
+    "id" : "830",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6981,7 +6903,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "837",
+    "id" : "831",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -6994,7 +6916,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "838",
+    "id" : "832",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7007,7 +6929,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "839",
+    "id" : "833",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7020,7 +6942,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "840",
+    "id" : "834",
     "lexicalEntryUri" : "http://localhost:8080#start_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7033,7 +6955,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "841",
+    "id" : "835",
     "lexicalEntryUri" : "http://localhost:8080#start_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7046,7 +6968,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "842",
+    "id" : "836",
     "lexicalEntryUri" : "http://localhost:8080#start_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7059,7 +6981,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "843",
+    "id" : "837",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7072,7 +6994,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "844",
+    "id" : "838",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7085,7 +7007,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "845",
+    "id" : "839",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7098,7 +7020,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "846",
+    "id" : "840",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7111,7 +7033,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "847",
+    "id" : "841",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7124,7 +7046,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "848",
+    "id" : "842",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7137,85 +7059,85 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
+    "id" : "843",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Person" ],
+    "returnType" : [ "Thing" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "forward",
+    "sentences" : [ "What (X) did (X) die from?", "What (X) does (X) die from?" ],
+    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?Answer .}",
+    "returnVariable" : "objOfProp",
+    "combination" : false
+  }, {
+    "id" : "844",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Thing" ],
+    "returnType" : [ "Person" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "PERSON_CAUSE",
+    "sentences" : [ "Who is died from (X)?", "Who was died from (X)?", "which (X) are died from (X)?", "which (X) is died from (X)?", "which (X) was died from (X)?", "which (X) were died from (X)?" ],
+    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
+    "returnVariable" : "subjOfProp",
+    "combination" : false
+  }, {
+    "id" : "845",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Thing" ],
+    "returnType" : [ "Person" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
+    "sentences" : [ ],
+    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
+    "returnVariable" : "subjOfProp",
+    "combination" : false
+  }, {
+    "id" : "846",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Person" ],
+    "returnType" : [ "Thing" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "forward",
+    "sentences" : [ "What (X) did (X) die from?", "What (X) does (X) die from?" ],
+    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?Answer .}",
+    "returnVariable" : "objOfProp",
+    "combination" : false
+  }, {
+    "id" : "847",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Thing" ],
+    "returnType" : [ "Person" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "PERSON_CAUSE",
+    "sentences" : [ "Who is died from (X)?", "Who was died from (X)?", "which (X) are died from (X)?", "which (X) is died from (X)?", "which (X) was died from (X)?", "which (X) were died from (X)?" ],
+    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
+    "returnVariable" : "subjOfProp",
+    "combination" : false
+  }, {
+    "id" : "848",
+    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
+    "language" : "EN",
+    "type" : "SENTENCE",
+    "bindingType" : [ "Thing" ],
+    "returnType" : [ "Person" ],
+    "frameType" : "IPP",
+    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
+    "sentences" : [ ],
+    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
+    "returnVariable" : "subjOfProp",
+    "combination" : false
+  }, {
     "id" : "849",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Thing" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "forward",
-    "sentences" : [ "What (X) did (X) die from?", "What (X) does (X) die from?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?Answer .}",
-    "returnVariable" : "objOfProp",
-    "combination" : false
-  }, {
-    "id" : "850",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Thing" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Who is died from (X)?", "Who was died from (X)?", "which (X) are died from (X)?", "which (X) is died from (X)?", "which (X) was died from (X)?", "which (X) were died from (X)?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "851",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Thing" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ ],
-    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "852",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Person" ],
-    "returnType" : [ "Thing" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "forward",
-    "sentences" : [ "What (X) did (X) die from?", "What (X) does (X) die from?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/deathCause> ?Answer .}",
-    "returnVariable" : "objOfProp",
-    "combination" : false
-  }, {
-    "id" : "853",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Thing" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "PERSON_CAUSE",
-    "sentences" : [ "Who is died from (X)?", "Who was died from (X)?", "which (X) are died from (X)?", "which (X) is died from (X)?", "which (X) was died from (X)?", "which (X) were died from (X)?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "854",
-    "lexicalEntryUri" : "http://localhost:8080#die_from_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Thing" ],
-    "returnType" : [ "Person" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ ],
-    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/deathCause> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "855",
     "lexicalEntryUri" : "http://localhost:8080#end_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7228,7 +7150,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "856",
+    "id" : "850",
     "lexicalEntryUri" : "http://localhost:8080#end_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7241,7 +7163,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "857",
+    "id" : "851",
     "lexicalEntryUri" : "http://localhost:8080#end_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7254,7 +7176,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "858",
+    "id" : "852",
     "lexicalEntryUri" : "http://localhost:8080#born_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7267,7 +7189,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "859",
+    "id" : "853",
     "lexicalEntryUri" : "http://localhost:8080#born_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7280,7 +7202,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "860",
+    "id" : "854",
     "lexicalEntryUri" : "http://localhost:8080#born_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7293,7 +7215,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "861",
+    "id" : "855",
     "lexicalEntryUri" : "http://localhost:8080#play_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7306,7 +7228,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "862",
+    "id" : "856",
     "lexicalEntryUri" : "http://localhost:8080#play_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7319,7 +7241,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "863",
+    "id" : "857",
     "lexicalEntryUri" : "http://localhost:8080#play_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7332,46 +7254,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "864",
-    "lexicalEntryUri" : "http://localhost:8080#operate_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "LaunchPad" ],
-    "returnType" : [ "Organisation" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "forward",
-    "sentences" : [ "Where is (X) operated?", "Who does (X) operate by?", "by which (X)  (X) operate?", "by which (X) are (X) operated?", "by which (X) does (X) operate?", "by which (X) does operate (X)?", "by which (X) is (X) operated?", "which (X) does (X) operate by?", "which (X) does the (X) operate by?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/operator> ?Answer .}",
-    "returnVariable" : "objOfProp",
-    "combination" : false
-  }, {
-    "id" : "865",
-    "lexicalEntryUri" : "http://localhost:8080#operate_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Organisation" ],
-    "returnType" : [ "LaunchPad" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-    "sentences" : [ "What does (X) operate by?", "What operated by (X)?", "What operates by (X)?", "Where does (X) operate?", "which (X) operate by (X)?", "which (X) operated by (X)?", "which (X) operates by (X)?", "which (X) was operated by (X)?", "which (X) were operated by (X)?" ],
-    "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/operator> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "866",
-    "lexicalEntryUri" : "http://localhost:8080#operate_1",
-    "language" : "EN",
-    "type" : "SENTENCE",
-    "bindingType" : [ "Organisation" ],
-    "returnType" : [ "LaunchPad" ],
-    "frameType" : "IPP",
-    "sentenceTemplate" : "HOW_MANY_THING_BACKWARD",
-    "sentences" : [ "How many (X) did (X) operate by?", "How many (X) operate by (X)?" ],
-    "sparqlQuery" : "SELECT COUNT(?Answer ) WHERE { ?Answer <http://dbpedia.org/ontology/operator> ?objOfProp .}",
-    "returnVariable" : "subjOfProp",
-    "combination" : false
-  }, {
-    "id" : "867",
+    "id" : "858",
     "lexicalEntryUri" : "http://localhost:8080#live_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7384,7 +7267,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "868",
+    "id" : "859",
     "lexicalEntryUri" : "http://localhost:8080#live_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7397,7 +7280,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "869",
+    "id" : "860",
     "lexicalEntryUri" : "http://localhost:8080#live_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7410,7 +7293,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "870",
+    "id" : "861",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7423,7 +7306,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "871",
+    "id" : "862",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7436,7 +7319,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "872",
+    "id" : "863",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7449,7 +7332,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "873",
+    "id" : "864",
     "lexicalEntryUri" : "http://localhost:8080#destroy_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7462,7 +7345,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "874",
+    "id" : "865",
     "lexicalEntryUri" : "http://localhost:8080#destroy_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7475,7 +7358,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "875",
+    "id" : "866",
     "lexicalEntryUri" : "http://localhost:8080#destroy_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7488,7 +7371,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "876",
+    "id" : "867",
     "lexicalEntryUri" : "http://localhost:8080#published_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7501,7 +7384,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "877",
+    "id" : "868",
     "lexicalEntryUri" : "http://localhost:8080#published_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7514,7 +7397,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "878",
+    "id" : "869",
     "lexicalEntryUri" : "http://localhost:8080#published_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7527,7 +7410,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "879",
+    "id" : "870",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7540,7 +7423,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "880",
+    "id" : "871",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7553,7 +7436,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "881",
+    "id" : "872",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7566,7 +7449,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "882",
+    "id" : "873",
     "lexicalEntryUri" : "http://localhost:8080#open_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7579,7 +7462,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "883",
+    "id" : "874",
     "lexicalEntryUri" : "http://localhost:8080#open_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7592,7 +7475,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "884",
+    "id" : "875",
     "lexicalEntryUri" : "http://localhost:8080#open_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7605,7 +7488,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "885",
+    "id" : "876",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7618,7 +7501,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "886",
+    "id" : "877",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7631,7 +7514,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "887",
+    "id" : "878",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7644,7 +7527,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "888",
+    "id" : "879",
     "lexicalEntryUri" : "http://localhost:8080#born_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7657,7 +7540,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "889",
+    "id" : "880",
     "lexicalEntryUri" : "http://localhost:8080#born_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7670,7 +7553,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "890",
+    "id" : "881",
     "lexicalEntryUri" : "http://localhost:8080#born_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7683,7 +7566,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "891",
+    "id" : "882",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7696,7 +7579,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "892",
+    "id" : "883",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7709,7 +7592,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "893",
+    "id" : "884",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7722,7 +7605,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "894",
+    "id" : "885",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7735,7 +7618,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "895",
+    "id" : "886",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7748,7 +7631,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "896",
+    "id" : "887",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7761,7 +7644,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "897",
+    "id" : "888",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7774,7 +7657,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "898",
+    "id" : "889",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7787,7 +7670,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "899",
+    "id" : "890",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7800,7 +7683,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "900",
+    "id" : "891",
     "lexicalEntryUri" : "http://localhost:8080#participate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7813,7 +7696,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "901",
+    "id" : "892",
     "lexicalEntryUri" : "http://localhost:8080#participate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7826,7 +7709,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "902",
+    "id" : "893",
     "lexicalEntryUri" : "http://localhost:8080#participate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7839,7 +7722,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "903",
+    "id" : "894",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7852,7 +7735,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "904",
+    "id" : "895",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7865,7 +7748,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "905",
+    "id" : "896",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7878,7 +7761,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "906",
+    "id" : "897",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7891,7 +7774,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "907",
+    "id" : "898",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7904,7 +7787,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "908",
+    "id" : "899",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7917,7 +7800,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "909",
+    "id" : "900",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7930,7 +7813,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "910",
+    "id" : "901",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7943,7 +7826,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "911",
+    "id" : "902",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7956,7 +7839,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "912",
+    "id" : "903",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7969,7 +7852,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "913",
+    "id" : "904",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7982,7 +7865,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "914",
+    "id" : "905",
     "lexicalEntryUri" : "http://localhost:8080#study_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -7995,7 +7878,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "915",
+    "id" : "906",
     "lexicalEntryUri" : "http://localhost:8080#initially_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8008,7 +7891,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "916",
+    "id" : "907",
     "lexicalEntryUri" : "http://localhost:8080#initially_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8021,7 +7904,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "917",
+    "id" : "908",
     "lexicalEntryUri" : "http://localhost:8080#initially_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8034,7 +7917,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "918",
+    "id" : "909",
     "lexicalEntryUri" : "http://localhost:8080#die_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8047,7 +7930,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "919",
+    "id" : "910",
     "lexicalEntryUri" : "http://localhost:8080#die_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8060,7 +7943,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "920",
+    "id" : "911",
     "lexicalEntryUri" : "http://localhost:8080#die_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8073,7 +7956,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "921",
+    "id" : "912",
     "lexicalEntryUri" : "http://localhost:8080#die_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8086,7 +7969,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "922",
+    "id" : "913",
     "lexicalEntryUri" : "http://localhost:8080#die_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8099,7 +7982,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "923",
+    "id" : "914",
     "lexicalEntryUri" : "http://localhost:8080#die_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8112,7 +7995,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "924",
+    "id" : "915",
     "lexicalEntryUri" : "http://localhost:8080#released_on_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8125,7 +8008,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "925",
+    "id" : "916",
     "lexicalEntryUri" : "http://localhost:8080#released_on_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8138,7 +8021,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "926",
+    "id" : "917",
     "lexicalEntryUri" : "http://localhost:8080#released_on_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8151,7 +8034,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "927",
+    "id" : "918",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8164,7 +8047,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "928",
+    "id" : "919",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8177,7 +8060,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "929",
+    "id" : "920",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8190,7 +8073,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "930",
+    "id" : "921",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8203,7 +8086,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "931",
+    "id" : "922",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8216,7 +8099,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "932",
+    "id" : "923",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8229,7 +8112,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "933",
+    "id" : "924",
     "lexicalEntryUri" : "http://localhost:8080#die_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8242,7 +8125,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "934",
+    "id" : "925",
     "lexicalEntryUri" : "http://localhost:8080#die_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8255,7 +8138,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "935",
+    "id" : "926",
     "lexicalEntryUri" : "http://localhost:8080#die_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8268,7 +8151,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "936",
+    "id" : "927",
     "lexicalEntryUri" : "http://localhost:8080#published_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8281,7 +8164,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "937",
+    "id" : "928",
     "lexicalEntryUri" : "http://localhost:8080#published_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8294,7 +8177,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "938",
+    "id" : "929",
     "lexicalEntryUri" : "http://localhost:8080#published_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8307,7 +8190,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "939",
+    "id" : "930",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8320,7 +8203,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "940",
+    "id" : "931",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8333,7 +8216,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "941",
+    "id" : "932",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8346,7 +8229,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "942",
+    "id" : "933",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8359,7 +8242,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "943",
+    "id" : "934",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8372,7 +8255,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "944",
+    "id" : "935",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8385,7 +8268,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "945",
+    "id" : "936",
     "lexicalEntryUri" : "http://localhost:8080#study_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8398,7 +8281,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "946",
+    "id" : "937",
     "lexicalEntryUri" : "http://localhost:8080#study_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8411,7 +8294,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "947",
+    "id" : "938",
     "lexicalEntryUri" : "http://localhost:8080#study_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8424,7 +8307,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "948",
+    "id" : "939",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8437,7 +8320,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "949",
+    "id" : "940",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8450,7 +8333,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "950",
+    "id" : "941",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8463,7 +8346,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "951",
+    "id" : "942",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8476,7 +8359,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "952",
+    "id" : "943",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8489,7 +8372,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "953",
+    "id" : "944",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8502,7 +8385,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "954",
+    "id" : "945",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8510,12 +8393,12 @@
     "returnType" : [ "Person" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "forward",
-    "sentences" : [ "Where is (X) ?", "Who does (X) compose for?", "for which (X)  (X) compose?", "for which (X) are (X) ?", "for which (X) does (X) compose?", "for which (X) does compose (X)?", "for which (X) is (X) ?", "which (X) does (X) compose for?", "which (X) does the (X) compose for?" ],
+    "sentences" : [ "Where is (X) composed?", "Who does (X) compose for?", "for which (X)  (X) compose?", "for which (X) are (X) composed?", "for which (X) does (X) compose?", "for which (X) does compose (X)?", "for which (X) is (X) composed?", "which (X) does (X) compose for?", "which (X) does the (X) compose for?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/ontology/composer> ?Answer .}",
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "955",
+    "id" : "946",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8523,12 +8406,12 @@
     "returnType" : [ "Work" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-    "sentences" : [ "What composed for (X)?", "What composes for (X)?", "What does (X) compose for?", "Where does (X) compose?", "which (X) compose for (X)?", "which (X) composed for (X)?", "which (X) composes for (X)?", "which (X) was  for (X)?", "which (X) were  for (X)?" ],
+    "sentences" : [ "What composed for (X)?", "What composes for (X)?", "What does (X) compose for?", "Where does (X) compose?", "which (X) compose for (X)?", "which (X) composed for (X)?", "which (X) composes for (X)?", "which (X) was composed for (X)?", "which (X) were composed for (X)?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/composer> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "956",
+    "id" : "947",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8541,7 +8424,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "957",
+    "id" : "948",
     "lexicalEntryUri" : "http://localhost:8080#born_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8554,7 +8437,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "958",
+    "id" : "949",
     "lexicalEntryUri" : "http://localhost:8080#born_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8567,7 +8450,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "959",
+    "id" : "950",
     "lexicalEntryUri" : "http://localhost:8080#born_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8580,7 +8463,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "960",
+    "id" : "951",
     "lexicalEntryUri" : "http://localhost:8080#released_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8593,7 +8476,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "961",
+    "id" : "952",
     "lexicalEntryUri" : "http://localhost:8080#released_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8606,7 +8489,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "962",
+    "id" : "953",
     "lexicalEntryUri" : "http://localhost:8080#released_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8619,7 +8502,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "963",
+    "id" : "954",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8632,7 +8515,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "964",
+    "id" : "955",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8645,7 +8528,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "965",
+    "id" : "956",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8658,7 +8541,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "966",
+    "id" : "957",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8671,7 +8554,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "967",
+    "id" : "958",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8684,7 +8567,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "968",
+    "id" : "959",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8697,7 +8580,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "969",
+    "id" : "960",
     "lexicalEntryUri" : "http://localhost:8080#end_career_on",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8710,7 +8593,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "970",
+    "id" : "961",
     "lexicalEntryUri" : "http://localhost:8080#end_career_on",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8723,7 +8606,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "971",
+    "id" : "962",
     "lexicalEntryUri" : "http://localhost:8080#end_career_on",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8736,7 +8619,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "972",
+    "id" : "963",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8749,7 +8632,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "973",
+    "id" : "964",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8762,7 +8645,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "974",
+    "id" : "965",
     "lexicalEntryUri" : "http://localhost:8080#KnownFor_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8775,7 +8658,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "975",
+    "id" : "966",
     "lexicalEntryUri" : "http://localhost:8080#play_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8788,7 +8671,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "976",
+    "id" : "967",
     "lexicalEntryUri" : "http://localhost:8080#play_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8801,7 +8684,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "977",
+    "id" : "968",
     "lexicalEntryUri" : "http://localhost:8080#play_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8814,7 +8697,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "978",
+    "id" : "969",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8827,7 +8710,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "979",
+    "id" : "970",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8840,7 +8723,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "980",
+    "id" : "971",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8853,7 +8736,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "981",
+    "id" : "972",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8866,7 +8749,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "982",
+    "id" : "973",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8879,7 +8762,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "983",
+    "id" : "974",
     "lexicalEntryUri" : "http://localhost:8080#born_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8892,7 +8775,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "984",
+    "id" : "975",
     "lexicalEntryUri" : "http://localhost:8080#die_from_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8905,7 +8788,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "985",
+    "id" : "976",
     "lexicalEntryUri" : "http://localhost:8080#die_from_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8918,7 +8801,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "986",
+    "id" : "977",
     "lexicalEntryUri" : "http://localhost:8080#die_from_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8931,7 +8814,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "987",
+    "id" : "978",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8944,7 +8827,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "988",
+    "id" : "979",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8957,7 +8840,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "989",
+    "id" : "980",
     "lexicalEntryUri" : "http://localhost:8080#flow_through_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8970,7 +8853,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "990",
+    "id" : "981",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8983,7 +8866,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "991",
+    "id" : "982",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -8996,7 +8879,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "992",
+    "id" : "983",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9009,7 +8892,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "993",
+    "id" : "984",
     "lexicalEntryUri" : "http://localhost:8080#stop_acting_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9022,7 +8905,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "994",
+    "id" : "985",
     "lexicalEntryUri" : "http://localhost:8080#stop_acting_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9035,7 +8918,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "995",
+    "id" : "986",
     "lexicalEntryUri" : "http://localhost:8080#stop_acting_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9048,7 +8931,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "996",
+    "id" : "987",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9061,7 +8944,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "997",
+    "id" : "988",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9074,7 +8957,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "998",
+    "id" : "989",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9087,7 +8970,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "999",
+    "id" : "990",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9100,7 +8983,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1000",
+    "id" : "991",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9113,7 +8996,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1001",
+    "id" : "992",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9126,7 +9009,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1002",
+    "id" : "993",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9139,7 +9022,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1003",
+    "id" : "994",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9152,7 +9035,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1004",
+    "id" : "995",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9165,7 +9048,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1005",
+    "id" : "996",
     "lexicalEntryUri" : "http://localhost:8080#found_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9178,7 +9061,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1006",
+    "id" : "997",
     "lexicalEntryUri" : "http://localhost:8080#found_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9191,7 +9074,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1007",
+    "id" : "998",
     "lexicalEntryUri" : "http://localhost:8080#found_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9204,7 +9087,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1008",
+    "id" : "999",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9217,7 +9100,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1009",
+    "id" : "1000",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9230,7 +9113,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1010",
+    "id" : "1001",
     "lexicalEntryUri" : "http://localhost:8080#discontinue_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9243,7 +9126,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1011",
+    "id" : "1002",
     "lexicalEntryUri" : "http://localhost:8080#introduced_in__2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9256,7 +9139,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1012",
+    "id" : "1003",
     "lexicalEntryUri" : "http://localhost:8080#introduced_in__2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9269,7 +9152,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1013",
+    "id" : "1004",
     "lexicalEntryUri" : "http://localhost:8080#introduced_in__2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9282,7 +9165,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1014",
+    "id" : "1005",
     "lexicalEntryUri" : "http://localhost:8080#draft_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9295,7 +9178,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1015",
+    "id" : "1006",
     "lexicalEntryUri" : "http://localhost:8080#draft_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9308,7 +9191,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1016",
+    "id" : "1007",
     "lexicalEntryUri" : "http://localhost:8080#draft_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9321,7 +9204,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1017",
+    "id" : "1008",
     "lexicalEntryUri" : "http://localhost:8080#work_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9334,7 +9217,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1018",
+    "id" : "1009",
     "lexicalEntryUri" : "http://localhost:8080#work_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9347,7 +9230,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1019",
+    "id" : "1010",
     "lexicalEntryUri" : "http://localhost:8080#work_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9360,7 +9243,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1020",
+    "id" : "1011",
     "lexicalEntryUri" : "http://localhost:8080#relate_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9373,7 +9256,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1021",
+    "id" : "1012",
     "lexicalEntryUri" : "http://localhost:8080#relate_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9386,7 +9269,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1022",
+    "id" : "1013",
     "lexicalEntryUri" : "http://localhost:8080#relate_to_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9399,7 +9282,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1023",
+    "id" : "1014",
     "lexicalEntryUri" : "http://localhost:8080#open_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9412,7 +9295,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1024",
+    "id" : "1015",
     "lexicalEntryUri" : "http://localhost:8080#open_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9425,7 +9308,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1025",
+    "id" : "1016",
     "lexicalEntryUri" : "http://localhost:8080#open_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9438,7 +9321,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1026",
+    "id" : "1017",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9446,12 +9329,12 @@
     "returnType" : [ "Person" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "forward",
-    "sentences" : [ "Where is (X) ?", "Who does (X) compose for?", "for which (X)  (X) compose?", "for which (X) are (X) ?", "for which (X) does (X) compose?", "for which (X) does compose (X)?", "for which (X) is (X) ?", "which (X) does (X) compose for?", "which (X) does the (X) compose for?" ],
+    "sentences" : [ "Where is (X) composed?", "Who does (X) compose for?", "for which (X)  (X) compose?", "for which (X) are (X) composed?", "for which (X) does (X) compose?", "for which (X) does compose (X)?", "for which (X) is (X) composed?", "which (X) does (X) compose for?", "which (X) does the (X) compose for?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?subjOfProp <http://dbpedia.org/property/music> ?Answer .}",
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1027",
+    "id" : "1018",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9459,12 +9342,12 @@
     "returnType" : [ "Work" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-    "sentences" : [ "What composed for (X)?", "What composes for (X)?", "What does (X) compose for?", "Where does (X) compose?", "which (X) compose for (X)?", "which (X) composed for (X)?", "which (X) composes for (X)?", "which (X) was  for (X)?", "which (X) were  for (X)?" ],
+    "sentences" : [ "What composed for (X)?", "What composes for (X)?", "What does (X) compose for?", "Where does (X) compose?", "which (X) compose for (X)?", "which (X) composed for (X)?", "which (X) composes for (X)?", "which (X) was composed for (X)?", "which (X) were composed for (X)?" ],
     "sparqlQuery" : "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/property/music> ?objOfProp .}",
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1028",
+    "id" : "1019",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9477,7 +9360,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1029",
+    "id" : "1020",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9490,7 +9373,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1030",
+    "id" : "1021",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9503,7 +9386,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1031",
+    "id" : "1022",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9516,7 +9399,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1032",
+    "id" : "1023",
     "lexicalEntryUri" : "http://localhost:8080#start_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9529,7 +9412,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1033",
+    "id" : "1024",
     "lexicalEntryUri" : "http://localhost:8080#start_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9542,7 +9425,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1034",
+    "id" : "1025",
     "lexicalEntryUri" : "http://localhost:8080#start_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9555,7 +9438,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1035",
+    "id" : "1026",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9568,7 +9451,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1036",
+    "id" : "1027",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9581,7 +9464,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1037",
+    "id" : "1028",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9594,7 +9477,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1038",
+    "id" : "1029",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9607,7 +9490,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1039",
+    "id" : "1030",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9620,7 +9503,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1040",
+    "id" : "1031",
     "lexicalEntryUri" : "http://localhost:8080#end_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9633,7 +9516,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1041",
+    "id" : "1032",
     "lexicalEntryUri" : "http://localhost:8080#establish_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9646,7 +9529,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1042",
+    "id" : "1033",
     "lexicalEntryUri" : "http://localhost:8080#establish_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9659,7 +9542,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1043",
+    "id" : "1034",
     "lexicalEntryUri" : "http://localhost:8080#establish_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9672,7 +9555,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1044",
+    "id" : "1035",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9685,7 +9568,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1045",
+    "id" : "1036",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9698,7 +9581,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1046",
+    "id" : "1037",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_11",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9711,7 +9594,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1047",
+    "id" : "1038",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9724,7 +9607,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1048",
+    "id" : "1039",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9737,7 +9620,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1049",
+    "id" : "1040",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9750,7 +9633,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1050",
+    "id" : "1041",
     "lexicalEntryUri" : "http://localhost:8080#released_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9763,7 +9646,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1051",
+    "id" : "1042",
     "lexicalEntryUri" : "http://localhost:8080#released_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9776,7 +9659,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1052",
+    "id" : "1043",
     "lexicalEntryUri" : "http://localhost:8080#released_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9789,7 +9672,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1053",
+    "id" : "1044",
     "lexicalEntryUri" : "http://localhost:8080#released_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9802,7 +9685,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1054",
+    "id" : "1045",
     "lexicalEntryUri" : "http://localhost:8080#released_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9815,7 +9698,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1055",
+    "id" : "1046",
     "lexicalEntryUri" : "http://localhost:8080#released_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9828,7 +9711,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1056",
+    "id" : "1047",
     "lexicalEntryUri" : "http://localhost:8080#starr_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9841,7 +9724,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1057",
+    "id" : "1048",
     "lexicalEntryUri" : "http://localhost:8080#starr_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9854,7 +9737,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1058",
+    "id" : "1049",
     "lexicalEntryUri" : "http://localhost:8080#starr_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9867,7 +9750,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1059",
+    "id" : "1050",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9880,7 +9763,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1060",
+    "id" : "1051",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9893,7 +9776,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1061",
+    "id" : "1052",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9906,7 +9789,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1062",
+    "id" : "1053",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9919,7 +9802,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1063",
+    "id" : "1054",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9932,7 +9815,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1064",
+    "id" : "1055",
     "lexicalEntryUri" : "http://localhost:8080#begin_at_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9945,7 +9828,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1065",
+    "id" : "1056",
     "lexicalEntryUri" : "http://localhost:8080#live_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9958,7 +9841,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1066",
+    "id" : "1057",
     "lexicalEntryUri" : "http://localhost:8080#live_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9971,7 +9854,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1067",
+    "id" : "1058",
     "lexicalEntryUri" : "http://localhost:8080#live_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9984,7 +9867,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1068",
+    "id" : "1059",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -9997,7 +9880,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1069",
+    "id" : "1060",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10010,7 +9893,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1070",
+    "id" : "1061",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10023,7 +9906,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1071",
+    "id" : "1062",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10036,7 +9919,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1072",
+    "id" : "1063",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10049,7 +9932,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1073",
+    "id" : "1064",
     "lexicalEntryUri" : "http://localhost:8080#end_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10062,7 +9945,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1074",
+    "id" : "1065",
     "lexicalEntryUri" : "http://localhost:8080#play_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10075,7 +9958,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1075",
+    "id" : "1066",
     "lexicalEntryUri" : "http://localhost:8080#play_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10088,7 +9971,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1076",
+    "id" : "1067",
     "lexicalEntryUri" : "http://localhost:8080#play_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10101,7 +9984,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1077",
+    "id" : "1068",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10114,7 +9997,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1078",
+    "id" : "1069",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10127,7 +10010,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1079",
+    "id" : "1070",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_7",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10140,7 +10023,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1080",
+    "id" : "1071",
     "lexicalEntryUri" : "http://localhost:8080#name_after_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10153,7 +10036,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1081",
+    "id" : "1072",
     "lexicalEntryUri" : "http://localhost:8080#name_after_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10166,7 +10049,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1082",
+    "id" : "1073",
     "lexicalEntryUri" : "http://localhost:8080#name_after_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10179,7 +10062,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1083",
+    "id" : "1074",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_18",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10192,7 +10075,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1084",
+    "id" : "1075",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_18",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10205,7 +10088,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1085",
+    "id" : "1076",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_18",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10218,7 +10101,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1086",
+    "id" : "1077",
     "lexicalEntryUri" : "http://localhost:8080#born_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10231,7 +10114,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1087",
+    "id" : "1078",
     "lexicalEntryUri" : "http://localhost:8080#born_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10244,7 +10127,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1088",
+    "id" : "1079",
     "lexicalEntryUri" : "http://localhost:8080#born_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10257,7 +10140,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1089",
+    "id" : "1080",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10270,7 +10153,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1090",
+    "id" : "1081",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10283,7 +10166,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1091",
+    "id" : "1082",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10296,7 +10179,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1092",
+    "id" : "1083",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10309,7 +10192,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1093",
+    "id" : "1084",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10322,7 +10205,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1094",
+    "id" : "1085",
     "lexicalEntryUri" : "http://localhost:8080#flow_into_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10335,7 +10218,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1095",
+    "id" : "1086",
     "lexicalEntryUri" : "http://localhost:8080#fight_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10348,7 +10231,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1096",
+    "id" : "1087",
     "lexicalEntryUri" : "http://localhost:8080#fight_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10361,7 +10244,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1097",
+    "id" : "1088",
     "lexicalEntryUri" : "http://localhost:8080#fight_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10374,7 +10257,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1098",
+    "id" : "1089",
     "lexicalEntryUri" : "http://localhost:8080#published_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10387,7 +10270,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1099",
+    "id" : "1090",
     "lexicalEntryUri" : "http://localhost:8080#published_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10400,7 +10283,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1100",
+    "id" : "1091",
     "lexicalEntryUri" : "http://localhost:8080#published_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10413,7 +10296,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1101",
+    "id" : "1092",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10426,7 +10309,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1102",
+    "id" : "1093",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10439,7 +10322,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1103",
+    "id" : "1094",
     "lexicalEntryUri" : "http://localhost:8080#bury_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10452,7 +10335,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1104",
+    "id" : "1095",
     "lexicalEntryUri" : "http://localhost:8080#born_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10465,7 +10348,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1105",
+    "id" : "1096",
     "lexicalEntryUri" : "http://localhost:8080#born_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10478,7 +10361,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1106",
+    "id" : "1097",
     "lexicalEntryUri" : "http://localhost:8080#born_in_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10491,7 +10374,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1107",
+    "id" : "1098",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10504,7 +10387,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1108",
+    "id" : "1099",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10517,7 +10400,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1109",
+    "id" : "1100",
     "lexicalEntryUri" : "http://localhost:8080#associate_with_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10530,7 +10413,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1110",
+    "id" : "1101",
     "lexicalEntryUri" : "http://localhost:8080#found_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10543,7 +10426,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1111",
+    "id" : "1102",
     "lexicalEntryUri" : "http://localhost:8080#found_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10556,7 +10439,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1112",
+    "id" : "1103",
     "lexicalEntryUri" : "http://localhost:8080#found_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10569,7 +10452,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1113",
+    "id" : "1104",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10582,7 +10465,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1114",
+    "id" : "1105",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10595,7 +10478,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1115",
+    "id" : "1106",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_8",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10608,7 +10491,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1116",
+    "id" : "1107",
     "lexicalEntryUri" : "http://localhost:8080#form_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10621,7 +10504,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1117",
+    "id" : "1108",
     "lexicalEntryUri" : "http://localhost:8080#form_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10634,7 +10517,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1118",
+    "id" : "1109",
     "lexicalEntryUri" : "http://localhost:8080#form_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10647,7 +10530,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1119",
+    "id" : "1110",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10660,7 +10543,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1120",
+    "id" : "1111",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10673,7 +10556,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1121",
+    "id" : "1112",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10686,7 +10569,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1122",
+    "id" : "1113",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10699,7 +10582,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1123",
+    "id" : "1114",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10712,7 +10595,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1124",
+    "id" : "1115",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10725,7 +10608,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1125",
+    "id" : "1116",
     "lexicalEntryUri" : "http://localhost:8080#found_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10738,7 +10621,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1126",
+    "id" : "1117",
     "lexicalEntryUri" : "http://localhost:8080#found_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10751,7 +10634,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1127",
+    "id" : "1118",
     "lexicalEntryUri" : "http://localhost:8080#found_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10764,7 +10647,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1128",
+    "id" : "1119",
     "lexicalEntryUri" : "http://localhost:8080#build_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10777,7 +10660,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1129",
+    "id" : "1120",
     "lexicalEntryUri" : "http://localhost:8080#build_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10790,7 +10673,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1130",
+    "id" : "1121",
     "lexicalEntryUri" : "http://localhost:8080#build_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10803,7 +10686,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1131",
+    "id" : "1122",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10816,7 +10699,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1132",
+    "id" : "1123",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10829,7 +10712,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1133",
+    "id" : "1124",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10842,7 +10725,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1134",
+    "id" : "1125",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10855,7 +10738,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1135",
+    "id" : "1126",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10868,7 +10751,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1136",
+    "id" : "1127",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10881,7 +10764,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1137",
+    "id" : "1128",
     "lexicalEntryUri" : "http://localhost:8080#play_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10894,7 +10777,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1138",
+    "id" : "1129",
     "lexicalEntryUri" : "http://localhost:8080#play_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10907,7 +10790,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1139",
+    "id" : "1130",
     "lexicalEntryUri" : "http://localhost:8080#play_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10920,7 +10803,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1140",
+    "id" : "1131",
     "lexicalEntryUri" : "http://localhost:8080#work_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10933,7 +10816,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1141",
+    "id" : "1132",
     "lexicalEntryUri" : "http://localhost:8080#work_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10946,7 +10829,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1142",
+    "id" : "1133",
     "lexicalEntryUri" : "http://localhost:8080#work_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10959,7 +10842,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1143",
+    "id" : "1134",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10972,7 +10855,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1144",
+    "id" : "1135",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10985,7 +10868,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1145",
+    "id" : "1136",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -10998,7 +10881,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1146",
+    "id" : "1137",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11011,7 +10894,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1147",
+    "id" : "1138",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11024,7 +10907,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1148",
+    "id" : "1139",
     "lexicalEntryUri" : "http://localhost:8080#rebuild_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11037,7 +10920,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1149",
+    "id" : "1140",
     "lexicalEntryUri" : "http://localhost:8080#live_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11050,7 +10933,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1150",
+    "id" : "1141",
     "lexicalEntryUri" : "http://localhost:8080#live_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11063,7 +10946,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1151",
+    "id" : "1142",
     "lexicalEntryUri" : "http://localhost:8080#live_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11076,7 +10959,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1152",
+    "id" : "1143",
     "lexicalEntryUri" : "http://localhost:8080#born_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11089,7 +10972,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1153",
+    "id" : "1144",
     "lexicalEntryUri" : "http://localhost:8080#born_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11102,7 +10985,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1154",
+    "id" : "1145",
     "lexicalEntryUri" : "http://localhost:8080#born_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11115,7 +10998,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1155",
+    "id" : "1146",
     "lexicalEntryUri" : "http://localhost:8080#dissolve_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11128,7 +11011,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1156",
+    "id" : "1147",
     "lexicalEntryUri" : "http://localhost:8080#dissolve_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11141,7 +11024,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1157",
+    "id" : "1148",
     "lexicalEntryUri" : "http://localhost:8080#dissolve_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11154,7 +11037,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1158",
+    "id" : "1149",
     "lexicalEntryUri" : "http://localhost:8080#split_up_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11167,7 +11050,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1159",
+    "id" : "1150",
     "lexicalEntryUri" : "http://localhost:8080#split_up_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11180,7 +11063,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1160",
+    "id" : "1151",
     "lexicalEntryUri" : "http://localhost:8080#split_up_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11193,7 +11076,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1161",
+    "id" : "1152",
     "lexicalEntryUri" : "http://localhost:8080#die_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11206,7 +11089,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1162",
+    "id" : "1153",
     "lexicalEntryUri" : "http://localhost:8080#die_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11219,7 +11102,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1163",
+    "id" : "1154",
     "lexicalEntryUri" : "http://localhost:8080#die_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11232,7 +11115,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1164",
+    "id" : "1155",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_17",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11245,7 +11128,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1165",
+    "id" : "1156",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_17",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11258,7 +11141,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1166",
+    "id" : "1157",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_17",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11271,7 +11154,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1167",
+    "id" : "1158",
     "lexicalEntryUri" : "http://localhost:8080#currently_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11284,7 +11167,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1168",
+    "id" : "1159",
     "lexicalEntryUri" : "http://localhost:8080#currently_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11297,7 +11180,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1169",
+    "id" : "1160",
     "lexicalEntryUri" : "http://localhost:8080#currently_use_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11310,7 +11193,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1170",
+    "id" : "1161",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11323,7 +11206,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1171",
+    "id" : "1162",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11336,7 +11219,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1172",
+    "id" : "1163",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11349,7 +11232,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1173",
+    "id" : "1164",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11362,7 +11245,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1174",
+    "id" : "1165",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11375,7 +11258,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1175",
+    "id" : "1166",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_10",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11388,7 +11271,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1176",
+    "id" : "1167",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_13",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11401,7 +11284,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1177",
+    "id" : "1168",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_13",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11414,7 +11297,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1178",
+    "id" : "1169",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_13",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11427,7 +11310,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1179",
+    "id" : "1170",
     "lexicalEntryUri" : "http://localhost:8080#launch_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11440,7 +11323,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1180",
+    "id" : "1171",
     "lexicalEntryUri" : "http://localhost:8080#launch_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11453,7 +11336,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1181",
+    "id" : "1172",
     "lexicalEntryUri" : "http://localhost:8080#launch_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11466,7 +11349,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1182",
+    "id" : "1173",
     "lexicalEntryUri" : "http://localhost:8080#produced_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11479,7 +11362,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1183",
+    "id" : "1174",
     "lexicalEntryUri" : "http://localhost:8080#produced_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11492,7 +11375,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1184",
+    "id" : "1175",
     "lexicalEntryUri" : "http://localhost:8080#produced_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11505,7 +11388,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1185",
+    "id" : "1176",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11518,7 +11401,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1186",
+    "id" : "1177",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11531,7 +11414,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1187",
+    "id" : "1178",
     "lexicalEntryUri" : "http://localhost:8080#complete_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11544,7 +11427,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1188",
+    "id" : "1179",
     "lexicalEntryUri" : "http://localhost:8080#Have_seat_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11557,7 +11440,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1189",
+    "id" : "1180",
     "lexicalEntryUri" : "http://localhost:8080#Have_seat_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11570,7 +11453,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1190",
+    "id" : "1181",
     "lexicalEntryUri" : "http://localhost:8080#Have_seat_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11583,7 +11466,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1191",
+    "id" : "1182",
     "lexicalEntryUri" : "http://localhost:8080#grow_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11596,7 +11479,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1192",
+    "id" : "1183",
     "lexicalEntryUri" : "http://localhost:8080#grow_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11609,7 +11492,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1193",
+    "id" : "1184",
     "lexicalEntryUri" : "http://localhost:8080#grow_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11622,7 +11505,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1194",
+    "id" : "1185",
     "lexicalEntryUri" : "http://localhost:8080#live_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11635,7 +11518,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1195",
+    "id" : "1186",
     "lexicalEntryUri" : "http://localhost:8080#live_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11648,7 +11531,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1196",
+    "id" : "1187",
     "lexicalEntryUri" : "http://localhost:8080#live_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11661,7 +11544,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1197",
+    "id" : "1188",
     "lexicalEntryUri" : "http://localhost:8080#born_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11674,7 +11557,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1198",
+    "id" : "1189",
     "lexicalEntryUri" : "http://localhost:8080#born_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11687,7 +11570,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1199",
+    "id" : "1190",
     "lexicalEntryUri" : "http://localhost:8080#born_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11700,7 +11583,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1200",
+    "id" : "1191",
     "lexicalEntryUri" : "http://localhost:8080#end_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11713,7 +11596,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1201",
+    "id" : "1192",
     "lexicalEntryUri" : "http://localhost:8080#end_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11726,7 +11609,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1202",
+    "id" : "1193",
     "lexicalEntryUri" : "http://localhost:8080#end_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11739,7 +11622,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1203",
+    "id" : "1194",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11752,7 +11635,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1204",
+    "id" : "1195",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11765,7 +11648,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1205",
+    "id" : "1196",
     "lexicalEntryUri" : "http://localhost:8080#commence_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11778,7 +11661,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1206",
+    "id" : "1197",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11791,7 +11674,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1207",
+    "id" : "1198",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11804,7 +11687,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1208",
+    "id" : "1199",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_9",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11817,7 +11700,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1209",
+    "id" : "1200",
     "lexicalEntryUri" : "http://localhost:8080#border_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11830,7 +11713,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1210",
+    "id" : "1201",
     "lexicalEntryUri" : "http://localhost:8080#border_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11843,7 +11726,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1211",
+    "id" : "1202",
     "lexicalEntryUri" : "http://localhost:8080#border_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11856,7 +11739,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1212",
+    "id" : "1203",
     "lexicalEntryUri" : "http://localhost:8080#published_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11869,7 +11752,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1213",
+    "id" : "1204",
     "lexicalEntryUri" : "http://localhost:8080#published_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11882,7 +11765,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1214",
+    "id" : "1205",
     "lexicalEntryUri" : "http://localhost:8080#published_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11895,7 +11778,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1215",
+    "id" : "1206",
     "lexicalEntryUri" : "http://localhost:8080#record_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11908,7 +11791,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1216",
+    "id" : "1207",
     "lexicalEntryUri" : "http://localhost:8080#record_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11921,7 +11804,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1217",
+    "id" : "1208",
     "lexicalEntryUri" : "http://localhost:8080#record_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11934,7 +11817,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1218",
+    "id" : "1209",
     "lexicalEntryUri" : "http://localhost:8080#stand_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11947,7 +11830,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1219",
+    "id" : "1210",
     "lexicalEntryUri" : "http://localhost:8080#stand_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11960,7 +11843,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1220",
+    "id" : "1211",
     "lexicalEntryUri" : "http://localhost:8080#stand_for_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11973,7 +11856,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1221",
+    "id" : "1212",
     "lexicalEntryUri" : "http://localhost:8080#start_acting_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11986,7 +11869,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1222",
+    "id" : "1213",
     "lexicalEntryUri" : "http://localhost:8080#start_acting_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -11999,7 +11882,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1223",
+    "id" : "1214",
     "lexicalEntryUri" : "http://localhost:8080#start_acting_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12012,7 +11895,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1224",
+    "id" : "1215",
     "lexicalEntryUri" : "http://localhost:8080#build_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12025,7 +11908,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1225",
+    "id" : "1216",
     "lexicalEntryUri" : "http://localhost:8080#build_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12038,7 +11921,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1226",
+    "id" : "1217",
     "lexicalEntryUri" : "http://localhost:8080#build_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12051,7 +11934,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1227",
+    "id" : "1218",
     "lexicalEntryUri" : "http://localhost:8080#end_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12064,7 +11947,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1228",
+    "id" : "1219",
     "lexicalEntryUri" : "http://localhost:8080#end_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12077,7 +11960,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1229",
+    "id" : "1220",
     "lexicalEntryUri" : "http://localhost:8080#end_in_6",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12090,7 +11973,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1230",
+    "id" : "1221",
     "lexicalEntryUri" : "http://localhost:8080#written_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12103,7 +11986,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1231",
+    "id" : "1222",
     "lexicalEntryUri" : "http://localhost:8080#written_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12116,7 +11999,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1232",
+    "id" : "1223",
     "lexicalEntryUri" : "http://localhost:8080#written_in",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12129,7 +12012,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1233",
+    "id" : "1224",
     "lexicalEntryUri" : "http://localhost:8080#end_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12142,7 +12025,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1234",
+    "id" : "1225",
     "lexicalEntryUri" : "http://localhost:8080#end_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12155,7 +12038,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1235",
+    "id" : "1226",
     "lexicalEntryUri" : "http://localhost:8080#end_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12168,7 +12051,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1236",
+    "id" : "1227",
     "lexicalEntryUri" : "http://localhost:8080#build_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12181,7 +12064,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1237",
+    "id" : "1228",
     "lexicalEntryUri" : "http://localhost:8080#build_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12194,7 +12077,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1238",
+    "id" : "1229",
     "lexicalEntryUri" : "http://localhost:8080#build_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12207,7 +12090,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1239",
+    "id" : "1230",
     "lexicalEntryUri" : "http://localhost:8080#born_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12220,7 +12103,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1240",
+    "id" : "1231",
     "lexicalEntryUri" : "http://localhost:8080#born_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12233,7 +12116,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1241",
+    "id" : "1232",
     "lexicalEntryUri" : "http://localhost:8080#born_in_5",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12246,7 +12129,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1242",
+    "id" : "1233",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12259,7 +12142,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1243",
+    "id" : "1234",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12272,7 +12155,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1244",
+    "id" : "1235",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_12",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12285,7 +12168,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1245",
+    "id" : "1236",
     "lexicalEntryUri" : "http://localhost:8080#reopen_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12298,7 +12181,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1246",
+    "id" : "1237",
     "lexicalEntryUri" : "http://localhost:8080#reopen_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12311,7 +12194,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1247",
+    "id" : "1238",
     "lexicalEntryUri" : "http://localhost:8080#reopen_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12324,7 +12207,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1248",
+    "id" : "1239",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12337,7 +12220,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1249",
+    "id" : "1240",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12350,7 +12233,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1250",
+    "id" : "1241",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12363,7 +12246,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1251",
+    "id" : "1242",
     "lexicalEntryUri" : "http://localhost:8080#destroy_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12376,7 +12259,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1252",
+    "id" : "1243",
     "lexicalEntryUri" : "http://localhost:8080#destroy_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12389,7 +12272,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1253",
+    "id" : "1244",
     "lexicalEntryUri" : "http://localhost:8080#destroy_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12402,7 +12285,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1254",
+    "id" : "1245",
     "lexicalEntryUri" : "http://localhost:8080#published_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12415,7 +12298,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1255",
+    "id" : "1246",
     "lexicalEntryUri" : "http://localhost:8080#published_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12428,7 +12311,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1256",
+    "id" : "1247",
     "lexicalEntryUri" : "http://localhost:8080#published_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12441,7 +12324,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1257",
+    "id" : "1248",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12454,7 +12337,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1258",
+    "id" : "1249",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12467,7 +12350,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1259",
+    "id" : "1250",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12480,7 +12363,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1260",
+    "id" : "1251",
     "lexicalEntryUri" : "http://localhost:8080#found_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12493,7 +12376,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1261",
+    "id" : "1252",
     "lexicalEntryUri" : "http://localhost:8080#found_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12506,7 +12389,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1262",
+    "id" : "1253",
     "lexicalEntryUri" : "http://localhost:8080#found_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12519,7 +12402,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1263",
+    "id" : "1254",
     "lexicalEntryUri" : "http://localhost:8080#play_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12532,7 +12415,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1264",
+    "id" : "1255",
     "lexicalEntryUri" : "http://localhost:8080#play_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12545,7 +12428,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1265",
+    "id" : "1256",
     "lexicalEntryUri" : "http://localhost:8080#play_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12558,7 +12441,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1266",
+    "id" : "1257",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12571,7 +12454,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1267",
+    "id" : "1258",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12584,7 +12467,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1268",
+    "id" : "1259",
     "lexicalEntryUri" : "http://localhost:8080#compose_for_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12597,7 +12480,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1269",
+    "id" : "1260",
     "lexicalEntryUri" : "http://localhost:8080#found_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12610,7 +12493,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1270",
+    "id" : "1261",
     "lexicalEntryUri" : "http://localhost:8080#found_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12623,7 +12506,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1271",
+    "id" : "1262",
     "lexicalEntryUri" : "http://localhost:8080#found_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12636,7 +12519,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1272",
+    "id" : "1263",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12649,7 +12532,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1273",
+    "id" : "1264",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12662,7 +12545,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1274",
+    "id" : "1265",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12675,7 +12558,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1275",
+    "id" : "1266",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12688,7 +12571,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1276",
+    "id" : "1267",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12701,7 +12584,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1277",
+    "id" : "1268",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12714,7 +12597,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1278",
+    "id" : "1269",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12727,7 +12610,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1279",
+    "id" : "1270",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12740,7 +12623,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1280",
+    "id" : "1271",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12753,7 +12636,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1281",
+    "id" : "1272",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12766,7 +12649,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1282",
+    "id" : "1273",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12779,7 +12662,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1283",
+    "id" : "1274",
     "lexicalEntryUri" : "http://localhost:8080#produced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12792,7 +12675,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1284",
+    "id" : "1275",
     "lexicalEntryUri" : "http://localhost:8080#come_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12805,7 +12688,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1285",
+    "id" : "1276",
     "lexicalEntryUri" : "http://localhost:8080#come_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12818,7 +12701,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1286",
+    "id" : "1277",
     "lexicalEntryUri" : "http://localhost:8080#come_from",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12831,7 +12714,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1287",
+    "id" : "1278",
     "lexicalEntryUri" : "http://localhost:8080#flow_into",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12844,7 +12727,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1288",
+    "id" : "1279",
     "lexicalEntryUri" : "http://localhost:8080#flow_into",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12857,7 +12740,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1289",
+    "id" : "1280",
     "lexicalEntryUri" : "http://localhost:8080#flow_into",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12870,7 +12753,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1290",
+    "id" : "1281",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_15",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12883,7 +12766,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1291",
+    "id" : "1282",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_15",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12896,7 +12779,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1292",
+    "id" : "1283",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_15",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12909,7 +12792,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1293",
+    "id" : "1284",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_14",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12922,7 +12805,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1294",
+    "id" : "1285",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_14",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12935,7 +12818,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1295",
+    "id" : "1286",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_14",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12948,7 +12831,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1296",
+    "id" : "1287",
     "lexicalEntryUri" : "http://localhost:8080#published_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12961,7 +12844,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1297",
+    "id" : "1288",
     "lexicalEntryUri" : "http://localhost:8080#published_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12974,7 +12857,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1298",
+    "id" : "1289",
     "lexicalEntryUri" : "http://localhost:8080#published_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -12987,7 +12870,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1299",
+    "id" : "1290",
     "lexicalEntryUri" : "http://localhost:8080#die_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13000,7 +12883,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1300",
+    "id" : "1291",
     "lexicalEntryUri" : "http://localhost:8080#die_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13013,7 +12896,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1301",
+    "id" : "1292",
     "lexicalEntryUri" : "http://localhost:8080#die_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13026,7 +12909,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1302",
+    "id" : "1293",
     "lexicalEntryUri" : "http://localhost:8080#originate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13039,7 +12922,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1303",
+    "id" : "1294",
     "lexicalEntryUri" : "http://localhost:8080#originate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13052,7 +12935,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1304",
+    "id" : "1295",
     "lexicalEntryUri" : "http://localhost:8080#originate_in_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13065,7 +12948,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1305",
+    "id" : "1296",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13078,7 +12961,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1306",
+    "id" : "1297",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13091,7 +12974,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1307",
+    "id" : "1298",
     "lexicalEntryUri" : "http://localhost:8080#founded_on_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13104,7 +12987,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1308",
+    "id" : "1299",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13117,7 +13000,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1309",
+    "id" : "1300",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13130,7 +13013,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1310",
+    "id" : "1301",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13143,7 +13026,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1311",
+    "id" : "1302",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13156,7 +13039,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1312",
+    "id" : "1303",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13169,7 +13052,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1313",
+    "id" : "1304",
     "lexicalEntryUri" : "http://localhost:8080#locate_in_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13182,7 +13065,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1314",
+    "id" : "1305",
     "lexicalEntryUri" : "http://localhost:8080#introduced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13195,7 +13078,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1315",
+    "id" : "1306",
     "lexicalEntryUri" : "http://localhost:8080#introduced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13208,7 +13091,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1316",
+    "id" : "1307",
     "lexicalEntryUri" : "http://localhost:8080#introduced_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13221,7 +13104,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1317",
+    "id" : "1308",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13234,7 +13117,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1318",
+    "id" : "1309",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13247,7 +13130,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1319",
+    "id" : "1310",
     "lexicalEntryUri" : "http://localhost:8080#inaugurate_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13260,7 +13143,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1320",
+    "id" : "1311",
     "lexicalEntryUri" : "http://localhost:8080#reopen_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13273,7 +13156,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1321",
+    "id" : "1312",
     "lexicalEntryUri" : "http://localhost:8080#reopen_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13286,7 +13169,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1322",
+    "id" : "1313",
     "lexicalEntryUri" : "http://localhost:8080#reopen_on_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13299,7 +13182,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1323",
+    "id" : "1314",
     "lexicalEntryUri" : "http://localhost:8080#found_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13312,7 +13195,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1324",
+    "id" : "1315",
     "lexicalEntryUri" : "http://localhost:8080#found_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13325,7 +13208,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1325",
+    "id" : "1316",
     "lexicalEntryUri" : "http://localhost:8080#found_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13338,7 +13221,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1326",
+    "id" : "1317",
     "lexicalEntryUri" : "http://localhost:8080#call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13351,7 +13234,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1327",
+    "id" : "1318",
     "lexicalEntryUri" : "http://localhost:8080#call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13364,7 +13247,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1328",
+    "id" : "1319",
     "lexicalEntryUri" : "http://localhost:8080#call_1",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13377,7 +13260,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1329",
+    "id" : "1320",
     "lexicalEntryUri" : "http://localhost:8080#die_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13390,7 +13273,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1330",
+    "id" : "1321",
     "lexicalEntryUri" : "http://localhost:8080#die_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13403,7 +13286,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1331",
+    "id" : "1322",
     "lexicalEntryUri" : "http://localhost:8080#die_in_3",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13416,7 +13299,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1332",
+    "id" : "1323",
     "lexicalEntryUri" : "http://localhost:8080#grow_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13429,7 +13312,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1333",
+    "id" : "1324",
     "lexicalEntryUri" : "http://localhost:8080#grow_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13442,7 +13325,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1334",
+    "id" : "1325",
     "lexicalEntryUri" : "http://localhost:8080#grow_in_2",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13455,7 +13338,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1335",
+    "id" : "1326",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13468,7 +13351,7 @@
     "returnVariable" : "objOfProp",
     "combination" : false
   }, {
-    "id" : "1336",
+    "id" : "1327",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13481,7 +13364,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1337",
+    "id" : "1328",
     "lexicalEntryUri" : "http://localhost:8080#belong_to_4",
     "language" : "EN",
     "type" : "SENTENCE",
@@ -13494,7 +13377,7 @@
     "returnVariable" : "subjOfProp",
     "combination" : false
   }, {
-    "id" : "1338",
+    "id" : "1329",
     "lexicalEntryUri" : null,
     "language" : "EN",
     "type" : "SENTENCE",
