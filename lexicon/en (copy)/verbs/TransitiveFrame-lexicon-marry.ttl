@@ -21,19 +21,19 @@
   lemon:synBehavior    :marry_frame_transitive .
 
 :form_marry a         lemon:Form ;
-  lemon:writtenRep     "marry to"@en ;
+  lemon:writtenRep     "marry"@en ;
   lexinfo:verbFormMood lexinfo:infinitive .
 
 :form_marrys a    lemon:Form ;
-  lemon:writtenRep "marries to"@en ;
+  lemon:writtenRep "marries"@en ;
   lexinfo:person   lexinfo:secondPerson .
 
 :form_marryed a   lemon:Form ;
-  lemon:writtenRep "married to"@en ;
+  lemon:writtenRep "married"@en ;
   lexinfo:tense    lexinfo:past .
 
 :form_marryperfect a   lemon:Form ;
-  lemon:writtenRep "married to"@en ;
+  lemon:writtenRep "married"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 
@@ -61,10 +61,10 @@
   lemon:sense          :marryed_ontomap .
 
 :form_marryed_canonical a lemon:Form ;
-  lemon:writtenRep         "marry to"@en .
+  lemon:writtenRep         "marry"@en .
 
 :form_marryed_by a    lemon:Form ;
-  lemon:writtenRep     "marry to"@en ;
+  lemon:writtenRep     "marry"@en ;
   lexinfo:verbFormMood lexinfo:participle .
 
 
@@ -82,6 +82,6 @@
 
 ## Prepositions ##
 :form_marry_preposition a                  lemon:SynRoleMarker ;
-  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lemon:canonicalForm  [ lemon:writtenRep "to"@en ] ;
   lexinfo:partOfSpeech lexinfo:preposition .
 

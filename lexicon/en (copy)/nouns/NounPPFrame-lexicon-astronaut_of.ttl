@@ -30,8 +30,8 @@
   lexinfo:number    lexinfo:plural .
 
 :astronaut_of_nounpp a        lexinfo:NounPPFrame ;
-  lexinfo:copulativeArg        :arg1 ;
-  lexinfo:prepositionalAdjunct :arg2 .
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
 
 :astronaut_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping         :astronaut_of_sense_1 ;

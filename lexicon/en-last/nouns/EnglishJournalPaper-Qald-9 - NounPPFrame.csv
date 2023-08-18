@@ -1,0 +1,2 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range
+officialLanguage-of_1,noun,official language,official languages,of,NounPPFrame,range,domain,1,dbo:officialLanguage,dbo:Country,dbo:Language

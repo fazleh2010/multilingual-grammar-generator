@@ -344,7 +344,11 @@ public class QueGG {
 
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
-            if (!grammarEntry.getFrameType().equals(FrameType.AA)) {
+            if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
+                     ;   
+            }
+            else  
+            {
                 String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
                 if (grammarEntry.getReturnVariable() != null) {
                     sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");

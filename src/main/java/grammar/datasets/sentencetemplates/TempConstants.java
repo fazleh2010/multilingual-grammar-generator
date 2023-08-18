@@ -137,6 +137,8 @@ public interface TempConstants {
      
      
      public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
+     
+     public static final String REGULAR_EXPRESSION="(X)";
 
     
     //public static final String WHAT_PERSON_THING = "WHAT_PERSON_THING";

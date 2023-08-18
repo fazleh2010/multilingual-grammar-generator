@@ -33,7 +33,7 @@
   lexinfo:tense    lexinfo:past .
 
 :form_follow_3perfect a   lemon:Form ;
-  lemon:writtenRep ""@en ;
+  lemon:writtenRep "followed"@en ;
   lexinfo:tense    lexinfo:perfect ;
   lexinfo:person   lexinfo:thirdPerson .
 

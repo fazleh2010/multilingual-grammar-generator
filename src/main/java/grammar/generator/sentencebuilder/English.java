@@ -71,7 +71,7 @@ public class English implements TempConstants, MultilingualBuilder {
         this.language = language;
         this.rangeSelectable = selectVariable;
         this.domainSelectable = oppositeSelectVariable;
-        this.domainVariable = String.format(
+        /*this.domainVariable = String.format(
                 BINDING_TOKEN_TEMPLATE,
                 variable,
                 DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
@@ -84,7 +84,9 @@ public class English implements TempConstants, MultilingualBuilder {
                 DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
                         this.rangeSelectable)).name(),
                 SentenceType.NP
-        );
+        );*/
+        this.domainVariable = REGULAR_EXPRESSION;
+        this.rangeVariable = REGULAR_EXPRESSION;
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
@@ -159,14 +161,18 @@ public class English implements TempConstants, MultilingualBuilder {
             } else {
                 subjectType = findIntergativePronoun(lexicalEntryUtil, this.domainSelectable);
             }
-            
-            if (reference.contains(colon)) {
-                String[] col = reference.split(colon);
-                word = this.getDeteminerTokenManual(subjectType, col[0], col[1]);
+
+            if (subjectType.equals(subjectType.interrogativePronounPerson)) {
+                word = LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType.name());
+            } else {
+                if (reference.contains(colon)) {
+                    String[] col = reference.split(colon);
+                    word = this.getDeteminerTokenManual(subjectType, col[0], col[1]);
+                } else {
+                    word = LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType.name());
+                }
             }
-            else{
-               word = LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType.name());
-            }
+
         } else if (flagReference && isInterrogativeAmount(attribute).first) {
             SubjectType subjectType = isInterrogativeAmount(attribute).second;
             if (reference.contains(colon)) {
@@ -388,12 +394,16 @@ public class English implements TempConstants, MultilingualBuilder {
         return determinerToken;
     }
 
+    /*private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
+        String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
+        String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
+        return questionWord + " " + noun;
+
+    }*/
     private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
         String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
-        //System.out.println(GenderUtils.nounWrittenForms.keySet() + " " + questionWord + " " + noun);
-        //exit(1);
-        return questionWord + " " + noun;
+        return questionWord + " " + REGULAR_EXPRESSION;
 
     }
 

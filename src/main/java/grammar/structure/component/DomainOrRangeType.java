@@ -233,6 +233,7 @@ public enum DomainOrRangeType {
     Genre(List.of(URI.create(DBO.getUri() + "Genre"))),
     MountainRange(List.of(URI.create(DBO.getUri() + "MountainRange"))),
     MilitaryUnit(List.of(URI.create(DBO.getUri() + "MilitaryUnit"))),
+
     
     
     //biblography
@@ -254,6 +255,9 @@ public enum DomainOrRangeType {
     TechnicalReport(List.of(URI.create(AIFD.getUri() + "TechnicalReport"))),
     TechnicalStaff(List.of(URI.create(AIFD.getUri() + "TechnicalStaff"))),
     Undergraduate(List.of(URI.create(AIFD.getUri() + "Undergraduate"))),
+    Type(List.of(URI.create(AIFD.getUri() + "Type"))),
+    
+    
 
     BooleanDataType(List.of(URI.create(DBO.getUri() + "Boolean_data_type"))),
     BooleanFlag(List.of(URI.create(DBO.getUri() + "Boolean_flag"))),

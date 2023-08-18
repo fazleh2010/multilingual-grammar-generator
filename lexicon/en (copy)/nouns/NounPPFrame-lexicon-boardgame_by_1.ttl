@@ -30,8 +30,8 @@
   lexinfo:number    lexinfo:plural .
 
 :boardgame_by_1_nounpp a        lexinfo:NounPPFrame ;
-  lexinfo:copulativeArg        :arg1 ;
-  lexinfo:prepositionalAdjunct :arg2 .
+  lexinfo:copulativeArg        :arg2 ;
+  lexinfo:prepositionalAdjunct :arg1 .
 
 :boardgame_by_1_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping         :boardgame_by_1_sense_1 ;

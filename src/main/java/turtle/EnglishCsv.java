@@ -547,7 +547,9 @@ public class EnglishCsv implements TempConstants {
             senseIdStr = ":" + lemonEntry + " a             lemon:LexicalEntry ;\n"
                     + "  lexinfo:partOfSpeech lexinfo:verb ;\n"
                     + "  lemon:canonicalForm  :form_" + lemonEntry + " ;\n"
+                    + "  lemon:otherForm      :form_" + lemonEntry + "_present3rd ;\n"
                     + "  lemon:otherForm      :form_" + lemonEntry + "_past ;\n"
+                    + "  lemon:otherForm      :form_" + lemonEntry + "_perfect ;\n"
                     + senseIdStr
                     + "  lemon:synBehavior    :" + lemonEntry + "_frame .\n"
                     + "\n";
@@ -569,7 +571,7 @@ public class EnglishCsv implements TempConstants {
                     + "  lexinfo:verbFormMood lexinfo:infinitive .\n"
                     + "\n"
                     + "\n"
-                    + ":form_" + lemonEntry + " a      lemon:Form ;\n"
+                    + ":form_" + lemonEntry + "_present3rd a      lemon:Form ;\n"
                     + "  lemon:writtenRep \"" + writtenForm3rdPerson + "\"@" + language + " ;\n"
                     + "  lexinfo:number   lexinfo:singular ;\n"
                     + "  lexinfo:person   lexinfo:thirdPerson ;\n"
@@ -582,7 +584,7 @@ public class EnglishCsv implements TempConstants {
                     + "  lexinfo:tense     lexinfo:past .\n"
                     + "\n"
                     + "\n"
-                    + ":form_" + lemonEntry + "perfect" + " a   lemon:Form ;\n"
+                    + ":form_" + lemonEntry + "_perfect" + " a   lemon:Form ;\n"
                     + "  lemon:writtenRep \"" + writtenFormPerfect + "\"@" + language + " ;\n"
                     + "  lexinfo:tense    lexinfo:perfect ;\n"
                     + "  lexinfo:person   lexinfo:thirdPerson .\n"
