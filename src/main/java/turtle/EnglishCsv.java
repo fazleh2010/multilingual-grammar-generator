@@ -352,14 +352,15 @@ public class EnglishCsv implements TempConstants {
                 str += line;
             }
             String intransitiveStr = "";
-            lemonEntry = lemonEntry + "ed";
+            /*lemonEntry = lemonEntry + "ed";
+            Integer index=1;
             for (Tupples tupple : tupples) {
                 String line = ":" + lemonEntry + " a            lemon:LexicalEntry ;\n"
                         + "  lexinfo:partOfSpeech lexinfo:adjective ;\n"
                         + "  lemon:canonicalForm  :form_" + lemonEntry + "_canonical ;\n"
                         + "  lemon:otherForm      :form_" + lemonEntry + "_by ;\n"
                         + "  lemon:synBehavior    :" + lemonEntry + "_frame_adjectivepp ;\n"
-                        + "  lemon:sense          :" + lemonEntry + "_ontomap .\n"
+                        + "  lemon:sense          :" + lemonEntry + "_ontomap_"+index+" .\n"
                         + "\n"
                         + ":form_" + lemonEntry + "_canonical a lemon:Form ;\n"
                         + "  lemon:writtenRep         \"" + pastTense + "\"@" + language + " .\n"
@@ -373,14 +374,15 @@ public class EnglishCsv implements TempConstants {
                         + "  lexinfo:copulativeSubject    :" + lemonEntry + "_subj ;\n"
                         + "  lexinfo:prepositionalAdjunct :" + lemonEntry + "_obj .\n"
                         + "\n"
-                        + ":" + lemonEntry + "_ontomap" + " a lemon:OntoMap, lemon:LexicalSense ;\n"
+                        + ":" + lemonEntry + "_ontomap_"+index + " a lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap" + " ;\n"
                         + "  lemon:reference   <" + tupple.getReference() + "> ;\n"
                         + "  lemon:subjOfProp  :" + lemonEntry + "_subj ;\n"
                         + "  lemon:objOfProp   :" + lemonEntry + "_obj ;\n"
                         + "  lemon:condition   :" + tupple.getSenseId() + "_condition .";
                 intransitiveStr += line;
-            }
+                index=index+1;
+            }*/
             String prep = "\n"
                     + ":" + lemonEntry + "_obj lemon:marker :" + proeposition_id + " .\n"
                     + "\n";
