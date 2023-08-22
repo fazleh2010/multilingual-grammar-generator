@@ -49,8 +49,8 @@
 :draft_in_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :draft_in_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/draftYear> ;
-  lemon:subjOfProp  :draft_in_obj ;
-  lemon:objOfProp   :draft_in_subj ;
+  lemon:subjOfProp  :draft_in_subj ;
+  lemon:objOfProp   :draft_in_obj ;
   lemon:condition   :draft_in_sense_1_condition .
 
 :draft_in_sense_1_condition a      lemon:condition ;

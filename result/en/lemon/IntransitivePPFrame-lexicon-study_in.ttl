@@ -49,8 +49,8 @@
 :study_in_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :study_in_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/education> ;
-  lemon:subjOfProp  :study_in_obj ;
-  lemon:objOfProp   :study_in_subj ;
+  lemon:subjOfProp  :study_in_subj ;
+  lemon:objOfProp   :study_in_obj ;
   lemon:condition   :study_in_sense_1_condition .
 
 :study_in_sense_1_condition a      lemon:condition ;

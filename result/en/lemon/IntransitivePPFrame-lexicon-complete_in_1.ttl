@@ -49,8 +49,8 @@
 :complete_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :complete_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/completionDate> ;
-  lemon:subjOfProp  :complete_in_1_obj ;
-  lemon:objOfProp   :complete_in_1_subj ;
+  lemon:subjOfProp  :complete_in_1_subj ;
+  lemon:objOfProp   :complete_in_1_obj ;
   lemon:condition   :complete_in_1_sense_1_condition .
 
 :complete_in_1_sense_1_condition a      lemon:condition ;

@@ -525,6 +525,8 @@ public class EnglishCsv implements TempConstants {
         private Integer rangeWrittenSingularFormIndex = domainWrittenPluralFormIndex + 1;
         private Integer rangeWrittenPluralFormIndex = rangeWrittenSingularFormIndex + 1;
         private static String preposition_id;
+        private String subjectLemon=null;
+        private String objectLemon=null;
 
         public String getHeader(String lemonEntry, String proposition, String language) {
             preposition_id = "form_" + lemonEntry + "_preposition";
@@ -557,13 +559,12 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getWritten(String lemonEntry, String writtenFormInfinitive, String writtenForm3rdPerson, String writtenFormPast, String writtenFormPerfect, String language, String subject) {
-            String subjectLemon = null, objectLemon = null;
             if (subject.contains("domain")) {
-                subjectLemon = lemonEntry + "_subj";
-                objectLemon = lemonEntry + "_obj";
+                this.subjectLemon = lemonEntry + "_subj";
+                this.objectLemon = lemonEntry + "_obj";
             } else {
-                objectLemon = lemonEntry + "_subj";
-                subjectLemon = lemonEntry + "_obj";
+                this.objectLemon = lemonEntry + "_subj";
+                this.subjectLemon = lemonEntry + "_obj";
             }
 
             return ":" + "form_" + lemonEntry + " a           lemon:Form ;\n"
@@ -590,8 +591,8 @@ public class EnglishCsv implements TempConstants {
                     + "  lexinfo:person   lexinfo:thirdPerson .\n"
                     + "\n"
                     + ":" + lemonEntry + "_frame a  lexinfo:IntransitivePPFrame ;\n"
-                    + "  lexinfo:subject              :" + lemonEntry + "_subj ;\n"
-                    + "  lexinfo:prepositionalAdjunct :" + lemonEntry + "_obj .\n"
+                    + "  lexinfo:subject              :" + lemonEntry + "_subj" +" ;\n"
+                    + "  lexinfo:prepositionalAdjunct :" + lemonEntry + "_obj" +" .\n"
                     + "\n";
         }
 
@@ -602,8 +603,8 @@ public class EnglishCsv implements TempConstants {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
                         + "  lemon:reference   <" + tupple.getReference() + "> ;\n"
-                        + "  lemon:subjOfProp  :" + lemonEntry + "_obj ;\n"
-                        + "  lemon:objOfProp   :" + lemonEntry + "_subj ;\n"
+                        + "  lemon:subjOfProp  :" + this.subjectLemon +" ;\n"
+                        + "  lemon:objOfProp   :" + this.objectLemon + " ;\n"
                         + "  lemon:condition   :" + tupple.getSenseId() + "_condition .\n"
                         + "\n"
                         + ":" + tupple.getSenseId() + "_condition a      lemon:condition ;\n"

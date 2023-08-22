@@ -49,8 +49,8 @@
 :introduced_in__2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :introduced_in__2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/introduced> ;
-  lemon:subjOfProp  :introduced_in__2_obj ;
-  lemon:objOfProp   :introduced_in__2_subj ;
+  lemon:subjOfProp  :introduced_in__2_subj ;
+  lemon:objOfProp   :introduced_in__2_obj ;
   lemon:condition   :introduced_in__2_sense_1_condition .
 
 :introduced_in__2_sense_1_condition a      lemon:condition ;

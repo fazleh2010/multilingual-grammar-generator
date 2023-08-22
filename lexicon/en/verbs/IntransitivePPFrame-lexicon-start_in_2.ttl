@@ -49,8 +49,8 @@
 :start_in_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :start_in_2_ontomap ;
   lemon:reference   <http://dbpedia.org/property/mouthLocation> ;
-  lemon:subjOfProp  :start_in_2_obj ;
-  lemon:objOfProp   :start_in_2_subj ;
+  lemon:subjOfProp  :start_in_2_subj ;
+  lemon:objOfProp   :start_in_2_obj ;
   lemon:condition   :start_in_2_sense_1_condition .
 
 :start_in_2_sense_1_condition a      lemon:condition ;

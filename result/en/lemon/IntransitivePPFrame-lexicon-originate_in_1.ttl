@@ -49,8 +49,8 @@
 :originate_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :originate_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/sourceCountry> ;
-  lemon:subjOfProp  :originate_in_1_obj ;
-  lemon:objOfProp   :originate_in_1_subj ;
+  lemon:subjOfProp  :originate_in_1_subj ;
+  lemon:objOfProp   :originate_in_1_obj ;
   lemon:condition   :originate_in_1_sense_1_condition .
 
 :originate_in_1_sense_1_condition a      lemon:condition ;

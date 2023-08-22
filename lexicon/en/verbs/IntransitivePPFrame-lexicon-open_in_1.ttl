@@ -49,8 +49,8 @@
 :open_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :open_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/openingYear> ;
-  lemon:subjOfProp  :open_in_1_obj ;
-  lemon:objOfProp   :open_in_1_subj ;
+  lemon:subjOfProp  :open_in_1_subj ;
+  lemon:objOfProp   :open_in_1_obj ;
   lemon:condition   :open_in_1_sense_1_condition .
 
 :open_in_1_sense_1_condition a      lemon:condition ;

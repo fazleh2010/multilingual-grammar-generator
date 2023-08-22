@@ -49,8 +49,8 @@
 :released_on_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :released_on_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/releaseDate> ;
-  lemon:subjOfProp  :released_on_1_obj ;
-  lemon:objOfProp   :released_on_1_subj ;
+  lemon:subjOfProp  :released_on_1_subj ;
+  lemon:objOfProp   :released_on_1_obj ;
   lemon:condition   :released_on_1_sense_1_condition .
 
 :released_on_1_sense_1_condition a      lemon:condition ;

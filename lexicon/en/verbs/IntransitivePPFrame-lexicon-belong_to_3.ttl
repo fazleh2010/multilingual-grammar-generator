@@ -49,8 +49,8 @@
 :belong_to_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :belong_to_3_ontomap ;
   lemon:reference   <http://dbpedia.org/property/genre> ;
-  lemon:subjOfProp  :belong_to_3_obj ;
-  lemon:objOfProp   :belong_to_3_subj ;
+  lemon:subjOfProp  :belong_to_3_subj ;
+  lemon:objOfProp   :belong_to_3_obj ;
   lemon:condition   :belong_to_3_sense_1_condition .
 
 :belong_to_3_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :starr_in_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :starr_in_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/starring> ;
-  lemon:subjOfProp  :starr_in_3_obj ;
-  lemon:objOfProp   :starr_in_3_subj ;
+  lemon:subjOfProp  :starr_in_3_subj ;
+  lemon:objOfProp   :starr_in_3_obj ;
   lemon:condition   :starr_in_3_sense_1_condition .
 
 :starr_in_3_sense_1_condition a      lemon:condition ;

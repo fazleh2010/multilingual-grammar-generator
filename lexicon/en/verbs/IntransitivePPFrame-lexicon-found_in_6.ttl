@@ -49,8 +49,8 @@
 :found_in_6_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :found_in_6_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/founded> ;
-  lemon:subjOfProp  :found_in_6_obj ;
-  lemon:objOfProp   :found_in_6_subj ;
+  lemon:subjOfProp  :found_in_6_subj ;
+  lemon:objOfProp   :found_in_6_obj ;
   lemon:condition   :found_in_6_sense_1_condition .
 
 :found_in_6_sense_1_condition a      lemon:condition ;

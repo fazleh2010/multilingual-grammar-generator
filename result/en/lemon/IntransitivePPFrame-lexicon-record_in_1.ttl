@@ -49,8 +49,8 @@
 :record_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :record_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/recordedIn> ;
-  lemon:subjOfProp  :record_in_1_obj ;
-  lemon:objOfProp   :record_in_1_subj ;
+  lemon:subjOfProp  :record_in_1_subj ;
+  lemon:objOfProp   :record_in_1_obj ;
   lemon:condition   :record_in_1_sense_1_condition .
 
 :record_in_1_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :compose_for_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :compose_for_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/musicComposer> ;
-  lemon:subjOfProp  :compose_for_1_obj ;
-  lemon:objOfProp   :compose_for_1_subj ;
+  lemon:subjOfProp  :compose_for_1_subj ;
+  lemon:objOfProp   :compose_for_1_obj ;
   lemon:condition   :compose_for_1_sense_1_condition .
 
 :compose_for_1_sense_1_condition a      lemon:condition ;

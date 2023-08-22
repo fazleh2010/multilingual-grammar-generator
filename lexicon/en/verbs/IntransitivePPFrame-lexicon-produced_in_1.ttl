@@ -49,8 +49,8 @@
 :produced_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :produced_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/wineProduced> ;
-  lemon:subjOfProp  :produced_in_1_obj ;
-  lemon:objOfProp   :produced_in_1_subj ;
+  lemon:subjOfProp  :produced_in_1_subj ;
+  lemon:objOfProp   :produced_in_1_obj ;
   lemon:condition   :produced_in_1_sense_1_condition .
 
 :produced_in_1_sense_1_condition a      lemon:condition ;

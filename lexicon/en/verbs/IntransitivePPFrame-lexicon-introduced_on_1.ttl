@@ -49,8 +49,8 @@
 :introduced_on_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :introduced_on_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/introduced> ;
-  lemon:subjOfProp  :introduced_on_1_obj ;
-  lemon:objOfProp   :introduced_on_1_subj ;
+  lemon:subjOfProp  :introduced_on_1_subj ;
+  lemon:objOfProp   :introduced_on_1_obj ;
   lemon:condition   :introduced_on_1_sense_1_condition .
 
 :introduced_on_1_sense_1_condition a      lemon:condition ;

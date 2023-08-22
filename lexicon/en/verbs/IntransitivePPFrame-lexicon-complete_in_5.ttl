@@ -49,8 +49,8 @@
 :complete_in_5_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :complete_in_5_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/buildingEndDate> ;
-  lemon:subjOfProp  :complete_in_5_obj ;
-  lemon:objOfProp   :complete_in_5_subj ;
+  lemon:subjOfProp  :complete_in_5_subj ;
+  lemon:objOfProp   :complete_in_5_obj ;
   lemon:condition   :complete_in_5_sense_1_condition .
 
 :complete_in_5_sense_1_condition a      lemon:condition ;

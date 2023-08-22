@@ -49,8 +49,8 @@
 :initially_use_for_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :initially_use_for_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/initiallyUsedFor> ;
-  lemon:subjOfProp  :initially_use_for_1_obj ;
-  lemon:objOfProp   :initially_use_for_1_subj ;
+  lemon:subjOfProp  :initially_use_for_1_subj ;
+  lemon:objOfProp   :initially_use_for_1_obj ;
   lemon:condition   :initially_use_for_1_sense_1_condition .
 
 :initially_use_for_1_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :locate_in_6_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :locate_in_6_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/location> ;
-  lemon:subjOfProp  :locate_in_6_obj ;
-  lemon:objOfProp   :locate_in_6_subj ;
+  lemon:subjOfProp  :locate_in_6_subj ;
+  lemon:objOfProp   :locate_in_6_obj ;
   lemon:condition   :locate_in_6_sense_1_condition .
 
 :locate_in_6_sense_1_condition a      lemon:condition ;

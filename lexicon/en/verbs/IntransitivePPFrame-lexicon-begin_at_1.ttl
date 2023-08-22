@@ -49,8 +49,8 @@
 :begin_at_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :begin_at_1_ontomap ;
   lemon:reference   <http://dbpedia.org/property/source1Location> ;
-  lemon:subjOfProp  :begin_at_1_obj ;
-  lemon:objOfProp   :begin_at_1_subj ;
+  lemon:subjOfProp  :begin_at_1_subj ;
+  lemon:objOfProp   :begin_at_1_obj ;
   lemon:condition   :begin_at_1_sense_1_condition .
 
 :begin_at_1_sense_1_condition a      lemon:condition ;

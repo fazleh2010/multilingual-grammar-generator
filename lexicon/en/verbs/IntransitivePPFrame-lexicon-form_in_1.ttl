@@ -49,8 +49,8 @@
 :form_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :form_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/activeYearsStartYear> ;
-  lemon:subjOfProp  :form_in_1_obj ;
-  lemon:objOfProp   :form_in_1_subj ;
+  lemon:subjOfProp  :form_in_1_subj ;
+  lemon:objOfProp   :form_in_1_obj ;
   lemon:condition   :form_in_1_sense_1_condition .
 
 :form_in_1_sense_1_condition a      lemon:condition ;

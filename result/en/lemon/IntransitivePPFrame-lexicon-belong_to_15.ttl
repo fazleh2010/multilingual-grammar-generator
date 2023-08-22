@@ -49,8 +49,8 @@
 :belong_to_15_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :belong_to_15_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/subdivision> ;
-  lemon:subjOfProp  :belong_to_15_obj ;
-  lemon:objOfProp   :belong_to_15_subj ;
+  lemon:subjOfProp  :belong_to_15_subj ;
+  lemon:objOfProp   :belong_to_15_obj ;
   lemon:condition   :belong_to_15_sense_1_condition .
 
 :belong_to_15_sense_1_condition a      lemon:condition ;

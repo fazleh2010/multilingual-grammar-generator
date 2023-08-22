@@ -49,8 +49,8 @@
 :work_for_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :work_for_2_ontomap ;
   lemon:reference   <http://dbpedia.org/property/keyPeople> ;
-  lemon:subjOfProp  :work_for_2_obj ;
-  lemon:objOfProp   :work_for_2_subj ;
+  lemon:subjOfProp  :work_for_2_subj ;
+  lemon:objOfProp   :work_for_2_obj ;
   lemon:condition   :work_for_2_sense_1_condition .
 
 :work_for_2_sense_1_condition a      lemon:condition ;

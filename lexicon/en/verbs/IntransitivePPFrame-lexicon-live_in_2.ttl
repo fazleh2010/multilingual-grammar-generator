@@ -49,8 +49,8 @@
 :live_in_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :live_in_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/residence> ;
-  lemon:subjOfProp  :live_in_2_obj ;
-  lemon:objOfProp   :live_in_2_subj ;
+  lemon:subjOfProp  :live_in_2_subj ;
+  lemon:objOfProp   :live_in_2_obj ;
   lemon:condition   :live_in_2_sense_1_condition .
 
 :live_in_2_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :inaugurate_in_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :inaugurate_in_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/openingDate> ;
-  lemon:subjOfProp  :inaugurate_in_3_obj ;
-  lemon:objOfProp   :inaugurate_in_3_subj ;
+  lemon:subjOfProp  :inaugurate_in_3_subj ;
+  lemon:objOfProp   :inaugurate_in_3_obj ;
   lemon:condition   :inaugurate_in_3_sense_1_condition .
 
 :inaugurate_in_3_sense_1_condition a      lemon:condition ;

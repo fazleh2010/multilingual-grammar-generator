@@ -49,8 +49,8 @@
 :locate_in_11_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :locate_in_11_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/location> ;
-  lemon:subjOfProp  :locate_in_11_obj ;
-  lemon:objOfProp   :locate_in_11_subj ;
+  lemon:subjOfProp  :locate_in_11_subj ;
+  lemon:objOfProp   :locate_in_11_obj ;
   lemon:condition   :locate_in_11_sense_1_condition .
 
 :locate_in_11_sense_1_condition a      lemon:condition ;

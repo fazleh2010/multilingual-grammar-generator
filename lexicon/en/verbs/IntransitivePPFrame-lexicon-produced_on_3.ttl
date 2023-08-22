@@ -49,8 +49,8 @@
 :produced_on_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :produced_on_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/productionDate> ;
-  lemon:subjOfProp  :produced_on_3_obj ;
-  lemon:objOfProp   :produced_on_3_subj ;
+  lemon:subjOfProp  :produced_on_3_subj ;
+  lemon:objOfProp   :produced_on_3_obj ;
   lemon:condition   :produced_on_3_sense_1_condition .
 
 :produced_on_3_sense_1_condition a      lemon:condition ;

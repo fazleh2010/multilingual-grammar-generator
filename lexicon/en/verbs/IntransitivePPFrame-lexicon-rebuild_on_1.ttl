@@ -49,8 +49,8 @@
 :rebuild_on_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :rebuild_on_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/rebuildingDate> ;
-  lemon:subjOfProp  :rebuild_on_1_obj ;
-  lemon:objOfProp   :rebuild_on_1_subj ;
+  lemon:subjOfProp  :rebuild_on_1_subj ;
+  lemon:objOfProp   :rebuild_on_1_obj ;
   lemon:condition   :rebuild_on_1_sense_1_condition .
 
 :rebuild_on_1_sense_1_condition a      lemon:condition ;

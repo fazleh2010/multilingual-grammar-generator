@@ -49,8 +49,8 @@
 :establish_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :establish_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/firstPublicationYear> ;
-  lemon:subjOfProp  :establish_in_1_obj ;
-  lemon:objOfProp   :establish_in_1_subj ;
+  lemon:subjOfProp  :establish_in_1_subj ;
+  lemon:objOfProp   :establish_in_1_obj ;
   lemon:condition   :establish_in_1_sense_1_condition .
 
 :establish_in_1_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :locate_in_12_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :locate_in_12_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/city> ;
-  lemon:subjOfProp  :locate_in_12_obj ;
-  lemon:objOfProp   :locate_in_12_subj ;
+  lemon:subjOfProp  :locate_in_12_subj ;
+  lemon:objOfProp   :locate_in_12_obj ;
   lemon:condition   :locate_in_12_sense_1_condition .
 
 :locate_in_12_sense_1_condition a      lemon:condition ;

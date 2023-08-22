@@ -49,8 +49,8 @@
 :currently_use_for_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :currently_use_for_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/currentlyUsedFor> ;
-  lemon:subjOfProp  :currently_use_for_1_obj ;
-  lemon:objOfProp   :currently_use_for_1_subj ;
+  lemon:subjOfProp  :currently_use_for_1_subj ;
+  lemon:objOfProp   :currently_use_for_1_obj ;
   lemon:condition   :currently_use_for_1_sense_1_condition .
 
 :currently_use_for_1_sense_1_condition a      lemon:condition ;

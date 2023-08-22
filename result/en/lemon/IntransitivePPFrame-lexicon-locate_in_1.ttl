@@ -50,8 +50,8 @@
 :locate_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :locate_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/country> ;
-  lemon:subjOfProp  :locate_in_1_obj ;
-  lemon:objOfProp   :locate_in_1_subj ;
+  lemon:subjOfProp  :locate_in_1_subj ;
+  lemon:objOfProp   :locate_in_1_obj ;
   lemon:condition   :locate_in_1_sense_1_condition .
 
 :locate_in_1_sense_1_condition a      lemon:condition ;
@@ -61,8 +61,8 @@
 :locate_in_1_sense_2 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :locate_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/country> ;
-  lemon:subjOfProp  :locate_in_1_obj ;
-  lemon:objOfProp   :locate_in_1_subj ;
+  lemon:subjOfProp  :locate_in_1_subj ;
+  lemon:objOfProp   :locate_in_1_obj ;
   lemon:condition   :locate_in_1_sense_2_condition .
 
 :locate_in_1_sense_2_condition a      lemon:condition ;

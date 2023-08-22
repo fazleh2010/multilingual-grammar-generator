@@ -49,8 +49,8 @@
 :come_from_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :come_from_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/nationality> ;
-  lemon:subjOfProp  :come_from_obj ;
-  lemon:objOfProp   :come_from_subj ;
+  lemon:subjOfProp  :come_from_subj ;
+  lemon:objOfProp   :come_from_obj ;
   lemon:condition   :come_from_sense_1_condition .
 
 :come_from_sense_1_condition a      lemon:condition ;

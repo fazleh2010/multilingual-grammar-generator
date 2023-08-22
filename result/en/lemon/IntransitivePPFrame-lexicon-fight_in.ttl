@@ -49,8 +49,8 @@
 :fight_in_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :fight_in_ontomap ;
   lemon:reference   <http://dbpedia.org/property/date> ;
-  lemon:subjOfProp  :fight_in_obj ;
-  lemon:objOfProp   :fight_in_subj ;
+  lemon:subjOfProp  :fight_in_subj ;
+  lemon:objOfProp   :fight_in_obj ;
   lemon:condition   :fight_in_sense_1_condition .
 
 :fight_in_sense_1_condition a      lemon:condition ;

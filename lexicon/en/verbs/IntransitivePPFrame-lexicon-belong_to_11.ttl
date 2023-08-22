@@ -49,8 +49,8 @@
 :belong_to_11_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :belong_to_11_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/genre> ;
-  lemon:subjOfProp  :belong_to_11_obj ;
-  lemon:objOfProp   :belong_to_11_subj ;
+  lemon:subjOfProp  :belong_to_11_subj ;
+  lemon:objOfProp   :belong_to_11_obj ;
   lemon:condition   :belong_to_11_sense_1_condition .
 
 :belong_to_11_sense_1_condition a      lemon:condition ;

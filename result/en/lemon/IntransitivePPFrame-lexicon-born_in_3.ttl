@@ -49,8 +49,8 @@
 :born_in_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :born_in_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/birthPlace> ;
-  lemon:subjOfProp  :born_in_3_obj ;
-  lemon:objOfProp   :born_in_3_subj ;
+  lemon:subjOfProp  :born_in_3_subj ;
+  lemon:objOfProp   :born_in_3_obj ;
   lemon:condition   :born_in_3_sense_1_condition .
 
 :born_in_3_sense_1_condition a      lemon:condition ;

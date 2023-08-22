@@ -49,8 +49,8 @@
 :start_acting_on_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :start_acting_on_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/activeYearsStartYear> ;
-  lemon:subjOfProp  :start_acting_on_1_obj ;
-  lemon:objOfProp   :start_acting_on_1_subj ;
+  lemon:subjOfProp  :start_acting_on_1_subj ;
+  lemon:objOfProp   :start_acting_on_1_obj ;
   lemon:condition   :start_acting_on_1_sense_1_condition .
 
 :start_acting_on_1_sense_1_condition a      lemon:condition ;

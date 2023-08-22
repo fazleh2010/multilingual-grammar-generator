@@ -49,8 +49,8 @@
 :associate_with_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :associate_with_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/associatedBand> ;
-  lemon:subjOfProp  :associate_with_1_obj ;
-  lemon:objOfProp   :associate_with_1_subj ;
+  lemon:subjOfProp  :associate_with_1_subj ;
+  lemon:objOfProp   :associate_with_1_obj ;
   lemon:condition   :associate_with_1_sense_1_condition .
 
 :associate_with_1_sense_1_condition a      lemon:condition ;

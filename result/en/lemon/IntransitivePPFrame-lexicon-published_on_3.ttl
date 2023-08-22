@@ -49,8 +49,8 @@
 :published_on_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :published_on_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/publicationDate> ;
-  lemon:subjOfProp  :published_on_3_obj ;
-  lemon:objOfProp   :published_on_3_subj ;
+  lemon:subjOfProp  :published_on_3_subj ;
+  lemon:objOfProp   :published_on_3_obj ;
   lemon:condition   :published_on_3_sense_1_condition .
 
 :published_on_3_sense_1_condition a      lemon:condition ;

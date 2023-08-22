@@ -49,8 +49,8 @@
 :flow_into_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :flow_into_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/inflow> ;
-  lemon:subjOfProp  :flow_into_obj ;
-  lemon:objOfProp   :flow_into_subj ;
+  lemon:subjOfProp  :flow_into_subj ;
+  lemon:objOfProp   :flow_into_obj ;
   lemon:condition   :flow_into_sense_1_condition .
 
 :flow_into_sense_1_condition a      lemon:condition ;

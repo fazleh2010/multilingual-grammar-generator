@@ -49,8 +49,8 @@
 :reopen_in_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :reopen_in_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/reopeningDate> ;
-  lemon:subjOfProp  :reopen_in_2_obj ;
-  lemon:objOfProp   :reopen_in_2_subj ;
+  lemon:subjOfProp  :reopen_in_2_subj ;
+  lemon:objOfProp   :reopen_in_2_obj ;
   lemon:condition   :reopen_in_2_sense_1_condition .
 
 :reopen_in_2_sense_1_condition a      lemon:condition ;

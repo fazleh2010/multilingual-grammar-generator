@@ -49,8 +49,8 @@
 :commence_on_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :commence_on_1_ontomap ;
   lemon:reference   <http://dbpedia.org/property/date> ;
-  lemon:subjOfProp  :commence_on_1_obj ;
-  lemon:objOfProp   :commence_on_1_subj ;
+  lemon:subjOfProp  :commence_on_1_subj ;
+  lemon:objOfProp   :commence_on_1_obj ;
   lemon:condition   :commence_on_1_sense_1_condition .
 
 :commence_on_1_sense_1_condition a      lemon:condition ;

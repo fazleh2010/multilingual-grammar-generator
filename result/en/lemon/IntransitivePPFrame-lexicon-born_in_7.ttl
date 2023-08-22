@@ -50,8 +50,8 @@
 :born_in_7_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :born_in_7_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/birthPlace> ;
-  lemon:subjOfProp  :born_in_7_obj ;
-  lemon:objOfProp   :born_in_7_subj ;
+  lemon:subjOfProp  :born_in_7_subj ;
+  lemon:objOfProp   :born_in_7_obj ;
   lemon:condition   :born_in_7_sense_1_condition .
 
 :born_in_7_sense_1_condition a      lemon:condition ;
@@ -61,8 +61,8 @@
 :born_in_7_sense_2 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :born_in_7_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/birthPlace> ;
-  lemon:subjOfProp  :born_in_7_obj ;
-  lemon:objOfProp   :born_in_7_subj ;
+  lemon:subjOfProp  :born_in_7_subj ;
+  lemon:objOfProp   :born_in_7_obj ;
   lemon:condition   :born_in_7_sense_2_condition .
 
 :born_in_7_sense_2_condition a      lemon:condition ;

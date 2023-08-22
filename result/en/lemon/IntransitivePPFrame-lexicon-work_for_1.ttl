@@ -49,8 +49,8 @@
 :work_for_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :work_for_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/keyPerson> ;
-  lemon:subjOfProp  :work_for_1_obj ;
-  lemon:objOfProp   :work_for_1_subj ;
+  lemon:subjOfProp  :work_for_1_subj ;
+  lemon:objOfProp   :work_for_1_obj ;
   lemon:condition   :work_for_1_sense_1_condition .
 
 :work_for_1_sense_1_condition a      lemon:condition ;

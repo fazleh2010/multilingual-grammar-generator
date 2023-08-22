@@ -49,8 +49,8 @@
 :KnownFor_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :KnownFor_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/knownFor> ;
-  lemon:subjOfProp  :KnownFor_2_obj ;
-  lemon:objOfProp   :KnownFor_2_subj ;
+  lemon:subjOfProp  :KnownFor_2_subj ;
+  lemon:objOfProp   :KnownFor_2_obj ;
   lemon:condition   :KnownFor_2_sense_1_condition .
 
 :KnownFor_2_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :founded_on_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :founded_on_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/formationDate> ;
-  lemon:subjOfProp  :founded_on_3_obj ;
-  lemon:objOfProp   :founded_on_3_subj ;
+  lemon:subjOfProp  :founded_on_3_subj ;
+  lemon:objOfProp   :founded_on_3_obj ;
   lemon:condition   :founded_on_3_sense_1_condition .
 
 :founded_on_3_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :born_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :born_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/birthYear> ;
-  lemon:subjOfProp  :born_in_1_obj ;
-  lemon:objOfProp   :born_in_1_subj ;
+  lemon:subjOfProp  :born_in_1_subj ;
+  lemon:objOfProp   :born_in_1_obj ;
   lemon:condition   :born_in_1_sense_1_condition .
 
 :born_in_1_sense_1_condition a      lemon:condition ;

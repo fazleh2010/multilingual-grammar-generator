@@ -49,8 +49,8 @@
 :border_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :border_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/borderingstates> ;
-  lemon:subjOfProp  :border_in_1_obj ;
-  lemon:objOfProp   :border_in_1_subj ;
+  lemon:subjOfProp  :border_in_1_subj ;
+  lemon:objOfProp   :border_in_1_obj ;
   lemon:condition   :border_in_1_sense_1_condition .
 
 :border_in_1_sense_1_condition a      lemon:condition ;

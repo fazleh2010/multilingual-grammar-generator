@@ -49,8 +49,8 @@
 :belong_to_17_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :belong_to_17_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/architecturalStyle> ;
-  lemon:subjOfProp  :belong_to_17_obj ;
-  lemon:objOfProp   :belong_to_17_subj ;
+  lemon:subjOfProp  :belong_to_17_subj ;
+  lemon:objOfProp   :belong_to_17_obj ;
   lemon:condition   :belong_to_17_sense_1_condition .
 
 :belong_to_17_sense_1_condition a      lemon:condition ;

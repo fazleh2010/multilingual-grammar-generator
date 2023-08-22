@@ -50,8 +50,8 @@
 :end_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :end_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/routeEnd> ;
-  lemon:subjOfProp  :end_in_1_obj ;
-  lemon:objOfProp   :end_in_1_subj ;
+  lemon:subjOfProp  :end_in_1_subj ;
+  lemon:objOfProp   :end_in_1_obj ;
   lemon:condition   :end_in_1_sense_1_condition .
 
 :end_in_1_sense_1_condition a      lemon:condition ;
@@ -61,8 +61,8 @@
 :end_in_1_sense_2 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :end_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/mouthPlace> ;
-  lemon:subjOfProp  :end_in_1_obj ;
-  lemon:objOfProp   :end_in_1_subj ;
+  lemon:subjOfProp  :end_in_1_subj ;
+  lemon:objOfProp   :end_in_1_obj ;
   lemon:condition   :end_in_1_sense_2_condition .
 
 :end_in_1_sense_2_condition a      lemon:condition ;

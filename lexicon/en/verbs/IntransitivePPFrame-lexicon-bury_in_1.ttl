@@ -49,8 +49,8 @@
 :bury_in_1_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :bury_in_1_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/restingPlace> ;
-  lemon:subjOfProp  :bury_in_1_obj ;
-  lemon:objOfProp   :bury_in_1_subj ;
+  lemon:subjOfProp  :bury_in_1_subj ;
+  lemon:objOfProp   :bury_in_1_obj ;
   lemon:condition   :bury_in_1_sense_1_condition .
 
 :bury_in_1_sense_1_condition a      lemon:condition ;

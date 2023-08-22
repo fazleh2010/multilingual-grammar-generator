@@ -49,8 +49,8 @@
 :die_in_4_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :die_in_4_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/deathPlace> ;
-  lemon:subjOfProp  :die_in_4_obj ;
-  lemon:objOfProp   :die_in_4_subj ;
+  lemon:subjOfProp  :die_in_4_subj ;
+  lemon:objOfProp   :die_in_4_obj ;
   lemon:condition   :die_in_4_sense_1_condition .
 
 :die_in_4_sense_1_condition a      lemon:condition ;

@@ -49,8 +49,8 @@
 :stand_for_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :stand_for_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/abbreviation> ;
-  lemon:subjOfProp  :stand_for_2_obj ;
-  lemon:objOfProp   :stand_for_2_subj ;
+  lemon:subjOfProp  :stand_for_2_subj ;
+  lemon:objOfProp   :stand_for_2_obj ;
   lemon:condition   :stand_for_2_sense_1_condition .
 
 :stand_for_2_sense_1_condition a      lemon:condition ;

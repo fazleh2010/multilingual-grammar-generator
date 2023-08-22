@@ -49,8 +49,8 @@
 :associate_with_3_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :associate_with_3_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/movement> ;
-  lemon:subjOfProp  :associate_with_3_obj ;
-  lemon:objOfProp   :associate_with_3_subj ;
+  lemon:subjOfProp  :associate_with_3_subj ;
+  lemon:objOfProp   :associate_with_3_obj ;
   lemon:condition   :associate_with_3_sense_1_condition .
 
 :associate_with_3_sense_1_condition a      lemon:condition ;

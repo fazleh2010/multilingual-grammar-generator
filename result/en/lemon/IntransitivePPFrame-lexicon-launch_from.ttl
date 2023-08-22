@@ -49,8 +49,8 @@
 :launch_from_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :launch_from_ontomap ;
   lemon:reference   <http://dbpedia.org/property/launchPad> ;
-  lemon:subjOfProp  :launch_from_obj ;
-  lemon:objOfProp   :launch_from_subj ;
+  lemon:subjOfProp  :launch_from_subj ;
+  lemon:objOfProp   :launch_from_obj ;
   lemon:condition   :launch_from_sense_1_condition .
 
 :launch_from_sense_1_condition a      lemon:condition ;

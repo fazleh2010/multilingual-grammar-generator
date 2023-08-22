@@ -49,8 +49,8 @@
 :end_career_on_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :end_career_on_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/activeYearsEndDate> ;
-  lemon:subjOfProp  :end_career_on_obj ;
-  lemon:objOfProp   :end_career_on_subj ;
+  lemon:subjOfProp  :end_career_on_subj ;
+  lemon:objOfProp   :end_career_on_obj ;
   lemon:condition   :end_career_on_sense_1_condition .
 
 :end_career_on_sense_1_condition a      lemon:condition ;

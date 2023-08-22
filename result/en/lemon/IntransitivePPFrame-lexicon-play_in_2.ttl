@@ -49,8 +49,8 @@
 :play_in_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :play_in_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/member> ;
-  lemon:subjOfProp  :play_in_2_obj ;
-  lemon:objOfProp   :play_in_2_subj ;
+  lemon:subjOfProp  :play_in_2_subj ;
+  lemon:objOfProp   :play_in_2_obj ;
   lemon:condition   :play_in_2_sense_1_condition .
 
 :play_in_2_sense_1_condition a      lemon:condition ;

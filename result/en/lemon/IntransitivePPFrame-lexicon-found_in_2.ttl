@@ -49,8 +49,8 @@
 :found_in_2_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping :found_in_2_ontomap ;
   lemon:reference   <http://dbpedia.org/ontology/foundationPlace> ;
-  lemon:subjOfProp  :found_in_2_obj ;
-  lemon:objOfProp   :found_in_2_subj ;
+  lemon:subjOfProp  :found_in_2_subj ;
+  lemon:objOfProp   :found_in_2_obj ;
   lemon:condition   :found_in_2_sense_1_condition .
 
 :found_in_2_sense_1_condition a      lemon:condition ;
