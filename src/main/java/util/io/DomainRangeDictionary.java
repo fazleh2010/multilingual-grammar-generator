@@ -68,5 +68,18 @@ public class DomainRangeDictionary {
     public Map<String, List<String>> getDomainOrRange() {
         return domainOrRange;
     }
-
+  
+    public static void main(String []args){
+        File domainAndRangeFileName=new File("lexicon/en/DomainOrRange.csv");
+        File outputFileName=new File("lexicon/en/outputClass.csv");
+        CsvFile csvFile = new CsvFile(outputFileName);
+        Map<String, List<String>> map=findDomainorRangeEnglish(domainAndRangeFileName);
+        List<String[]> rows=new ArrayList<String[]>();
+        for(String key:map.keySet()){
+            List<String> rowT = map.get(key);
+            String[] newRows=new String[]{key,"noun",rowT.get(0),rowT.get(1),"of","NounPPFrame","range","domain"};
+            System.out.println(rowT.get(0)+"noun"+rowT.get(0)+rowT.get(1)+"of"+"NounPPFrame"+"range"+"domain");
+        }
+        
+    }
 }
