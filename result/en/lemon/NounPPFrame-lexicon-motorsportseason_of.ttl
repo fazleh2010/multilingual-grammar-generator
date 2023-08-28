@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :motorsportseason_of ;
+  lemon:entry    :motorsportseason_of_form_preposition .
+
+:motorsportseason_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :motorsportseason_of_form ;
+  lemon:otherForm  :motorsportseason_of_singular ;
+  lemon:otherForm  :motorsportseason_of_plural ;
+  lemon:sense          :motorsportseason_of_sense_1 ;
+  lemon:synBehavior    :motorsportseason_of_nounpp .
+
+:motorsportseason_of_form a lemon:Form ;
+  lemon:writtenRep "Motorsport Season"@en .
+
+:motorsportseason_of_singular a    lemon:Form ;
+  lemon:writtenRep "Motorsport Season"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:motorsportseason_of_plural a   lemon:Form ;
+  lemon:writtenRep "Motorsport Seasons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:motorsportseason_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:motorsportseason_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :motorsportseason_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :motorsportseason_of_sense_1_condition .
+
+:motorsportseason_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MotorsportSeason> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MotorsportSeason> .
+
+:arg2 lemon:marker :motorsportseason_of_form_preposition .
+## Prepositions ##
+:motorsportseason_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

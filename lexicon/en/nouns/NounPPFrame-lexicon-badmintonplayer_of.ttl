@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :badmintonplayer_of ;
+  lemon:entry    :badmintonplayer_of_form_preposition .
+
+:badmintonplayer_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :badmintonplayer_of_form ;
+  lemon:otherForm  :badmintonplayer_of_singular ;
+  lemon:otherForm  :badmintonplayer_of_plural ;
+  lemon:sense          :badmintonplayer_of_sense_1 ;
+  lemon:synBehavior    :badmintonplayer_of_nounpp .
+
+:badmintonplayer_of_form a lemon:Form ;
+  lemon:writtenRep "Badminton Player"@en .
+
+:badmintonplayer_of_singular a    lemon:Form ;
+  lemon:writtenRep "Badminton Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:badmintonplayer_of_plural a   lemon:Form ;
+  lemon:writtenRep "Badminton Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:badmintonplayer_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:badmintonplayer_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :badmintonplayer_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :badmintonplayer_of_sense_1_condition .
+
+:badmintonplayer_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BadmintonPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BadmintonPlayer> .
+
+:arg2 lemon:marker :badmintonplayer_of_form_preposition .
+## Prepositions ##
+:badmintonplayer_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

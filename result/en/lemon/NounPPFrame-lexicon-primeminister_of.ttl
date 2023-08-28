@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :primeminister_of ;
+  lemon:entry    :primeminister_of_form_preposition .
+
+:primeminister_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :primeminister_of_form ;
+  lemon:otherForm  :primeminister_of_singular ;
+  lemon:otherForm  :primeminister_of_plural ;
+  lemon:sense          :primeminister_of_sense_1 ;
+  lemon:synBehavior    :primeminister_of_nounpp .
+
+:primeminister_of_form a lemon:Form ;
+  lemon:writtenRep "Prime Minister"@en .
+
+:primeminister_of_singular a    lemon:Form ;
+  lemon:writtenRep "Prime Minister"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:primeminister_of_plural a   lemon:Form ;
+  lemon:writtenRep "Prime Ministers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:primeminister_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:primeminister_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :primeminister_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :primeminister_of_sense_1_condition .
+
+:primeminister_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PrimeMinister> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PrimeMinister> .
+
+:arg2 lemon:marker :primeminister_of_form_preposition .
+## Prepositions ##
+:primeminister_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

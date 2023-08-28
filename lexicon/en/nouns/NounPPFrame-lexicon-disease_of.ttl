@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :disease_of ;
+  lemon:entry    :disease_of_form_preposition .
+
+:disease_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :disease_of_form ;
+  lemon:otherForm  :disease_of_singular ;
+  lemon:otherForm  :disease_of_plural ;
+  lemon:sense          :disease_of_sense_1 ;
+  lemon:synBehavior    :disease_of_nounpp .
+
+:disease_of_form a lemon:Form ;
+  lemon:writtenRep "disease"@en .
+
+:disease_of_singular a    lemon:Form ;
+  lemon:writtenRep "disease"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:disease_of_plural a   lemon:Form ;
+  lemon:writtenRep "diseases"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:disease_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:disease_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :disease_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :disease_of_sense_1_condition .
+
+:disease_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Disease> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Disease> .
+
+:arg2 lemon:marker :disease_of_form_preposition .
+## Prepositions ##
+:disease_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

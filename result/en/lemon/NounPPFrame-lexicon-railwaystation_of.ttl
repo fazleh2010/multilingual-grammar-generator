@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :railwaystation_of ;
+  lemon:entry    :railwaystation_of_form_preposition .
+
+:railwaystation_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :railwaystation_of_form ;
+  lemon:otherForm  :railwaystation_of_singular ;
+  lemon:otherForm  :railwaystation_of_plural ;
+  lemon:sense          :railwaystation_of_sense_1 ;
+  lemon:synBehavior    :railwaystation_of_nounpp .
+
+:railwaystation_of_form a lemon:Form ;
+  lemon:writtenRep "Railway Station"@en .
+
+:railwaystation_of_singular a    lemon:Form ;
+  lemon:writtenRep "Railway Station"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:railwaystation_of_plural a   lemon:Form ;
+  lemon:writtenRep "Railway Stations"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:railwaystation_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:railwaystation_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :railwaystation_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :railwaystation_of_sense_1_condition .
+
+:railwaystation_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/RailwayStation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/RailwayStation> .
+
+:arg2 lemon:marker :railwaystation_of_form_preposition .
+## Prepositions ##
+:railwaystation_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

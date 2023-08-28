@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :givenname_of ;
+  lemon:entry    :givenname_of_form_preposition .
+
+:givenname_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :givenname_of_form ;
+  lemon:otherForm  :givenname_of_singular ;
+  lemon:otherForm  :givenname_of_plural ;
+  lemon:sense          :givenname_of_sense_1 ;
+  lemon:synBehavior    :givenname_of_nounpp .
+
+:givenname_of_form a lemon:Form ;
+  lemon:writtenRep "Given Name"@en .
+
+:givenname_of_singular a    lemon:Form ;
+  lemon:writtenRep "Given Name"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:givenname_of_plural a   lemon:Form ;
+  lemon:writtenRep "Given Names"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:givenname_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:givenname_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :givenname_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :givenname_of_sense_1_condition .
+
+:givenname_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/GivenName> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/GivenName> .
+
+:arg2 lemon:marker :givenname_of_form_preposition .
+## Prepositions ##
+:givenname_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :surfer_of ;
+  lemon:entry    :surfer_of_form_preposition .
+
+:surfer_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :surfer_of_form ;
+  lemon:otherForm  :surfer_of_singular ;
+  lemon:otherForm  :surfer_of_plural ;
+  lemon:sense          :surfer_of_sense_1 ;
+  lemon:synBehavior    :surfer_of_nounpp .
+
+:surfer_of_form a lemon:Form ;
+  lemon:writtenRep "surfer"@en .
+
+:surfer_of_singular a    lemon:Form ;
+  lemon:writtenRep "surfer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:surfer_of_plural a   lemon:Form ;
+  lemon:writtenRep "surfers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:surfer_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:surfer_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :surfer_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :surfer_of_sense_1_condition .
+
+:surfer_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/resource/Surfing> ;
+  lemon:propertyRange   <http://dbpedia.org/resource/Surfing> .
+
+:arg2 lemon:marker :surfer_of_form_preposition .
+## Prepositions ##
+:surfer_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

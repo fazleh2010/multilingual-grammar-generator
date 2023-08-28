@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :diocese_of ;
+  lemon:entry    :diocese_of_form_preposition .
+
+:diocese_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :diocese_of_form ;
+  lemon:otherForm  :diocese_of_singular ;
+  lemon:otherForm  :diocese_of_plural ;
+  lemon:sense          :diocese_of_sense_1 ;
+  lemon:synBehavior    :diocese_of_nounpp .
+
+:diocese_of_form a lemon:Form ;
+  lemon:writtenRep "Diocese"@en .
+
+:diocese_of_singular a    lemon:Form ;
+  lemon:writtenRep "Diocese"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:diocese_of_plural a   lemon:Form ;
+  lemon:writtenRep "Dioceses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:diocese_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:diocese_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :diocese_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :diocese_of_sense_1_condition .
+
+:diocese_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Diocese> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Diocese> .
+
+:arg2 lemon:marker :diocese_of_form_preposition .
+## Prepositions ##
+:diocese_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :song_of ;
+  lemon:entry    :song_of_form_preposition .
+
+:song_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :song_of_form ;
+  lemon:otherForm  :song_of_singular ;
+  lemon:otherForm  :song_of_plural ;
+  lemon:sense          :song_of_sense_1 ;
+  lemon:synBehavior    :song_of_nounpp .
+
+:song_of_form a lemon:Form ;
+  lemon:writtenRep "song"@en .
+
+:song_of_singular a    lemon:Form ;
+  lemon:writtenRep "song"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:song_of_plural a   lemon:Form ;
+  lemon:writtenRep "songs"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:song_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:song_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :song_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :song_of_sense_1_condition .
+
+:song_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Song> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Song> .
+
+:arg2 lemon:marker :song_of_form_preposition .
+## Prepositions ##
+:song_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

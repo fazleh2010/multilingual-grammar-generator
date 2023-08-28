@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :religiousbuilding_of ;
+  lemon:entry    :religiousbuilding_of_form_preposition .
+
+:religiousbuilding_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :religiousbuilding_of_form ;
+  lemon:otherForm  :religiousbuilding_of_singular ;
+  lemon:otherForm  :religiousbuilding_of_plural ;
+  lemon:sense          :religiousbuilding_of_sense_1 ;
+  lemon:synBehavior    :religiousbuilding_of_nounpp .
+
+:religiousbuilding_of_form a lemon:Form ;
+  lemon:writtenRep "Religious Building"@en .
+
+:religiousbuilding_of_singular a    lemon:Form ;
+  lemon:writtenRep "Religious Building"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:religiousbuilding_of_plural a   lemon:Form ;
+  lemon:writtenRep "Religious Buildings"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:religiousbuilding_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:religiousbuilding_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :religiousbuilding_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :religiousbuilding_of_sense_1_condition .
+
+:religiousbuilding_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ReligiousBuilding> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ReligiousBuilding> .
+
+:arg2 lemon:marker :religiousbuilding_of_form_preposition .
+## Prepositions ##
+:religiousbuilding_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

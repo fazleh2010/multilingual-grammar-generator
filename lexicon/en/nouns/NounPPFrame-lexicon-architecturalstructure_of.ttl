@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :architecturalstructure_of ;
+  lemon:entry    :architecturalstructure_of_form_preposition .
+
+:architecturalstructure_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :architecturalstructure_of_form ;
+  lemon:otherForm  :architecturalstructure_of_singular ;
+  lemon:otherForm  :architecturalstructure_of_plural ;
+  lemon:sense          :architecturalstructure_of_sense_1 ;
+  lemon:synBehavior    :architecturalstructure_of_nounpp .
+
+:architecturalstructure_of_form a lemon:Form ;
+  lemon:writtenRep "Architectural Structure"@en .
+
+:architecturalstructure_of_singular a    lemon:Form ;
+  lemon:writtenRep "Architectural Structure"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:architecturalstructure_of_plural a   lemon:Form ;
+  lemon:writtenRep "Architectural Structures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:architecturalstructure_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:architecturalstructure_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :architecturalstructure_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :architecturalstructure_of_sense_1_condition .
+
+:architecturalstructure_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ArchitecturalStructure> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ArchitecturalStructure> .
+
+:arg2 lemon:marker :architecturalstructure_of_form_preposition .
+## Prepositions ##
+:architecturalstructure_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

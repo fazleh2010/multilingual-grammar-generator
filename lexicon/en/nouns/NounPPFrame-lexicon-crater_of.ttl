@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :crater_of ;
+  lemon:entry    :crater_of_form_preposition .
+
+:crater_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :crater_of_form ;
+  lemon:otherForm  :crater_of_singular ;
+  lemon:otherForm  :crater_of_plural ;
+  lemon:sense          :crater_of_sense_1 ;
+  lemon:synBehavior    :crater_of_nounpp .
+
+:crater_of_form a lemon:Form ;
+  lemon:writtenRep "Crater"@en .
+
+:crater_of_singular a    lemon:Form ;
+  lemon:writtenRep "Crater"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:crater_of_plural a   lemon:Form ;
+  lemon:writtenRep "Craters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:crater_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:crater_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :crater_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :crater_of_sense_1_condition .
+
+:crater_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Crater> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Crater> .
+
+:arg2 lemon:marker :crater_of_form_preposition .
+## Prepositions ##
+:crater_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

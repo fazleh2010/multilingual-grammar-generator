@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :artistdiscography_of ;
+  lemon:entry    :artistdiscography_of_form_preposition .
+
+:artistdiscography_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :artistdiscography_of_form ;
+  lemon:otherForm  :artistdiscography_of_singular ;
+  lemon:otherForm  :artistdiscography_of_plural ;
+  lemon:sense          :artistdiscography_of_sense_1 ;
+  lemon:synBehavior    :artistdiscography_of_nounpp .
+
+:artistdiscography_of_form a lemon:Form ;
+  lemon:writtenRep "Artist Discography"@en .
+
+:artistdiscography_of_singular a    lemon:Form ;
+  lemon:writtenRep "Artist Discography"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:artistdiscography_of_plural a   lemon:Form ;
+  lemon:writtenRep "Artist Discographys"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:artistdiscography_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:artistdiscography_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :artistdiscography_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :artistdiscography_of_sense_1_condition .
+
+:artistdiscography_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ArtistDiscography> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ArtistDiscography> .
+
+:arg2 lemon:marker :artistdiscography_of_form_preposition .
+## Prepositions ##
+:artistdiscography_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

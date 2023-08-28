@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :automobile_of ;
+  lemon:entry    :automobile_of_form_preposition .
+
+:automobile_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :automobile_of_form ;
+  lemon:otherForm  :automobile_of_singular ;
+  lemon:otherForm  :automobile_of_plural ;
+  lemon:sense          :automobile_of_sense_1 ;
+  lemon:synBehavior    :automobile_of_nounpp .
+
+:automobile_of_form a lemon:Form ;
+  lemon:writtenRep "Automobile"@en .
+
+:automobile_of_singular a    lemon:Form ;
+  lemon:writtenRep "Automobile"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:automobile_of_plural a   lemon:Form ;
+  lemon:writtenRep "Automobiles"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:automobile_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:automobile_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :automobile_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :automobile_of_sense_1_condition .
+
+:automobile_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Automobile> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Automobile> .
+
+:arg2 lemon:marker :automobile_of_form_preposition .
+## Prepositions ##
+:automobile_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

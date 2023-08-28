@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :animal_of ;
+  lemon:entry    :animal_of_form_preposition .
+
+:animal_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :animal_of_form ;
+  lemon:otherForm  :animal_of_singular ;
+  lemon:otherForm  :animal_of_plural ;
+  lemon:sense          :animal_of_sense_1 ;
+  lemon:synBehavior    :animal_of_nounpp .
+
+:animal_of_form a lemon:Form ;
+  lemon:writtenRep "animal"@en .
+
+:animal_of_singular a    lemon:Form ;
+  lemon:writtenRep "animal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:animal_of_plural a   lemon:Form ;
+  lemon:writtenRep "animals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:animal_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:animal_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :animal_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :animal_of_sense_1_condition .
+
+:animal_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Animal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Animal> .
+
+:arg2 lemon:marker :animal_of_form_preposition .
+## Prepositions ##
+:animal_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

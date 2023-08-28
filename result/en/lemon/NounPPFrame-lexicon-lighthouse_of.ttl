@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lighthouse_of ;
+  lemon:entry    :lighthouse_of_form_preposition .
+
+:lighthouse_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lighthouse_of_form ;
+  lemon:otherForm  :lighthouse_of_singular ;
+  lemon:otherForm  :lighthouse_of_plural ;
+  lemon:sense          :lighthouse_of_sense_1 ;
+  lemon:synBehavior    :lighthouse_of_nounpp .
+
+:lighthouse_of_form a lemon:Form ;
+  lemon:writtenRep "Lighthouse"@en .
+
+:lighthouse_of_singular a    lemon:Form ;
+  lemon:writtenRep "Lighthouse"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lighthouse_of_plural a   lemon:Form ;
+  lemon:writtenRep "Lighthouses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lighthouse_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:lighthouse_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lighthouse_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :lighthouse_of_sense_1_condition .
+
+:lighthouse_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Lighthouse> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Lighthouse> .
+
+:arg2 lemon:marker :lighthouse_of_form_preposition .
+## Prepositions ##
+:lighthouse_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

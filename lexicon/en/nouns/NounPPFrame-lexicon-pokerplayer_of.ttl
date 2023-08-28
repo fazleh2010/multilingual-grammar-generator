@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :pokerplayer_of ;
+  lemon:entry    :pokerplayer_of_form_preposition .
+
+:pokerplayer_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :pokerplayer_of_form ;
+  lemon:otherForm  :pokerplayer_of_singular ;
+  lemon:otherForm  :pokerplayer_of_plural ;
+  lemon:sense          :pokerplayer_of_sense_1 ;
+  lemon:synBehavior    :pokerplayer_of_nounpp .
+
+:pokerplayer_of_form a lemon:Form ;
+  lemon:writtenRep "Poker Player"@en .
+
+:pokerplayer_of_singular a    lemon:Form ;
+  lemon:writtenRep "Poker Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:pokerplayer_of_plural a   lemon:Form ;
+  lemon:writtenRep "Poker Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:pokerplayer_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:pokerplayer_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :pokerplayer_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :pokerplayer_of_sense_1_condition .
+
+:pokerplayer_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PokerPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PokerPlayer> .
+
+:arg2 lemon:marker :pokerplayer_of_form_preposition .
+## Prepositions ##
+:pokerplayer_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

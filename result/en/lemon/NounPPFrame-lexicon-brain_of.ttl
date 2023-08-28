@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :brain_of ;
+  lemon:entry    :brain_of_form_preposition .
+
+:brain_of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :brain_of_form ;
+  lemon:otherForm  :brain_of_singular ;
+  lemon:otherForm  :brain_of_plural ;
+  lemon:sense          :brain_of_sense_1 ;
+  lemon:synBehavior    :brain_of_nounpp .
+
+:brain_of_form a lemon:Form ;
+  lemon:writtenRep "Brain"@en .
+
+:brain_of_singular a    lemon:Form ;
+  lemon:writtenRep "Brain"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:brain_of_plural a   lemon:Form ;
+  lemon:writtenRep "Brains"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:brain_of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:brain_of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :brain_of_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :brain_of_sense_1_condition .
+
+:brain_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Brain> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Brain> .
+
+:arg2 lemon:marker :brain_of_form_preposition .
+## Prepositions ##
+:brain_of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
