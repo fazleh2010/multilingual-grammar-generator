@@ -35,14 +35,14 @@
 
 :residence-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping         :residence-of_sense_1 ;
-  lemon:reference           <http://dbpedia.org/property/residence> ;
+  lemon:reference           <http://dbpedia.org/ontology/residence> ;
   lemon:subjOfProp          :arg2 ;
   lemon:objOfProp           :arg1 ;
   lemon:condition           :residence-of_sense_1_condition .
 
 :residence-of_sense_1_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
-  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
 
 :arg2 lemon:marker :residence-of_form_preposition .
 ## Prepositions ##

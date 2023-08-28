@@ -16,7 +16,6 @@
   lemon:otherForm  :mayor_of_2_singular ;
   lemon:otherForm  :mayor_of_2_plural ;
   lemon:sense          :mayor_of_2_sense_1 ;
-  lemon:sense          :mayor_of_2_sense_2 ;
   lemon:synBehavior    :mayor_of_2_nounpp .
 
 :mayor_of_2_form a lemon:Form ;
@@ -42,17 +41,6 @@
   lemon:condition           :mayor_of_2_sense_1_condition .
 
 :mayor_of_2_sense_1_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
-  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
-
-:mayor_of_2_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
-  lemon:ontoMapping         :mayor_of_2_sense_2 ;
-  lemon:reference           <http://dbpedia.org/ontology/leaderName> ;
-  lemon:subjOfProp          :arg2 ;
-  lemon:objOfProp           :arg1 ;
-  lemon:condition           :mayor_of_2_sense_2_condition .
-
-:mayor_of_2_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
 
