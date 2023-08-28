@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :broadcast_network_of_174 ;
+  lemon:entry    :broadcast_network_of_174_form_preposition .
+
+:broadcast_network_of_174 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :broadcast_network_of_174_form ;
+  lemon:otherForm  :broadcast_network_of_174_singular ;
+  lemon:otherForm  :broadcast_network_of_174_plural ;
+  lemon:sense          :broadcast_network_of_174_sense_1 ;
+  lemon:synBehavior    :broadcast_network_of_174_nounpp .
+
+:broadcast_network_of_174_form a lemon:Form ;
+  lemon:writtenRep "broadcast network"@en .
+
+:broadcast_network_of_174_singular a    lemon:Form ;
+  lemon:writtenRep "broadcast network"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:broadcast_network_of_174_plural a   lemon:Form ;
+  lemon:writtenRep "broadcast networks"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:broadcast_network_of_174_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_broadcast_network_of_174 ;
+  lexinfo:prepositionalAdjunct :arg2_broadcast_network_of_174 .
+
+:broadcast_network_of_174_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :broadcast_network_of_174_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_broadcast_network_of_174 ;
+  lemon:objOfProp           :arg1_broadcast_network_of_174 ;
+  lemon:condition           :broadcast_network_of_174_sense_1_condition .
+
+:broadcast_network_of_174_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BroadcastNetwork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BroadcastNetwork> .
+
+:arg2_broadcast_network_of_174 lemon:marker :broadcast_network_of_174_form_preposition .
+## Prepositions ##
+:broadcast_network_of_174_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

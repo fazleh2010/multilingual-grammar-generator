@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :periodical_literature_of_317 ;
+  lemon:entry    :periodical_literature_of_317_form_preposition .
+
+:periodical_literature_of_317 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :periodical_literature_of_317_form ;
+  lemon:otherForm  :periodical_literature_of_317_singular ;
+  lemon:otherForm  :periodical_literature_of_317_plural ;
+  lemon:sense          :periodical_literature_of_317_sense_1 ;
+  lemon:synBehavior    :periodical_literature_of_317_nounpp .
+
+:periodical_literature_of_317_form a lemon:Form ;
+  lemon:writtenRep "periodical literature"@en .
+
+:periodical_literature_of_317_singular a    lemon:Form ;
+  lemon:writtenRep "periodical literature"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:periodical_literature_of_317_plural a   lemon:Form ;
+  lemon:writtenRep "periodical literatures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:periodical_literature_of_317_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_periodical_literature_of_317 ;
+  lexinfo:prepositionalAdjunct :arg2_periodical_literature_of_317 .
+
+:periodical_literature_of_317_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :periodical_literature_of_317_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_periodical_literature_of_317 ;
+  lemon:objOfProp           :arg1_periodical_literature_of_317 ;
+  lemon:condition           :periodical_literature_of_317_sense_1_condition .
+
+:periodical_literature_of_317_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PeriodicalLiterature> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PeriodicalLiterature> .
+
+:arg2_periodical_literature_of_317 lemon:marker :periodical_literature_of_317_form_preposition .
+## Prepositions ##
+:periodical_literature_of_317_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

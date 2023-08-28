@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :protectedarea_of_7 ;
+  lemon:entry    :protectedarea_of_7_form_preposition .
+
+:protectedarea_of_7 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :protectedarea_of_7_form ;
+  lemon:otherForm  :protectedarea_of_7_singular ;
+  lemon:otherForm  :protectedarea_of_7_plural ;
+  lemon:sense          :protectedarea_of_7_sense_1 ;
+  lemon:synBehavior    :protectedarea_of_7_nounpp .
+
+:protectedarea_of_7_form a lemon:Form ;
+  lemon:writtenRep "Protected Area"@en .
+
+:protectedarea_of_7_singular a    lemon:Form ;
+  lemon:writtenRep "Protected Area"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:protectedarea_of_7_plural a   lemon:Form ;
+  lemon:writtenRep "Protected Areas"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:protectedarea_of_7_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_protectedarea_of_7 ;
+  lexinfo:prepositionalAdjunct :arg2_protectedarea_of_7 .
+
+:protectedarea_of_7_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :protectedarea_of_7_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_protectedarea_of_7 ;
+  lemon:objOfProp           :arg1_protectedarea_of_7 ;
+  lemon:condition           :protectedarea_of_7_sense_1_condition .
+
+:protectedarea_of_7_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ProtectedArea> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ProtectedArea> .
+
+:arg2_protectedarea_of_7 lemon:marker :protectedarea_of_7_form_preposition .
+## Prepositions ##
+:protectedarea_of_7_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

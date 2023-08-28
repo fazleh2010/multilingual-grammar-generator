@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :rugbyclub_of_183 ;
+  lemon:entry    :rugbyclub_of_183_form_preposition .
+
+:rugbyclub_of_183 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :rugbyclub_of_183_form ;
+  lemon:otherForm  :rugbyclub_of_183_singular ;
+  lemon:otherForm  :rugbyclub_of_183_plural ;
+  lemon:sense          :rugbyclub_of_183_sense_1 ;
+  lemon:synBehavior    :rugbyclub_of_183_nounpp .
+
+:rugbyclub_of_183_form a lemon:Form ;
+  lemon:writtenRep "Rugby Club"@en .
+
+:rugbyclub_of_183_singular a    lemon:Form ;
+  lemon:writtenRep "Rugby Club"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:rugbyclub_of_183_plural a   lemon:Form ;
+  lemon:writtenRep "Rugby Clubs"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:rugbyclub_of_183_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_rugbyclub_of_183 ;
+  lexinfo:prepositionalAdjunct :arg2_rugbyclub_of_183 .
+
+:rugbyclub_of_183_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :rugbyclub_of_183_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_rugbyclub_of_183 ;
+  lemon:objOfProp           :arg1_rugbyclub_of_183 ;
+  lemon:condition           :rugbyclub_of_183_sense_1_condition .
+
+:rugbyclub_of_183_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/RugbyClub> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/RugbyClub> .
+
+:arg2_rugbyclub_of_183 lemon:marker :rugbyclub_of_183_form_preposition .
+## Prepositions ##
+:rugbyclub_of_183_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

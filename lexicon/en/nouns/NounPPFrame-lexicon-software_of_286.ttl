@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :software_of_286 ;
+  lemon:entry    :software_of_286_form_preposition .
+
+:software_of_286 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :software_of_286_form ;
+  lemon:otherForm  :software_of_286_singular ;
+  lemon:otherForm  :software_of_286_plural ;
+  lemon:sense          :software_of_286_sense_1 ;
+  lemon:synBehavior    :software_of_286_nounpp .
+
+:software_of_286_form a lemon:Form ;
+  lemon:writtenRep "software"@en .
+
+:software_of_286_singular a    lemon:Form ;
+  lemon:writtenRep "software"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:software_of_286_plural a   lemon:Form ;
+  lemon:writtenRep "softwares"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:software_of_286_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_software_of_286 ;
+  lexinfo:prepositionalAdjunct :arg2_software_of_286 .
+
+:software_of_286_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :software_of_286_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_software_of_286 ;
+  lemon:objOfProp           :arg1_software_of_286 ;
+  lemon:condition           :software_of_286_sense_1_condition .
+
+:software_of_286_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Software> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Software> .
+
+:arg2_software_of_286 lemon:marker :software_of_286_form_preposition .
+## Prepositions ##
+:software_of_286_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

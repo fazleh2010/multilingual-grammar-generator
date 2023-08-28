@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :world_of_285 ;
+  lemon:entry    :world_of_285_form_preposition .
+
+:world_of_285 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :world_of_285_form ;
+  lemon:otherForm  :world_of_285_singular ;
+  lemon:otherForm  :world_of_285_plural ;
+  lemon:sense          :world_of_285_sense_1 ;
+  lemon:synBehavior    :world_of_285_nounpp .
+
+:world_of_285_form a lemon:Form ;
+  lemon:writtenRep "world"@en .
+
+:world_of_285_singular a    lemon:Form ;
+  lemon:writtenRep "world"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:world_of_285_plural a   lemon:Form ;
+  lemon:writtenRep "world"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:world_of_285_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_world_of_285 ;
+  lexinfo:prepositionalAdjunct :arg2_world_of_285 .
+
+:world_of_285_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :world_of_285_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_world_of_285 ;
+  lemon:objOfProp           :arg1_world_of_285 ;
+  lemon:condition           :world_of_285_sense_1_condition .
+
+:world_of_285_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://www.w3.org/2002/07/owl#Thing> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:arg2_world_of_285 lemon:marker :world_of_285_form_preposition .
+## Prepositions ##
+:world_of_285_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

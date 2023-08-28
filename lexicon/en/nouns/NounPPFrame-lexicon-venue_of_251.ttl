@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :venue_of_251 ;
+  lemon:entry    :venue_of_251_form_preposition .
+
+:venue_of_251 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :venue_of_251_form ;
+  lemon:otherForm  :venue_of_251_singular ;
+  lemon:otherForm  :venue_of_251_plural ;
+  lemon:sense          :venue_of_251_sense_1 ;
+  lemon:synBehavior    :venue_of_251_nounpp .
+
+:venue_of_251_form a lemon:Form ;
+  lemon:writtenRep "Venue"@en .
+
+:venue_of_251_singular a    lemon:Form ;
+  lemon:writtenRep "Venue"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:venue_of_251_plural a   lemon:Form ;
+  lemon:writtenRep "Venues"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:venue_of_251_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_venue_of_251 ;
+  lexinfo:prepositionalAdjunct :arg2_venue_of_251 .
+
+:venue_of_251_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :venue_of_251_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_venue_of_251 ;
+  lemon:objOfProp           :arg1_venue_of_251 ;
+  lemon:condition           :venue_of_251_sense_1_condition .
+
+:venue_of_251_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Venue> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Venue> .
+
+:arg2_venue_of_251 lemon:marker :venue_of_251_form_preposition .
+## Prepositions ##
+:venue_of_251_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

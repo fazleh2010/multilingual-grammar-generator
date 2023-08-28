@@ -1,0 +1,76 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :person_of_344 ;
+  lemon:entry    :person_of_344_form_preposition .
+
+:person_of_344 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :person_of_344_form ;
+  lemon:otherForm  :person_of_344_singular ;
+  lemon:otherForm  :person_of_344_plural ;
+  lemon:sense          :person_of_344_sense_1 ;
+  lemon:sense          :person_of_344_sense_2 ;
+  lemon:sense          :person_of_344_sense_3 ;
+  lemon:synBehavior    :person_of_344_nounpp .
+
+:person_of_344_form a lemon:Form ;
+  lemon:writtenRep "person"@en .
+
+:person_of_344_singular a    lemon:Form ;
+  lemon:writtenRep "person"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:person_of_344_plural a   lemon:Form ;
+  lemon:writtenRep "persons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:person_of_344_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_person_of_344 ;
+  lexinfo:prepositionalAdjunct :arg2_person_of_344 .
+
+:person_of_344_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :person_of_344_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_person_of_344 ;
+  lemon:objOfProp           :arg1_person_of_344 ;
+  lemon:condition           :person_of_344_sense_1_condition .
+
+:person_of_344_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MilitaryPerson> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MilitaryPerson> .
+
+:person_of_344_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :person_of_344_sense_2 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_person_of_344 ;
+  lemon:objOfProp           :arg1_person_of_344 ;
+  lemon:condition           :person_of_344_sense_2_condition .
+
+:person_of_344_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:person_of_344_sense_3 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :person_of_344_sense_3 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_person_of_344 ;
+  lemon:objOfProp           :arg1_person_of_344 ;
+  lemon:condition           :person_of_344_sense_3_condition .
+
+:person_of_344_sense_3_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Single> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Single> .
+
+:arg2_person_of_344 lemon:marker :person_of_344_form_preposition .
+## Prepositions ##
+:person_of_344_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :ligament_of_88 ;
+  lemon:entry    :ligament_of_88_form_preposition .
+
+:ligament_of_88 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :ligament_of_88_form ;
+  lemon:otherForm  :ligament_of_88_singular ;
+  lemon:otherForm  :ligament_of_88_plural ;
+  lemon:sense          :ligament_of_88_sense_1 ;
+  lemon:synBehavior    :ligament_of_88_nounpp .
+
+:ligament_of_88_form a lemon:Form ;
+  lemon:writtenRep "Ligament"@en .
+
+:ligament_of_88_singular a    lemon:Form ;
+  lemon:writtenRep "Ligament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:ligament_of_88_plural a   lemon:Form ;
+  lemon:writtenRep "Ligaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:ligament_of_88_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_ligament_of_88 ;
+  lexinfo:prepositionalAdjunct :arg2_ligament_of_88 .
+
+:ligament_of_88_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ligament_of_88_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_ligament_of_88 ;
+  lemon:objOfProp           :arg1_ligament_of_88 ;
+  lemon:condition           :ligament_of_88_sense_1_condition .
+
+:ligament_of_88_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Ligament> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Ligament> .
+
+:arg2_ligament_of_88 lemon:marker :ligament_of_88_form_preposition .
+## Prepositions ##
+:ligament_of_88_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

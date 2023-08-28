@@ -347,6 +347,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         string = string.toLowerCase().strip().trim().replace(" ", "_");*/
         index = index + 1;
         //return "LexicalEntry_" + string+"_"+index.toString();
+        string = string.toLowerCase().strip().trim().replace(" ", "_")+"_"+index;
         return string;
     }
 

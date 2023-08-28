@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :road_of_25 ;
+  lemon:entry    :road_of_25_form_preposition .
+
+:road_of_25 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :road_of_25_form ;
+  lemon:otherForm  :road_of_25_singular ;
+  lemon:otherForm  :road_of_25_plural ;
+  lemon:sense          :road_of_25_sense_1 ;
+  lemon:synBehavior    :road_of_25_nounpp .
+
+:road_of_25_form a lemon:Form ;
+  lemon:writtenRep "road"@en .
+
+:road_of_25_singular a    lemon:Form ;
+  lemon:writtenRep "road"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:road_of_25_plural a   lemon:Form ;
+  lemon:writtenRep "roads"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:road_of_25_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_road_of_25 ;
+  lexinfo:prepositionalAdjunct :arg2_road_of_25 .
+
+:road_of_25_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :road_of_25_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_road_of_25 ;
+  lemon:objOfProp           :arg1_road_of_25 ;
+  lemon:condition           :road_of_25_sense_1_condition .
+
+:road_of_25_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Road> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Road> .
+
+:arg2_road_of_25 lemon:marker :road_of_25_form_preposition .
+## Prepositions ##
+:road_of_25_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

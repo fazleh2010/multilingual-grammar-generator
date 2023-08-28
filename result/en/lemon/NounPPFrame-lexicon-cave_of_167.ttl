@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cave_of_167 ;
+  lemon:entry    :cave_of_167_form_preposition .
+
+:cave_of_167 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cave_of_167_form ;
+  lemon:otherForm  :cave_of_167_singular ;
+  lemon:otherForm  :cave_of_167_plural ;
+  lemon:sense          :cave_of_167_sense_1 ;
+  lemon:synBehavior    :cave_of_167_nounpp .
+
+:cave_of_167_form a lemon:Form ;
+  lemon:writtenRep "Cave"@en .
+
+:cave_of_167_singular a    lemon:Form ;
+  lemon:writtenRep "Cave"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cave_of_167_plural a   lemon:Form ;
+  lemon:writtenRep "Caves"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cave_of_167_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cave_of_167 ;
+  lexinfo:prepositionalAdjunct :arg2_cave_of_167 .
+
+:cave_of_167_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cave_of_167_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_cave_of_167 ;
+  lemon:objOfProp           :arg1_cave_of_167 ;
+  lemon:condition           :cave_of_167_sense_1_condition .
+
+:cave_of_167_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Cave> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Cave> .
+
+:arg2_cave_of_167 lemon:marker :cave_of_167_form_preposition .
+## Prepositions ##
+:cave_of_167_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

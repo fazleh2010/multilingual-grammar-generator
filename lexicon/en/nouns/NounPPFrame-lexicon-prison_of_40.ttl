@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :prison_of_40 ;
+  lemon:entry    :prison_of_40_form_preposition .
+
+:prison_of_40 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :prison_of_40_form ;
+  lemon:otherForm  :prison_of_40_singular ;
+  lemon:otherForm  :prison_of_40_plural ;
+  lemon:sense          :prison_of_40_sense_1 ;
+  lemon:synBehavior    :prison_of_40_nounpp .
+
+:prison_of_40_form a lemon:Form ;
+  lemon:writtenRep "Prison"@en .
+
+:prison_of_40_singular a    lemon:Form ;
+  lemon:writtenRep "Prison"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:prison_of_40_plural a   lemon:Form ;
+  lemon:writtenRep "Prisons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:prison_of_40_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_prison_of_40 ;
+  lexinfo:prepositionalAdjunct :arg2_prison_of_40 .
+
+:prison_of_40_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :prison_of_40_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_prison_of_40 ;
+  lemon:objOfProp           :arg1_prison_of_40 ;
+  lemon:condition           :prison_of_40_sense_1_condition .
+
+:prison_of_40_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Prison> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Prison> .
+
+:arg2_prison_of_40 lemon:marker :prison_of_40_form_preposition .
+## Prepositions ##
+:prison_of_40_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

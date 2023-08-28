@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :beachvolleyballplayer_of_233 ;
+  lemon:entry    :beachvolleyballplayer_of_233_form_preposition .
+
+:beachvolleyballplayer_of_233 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :beachvolleyballplayer_of_233_form ;
+  lemon:otherForm  :beachvolleyballplayer_of_233_singular ;
+  lemon:otherForm  :beachvolleyballplayer_of_233_plural ;
+  lemon:sense          :beachvolleyballplayer_of_233_sense_1 ;
+  lemon:synBehavior    :beachvolleyballplayer_of_233_nounpp .
+
+:beachvolleyballplayer_of_233_form a lemon:Form ;
+  lemon:writtenRep "Beach Volleyball Player"@en .
+
+:beachvolleyballplayer_of_233_singular a    lemon:Form ;
+  lemon:writtenRep "Beach Volleyball Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:beachvolleyballplayer_of_233_plural a   lemon:Form ;
+  lemon:writtenRep "Beach Volleyball Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:beachvolleyballplayer_of_233_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_beachvolleyballplayer_of_233 ;
+  lexinfo:prepositionalAdjunct :arg2_beachvolleyballplayer_of_233 .
+
+:beachvolleyballplayer_of_233_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :beachvolleyballplayer_of_233_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_beachvolleyballplayer_of_233 ;
+  lemon:objOfProp           :arg1_beachvolleyballplayer_of_233 ;
+  lemon:condition           :beachvolleyballplayer_of_233_sense_1_condition .
+
+:beachvolleyballplayer_of_233_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BeachVolleyballPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BeachVolleyballPlayer> .
+
+:arg2_beachvolleyballplayer_of_233 lemon:marker :beachvolleyballplayer_of_233_form_preposition .
+## Prepositions ##
+:beachvolleyballplayer_of_233_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :rocket_of_300 ;
+  lemon:entry    :rocket_of_300_form_preposition .
+
+:rocket_of_300 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :rocket_of_300_form ;
+  lemon:otherForm  :rocket_of_300_singular ;
+  lemon:otherForm  :rocket_of_300_plural ;
+  lemon:sense          :rocket_of_300_sense_1 ;
+  lemon:synBehavior    :rocket_of_300_nounpp .
+
+:rocket_of_300_form a lemon:Form ;
+  lemon:writtenRep "Rocket"@en .
+
+:rocket_of_300_singular a    lemon:Form ;
+  lemon:writtenRep "Rocket"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:rocket_of_300_plural a   lemon:Form ;
+  lemon:writtenRep "Rockets"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:rocket_of_300_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_rocket_of_300 ;
+  lexinfo:prepositionalAdjunct :arg2_rocket_of_300 .
+
+:rocket_of_300_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :rocket_of_300_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_rocket_of_300 ;
+  lemon:objOfProp           :arg1_rocket_of_300 ;
+  lemon:condition           :rocket_of_300_sense_1_condition .
+
+:rocket_of_300_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Rocket> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Rocket> .
+
+:arg2_rocket_of_300 lemon:marker :rocket_of_300_form_preposition .
+## Prepositions ##
+:rocket_of_300_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

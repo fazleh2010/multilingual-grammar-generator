@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :athlete_of_3 ;
+  lemon:entry    :athlete_of_3_form_preposition .
+
+:athlete_of_3 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :athlete_of_3_form ;
+  lemon:otherForm  :athlete_of_3_singular ;
+  lemon:otherForm  :athlete_of_3_plural ;
+  lemon:sense          :athlete_of_3_sense_1 ;
+  lemon:synBehavior    :athlete_of_3_nounpp .
+
+:athlete_of_3_form a lemon:Form ;
+  lemon:writtenRep "athlete"@en .
+
+:athlete_of_3_singular a    lemon:Form ;
+  lemon:writtenRep "athlete"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:athlete_of_3_plural a   lemon:Form ;
+  lemon:writtenRep "athlete"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:athlete_of_3_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_athlete_of_3 ;
+  lexinfo:prepositionalAdjunct :arg2_athlete_of_3 .
+
+:athlete_of_3_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :athlete_of_3_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_athlete_of_3 ;
+  lemon:objOfProp           :arg1_athlete_of_3 ;
+  lemon:condition           :athlete_of_3_sense_1_condition .
+
+:athlete_of_3_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Athlete> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Athlete> .
+
+:arg2_athlete_of_3 lemon:marker :athlete_of_3_form_preposition .
+## Prepositions ##
+:athlete_of_3_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

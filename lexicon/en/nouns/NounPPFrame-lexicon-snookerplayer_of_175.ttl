@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :snookerplayer_of_175 ;
+  lemon:entry    :snookerplayer_of_175_form_preposition .
+
+:snookerplayer_of_175 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :snookerplayer_of_175_form ;
+  lemon:otherForm  :snookerplayer_of_175_singular ;
+  lemon:otherForm  :snookerplayer_of_175_plural ;
+  lemon:sense          :snookerplayer_of_175_sense_1 ;
+  lemon:synBehavior    :snookerplayer_of_175_nounpp .
+
+:snookerplayer_of_175_form a lemon:Form ;
+  lemon:writtenRep "Snooker Player"@en .
+
+:snookerplayer_of_175_singular a    lemon:Form ;
+  lemon:writtenRep "Snooker Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:snookerplayer_of_175_plural a   lemon:Form ;
+  lemon:writtenRep "Snooker Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:snookerplayer_of_175_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_snookerplayer_of_175 ;
+  lexinfo:prepositionalAdjunct :arg2_snookerplayer_of_175 .
+
+:snookerplayer_of_175_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :snookerplayer_of_175_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_snookerplayer_of_175 ;
+  lemon:objOfProp           :arg1_snookerplayer_of_175 ;
+  lemon:condition           :snookerplayer_of_175_sense_1_condition .
+
+:snookerplayer_of_175_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SnookerPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SnookerPlayer> .
+
+:arg2_snookerplayer_of_175 lemon:marker :snookerplayer_of_175_form_preposition .
+## Prepositions ##
+:snookerplayer_of_175_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

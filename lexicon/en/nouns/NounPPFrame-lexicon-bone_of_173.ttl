@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :bone_of_173 ;
+  lemon:entry    :bone_of_173_form_preposition .
+
+:bone_of_173 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :bone_of_173_form ;
+  lemon:otherForm  :bone_of_173_singular ;
+  lemon:otherForm  :bone_of_173_plural ;
+  lemon:sense          :bone_of_173_sense_1 ;
+  lemon:synBehavior    :bone_of_173_nounpp .
+
+:bone_of_173_form a lemon:Form ;
+  lemon:writtenRep "Bone"@en .
+
+:bone_of_173_singular a    lemon:Form ;
+  lemon:writtenRep "Bone"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:bone_of_173_plural a   lemon:Form ;
+  lemon:writtenRep "Bones"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:bone_of_173_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_bone_of_173 ;
+  lexinfo:prepositionalAdjunct :arg2_bone_of_173 .
+
+:bone_of_173_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :bone_of_173_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_bone_of_173 ;
+  lemon:objOfProp           :arg1_bone_of_173 ;
+  lemon:condition           :bone_of_173_sense_1_condition .
+
+:bone_of_173_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Bone> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Bone> .
+
+:arg2_bone_of_173 lemon:marker :bone_of_173_form_preposition .
+## Prepositions ##
+:bone_of_173_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

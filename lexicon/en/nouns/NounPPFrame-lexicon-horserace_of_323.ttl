@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :horserace_of_323 ;
+  lemon:entry    :horserace_of_323_form_preposition .
+
+:horserace_of_323 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :horserace_of_323_form ;
+  lemon:otherForm  :horserace_of_323_singular ;
+  lemon:otherForm  :horserace_of_323_plural ;
+  lemon:sense          :horserace_of_323_sense_1 ;
+  lemon:synBehavior    :horserace_of_323_nounpp .
+
+:horserace_of_323_form a lemon:Form ;
+  lemon:writtenRep "Horse Race"@en .
+
+:horserace_of_323_singular a    lemon:Form ;
+  lemon:writtenRep "Horse Race"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:horserace_of_323_plural a   lemon:Form ;
+  lemon:writtenRep "Horse Races"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:horserace_of_323_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_horserace_of_323 ;
+  lexinfo:prepositionalAdjunct :arg2_horserace_of_323 .
+
+:horserace_of_323_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :horserace_of_323_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_horserace_of_323 ;
+  lemon:objOfProp           :arg1_horserace_of_323 ;
+  lemon:condition           :horserace_of_323_sense_1_condition .
+
+:horserace_of_323_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/HorseRace> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/HorseRace> .
+
+:arg2_horserace_of_323 lemon:marker :horserace_of_323_form_preposition .
+## Prepositions ##
+:horserace_of_323_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

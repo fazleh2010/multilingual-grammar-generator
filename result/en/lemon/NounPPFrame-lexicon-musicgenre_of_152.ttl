@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :musicgenre_of_152 ;
+  lemon:entry    :musicgenre_of_152_form_preposition .
+
+:musicgenre_of_152 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :musicgenre_of_152_form ;
+  lemon:otherForm  :musicgenre_of_152_singular ;
+  lemon:otherForm  :musicgenre_of_152_plural ;
+  lemon:sense          :musicgenre_of_152_sense_1 ;
+  lemon:synBehavior    :musicgenre_of_152_nounpp .
+
+:musicgenre_of_152_form a lemon:Form ;
+  lemon:writtenRep "MusicGenre"@en .
+
+:musicgenre_of_152_singular a    lemon:Form ;
+  lemon:writtenRep "MusicGenre"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:musicgenre_of_152_plural a   lemon:Form ;
+  lemon:writtenRep "MusicGenres"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:musicgenre_of_152_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_musicgenre_of_152 ;
+  lexinfo:prepositionalAdjunct :arg2_musicgenre_of_152 .
+
+:musicgenre_of_152_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :musicgenre_of_152_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_musicgenre_of_152 ;
+  lemon:objOfProp           :arg1_musicgenre_of_152 ;
+  lemon:condition           :musicgenre_of_152_sense_1_condition .
+
+:musicgenre_of_152_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MusicGenre> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MusicGenre> .
+
+:arg2_musicgenre_of_152 lemon:marker :musicgenre_of_152_form_preposition .
+## Prepositions ##
+:musicgenre_of_152_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

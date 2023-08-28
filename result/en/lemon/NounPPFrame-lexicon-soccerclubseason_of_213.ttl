@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soccerclubseason_of_213 ;
+  lemon:entry    :soccerclubseason_of_213_form_preposition .
+
+:soccerclubseason_of_213 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :soccerclubseason_of_213_form ;
+  lemon:otherForm  :soccerclubseason_of_213_singular ;
+  lemon:otherForm  :soccerclubseason_of_213_plural ;
+  lemon:sense          :soccerclubseason_of_213_sense_1 ;
+  lemon:synBehavior    :soccerclubseason_of_213_nounpp .
+
+:soccerclubseason_of_213_form a lemon:Form ;
+  lemon:writtenRep "Soccer Club Season"@en .
+
+:soccerclubseason_of_213_singular a    lemon:Form ;
+  lemon:writtenRep "Soccer Club Season"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soccerclubseason_of_213_plural a   lemon:Form ;
+  lemon:writtenRep "Soccer Club Seasons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soccerclubseason_of_213_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_soccerclubseason_of_213 ;
+  lexinfo:prepositionalAdjunct :arg2_soccerclubseason_of_213 .
+
+:soccerclubseason_of_213_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :soccerclubseason_of_213_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_soccerclubseason_of_213 ;
+  lemon:objOfProp           :arg1_soccerclubseason_of_213 ;
+  lemon:condition           :soccerclubseason_of_213_sense_1_condition .
+
+:soccerclubseason_of_213_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SoccerClubSeason> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SoccerClubSeason> .
+
+:arg2_soccerclubseason_of_213 lemon:marker :soccerclubseason_of_213_form_preposition .
+## Prepositions ##
+:soccerclubseason_of_213_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

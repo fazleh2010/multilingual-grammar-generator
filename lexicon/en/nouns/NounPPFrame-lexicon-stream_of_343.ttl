@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :stream_of_343 ;
+  lemon:entry    :stream_of_343_form_preposition .
+
+:stream_of_343 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :stream_of_343_form ;
+  lemon:otherForm  :stream_of_343_singular ;
+  lemon:otherForm  :stream_of_343_plural ;
+  lemon:sense          :stream_of_343_sense_1 ;
+  lemon:synBehavior    :stream_of_343_nounpp .
+
+:stream_of_343_form a lemon:Form ;
+  lemon:writtenRep "stream"@en .
+
+:stream_of_343_singular a    lemon:Form ;
+  lemon:writtenRep "stream"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:stream_of_343_plural a   lemon:Form ;
+  lemon:writtenRep "streams"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:stream_of_343_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_stream_of_343 ;
+  lexinfo:prepositionalAdjunct :arg2_stream_of_343 .
+
+:stream_of_343_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :stream_of_343_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_stream_of_343 ;
+  lemon:objOfProp           :arg1_stream_of_343 ;
+  lemon:condition           :stream_of_343_sense_1_condition .
+
+:stream_of_343_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Stream> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Stream> .
+
+:arg2_stream_of_343 lemon:marker :stream_of_343_form_preposition .
+## Prepositions ##
+:stream_of_343_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

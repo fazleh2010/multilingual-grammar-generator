@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :gymnast_of_240 ;
+  lemon:entry    :gymnast_of_240_form_preposition .
+
+:gymnast_of_240 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :gymnast_of_240_form ;
+  lemon:otherForm  :gymnast_of_240_singular ;
+  lemon:otherForm  :gymnast_of_240_plural ;
+  lemon:sense          :gymnast_of_240_sense_1 ;
+  lemon:synBehavior    :gymnast_of_240_nounpp .
+
+:gymnast_of_240_form a lemon:Form ;
+  lemon:writtenRep "Gymnast"@en .
+
+:gymnast_of_240_singular a    lemon:Form ;
+  lemon:writtenRep "Gymnast"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:gymnast_of_240_plural a   lemon:Form ;
+  lemon:writtenRep "Gymnasts"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:gymnast_of_240_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_gymnast_of_240 ;
+  lexinfo:prepositionalAdjunct :arg2_gymnast_of_240 .
+
+:gymnast_of_240_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :gymnast_of_240_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_gymnast_of_240 ;
+  lemon:objOfProp           :arg1_gymnast_of_240 ;
+  lemon:condition           :gymnast_of_240_sense_1_condition .
+
+:gymnast_of_240_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Gymnast> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Gymnast> .
+
+:arg2_gymnast_of_240 lemon:marker :gymnast_of_240_form_preposition .
+## Prepositions ##
+:gymnast_of_240_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

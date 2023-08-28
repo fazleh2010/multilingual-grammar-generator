@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :magazine_of_60 ;
+  lemon:entry    :magazine_of_60_form_preposition .
+
+:magazine_of_60 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :magazine_of_60_form ;
+  lemon:otherForm  :magazine_of_60_singular ;
+  lemon:otherForm  :magazine_of_60_plural ;
+  lemon:sense          :magazine_of_60_sense_1 ;
+  lemon:synBehavior    :magazine_of_60_nounpp .
+
+:magazine_of_60_form a lemon:Form ;
+  lemon:writtenRep "Magazine"@en .
+
+:magazine_of_60_singular a    lemon:Form ;
+  lemon:writtenRep "Magazine"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:magazine_of_60_plural a   lemon:Form ;
+  lemon:writtenRep "Magazines"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:magazine_of_60_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_magazine_of_60 ;
+  lexinfo:prepositionalAdjunct :arg2_magazine_of_60 .
+
+:magazine_of_60_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :magazine_of_60_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_magazine_of_60 ;
+  lemon:objOfProp           :arg1_magazine_of_60 ;
+  lemon:condition           :magazine_of_60_sense_1_condition .
+
+:magazine_of_60_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Magazine> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Magazine> .
+
+:arg2_magazine_of_60 lemon:marker :magazine_of_60_form_preposition .
+## Prepositions ##
+:magazine_of_60_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

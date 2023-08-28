@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :academic_journal_of_93 ;
+  lemon:entry    :academic_journal_of_93_form_preposition .
+
+:academic_journal_of_93 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :academic_journal_of_93_form ;
+  lemon:otherForm  :academic_journal_of_93_singular ;
+  lemon:otherForm  :academic_journal_of_93_plural ;
+  lemon:sense          :academic_journal_of_93_sense_1 ;
+  lemon:synBehavior    :academic_journal_of_93_nounpp .
+
+:academic_journal_of_93_form a lemon:Form ;
+  lemon:writtenRep "academic journal"@en .
+
+:academic_journal_of_93_singular a    lemon:Form ;
+  lemon:writtenRep "academic journal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:academic_journal_of_93_plural a   lemon:Form ;
+  lemon:writtenRep "academic journals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:academic_journal_of_93_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_academic_journal_of_93 ;
+  lexinfo:prepositionalAdjunct :arg2_academic_journal_of_93 .
+
+:academic_journal_of_93_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :academic_journal_of_93_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_academic_journal_of_93 ;
+  lemon:objOfProp           :arg1_academic_journal_of_93 ;
+  lemon:condition           :academic_journal_of_93_sense_1_condition .
+
+:academic_journal_of_93_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/AcademicJournal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/AcademicJournal> .
+
+:arg2_academic_journal_of_93 lemon:marker :academic_journal_of_93_form_preposition .
+## Prepositions ##
+:academic_journal_of_93_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

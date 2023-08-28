@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :canal_of_18 ;
+  lemon:entry    :canal_of_18_form_preposition .
+
+:canal_of_18 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :canal_of_18_form ;
+  lemon:otherForm  :canal_of_18_singular ;
+  lemon:otherForm  :canal_of_18_plural ;
+  lemon:sense          :canal_of_18_sense_1 ;
+  lemon:synBehavior    :canal_of_18_nounpp .
+
+:canal_of_18_form a lemon:Form ;
+  lemon:writtenRep "Canal"@en .
+
+:canal_of_18_singular a    lemon:Form ;
+  lemon:writtenRep "Canal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:canal_of_18_plural a   lemon:Form ;
+  lemon:writtenRep "Canals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:canal_of_18_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_canal_of_18 ;
+  lexinfo:prepositionalAdjunct :arg2_canal_of_18 .
+
+:canal_of_18_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :canal_of_18_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_canal_of_18 ;
+  lemon:objOfProp           :arg1_canal_of_18 ;
+  lemon:condition           :canal_of_18_sense_1_condition .
+
+:canal_of_18_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Canal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Canal> .
+
+:arg2_canal_of_18 lemon:marker :canal_of_18_form_preposition .
+## Prepositions ##
+:canal_of_18_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

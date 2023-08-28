@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :worldheritagesite_of_291 ;
+  lemon:entry    :worldheritagesite_of_291_form_preposition .
+
+:worldheritagesite_of_291 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :worldheritagesite_of_291_form ;
+  lemon:otherForm  :worldheritagesite_of_291_singular ;
+  lemon:otherForm  :worldheritagesite_of_291_plural ;
+  lemon:sense          :worldheritagesite_of_291_sense_1 ;
+  lemon:synBehavior    :worldheritagesite_of_291_nounpp .
+
+:worldheritagesite_of_291_form a lemon:Form ;
+  lemon:writtenRep "World Heritage Site"@en .
+
+:worldheritagesite_of_291_singular a    lemon:Form ;
+  lemon:writtenRep "World Heritage Site"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:worldheritagesite_of_291_plural a   lemon:Form ;
+  lemon:writtenRep "World Heritage Sites"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:worldheritagesite_of_291_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_worldheritagesite_of_291 ;
+  lexinfo:prepositionalAdjunct :arg2_worldheritagesite_of_291 .
+
+:worldheritagesite_of_291_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :worldheritagesite_of_291_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_worldheritagesite_of_291 ;
+  lemon:objOfProp           :arg1_worldheritagesite_of_291 ;
+  lemon:condition           :worldheritagesite_of_291_sense_1_condition .
+
+:worldheritagesite_of_291_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WorldHeritageSite> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/WorldHeritageSite> .
+
+:arg2_worldheritagesite_of_291 lemon:marker :worldheritagesite_of_291_form_preposition .
+## Prepositions ##
+:worldheritagesite_of_291_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

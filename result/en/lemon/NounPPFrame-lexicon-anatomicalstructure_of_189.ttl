@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :anatomicalstructure_of_189 ;
+  lemon:entry    :anatomicalstructure_of_189_form_preposition .
+
+:anatomicalstructure_of_189 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :anatomicalstructure_of_189_form ;
+  lemon:otherForm  :anatomicalstructure_of_189_singular ;
+  lemon:otherForm  :anatomicalstructure_of_189_plural ;
+  lemon:sense          :anatomicalstructure_of_189_sense_1 ;
+  lemon:synBehavior    :anatomicalstructure_of_189_nounpp .
+
+:anatomicalstructure_of_189_form a lemon:Form ;
+  lemon:writtenRep "Anatomical Structure"@en .
+
+:anatomicalstructure_of_189_singular a    lemon:Form ;
+  lemon:writtenRep "Anatomical Structure"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:anatomicalstructure_of_189_plural a   lemon:Form ;
+  lemon:writtenRep "Anatomical Structures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:anatomicalstructure_of_189_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_anatomicalstructure_of_189 ;
+  lexinfo:prepositionalAdjunct :arg2_anatomicalstructure_of_189 .
+
+:anatomicalstructure_of_189_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :anatomicalstructure_of_189_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_anatomicalstructure_of_189 ;
+  lemon:objOfProp           :arg1_anatomicalstructure_of_189 ;
+  lemon:condition           :anatomicalstructure_of_189_sense_1_condition .
+
+:anatomicalstructure_of_189_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/AnatomicalStructure> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/AnatomicalStructure> .
+
+:arg2_anatomicalstructure_of_189 lemon:marker :anatomicalstructure_of_189_form_preposition .
+## Prepositions ##
+:anatomicalstructure_of_189_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

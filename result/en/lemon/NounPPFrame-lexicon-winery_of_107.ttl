@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :winery_of_107 ;
+  lemon:entry    :winery_of_107_form_preposition .
+
+:winery_of_107 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :winery_of_107_form ;
+  lemon:otherForm  :winery_of_107_singular ;
+  lemon:otherForm  :winery_of_107_plural ;
+  lemon:sense          :winery_of_107_sense_1 ;
+  lemon:synBehavior    :winery_of_107_nounpp .
+
+:winery_of_107_form a lemon:Form ;
+  lemon:writtenRep "Winery"@en .
+
+:winery_of_107_singular a    lemon:Form ;
+  lemon:writtenRep "Winery"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:winery_of_107_plural a   lemon:Form ;
+  lemon:writtenRep "Winerys"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:winery_of_107_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_winery_of_107 ;
+  lexinfo:prepositionalAdjunct :arg2_winery_of_107 .
+
+:winery_of_107_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :winery_of_107_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_winery_of_107 ;
+  lemon:objOfProp           :arg1_winery_of_107 ;
+  lemon:condition           :winery_of_107_sense_1_condition .
+
+:winery_of_107_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Winery> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Winery> .
+
+:arg2_winery_of_107 lemon:marker :winery_of_107_form_preposition .
+## Prepositions ##
+:winery_of_107_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

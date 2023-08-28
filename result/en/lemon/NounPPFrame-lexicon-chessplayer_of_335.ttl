@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :chessplayer_of_335 ;
+  lemon:entry    :chessplayer_of_335_form_preposition .
+
+:chessplayer_of_335 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :chessplayer_of_335_form ;
+  lemon:otherForm  :chessplayer_of_335_singular ;
+  lemon:otherForm  :chessplayer_of_335_plural ;
+  lemon:sense          :chessplayer_of_335_sense_1 ;
+  lemon:synBehavior    :chessplayer_of_335_nounpp .
+
+:chessplayer_of_335_form a lemon:Form ;
+  lemon:writtenRep "Chess Player"@en .
+
+:chessplayer_of_335_singular a    lemon:Form ;
+  lemon:writtenRep "Chess Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:chessplayer_of_335_plural a   lemon:Form ;
+  lemon:writtenRep "Chess Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:chessplayer_of_335_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_chessplayer_of_335 ;
+  lexinfo:prepositionalAdjunct :arg2_chessplayer_of_335 .
+
+:chessplayer_of_335_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :chessplayer_of_335_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_chessplayer_of_335 ;
+  lemon:objOfProp           :arg1_chessplayer_of_335 ;
+  lemon:condition           :chessplayer_of_335_sense_1_condition .
+
+:chessplayer_of_335_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ChessPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ChessPlayer> .
+
+:arg2_chessplayer_of_335 lemon:marker :chessplayer_of_335_form_preposition .
+## Prepositions ##
+:chessplayer_of_335_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

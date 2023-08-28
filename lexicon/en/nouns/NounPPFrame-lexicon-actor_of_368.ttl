@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :actor_of_368 ;
+  lemon:entry    :actor_of_368_form_preposition .
+
+:actor_of_368 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :actor_of_368_form ;
+  lemon:otherForm  :actor_of_368_singular ;
+  lemon:otherForm  :actor_of_368_plural ;
+  lemon:sense          :actor_of_368_sense_1 ;
+  lemon:synBehavior    :actor_of_368_nounpp .
+
+:actor_of_368_form a lemon:Form ;
+  lemon:writtenRep "actor"@en .
+
+:actor_of_368_singular a    lemon:Form ;
+  lemon:writtenRep "actor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:actor_of_368_plural a   lemon:Form ;
+  lemon:writtenRep "actors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:actor_of_368_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_actor_of_368 ;
+  lexinfo:prepositionalAdjunct :arg2_actor_of_368 .
+
+:actor_of_368_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :actor_of_368_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_actor_of_368 ;
+  lemon:objOfProp           :arg1_actor_of_368 ;
+  lemon:condition           :actor_of_368_sense_1_condition .
+
+:actor_of_368_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Actor> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Actor> .
+
+:arg2_actor_of_368 lemon:marker :actor_of_368_form_preposition .
+## Prepositions ##
+:actor_of_368_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

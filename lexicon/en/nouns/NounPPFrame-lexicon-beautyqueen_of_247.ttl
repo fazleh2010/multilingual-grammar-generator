@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :beautyqueen_of_247 ;
+  lemon:entry    :beautyqueen_of_247_form_preposition .
+
+:beautyqueen_of_247 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :beautyqueen_of_247_form ;
+  lemon:otherForm  :beautyqueen_of_247_singular ;
+  lemon:otherForm  :beautyqueen_of_247_plural ;
+  lemon:sense          :beautyqueen_of_247_sense_1 ;
+  lemon:synBehavior    :beautyqueen_of_247_nounpp .
+
+:beautyqueen_of_247_form a lemon:Form ;
+  lemon:writtenRep "Beauty Queen"@en .
+
+:beautyqueen_of_247_singular a    lemon:Form ;
+  lemon:writtenRep "Beauty Queen"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:beautyqueen_of_247_plural a   lemon:Form ;
+  lemon:writtenRep "Beauty Queens"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:beautyqueen_of_247_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_beautyqueen_of_247 ;
+  lexinfo:prepositionalAdjunct :arg2_beautyqueen_of_247 .
+
+:beautyqueen_of_247_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :beautyqueen_of_247_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_beautyqueen_of_247 ;
+  lemon:objOfProp           :arg1_beautyqueen_of_247 ;
+  lemon:condition           :beautyqueen_of_247_sense_1_condition .
+
+:beautyqueen_of_247_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BeautyQueen> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BeautyQueen> .
+
+:arg2_beautyqueen_of_247 lemon:marker :beautyqueen_of_247_form_preposition .
+## Prepositions ##
+:beautyqueen_of_247_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

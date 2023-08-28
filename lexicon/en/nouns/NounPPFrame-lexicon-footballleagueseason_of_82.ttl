@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :footballleagueseason_of_82 ;
+  lemon:entry    :footballleagueseason_of_82_form_preposition .
+
+:footballleagueseason_of_82 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :footballleagueseason_of_82_form ;
+  lemon:otherForm  :footballleagueseason_of_82_singular ;
+  lemon:otherForm  :footballleagueseason_of_82_plural ;
+  lemon:sense          :footballleagueseason_of_82_sense_1 ;
+  lemon:synBehavior    :footballleagueseason_of_82_nounpp .
+
+:footballleagueseason_of_82_form a lemon:Form ;
+  lemon:writtenRep "Football League Season"@en .
+
+:footballleagueseason_of_82_singular a    lemon:Form ;
+  lemon:writtenRep "Football League Season"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:footballleagueseason_of_82_plural a   lemon:Form ;
+  lemon:writtenRep "Football League Seasons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:footballleagueseason_of_82_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_footballleagueseason_of_82 ;
+  lexinfo:prepositionalAdjunct :arg2_footballleagueseason_of_82 .
+
+:footballleagueseason_of_82_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :footballleagueseason_of_82_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_footballleagueseason_of_82 ;
+  lemon:objOfProp           :arg1_footballleagueseason_of_82 ;
+  lemon:condition           :footballleagueseason_of_82_sense_1_condition .
+
+:footballleagueseason_of_82_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/FootballLeagueSeason> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/FootballLeagueSeason> .
+
+:arg2_footballleagueseason_of_82 lemon:marker :footballleagueseason_of_82_form_preposition .
+## Prepositions ##
+:footballleagueseason_of_82_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

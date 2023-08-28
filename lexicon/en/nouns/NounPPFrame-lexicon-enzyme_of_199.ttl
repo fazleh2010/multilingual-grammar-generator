@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :enzyme_of_199 ;
+  lemon:entry    :enzyme_of_199_form_preposition .
+
+:enzyme_of_199 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :enzyme_of_199_form ;
+  lemon:otherForm  :enzyme_of_199_singular ;
+  lemon:otherForm  :enzyme_of_199_plural ;
+  lemon:sense          :enzyme_of_199_sense_1 ;
+  lemon:synBehavior    :enzyme_of_199_nounpp .
+
+:enzyme_of_199_form a lemon:Form ;
+  lemon:writtenRep "Enzyme"@en .
+
+:enzyme_of_199_singular a    lemon:Form ;
+  lemon:writtenRep "Enzyme"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:enzyme_of_199_plural a   lemon:Form ;
+  lemon:writtenRep "Enzymes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:enzyme_of_199_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_enzyme_of_199 ;
+  lexinfo:prepositionalAdjunct :arg2_enzyme_of_199 .
+
+:enzyme_of_199_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :enzyme_of_199_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_enzyme_of_199 ;
+  lemon:objOfProp           :arg1_enzyme_of_199 ;
+  lemon:condition           :enzyme_of_199_sense_1_condition .
+
+:enzyme_of_199_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Enzyme> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Enzyme> .
+
+:arg2_enzyme_of_199 lemon:marker :enzyme_of_199_form_preposition .
+## Prepositions ##
+:enzyme_of_199_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

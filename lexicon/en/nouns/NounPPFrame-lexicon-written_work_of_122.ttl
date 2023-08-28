@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :written_work_of_122 ;
+  lemon:entry    :written_work_of_122_form_preposition .
+
+:written_work_of_122 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :written_work_of_122_form ;
+  lemon:otherForm  :written_work_of_122_singular ;
+  lemon:otherForm  :written_work_of_122_plural ;
+  lemon:sense          :written_work_of_122_sense_1 ;
+  lemon:synBehavior    :written_work_of_122_nounpp .
+
+:written_work_of_122_form a lemon:Form ;
+  lemon:writtenRep "written work"@en .
+
+:written_work_of_122_singular a    lemon:Form ;
+  lemon:writtenRep "written work"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:written_work_of_122_plural a   lemon:Form ;
+  lemon:writtenRep "written work"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:written_work_of_122_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_written_work_of_122 ;
+  lexinfo:prepositionalAdjunct :arg2_written_work_of_122 .
+
+:written_work_of_122_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :written_work_of_122_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_written_work_of_122 ;
+  lemon:objOfProp           :arg1_written_work_of_122 ;
+  lemon:condition           :written_work_of_122_sense_1_condition .
+
+:written_work_of_122_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/WrittenWork> .
+
+:arg2_written_work_of_122 lemon:marker :written_work_of_122_form_preposition .
+## Prepositions ##
+:written_work_of_122_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

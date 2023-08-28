@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :lighthouse_of_198 ;
+  lemon:entry    :lighthouse_of_198_form_preposition .
+
+:lighthouse_of_198 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :lighthouse_of_198_form ;
+  lemon:otherForm  :lighthouse_of_198_singular ;
+  lemon:otherForm  :lighthouse_of_198_plural ;
+  lemon:sense          :lighthouse_of_198_sense_1 ;
+  lemon:synBehavior    :lighthouse_of_198_nounpp .
+
+:lighthouse_of_198_form a lemon:Form ;
+  lemon:writtenRep "Lighthouse"@en .
+
+:lighthouse_of_198_singular a    lemon:Form ;
+  lemon:writtenRep "Lighthouse"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:lighthouse_of_198_plural a   lemon:Form ;
+  lemon:writtenRep "Lighthouses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:lighthouse_of_198_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_lighthouse_of_198 ;
+  lexinfo:prepositionalAdjunct :arg2_lighthouse_of_198 .
+
+:lighthouse_of_198_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :lighthouse_of_198_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_lighthouse_of_198 ;
+  lemon:objOfProp           :arg1_lighthouse_of_198 ;
+  lemon:condition           :lighthouse_of_198_sense_1_condition .
+
+:lighthouse_of_198_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Lighthouse> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Lighthouse> .
+
+:arg2_lighthouse_of_198 lemon:marker :lighthouse_of_198_form_preposition .
+## Prepositions ##
+:lighthouse_of_198_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

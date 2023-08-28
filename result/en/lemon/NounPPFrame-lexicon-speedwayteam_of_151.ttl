@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :speedwayteam_of_151 ;
+  lemon:entry    :speedwayteam_of_151_form_preposition .
+
+:speedwayteam_of_151 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :speedwayteam_of_151_form ;
+  lemon:otherForm  :speedwayteam_of_151_singular ;
+  lemon:otherForm  :speedwayteam_of_151_plural ;
+  lemon:sense          :speedwayteam_of_151_sense_1 ;
+  lemon:synBehavior    :speedwayteam_of_151_nounpp .
+
+:speedwayteam_of_151_form a lemon:Form ;
+  lemon:writtenRep "Speedway Team"@en .
+
+:speedwayteam_of_151_singular a    lemon:Form ;
+  lemon:writtenRep "Speedway Team"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:speedwayteam_of_151_plural a   lemon:Form ;
+  lemon:writtenRep "Speedway Teams"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:speedwayteam_of_151_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_speedwayteam_of_151 ;
+  lexinfo:prepositionalAdjunct :arg2_speedwayteam_of_151 .
+
+:speedwayteam_of_151_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :speedwayteam_of_151_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_speedwayteam_of_151 ;
+  lemon:objOfProp           :arg1_speedwayteam_of_151 ;
+  lemon:condition           :speedwayteam_of_151_sense_1_condition .
+
+:speedwayteam_of_151_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SpeedwayTeam> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SpeedwayTeam> .
+
+:arg2_speedwayteam_of_151 lemon:marker :speedwayteam_of_151_form_preposition .
+## Prepositions ##
+:speedwayteam_of_151_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

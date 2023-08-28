@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :olympicevent_of_303 ;
+  lemon:entry    :olympicevent_of_303_form_preposition .
+
+:olympicevent_of_303 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :olympicevent_of_303_form ;
+  lemon:otherForm  :olympicevent_of_303_singular ;
+  lemon:otherForm  :olympicevent_of_303_plural ;
+  lemon:sense          :olympicevent_of_303_sense_1 ;
+  lemon:synBehavior    :olympicevent_of_303_nounpp .
+
+:olympicevent_of_303_form a lemon:Form ;
+  lemon:writtenRep "Olympic Event"@en .
+
+:olympicevent_of_303_singular a    lemon:Form ;
+  lemon:writtenRep "Olympic Event"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:olympicevent_of_303_plural a   lemon:Form ;
+  lemon:writtenRep "Olympic Events"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:olympicevent_of_303_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_olympicevent_of_303 ;
+  lexinfo:prepositionalAdjunct :arg2_olympicevent_of_303 .
+
+:olympicevent_of_303_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :olympicevent_of_303_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_olympicevent_of_303 ;
+  lemon:objOfProp           :arg1_olympicevent_of_303 ;
+  lemon:condition           :olympicevent_of_303_sense_1_condition .
+
+:olympicevent_of_303_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/OlympicEvent> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/OlympicEvent> .
+
+:arg2_olympicevent_of_303 lemon:marker :olympicevent_of_303_form_preposition .
+## Prepositions ##
+:olympicevent_of_303_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

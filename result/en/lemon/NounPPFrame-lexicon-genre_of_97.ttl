@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :genre_of_97 ;
+  lemon:entry    :genre_of_97_form_preposition .
+
+:genre_of_97 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :genre_of_97_form ;
+  lemon:otherForm  :genre_of_97_singular ;
+  lemon:otherForm  :genre_of_97_plural ;
+  lemon:sense          :genre_of_97_sense_1 ;
+  lemon:synBehavior    :genre_of_97_nounpp .
+
+:genre_of_97_form a lemon:Form ;
+  lemon:writtenRep "genre"@en .
+
+:genre_of_97_singular a    lemon:Form ;
+  lemon:writtenRep "genre"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:genre_of_97_plural a   lemon:Form ;
+  lemon:writtenRep "genres"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:genre_of_97_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_genre_of_97 ;
+  lexinfo:prepositionalAdjunct :arg2_genre_of_97 .
+
+:genre_of_97_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :genre_of_97_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_genre_of_97 ;
+  lemon:objOfProp           :arg1_genre_of_97 ;
+  lemon:condition           :genre_of_97_sense_1_condition .
+
+:genre_of_97_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Genre> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Genre> .
+
+:arg2_genre_of_97 lemon:marker :genre_of_97_form_preposition .
+## Prepositions ##
+:genre_of_97_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

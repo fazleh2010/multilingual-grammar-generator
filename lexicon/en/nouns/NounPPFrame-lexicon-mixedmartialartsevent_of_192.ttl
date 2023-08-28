@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mixedmartialartsevent_of_192 ;
+  lemon:entry    :mixedmartialartsevent_of_192_form_preposition .
+
+:mixedmartialartsevent_of_192 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mixedmartialartsevent_of_192_form ;
+  lemon:otherForm  :mixedmartialartsevent_of_192_singular ;
+  lemon:otherForm  :mixedmartialartsevent_of_192_plural ;
+  lemon:sense          :mixedmartialartsevent_of_192_sense_1 ;
+  lemon:synBehavior    :mixedmartialartsevent_of_192_nounpp .
+
+:mixedmartialartsevent_of_192_form a lemon:Form ;
+  lemon:writtenRep "Mixed Martial Arts Event"@en .
+
+:mixedmartialartsevent_of_192_singular a    lemon:Form ;
+  lemon:writtenRep "Mixed Martial Arts Event"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mixedmartialartsevent_of_192_plural a   lemon:Form ;
+  lemon:writtenRep "Mixed Martial Arts Events"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mixedmartialartsevent_of_192_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_mixedmartialartsevent_of_192 ;
+  lexinfo:prepositionalAdjunct :arg2_mixedmartialartsevent_of_192 .
+
+:mixedmartialartsevent_of_192_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mixedmartialartsevent_of_192_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_mixedmartialartsevent_of_192 ;
+  lemon:objOfProp           :arg1_mixedmartialartsevent_of_192 ;
+  lemon:condition           :mixedmartialartsevent_of_192_sense_1_condition .
+
+:mixedmartialartsevent_of_192_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MixedMartialArtsEvent> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MixedMartialArtsEvent> .
+
+:arg2_mixedmartialartsevent_of_192 lemon:marker :mixedmartialartsevent_of_192_form_preposition .
+## Prepositions ##
+:mixedmartialartsevent_of_192_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cardinal_of_230 ;
+  lemon:entry    :cardinal_of_230_form_preposition .
+
+:cardinal_of_230 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cardinal_of_230_form ;
+  lemon:otherForm  :cardinal_of_230_singular ;
+  lemon:otherForm  :cardinal_of_230_plural ;
+  lemon:sense          :cardinal_of_230_sense_1 ;
+  lemon:synBehavior    :cardinal_of_230_nounpp .
+
+:cardinal_of_230_form a lemon:Form ;
+  lemon:writtenRep "Cardinal"@en .
+
+:cardinal_of_230_singular a    lemon:Form ;
+  lemon:writtenRep "Cardinal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cardinal_of_230_plural a   lemon:Form ;
+  lemon:writtenRep "Cardinals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cardinal_of_230_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cardinal_of_230 ;
+  lexinfo:prepositionalAdjunct :arg2_cardinal_of_230 .
+
+:cardinal_of_230_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cardinal_of_230_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_cardinal_of_230 ;
+  lemon:objOfProp           :arg1_cardinal_of_230 ;
+  lemon:condition           :cardinal_of_230_sense_1_condition .
+
+:cardinal_of_230_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Cardinal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Cardinal> .
+
+:arg2_cardinal_of_230 lemon:marker :cardinal_of_230_form_preposition .
+## Prepositions ##
+:cardinal_of_230_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

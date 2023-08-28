@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :comedygroup_of_108 ;
+  lemon:entry    :comedygroup_of_108_form_preposition .
+
+:comedygroup_of_108 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :comedygroup_of_108_form ;
+  lemon:otherForm  :comedygroup_of_108_singular ;
+  lemon:otherForm  :comedygroup_of_108_plural ;
+  lemon:sense          :comedygroup_of_108_sense_1 ;
+  lemon:synBehavior    :comedygroup_of_108_nounpp .
+
+:comedygroup_of_108_form a lemon:Form ;
+  lemon:writtenRep "Comedy Group"@en .
+
+:comedygroup_of_108_singular a    lemon:Form ;
+  lemon:writtenRep "Comedy Group"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:comedygroup_of_108_plural a   lemon:Form ;
+  lemon:writtenRep "Comedy Groups"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:comedygroup_of_108_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_comedygroup_of_108 ;
+  lexinfo:prepositionalAdjunct :arg2_comedygroup_of_108 .
+
+:comedygroup_of_108_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :comedygroup_of_108_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_comedygroup_of_108 ;
+  lemon:objOfProp           :arg1_comedygroup_of_108 ;
+  lemon:condition           :comedygroup_of_108_sense_1_condition .
+
+:comedygroup_of_108_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ComedyGroup> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ComedyGroup> .
+
+:arg2_comedygroup_of_108 lemon:marker :comedygroup_of_108_form_preposition .
+## Prepositions ##
+:comedygroup_of_108_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

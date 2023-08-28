@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :deathdate-of_402 ;
+  lemon:entry    :deathdate-of_402_form_preposition .
+
+:deathdate-of_402 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :deathdate-of_402_form ;
+  lemon:otherForm  :deathdate-of_402_singular ;
+  lemon:otherForm  :deathdate-of_402_plural ;
+  lemon:sense          :deathdate-of_402_sense_1 ;
+  lemon:synBehavior    :deathdate-of_402_nounpp .
+
+:deathdate-of_402_form a lemon:Form ;
+  lemon:writtenRep "death date"@en .
+
+:deathdate-of_402_singular a    lemon:Form ;
+  lemon:writtenRep "death date"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:deathdate-of_402_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:deathdate-of_402_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_deathdate-of_402 ;
+  lexinfo:prepositionalAdjunct :arg2_deathdate-of_402 .
+
+:deathdate-of_402_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :deathdate-of_402_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathDate> ;
+  lemon:subjOfProp          :arg2_deathdate-of_402 ;
+  lemon:objOfProp           :arg1_deathdate-of_402 ;
+  lemon:condition           :deathdate-of_402_sense_1_condition .
+
+:deathdate-of_402_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_deathdate-of_402 lemon:marker :deathdate-of_402_form_preposition .
+## Prepositions ##
+:deathdate-of_402_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

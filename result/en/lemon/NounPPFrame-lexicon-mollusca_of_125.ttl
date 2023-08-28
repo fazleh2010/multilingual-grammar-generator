@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mollusca_of_125 ;
+  lemon:entry    :mollusca_of_125_form_preposition .
+
+:mollusca_of_125 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mollusca_of_125_form ;
+  lemon:otherForm  :mollusca_of_125_singular ;
+  lemon:otherForm  :mollusca_of_125_plural ;
+  lemon:sense          :mollusca_of_125_sense_1 ;
+  lemon:synBehavior    :mollusca_of_125_nounpp .
+
+:mollusca_of_125_form a lemon:Form ;
+  lemon:writtenRep "Mollusca"@en .
+
+:mollusca_of_125_singular a    lemon:Form ;
+  lemon:writtenRep "Mollusca"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mollusca_of_125_plural a   lemon:Form ;
+  lemon:writtenRep "Molluscas"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mollusca_of_125_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_mollusca_of_125 ;
+  lexinfo:prepositionalAdjunct :arg2_mollusca_of_125 .
+
+:mollusca_of_125_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mollusca_of_125_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_mollusca_of_125 ;
+  lemon:objOfProp           :arg1_mollusca_of_125 ;
+  lemon:condition           :mollusca_of_125_sense_1_condition .
+
+:mollusca_of_125_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mollusca> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Mollusca> .
+
+:arg2_mollusca_of_125 lemon:marker :mollusca_of_125_form_preposition .
+## Prepositions ##
+:mollusca_of_125_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

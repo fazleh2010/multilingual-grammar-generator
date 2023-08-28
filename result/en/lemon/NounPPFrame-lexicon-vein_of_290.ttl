@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :vein_of_290 ;
+  lemon:entry    :vein_of_290_form_preposition .
+
+:vein_of_290 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :vein_of_290_form ;
+  lemon:otherForm  :vein_of_290_singular ;
+  lemon:otherForm  :vein_of_290_plural ;
+  lemon:sense          :vein_of_290_sense_1 ;
+  lemon:synBehavior    :vein_of_290_nounpp .
+
+:vein_of_290_form a lemon:Form ;
+  lemon:writtenRep "Vein"@en .
+
+:vein_of_290_singular a    lemon:Form ;
+  lemon:writtenRep "Vein"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:vein_of_290_plural a   lemon:Form ;
+  lemon:writtenRep "Veins"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:vein_of_290_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_vein_of_290 ;
+  lexinfo:prepositionalAdjunct :arg2_vein_of_290 .
+
+:vein_of_290_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :vein_of_290_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_vein_of_290 ;
+  lemon:objOfProp           :arg1_vein_of_290 ;
+  lemon:condition           :vein_of_290_sense_1_condition .
+
+:vein_of_290_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Vein> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Vein> .
+
+:arg2_vein_of_290 lemon:marker :vein_of_290_form_preposition .
+## Prepositions ##
+:vein_of_290_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

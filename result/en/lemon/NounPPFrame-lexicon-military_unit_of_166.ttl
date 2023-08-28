@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :military_unit_of_166 ;
+  lemon:entry    :military_unit_of_166_form_preposition .
+
+:military_unit_of_166 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :military_unit_of_166_form ;
+  lemon:otherForm  :military_unit_of_166_singular ;
+  lemon:otherForm  :military_unit_of_166_plural ;
+  lemon:sense          :military_unit_of_166_sense_1 ;
+  lemon:synBehavior    :military_unit_of_166_nounpp .
+
+:military_unit_of_166_form a lemon:Form ;
+  lemon:writtenRep "military unit"@en .
+
+:military_unit_of_166_singular a    lemon:Form ;
+  lemon:writtenRep "military unit"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:military_unit_of_166_plural a   lemon:Form ;
+  lemon:writtenRep "military units"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:military_unit_of_166_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_military_unit_of_166 ;
+  lexinfo:prepositionalAdjunct :arg2_military_unit_of_166 .
+
+:military_unit_of_166_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :military_unit_of_166_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_military_unit_of_166 ;
+  lemon:objOfProp           :arg1_military_unit_of_166 ;
+  lemon:condition           :military_unit_of_166_sense_1_condition .
+
+:military_unit_of_166_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MilitaryUnit> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MilitaryUnit> .
+
+:arg2_military_unit_of_166 lemon:marker :military_unit_of_166_form_preposition .
+## Prepositions ##
+:military_unit_of_166_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

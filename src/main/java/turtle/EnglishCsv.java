@@ -45,6 +45,9 @@ public class EnglishCsv implements TempConstants {
         public static Integer rangeWrittenSingular = 14;
         public static Integer rangeWrittenPlural = 15;
         private static String proeposition_id;
+        private static String arg1 = null;
+        private static String arg2 = null;
+
 
         public NounPPFrameCsv() {
 
@@ -91,14 +94,13 @@ public class EnglishCsv implements TempConstants {
                 writtenFormPlural = "XX";
             }
 
-            String arg1 = null, arg2 = null;
 
             if (copulativeArg.contains("domain")) {
-                arg1 = "arg2";
-                arg2 = "arg1";
+                this.arg1 = "arg2"+"_"+lemonEntry;
+                this.arg2 = "arg1"+"_"+lemonEntry;
             } else {
-                arg1 = "arg1";
-                arg2 = "arg2";
+                this.arg1 = "arg1"+"_"+lemonEntry;
+                this.arg2 = "arg2"+"_"+lemonEntry;
             }
 
             String writtenForm = ":" + lemonEntry + "_form a lemon:Form ;\n"
@@ -138,13 +140,35 @@ public class EnglishCsv implements TempConstants {
             if (preposition.contains("X")) {
                 preposition = "";
             }
-            return ":arg2 lemon:marker :" + proeposition_id + " .\n"
+            return ":"+arg2+" lemon:marker :" + proeposition_id + " .\n"
                     + "## Prepositions ##\n"
                     + ":" + proeposition_id + " a                  lemon:SynRoleMarker ;\n"
                     + "  lemon:canonicalForm  [ lemon:writtenRep \"" + preposition + "\"@" + language + " ] ;\n"
                     + "  lexinfo:partOfSpeech lexinfo:preposition .\n"
                     + "\n"
                     + "";
+        }
+        
+         public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
+            String str = "";
+            if (syntacticFrame.equals(NounPPFrame)) {
+                for (Tupples tupple : tupples) {
+                    String line = ":" + tupple.getSenseId() + " a lemon:OntoMap, lemon:LexicalSense ;\n"
+                            + "  lemon:ontoMapping         :" + tupple.getSenseId() + " ;\n"
+                            + "  lemon:reference           <" + tupple.getReference() + "> ;\n"
+                            + "  lemon:subjOfProp          :"+this.arg2+" ;\n"
+                            + "  lemon:objOfProp           :"+this.arg1+" ;\n"
+                            + "  lemon:condition           :" + tupple.getSenseId() + "_condition .\n"
+                            + "\n"
+                            + ":" + tupple.getSenseId() + "_condition a lemon:condition ;\n"
+                            + "  lemon:propertyDomain  <" + tupple.getDomain() + "> ;\n"
+                            + "  lemon:propertyRange   <" + tupple.getRange() + "> .\n"
+                            + "\n";
+                    str += line;
+                }
+            }
+
+            return str;
         }
 
         public String getLemonEntryIndex(String[] row) {
@@ -218,27 +242,7 @@ public class EnglishCsv implements TempConstants {
         public String getRangeWrittenPlural(String[] row) {
             return row[rangeWrittenPlural];
         }*/
-        public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
-            String str = "";
-            if (syntacticFrame.equals(NounPPFrame)) {
-                for (Tupples tupple : tupples) {
-                    String line = ":" + tupple.getSenseId() + " a lemon:OntoMap, lemon:LexicalSense ;\n"
-                            + "  lemon:ontoMapping         :" + tupple.getSenseId() + " ;\n"
-                            + "  lemon:reference           <" + tupple.getReference() + "> ;\n"
-                            + "  lemon:subjOfProp          :arg2 ;\n"
-                            + "  lemon:objOfProp           :arg1 ;\n"
-                            + "  lemon:condition           :" + tupple.getSenseId() + "_condition .\n"
-                            + "\n"
-                            + ":" + tupple.getSenseId() + "_condition a lemon:condition ;\n"
-                            + "  lemon:propertyDomain  <" + tupple.getDomain() + "> ;\n"
-                            + "  lemon:propertyRange   <" + tupple.getRange() + "> .\n"
-                            + "\n";
-                    str += line;
-                }
-            }
-
-            return str;
-        }
+       
 
     }
 

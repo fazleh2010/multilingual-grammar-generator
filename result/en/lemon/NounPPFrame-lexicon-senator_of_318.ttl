@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :senator_of_318 ;
+  lemon:entry    :senator_of_318_form_preposition .
+
+:senator_of_318 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :senator_of_318_form ;
+  lemon:otherForm  :senator_of_318_singular ;
+  lemon:otherForm  :senator_of_318_plural ;
+  lemon:sense          :senator_of_318_sense_1 ;
+  lemon:synBehavior    :senator_of_318_nounpp .
+
+:senator_of_318_form a lemon:Form ;
+  lemon:writtenRep "Senator"@en .
+
+:senator_of_318_singular a    lemon:Form ;
+  lemon:writtenRep "Senator"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:senator_of_318_plural a   lemon:Form ;
+  lemon:writtenRep "Senators"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:senator_of_318_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_senator_of_318 ;
+  lexinfo:prepositionalAdjunct :arg2_senator_of_318 .
+
+:senator_of_318_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :senator_of_318_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_senator_of_318 ;
+  lemon:objOfProp           :arg1_senator_of_318 ;
+  lemon:condition           :senator_of_318_sense_1_condition .
+
+:senator_of_318_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Senator> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Senator> .
+
+:arg2_senator_of_318 lemon:marker :senator_of_318_form_preposition .
+## Prepositions ##
+:senator_of_318_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

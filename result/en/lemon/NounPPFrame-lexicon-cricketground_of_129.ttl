@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cricketground_of_129 ;
+  lemon:entry    :cricketground_of_129_form_preposition .
+
+:cricketground_of_129 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cricketground_of_129_form ;
+  lemon:otherForm  :cricketground_of_129_singular ;
+  lemon:otherForm  :cricketground_of_129_plural ;
+  lemon:sense          :cricketground_of_129_sense_1 ;
+  lemon:synBehavior    :cricketground_of_129_nounpp .
+
+:cricketground_of_129_form a lemon:Form ;
+  lemon:writtenRep "Cricket Ground"@en .
+
+:cricketground_of_129_singular a    lemon:Form ;
+  lemon:writtenRep "Cricket Ground"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cricketground_of_129_plural a   lemon:Form ;
+  lemon:writtenRep "Cricket Grounds"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cricketground_of_129_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cricketground_of_129 ;
+  lexinfo:prepositionalAdjunct :arg2_cricketground_of_129 .
+
+:cricketground_of_129_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cricketground_of_129_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_cricketground_of_129 ;
+  lemon:objOfProp           :arg1_cricketground_of_129 ;
+  lemon:condition           :cricketground_of_129_sense_1_condition .
+
+:cricketground_of_129_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/CricketGround> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/CricketGround> .
+
+:arg2_cricketground_of_129 lemon:marker :cricketground_of_129_form_preposition .
+## Prepositions ##
+:cricketground_of_129_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

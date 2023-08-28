@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :rower_of_350 ;
+  lemon:entry    :rower_of_350_form_preposition .
+
+:rower_of_350 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :rower_of_350_form ;
+  lemon:otherForm  :rower_of_350_singular ;
+  lemon:otherForm  :rower_of_350_plural ;
+  lemon:sense          :rower_of_350_sense_1 ;
+  lemon:synBehavior    :rower_of_350_nounpp .
+
+:rower_of_350_form a lemon:Form ;
+  lemon:writtenRep "Rower"@en .
+
+:rower_of_350_singular a    lemon:Form ;
+  lemon:writtenRep "Rower"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:rower_of_350_plural a   lemon:Form ;
+  lemon:writtenRep "Rowers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:rower_of_350_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_rower_of_350 ;
+  lexinfo:prepositionalAdjunct :arg2_rower_of_350 .
+
+:rower_of_350_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :rower_of_350_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_rower_of_350 ;
+  lemon:objOfProp           :arg1_rower_of_350 ;
+  lemon:condition           :rower_of_350_sense_1_condition .
+
+:rower_of_350_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Rower> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Rower> .
+
+:arg2_rower_of_350 lemon:marker :rower_of_350_form_preposition .
+## Prepositions ##
+:rower_of_350_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :concentrationcamp_of_99 ;
+  lemon:entry    :concentrationcamp_of_99_form_preposition .
+
+:concentrationcamp_of_99 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :concentrationcamp_of_99_form ;
+  lemon:otherForm  :concentrationcamp_of_99_singular ;
+  lemon:otherForm  :concentrationcamp_of_99_plural ;
+  lemon:sense          :concentrationcamp_of_99_sense_1 ;
+  lemon:synBehavior    :concentrationcamp_of_99_nounpp .
+
+:concentrationcamp_of_99_form a lemon:Form ;
+  lemon:writtenRep "Concentration Camp"@en .
+
+:concentrationcamp_of_99_singular a    lemon:Form ;
+  lemon:writtenRep "Concentration Camp"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:concentrationcamp_of_99_plural a   lemon:Form ;
+  lemon:writtenRep "Concentration Camps"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:concentrationcamp_of_99_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_concentrationcamp_of_99 ;
+  lexinfo:prepositionalAdjunct :arg2_concentrationcamp_of_99 .
+
+:concentrationcamp_of_99_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :concentrationcamp_of_99_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_concentrationcamp_of_99 ;
+  lemon:objOfProp           :arg1_concentrationcamp_of_99 ;
+  lemon:condition           :concentrationcamp_of_99_sense_1_condition .
+
+:concentrationcamp_of_99_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ConcentrationCamp> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ConcentrationCamp> .
+
+:arg2_concentrationcamp_of_99 lemon:marker :concentrationcamp_of_99_form_preposition .
+## Prepositions ##
+:concentrationcamp_of_99_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
