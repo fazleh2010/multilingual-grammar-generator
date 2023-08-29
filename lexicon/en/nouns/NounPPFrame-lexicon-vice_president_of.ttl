@@ -19,7 +19,7 @@
   lemon:synBehavior    :vice_president_of_nounpp .
 
 :vice_president_of_form a lemon:Form ;
-  lemon:writtenRep "vice president"@en .
+  lemon:writtenRep "vice president"@en ;
 
 :vice_president_of_singular a    lemon:Form ;
   lemon:writtenRep "vice president"@en ;

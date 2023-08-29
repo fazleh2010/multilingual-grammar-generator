@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :author_of_172 ;
+  lemon:entry    :author_of_172_form_preposition .
+
+:author_of_172 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :author_of_172_form ;
+  lemon:otherForm  :author_of_172_singular ;
+  lemon:otherForm  :author_of_172_plural ;
+  lemon:sense          :author_of_172_sense_1 ;
+  lemon:synBehavior    :author_of_172_nounpp .
+
+:author_of_172_form a lemon:Form ;
+
+:author_of_172_singular a    lemon:Form ;
+  lemon:writtenRep "author"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:author_of_172_plural a   lemon:Form ;
+  lemon:writtenRep "authors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:author_of_172_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_author_of_172 ;
+  lexinfo:prepositionalAdjunct :arg2_author_of_172 .
+
+:author_of_172_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :author_of_172_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_author_of_172 ;
+  lemon:objOfProp           :arg1_author_of_172 ;
+  lemon:condition           :author_of_172_sense_1_condition .
+
+:author_of_172_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Author> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Author> .
+
+:arg2_author_of_172 lemon:marker :author_of_172_form_preposition .
+## Prepositions ##
+:author_of_172_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :episode-of_497 ;
+  lemon:entry    :episode-of_497_form_preposition .
+
+:episode-of_497 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :episode-of_497_form ;
+  lemon:otherForm  :episode-of_497_singular ;
+  lemon:otherForm  :episode-of_497_plural ;
+  lemon:sense          :episode-of_497_sense_1 ;
+  lemon:synBehavior    :episode-of_497_nounpp .
+
+:episode-of_497_form a lemon:Form ;
+
+:episode-of_497_singular a    lemon:Form ;
+  lemon:writtenRep "episode"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:episode-of_497_plural a   lemon:Form ;
+  lemon:writtenRep "episodes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:episode-of_497_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_episode-of_497 ;
+  lexinfo:prepositionalAdjunct :arg2_episode-of_497 .
+
+:episode-of_497_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :episode-of_497_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :arg2_episode-of_497 ;
+  lemon:objOfProp           :arg1_episode-of_497 ;
+  lemon:condition           :episode-of_497_sense_1_condition .
+
+:episode-of_497_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionEpisode> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Work> .
+
+:arg2_episode-of_497 lemon:marker :episode-of_497_form_preposition .
+## Prepositions ##
+:episode-of_497_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

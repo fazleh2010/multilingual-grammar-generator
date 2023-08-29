@@ -19,7 +19,7 @@
   lemon:synBehavior    :foundationPlace_of_nounpp .
 
 :foundationPlace_of_form a lemon:Form ;
-  lemon:writtenRep "foundation place"@en .
+  lemon:writtenRep "foundation place"@en ;
 
 :foundationPlace_of_singular a    lemon:Form ;
   lemon:writtenRep "foundation place"@en ;

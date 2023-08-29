@@ -19,7 +19,7 @@
   lemon:synBehavior    :deathPlace_nounpp .
 
 :deathPlace_form a lemon:Form ;
-  lemon:writtenRep "death place"@en .
+  lemon:writtenRep "death place"@en ;
 
 :deathPlace_singular a    lemon:Form ;
   lemon:writtenRep "death place"@en ;

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :food_of_28 ;
+  lemon:entry    :food_of_28_form_preposition .
+
+:food_of_28 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :food_of_28_form ;
+  lemon:otherForm  :food_of_28_singular ;
+  lemon:otherForm  :food_of_28_plural ;
+  lemon:sense          :food_of_28_sense_1 ;
+  lemon:synBehavior    :food_of_28_nounpp .
+
+:food_of_28_form a lemon:Form ;
+
+:food_of_28_singular a    lemon:Form ;
+  lemon:writtenRep "food"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:food_of_28_plural a   lemon:Form ;
+  lemon:writtenRep "foods"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:food_of_28_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_food_of_28 ;
+  lexinfo:prepositionalAdjunct :arg2_food_of_28 .
+
+:food_of_28_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :food_of_28_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_food_of_28 ;
+  lemon:objOfProp           :arg1_food_of_28 ;
+  lemon:condition           :food_of_28_sense_1_condition .
+
+:food_of_28_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Food> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Food> .
+
+:arg2_food_of_28 lemon:marker :food_of_28_form_preposition .
+## Prepositions ##
+:food_of_28_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -16,10 +16,11 @@
   lemon:otherForm  :son_of_singular ;
   lemon:otherForm  :son_of_plural ;
   lemon:sense          :son_of_sense_1 ;
+  lemon:sense          :son_of_sense_2 ;
   lemon:synBehavior    :son_of_nounpp .
 
 :son_of_form a lemon:Form ;
-  lemon:writtenRep "son"@en .
+  lemon:writtenRep "son"@en ;
 
 :son_of_singular a    lemon:Form ;
   lemon:writtenRep "son"@en ;
@@ -41,6 +42,17 @@
   lemon:condition           :son_of_sense_1_condition .
 
 :son_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:son_of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :son_of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/child> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :son_of_sense_2_condition .
+
+:son_of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
 

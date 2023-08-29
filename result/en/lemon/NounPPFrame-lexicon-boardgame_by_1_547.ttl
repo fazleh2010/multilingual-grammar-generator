@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :boardgame_by_1_547 ;
+  lemon:entry    :boardgame_by_1_547_form_preposition .
+
+:boardgame_by_1_547 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :boardgame_by_1_547_form ;
+  lemon:otherForm  :boardgame_by_1_547_singular ;
+  lemon:otherForm  :boardgame_by_1_547_plural ;
+  lemon:sense          :boardgame_by_1_547_sense_1 ;
+  lemon:sense          :boardgame_by_1_547_sense_2 ;
+  lemon:synBehavior    :boardgame_by_1_547_nounpp .
+
+:boardgame_by_1_547_form a lemon:Form ;
+
+:boardgame_by_1_547_singular a    lemon:Form ;
+  lemon:writtenRep "boardgame"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:boardgame_by_1_547_plural a   lemon:Form ;
+  lemon:writtenRep "boardgames"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:boardgame_by_1_547_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_boardgame_by_1_547 ;
+  lexinfo:prepositionalAdjunct :arg1_boardgame_by_1_547 .
+
+:boardgame_by_1_547_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :boardgame_by_1_547_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/publisher> ;
+  lemon:subjOfProp          :arg1_boardgame_by_1_547 ;
+  lemon:objOfProp           :arg2_boardgame_by_1_547 ;
+  lemon:condition           :boardgame_by_1_547_sense_1_condition .
+
+:boardgame_by_1_547_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:boardgame_by_1_547_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :boardgame_by_1_547_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/publisher> ;
+  lemon:subjOfProp          :arg1_boardgame_by_1_547 ;
+  lemon:objOfProp           :arg2_boardgame_by_1_547 ;
+  lemon:condition           :boardgame_by_1_547_sense_2_condition .
+
+:boardgame_by_1_547_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:arg1_boardgame_by_1_547 lemon:marker :boardgame_by_1_547_form_preposition .
+## Prepositions ##
+:boardgame_by_1_547_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

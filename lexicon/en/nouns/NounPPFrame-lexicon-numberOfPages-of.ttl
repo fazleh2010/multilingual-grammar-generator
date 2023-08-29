@@ -19,7 +19,7 @@
   lemon:synBehavior    :numberOfPages-of_nounpp .
 
 :numberOfPages-of_form a lemon:Form ;
-  lemon:writtenRep "number of pages"@en .
+  lemon:writtenRep "number of pages"@en ;
 
 :numberOfPages-of_singular a    lemon:Form ;
   lemon:writtenRep "number of pages"@en ;

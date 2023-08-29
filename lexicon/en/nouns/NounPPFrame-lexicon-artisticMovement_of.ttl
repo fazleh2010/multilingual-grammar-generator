@@ -20,7 +20,7 @@
   lemon:synBehavior    :artisticMovement_of_nounpp .
 
 :artisticMovement_of_form a lemon:Form ;
-  lemon:writtenRep "artistic movement"@en .
+  lemon:writtenRep "artistic movement"@en ;
 
 :artisticMovement_of_singular a    lemon:Form ;
   lemon:writtenRep "artistic movement"@en ;

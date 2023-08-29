@@ -19,7 +19,7 @@
   lemon:synBehavior    :closingDate-of_nounpp .
 
 :closingDate-of_form a lemon:Form ;
-  lemon:writtenRep "closing Date"@en .
+  lemon:writtenRep "closing Date"@en ;
 
 :closingDate-of_singular a    lemon:Form ;
   lemon:writtenRep "closing Date"@en ;

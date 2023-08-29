@@ -16,10 +16,11 @@
   lemon:otherForm  :currency_of_singular ;
   lemon:otherForm  :currency_of_plural ;
   lemon:sense          :currency_of_sense_1 ;
+  lemon:sense          :currency_of_sense_2 ;
   lemon:synBehavior    :currency_of_nounpp .
 
 :currency_of_form a lemon:Form ;
-  lemon:writtenRep "currency"@en .
+  lemon:writtenRep "currency"@en ;
 
 :currency_of_singular a    lemon:Form ;
   lemon:writtenRep "currency"@en ;
@@ -41,6 +42,17 @@
   lemon:condition           :currency_of_sense_1_condition .
 
 :currency_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Currency> .
+
+:currency_of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :currency_of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/currency> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :currency_of_sense_2_condition .
+
+:currency_of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Currency> .
 

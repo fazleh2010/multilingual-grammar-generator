@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :photographer_of_196 ;
+  lemon:entry    :photographer_of_196_form_preposition .
+
+:photographer_of_196 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :photographer_of_196_form ;
+  lemon:otherForm  :photographer_of_196_singular ;
+  lemon:otherForm  :photographer_of_196_plural ;
+  lemon:sense          :photographer_of_196_sense_1 ;
+  lemon:synBehavior    :photographer_of_196_nounpp .
+
+:photographer_of_196_form a lemon:Form ;
+
+:photographer_of_196_singular a    lemon:Form ;
+  lemon:writtenRep "Photographer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:photographer_of_196_plural a   lemon:Form ;
+  lemon:writtenRep "Photographers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:photographer_of_196_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_photographer_of_196 ;
+  lexinfo:prepositionalAdjunct :arg2_photographer_of_196 .
+
+:photographer_of_196_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :photographer_of_196_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_photographer_of_196 ;
+  lemon:objOfProp           :arg1_photographer_of_196 ;
+  lemon:condition           :photographer_of_196_sense_1_condition .
+
+:photographer_of_196_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Photographer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Photographer> .
+
+:arg2_photographer_of_196 lemon:marker :photographer_of_196_form_preposition .
+## Prepositions ##
+:photographer_of_196_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

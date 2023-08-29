@@ -16,10 +16,11 @@
   lemon:otherForm  :ingredient_of_singular ;
   lemon:otherForm  :ingredient_of_plural ;
   lemon:sense          :ingredient_of_sense_1 ;
+  lemon:sense          :ingredient_of_sense_2 ;
   lemon:synBehavior    :ingredient_of_nounpp .
 
 :ingredient_of_form a lemon:Form ;
-  lemon:writtenRep "ingredient"@en .
+  lemon:writtenRep "ingredient"@en ;
 
 :ingredient_of_singular a    lemon:Form ;
   lemon:writtenRep "ingredient"@en ;
@@ -41,6 +42,17 @@
   lemon:condition           :ingredient_of_sense_1_condition .
 
 :ingredient_of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Food> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:ingredient_of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ingredient_of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/ingredient> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :ingredient_of_sense_2_condition .
+
+:ingredient_of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Food> ;
   lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
 

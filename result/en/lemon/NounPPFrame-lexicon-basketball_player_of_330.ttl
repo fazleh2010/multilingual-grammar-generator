@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :basketball_player_of_330 ;
+  lemon:entry    :basketball_player_of_330_form_preposition .
+
+:basketball_player_of_330 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :basketball_player_of_330_form ;
+  lemon:otherForm  :basketball_player_of_330_singular ;
+  lemon:otherForm  :basketball_player_of_330_plural ;
+  lemon:sense          :basketball_player_of_330_sense_1 ;
+  lemon:synBehavior    :basketball_player_of_330_nounpp .
+
+:basketball_player_of_330_form a lemon:Form ;
+
+:basketball_player_of_330_singular a    lemon:Form ;
+  lemon:writtenRep "basketball player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:basketball_player_of_330_plural a   lemon:Form ;
+  lemon:writtenRep "basketball players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:basketball_player_of_330_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_basketball_player_of_330 ;
+  lexinfo:prepositionalAdjunct :arg2_basketball_player_of_330 .
+
+:basketball_player_of_330_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :basketball_player_of_330_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_basketball_player_of_330 ;
+  lemon:objOfProp           :arg1_basketball_player_of_330 ;
+  lemon:condition           :basketball_player_of_330_sense_1_condition .
+
+:basketball_player_of_330_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BasketballPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BasketballPlayer> .
+
+:arg2_basketball_player_of_330 lemon:marker :basketball_player_of_330_form_preposition .
+## Prepositions ##
+:basketball_player_of_330_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

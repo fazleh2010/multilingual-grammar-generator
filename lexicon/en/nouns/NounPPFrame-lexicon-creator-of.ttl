@@ -19,7 +19,7 @@
   lemon:synBehavior    :creator-of_nounpp .
 
 :creator-of_form a lemon:Form ;
-  lemon:writtenRep "creator"@en .
+  lemon:writtenRep "creator"@en ;
 
 :creator-of_singular a    lemon:Form ;
   lemon:writtenRep "creator"@en ;

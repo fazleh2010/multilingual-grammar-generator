@@ -19,7 +19,7 @@
   lemon:synBehavior    :programmingLanguage_of_nounpp .
 
 :programmingLanguage_of_form a lemon:Form ;
-  lemon:writtenRep "programming language"@en .
+  lemon:writtenRep "programming language"@en ;
 
 :programmingLanguage_of_singular a    lemon:Form ;
   lemon:writtenRep "programming language"@en ;

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :filmfestival_of_87 ;
+  lemon:entry    :filmfestival_of_87_form_preposition .
+
+:filmfestival_of_87 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :filmfestival_of_87_form ;
+  lemon:otherForm  :filmfestival_of_87_singular ;
+  lemon:otherForm  :filmfestival_of_87_plural ;
+  lemon:sense          :filmfestival_of_87_sense_1 ;
+  lemon:synBehavior    :filmfestival_of_87_nounpp .
+
+:filmfestival_of_87_form a lemon:Form ;
+
+:filmfestival_of_87_singular a    lemon:Form ;
+  lemon:writtenRep "Film Festival"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:filmfestival_of_87_plural a   lemon:Form ;
+  lemon:writtenRep "Film Festivals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:filmfestival_of_87_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_filmfestival_of_87 ;
+  lexinfo:prepositionalAdjunct :arg2_filmfestival_of_87 .
+
+:filmfestival_of_87_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :filmfestival_of_87_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_filmfestival_of_87 ;
+  lemon:objOfProp           :arg1_filmfestival_of_87 ;
+  lemon:condition           :filmfestival_of_87_sense_1_condition .
+
+:filmfestival_of_87_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/FilmFestival> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/FilmFestival> .
+
+:arg2_filmfestival_of_87 lemon:marker :filmfestival_of_87_form_preposition .
+## Prepositions ##
+:filmfestival_of_87_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

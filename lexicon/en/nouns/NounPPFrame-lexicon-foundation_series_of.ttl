@@ -19,7 +19,7 @@
   lemon:synBehavior    :foundation_series_of_nounpp .
 
 :foundation_series_of_form a lemon:Form ;
-  lemon:writtenRep "foundation series"@en .
+  lemon:writtenRep "foundation series"@en ;
 
 :foundation_series_of_singular a    lemon:Form ;
   lemon:writtenRep "foundation series"@en ;

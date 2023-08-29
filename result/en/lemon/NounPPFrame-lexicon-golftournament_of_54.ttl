@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :golftournament_of_54 ;
+  lemon:entry    :golftournament_of_54_form_preposition .
+
+:golftournament_of_54 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :golftournament_of_54_form ;
+  lemon:otherForm  :golftournament_of_54_singular ;
+  lemon:otherForm  :golftournament_of_54_plural ;
+  lemon:sense          :golftournament_of_54_sense_1 ;
+  lemon:synBehavior    :golftournament_of_54_nounpp .
+
+:golftournament_of_54_form a lemon:Form ;
+
+:golftournament_of_54_singular a    lemon:Form ;
+  lemon:writtenRep "Golf Tournament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:golftournament_of_54_plural a   lemon:Form ;
+  lemon:writtenRep "Golf Tournaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:golftournament_of_54_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_golftournament_of_54 ;
+  lexinfo:prepositionalAdjunct :arg2_golftournament_of_54 .
+
+:golftournament_of_54_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :golftournament_of_54_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_golftournament_of_54 ;
+  lemon:objOfProp           :arg1_golftournament_of_54 ;
+  lemon:condition           :golftournament_of_54_sense_1_condition .
+
+:golftournament_of_54_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/GolfTournament> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/GolfTournament> .
+
+:arg2_golftournament_of_54 lemon:marker :golftournament_of_54_form_preposition .
+## Prepositions ##
+:golftournament_of_54_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

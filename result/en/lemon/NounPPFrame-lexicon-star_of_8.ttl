@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :star_of_8 ;
+  lemon:entry    :star_of_8_form_preposition .
+
+:star_of_8 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :star_of_8_form ;
+  lemon:otherForm  :star_of_8_singular ;
+  lemon:otherForm  :star_of_8_plural ;
+  lemon:sense          :star_of_8_sense_1 ;
+  lemon:synBehavior    :star_of_8_nounpp .
+
+:star_of_8_form a lemon:Form ;
+
+:star_of_8_singular a    lemon:Form ;
+  lemon:writtenRep "Star"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:star_of_8_plural a   lemon:Form ;
+  lemon:writtenRep "Stars"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:star_of_8_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_star_of_8 ;
+  lexinfo:prepositionalAdjunct :arg2_star_of_8 .
+
+:star_of_8_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :star_of_8_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_star_of_8 ;
+  lemon:objOfProp           :arg1_star_of_8 ;
+  lemon:condition           :star_of_8_sense_1_condition .
+
+:star_of_8_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Star> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Star> .
+
+:arg2_star_of_8 lemon:marker :star_of_8_form_preposition .
+## Prepositions ##
+:star_of_8_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

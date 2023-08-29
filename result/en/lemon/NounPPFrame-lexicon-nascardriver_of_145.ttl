@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :nascardriver_of_145 ;
+  lemon:entry    :nascardriver_of_145_form_preposition .
+
+:nascardriver_of_145 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :nascardriver_of_145_form ;
+  lemon:otherForm  :nascardriver_of_145_singular ;
+  lemon:otherForm  :nascardriver_of_145_plural ;
+  lemon:sense          :nascardriver_of_145_sense_1 ;
+  lemon:synBehavior    :nascardriver_of_145_nounpp .
+
+:nascardriver_of_145_form a lemon:Form ;
+
+:nascardriver_of_145_singular a    lemon:Form ;
+  lemon:writtenRep "Nascar Driver"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:nascardriver_of_145_plural a   lemon:Form ;
+  lemon:writtenRep "Nascar Drivers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:nascardriver_of_145_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_nascardriver_of_145 ;
+  lexinfo:prepositionalAdjunct :arg2_nascardriver_of_145 .
+
+:nascardriver_of_145_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :nascardriver_of_145_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_nascardriver_of_145 ;
+  lemon:objOfProp           :arg1_nascardriver_of_145 ;
+  lemon:condition           :nascardriver_of_145_sense_1_condition .
+
+:nascardriver_of_145_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/NascarDriver> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/NascarDriver> .
+
+:arg2_nascardriver_of_145 lemon:marker :nascardriver_of_145_form_preposition .
+## Prepositions ##
+:nascardriver_of_145_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

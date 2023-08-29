@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :newspaper_of_216 ;
+  lemon:entry    :newspaper_of_216_form_preposition .
+
+:newspaper_of_216 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :newspaper_of_216_form ;
+  lemon:otherForm  :newspaper_of_216_singular ;
+  lemon:otherForm  :newspaper_of_216_plural ;
+  lemon:sense          :newspaper_of_216_sense_1 ;
+  lemon:synBehavior    :newspaper_of_216_nounpp .
+
+:newspaper_of_216_form a lemon:Form ;
+
+:newspaper_of_216_singular a    lemon:Form ;
+  lemon:writtenRep "Newspaper"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:newspaper_of_216_plural a   lemon:Form ;
+  lemon:writtenRep "Newspapers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:newspaper_of_216_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_newspaper_of_216 ;
+  lexinfo:prepositionalAdjunct :arg2_newspaper_of_216 .
+
+:newspaper_of_216_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :newspaper_of_216_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_newspaper_of_216 ;
+  lemon:objOfProp           :arg1_newspaper_of_216 ;
+  lemon:condition           :newspaper_of_216_sense_1_condition .
+
+:newspaper_of_216_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Newspaper> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Newspaper> .
+
+:arg2_newspaper_of_216 lemon:marker :newspaper_of_216_form_preposition .
+## Prepositions ##
+:newspaper_of_216_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

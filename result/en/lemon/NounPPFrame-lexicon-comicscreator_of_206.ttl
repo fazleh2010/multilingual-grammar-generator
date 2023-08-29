@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :comicscreator_of_206 ;
+  lemon:entry    :comicscreator_of_206_form_preposition .
+
+:comicscreator_of_206 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :comicscreator_of_206_form ;
+  lemon:otherForm  :comicscreator_of_206_singular ;
+  lemon:otherForm  :comicscreator_of_206_plural ;
+  lemon:sense          :comicscreator_of_206_sense_1 ;
+  lemon:synBehavior    :comicscreator_of_206_nounpp .
+
+:comicscreator_of_206_form a lemon:Form ;
+
+:comicscreator_of_206_singular a    lemon:Form ;
+  lemon:writtenRep "Comics Creator"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:comicscreator_of_206_plural a   lemon:Form ;
+  lemon:writtenRep "Comics Creators"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:comicscreator_of_206_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_comicscreator_of_206 ;
+  lexinfo:prepositionalAdjunct :arg2_comicscreator_of_206 .
+
+:comicscreator_of_206_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :comicscreator_of_206_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_comicscreator_of_206 ;
+  lemon:objOfProp           :arg1_comicscreator_of_206 ;
+  lemon:condition           :comicscreator_of_206_sense_1_condition .
+
+:comicscreator_of_206_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ComicsCreator> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ComicsCreator> .
+
+:arg2_comicscreator_of_206 lemon:marker :comicscreator_of_206_form_preposition .
+## Prepositions ##
+:comicscreator_of_206_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

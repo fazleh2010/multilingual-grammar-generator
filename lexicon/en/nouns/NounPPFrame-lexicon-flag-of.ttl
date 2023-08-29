@@ -19,7 +19,7 @@
   lemon:synBehavior    :flag-of_nounpp .
 
 :flag-of_form a lemon:Form ;
-  lemon:writtenRep "flag"@en .
+  lemon:writtenRep "flag"@en ;
 
 :flag-of_singular a    lemon:Form ;
   lemon:writtenRep "flag"@en ;

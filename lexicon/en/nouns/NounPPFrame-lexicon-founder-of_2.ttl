@@ -19,7 +19,7 @@
   lemon:synBehavior    :founder-of_2_nounpp .
 
 :founder-of_2_form a lemon:Form ;
-  lemon:writtenRep "founder"@en .
+  lemon:writtenRep "founder"@en ;
 
 :founder-of_2_singular a    lemon:Form ;
   lemon:writtenRep "founder"@en ;

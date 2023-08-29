@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :priest_of_208 ;
+  lemon:entry    :priest_of_208_form_preposition .
+
+:priest_of_208 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :priest_of_208_form ;
+  lemon:otherForm  :priest_of_208_singular ;
+  lemon:otherForm  :priest_of_208_plural ;
+  lemon:sense          :priest_of_208_sense_1 ;
+  lemon:synBehavior    :priest_of_208_nounpp .
+
+:priest_of_208_form a lemon:Form ;
+
+:priest_of_208_singular a    lemon:Form ;
+  lemon:writtenRep "Priest"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:priest_of_208_plural a   lemon:Form ;
+  lemon:writtenRep "Priests"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:priest_of_208_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_priest_of_208 ;
+  lexinfo:prepositionalAdjunct :arg2_priest_of_208 .
+
+:priest_of_208_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :priest_of_208_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_priest_of_208 ;
+  lemon:objOfProp           :arg1_priest_of_208 ;
+  lemon:condition           :priest_of_208_sense_1_condition .
+
+:priest_of_208_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Priest> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Priest> .
+
+:arg2_priest_of_208 lemon:marker :priest_of_208_form_preposition .
+## Prepositions ##
+:priest_of_208_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

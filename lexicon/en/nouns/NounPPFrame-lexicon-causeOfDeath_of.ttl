@@ -19,7 +19,7 @@
   lemon:synBehavior    :causeOfDeath_of_nounpp .
 
 :causeOfDeath_of_form a lemon:Form ;
-  lemon:writtenRep "cause of death"@en .
+  lemon:writtenRep "cause of death"@en ;
 
 :causeOfDeath_of_singular a    lemon:Form ;
   lemon:writtenRep "cause of death"@en ;

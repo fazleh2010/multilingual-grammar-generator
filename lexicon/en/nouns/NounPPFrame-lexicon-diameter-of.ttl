@@ -19,7 +19,7 @@
   lemon:synBehavior    :diameter-of_nounpp .
 
 :diameter-of_form a lemon:Form ;
-  lemon:writtenRep "diameter"@en .
+  lemon:writtenRep "diameter"@en ;
 
 :diameter-of_singular a    lemon:Form ;
   lemon:writtenRep "diameter"@en ;

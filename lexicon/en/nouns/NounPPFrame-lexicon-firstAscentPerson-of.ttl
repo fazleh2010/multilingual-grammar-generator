@@ -19,7 +19,7 @@
   lemon:synBehavior    :firstAscentPerson-of_nounpp .
 
 :firstAscentPerson-of_form a lemon:Form ;
-  lemon:writtenRep "first Ascent Person"@en .
+  lemon:writtenRep "first Ascent Person"@en ;
 
 :firstAscentPerson-of_singular a    lemon:Form ;
   lemon:writtenRep "first Ascent Person"@en ;

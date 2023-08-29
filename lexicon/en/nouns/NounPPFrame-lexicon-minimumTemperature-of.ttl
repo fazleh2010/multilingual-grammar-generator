@@ -19,7 +19,7 @@
   lemon:synBehavior    :minimumTemperature-of_nounpp .
 
 :minimumTemperature-of_form a lemon:Form ;
-  lemon:writtenRep "minimum Temperature"@en .
+  lemon:writtenRep "minimum Temperature"@en ;
 
 :minimumTemperature-of_singular a    lemon:Form ;
   lemon:writtenRep "minimum Temperature"@en ;

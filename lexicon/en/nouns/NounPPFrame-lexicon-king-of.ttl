@@ -16,11 +16,10 @@
   lemon:otherForm  :king-of_singular ;
   lemon:otherForm  :king-of_plural ;
   lemon:sense          :king-of_sense_1 ;
-  lemon:sense          :king-of_sense_2 ;
   lemon:synBehavior    :king-of_nounpp .
 
 :king-of_form a lemon:Form ;
-  lemon:writtenRep "king"@en .
+  lemon:writtenRep "king"@en ;
 
 :king-of_singular a    lemon:Form ;
   lemon:writtenRep "king"@en ;
@@ -36,24 +35,13 @@
 
 :king-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping         :king-of_sense_1 ;
-  lemon:reference           <http://dbpedia.org/property/title> ;
+  lemon:reference           <http://dbpedia.org/ontology/leader> ;
   lemon:subjOfProp          :arg2 ;
   lemon:objOfProp           :arg1 ;
   lemon:condition           :king-of_sense_1_condition .
 
 :king-of_sense_1_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
-  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
-
-:king-of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
-  lemon:ontoMapping         :king-of_sense_2 ;
-  lemon:reference           <http://dbpedia.org/property/title> ;
-  lemon:subjOfProp          :arg2 ;
-  lemon:objOfProp           :arg1 ;
-  lemon:condition           :king-of_sense_2_condition .
-
-:king-of_sense_2_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Legislature> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
 
 :arg2 lemon:marker :king-of_form_preposition .

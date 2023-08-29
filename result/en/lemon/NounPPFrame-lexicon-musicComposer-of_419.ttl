@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :musicComposer-of_419 ;
+  lemon:entry    :musicComposer-of_419_form_preposition .
+
+:musicComposer-of_419 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :musicComposer-of_419_form ;
+  lemon:otherForm  :musicComposer-of_419_singular ;
+  lemon:otherForm  :musicComposer-of_419_plural ;
+  lemon:sense          :musicComposer-of_419_sense_1 ;
+  lemon:synBehavior    :musicComposer-of_419_nounpp .
+
+:musicComposer-of_419_form a lemon:Form ;
+
+:musicComposer-of_419_singular a    lemon:Form ;
+  lemon:writtenRep "music composer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:musicComposer-of_419_plural a   lemon:Form ;
+  lemon:writtenRep "music composers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:musicComposer-of_419_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_musicComposer-of_419 ;
+  lexinfo:prepositionalAdjunct :arg2_musicComposer-of_419 .
+
+:musicComposer-of_419_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :musicComposer-of_419_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/musicComposer> ;
+  lemon:subjOfProp          :arg2_musicComposer-of_419 ;
+  lemon:objOfProp           :arg1_musicComposer-of_419 ;
+  lemon:condition           :musicComposer-of_419_sense_1_condition .
+
+:musicComposer-of_419_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_musicComposer-of_419 lemon:marker :musicComposer-of_419_form_preposition .
+## Prepositions ##
+:musicComposer-of_419_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

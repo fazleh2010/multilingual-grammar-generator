@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :Book-in_407 ;
+  lemon:entry    :Book-in_407_form_preposition .
+
+:Book-in_407 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :Book-in_407_form ;
+  lemon:otherForm  :Book-in_407_singular ;
+  lemon:otherForm  :Book-in_407_plural ;
+  lemon:sense          :Book-in_407_sense_1 ;
+  lemon:synBehavior    :Book-in_407_nounpp .
+
+:Book-in_407_form a lemon:Form ;
+
+:Book-in_407_singular a    lemon:Form ;
+  lemon:writtenRep "book"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:Book-in_407_plural a   lemon:Form ;
+  lemon:writtenRep "books"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:Book-in_407_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_Book-in_407 ;
+  lexinfo:prepositionalAdjunct :arg1_Book-in_407 .
+
+:Book-in_407_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :Book-in_407_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :arg1_Book-in_407 ;
+  lemon:objOfProp           :arg2_Book-in_407 ;
+  lemon:condition           :Book-in_407_sense_1_condition .
+
+:Book-in_407_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Book> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/TelevisionShow> .
+
+:arg1_Book-in_407 lemon:marker :Book-in_407_form_preposition .
+## Prepositions ##
+:Book-in_407_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

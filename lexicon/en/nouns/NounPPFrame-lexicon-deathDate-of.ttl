@@ -19,7 +19,7 @@
   lemon:synBehavior    :deathDate-of_nounpp .
 
 :deathDate-of_form a lemon:Form ;
-  lemon:writtenRep "death date"@en .
+  lemon:writtenRep "death date"@en ;
 
 :deathDate-of_singular a    lemon:Form ;
   lemon:writtenRep "death date"@en ;

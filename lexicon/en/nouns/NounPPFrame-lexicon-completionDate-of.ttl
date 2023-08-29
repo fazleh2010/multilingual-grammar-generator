@@ -19,7 +19,7 @@
   lemon:synBehavior    :completionDate-of_nounpp .
 
 :completionDate-of_form a lemon:Form ;
-  lemon:writtenRep "completion date"@en .
+  lemon:writtenRep "completion date"@en ;
 
 :completionDate-of_singular a    lemon:Form ;
   lemon:writtenRep "completion date"@en ;

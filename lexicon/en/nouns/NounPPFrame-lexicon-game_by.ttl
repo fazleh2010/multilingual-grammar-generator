@@ -19,7 +19,7 @@
   lemon:synBehavior    :game_by_nounpp .
 
 :game_by_form a lemon:Form ;
-  lemon:writtenRep "game"@en .
+  lemon:writtenRep "game"@en ;
 
 :game_by_singular a    lemon:Form ;
   lemon:writtenRep "game"@en ;
@@ -30,8 +30,8 @@
   lexinfo:number    lexinfo:plural .
 
 :game_by_nounpp a        lexinfo:NounPPFrame ;
-  lexinfo:copulativeArg        :arg2 ;
-  lexinfo:prepositionalAdjunct :arg1 .
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
 
 :game_by_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
   lemon:ontoMapping         :game_by_sense_1 ;

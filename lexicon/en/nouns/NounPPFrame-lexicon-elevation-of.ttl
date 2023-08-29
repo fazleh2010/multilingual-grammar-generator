@@ -19,7 +19,7 @@
   lemon:synBehavior    :elevation-of_nounpp .
 
 :elevation-of_form a lemon:Form ;
-  lemon:writtenRep "elevation"@en .
+  lemon:writtenRep "elevation"@en ;
 
 :elevation-of_singular a    lemon:Form ;
   lemon:writtenRep "elevation"@en ;

@@ -19,7 +19,7 @@
   lemon:synBehavior    :alterEgo-of_nounpp .
 
 :alterEgo-of_form a lemon:Form ;
-  lemon:writtenRep "alter ego"@en .
+  lemon:writtenRep "alter ego"@en ;
 
 :alterEgo-of_singular a    lemon:Form ;
   lemon:writtenRep "alter ego"@en ;

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cheese_of_296 ;
+  lemon:entry    :cheese_of_296_form_preposition .
+
+:cheese_of_296 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cheese_of_296_form ;
+  lemon:otherForm  :cheese_of_296_singular ;
+  lemon:otherForm  :cheese_of_296_plural ;
+  lemon:sense          :cheese_of_296_sense_1 ;
+  lemon:synBehavior    :cheese_of_296_nounpp .
+
+:cheese_of_296_form a lemon:Form ;
+
+:cheese_of_296_singular a    lemon:Form ;
+  lemon:writtenRep "Cheese"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cheese_of_296_plural a   lemon:Form ;
+  lemon:writtenRep "Cheeses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cheese_of_296_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cheese_of_296 ;
+  lexinfo:prepositionalAdjunct :arg2_cheese_of_296 .
+
+:cheese_of_296_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cheese_of_296_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_cheese_of_296 ;
+  lemon:objOfProp           :arg1_cheese_of_296 ;
+  lemon:condition           :cheese_of_296_sense_1_condition .
+
+:cheese_of_296_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Cheese> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Cheese> .
+
+:arg2_cheese_of_296 lemon:marker :cheese_of_296_form_preposition .
+## Prepositions ##
+:cheese_of_296_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

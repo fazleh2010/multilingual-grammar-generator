@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :first-name_of_535 ;
+  lemon:entry    :first-name_of_535_form_preposition .
+
+:first-name_of_535 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :first-name_of_535_form ;
+  lemon:otherForm  :first-name_of_535_singular ;
+  lemon:otherForm  :first-name_of_535_plural ;
+  lemon:sense          :first-name_of_535_sense_1 ;
+  lemon:synBehavior    :first-name_of_535_nounpp .
+
+:first-name_of_535_form a lemon:Form ;
+
+:first-name_of_535_singular a    lemon:Form ;
+  lemon:writtenRep "headquarter"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:first-name_of_535_plural a   lemon:Form ;
+  lemon:writtenRep "headquarters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:first-name_of_535_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_first-name_of_535 ;
+  lexinfo:prepositionalAdjunct :arg2_first-name_of_535 .
+
+:first-name_of_535_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :first-name_of_535_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/alias> ;
+  lemon:subjOfProp          :arg2_first-name_of_535 ;
+  lemon:objOfProp           :arg1_first-name_of_535 ;
+  lemon:condition           :first-name_of_535_sense_1_condition .
+
+:first-name_of_535_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#String> .
+
+:arg2_first-name_of_535 lemon:marker :first-name_of_535_form_preposition .
+## Prepositions ##
+:first-name_of_535_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

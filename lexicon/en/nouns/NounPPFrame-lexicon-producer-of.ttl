@@ -19,7 +19,7 @@
   lemon:synBehavior    :producer-of_nounpp .
 
 :producer-of_form a lemon:Form ;
-  lemon:writtenRep "producer"@en .
+  lemon:writtenRep "producer"@en ;
 
 :producer-of_singular a    lemon:Form ;
   lemon:writtenRep "producer"@en ;

@@ -19,7 +19,7 @@
   lemon:synBehavior    :autobiography-of_nounpp .
 
 :autobiography-of_form a lemon:Form ;
-  lemon:writtenRep "autobiography"@en .
+  lemon:writtenRep "autobiography"@en ;
 
 :autobiography-of_singular a    lemon:Form ;
   lemon:writtenRep "autobiography"@en ;

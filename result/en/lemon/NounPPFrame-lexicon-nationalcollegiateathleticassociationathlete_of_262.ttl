@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :nationalcollegiateathleticassociationathlete_of_262 ;
+  lemon:entry    :nationalcollegiateathleticassociationathlete_of_262_form_preposition .
+
+:nationalcollegiateathleticassociationathlete_of_262 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :nationalcollegiateathleticassociationathlete_of_262_form ;
+  lemon:otherForm  :nationalcollegiateathleticassociationathlete_of_262_singular ;
+  lemon:otherForm  :nationalcollegiateathleticassociationathlete_of_262_plural ;
+  lemon:sense          :nationalcollegiateathleticassociationathlete_of_262_sense_1 ;
+  lemon:synBehavior    :nationalcollegiateathleticassociationathlete_of_262_nounpp .
+
+:nationalcollegiateathleticassociationathlete_of_262_form a lemon:Form ;
+
+:nationalcollegiateathleticassociationathlete_of_262_singular a    lemon:Form ;
+  lemon:writtenRep "National Collegiate Athletic Association Athlete"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:nationalcollegiateathleticassociationathlete_of_262_plural a   lemon:Form ;
+  lemon:writtenRep "National Collegiate Athletic Association Athletes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:nationalcollegiateathleticassociationathlete_of_262_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_nationalcollegiateathleticassociationathlete_of_262 ;
+  lexinfo:prepositionalAdjunct :arg2_nationalcollegiateathleticassociationathlete_of_262 .
+
+:nationalcollegiateathleticassociationathlete_of_262_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :nationalcollegiateathleticassociationathlete_of_262_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_nationalcollegiateathleticassociationathlete_of_262 ;
+  lemon:objOfProp           :arg1_nationalcollegiateathleticassociationathlete_of_262 ;
+  lemon:condition           :nationalcollegiateathleticassociationathlete_of_262_sense_1_condition .
+
+:nationalcollegiateathleticassociationathlete_of_262_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/NationalCollegiateAthleticAssociationAthlete> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/NationalCollegiateAthleticAssociationAthlete> .
+
+:arg2_nationalcollegiateathleticassociationathlete_of_262 lemon:marker :nationalcollegiateathleticassociationathlete_of_262_form_preposition .
+## Prepositions ##
+:nationalcollegiateathleticassociationathlete_of_262_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

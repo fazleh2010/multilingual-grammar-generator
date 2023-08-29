@@ -19,7 +19,7 @@
   lemon:synBehavior    :father_of_nounpp .
 
 :father_of_form a lemon:Form ;
-  lemon:writtenRep "father"@en .
+  lemon:writtenRep "father"@en ;
 
 :father_of_singular a    lemon:Form ;
   lemon:writtenRep "father"@en ;

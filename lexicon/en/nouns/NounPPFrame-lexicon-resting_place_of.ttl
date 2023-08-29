@@ -19,7 +19,7 @@
   lemon:synBehavior    :resting_place_of_nounpp .
 
 :resting_place_of_form a lemon:Form ;
-  lemon:writtenRep "resting place"@en .
+  lemon:writtenRep "resting place"@en ;
 
 :resting_place_of_singular a    lemon:Form ;
   lemon:writtenRep "resting place"@en ;

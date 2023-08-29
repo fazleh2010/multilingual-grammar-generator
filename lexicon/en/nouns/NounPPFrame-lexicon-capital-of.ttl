@@ -19,7 +19,7 @@
   lemon:synBehavior    :capital-of_nounpp .
 
 :capital-of_form a lemon:Form ;
-  lemon:writtenRep "capital"@en .
+  lemon:writtenRep "capital"@en ;
 
 :capital-of_singular a    lemon:Form ;
   lemon:writtenRep "capital"@en ;

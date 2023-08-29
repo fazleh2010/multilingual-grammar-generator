@@ -19,7 +19,7 @@
   lemon:synBehavior    :nationality_of_nounpp .
 
 :nationality_of_form a lemon:Form ;
-  lemon:writtenRep "nationality"@en .
+  lemon:writtenRep "nationality"@en ;
 
 :nationality_of_singular a    lemon:Form ;
   lemon:writtenRep "nationality"@en ;

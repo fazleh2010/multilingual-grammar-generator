@@ -19,7 +19,7 @@
   lemon:synBehavior    :formOfGovernment-of_nounpp .
 
 :formOfGovernment-of_form a lemon:Form ;
-  lemon:writtenRep "form of government"@en .
+  lemon:writtenRep "form of government"@en ;
 
 :formOfGovernment-of_singular a    lemon:Form ;
   lemon:writtenRep "form of government"@en ;

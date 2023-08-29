@@ -19,7 +19,7 @@
   lemon:synBehavior    :largestCity_of_nounpp .
 
 :largestCity_of_form a lemon:Form ;
-  lemon:writtenRep "largest city"@en .
+  lemon:writtenRep "largest city"@en ;
 
 :largestCity_of_singular a    lemon:Form ;
   lemon:writtenRep "largest city"@en ;

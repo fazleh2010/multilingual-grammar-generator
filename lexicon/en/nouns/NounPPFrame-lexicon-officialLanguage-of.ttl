@@ -19,7 +19,7 @@
   lemon:synBehavior    :officialLanguage-of_nounpp .
 
 :officialLanguage-of_form a lemon:Form ;
-  lemon:writtenRep "official language"@en .
+  lemon:writtenRep "official language"@en ;
 
 :officialLanguage-of_singular a    lemon:Form ;
   lemon:writtenRep "official language"@en ;

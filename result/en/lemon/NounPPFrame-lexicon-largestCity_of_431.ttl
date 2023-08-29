@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :largestCity_of_431 ;
+  lemon:entry    :largestCity_of_431_form_preposition .
+
+:largestCity_of_431 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :largestCity_of_431_form ;
+  lemon:otherForm  :largestCity_of_431_singular ;
+  lemon:otherForm  :largestCity_of_431_plural ;
+  lemon:sense          :largestCity_of_431_sense_1 ;
+  lemon:synBehavior    :largestCity_of_431_nounpp .
+
+:largestCity_of_431_form a lemon:Form ;
+
+:largestCity_of_431_singular a    lemon:Form ;
+  lemon:writtenRep "largest city"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:largestCity_of_431_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:largestCity_of_431_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_largestCity_of_431 ;
+  lexinfo:prepositionalAdjunct :arg2_largestCity_of_431 .
+
+:largestCity_of_431_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :largestCity_of_431_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/largestCity> ;
+  lemon:subjOfProp          :arg2_largestCity_of_431 ;
+  lemon:objOfProp           :arg1_largestCity_of_431 ;
+  lemon:condition           :largestCity_of_431_sense_1_condition .
+
+:largestCity_of_431_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2_largestCity_of_431 lemon:marker :largestCity_of_431_form_preposition .
+## Prepositions ##
+:largestCity_of_431_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

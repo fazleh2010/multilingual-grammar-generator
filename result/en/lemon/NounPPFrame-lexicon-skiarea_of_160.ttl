@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :skiarea_of_160 ;
+  lemon:entry    :skiarea_of_160_form_preposition .
+
+:skiarea_of_160 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :skiarea_of_160_form ;
+  lemon:otherForm  :skiarea_of_160_singular ;
+  lemon:otherForm  :skiarea_of_160_plural ;
+  lemon:sense          :skiarea_of_160_sense_1 ;
+  lemon:synBehavior    :skiarea_of_160_nounpp .
+
+:skiarea_of_160_form a lemon:Form ;
+
+:skiarea_of_160_singular a    lemon:Form ;
+  lemon:writtenRep "Ski Area"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:skiarea_of_160_plural a   lemon:Form ;
+  lemon:writtenRep "Ski Areas"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:skiarea_of_160_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_skiarea_of_160 ;
+  lexinfo:prepositionalAdjunct :arg2_skiarea_of_160 .
+
+:skiarea_of_160_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :skiarea_of_160_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_skiarea_of_160 ;
+  lemon:objOfProp           :arg1_skiarea_of_160 ;
+  lemon:condition           :skiarea_of_160_sense_1_condition .
+
+:skiarea_of_160_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SkiArea> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SkiArea> .
+
+:arg2_skiarea_of_160 lemon:marker :skiarea_of_160_form_preposition .
+## Prepositions ##
+:skiarea_of_160_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -16,11 +16,10 @@
   lemon:otherForm  :birthPlace_of_singular ;
   lemon:otherForm  :birthPlace_of_plural ;
   lemon:sense          :birthPlace_of_sense_1 ;
-  lemon:sense          :birthPlace_of_sense_2 ;
   lemon:synBehavior    :birthPlace_of_nounpp .
 
 :birthPlace_of_form a lemon:Form ;
-  lemon:writtenRep "birth place"@en .
+  lemon:writtenRep "birth place"@en ;
 
 :birthPlace_of_singular a    lemon:Form ;
   lemon:writtenRep "birth place"@en ;
@@ -42,17 +41,6 @@
   lemon:condition           :birthPlace_of_sense_1_condition .
 
 :birthPlace_of_sense_1_condition a lemon:condition ;
-  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
-  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
-
-:birthPlace_of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
-  lemon:ontoMapping         :birthPlace_of_sense_2 ;
-  lemon:reference           <http://dbpedia.org/ontology/birthPlace> ;
-  lemon:subjOfProp          :arg2 ;
-  lemon:objOfProp           :arg1 ;
-  lemon:condition           :birthPlace_of_sense_2_condition .
-
-:birthPlace_of_sense_2_condition a lemon:condition ;
   lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
   lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
 

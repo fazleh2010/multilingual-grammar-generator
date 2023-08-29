@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :poem_of_329 ;
+  lemon:entry    :poem_of_329_form_preposition .
+
+:poem_of_329 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :poem_of_329_form ;
+  lemon:otherForm  :poem_of_329_singular ;
+  lemon:otherForm  :poem_of_329_plural ;
+  lemon:sense          :poem_of_329_sense_1 ;
+  lemon:synBehavior    :poem_of_329_nounpp .
+
+:poem_of_329_form a lemon:Form ;
+
+:poem_of_329_singular a    lemon:Form ;
+  lemon:writtenRep "Poem"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:poem_of_329_plural a   lemon:Form ;
+  lemon:writtenRep "Poems"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:poem_of_329_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_poem_of_329 ;
+  lexinfo:prepositionalAdjunct :arg2_poem_of_329 .
+
+:poem_of_329_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :poem_of_329_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_poem_of_329 ;
+  lemon:objOfProp           :arg1_poem_of_329 ;
+  lemon:condition           :poem_of_329_sense_1_condition .
+
+:poem_of_329_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Poem> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Poem> .
+
+:arg2_poem_of_329 lemon:marker :poem_of_329_form_preposition .
+## Prepositions ##
+:poem_of_329_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

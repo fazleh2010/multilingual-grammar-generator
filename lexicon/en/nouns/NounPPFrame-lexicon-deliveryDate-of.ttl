@@ -19,7 +19,7 @@
   lemon:synBehavior    :deliveryDate-of_nounpp .
 
 :deliveryDate-of_form a lemon:Form ;
-  lemon:writtenRep "delivery Date"@en .
+  lemon:writtenRep "delivery Date"@en ;
 
 :deliveryDate-of_singular a    lemon:Form ;
   lemon:writtenRep "delivery Date"@en ;

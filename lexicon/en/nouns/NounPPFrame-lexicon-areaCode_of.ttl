@@ -19,7 +19,7 @@
   lemon:synBehavior    :areaCode_of_nounpp .
 
 :areaCode_of_form a lemon:Form ;
-  lemon:writtenRep "area code"@en .
+  lemon:writtenRep "area code"@en ;
 
 :areaCode_of_singular a    lemon:Form ;
   lemon:writtenRep "area code"@en ;

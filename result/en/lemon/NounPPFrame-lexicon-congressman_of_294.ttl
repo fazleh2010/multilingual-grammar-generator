@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :congressman_of_294 ;
+  lemon:entry    :congressman_of_294_form_preposition .
+
+:congressman_of_294 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :congressman_of_294_form ;
+  lemon:otherForm  :congressman_of_294_singular ;
+  lemon:otherForm  :congressman_of_294_plural ;
+  lemon:sense          :congressman_of_294_sense_1 ;
+  lemon:synBehavior    :congressman_of_294_nounpp .
+
+:congressman_of_294_form a lemon:Form ;
+
+:congressman_of_294_singular a    lemon:Form ;
+  lemon:writtenRep "Congressman"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:congressman_of_294_plural a   lemon:Form ;
+  lemon:writtenRep "Congressmans"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:congressman_of_294_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_congressman_of_294 ;
+  lexinfo:prepositionalAdjunct :arg2_congressman_of_294 .
+
+:congressman_of_294_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :congressman_of_294_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_congressman_of_294 ;
+  lemon:objOfProp           :arg1_congressman_of_294 ;
+  lemon:condition           :congressman_of_294_sense_1_condition .
+
+:congressman_of_294_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Congressman> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Congressman> .
+
+:arg2_congressman_of_294 lemon:marker :congressman_of_294_form_preposition .
+## Prepositions ##
+:congressman_of_294_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :supremecourtoftheunitedstatescase_of_19 ;
+  lemon:entry    :supremecourtoftheunitedstatescase_of_19_form_preposition .
+
+:supremecourtoftheunitedstatescase_of_19 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :supremecourtoftheunitedstatescase_of_19_form ;
+  lemon:otherForm  :supremecourtoftheunitedstatescase_of_19_singular ;
+  lemon:otherForm  :supremecourtoftheunitedstatescase_of_19_plural ;
+  lemon:sense          :supremecourtoftheunitedstatescase_of_19_sense_1 ;
+  lemon:synBehavior    :supremecourtoftheunitedstatescase_of_19_nounpp .
+
+:supremecourtoftheunitedstatescase_of_19_form a lemon:Form ;
+
+:supremecourtoftheunitedstatescase_of_19_singular a    lemon:Form ;
+  lemon:writtenRep "Supreme Court of the United States Case"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:supremecourtoftheunitedstatescase_of_19_plural a   lemon:Form ;
+  lemon:writtenRep "Supreme Court of the United States Cases"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:supremecourtoftheunitedstatescase_of_19_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_supremecourtoftheunitedstatescase_of_19 ;
+  lexinfo:prepositionalAdjunct :arg2_supremecourtoftheunitedstatescase_of_19 .
+
+:supremecourtoftheunitedstatescase_of_19_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :supremecourtoftheunitedstatescase_of_19_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_supremecourtoftheunitedstatescase_of_19 ;
+  lemon:objOfProp           :arg1_supremecourtoftheunitedstatescase_of_19 ;
+  lemon:condition           :supremecourtoftheunitedstatescase_of_19_sense_1_condition .
+
+:supremecourtoftheunitedstatescase_of_19_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SupremeCourtOfTheUnitedStatesCase> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SupremeCourtOfTheUnitedStatesCase> .
+
+:arg2_supremecourtoftheunitedstatescase_of_19 lemon:marker :supremecourtoftheunitedstatescase_of_19_form_preposition .
+## Prepositions ##
+:supremecourtoftheunitedstatescase_of_19_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

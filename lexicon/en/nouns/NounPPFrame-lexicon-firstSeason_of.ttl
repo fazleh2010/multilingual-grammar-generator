@@ -19,7 +19,7 @@
   lemon:synBehavior    :firstSeason_of_nounpp .
 
 :firstSeason_of_form a lemon:Form ;
-  lemon:writtenRep "first season"@en .
+  lemon:writtenRep "first season"@en ;
 
 :firstSeason_of_singular a    lemon:Form ;
   lemon:writtenRep "first season"@en ;

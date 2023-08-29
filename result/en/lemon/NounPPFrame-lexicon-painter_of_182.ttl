@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :painter_of_182 ;
+  lemon:entry    :painter_of_182_form_preposition .
+
+:painter_of_182 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :painter_of_182_form ;
+  lemon:otherForm  :painter_of_182_singular ;
+  lemon:otherForm  :painter_of_182_plural ;
+  lemon:sense          :painter_of_182_sense_1 ;
+  lemon:synBehavior    :painter_of_182_nounpp .
+
+:painter_of_182_form a lemon:Form ;
+
+:painter_of_182_singular a    lemon:Form ;
+  lemon:writtenRep "Painter"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:painter_of_182_plural a   lemon:Form ;
+  lemon:writtenRep "Painters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:painter_of_182_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_painter_of_182 ;
+  lexinfo:prepositionalAdjunct :arg2_painter_of_182 .
+
+:painter_of_182_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :painter_of_182_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_painter_of_182 ;
+  lemon:objOfProp           :arg1_painter_of_182 ;
+  lemon:condition           :painter_of_182_sense_1_condition .
+
+:painter_of_182_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Painter> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Painter> .
+
+:arg2_painter_of_182 lemon:marker :painter_of_182_form_preposition .
+## Prepositions ##
+:painter_of_182_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

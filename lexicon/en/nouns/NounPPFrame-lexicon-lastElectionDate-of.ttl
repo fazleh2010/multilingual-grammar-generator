@@ -19,7 +19,7 @@
   lemon:synBehavior    :lastElectionDate-of_nounpp .
 
 :lastElectionDate-of_form a lemon:Form ;
-  lemon:writtenRep "last Election Date"@en .
+  lemon:writtenRep "last Election Date"@en ;
 
 :lastElectionDate-of_singular a    lemon:Form ;
   lemon:writtenRep "last Election Date"@en ;

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :radiostation_of_356 ;
+  lemon:entry    :radiostation_of_356_form_preposition .
+
+:radiostation_of_356 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :radiostation_of_356_form ;
+  lemon:otherForm  :radiostation_of_356_singular ;
+  lemon:otherForm  :radiostation_of_356_plural ;
+  lemon:sense          :radiostation_of_356_sense_1 ;
+  lemon:synBehavior    :radiostation_of_356_nounpp .
+
+:radiostation_of_356_form a lemon:Form ;
+
+:radiostation_of_356_singular a    lemon:Form ;
+  lemon:writtenRep "Radio Station"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:radiostation_of_356_plural a   lemon:Form ;
+  lemon:writtenRep "Radio Stations"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:radiostation_of_356_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_radiostation_of_356 ;
+  lexinfo:prepositionalAdjunct :arg2_radiostation_of_356 .
+
+:radiostation_of_356_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :radiostation_of_356_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_radiostation_of_356 ;
+  lemon:objOfProp           :arg1_radiostation_of_356 ;
+  lemon:condition           :radiostation_of_356_sense_1_condition .
+
+:radiostation_of_356_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/RadioStation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/RadioStation> .
+
+:arg2_radiostation_of_356 lemon:marker :radiostation_of_356_form_preposition .
+## Prepositions ##
+:radiostation_of_356_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

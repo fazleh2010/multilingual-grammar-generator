@@ -19,7 +19,7 @@
   lemon:synBehavior    :address-of_nounpp .
 
 :address-of_form a lemon:Form ;
-  lemon:writtenRep "address"@en .
+  lemon:writtenRep "address"@en ;
 
 :address-of_singular a    lemon:Form ;
   lemon:writtenRep "address"@en ;

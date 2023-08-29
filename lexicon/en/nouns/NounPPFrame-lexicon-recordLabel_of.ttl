@@ -19,7 +19,7 @@
   lemon:synBehavior    :recordLabel_of_nounpp .
 
 :recordLabel_of_form a lemon:Form ;
-  lemon:writtenRep "record label"@en .
+  lemon:writtenRep "record label"@en ;
 
 :recordLabel_of_singular a    lemon:Form ;
   lemon:writtenRep "record label"@en ;

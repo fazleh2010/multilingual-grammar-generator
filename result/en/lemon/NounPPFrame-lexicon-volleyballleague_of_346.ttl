@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :volleyballleague_of_346 ;
+  lemon:entry    :volleyballleague_of_346_form_preposition .
+
+:volleyballleague_of_346 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :volleyballleague_of_346_form ;
+  lemon:otherForm  :volleyballleague_of_346_singular ;
+  lemon:otherForm  :volleyballleague_of_346_plural ;
+  lemon:sense          :volleyballleague_of_346_sense_1 ;
+  lemon:synBehavior    :volleyballleague_of_346_nounpp .
+
+:volleyballleague_of_346_form a lemon:Form ;
+
+:volleyballleague_of_346_singular a    lemon:Form ;
+  lemon:writtenRep "Volleyball League"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:volleyballleague_of_346_plural a   lemon:Form ;
+  lemon:writtenRep "Volleyball Leagues"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:volleyballleague_of_346_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_volleyballleague_of_346 ;
+  lexinfo:prepositionalAdjunct :arg2_volleyballleague_of_346 .
+
+:volleyballleague_of_346_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :volleyballleague_of_346_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_volleyballleague_of_346 ;
+  lemon:objOfProp           :arg1_volleyballleague_of_346 ;
+  lemon:condition           :volleyballleague_of_346_sense_1_condition .
+
+:volleyballleague_of_346_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/VolleyballLeague> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/VolleyballLeague> .
+
+:arg2_volleyballleague_of_346 lemon:marker :volleyballleague_of_346_form_preposition .
+## Prepositions ##
+:volleyballleague_of_346_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

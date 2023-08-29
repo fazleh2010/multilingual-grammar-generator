@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soccertournament_of_16 ;
+  lemon:entry    :soccertournament_of_16_form_preposition .
+
+:soccertournament_of_16 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :soccertournament_of_16_form ;
+  lemon:otherForm  :soccertournament_of_16_singular ;
+  lemon:otherForm  :soccertournament_of_16_plural ;
+  lemon:sense          :soccertournament_of_16_sense_1 ;
+  lemon:synBehavior    :soccertournament_of_16_nounpp .
+
+:soccertournament_of_16_form a lemon:Form ;
+
+:soccertournament_of_16_singular a    lemon:Form ;
+  lemon:writtenRep "SoccerTournament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soccertournament_of_16_plural a   lemon:Form ;
+  lemon:writtenRep "SoccerTournaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soccertournament_of_16_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_soccertournament_of_16 ;
+  lexinfo:prepositionalAdjunct :arg2_soccertournament_of_16 .
+
+:soccertournament_of_16_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :soccertournament_of_16_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_soccertournament_of_16 ;
+  lemon:objOfProp           :arg1_soccertournament_of_16 ;
+  lemon:condition           :soccertournament_of_16_sense_1_condition .
+
+:soccertournament_of_16_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SoccerTournament> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SoccerTournament> .
+
+:arg2_soccertournament_of_16 lemon:marker :soccertournament_of_16_form_preposition .
+## Prepositions ##
+:soccertournament_of_16_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

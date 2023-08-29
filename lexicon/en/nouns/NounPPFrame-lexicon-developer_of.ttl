@@ -19,7 +19,7 @@
   lemon:synBehavior    :developer_of_nounpp .
 
 :developer_of_form a lemon:Form ;
-  lemon:writtenRep "developer"@en .
+  lemon:writtenRep "developer"@en ;
 
 :developer_of_singular a    lemon:Form ;
   lemon:writtenRep "developer"@en ;

@@ -19,7 +19,7 @@
   lemon:synBehavior    :numberOfStudents-of_nounpp .
 
 :numberOfStudents-of_form a lemon:Form ;
-  lemon:writtenRep "number Of Student"@en .
+  lemon:writtenRep "number Of Student"@en ;
 
 :numberOfStudents-of_singular a    lemon:Form ;
   lemon:writtenRep "number Of Student"@en ;

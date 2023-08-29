@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :military_conflict_of_61 ;
+  lemon:entry    :military_conflict_of_61_form_preposition .
+
+:military_conflict_of_61 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :military_conflict_of_61_form ;
+  lemon:otherForm  :military_conflict_of_61_singular ;
+  lemon:otherForm  :military_conflict_of_61_plural ;
+  lemon:sense          :military_conflict_of_61_sense_1 ;
+  lemon:synBehavior    :military_conflict_of_61_nounpp .
+
+:military_conflict_of_61_form a lemon:Form ;
+
+:military_conflict_of_61_singular a    lemon:Form ;
+  lemon:writtenRep "military conflict"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:military_conflict_of_61_plural a   lemon:Form ;
+  lemon:writtenRep "military conflicts"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:military_conflict_of_61_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_military_conflict_of_61 ;
+  lexinfo:prepositionalAdjunct :arg2_military_conflict_of_61 .
+
+:military_conflict_of_61_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :military_conflict_of_61_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_military_conflict_of_61 ;
+  lemon:objOfProp           :arg1_military_conflict_of_61 ;
+  lemon:condition           :military_conflict_of_61_sense_1_condition .
+
+:military_conflict_of_61_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MilitaryConflict> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MilitaryConflict> .
+
+:arg2_military_conflict_of_61 lemon:marker :military_conflict_of_61_form_preposition .
+## Prepositions ##
+:military_conflict_of_61_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

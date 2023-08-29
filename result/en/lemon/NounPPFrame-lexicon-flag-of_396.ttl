@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :flag-of_396 ;
+  lemon:entry    :flag-of_396_form_preposition .
+
+:flag-of_396 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :flag-of_396_form ;
+  lemon:otherForm  :flag-of_396_singular ;
+  lemon:otherForm  :flag-of_396_plural ;
+  lemon:sense          :flag-of_396_sense_1 ;
+  lemon:synBehavior    :flag-of_396_nounpp .
+
+:flag-of_396_form a lemon:Form ;
+
+:flag-of_396_singular a    lemon:Form ;
+  lemon:writtenRep "flag"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:flag-of_396_plural a   lemon:Form ;
+  lemon:writtenRep "flags"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:flag-of_396_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_flag-of_396 ;
+  lexinfo:prepositionalAdjunct :arg2_flag-of_396 .
+
+:flag-of_396_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :flag-of_396_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/flag> ;
+  lemon:subjOfProp          :arg2_flag-of_396 ;
+  lemon:objOfProp           :arg1_flag-of_396 ;
+  lemon:condition           :flag-of_396_sense_1_condition .
+
+:flag-of_396_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_flag-of_396 lemon:marker :flag-of_396_form_preposition .
+## Prepositions ##
+:flag-of_396_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

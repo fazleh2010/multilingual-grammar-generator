@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :drug_of_334 ;
+  lemon:entry    :drug_of_334_form_preposition .
+
+:drug_of_334 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :drug_of_334_form ;
+  lemon:otherForm  :drug_of_334_singular ;
+  lemon:otherForm  :drug_of_334_plural ;
+  lemon:sense          :drug_of_334_sense_1 ;
+  lemon:synBehavior    :drug_of_334_nounpp .
+
+:drug_of_334_form a lemon:Form ;
+
+:drug_of_334_singular a    lemon:Form ;
+  lemon:writtenRep "Drug"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:drug_of_334_plural a   lemon:Form ;
+  lemon:writtenRep "Drugs"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:drug_of_334_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_drug_of_334 ;
+  lexinfo:prepositionalAdjunct :arg2_drug_of_334 .
+
+:drug_of_334_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :drug_of_334_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_drug_of_334 ;
+  lemon:objOfProp           :arg1_drug_of_334 ;
+  lemon:condition           :drug_of_334_sense_1_condition .
+
+:drug_of_334_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Drug> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Drug> .
+
+:arg2_drug_of_334 lemon:marker :drug_of_334_form_preposition .
+## Prepositions ##
+:drug_of_334_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

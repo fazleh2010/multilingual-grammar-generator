@@ -19,7 +19,7 @@
   lemon:synBehavior    :releaseDate-of_nounpp .
 
 :releaseDate-of_form a lemon:Form ;
-  lemon:writtenRep "release date"@en .
+  lemon:writtenRep "release date"@en ;
 
 :releaseDate-of_singular a    lemon:Form ;
   lemon:writtenRep "release date"@en ;

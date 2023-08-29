@@ -19,7 +19,7 @@
   lemon:synBehavior    :number_of_nounpp .
 
 :number_of_form a lemon:Form ;
-  lemon:writtenRep "number of locations"@en .
+  lemon:writtenRep "number of locations"@en ;
 
 :number_of_singular a    lemon:Form ;
   lemon:writtenRep "number of locations"@en ;

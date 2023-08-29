@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cleric_of_141 ;
+  lemon:entry    :cleric_of_141_form_preposition .
+
+:cleric_of_141 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cleric_of_141_form ;
+  lemon:otherForm  :cleric_of_141_singular ;
+  lemon:otherForm  :cleric_of_141_plural ;
+  lemon:sense          :cleric_of_141_sense_1 ;
+  lemon:synBehavior    :cleric_of_141_nounpp .
+
+:cleric_of_141_form a lemon:Form ;
+
+:cleric_of_141_singular a    lemon:Form ;
+  lemon:writtenRep "Cleric"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cleric_of_141_plural a   lemon:Form ;
+  lemon:writtenRep "Clerics"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cleric_of_141_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cleric_of_141 ;
+  lexinfo:prepositionalAdjunct :arg2_cleric_of_141 .
+
+:cleric_of_141_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cleric_of_141_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_cleric_of_141 ;
+  lemon:objOfProp           :arg1_cleric_of_141 ;
+  lemon:condition           :cleric_of_141_sense_1_condition .
+
+:cleric_of_141_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Cleric> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Cleric> .
+
+:arg2_cleric_of_141 lemon:marker :cleric_of_141_form_preposition .
+## Prepositions ##
+:cleric_of_141_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

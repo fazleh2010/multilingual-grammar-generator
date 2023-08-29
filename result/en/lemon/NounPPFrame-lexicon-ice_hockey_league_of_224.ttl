@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :ice_hockey_league_of_224 ;
+  lemon:entry    :ice_hockey_league_of_224_form_preposition .
+
+:ice_hockey_league_of_224 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :ice_hockey_league_of_224_form ;
+  lemon:otherForm  :ice_hockey_league_of_224_singular ;
+  lemon:otherForm  :ice_hockey_league_of_224_plural ;
+  lemon:sense          :ice_hockey_league_of_224_sense_1 ;
+  lemon:synBehavior    :ice_hockey_league_of_224_nounpp .
+
+:ice_hockey_league_of_224_form a lemon:Form ;
+
+:ice_hockey_league_of_224_singular a    lemon:Form ;
+  lemon:writtenRep "Ice Hockey League"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:ice_hockey_league_of_224_plural a   lemon:Form ;
+  lemon:writtenRep "Ice Hockey Leagues"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:ice_hockey_league_of_224_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_ice_hockey_league_of_224 ;
+  lexinfo:prepositionalAdjunct :arg2_ice_hockey_league_of_224 .
+
+:ice_hockey_league_of_224_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ice_hockey_league_of_224_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_ice_hockey_league_of_224 ;
+  lemon:objOfProp           :arg1_ice_hockey_league_of_224 ;
+  lemon:condition           :ice_hockey_league_of_224_sense_1_condition .
+
+:ice_hockey_league_of_224_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/IceHockeyLeague> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/IceHockeyLeague> .
+
+:arg2_ice_hockey_league_of_224 lemon:marker :ice_hockey_league_of_224_form_preposition .
+## Prepositions ##
+:ice_hockey_league_of_224_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

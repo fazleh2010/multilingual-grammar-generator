@@ -19,7 +19,7 @@
   lemon:synBehavior    :host_of_nounpp .
 
 :host_of_form a lemon:Form ;
-  lemon:writtenRep "host"@en .
+  lemon:writtenRep "host"@en ;
 
 :host_of_singular a    lemon:Form ;
   lemon:writtenRep "host"@en ;

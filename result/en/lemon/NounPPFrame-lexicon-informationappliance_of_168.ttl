@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :informationappliance_of_168 ;
+  lemon:entry    :informationappliance_of_168_form_preposition .
+
+:informationappliance_of_168 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :informationappliance_of_168_form ;
+  lemon:otherForm  :informationappliance_of_168_singular ;
+  lemon:otherForm  :informationappliance_of_168_plural ;
+  lemon:sense          :informationappliance_of_168_sense_1 ;
+  lemon:synBehavior    :informationappliance_of_168_nounpp .
+
+:informationappliance_of_168_form a lemon:Form ;
+
+:informationappliance_of_168_singular a    lemon:Form ;
+  lemon:writtenRep "Information Appliance"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:informationappliance_of_168_plural a   lemon:Form ;
+  lemon:writtenRep "Information Appliances"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:informationappliance_of_168_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_informationappliance_of_168 ;
+  lexinfo:prepositionalAdjunct :arg2_informationappliance_of_168 .
+
+:informationappliance_of_168_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :informationappliance_of_168_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_informationappliance_of_168 ;
+  lemon:objOfProp           :arg1_informationappliance_of_168 ;
+  lemon:condition           :informationappliance_of_168_sense_1_condition .
+
+:informationappliance_of_168_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/InformationAppliance> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/InformationAppliance> .
+
+:arg2_informationappliance_of_168 lemon:marker :informationappliance_of_168_form_preposition .
+## Prepositions ##
+:informationappliance_of_168_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :website_of_277 ;
+  lemon:entry    :website_of_277_form_preposition .
+
+:website_of_277 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :website_of_277_form ;
+  lemon:otherForm  :website_of_277_singular ;
+  lemon:otherForm  :website_of_277_plural ;
+  lemon:sense          :website_of_277_sense_1 ;
+  lemon:synBehavior    :website_of_277_nounpp .
+
+:website_of_277_form a lemon:Form ;
+
+:website_of_277_singular a    lemon:Form ;
+  lemon:writtenRep "Website"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:website_of_277_plural a   lemon:Form ;
+  lemon:writtenRep "Websites"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:website_of_277_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_website_of_277 ;
+  lexinfo:prepositionalAdjunct :arg2_website_of_277 .
+
+:website_of_277_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :website_of_277_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_website_of_277 ;
+  lemon:objOfProp           :arg1_website_of_277 ;
+  lemon:condition           :website_of_277_sense_1_condition .
+
+:website_of_277_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Website> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Website> .
+
+:arg2_website_of_277 lemon:marker :website_of_277_form_preposition .
+## Prepositions ##
+:website_of_277_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

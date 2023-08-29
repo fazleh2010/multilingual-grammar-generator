@@ -19,7 +19,7 @@
   lemon:synBehavior    :wine_production-of_nounpp .
 
 :wine_production-of_form a lemon:Form ;
-  lemon:writtenRep "wine production"@en .
+  lemon:writtenRep "wine production"@en ;
 
 :wine_production-of_singular a    lemon:Form ;
   lemon:writtenRep "wine production"@en ;

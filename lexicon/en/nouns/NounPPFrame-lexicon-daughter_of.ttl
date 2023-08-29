@@ -19,7 +19,7 @@
   lemon:synBehavior    :daughter_of_nounpp .
 
 :daughter_of_form a lemon:Form ;
-  lemon:writtenRep "daughter"@en .
+  lemon:writtenRep "daughter"@en ;
 
 :daughter_of_singular a    lemon:Form ;
   lemon:writtenRep "daughter"@en ;

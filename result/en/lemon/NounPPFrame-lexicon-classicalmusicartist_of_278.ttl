@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :classicalmusicartist_of_278 ;
+  lemon:entry    :classicalmusicartist_of_278_form_preposition .
+
+:classicalmusicartist_of_278 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :classicalmusicartist_of_278_form ;
+  lemon:otherForm  :classicalmusicartist_of_278_singular ;
+  lemon:otherForm  :classicalmusicartist_of_278_plural ;
+  lemon:sense          :classicalmusicartist_of_278_sense_1 ;
+  lemon:synBehavior    :classicalmusicartist_of_278_nounpp .
+
+:classicalmusicartist_of_278_form a lemon:Form ;
+
+:classicalmusicartist_of_278_singular a    lemon:Form ;
+  lemon:writtenRep "Classical Music Artist"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:classicalmusicartist_of_278_plural a   lemon:Form ;
+  lemon:writtenRep "Classical Music Artists"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:classicalmusicartist_of_278_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_classicalmusicartist_of_278 ;
+  lexinfo:prepositionalAdjunct :arg2_classicalmusicartist_of_278 .
+
+:classicalmusicartist_of_278_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :classicalmusicartist_of_278_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_classicalmusicartist_of_278 ;
+  lemon:objOfProp           :arg1_classicalmusicartist_of_278 ;
+  lemon:condition           :classicalmusicartist_of_278_sense_1_condition .
+
+:classicalmusicartist_of_278_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ClassicalMusicArtist> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ClassicalMusicArtist> .
+
+:arg2_classicalmusicartist_of_278 lemon:marker :classicalmusicartist_of_278_form_preposition .
+## Prepositions ##
+:classicalmusicartist_of_278_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

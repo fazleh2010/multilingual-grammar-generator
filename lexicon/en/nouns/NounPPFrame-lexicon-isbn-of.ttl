@@ -19,7 +19,7 @@
   lemon:synBehavior    :isbn-of_nounpp .
 
 :isbn-of_form a lemon:Form ;
-  lemon:writtenRep "isbn"@en .
+  lemon:writtenRep "isbn"@en ;
 
 :isbn-of_singular a    lemon:Form ;
   lemon:writtenRep "isbn"@en ;

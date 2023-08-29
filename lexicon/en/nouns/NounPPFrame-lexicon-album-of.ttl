@@ -19,7 +19,7 @@
   lemon:synBehavior    :album-of_nounpp .
 
 :album-of_form a lemon:Form ;
-  lemon:writtenRep "album"@en .
+  lemon:writtenRep "album"@en ;
 
 :album-of_singular a    lemon:Form ;
   lemon:writtenRep "album"@en ;

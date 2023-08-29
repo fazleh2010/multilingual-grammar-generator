@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :deathPlace_417 ;
+  lemon:entry    :deathPlace_417_form_preposition .
+
+:deathPlace_417 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :deathPlace_417_form ;
+  lemon:otherForm  :deathPlace_417_singular ;
+  lemon:otherForm  :deathPlace_417_plural ;
+  lemon:sense          :deathPlace_417_sense_1 ;
+  lemon:synBehavior    :deathPlace_417_nounpp .
+
+:deathPlace_417_form a lemon:Form ;
+
+:deathPlace_417_singular a    lemon:Form ;
+  lemon:writtenRep "death place"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:deathPlace_417_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:deathPlace_417_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_deathPlace_417 ;
+  lexinfo:prepositionalAdjunct :arg2_deathPlace_417 .
+
+:deathPlace_417_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :deathPlace_417_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathPlace> ;
+  lemon:subjOfProp          :arg2_deathPlace_417 ;
+  lemon:objOfProp           :arg1_deathPlace_417 ;
+  lemon:condition           :deathPlace_417_sense_1_condition .
+
+:deathPlace_417_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_deathPlace_417 lemon:marker :deathPlace_417_form_preposition .
+## Prepositions ##
+:deathPlace_417_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

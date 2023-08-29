@@ -19,7 +19,7 @@
   lemon:synBehavior    :religion-of_nounpp .
 
 :religion-of_form a lemon:Form ;
-  lemon:writtenRep "religion"@en .
+  lemon:writtenRep "religion"@en ;
 
 :religion-of_singular a    lemon:Form ;
   lemon:writtenRep "religion"@en ;

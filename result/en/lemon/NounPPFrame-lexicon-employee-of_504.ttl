@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :employee-of_504 ;
+  lemon:entry    :employee-of_504_form_preposition .
+
+:employee-of_504 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :employee-of_504_form ;
+  lemon:otherForm  :employee-of_504_singular ;
+  lemon:otherForm  :employee-of_504_plural ;
+  lemon:sense          :employee-of_504_sense_1 ;
+  lemon:sense          :employee-of_504_sense_2 ;
+  lemon:synBehavior    :employee-of_504_nounpp .
+
+:employee-of_504_form a lemon:Form ;
+
+:employee-of_504_singular a    lemon:Form ;
+  lemon:writtenRep "employee"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:employee-of_504_plural a   lemon:Form ;
+  lemon:writtenRep "employees"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:employee-of_504_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_employee-of_504 ;
+  lexinfo:prepositionalAdjunct :arg2_employee-of_504 .
+
+:employee-of_504_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :employee-of_504_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfEmployees> ;
+  lemon:subjOfProp          :arg2_employee-of_504 ;
+  lemon:objOfProp           :arg1_employee-of_504 ;
+  lemon:condition           :employee-of_504_sense_1_condition .
+
+:employee-of_504_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Company> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:employee-of_504_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :employee-of_504_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfEmployees> ;
+  lemon:subjOfProp          :arg2_employee-of_504 ;
+  lemon:objOfProp           :arg1_employee-of_504 ;
+  lemon:condition           :employee-of_504_sense_2_condition .
+
+:employee-of_504_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Company> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:arg2_employee-of_504 lemon:marker :employee-of_504_form_preposition .
+## Prepositions ##
+:employee-of_504_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

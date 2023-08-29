@@ -19,7 +19,7 @@
   lemon:synBehavior    :loyalty_nounpp .
 
 :loyalty_form a lemon:Form ;
-  lemon:writtenRep "loyalty"@en .
+  lemon:writtenRep "loyalty"@en ;
 
 :loyalty_singular a    lemon:Form ;
   lemon:writtenRep "loyalty"@en ;

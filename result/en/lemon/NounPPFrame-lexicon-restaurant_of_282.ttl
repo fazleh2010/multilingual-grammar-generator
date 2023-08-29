@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :restaurant_of_282 ;
+  lemon:entry    :restaurant_of_282_form_preposition .
+
+:restaurant_of_282 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :restaurant_of_282_form ;
+  lemon:otherForm  :restaurant_of_282_singular ;
+  lemon:otherForm  :restaurant_of_282_plural ;
+  lemon:sense          :restaurant_of_282_sense_1 ;
+  lemon:synBehavior    :restaurant_of_282_nounpp .
+
+:restaurant_of_282_form a lemon:Form ;
+
+:restaurant_of_282_singular a    lemon:Form ;
+  lemon:writtenRep "Restaurant"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:restaurant_of_282_plural a   lemon:Form ;
+  lemon:writtenRep "Restaurants"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:restaurant_of_282_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_restaurant_of_282 ;
+  lexinfo:prepositionalAdjunct :arg2_restaurant_of_282 .
+
+:restaurant_of_282_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :restaurant_of_282_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_restaurant_of_282 ;
+  lemon:objOfProp           :arg1_restaurant_of_282 ;
+  lemon:condition           :restaurant_of_282_sense_1_condition .
+
+:restaurant_of_282_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Restaurant> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Restaurant> .
+
+:arg2_restaurant_of_282 lemon:marker :restaurant_of_282_form_preposition .
+## Prepositions ##
+:restaurant_of_282_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

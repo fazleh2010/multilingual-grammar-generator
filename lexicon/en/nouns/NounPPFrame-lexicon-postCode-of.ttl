@@ -19,7 +19,7 @@
   lemon:synBehavior    :postCode-of_nounpp .
 
 :postCode-of_form a lemon:Form ;
-  lemon:writtenRep "post code"@en .
+  lemon:writtenRep "post code"@en ;
 
 :postCode-of_singular a    lemon:Form ;
   lemon:writtenRep "post code"@en ;

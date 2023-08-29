@@ -19,7 +19,7 @@
   lemon:synBehavior    :nickname_of_nounpp .
 
 :nickname_of_form a lemon:Form ;
-  lemon:writtenRep "nickname"@en .
+  lemon:writtenRep "nickname"@en ;
 
 :nickname_of_singular a    lemon:Form ;
   lemon:writtenRep "nickname"@en ;

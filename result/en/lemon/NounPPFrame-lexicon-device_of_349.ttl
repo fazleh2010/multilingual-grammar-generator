@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :device_of_349 ;
+  lemon:entry    :device_of_349_form_preposition .
+
+:device_of_349 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :device_of_349_form ;
+  lemon:otherForm  :device_of_349_singular ;
+  lemon:otherForm  :device_of_349_plural ;
+  lemon:sense          :device_of_349_sense_1 ;
+  lemon:synBehavior    :device_of_349_nounpp .
+
+:device_of_349_form a lemon:Form ;
+
+:device_of_349_singular a    lemon:Form ;
+  lemon:writtenRep "Device"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:device_of_349_plural a   lemon:Form ;
+  lemon:writtenRep "Devices"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:device_of_349_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_device_of_349 ;
+  lexinfo:prepositionalAdjunct :arg2_device_of_349 .
+
+:device_of_349_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :device_of_349_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_device_of_349 ;
+  lemon:objOfProp           :arg1_device_of_349 ;
+  lemon:condition           :device_of_349_sense_1_condition .
+
+:device_of_349_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Device> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Device> .
+
+:arg2_device_of_349 lemon:marker :device_of_349_form_preposition .
+## Prepositions ##
+:device_of_349_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -16,17 +16,18 @@
   lemon:otherForm  :timeZone-of_singular ;
   lemon:otherForm  :timeZone-of_plural ;
   lemon:sense          :timeZone-of_sense_1 ;
+  lemon:sense          :timeZone-of_sense_2 ;
   lemon:synBehavior    :timeZone-of_nounpp .
 
 :timeZone-of_form a lemon:Form ;
-  lemon:writtenRep "timezone"@en .
+  lemon:writtenRep "time zone"@en ;
 
 :timeZone-of_singular a    lemon:Form ;
-  lemon:writtenRep "timezone"@en ;
+  lemon:writtenRep "time zone"@en ;
   lexinfo:number   lexinfo:singular .
 
 :timeZone-of_plural a   lemon:Form ;
-  lemon:writtenRep "timezones"@en ;
+  lemon:writtenRep "time zones"@en ;
   lexinfo:number    lexinfo:plural .
 
 :timeZone-of_nounpp a        lexinfo:NounPPFrame ;
@@ -44,9 +45,20 @@
   lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
   lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
 
+:timeZone-of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :timeZone-of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/timeZone> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :timeZone-of_sense_2_condition .
+
+:timeZone-of_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
 :arg2 lemon:marker :timeZone-of_form_preposition .
 ## Prepositions ##
 :timeZone-of_form_preposition a                  lemon:SynRoleMarker ;
-  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
   lexinfo:partOfSpeech lexinfo:preposition .
 

@@ -19,7 +19,7 @@
   lemon:synBehavior    :dissolutionDate_of_nounpp .
 
 :dissolutionDate_of_form a lemon:Form ;
-  lemon:writtenRep "dissolution date"@en .
+  lemon:writtenRep "dissolution date"@en ;
 
 :dissolutionDate_of_singular a    lemon:Form ;
   lemon:writtenRep "dissolution date"@en ;

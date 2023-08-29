@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :comic_of_353 ;
+  lemon:entry    :comic_of_353_form_preposition .
+
+:comic_of_353 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :comic_of_353_form ;
+  lemon:otherForm  :comic_of_353_singular ;
+  lemon:otherForm  :comic_of_353_plural ;
+  lemon:sense          :comic_of_353_sense_1 ;
+  lemon:synBehavior    :comic_of_353_nounpp .
+
+:comic_of_353_form a lemon:Form ;
+
+:comic_of_353_singular a    lemon:Form ;
+  lemon:writtenRep "Comic"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:comic_of_353_plural a   lemon:Form ;
+  lemon:writtenRep "Comics"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:comic_of_353_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_comic_of_353 ;
+  lexinfo:prepositionalAdjunct :arg2_comic_of_353 .
+
+:comic_of_353_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :comic_of_353_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_comic_of_353 ;
+  lemon:objOfProp           :arg1_comic_of_353 ;
+  lemon:condition           :comic_of_353_sense_1_condition .
+
+:comic_of_353_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Comic> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Comic> .
+
+:arg2_comic_of_353 lemon:marker :comic_of_353_form_preposition .
+## Prepositions ##
+:comic_of_353_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -19,7 +19,7 @@
   lemon:synBehavior    :doctoralSupervisor_of_nounpp .
 
 :doctoralSupervisor_of_form a lemon:Form ;
-  lemon:writtenRep "doctoral supervisor"@en .
+  lemon:writtenRep "doctoral supervisor"@en ;
 
 :doctoralSupervisor_of_singular a    lemon:Form ;
   lemon:writtenRep "doctoral supervisor"@en ;

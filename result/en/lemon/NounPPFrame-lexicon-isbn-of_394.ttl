@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :isbn-of_394 ;
+  lemon:entry    :isbn-of_394_form_preposition .
+
+:isbn-of_394 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :isbn-of_394_form ;
+  lemon:otherForm  :isbn-of_394_singular ;
+  lemon:otherForm  :isbn-of_394_plural ;
+  lemon:sense          :isbn-of_394_sense_1 ;
+  lemon:synBehavior    :isbn-of_394_nounpp .
+
+:isbn-of_394_form a lemon:Form ;
+
+:isbn-of_394_singular a    lemon:Form ;
+  lemon:writtenRep "isbn"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:isbn-of_394_plural a   lemon:Form ;
+  lemon:writtenRep "isbns"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:isbn-of_394_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_isbn-of_394 ;
+  lexinfo:prepositionalAdjunct :arg2_isbn-of_394 .
+
+:isbn-of_394_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :isbn-of_394_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/isbn> ;
+  lemon:subjOfProp          :arg2_isbn-of_394 ;
+  lemon:objOfProp           :arg1_isbn-of_394 ;
+  lemon:condition           :isbn-of_394_sense_1_condition .
+
+:isbn-of_394_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Book> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_isbn-of_394 lemon:marker :isbn-of_394_form_preposition .
+## Prepositions ##
+:isbn-of_394_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

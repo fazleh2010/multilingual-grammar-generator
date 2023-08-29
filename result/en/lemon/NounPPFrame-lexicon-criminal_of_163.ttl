@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :criminal_of_163 ;
+  lemon:entry    :criminal_of_163_form_preposition .
+
+:criminal_of_163 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :criminal_of_163_form ;
+  lemon:otherForm  :criminal_of_163_singular ;
+  lemon:otherForm  :criminal_of_163_plural ;
+  lemon:sense          :criminal_of_163_sense_1 ;
+  lemon:synBehavior    :criminal_of_163_nounpp .
+
+:criminal_of_163_form a lemon:Form ;
+
+:criminal_of_163_singular a    lemon:Form ;
+  lemon:writtenRep "Criminal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:criminal_of_163_plural a   lemon:Form ;
+  lemon:writtenRep "Criminals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:criminal_of_163_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_criminal_of_163 ;
+  lexinfo:prepositionalAdjunct :arg2_criminal_of_163 .
+
+:criminal_of_163_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :criminal_of_163_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_criminal_of_163 ;
+  lemon:objOfProp           :arg1_criminal_of_163 ;
+  lemon:condition           :criminal_of_163_sense_1_condition .
+
+:criminal_of_163_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Criminal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Criminal> .
+
+:arg2_criminal_of_163 lemon:marker :criminal_of_163_form_preposition .
+## Prepositions ##
+:criminal_of_163_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

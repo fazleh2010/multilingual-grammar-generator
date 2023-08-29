@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :automobileengine_of_248 ;
+  lemon:entry    :automobileengine_of_248_form_preposition .
+
+:automobileengine_of_248 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :automobileengine_of_248_form ;
+  lemon:otherForm  :automobileengine_of_248_singular ;
+  lemon:otherForm  :automobileengine_of_248_plural ;
+  lemon:sense          :automobileengine_of_248_sense_1 ;
+  lemon:synBehavior    :automobileengine_of_248_nounpp .
+
+:automobileengine_of_248_form a lemon:Form ;
+
+:automobileengine_of_248_singular a    lemon:Form ;
+  lemon:writtenRep "Automobile Engine"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:automobileengine_of_248_plural a   lemon:Form ;
+  lemon:writtenRep "Automobile Engines"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:automobileengine_of_248_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_automobileengine_of_248 ;
+  lexinfo:prepositionalAdjunct :arg2_automobileengine_of_248 .
+
+:automobileengine_of_248_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :automobileengine_of_248_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_automobileengine_of_248 ;
+  lemon:objOfProp           :arg1_automobileengine_of_248 ;
+  lemon:condition           :automobileengine_of_248_sense_1_condition .
+
+:automobileengine_of_248_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/AutomobileEngine> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/AutomobileEngine> .
+
+:arg2_automobileengine_of_248 lemon:marker :automobileengine_of_248_form_preposition .
+## Prepositions ##
+:automobileengine_of_248_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

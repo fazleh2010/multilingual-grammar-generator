@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :address-of_438 ;
+  lemon:entry    :address-of_438_form_preposition .
+
+:address-of_438 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :address-of_438_form ;
+  lemon:otherForm  :address-of_438_singular ;
+  lemon:otherForm  :address-of_438_plural ;
+  lemon:sense          :address-of_438_sense_1 ;
+  lemon:synBehavior    :address-of_438_nounpp .
+
+:address-of_438_form a lemon:Form ;
+
+:address-of_438_singular a    lemon:Form ;
+  lemon:writtenRep "address"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:address-of_438_plural a   lemon:Form ;
+  lemon:writtenRep "addresses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:address-of_438_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_address-of_438 ;
+  lexinfo:prepositionalAdjunct :arg2_address-of_438 .
+
+:address-of_438_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :address-of_438_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/address> ;
+  lemon:subjOfProp          :arg2_address-of_438 ;
+  lemon:objOfProp           :arg1_address-of_438 ;
+  lemon:condition           :address-of_438_sense_1_condition .
+
+:address-of_438_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ArchitecturalStructure> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_address-of_438 lemon:marker :address-of_438_form_preposition .
+## Prepositions ##
+:address-of_438_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

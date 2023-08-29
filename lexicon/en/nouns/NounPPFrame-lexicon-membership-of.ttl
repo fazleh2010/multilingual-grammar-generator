@@ -19,7 +19,7 @@
   lemon:synBehavior    :membership-of_nounpp .
 
 :membership-of_form a lemon:Form ;
-  lemon:writtenRep "member"@en .
+  lemon:writtenRep "member"@en ;
 
 :membership-of_singular a    lemon:Form ;
   lemon:writtenRep "member"@en ;

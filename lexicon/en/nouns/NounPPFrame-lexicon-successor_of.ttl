@@ -19,7 +19,7 @@
   lemon:synBehavior    :successor_of_nounpp .
 
 :successor_of_form a lemon:Form ;
-  lemon:writtenRep "successor"@en .
+  lemon:writtenRep "successor"@en ;
 
 :successor_of_singular a    lemon:Form ;
   lemon:writtenRep "successor"@en ;

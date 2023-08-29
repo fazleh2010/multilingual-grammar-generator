@@ -19,7 +19,7 @@
   lemon:synBehavior    :president-of_nounpp .
 
 :president-of_form a lemon:Form ;
-  lemon:writtenRep "president"@en .
+  lemon:writtenRep "president"@en ;
 
 :president-of_singular a    lemon:Form ;
   lemon:writtenRep "president"@en ;

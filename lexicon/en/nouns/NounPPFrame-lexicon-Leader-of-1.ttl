@@ -19,7 +19,7 @@
   lemon:synBehavior    :Leader-of-1_nounpp .
 
 :Leader-of-1_form a lemon:Form ;
-  lemon:writtenRep "leader"@en .
+  lemon:writtenRep "leader"@en ;
 
 :Leader-of-1_singular a    lemon:Form ;
   lemon:writtenRep "leader"@en ;

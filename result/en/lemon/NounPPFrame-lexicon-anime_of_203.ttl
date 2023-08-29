@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :anime_of_203 ;
+  lemon:entry    :anime_of_203_form_preposition .
+
+:anime_of_203 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :anime_of_203_form ;
+  lemon:otherForm  :anime_of_203_singular ;
+  lemon:otherForm  :anime_of_203_plural ;
+  lemon:sense          :anime_of_203_sense_1 ;
+  lemon:synBehavior    :anime_of_203_nounpp .
+
+:anime_of_203_form a lemon:Form ;
+
+:anime_of_203_singular a    lemon:Form ;
+  lemon:writtenRep "Anime"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:anime_of_203_plural a   lemon:Form ;
+  lemon:writtenRep "Animes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:anime_of_203_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_anime_of_203 ;
+  lexinfo:prepositionalAdjunct :arg2_anime_of_203 .
+
+:anime_of_203_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :anime_of_203_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_anime_of_203 ;
+  lemon:objOfProp           :arg1_anime_of_203 ;
+  lemon:condition           :anime_of_203_sense_1_condition .
+
+:anime_of_203_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Anime> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Anime> .
+
+:arg2_anime_of_203 lemon:marker :anime_of_203_form_preposition .
+## Prepositions ##
+:anime_of_203_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

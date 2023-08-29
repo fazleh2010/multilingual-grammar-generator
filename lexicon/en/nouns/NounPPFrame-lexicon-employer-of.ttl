@@ -19,7 +19,7 @@
   lemon:synBehavior    :employer-of_nounpp .
 
 :employer-of_form a lemon:Form ;
-  lemon:writtenRep "employer"@en .
+  lemon:writtenRep "employer"@en ;
 
 :employer-of_singular a    lemon:Form ;
   lemon:writtenRep "employer"@en ;

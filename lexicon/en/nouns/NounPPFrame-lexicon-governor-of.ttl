@@ -19,7 +19,7 @@
   lemon:synBehavior    :governor-of_nounpp .
 
 :governor-of_form a lemon:Form ;
-  lemon:writtenRep "governor"@en .
+  lemon:writtenRep "governor"@en ;
 
 :governor-of_singular a    lemon:Form ;
   lemon:writtenRep "governor"@en ;

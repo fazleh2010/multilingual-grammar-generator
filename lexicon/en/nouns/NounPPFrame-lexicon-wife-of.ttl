@@ -19,7 +19,7 @@
   lemon:synBehavior    :wife-of_nounpp .
 
 :wife-of_form a lemon:Form ;
-  lemon:writtenRep "wife"@en .
+  lemon:writtenRep "wife"@en ;
 
 :wife-of_singular a    lemon:Form ;
   lemon:writtenRep "wife"@en ;

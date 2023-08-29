@@ -19,7 +19,7 @@
   lemon:synBehavior    :home_stadium_of_nounpp .
 
 :home_stadium_of_form a lemon:Form ;
-  lemon:writtenRep "home stadium"@en .
+  lemon:writtenRep "home stadium"@en ;
 
 :home_stadium_of_singular a    lemon:Form ;
   lemon:writtenRep "home stadium"@en ;

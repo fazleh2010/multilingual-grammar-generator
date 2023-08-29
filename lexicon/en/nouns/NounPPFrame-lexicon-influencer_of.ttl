@@ -19,7 +19,7 @@
   lemon:synBehavior    :influencer_of_nounpp .
 
 :influencer_of_form a lemon:Form ;
-  lemon:writtenRep "influencer"@en .
+  lemon:writtenRep "influencer"@en ;
 
 :influencer_of_singular a    lemon:Form ;
   lemon:writtenRep "influencer"@en ;

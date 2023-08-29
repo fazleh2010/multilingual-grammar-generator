@@ -19,7 +19,7 @@
   lemon:synBehavior    :composer-of_nounpp .
 
 :composer-of_form a lemon:Form ;
-  lemon:writtenRep "music composer"@en .
+  lemon:writtenRep "music composer"@en ;
 
 :composer-of_singular a    lemon:Form ;
   lemon:writtenRep "music composer"@en ;

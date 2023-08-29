@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :station_of_154 ;
+  lemon:entry    :station_of_154_form_preposition .
+
+:station_of_154 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :station_of_154_form ;
+  lemon:otherForm  :station_of_154_singular ;
+  lemon:otherForm  :station_of_154_plural ;
+  lemon:sense          :station_of_154_sense_1 ;
+  lemon:synBehavior    :station_of_154_nounpp .
+
+:station_of_154_form a lemon:Form ;
+
+:station_of_154_singular a    lemon:Form ;
+  lemon:writtenRep "Station"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:station_of_154_plural a   lemon:Form ;
+  lemon:writtenRep "Stations"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:station_of_154_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_station_of_154 ;
+  lexinfo:prepositionalAdjunct :arg2_station_of_154 .
+
+:station_of_154_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :station_of_154_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_station_of_154 ;
+  lemon:objOfProp           :arg1_station_of_154 ;
+  lemon:condition           :station_of_154_sense_1_condition .
+
+:station_of_154_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Station> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Station> .
+
+:arg2_station_of_154 lemon:marker :station_of_154_form_preposition .
+## Prepositions ##
+:station_of_154_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

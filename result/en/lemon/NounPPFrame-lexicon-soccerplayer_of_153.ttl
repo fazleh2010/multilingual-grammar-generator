@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soccerplayer_of_153 ;
+  lemon:entry    :soccerplayer_of_153_form_preposition .
+
+:soccerplayer_of_153 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :soccerplayer_of_153_form ;
+  lemon:otherForm  :soccerplayer_of_153_singular ;
+  lemon:otherForm  :soccerplayer_of_153_plural ;
+  lemon:sense          :soccerplayer_of_153_sense_1 ;
+  lemon:synBehavior    :soccerplayer_of_153_nounpp .
+
+:soccerplayer_of_153_form a lemon:Form ;
+
+:soccerplayer_of_153_singular a    lemon:Form ;
+  lemon:writtenRep "Soccer Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soccerplayer_of_153_plural a   lemon:Form ;
+  lemon:writtenRep "Soccer Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soccerplayer_of_153_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_soccerplayer_of_153 ;
+  lexinfo:prepositionalAdjunct :arg2_soccerplayer_of_153 .
+
+:soccerplayer_of_153_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :soccerplayer_of_153_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_soccerplayer_of_153 ;
+  lemon:objOfProp           :arg1_soccerplayer_of_153 ;
+  lemon:condition           :soccerplayer_of_153_sense_1_condition .
+
+:soccerplayer_of_153_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SoccerPlayer> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SoccerPlayer> .
+
+:arg2_soccerplayer_of_153 lemon:marker :soccerplayer_of_153_form_preposition .
+## Prepositions ##
+:soccerplayer_of_153_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -19,7 +19,7 @@
   lemon:synBehavior    :largest_country_in_nounpp .
 
 :largest_country_in_form a lemon:Form ;
-  lemon:writtenRep "largest country"@en .
+  lemon:writtenRep "largest country"@en ;
 
 :largest_country_in_singular a    lemon:Form ;
   lemon:writtenRep "largest country"@en ;

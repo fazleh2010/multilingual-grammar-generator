@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mammal_of_311 ;
+  lemon:entry    :mammal_of_311_form_preposition .
+
+:mammal_of_311 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mammal_of_311_form ;
+  lemon:otherForm  :mammal_of_311_singular ;
+  lemon:otherForm  :mammal_of_311_plural ;
+  lemon:sense          :mammal_of_311_sense_1 ;
+  lemon:synBehavior    :mammal_of_311_nounpp .
+
+:mammal_of_311_form a lemon:Form ;
+
+:mammal_of_311_singular a    lemon:Form ;
+  lemon:writtenRep "Mammal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mammal_of_311_plural a   lemon:Form ;
+  lemon:writtenRep "Mammals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mammal_of_311_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_mammal_of_311 ;
+  lexinfo:prepositionalAdjunct :arg2_mammal_of_311 .
+
+:mammal_of_311_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mammal_of_311_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_mammal_of_311 ;
+  lemon:objOfProp           :arg1_mammal_of_311 ;
+  lemon:condition           :mammal_of_311_sense_1_condition .
+
+:mammal_of_311_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mammal> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Mammal> .
+
+:arg2_mammal_of_311 lemon:marker :mammal_of_311_form_preposition .
+## Prepositions ##
+:mammal_of_311_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

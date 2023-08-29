@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :ethnic_group_of_65 ;
+  lemon:entry    :ethnic_group_of_65_form_preposition .
+
+:ethnic_group_of_65 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :ethnic_group_of_65_form ;
+  lemon:otherForm  :ethnic_group_of_65_singular ;
+  lemon:otherForm  :ethnic_group_of_65_plural ;
+  lemon:sense          :ethnic_group_of_65_sense_1 ;
+  lemon:synBehavior    :ethnic_group_of_65_nounpp .
+
+:ethnic_group_of_65_form a lemon:Form ;
+
+:ethnic_group_of_65_singular a    lemon:Form ;
+  lemon:writtenRep "ethnic group"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:ethnic_group_of_65_plural a   lemon:Form ;
+  lemon:writtenRep "ethnic groups"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:ethnic_group_of_65_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_ethnic_group_of_65 ;
+  lexinfo:prepositionalAdjunct :arg2_ethnic_group_of_65 .
+
+:ethnic_group_of_65_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ethnic_group_of_65_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_ethnic_group_of_65 ;
+  lemon:objOfProp           :arg1_ethnic_group_of_65 ;
+  lemon:condition           :ethnic_group_of_65_sense_1_condition .
+
+:ethnic_group_of_65_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/EthnicGroup> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/EthnicGroup> .
+
+:arg2_ethnic_group_of_65 lemon:marker :ethnic_group_of_65_form_preposition .
+## Prepositions ##
+:ethnic_group_of_65_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

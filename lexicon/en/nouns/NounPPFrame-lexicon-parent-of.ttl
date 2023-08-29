@@ -19,7 +19,7 @@
   lemon:synBehavior    :parent-of_nounpp .
 
 :parent-of_form a lemon:Form ;
-  lemon:writtenRep "parent"@en .
+  lemon:writtenRep "parent"@en ;
 
 :parent-of_singular a    lemon:Form ;
   lemon:writtenRep "parent"@en ;

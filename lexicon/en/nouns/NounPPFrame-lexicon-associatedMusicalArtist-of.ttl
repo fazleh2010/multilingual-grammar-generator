@@ -19,7 +19,7 @@
   lemon:synBehavior    :associatedMusicalArtist-of_nounpp .
 
 :associatedMusicalArtist-of_form a lemon:Form ;
-  lemon:writtenRep "associated Musical Artist"@en .
+  lemon:writtenRep "associated Musical Artist"@en ;
 
 :associatedMusicalArtist-of_singular a    lemon:Form ;
   lemon:writtenRep "associated Musical Artist"@en ;

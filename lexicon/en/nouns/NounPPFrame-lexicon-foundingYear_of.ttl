@@ -19,7 +19,7 @@
   lemon:synBehavior    :foundingYear_of_nounpp .
 
 :foundingYear_of_form a lemon:Form ;
-  lemon:writtenRep "founding year"@en .
+  lemon:writtenRep "founding year"@en ;
 
 :foundingYear_of_singular a    lemon:Form ;
   lemon:writtenRep "founding year"@en ;

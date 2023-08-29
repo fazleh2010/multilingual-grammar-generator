@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :tennistournament_of_363 ;
+  lemon:entry    :tennistournament_of_363_form_preposition .
+
+:tennistournament_of_363 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :tennistournament_of_363_form ;
+  lemon:otherForm  :tennistournament_of_363_singular ;
+  lemon:otherForm  :tennistournament_of_363_plural ;
+  lemon:sense          :tennistournament_of_363_sense_1 ;
+  lemon:synBehavior    :tennistournament_of_363_nounpp .
+
+:tennistournament_of_363_form a lemon:Form ;
+
+:tennistournament_of_363_singular a    lemon:Form ;
+  lemon:writtenRep "TennisTournament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:tennistournament_of_363_plural a   lemon:Form ;
+  lemon:writtenRep "TennisTournaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:tennistournament_of_363_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_tennistournament_of_363 ;
+  lexinfo:prepositionalAdjunct :arg2_tennistournament_of_363 .
+
+:tennistournament_of_363_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :tennistournament_of_363_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_tennistournament_of_363 ;
+  lemon:objOfProp           :arg1_tennistournament_of_363 ;
+  lemon:condition           :tennistournament_of_363_sense_1_condition .
+
+:tennistournament_of_363_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TennisTournament> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/TennisTournament> .
+
+:arg2_tennistournament_of_363 lemon:marker :tennistournament_of_363_form_preposition .
+## Prepositions ##
+:tennistournament_of_363_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :comicstrip_of_20 ;
+  lemon:entry    :comicstrip_of_20_form_preposition .
+
+:comicstrip_of_20 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :comicstrip_of_20_form ;
+  lemon:otherForm  :comicstrip_of_20_singular ;
+  lemon:otherForm  :comicstrip_of_20_plural ;
+  lemon:sense          :comicstrip_of_20_sense_1 ;
+  lemon:synBehavior    :comicstrip_of_20_nounpp .
+
+:comicstrip_of_20_form a lemon:Form ;
+
+:comicstrip_of_20_singular a    lemon:Form ;
+  lemon:writtenRep "Comic Strip"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:comicstrip_of_20_plural a   lemon:Form ;
+  lemon:writtenRep "Comic Strips"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:comicstrip_of_20_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_comicstrip_of_20 ;
+  lexinfo:prepositionalAdjunct :arg2_comicstrip_of_20 .
+
+:comicstrip_of_20_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :comicstrip_of_20_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_comicstrip_of_20 ;
+  lemon:objOfProp           :arg1_comicstrip_of_20 ;
+  lemon:condition           :comicstrip_of_20_sense_1_condition .
+
+:comicstrip_of_20_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ComicStrip> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ComicStrip> .
+
+:arg2_comicstrip_of_20 lemon:marker :comicstrip_of_20_form_preposition .
+## Prepositions ##
+:comicstrip_of_20_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

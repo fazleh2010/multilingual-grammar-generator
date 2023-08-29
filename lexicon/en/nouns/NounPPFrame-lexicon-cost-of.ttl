@@ -19,7 +19,7 @@
   lemon:synBehavior    :cost-of_nounpp .
 
 :cost-of_form a lemon:Form ;
-  lemon:writtenRep "cost"@en .
+  lemon:writtenRep "cost"@en ;
 
 :cost-of_singular a    lemon:Form ;
   lemon:writtenRep "cost"@en ;

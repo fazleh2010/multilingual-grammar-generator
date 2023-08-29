@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :classicalmusiccomposition_of_149 ;
+  lemon:entry    :classicalmusiccomposition_of_149_form_preposition .
+
+:classicalmusiccomposition_of_149 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :classicalmusiccomposition_of_149_form ;
+  lemon:otherForm  :classicalmusiccomposition_of_149_singular ;
+  lemon:otherForm  :classicalmusiccomposition_of_149_plural ;
+  lemon:sense          :classicalmusiccomposition_of_149_sense_1 ;
+  lemon:synBehavior    :classicalmusiccomposition_of_149_nounpp .
+
+:classicalmusiccomposition_of_149_form a lemon:Form ;
+
+:classicalmusiccomposition_of_149_singular a    lemon:Form ;
+  lemon:writtenRep "Classical Music Composition"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:classicalmusiccomposition_of_149_plural a   lemon:Form ;
+  lemon:writtenRep "Classical Music Compositions"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:classicalmusiccomposition_of_149_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_classicalmusiccomposition_of_149 ;
+  lexinfo:prepositionalAdjunct :arg2_classicalmusiccomposition_of_149 .
+
+:classicalmusiccomposition_of_149_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :classicalmusiccomposition_of_149_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_classicalmusiccomposition_of_149 ;
+  lemon:objOfProp           :arg1_classicalmusiccomposition_of_149 ;
+  lemon:condition           :classicalmusiccomposition_of_149_sense_1_condition .
+
+:classicalmusiccomposition_of_149_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ClassicalMusicComposition> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/ClassicalMusicComposition> .
+
+:arg2_classicalmusiccomposition_of_149 lemon:marker :classicalmusiccomposition_of_149_form_preposition .
+## Prepositions ##
+:classicalmusiccomposition_of_149_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

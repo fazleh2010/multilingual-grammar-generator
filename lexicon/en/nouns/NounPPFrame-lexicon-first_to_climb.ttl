@@ -19,7 +19,7 @@
   lemon:synBehavior    :first_to_climb_nounpp .
 
 :first_to_climb_form a lemon:Form ;
-  lemon:writtenRep "first to climb"@en .
+  lemon:writtenRep "first to climb"@en ;
 
 :first_to_climb_singular a    lemon:Form ;
   lemon:writtenRep "first to climb"@en ;

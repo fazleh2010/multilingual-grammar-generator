@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :firstAscentPerson-of_401 ;
+  lemon:entry    :firstAscentPerson-of_401_form_preposition .
+
+:firstAscentPerson-of_401 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :firstAscentPerson-of_401_form ;
+  lemon:otherForm  :firstAscentPerson-of_401_singular ;
+  lemon:otherForm  :firstAscentPerson-of_401_plural ;
+  lemon:sense          :firstAscentPerson-of_401_sense_1 ;
+  lemon:synBehavior    :firstAscentPerson-of_401_nounpp .
+
+:firstAscentPerson-of_401_form a lemon:Form ;
+
+:firstAscentPerson-of_401_singular a    lemon:Form ;
+  lemon:writtenRep "first Ascent Person"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:firstAscentPerson-of_401_plural a   lemon:Form ;
+  lemon:writtenRep "first Ascent Persons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:firstAscentPerson-of_401_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_firstAscentPerson-of_401 ;
+  lexinfo:prepositionalAdjunct :arg2_firstAscentPerson-of_401 .
+
+:firstAscentPerson-of_401_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :firstAscentPerson-of_401_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAscentPerson> ;
+  lemon:subjOfProp          :arg2_firstAscentPerson-of_401 ;
+  lemon:objOfProp           :arg1_firstAscentPerson-of_401 ;
+  lemon:condition           :firstAscentPerson-of_401_sense_1_condition .
+
+:firstAscentPerson-of_401_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mountain> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_firstAscentPerson-of_401 lemon:marker :firstAscentPerson-of_401_form_preposition .
+## Prepositions ##
+:firstAscentPerson-of_401_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

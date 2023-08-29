@@ -19,7 +19,7 @@
   lemon:synBehavior    :population-of_nounpp .
 
 :population-of_form a lemon:Form ;
-  lemon:writtenRep "population"@en .
+  lemon:writtenRep "population"@en ;
 
 :population-of_singular a    lemon:Form ;
   lemon:writtenRep "population"@en ;

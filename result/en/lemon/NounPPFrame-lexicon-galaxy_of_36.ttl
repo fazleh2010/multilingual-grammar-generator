@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :galaxy_of_36 ;
+  lemon:entry    :galaxy_of_36_form_preposition .
+
+:galaxy_of_36 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :galaxy_of_36_form ;
+  lemon:otherForm  :galaxy_of_36_singular ;
+  lemon:otherForm  :galaxy_of_36_plural ;
+  lemon:sense          :galaxy_of_36_sense_1 ;
+  lemon:synBehavior    :galaxy_of_36_nounpp .
+
+:galaxy_of_36_form a lemon:Form ;
+
+:galaxy_of_36_singular a    lemon:Form ;
+  lemon:writtenRep "Galaxy"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:galaxy_of_36_plural a   lemon:Form ;
+  lemon:writtenRep "Galaxys"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:galaxy_of_36_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_galaxy_of_36 ;
+  lexinfo:prepositionalAdjunct :arg2_galaxy_of_36 .
+
+:galaxy_of_36_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :galaxy_of_36_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_galaxy_of_36 ;
+  lemon:objOfProp           :arg1_galaxy_of_36 ;
+  lemon:condition           :galaxy_of_36_sense_1_condition .
+
+:galaxy_of_36_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Galaxy> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Galaxy> .
+
+:arg2_galaxy_of_36 lemon:marker :galaxy_of_36_form_preposition .
+## Prepositions ##
+:galaxy_of_36_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -19,7 +19,7 @@
   lemon:synBehavior    :numberOfSeasons-of_nounpp .
 
 :numberOfSeasons-of_form a lemon:Form ;
-  lemon:writtenRep "number Of Season"@en .
+  lemon:writtenRep "number Of Season"@en ;
 
 :numberOfSeasons-of_singular a    lemon:Form ;
   lemon:writtenRep "number Of Season"@en ;

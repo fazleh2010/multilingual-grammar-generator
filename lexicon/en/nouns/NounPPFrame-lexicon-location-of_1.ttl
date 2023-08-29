@@ -19,7 +19,7 @@
   lemon:synBehavior    :location-of_1_nounpp .
 
 :location-of_1_form a lemon:Form ;
-  lemon:writtenRep "location"@en .
+  lemon:writtenRep "location"@en ;
 
 :location-of_1_singular a    lemon:Form ;
   lemon:writtenRep "location"@en ;

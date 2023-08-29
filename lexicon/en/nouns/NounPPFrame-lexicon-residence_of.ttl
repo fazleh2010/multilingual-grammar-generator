@@ -19,7 +19,7 @@
   lemon:synBehavior    :residence_of_nounpp .
 
 :residence_of_form a lemon:Form ;
-  lemon:writtenRep "residence"@en .
+  lemon:writtenRep "residence"@en ;
 
 :residence_of_singular a    lemon:Form ;
   lemon:writtenRep "residence"@en ;

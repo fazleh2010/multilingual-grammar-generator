@@ -19,7 +19,7 @@
   lemon:synBehavior    :firstAirDate-of_nounpp .
 
 :firstAirDate-of_form a lemon:Form ;
-  lemon:writtenRep "first Air Date"@en .
+  lemon:writtenRep "first Air Date"@en ;
 
 :firstAirDate-of_singular a    lemon:Form ;
   lemon:writtenRep "first Air Date"@en ;

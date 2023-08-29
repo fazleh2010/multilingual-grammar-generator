@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :infrastructure_of_161 ;
+  lemon:entry    :infrastructure_of_161_form_preposition .
+
+:infrastructure_of_161 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :infrastructure_of_161_form ;
+  lemon:otherForm  :infrastructure_of_161_singular ;
+  lemon:otherForm  :infrastructure_of_161_plural ;
+  lemon:sense          :infrastructure_of_161_sense_1 ;
+  lemon:synBehavior    :infrastructure_of_161_nounpp .
+
+:infrastructure_of_161_form a lemon:Form ;
+
+:infrastructure_of_161_singular a    lemon:Form ;
+  lemon:writtenRep "infrastructure"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:infrastructure_of_161_plural a   lemon:Form ;
+  lemon:writtenRep "infrastructures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:infrastructure_of_161_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_infrastructure_of_161 ;
+  lexinfo:prepositionalAdjunct :arg2_infrastructure_of_161 .
+
+:infrastructure_of_161_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :infrastructure_of_161_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_infrastructure_of_161 ;
+  lemon:objOfProp           :arg1_infrastructure_of_161 ;
+  lemon:condition           :infrastructure_of_161_sense_1_condition .
+
+:infrastructure_of_161_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Infrastructure> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Infrastructure> .
+
+:arg2_infrastructure_of_161 lemon:marker :infrastructure_of_161_form_preposition .
+## Prepositions ##
+:infrastructure_of_161_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

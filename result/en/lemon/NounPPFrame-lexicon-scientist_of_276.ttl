@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :scientist_of_276 ;
+  lemon:entry    :scientist_of_276_form_preposition .
+
+:scientist_of_276 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :scientist_of_276_form ;
+  lemon:otherForm  :scientist_of_276_singular ;
+  lemon:otherForm  :scientist_of_276_plural ;
+  lemon:sense          :scientist_of_276_sense_1 ;
+  lemon:synBehavior    :scientist_of_276_nounpp .
+
+:scientist_of_276_form a lemon:Form ;
+
+:scientist_of_276_singular a    lemon:Form ;
+  lemon:writtenRep "scientist"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:scientist_of_276_plural a   lemon:Form ;
+  lemon:writtenRep "scientists"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:scientist_of_276_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_scientist_of_276 ;
+  lexinfo:prepositionalAdjunct :arg2_scientist_of_276 .
+
+:scientist_of_276_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :scientist_of_276_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_scientist_of_276 ;
+  lemon:objOfProp           :arg1_scientist_of_276 ;
+  lemon:condition           :scientist_of_276_sense_1_condition .
+
+:scientist_of_276_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Scientist> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Scientist> .
+
+:arg2_scientist_of_276 lemon:marker :scientist_of_276_form_preposition .
+## Prepositions ##
+:scientist_of_276_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

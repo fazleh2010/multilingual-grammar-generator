@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :nerve_of_71 ;
+  lemon:entry    :nerve_of_71_form_preposition .
+
+:nerve_of_71 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :nerve_of_71_form ;
+  lemon:otherForm  :nerve_of_71_singular ;
+  lemon:otherForm  :nerve_of_71_plural ;
+  lemon:sense          :nerve_of_71_sense_1 ;
+  lemon:synBehavior    :nerve_of_71_nounpp .
+
+:nerve_of_71_form a lemon:Form ;
+
+:nerve_of_71_singular a    lemon:Form ;
+  lemon:writtenRep "Nerve"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:nerve_of_71_plural a   lemon:Form ;
+  lemon:writtenRep "Nerves"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:nerve_of_71_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_nerve_of_71 ;
+  lexinfo:prepositionalAdjunct :arg2_nerve_of_71 .
+
+:nerve_of_71_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :nerve_of_71_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_nerve_of_71 ;
+  lemon:objOfProp           :arg1_nerve_of_71 ;
+  lemon:condition           :nerve_of_71_sense_1_condition .
+
+:nerve_of_71_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Nerve> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Nerve> .
+
+:arg2_nerve_of_71 lemon:marker :nerve_of_71_form_preposition .
+## Prepositions ##
+:nerve_of_71_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

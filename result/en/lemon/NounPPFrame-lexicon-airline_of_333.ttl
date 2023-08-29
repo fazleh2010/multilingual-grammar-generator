@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :airline_of_333 ;
+  lemon:entry    :airline_of_333_form_preposition .
+
+:airline_of_333 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :airline_of_333_form ;
+  lemon:otherForm  :airline_of_333_singular ;
+  lemon:otherForm  :airline_of_333_plural ;
+  lemon:sense          :airline_of_333_sense_1 ;
+  lemon:synBehavior    :airline_of_333_nounpp .
+
+:airline_of_333_form a lemon:Form ;
+
+:airline_of_333_singular a    lemon:Form ;
+  lemon:writtenRep "airline"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:airline_of_333_plural a   lemon:Form ;
+  lemon:writtenRep "airlines"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:airline_of_333_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_airline_of_333 ;
+  lexinfo:prepositionalAdjunct :arg2_airline_of_333 .
+
+:airline_of_333_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :airline_of_333_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_airline_of_333 ;
+  lemon:objOfProp           :arg1_airline_of_333 ;
+  lemon:condition           :airline_of_333_sense_1_condition .
+
+:airline_of_333_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Airline> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Airline> .
+
+:arg2_airline_of_333 lemon:marker :airline_of_333_form_preposition .
+## Prepositions ##
+:airline_of_333_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

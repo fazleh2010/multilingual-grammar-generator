@@ -20,7 +20,7 @@
   lemon:synBehavior    :party-of_nounpp .
 
 :party-of_form a lemon:Form ;
-  lemon:writtenRep "party"@en .
+  lemon:writtenRep "party"@en ;
 
 :party-of_singular a    lemon:Form ;
   lemon:writtenRep "party"@en ;

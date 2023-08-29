@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :buscompany_of_340 ;
+  lemon:entry    :buscompany_of_340_form_preposition .
+
+:buscompany_of_340 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :buscompany_of_340_form ;
+  lemon:otherForm  :buscompany_of_340_singular ;
+  lemon:otherForm  :buscompany_of_340_plural ;
+  lemon:sense          :buscompany_of_340_sense_1 ;
+  lemon:synBehavior    :buscompany_of_340_nounpp .
+
+:buscompany_of_340_form a lemon:Form ;
+
+:buscompany_of_340_singular a    lemon:Form ;
+  lemon:writtenRep "Bus Company"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:buscompany_of_340_plural a   lemon:Form ;
+  lemon:writtenRep "Bus Companies"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:buscompany_of_340_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_buscompany_of_340 ;
+  lexinfo:prepositionalAdjunct :arg2_buscompany_of_340 .
+
+:buscompany_of_340_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :buscompany_of_340_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_buscompany_of_340 ;
+  lemon:objOfProp           :arg1_buscompany_of_340 ;
+  lemon:condition           :buscompany_of_340_sense_1_condition .
+
+:buscompany_of_340_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BusCompany> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/BusCompany> .
+
+:arg2_buscompany_of_340 lemon:marker :buscompany_of_340_form_preposition .
+## Prepositions ##
+:buscompany_of_340_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

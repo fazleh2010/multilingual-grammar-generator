@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :glacier_of_142 ;
+  lemon:entry    :glacier_of_142_form_preposition .
+
+:glacier_of_142 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :glacier_of_142_form ;
+  lemon:otherForm  :glacier_of_142_singular ;
+  lemon:otherForm  :glacier_of_142_plural ;
+  lemon:sense          :glacier_of_142_sense_1 ;
+  lemon:synBehavior    :glacier_of_142_nounpp .
+
+:glacier_of_142_form a lemon:Form ;
+
+:glacier_of_142_singular a    lemon:Form ;
+  lemon:writtenRep "Glacier"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:glacier_of_142_plural a   lemon:Form ;
+  lemon:writtenRep "Glaciers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:glacier_of_142_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_glacier_of_142 ;
+  lexinfo:prepositionalAdjunct :arg2_glacier_of_142 .
+
+:glacier_of_142_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :glacier_of_142_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_glacier_of_142 ;
+  lemon:objOfProp           :arg1_glacier_of_142 ;
+  lemon:condition           :glacier_of_142_sense_1_condition .
+
+:glacier_of_142_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Glacier> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Glacier> .
+
+:arg2_glacier_of_142 lemon:marker :glacier_of_142_form_preposition .
+## Prepositions ##
+:glacier_of_142_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

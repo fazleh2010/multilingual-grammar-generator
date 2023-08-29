@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :formOfGovernment-of_423 ;
+  lemon:entry    :formOfGovernment-of_423_form_preposition .
+
+:formOfGovernment-of_423 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :formOfGovernment-of_423_form ;
+  lemon:otherForm  :formOfGovernment-of_423_singular ;
+  lemon:otherForm  :formOfGovernment-of_423_plural ;
+  lemon:sense          :formOfGovernment-of_423_sense_1 ;
+  lemon:synBehavior    :formOfGovernment-of_423_nounpp .
+
+:formOfGovernment-of_423_form a lemon:Form ;
+
+:formOfGovernment-of_423_singular a    lemon:Form ;
+  lemon:writtenRep "form of government"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:formOfGovernment-of_423_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:formOfGovernment-of_423_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_formOfGovernment-of_423 ;
+  lexinfo:prepositionalAdjunct :arg2_formOfGovernment-of_423 .
+
+:formOfGovernment-of_423_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :formOfGovernment-of_423_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/governmentType> ;
+  lemon:subjOfProp          :arg2_formOfGovernment-of_423 ;
+  lemon:objOfProp           :arg1_formOfGovernment-of_423 ;
+  lemon:condition           :formOfGovernment-of_423_sense_1_condition .
+
+:formOfGovernment-of_423_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2_formOfGovernment-of_423 lemon:marker :formOfGovernment-of_423_form_preposition .
+## Prepositions ##
+:formOfGovernment-of_423_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

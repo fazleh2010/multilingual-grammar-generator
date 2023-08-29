@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :embryology_of_220 ;
+  lemon:entry    :embryology_of_220_form_preposition .
+
+:embryology_of_220 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :embryology_of_220_form ;
+  lemon:otherForm  :embryology_of_220_singular ;
+  lemon:otherForm  :embryology_of_220_plural ;
+  lemon:sense          :embryology_of_220_sense_1 ;
+  lemon:synBehavior    :embryology_of_220_nounpp .
+
+:embryology_of_220_form a lemon:Form ;
+
+:embryology_of_220_singular a    lemon:Form ;
+  lemon:writtenRep "Embryology"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:embryology_of_220_plural a   lemon:Form ;
+  lemon:writtenRep "Embryologys"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:embryology_of_220_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_embryology_of_220 ;
+  lexinfo:prepositionalAdjunct :arg2_embryology_of_220 .
+
+:embryology_of_220_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :embryology_of_220_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_embryology_of_220 ;
+  lemon:objOfProp           :arg1_embryology_of_220 ;
+  lemon:condition           :embryology_of_220_sense_1_condition .
+
+:embryology_of_220_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Embryology> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Embryology> .
+
+:arg2_embryology_of_220 lemon:marker :embryology_of_220_form_preposition .
+## Prepositions ##
+:embryology_of_220_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

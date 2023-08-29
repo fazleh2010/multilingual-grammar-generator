@@ -19,7 +19,7 @@
   lemon:synBehavior    :birthYear_of_nounpp .
 
 :birthYear_of_form a lemon:Form ;
-  lemon:writtenRep "birth year"@en .
+  lemon:writtenRep "birth year"@en ;
 
 :birthYear_of_singular a    lemon:Form ;
   lemon:writtenRep "birth year"@en ;

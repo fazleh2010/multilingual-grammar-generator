@@ -19,7 +19,7 @@
   lemon:synBehavior    :wine_region_of_nounpp .
 
 :wine_region_of_form a lemon:Form ;
-  lemon:writtenRep "wine region"@en .
+  lemon:writtenRep "wine region"@en ;
 
 :wine_region_of_singular a    lemon:Form ;
   lemon:writtenRep "wine region"@en ;

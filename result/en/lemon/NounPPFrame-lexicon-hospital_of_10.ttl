@@ -1,0 +1,51 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :hospital_of_10 ;
+  lemon:entry    :hospital_of_10_form_preposition .
+
+:hospital_of_10 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :hospital_of_10_form ;
+  lemon:otherForm  :hospital_of_10_singular ;
+  lemon:otherForm  :hospital_of_10_plural ;
+  lemon:sense          :hospital_of_10_sense_1 ;
+  lemon:synBehavior    :hospital_of_10_nounpp .
+
+:hospital_of_10_form a lemon:Form ;
+
+:hospital_of_10_singular a    lemon:Form ;
+  lemon:writtenRep "Hospital"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:hospital_of_10_plural a   lemon:Form ;
+  lemon:writtenRep "Hospitals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:hospital_of_10_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_hospital_of_10 ;
+  lexinfo:prepositionalAdjunct :arg2_hospital_of_10 .
+
+:hospital_of_10_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :hospital_of_10_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2_hospital_of_10 ;
+  lemon:objOfProp           :arg1_hospital_of_10 ;
+  lemon:condition           :hospital_of_10_sense_1_condition .
+
+:hospital_of_10_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Hospital> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Hospital> .
+
+:arg2_hospital_of_10 lemon:marker :hospital_of_10_form_preposition .
+## Prepositions ##
+:hospital_of_10_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

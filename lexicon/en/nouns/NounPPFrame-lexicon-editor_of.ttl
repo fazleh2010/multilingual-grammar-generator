@@ -19,7 +19,7 @@
   lemon:synBehavior    :editor_of_nounpp .
 
 :editor_of_form a lemon:Form ;
-  lemon:writtenRep "editor"@en .
+  lemon:writtenRep "editor"@en ;
 
 :editor_of_singular a    lemon:Form ;
   lemon:writtenRep "editor"@en ;

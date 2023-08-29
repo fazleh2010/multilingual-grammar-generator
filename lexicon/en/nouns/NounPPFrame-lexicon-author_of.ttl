@@ -19,7 +19,7 @@
   lemon:synBehavior    :author_of_nounpp .
 
 :author_of_form a lemon:Form ;
-  lemon:writtenRep "author"@en .
+  lemon:writtenRep "author"@en ;
 
 :author_of_singular a    lemon:Form ;
   lemon:writtenRep "author"@en ;

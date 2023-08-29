@@ -19,7 +19,7 @@
   lemon:synBehavior    :city-in_nounpp .
 
 :city-in_form a lemon:Form ;
-  lemon:writtenRep "city"@en .
+  lemon:writtenRep "city"@en ;
 
 :city-in_singular a    lemon:Form ;
   lemon:writtenRep "city"@en ;
