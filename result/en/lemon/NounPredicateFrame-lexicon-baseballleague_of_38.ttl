@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :baseballleague_of_38_sense_1_res ;
+  lemon:entry    :baseballleague_of_38 .
+
+:baseballleague_of_38 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :baseballleague_of_38_form ;
+  lemon:otherForm  :baseballleague_of_38_singular ;
+  lemon:otherForm  :baseballleague_of_38_plural ;
+  lemon:sense          :baseballleague_of_38_sense_1 ;
+  lemon:synBehavior    :baseballleague_of_38_predFrame .
+
+:baseballleague_of_38_form
+ lemon:writtenRep "Baseball League"@en .
+
+:baseballleague_of_38_singular a    lemon:Form ;
+  lemon:writtenRep "Baseball League"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:baseballleague_of_38_plural a   lemon:Form ;
+  lemon:writtenRep "Baseball Leagues"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:baseballleague_of_38_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :baseballleague_of_38_sense_1_res ;
+  lemon:isA       :baseballleague_of_38_PredSynArg .
+
+:baseballleague_of_38_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/BaseballLeague> .

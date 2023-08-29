@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :railwaytunnel_of_290_sense_1_res ;
+  lemon:entry    :railwaytunnel_of_290 .
+
+:railwaytunnel_of_290 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :railwaytunnel_of_290_form ;
+  lemon:otherForm  :railwaytunnel_of_290_singular ;
+  lemon:otherForm  :railwaytunnel_of_290_plural ;
+  lemon:sense          :railwaytunnel_of_290_sense_1 ;
+  lemon:synBehavior    :railwaytunnel_of_290_predFrame .
+
+:railwaytunnel_of_290_form
+ lemon:writtenRep "Railway Tunnel"@en .
+
+:railwaytunnel_of_290_singular a    lemon:Form ;
+  lemon:writtenRep "Railway Tunnel"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:railwaytunnel_of_290_plural a   lemon:Form ;
+  lemon:writtenRep "Railway Tunnels"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:railwaytunnel_of_290_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :railwaytunnel_of_290_sense_1_res ;
+  lemon:isA       :railwaytunnel_of_290_PredSynArg .
+
+:railwaytunnel_of_290_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/RailwayTunnel> .

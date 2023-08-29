@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :memberofparliament_of_227_sense_1_res ;
+  lemon:entry    :memberofparliament_of_227 .
+
+:memberofparliament_of_227 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :memberofparliament_of_227_form ;
+  lemon:otherForm  :memberofparliament_of_227_singular ;
+  lemon:otherForm  :memberofparliament_of_227_plural ;
+  lemon:sense          :memberofparliament_of_227_sense_1 ;
+  lemon:synBehavior    :memberofparliament_of_227_predFrame .
+
+:memberofparliament_of_227_form
+ lemon:writtenRep "Member of Parliament"@en .
+
+:memberofparliament_of_227_singular a    lemon:Form ;
+  lemon:writtenRep "Member of Parliament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:memberofparliament_of_227_plural a   lemon:Form ;
+  lemon:writtenRep "Member of Parliaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:memberofparliament_of_227_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :memberofparliament_of_227_sense_1_res ;
+  lemon:isA       :memberofparliament_of_227_PredSynArg .
+
+:memberofparliament_of_227_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/MemberOfParliament> .

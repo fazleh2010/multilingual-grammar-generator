@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :world_of_388_sense_1_res ;
+  lemon:entry    :world_of_388 .
+
+:world_of_388 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :world_of_388_form ;
+  lemon:otherForm  :world_of_388_singular ;
+  lemon:otherForm  :world_of_388_plural ;
+  lemon:sense          :world_of_388_sense_1 ;
+  lemon:synBehavior    :world_of_388_predFrame .
+
+:world_of_388_form
+ lemon:writtenRep "world"@en .
+
+:world_of_388_singular a    lemon:Form ;
+  lemon:writtenRep "world"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:world_of_388_plural a   lemon:Form ;
+  lemon:writtenRep "worlds"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:world_of_388_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :world_of_388_sense_1_res ;
+  lemon:isA       :world_of_388_PredSynArg .
+
+:world_of_388_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://www.w3.org/2002/07/owl#Thing> .

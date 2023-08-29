@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :language_of_462_sense_1_res ;
+  lemon:entry    :language_of_462 .
+
+:language_of_462 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :language_of_462_form ;
+  lemon:otherForm  :language_of_462_singular ;
+  lemon:otherForm  :language_of_462_plural ;
+  lemon:sense          :language_of_462_sense_1 ;
+  lemon:synBehavior    :language_of_462_predFrame .
+
+:language_of_462_form
+ lemon:writtenRep "language"@en .
+
+:language_of_462_singular a    lemon:Form ;
+  lemon:writtenRep "language"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:language_of_462_plural a   lemon:Form ;
+  lemon:writtenRep "languages"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:language_of_462_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :language_of_462_sense_1_res ;
+  lemon:isA       :language_of_462_PredSynArg .
+
+:language_of_462_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Language> .

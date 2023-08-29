@@ -285,7 +285,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + attributiveAdjectiveFrame.getAtrributiveFrameIndexing(tupples, this.lemonEntry)
                 + attributiveAdjectiveFrame.getAtrrtibutiveWrittenForm(lemonEntry, writtenFormInfinitive, this.language)
                 + attributiveAdjectiveFrame.getSenseDetail(tupples, syntacticFrame, this.lemonEntry, "", "", this.language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName("NounPredicateFrame");
     }
     
     

@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mixedmartialartsevent_of_295_sense_1_res ;
+  lemon:entry    :mixedmartialartsevent_of_295 .
+
+:mixedmartialartsevent_of_295 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :mixedmartialartsevent_of_295_form ;
+  lemon:otherForm  :mixedmartialartsevent_of_295_singular ;
+  lemon:otherForm  :mixedmartialartsevent_of_295_plural ;
+  lemon:sense          :mixedmartialartsevent_of_295_sense_1 ;
+  lemon:synBehavior    :mixedmartialartsevent_of_295_predFrame .
+
+:mixedmartialartsevent_of_295_form
+ lemon:writtenRep "Mixed Martial Arts Event"@en .
+
+:mixedmartialartsevent_of_295_singular a    lemon:Form ;
+  lemon:writtenRep "Mixed Martial Arts Event"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mixedmartialartsevent_of_295_plural a   lemon:Form ;
+  lemon:writtenRep "Mixed Martial Arts Events"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mixedmartialartsevent_of_295_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :mixedmartialartsevent_of_295_sense_1_res ;
+  lemon:isA       :mixedmartialartsevent_of_295_PredSynArg .
+
+:mixedmartialartsevent_of_295_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/MixedMartialArtsEvent> .

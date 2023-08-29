@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :australianfootballteam_of_57_sense_1_res ;
+  lemon:entry    :australianfootballteam_of_57 .
+
+:australianfootballteam_of_57 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :australianfootballteam_of_57_form ;
+  lemon:otherForm  :australianfootballteam_of_57_singular ;
+  lemon:otherForm  :australianfootballteam_of_57_plural ;
+  lemon:sense          :australianfootballteam_of_57_sense_1 ;
+  lemon:synBehavior    :australianfootballteam_of_57_predFrame .
+
+:australianfootballteam_of_57_form
+ lemon:writtenRep "Australian Football Team"@en .
+
+:australianfootballteam_of_57_singular a    lemon:Form ;
+  lemon:writtenRep "Australian Football Team"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:australianfootballteam_of_57_plural a   lemon:Form ;
+  lemon:writtenRep "Australian Football Teams"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:australianfootballteam_of_57_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :australianfootballteam_of_57_sense_1_res ;
+  lemon:isA       :australianfootballteam_of_57_PredSynArg .
+
+:australianfootballteam_of_57_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/AustralianFootballTeam> .

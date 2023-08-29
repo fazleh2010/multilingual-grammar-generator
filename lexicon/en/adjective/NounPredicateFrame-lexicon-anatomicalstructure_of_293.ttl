@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :anatomicalstructure_of_293_sense_1_res ;
+  lemon:entry    :anatomicalstructure_of_293 .
+
+:anatomicalstructure_of_293 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :anatomicalstructure_of_293_form ;
+  lemon:otherForm  :anatomicalstructure_of_293_singular ;
+  lemon:otherForm  :anatomicalstructure_of_293_plural ;
+  lemon:sense          :anatomicalstructure_of_293_sense_1 ;
+  lemon:synBehavior    :anatomicalstructure_of_293_predFrame .
+
+:anatomicalstructure_of_293_form
+ lemon:writtenRep "Anatomical Structure"@en .
+
+:anatomicalstructure_of_293_singular a    lemon:Form ;
+  lemon:writtenRep "Anatomical Structure"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:anatomicalstructure_of_293_plural a   lemon:Form ;
+  lemon:writtenRep "Anatomical Structures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:anatomicalstructure_of_293_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :anatomicalstructure_of_293_sense_1_res ;
+  lemon:isA       :anatomicalstructure_of_293_PredSynArg .
+
+:anatomicalstructure_of_293_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/AnatomicalStructure> .

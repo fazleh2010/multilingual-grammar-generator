@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :writer_of_308_sense_1_res ;
+  lemon:entry    :writer_of_308 .
+
+:writer_of_308 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :writer_of_308_form ;
+  lemon:otherForm  :writer_of_308_singular ;
+  lemon:otherForm  :writer_of_308_plural ;
+  lemon:sense          :writer_of_308_sense_1 ;
+  lemon:synBehavior    :writer_of_308_predFrame .
+
+:writer_of_308_form
+ lemon:writtenRep "writer"@en .
+
+:writer_of_308_singular a    lemon:Form ;
+  lemon:writtenRep "writer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:writer_of_308_plural a   lemon:Form ;
+  lemon:writtenRep "writers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:writer_of_308_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :writer_of_308_sense_1_res ;
+  lemon:isA       :writer_of_308_PredSynArg .
+
+:writer_of_308_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Writer> .

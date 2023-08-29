@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :filmfestival_of_87_sense_1_res ;
+  lemon:entry    :filmfestival_of_87 .
+
+:filmfestival_of_87 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :filmfestival_of_87_form ;
+  lemon:otherForm  :filmfestival_of_87_singular ;
+  lemon:otherForm  :filmfestival_of_87_plural ;
+  lemon:sense          :filmfestival_of_87_sense_1 ;
+  lemon:synBehavior    :filmfestival_of_87_predFrame .
+
+:filmfestival_of_87_form
+ lemon:writtenRep "Film Festival"@en .
+
+:filmfestival_of_87_singular a    lemon:Form ;
+  lemon:writtenRep "Film Festival"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:filmfestival_of_87_plural a   lemon:Form ;
+  lemon:writtenRep "Film Festivals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:filmfestival_of_87_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :filmfestival_of_87_sense_1_res ;
+  lemon:isA       :filmfestival_of_87_PredSynArg .
+
+:filmfestival_of_87_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/FilmFestival> .

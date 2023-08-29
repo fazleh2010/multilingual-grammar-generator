@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :publictransitsystem_of_325_sense_1_res ;
+  lemon:entry    :publictransitsystem_of_325 .
+
+:publictransitsystem_of_325 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :publictransitsystem_of_325_form ;
+  lemon:otherForm  :publictransitsystem_of_325_singular ;
+  lemon:otherForm  :publictransitsystem_of_325_plural ;
+  lemon:sense          :publictransitsystem_of_325_sense_1 ;
+  lemon:synBehavior    :publictransitsystem_of_325_predFrame .
+
+:publictransitsystem_of_325_form
+ lemon:writtenRep "Public Transit System"@en .
+
+:publictransitsystem_of_325_singular a    lemon:Form ;
+  lemon:writtenRep "Public Transit System"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:publictransitsystem_of_325_plural a   lemon:Form ;
+  lemon:writtenRep "Public Transit Systems"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:publictransitsystem_of_325_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :publictransitsystem_of_325_sense_1_res ;
+  lemon:isA       :publictransitsystem_of_325_PredSynArg .
+
+:publictransitsystem_of_325_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/PublicTransitSystem> .
