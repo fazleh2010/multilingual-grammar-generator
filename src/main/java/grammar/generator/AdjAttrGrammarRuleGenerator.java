@@ -83,6 +83,11 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
             GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil, className,classNameUrl);
             grammarEntries.add(baseGrammarEntry);
         }
+        /*String className="(X)",classNameUrl="VARIABLE";
+        grammarEntry.setSentenceTemplate(this.template);
+        GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil, className,classNameUrl);
+        grammarEntries.add(baseGrammarEntry);*/
+       
         return grammarEntries;
     }
 

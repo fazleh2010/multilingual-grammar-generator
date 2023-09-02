@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :capital-of_280 ;
+  lemon:entry    :capital-of_280_form_preposition .
+
+:capital-of_280 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :capital-of_280_form ;
+  lemon:otherForm  :capital-of_280_singular ;
+  lemon:otherForm  :capital-of_280_plural ;
+  lemon:sense          :capital-of_280_sense_1 ;
+  lemon:synBehavior    :capital-of_280_nounpp .
+
+:capital-of_280_form a lemon:Form ;
+  lemon:writtenRep "capital"@en .
+
+:capital-of_280_singular a    lemon:Form ;
+  lemon:writtenRep "capital"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:capital-of_280_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:capital-of_280_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_capital-of_280 ;
+  lexinfo:prepositionalAdjunct :arg2_capital-of_280 .
+
+:capital-of_280_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :capital-of_280_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/capital> ;
+  lemon:subjOfProp          :arg2_capital-of_280 ;
+  lemon:objOfProp           :arg1_capital-of_280 ;
+  lemon:condition           :capital-of_280_sense_1_condition .
+
+:capital-of_280_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2_capital-of_280 lemon:marker :capital-of_280_form_preposition .
+## Prepositions ##
+:capital-of_280_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

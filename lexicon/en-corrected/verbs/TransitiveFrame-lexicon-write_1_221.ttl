@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_write_1_221 ;
+  lemon:entry    :write_1_221ed ;
+  lemon:entry    :form_write_1_221_preposition .
+
+:to_write_1_221 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_write_1_221 ;
+  lemon:otherForm      :form_write_1_221s ;
+  lemon:otherForm      :form_write_1_221ed ;
+  lemon:otherForm      :form_write_1_221perfect ;
+  lemon:sense          :write_1_221_sense_1 ;
+  lemon:synBehavior    :write_1_221_frame_transitive .
+
+:form_write_1_221 a         lemon:Form ;
+  lemon:writtenRep     "write"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_write_1_221s a    lemon:Form ;
+  lemon:writtenRep "writes"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_write_1_221ed a   lemon:Form ;
+  lemon:writtenRep "wrote"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_write_1_221perfect a   lemon:Form ;
+  lemon:writtenRep "written"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:write_1_221_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :write_1_221_subj ;
+  lexinfo:directObject     :write_1_221_obj .
+
+:write_1_221_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :write_1_221_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/composer> ;
+  lemon:subjOfProp  :write_1_221_obj ;
+  lemon:objOfProp   :write_1_221_subj ;
+  lemon:condition   :write_1_221_sense_1_condition .
+
+
+:write_1_221_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:write_1_221_obj lemon:marker :form_write_1_221_preposition .
+
+## Prepositions ##
+:form_write_1_221_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
