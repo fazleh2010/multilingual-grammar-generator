@@ -752,7 +752,7 @@ public class EnglishCsv implements TempConstants {
 
     }
 
-    /*public static class AttributiveAdjectiveFrame {
+    public static class AttributiveAdjectiveFrame {
 
         //LemonEntry	partOfSpeech	writtenForm	SyntacticFrame	copulativeSubject	
         //attributiveArg	sense	reference	owl:onProperty	owl:hasValue	
@@ -895,9 +895,9 @@ public class EnglishCsv implements TempConstants {
             return size;
         }
 
-    }*/
+    }
     
-     public static class AttributiveAdjectiveFrame {			
+    /*public static class AttributiveAdjectiveFrame {			
         private Integer lemonEntryIndex = 0;
         private Integer partOfSpeechIndex = 1;
         private Integer writtenFormInfinitive = 2;
@@ -1041,7 +1041,7 @@ public class EnglishCsv implements TempConstants {
             return size;
         }
 
-    }
+    }*/
 
     public static class GradbleAdjectiveFrameCsv {
 
@@ -1136,7 +1136,7 @@ public class EnglishCsv implements TempConstants {
                 String condition
                         = ":" + tupple.getSenseId() + "_condition" + " a lemon:condition ;\n"
                         + "  lemon:propertyDomain   <" + tupple.getDomain() + "> ;\n"
-                        + "  lemon:propertyRange    <" + tupple.getRange() + "> .";
+                        + "  lemon:propertyRange    <" + tupple.getRange() + "> .\n";
 
                 str += line + res + condition;
             }
@@ -1148,7 +1148,7 @@ public class EnglishCsv implements TempConstants {
             if (preposition.contains("X")) {
                 preposition = "";
             }
-            return "## Prepositions ##\n"
+            return "\n## Prepositions ##\n"
                     + ":" + "form_" + lemonEntry + "_preposition" + " a                  lemon:SynRoleMarker ;\n"
                     + "  lemon:canonicalForm  [ lemon:writtenRep \"" + preposition + "\"@" + language + " ] ;\n"
                     + "  lexinfo:partOfSpeech lexinfo:preposition .\n"
