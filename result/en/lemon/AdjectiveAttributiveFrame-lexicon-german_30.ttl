@@ -17,7 +17,7 @@
   lemon:sense          :german_30_sense_1 ;
   lemon:synBehavior    :german_30_attrFrame, :german_30_predFrame .
 
-:german_30_lemma lemon:writtenRep "swiss"@en .
+:german_30_lemma lemon:writtenRep "german"@en .
 
 :german_30_predFrame a        lexinfo:AdjectivePredicateFrame ;
   lexinfo:copulativeSubject :german_30_PredSynArg .

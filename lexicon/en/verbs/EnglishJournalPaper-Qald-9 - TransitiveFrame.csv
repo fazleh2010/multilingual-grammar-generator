@@ -2,3 +2,4 @@ LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,wri
 Develop_1,verb,develop,develops,developed,developed,TransitiveFrame,domain,range,1,dbo:product,dbo:Company,dbo:Software,by,"Which dbo:Company(X) develops,developedY(dbo:Company)?","Who dbo:Company(X) develops,developedY(dbo:Company)?",SELECT ?X WHERE { ?X dbo:product Y.},Which dbo:Software (X) was developed by Y(dbo:Company)?,SELECT ?X WHERE { Y dbo:Company ?X.}
 Develop_2,verb,develop,develops,developed,developed,TransitiveFrame,range,domain,1,dbo:developer,dbo:VideoGame,dbo:Agent,by,"Which dbo:Agent (X) develops,developed Y(dbo:VideoGame)?",,,,
 Influence_3,verb,Influence,Influences,Influenced,Influenced,TransitiveFrame,range,domain,1,dbo:influencedBy,dbo:Person,dbo:Person,by,,,,,
+Possess_1,verb,poss,possess,possessed,possessed,TransitiveFrame,range,domain,1,dbp:mineral,dbo:Place,dbo:Mineral,by,,,,,
