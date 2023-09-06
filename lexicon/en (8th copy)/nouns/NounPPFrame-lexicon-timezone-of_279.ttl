@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :timezone-of_279 ;
+  lemon:entry    :timezone-of_279_form_preposition .
+
+:timezone-of_279 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :timezone-of_279_form ;
+  lemon:otherForm  :timezone-of_279_singular ;
+  lemon:otherForm  :timezone-of_279_plural ;
+  lemon:sense          :timezone-of_279_sense_1 ;
+  lemon:sense          :timezone-of_279_sense_2 ;
+  lemon:synBehavior    :timezone-of_279_nounpp .
+
+:timezone-of_279_form a lemon:Form ;
+  lemon:writtenRep "time zone"@en .
+
+:timezone-of_279_singular a    lemon:Form ;
+  lemon:writtenRep "time zone"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:timezone-of_279_plural a   lemon:Form ;
+  lemon:writtenRep "time zones"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:timezone-of_279_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_timezone-of_279 ;
+  lexinfo:prepositionalAdjunct :arg2_timezone-of_279 .
+
+:timezone-of_279_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :timezone-of_279_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/timeZone> ;
+  lemon:subjOfProp          :arg2_timezone-of_279 ;
+  lemon:objOfProp           :arg1_timezone-of_279 ;
+  lemon:condition           :timezone-of_279_sense_1_condition .
+
+:timezone-of_279_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:timezone-of_279_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :timezone-of_279_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/timeZone> ;
+  lemon:subjOfProp          :arg2_timezone-of_279 ;
+  lemon:objOfProp           :arg1_timezone-of_279 ;
+  lemon:condition           :timezone-of_279_sense_2_condition .
+
+:timezone-of_279_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_timezone-of_279 lemon:marker :timezone-of_279_form_preposition .
+## Prepositions ##
+:timezone-of_279_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

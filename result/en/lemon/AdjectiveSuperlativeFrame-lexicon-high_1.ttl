@@ -20,11 +20,11 @@
   lemon:sense          :high_1_sense_1 ;
   lemon:synBehavior    :high_1_predFrame .
 
-:form_high_1 lemon:writtenRep "high"@en .
+:form_high_1 lemon:writtenRep "long"@en .
 
-:form_high_1_comperative lemon:writtenRep "higher"@en .
+:form_high_1_comperative lemon:writtenRep "longer"@en .
 
-:form_high_1_superlative lemon:writtenRep "highest"@en .
+:form_high_1_superlative lemon:writtenRep "longest"@en .
 
 :high_1_predFrame a        lexinfo:AdjectiveSuperlativeFrame ;
   lexinfo:copulativeSubject :high_1_PredSynArg .

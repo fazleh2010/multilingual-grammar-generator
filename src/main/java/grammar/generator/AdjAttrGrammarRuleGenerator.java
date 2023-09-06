@@ -77,6 +77,10 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         classNamesMap.put("nonprofit organizations","http://dbpedia.org/resource/Nonprofit_organization");
         classNamesMap.put("holiday","http://dbpedia.org/resource/Holiday");
         classNamesMap.put("holidays","http://dbpedia.org/resource/Holiday");
+        classNamesMap.put("band","http://dbpedia.org/resource/Band");
+        classNamesMap.put("bands","http://dbpedia.org/resource/Band");
+        classNamesMap.put("politician","http://dbpedia.org/resource/Politician");
+        classNamesMap.put("politicians","http://dbpedia.org/resource/Politician");
         for (String className : classNamesMap.keySet()) {
             String classNameUrl=classNamesMap.get(className);
             grammarEntry.setSentenceTemplate(this.template);
