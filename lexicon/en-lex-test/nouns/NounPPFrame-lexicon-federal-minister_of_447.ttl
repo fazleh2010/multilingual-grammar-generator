@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :federal-minister_of_447 ;
+  lemon:entry    :federal-minister_of_447_form_preposition .
+
+:federal-minister_of_447 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :federal-minister_of_447_form ;
+  lemon:otherForm  :federal-minister_of_447_singular ;
+  lemon:otherForm  :federal-minister_of_447_plural ;
+  lemon:sense          :federal-minister_of_447_sense_1 ;
+  lemon:synBehavior    :federal-minister_of_447_nounpp .
+
+:federal-minister_of_447_form a lemon:Form ;
+  lemon:writtenRep "federal minister"@en .
+
+:federal-minister_of_447_singular a    lemon:Form ;
+  lemon:writtenRep "federal minister"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:federal-minister_of_447_plural a   lemon:Form ;
+  lemon:writtenRep "federal ministers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:federal-minister_of_447_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_federal-minister_of_447 ;
+  lexinfo:prepositionalAdjunct :arg2_federal-minister_of_447 .
+
+:federal-minister_of_447_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :federal-minister_of_447_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/leader> ;
+  lemon:subjOfProp          :arg2_federal-minister_of_447 ;
+  lemon:objOfProp           :arg1_federal-minister_of_447 ;
+  lemon:condition           :federal-minister_of_447_sense_1_condition .
+
+:federal-minister_of_447_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_federal-minister_of_447 lemon:marker :federal-minister_of_447_form_preposition .
+## Prepositions ##
+:federal-minister_of_447_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

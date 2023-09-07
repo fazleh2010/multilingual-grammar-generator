@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_influence_3_8 ;
+  lemon:entry    :influence_3_8ed ;
+  lemon:entry    :form_influence_3_8_preposition .
+
+:to_influence_3_8 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_influence_3_8 ;
+  lemon:otherForm      :form_influence_3_8s ;
+  lemon:otherForm      :form_influence_3_8ed ;
+  lemon:otherForm      :form_influence_3_8perfect ;
+  lemon:sense          :influence_3_8_sense_1 ;
+  lemon:synBehavior    :influence_3_8_frame_transitive .
+
+:form_influence_3_8 a         lemon:Form ;
+  lemon:writtenRep     "Influence"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_influence_3_8s a    lemon:Form ;
+  lemon:writtenRep "Influences"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_influence_3_8ed a   lemon:Form ;
+  lemon:writtenRep "Influenced"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_influence_3_8perfect a   lemon:Form ;
+  lemon:writtenRep "Influenced"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:influence_3_8_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :influence_3_8_subj ;
+  lexinfo:directObject     :influence_3_8_obj .
+
+:influence_3_8_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :influence_3_8_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/influencedBy> ;
+  lemon:subjOfProp  :influence_3_8_obj ;
+  lemon:objOfProp   :influence_3_8_subj ;
+  lemon:condition   :influence_3_8_sense_1_condition .
+
+
+:influence_3_8_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:influence_3_8_obj lemon:marker :form_influence_3_8_preposition .
+
+## Prepositions ##
+:form_influence_3_8_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

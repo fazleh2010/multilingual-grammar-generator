@@ -4,3 +4,4 @@ part-of,noun,part,parts,of,NounPPFrame,domain,range,1,dbo:alliance,dbo:Agent,dbo
 Designer_2,noun,designer,designers,of,NounPPFrame,range,domain,1,dbp:designer,dbo:Weapon,dbo:Organisation,,,,,,,,,
 boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,range,domain,1,dbo:publisher,dbo:Work,dbo:Agent,,,,,,,,,
 population_density_1,noun,population density,-,of,NounPPFrame,range,domain,1,dbp:densityrank,dbo:Country,xsd:nonNegativeInteger,,,,,,,,,
+company_in,noun,company,companies,of,NounPPFrame,range,domain,1,dbo:headquarter,dbo:Agent,dbo:City,,,,,,,,,
