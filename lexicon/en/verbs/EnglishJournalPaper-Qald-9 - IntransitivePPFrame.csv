@@ -6,3 +6,5 @@ designate_at_1,verb,designate,designates,designated,designated,at,IntransitivePP
 assassinate_in,verb,assassinate,assassinates,assassinated,assassinated,in,IntransitivePPFrame,domain,range,1,dbo:deathPlace,dbo:Person,dbo:Place,,,,,,
 originate_in_1,verb,originate,originates,originated,originated,in,IntransitivePPFrame,domain,range,1,dbo:origin,dbo:Beverage,dbo:Country,,,,,,
 extend_to_1,verb,extend,extends,extended,extended,in,IntransitivePPFrame,domain,range,1,dbo:country,dbo:Mountain,dbo:Country,,,,,,
+admitted_as,verb,admit,admits,admitted,admitted,as,IntransitivePPFrame,domain,range,1,dbp:admittancedate,dbo:Settlement,xsd:date,,,,,,
+establish_in_2,verb,establish,establishes,established,established,as,IntransitivePPFrame,domain,range,1,dbp:established,dbo:Agent,xsd:gYear,,,,,,

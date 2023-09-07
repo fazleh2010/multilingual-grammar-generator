@@ -5,3 +5,7 @@ Influence_3,verb,Influence,Influences,Influenced,Influenced,TransitiveFrame,rang
 Possess_1,verb,poss,possess,possessed,possessed,TransitiveFrame,range,domain,1,dbp:mineral,dbo:Place,dbo:Mineral,by,,,,,
 Erupt_1,verb,erupt,erupts,erupted,erupted,TransitiveFrame,domain,range,1,dbo:eruptionYear,dbo:Volcano,xsd:gYear,by,,,,,
 cross,verb,cross,crosses,crossed,crossed,TransitiveFrame,domain,range,1,dbo:crosses,dbo:Bridge,dbo:River,by,,,,,
+Kill_1,verb,kill,kills,killed,killed,TransitiveFrame,domain,range,1,dbp:conviction,dbo:Person,dbo:MilitaryConflict,by,,,,,
+Play_1,verb,play,plays,played,played,TransitiveFrame,domain,range,1,dbo:portrayer,dbo:Agent,dbo:Work,by,,,,,
+Call_1,verb,call,calls,called,called,TransitiveFrame,domain,range,1,dbp:shipNamesake,dbo:Ship,dbo:Person,by,,,,,
+Play_2,verb,play,plays,played,played,TransitiveFrame,domain,range,1,dbo:instrument,dbo:Person,dbo:Company,by,,,,,

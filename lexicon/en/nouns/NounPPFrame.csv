@@ -1,5 +1,5 @@
 lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,GrammarRule1:question1,SPARQL,GrammarRule1: question2,SPARQL Question 2,GrammarRule 1: questions,SPARQL ,NP (Grammar Rule 2),type,number of rules
-height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model/dbo:Tower/dbo:BasketballPlayer,xsd:double,"What (xsd:double, X) is the height/- of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y?) ",SELECT ?X WHERE { Y dbo:height ?X.},FALSE,FALSE,"List the (xsd:double, X) - of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y?) ",SELECT ?X WHERE { Y dbo:height ?X.},"the height of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y) ",Qald-7-training-dataset,2
+height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model,xsd:double,"What (xsd:double, X) is the height/- of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y?) ",SELECT ?X WHERE { Y dbo:height ?X.},FALSE,FALSE,"List the (xsd:double, X) - of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y?) ",SELECT ?X WHERE { Y dbo:height ?X.},"the height of (dbo:Model/dbo:Tower/dbo:BasketballPlayer,Y) ",Qald-7-training-dataset,2
 part-of,noun,part,parts,of,NounPPFrame,domain,range,1,dbo:alliance,dbo:Agent,dbo:PoliticalParty,,,,,,,,,
 Designer_2,noun,designer,designers,of,NounPPFrame,range,domain,1,dbp:designer,dbo:Weapon,dbo:Organisation,,,,,,,,,
 boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,range,domain,1,dbo:publisher,dbo:Work,dbo:Agent,,,,,,,,,
@@ -7,3 +7,9 @@ population_density_1,noun,population density,-,of,NounPPFrame,range,domain,1,dbp
 company_in,noun,company,companies,of,NounPPFrame,range,domain,1,dbo:headquarter,dbo:Agent,dbo:City,,,,,,,,,
 astronaut_of,noun,astronaut ,astronauts,of,NounPPFrame,range,domain,1,dbo:mission,dbo:Person,dbo:SpaceMission,,,,,,,,,
 highest_place_of,noun,highest place,-,of,NounPPFrame,range,domain,1,dbp:highest,dbo:Mountain,xsd:double,,,,,,,,,
+show_with,noun,show,shows,of,NounPPFrame,range,domain,1,dbo:starring,dbo:Company,dbo:Actor,,,,,,,,,
+company_in_2,noun,company,companies,in,NounPPFrame,range,domain,1,dbo:industry,dbo:Company,dbo:PersonFunction,,,,,,,,,
+largest_metropolitan_area_in,noun,largest metropolitan area,largest metropolitan area,in,NounPPFrame,range,domain,1,dbp:largestmetro,dbo:Place,dbo:Place,,,,,,,,,
+study_in_2,noun,study,studies,in,NounPPFrame,range,domain,1,dbo:almaMater,dbo:Person,dbo:Agent,,,,,,,,,
+time_zone_of_2,noun,time zone ,time zones,in,NounPPFrame,range,domain,1,dbp:timezone,dbo:Place,dbo:Agent,,,,,,,,,
+total_amount_of_men_and_women_of,noun,total amount of men and women,-,of,NounPPFrame,range,domain,1,dbp:employees,dbo:Country,xsd:nonNegativeInteger,,,,,,,,,
