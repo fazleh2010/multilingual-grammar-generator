@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_cross_10 ;
+  lemon:entry    :cross_10ed ;
+  lemon:entry    :form_cross_10_preposition .
+
+:to_cross_10 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_cross_10 ;
+  lemon:otherForm      :form_cross_10s ;
+  lemon:otherForm      :form_cross_10ed ;
+  lemon:otherForm      :form_cross_10perfect ;
+  lemon:sense          :cross_10_sense_1 ;
+  lemon:synBehavior    :cross_10_frame_transitive .
+
+:form_cross_10 a         lemon:Form ;
+  lemon:writtenRep     "cross"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_cross_10s a    lemon:Form ;
+  lemon:writtenRep "crosses"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_cross_10ed a   lemon:Form ;
+  lemon:writtenRep "crossed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_cross_10perfect a   lemon:Form ;
+  lemon:writtenRep "crossed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:cross_10_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :cross_10_obj ;
+  lexinfo:directObject     :cross_10_subj .
+
+:cross_10_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :cross_10_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/crosses> ;
+  lemon:subjOfProp  :cross_10_obj ;
+  lemon:objOfProp   :cross_10_subj ;
+  lemon:condition   :cross_10_sense_1_condition .
+
+
+:cross_10_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Bridge> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/River> .
+
+
+:cross_10_obj lemon:marker :form_cross_10_preposition .
+
+## Prepositions ##
+:form_cross_10_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

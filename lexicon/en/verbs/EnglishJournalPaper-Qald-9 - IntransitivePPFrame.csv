@@ -2,4 +2,7 @@ LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,wri
 end_career_on,verb,end his active career,ends his active career,ended his active career,ended his active career,on,IntransitivePPFrame,domain,range,1,dbo:activeYearsEndDate,dbo:Athlete,xsd:date,What dbo:Athlete(X) ends his active career on Y(xsd:date)?,Which dbo:Athlete(X) was ended his active career on Y(xsd:date)?,SELECT ?X WHERE { ?X dbo:activeYearsEndDate Y.},Which xsd:date(X) does Y(dbo:Athlete) end his active career on?,FALSE,SELECT ?X WHERE { Y dbo:activeYearsEndDate ?X.}
 play_for_2,verb,play,plays,played,played,for,IntransitivePPFrame,domain,range,1,dbo:team,dbo:Person,dbo:SportsClub,,,,,,
 run_through_1,verb,runs,ran,run,run,through,IntransitivePPFrame,domain,range,1,dbo:country,dbo:Mountain,dbo:Place,,,,,,
-designate_1,verb,designate,designates,designated,designated,at,IntransitivePPFrame,domain,range,1,dbo:year,dbo:Event,xsd:date,,,,,,
+designate_at_1,verb,designate,designates,designated,designated,at,IntransitivePPFrame,domain,range,1,dbo:year,dbo:Event,xsd:date,,,,,,
+assassinate_in,verb,assassinate,assassinates,assassinated,assassinated,in,IntransitivePPFrame,domain,range,1,dbo:deathPlace,dbo:Person,dbo:Place,,,,,,
+originate_in_1,verb,originate,originates,originated,originated,in,IntransitivePPFrame,domain,range,1,dbo:origin,dbo:Beverage,dbo:Country,,,,,,
+extend_to_1,verb,extend,extends,extended,extended,in,IntransitivePPFrame,domain,range,1,dbo:country,dbo:Mountain,dbo:Country,,,,,,
