@@ -6,3 +6,4 @@ boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,range,domain,1,dbo:publi
 population_density_1,noun,population density,-,of,NounPPFrame,range,domain,1,dbp:densityrank,dbo:Country,xsd:nonNegativeInteger,,,,,,,,,
 company_in,noun,company,companies,of,NounPPFrame,range,domain,1,dbo:headquarter,dbo:Agent,dbo:City,,,,,,,,,
 astronaut_of,noun,astronaut ,astronauts,of,NounPPFrame,range,domain,1,dbo:mission,dbo:Person,dbo:SpaceMission,,,,,,,,,
+highest_place_of,noun,highest place,-,of,NounPPFrame,range,domain,1,dbp:highest,dbo:Mountain,xsd:double,,,,,,,,,
