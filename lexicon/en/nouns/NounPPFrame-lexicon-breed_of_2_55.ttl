@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :breed_of_2_55 ;
+  lemon:entry    :breed_of_2_55_form_preposition .
+
+:breed_of_2_55 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :breed_of_2_55_form ;
+  lemon:otherForm  :breed_of_2_55_singular ;
+  lemon:otherForm  :breed_of_2_55_plural ;
+  lemon:sense          :breed_of_2_55_sense_1 ;
+  lemon:synBehavior    :breed_of_2_55_nounpp .
+
+:breed_of_2_55_form a lemon:Form ;
+  lemon:writtenRep "breed"@en .
+
+:breed_of_2_55_singular a    lemon:Form ;
+  lemon:writtenRep "breed"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:breed_of_2_55_plural a   lemon:Form ;
+  lemon:writtenRep "breeds"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:breed_of_2_55_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_breed_of_2_55 ;
+  lexinfo:prepositionalAdjunct :arg2_breed_of_2_55 .
+
+:breed_of_2_55_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :breed_of_2_55_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/breed> ;
+  lemon:subjOfProp          :arg2_breed_of_2_55 ;
+  lemon:objOfProp           :arg1_breed_of_2_55 ;
+  lemon:condition           :breed_of_2_55_sense_1_condition .
+
+:breed_of_2_55_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Mammal> .
+
+:arg2_breed_of_2_55 lemon:marker :breed_of_2_55_form_preposition .
+## Prepositions ##
+:breed_of_2_55_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

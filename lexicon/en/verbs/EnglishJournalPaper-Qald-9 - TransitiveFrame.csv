@@ -12,3 +12,5 @@ Play_2,verb,play,plays,played,played,TransitiveFrame,domain,range,1,dbo:instrume
 Join_2,verb,join,joins,joined,joined,TransitiveFrame,domain,range,1,dbo:accessioneudate,dbo:Country,xsd:date,by,,,,,
 Graduated_1,verb,graduate,graduates,graduated,graduated,TransitiveFrame,domain,range,1,dbo:almaMater,dbo:Person,dbo:Agent,by,,,,,
 Pay_1,verb,pay,pays,payed,payed,TransitiveFrame,domain,range,1,dbo:currency,dbo:Place,dbo:Currency,by,,,,,
+Produce_5,verb,produce,produce,produced,produced,TransitiveFrame,domain,range,1,dbo:director,dbo:Film,dbo:Person,by,,,,,
+Attend_1,verb,attend,attends,attended,attended,TransitiveFrame,domain,range,1,dbo:almaMater,dbo:Person,dbo:Agent,by,,,,,

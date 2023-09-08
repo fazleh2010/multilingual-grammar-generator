@@ -12,3 +12,7 @@ record_for_1,verb,record,records,recorded,recorded,for,IntransitivePPFrame,domai
 record_for_2,verb,record,records,recorded,recorded,for,IntransitivePPFrame,domain,range,1,dbo:recordLabel,dbo:Work,dbo:RecordLabel,,,,,,
 founded_in_1,verb,found,founds,founded,founded,in,IntransitivePPFrame,domain,range,1,dbo:formationYear,dbo:Organisation,xsd:gYear,,,,,,
 founded_in_2,verb,found,founds,founded,founded,in,IntransitivePPFrame,domain,range,1,dbo:foundingYear,dbo:Organisation,xsd:gYear,,,,,,
+shot_in_1,verb,shot,shots,shot,shot,in,IntransitivePPFrame,domain,range,1,dbo:deathDate,dbo:Person,xsd:date,,,,,,
+speak_in_1,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:spokenIn,dbo:Language,dbo:Place,,,,,,
+start_in_2,verb,start,starts,started,started,in,IntransitivePPFrame,domain,range,1,dbo:sourceCountry,dbo:River,dbo:Place,,,,,,
+start_at_3,verb,start,starts,started,started,at,IntransitivePPFrame,domain,range,1,dbo:date,dbo:Event,xsd:date,,,,,,
