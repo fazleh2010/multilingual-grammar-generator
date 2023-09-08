@@ -7,4 +7,6 @@ assassinate_in,verb,assassinate,assassinates,assassinated,assassinated,in,Intran
 originate_in_1,verb,originate,originates,originated,originated,in,IntransitivePPFrame,domain,range,1,dbo:origin,dbo:Beverage,dbo:Country,,,,,,
 extend_to_1,verb,extend,extends,extended,extended,in,IntransitivePPFrame,domain,range,1,dbo:country,dbo:Mountain,dbo:Country,,,,,,
 admitted_as,verb,admit,admits,admitted,admitted,as,IntransitivePPFrame,domain,range,1,dbp:admittancedate,dbo:Settlement,xsd:date,,,,,,
-establish_in_2,verb,establish,establishes,established,established,as,IntransitivePPFrame,domain,range,1,dbp:established,dbo:Agent,xsd:gYear,,,,,,
+establish_in_2,verb,establish,establishes,established,established,in,IntransitivePPFrame,domain,range,1,dbp:established,dbo:Agent,xsd:gYear,,,,,,
+record_for_1,verb,record,records,recorded,recorded,for,IntransitivePPFrame,domain,range,1,dbo:releaseDate,dbo:Work,xsd:date,,,,,,
+record_for_2,verb,record,records,recorded,recorded,for,IntransitivePPFrame,domain,range,1,dbo:recordLabel,dbo:Work,dbo:RecordLabel,,,,,,

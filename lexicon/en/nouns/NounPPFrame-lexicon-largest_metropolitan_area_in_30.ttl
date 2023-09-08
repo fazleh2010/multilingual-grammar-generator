@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :largest_metropolitan_area_in_30 ;
+  lemon:entry    :largest_metropolitan_area_in_30_form_preposition .
+
+:largest_metropolitan_area_in_30 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :largest_metropolitan_area_in_30_form ;
+  lemon:otherForm  :largest_metropolitan_area_in_30_singular ;
+  lemon:otherForm  :largest_metropolitan_area_in_30_plural ;
+  lemon:sense          :largest_metropolitan_area_in_30_sense_1 ;
+  lemon:synBehavior    :largest_metropolitan_area_in_30_nounpp .
+
+:largest_metropolitan_area_in_30_form a lemon:Form ;
+  lemon:writtenRep "largest metropolitan area"@en .
+
+:largest_metropolitan_area_in_30_singular a    lemon:Form ;
+  lemon:writtenRep "largest metropolitan area"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:largest_metropolitan_area_in_30_plural a   lemon:Form ;
+  lemon:writtenRep "largest metropolitan area"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:largest_metropolitan_area_in_30_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_largest_metropolitan_area_in_30 ;
+  lexinfo:prepositionalAdjunct :arg2_largest_metropolitan_area_in_30 .
+
+:largest_metropolitan_area_in_30_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :largest_metropolitan_area_in_30_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/largestmetro> ;
+  lemon:subjOfProp          :arg2_largest_metropolitan_area_in_30 ;
+  lemon:objOfProp           :arg1_largest_metropolitan_area_in_30 ;
+  lemon:condition           :largest_metropolitan_area_in_30_sense_1_condition .
+
+:largest_metropolitan_area_in_30_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_largest_metropolitan_area_in_30 lemon:marker :largest_metropolitan_area_in_30_form_preposition .
+## Prepositions ##
+:largest_metropolitan_area_in_30_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
