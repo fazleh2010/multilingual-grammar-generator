@@ -27,7 +27,7 @@
   lexinfo:number   lexinfo:singular .
 
 :country_of_86_plural a   lemon:Form ;
-  lemon:writtenRep "countrys"@en ;
+  lemon:writtenRep "countries"@en ;
   lexinfo:number    lexinfo:plural .
 
 :country_of_86_sense_1 a  lemon:LexicalSense ;

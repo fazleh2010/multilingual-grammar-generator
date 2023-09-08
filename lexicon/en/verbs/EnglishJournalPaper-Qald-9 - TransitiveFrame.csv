@@ -9,3 +9,6 @@ Kill_1,verb,kill,kills,killed,killed,TransitiveFrame,domain,range,1,dbp:convicti
 Play_1,verb,play,plays,played,played,TransitiveFrame,domain,range,1,dbo:portrayer,dbo:Agent,dbo:Work,by,,,,,
 Call_1,verb,call,calls,called,called,TransitiveFrame,domain,range,1,dbp:shipNamesake,dbo:Ship,dbo:Person,by,,,,,
 Play_2,verb,play,plays,played,played,TransitiveFrame,domain,range,1,dbo:instrument,dbo:Person,dbo:Company,by,,,,,
+Join_2,verb,join,joins,joined,joined,TransitiveFrame,domain,range,1,dbo:accessioneudate,dbo:Country,xsd:date,by,,,,,
+Graduated_1,verb,graduate,graduates,graduated,graduated,TransitiveFrame,domain,range,1,dbo:almaMater,dbo:Person,dbo:Agent,by,,,,,
+Pay_1,verb,pay,pays,payed,payed,TransitiveFrame,domain,range,1,dbo:currency,dbo:Place,dbo:Currency,by,,,,,
