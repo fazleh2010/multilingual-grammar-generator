@@ -8,3 +8,4 @@ High_8,adjective,high,higher,highest,AdjectiveSuperlativeFrame,PredSynArg,1,oils
 Heavy_2,adjective,heavy,heavier,heaviest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:weight,oils:high,dbo:Person,xsd:double,of,,,,,,,,
 Earlier_1,adjective,early,earlier,earliest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:date,oils:high,dbo:Event,xsd:date,of,,,,,,,,
 Large_1,adjective,large,larger,largest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:areaTotal ,oils:high,dbo:Place,xsd:double,of,,,,,,,,
+Old_2,adjective,old,older,oldest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:birthDate,oils:high,dbo:Person,xsd:date,of,,,,,,,,

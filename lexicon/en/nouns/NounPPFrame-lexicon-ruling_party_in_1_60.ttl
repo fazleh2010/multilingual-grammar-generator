@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :ruling_party_in_1_60 ;
+  lemon:entry    :ruling_party_in_1_60_form_preposition .
+
+:ruling_party_in_1_60 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :ruling_party_in_1_60_form ;
+  lemon:otherForm  :ruling_party_in_1_60_singular ;
+  lemon:otherForm  :ruling_party_in_1_60_plural ;
+  lemon:sense          :ruling_party_in_1_60_sense_1 ;
+  lemon:synBehavior    :ruling_party_in_1_60_nounpp .
+
+:ruling_party_in_1_60_form a lemon:Form ;
+  lemon:writtenRep "ruling party"@en .
+
+:ruling_party_in_1_60_singular a    lemon:Form ;
+  lemon:writtenRep "ruling party"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:ruling_party_in_1_60_plural a   lemon:Form ;
+  lemon:writtenRep "ruling parties"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:ruling_party_in_1_60_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_ruling_party_in_1_60 ;
+  lexinfo:prepositionalAdjunct :arg2_ruling_party_in_1_60 .
+
+:ruling_party_in_1_60_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ruling_party_in_1_60_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/leaderParty> ;
+  lemon:subjOfProp          :arg2_ruling_party_in_1_60 ;
+  lemon:objOfProp           :arg1_ruling_party_in_1_60 ;
+  lemon:condition           :ruling_party_in_1_60_sense_1_condition .
+
+:ruling_party_in_1_60_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Location> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PoliticalParty> .
+
+:arg2_ruling_party_in_1_60 lemon:marker :ruling_party_in_1_60_form_preposition .
+## Prepositions ##
+:ruling_party_in_1_60_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

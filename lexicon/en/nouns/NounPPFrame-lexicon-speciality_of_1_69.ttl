@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :speciality_of_1_69 ;
+  lemon:entry    :speciality_of_1_69_form_preposition .
+
+:speciality_of_1_69 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :speciality_of_1_69_form ;
+  lemon:otherForm  :speciality_of_1_69_singular ;
+  lemon:otherForm  :speciality_of_1_69_plural ;
+  lemon:sense          :speciality_of_1_69_sense_1 ;
+  lemon:synBehavior    :speciality_of_1_69_nounpp .
+
+:speciality_of_1_69_form a lemon:Form ;
+  lemon:writtenRep "speciality"@en .
+
+:speciality_of_1_69_singular a    lemon:Form ;
+  lemon:writtenRep "speciality"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:speciality_of_1_69_plural a   lemon:Form ;
+  lemon:writtenRep "specialities"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:speciality_of_1_69_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_speciality_of_1_69 ;
+  lexinfo:prepositionalAdjunct :arg2_speciality_of_1_69 .
+
+:speciality_of_1_69_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :speciality_of_1_69_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/speciality> ;
+  lemon:subjOfProp          :arg2_speciality_of_1_69 ;
+  lemon:objOfProp           :arg1_speciality_of_1_69 ;
+  lemon:condition           :speciality_of_1_69_sense_1_condition .
+
+:speciality_of_1_69_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Hospital> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Band> .
+
+:arg2_speciality_of_1_69 lemon:marker :speciality_of_1_69_form_preposition .
+## Prepositions ##
+:speciality_of_1_69_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :floor_of_1_50 ;
+  lemon:entry    :floor_of_1_50_form_preposition .
+
+:floor_of_1_50 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :floor_of_1_50_form ;
+  lemon:otherForm  :floor_of_1_50_singular ;
+  lemon:otherForm  :floor_of_1_50_plural ;
+  lemon:sense          :floor_of_1_50_sense_1 ;
+  lemon:synBehavior    :floor_of_1_50_nounpp .
+
+:floor_of_1_50_form a lemon:Form ;
+  lemon:writtenRep "floor"@en .
+
+:floor_of_1_50_singular a    lemon:Form ;
+  lemon:writtenRep "floor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:floor_of_1_50_plural a   lemon:Form ;
+  lemon:writtenRep "floors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:floor_of_1_50_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_floor_of_1_50 ;
+  lexinfo:prepositionalAdjunct :arg2_floor_of_1_50 .
+
+:floor_of_1_50_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :floor_of_1_50_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/floorCount> ;
+  lemon:subjOfProp          :arg2_floor_of_1_50 ;
+  lemon:objOfProp           :arg1_floor_of_1_50 ;
+  lemon:condition           :floor_of_1_50_sense_1_condition .
+
+:floor_of_1_50_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Building> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+
+:arg2_floor_of_1_50 lemon:marker :floor_of_1_50_form_preposition .
+## Prepositions ##
+:floor_of_1_50_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -16,3 +16,4 @@ shot_in_1,verb,shot,shots,shot,shot,in,IntransitivePPFrame,domain,range,1,dbo:de
 speak_in_1,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:spokenIn,dbo:Language,dbo:Place,,,,,,
 start_in_2,verb,start,starts,started,started,in,IntransitivePPFrame,domain,range,1,dbo:sourceCountry,dbo:River,dbo:Place,,,,,,
 start_at_3,verb,start,starts,started,started,at,IntransitivePPFrame,domain,range,1,dbo:date,dbo:Event,xsd:date,,,,,,
+speak_in_2,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:language,dbo:Work,dbo:Language,,,,,,
