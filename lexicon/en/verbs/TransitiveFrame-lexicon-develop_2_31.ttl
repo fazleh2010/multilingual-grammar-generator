@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_develop_2_31 ;
+  lemon:entry    :develop_2_31ed ;
+  lemon:entry    :form_develop_2_31_preposition .
+
+:to_develop_2_31 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_develop_2_31 ;
+  lemon:otherForm      :form_develop_2_31s ;
+  lemon:otherForm      :form_develop_2_31ed ;
+  lemon:otherForm      :form_develop_2_31perfect ;
+  lemon:sense          :develop_2_31_sense_1 ;
+  lemon:synBehavior    :develop_2_31_frame_transitive .
+
+:form_develop_2_31 a         lemon:Form ;
+  lemon:writtenRep     "develop"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_develop_2_31s a    lemon:Form ;
+  lemon:writtenRep "develops"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_develop_2_31ed a   lemon:Form ;
+  lemon:writtenRep "developed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_develop_2_31perfect a   lemon:Form ;
+  lemon:writtenRep "developed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:develop_2_31_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :develop_2_31_subj ;
+  lexinfo:directObject     :develop_2_31_obj .
+
+:develop_2_31_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :develop_2_31_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/developer> ;
+  lemon:subjOfProp  :develop_2_31_obj ;
+  lemon:objOfProp   :develop_2_31_subj ;
+  lemon:condition   :develop_2_31_sense_1_condition .
+
+
+:develop_2_31_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/VideoGame> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Agent> .
+
+
+:develop_2_31_obj lemon:marker :form_develop_2_31_preposition .
+
+## Prepositions ##
+:form_develop_2_31_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

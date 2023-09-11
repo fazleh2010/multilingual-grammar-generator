@@ -15,3 +15,4 @@ Pay_1,verb,pay,pays,payed,payed,TransitiveFrame,domain,range,1,dbo:currency,dbo:
 Produce_5,verb,produce,produce,produced,produced,TransitiveFrame,domain,range,1,dbo:director,dbo:Film,dbo:Person,by,,,,,
 Attend_1,verb,attend,attends,attended,attended,TransitiveFrame,domain,range,1,dbo:almaMater,dbo:Person,dbo:Agent,by,,,,,
 Called_1,verb,call,calls,called,called,TransitiveFrame,domain,range,1,rdfs:label,dbo:VideoGame,xsd:string,by,,,,,
+first_to_climb,verb,first to climb,-,-,-,TransitiveFrame,domain,range,1,dbo:firstAscentPerson,dbo:Mountain,dbo:Person,by,,,,,

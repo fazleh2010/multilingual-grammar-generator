@@ -17,3 +17,5 @@ speak_in_1,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1
 start_in_2,verb,start,starts,started,started,in,IntransitivePPFrame,domain,range,1,dbo:sourceCountry,dbo:River,dbo:Place,,,,,,
 start_at_3,verb,start,starts,started,started,at,IntransitivePPFrame,domain,range,1,dbo:date,dbo:Event,xsd:date,,,,,,
 speak_in_2,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:language,dbo:Work,dbo:Language,,,,,,
+end_his_active_career_1,verb,end his active career,-,-,-,in,IntransitivePPFrame,domain,range,1,dbo:activeYearsEndDate,dbo:Person,xsd:date,,,,,,
+start_in_3,verb,start,starts,started,started,in,IntransitivePPFrame,domain,range,1,dbo:sourceCountry,dbo:River,dbo:Country,,,,,,

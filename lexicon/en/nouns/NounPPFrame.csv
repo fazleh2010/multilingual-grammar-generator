@@ -47,3 +47,4 @@ longest_span_1,noun,longest span,-,of,NounPPFrame,range,domain,1,dbo:mainspan,db
 manufacturing_plant_in_1,noun,manufacturing plant,manufacturing plants,of,NounPPFrame,range,domain,1,dbo:manufacturer,dbo:MeanOfTransportation,dbo:Company,,,,,,,,,
 plant_in_1,noun,plant,plants,of,NounPPFrame,range,domain,1,dbo:assembly,dbo:MeanOfTransportation,dbo:Place,,,,,,,,,
 website_of_1,noun,website,websites,of,NounPPFrame,range,domain,1,dbo:website,dbo:Person,dbo:Work,,,,,,,,,
+film_of_1,noun,film,films,of,NounPPFrame,range,domain,1,dbo:director,dbo:Film,dbo:Person,,,,,,,,,

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :manufacturing_plant_in_1_67 ;
+  lemon:entry    :manufacturing_plant_in_1_67_form_preposition .
+
+:manufacturing_plant_in_1_67 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :manufacturing_plant_in_1_67_form ;
+  lemon:otherForm  :manufacturing_plant_in_1_67_singular ;
+  lemon:otherForm  :manufacturing_plant_in_1_67_plural ;
+  lemon:sense          :manufacturing_plant_in_1_67_sense_1 ;
+  lemon:synBehavior    :manufacturing_plant_in_1_67_nounpp .
+
+:manufacturing_plant_in_1_67_form a lemon:Form ;
+  lemon:writtenRep "manufacturing plant"@en .
+
+:manufacturing_plant_in_1_67_singular a    lemon:Form ;
+  lemon:writtenRep "manufacturing plant"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:manufacturing_plant_in_1_67_plural a   lemon:Form ;
+  lemon:writtenRep "manufacturing plants"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:manufacturing_plant_in_1_67_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_manufacturing_plant_in_1_67 ;
+  lexinfo:prepositionalAdjunct :arg2_manufacturing_plant_in_1_67 .
+
+:manufacturing_plant_in_1_67_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :manufacturing_plant_in_1_67_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/manufacturer> ;
+  lemon:subjOfProp          :arg2_manufacturing_plant_in_1_67 ;
+  lemon:objOfProp           :arg1_manufacturing_plant_in_1_67 ;
+  lemon:condition           :manufacturing_plant_in_1_67_sense_1_condition .
+
+:manufacturing_plant_in_1_67_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MeanOfTransportation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Company> .
+
+:arg2_manufacturing_plant_in_1_67 lemon:marker :manufacturing_plant_in_1_67_form_preposition .
+## Prepositions ##
+:manufacturing_plant_in_1_67_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
