@@ -1,0 +1,119 @@
+Afghanistan	Afghan	an Afghan	Dari (Persian) - Pashto
+Albania	Albanian	an Albanian	Albanian
+Algeria	Algerian	an Algerian	Arabic
+Argentina	Argentine
+Argentinian	an Argentine
+an Argentinian	Spanish
+Australia	Australian	an Australian	English
+Austria	Austrian	an Austrian	German
+Bangladesh	Bangladeshi	a Bangladeshi	Bengali
+Belgium	Belgian	a Belgian	French / Flemish
+Bolivia	Bolivian	a Bolivian	Spanish
+Botswana	Batswana	a Botswanan	English, Setswana
+Brazil	Brazilian	a Brazilian	Portuguese
+Bulgaria	Bulgarian	a Bulgarian	Bulgarian
+Cambodia	Cambodian	a Cambodian	Cambodian
+Cameroon	Cameroonian	a Cameroonian	French / English
+Canada	Canadian	a Canadian	English / French
+Chile	Chilean	a Chilean	Spanish
+China	Chinese	a Chinese person	Chinese
+Colombia *	Colombian	a Colombian	Spanish
+Costa Rica	Costa Rican	a Costa Rican	Spanish
+Croatia	Croatian	a Croat	Croatian
+Cuba	Cuban	a Cuban	Spanish
+Czech Republic	Czech	a Czech person	Czech
+Denmark	Danish	a Dane	Danish
+Dominican Republic	Dominican	a Dominican	Spanish
+Ecuador	Ecuadorian	an Ecuadorian	Spanish
+Egypt	Egyptian	an Egyptian	Arabic
+El Salvador	Salvadorian	a Salvadoran	Spanish
+England	English	an Englishman
+an Englishwoman	English
+Estonia	Estonian	an Estonian	Estonian
+Ethiopia	Ethiopian	an Ethiopian	Amharic
+Fiji	Fijian	a Fijian	English, Fijian
+Finland	Finnish	a Finn	Finnish
+France	French	a Frenchman
+a Frenchwoman	French
+Germany	German	a German	German
+Ghana	Ghanaian	a Ghanaian	English
+Greece	Greek	a Greek	Greek
+Guatemala	Guatemalan	a Guatemalan	Spanish
+Haiti	Haitian	a Haitian	French / Creole
+Honduras	Honduran	a Honduran	Spanish
+Hungary	Hungarian	a Hungarian	Hungarian
+Iceland	Icelandic	an Icelander	Icelandic
+India	Indian	an Indian	Hindi / English
+Indonesia	Indonesian	an Indonesian	Indonesian
+Iran	Iranian	an Iranian	Persian
+Iraq	Iraqi	an Iraqi	Arabic, Kurdish
+Ireland	Irish	an Irishman
+an Irishwoman	Irish / English
+Israel	Israeli	an Israeli	Hebrew
+Italy	Italian	an Italian	Italian
+Jamaica	Jamaican	a Jamaican	English
+Japan	Japanese	a Japanese person	Japanese
+Jordan	Jordanian	a Jordanian	Arabic
+Kenya	Kenyan	a Kenyan	Swahili
+Kuwait	Kuwaiti	a Kuwaiti	Arabiv
+Laos	Lao	a Laotain	Laotian
+Latvia	Latvian	a Latvian	Latvian
+Lebanon	Lebanese	a Lebanese	Arabic
+Libya	Libyan	a Libyan	Arabic
+Lithuania	Lithuanian	a Lithuanian	Lithuanian
+Madagascar	Malagasy	a Malagasy	Malagasy / French
+Malaysia	Malaysian	a Malaysian	Malay / Malaysian
+Mali	Malian	a Malian	French
+Malta	Maltese	a Maltese	English, Maltese
+Mexico	Mexican	a Mexican	Spanish
+Mongolia	Mongolian	a Mongolian	Mongolian
+Morocco	Moroccan	a Moroccan	Arabic / French
+Mozambique	Mozambican	a Mozambican	Portuguese
+Namibia	Namibian	a Nambian	English
+Nepal	Nepalese	a Nepalese	Nepali, English
+Netherlands	Dutch	a Dutchman
+a Dutchwoman	Dutch
+New Zealand	New Zealand	a New Zealander	English / Maori
+Nicaragua	Nicaraguan	a Nicaraguan	Spanish
+Nigeria	Nigerian	a Nigerian	English
+Norway	Norwegian	a Norwegian	Norwegian
+Pakistan	Pakistani	a Pakistani	Urdu, English
+Panama	Panamanian	a Panamanian	Spanish
+Paraguay	Paraguayan	a Paraguayan	Spanish
+Peru	Peruvian	a Peruvian	Spanish
+Philippines	Philippine	a Filipino	Tagalog / Filipino
+Poland	Polish	a Pole	Polish
+Portugal	Portuguese	a Portuguese person	Portuguese
+Romania	Romanian	a Romanian	Romanian
+Russia	Russian	a Russian	Russian
+Saudi Arabia	Saudi	a Saudi (Arabian)	Arabic
+Scotland	Scottish	a Scot	English
+Senegal	Senegalese	a Senegalese person	French
+Serbia	Serbian	a Serbian	Serbian
+Singapore	Singaporean	a Singaporean	English, Malay, Mandarin, Tamil
+Slovakia	Slovak	a Slovak	Slovak
+South Africa	South African	a South African	Afrikaans, English, + 9 more
+South Korea	Korean	a Korean	Korean
+Spain	Spanish	a Spaniard	Spanish
+Sri Lanka	Sri Lankan	a Sri Lankan	Sinhala, Tamil
+Sudan	Sudanese	a Sudanese person	Arabic, English
+Sweden	Swedish	a Swede	Swedish
+Switzerland	Swiss	a Swiss person	German, French, Italian, Romansh
+Syria	Syrian	a Syrian	Arabic
+Taiwan	Taiwanese	a Taiwanese person	Chinese
+Tajikistan	Tajikistani	a Tajikistani	Tajik (Persian)
+Thailand	Thai	a Thai person	Thai
+Tonga	Tongan	a Tongan	English, Tongan
+Tunisia	Tunisian	a Tunisian	Arabic
+Turkey	Turkish	a Turk	Turkish
+Ukraine	Ukrainian	a Ukranian	Ukrainian
+United Arab Emirates	Emirati	an Emirati	Arabic
+(The) United Kingdom	British	a Brit	English
+(The) United States	American **	an American	English
+Uruguay	Uruguayan	a Uruguayan	Spanish
+Venezuela	Venezuelan	a Venezuelan	Spanish
+Vietnam	Vietnamese	a Vietnamese person	Vietnamese
+Wales	Welsh	a Welshman
+a Welshwoman	Welsh / English
+Zambia	Zambian	a Zambian	English
+Zimbabwe	Zimbabwean	a Zimbabwean	16 languages

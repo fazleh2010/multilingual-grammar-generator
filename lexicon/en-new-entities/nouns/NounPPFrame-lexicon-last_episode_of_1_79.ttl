@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :last_episode_of_1_79 ;
+  lemon:entry    :last_episode_of_1_79_form_preposition .
+
+:last_episode_of_1_79 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :last_episode_of_1_79_form ;
+  lemon:otherForm  :last_episode_of_1_79_singular ;
+  lemon:otherForm  :last_episode_of_1_79_plural ;
+  lemon:sense          :last_episode_of_1_79_sense_1 ;
+  lemon:synBehavior    :last_episode_of_1_79_nounpp .
+
+:last_episode_of_1_79_form a lemon:Form ;
+  lemon:writtenRep "last episode"@en .
+
+:last_episode_of_1_79_singular a    lemon:Form ;
+  lemon:writtenRep "last episode"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:last_episode_of_1_79_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:last_episode_of_1_79_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_last_episode_of_1_79 ;
+  lexinfo:prepositionalAdjunct :arg2_last_episode_of_1_79 .
+
+:last_episode_of_1_79_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :last_episode_of_1_79_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/completionDate> ;
+  lemon:subjOfProp          :arg2_last_episode_of_1_79 ;
+  lemon:objOfProp           :arg1_last_episode_of_1_79 ;
+  lemon:condition           :last_episode_of_1_79_sense_1_condition .
+
+:last_episode_of_1_79_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_last_episode_of_1_79 lemon:marker :last_episode_of_1_79_form_preposition .
+## Prepositions ##
+:last_episode_of_1_79_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

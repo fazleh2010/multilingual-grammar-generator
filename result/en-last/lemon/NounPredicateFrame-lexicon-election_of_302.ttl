@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :election_of_302_sense_1_res ;
+  lemon:entry    :election_of_302 .
+
+:election_of_302 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :election_of_302_form ;
+  lemon:otherForm  :election_of_302_singular ;
+  lemon:otherForm  :election_of_302_plural ;
+  lemon:sense          :election_of_302_sense_1 ;
+  lemon:synBehavior    :election_of_302_predFrame .
+
+:election_of_302_form
+ lemon:writtenRep "Election"@en .
+
+:election_of_302_singular a    lemon:Form ;
+  lemon:writtenRep "Election"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:election_of_302_plural a   lemon:Form ;
+  lemon:writtenRep "Elections"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:election_of_302_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :election_of_302_sense_1_res ;
+  lemon:isA       :election_of_302_PredSynArg .
+
+:election_of_302_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Election> .
