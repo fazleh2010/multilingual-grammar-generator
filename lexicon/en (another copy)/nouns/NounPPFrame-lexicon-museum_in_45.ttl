@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :museum_in_45 ;
+  lemon:entry    :museum_in_45_form_preposition .
+
+:museum_in_45 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :museum_in_45_form ;
+  lemon:otherForm  :museum_in_45_singular ;
+  lemon:otherForm  :museum_in_45_plural ;
+  lemon:sense          :museum_in_45_sense_1 ;
+  lemon:synBehavior    :museum_in_45_nounpp .
+
+:museum_in_45_form a lemon:Form ;
+  lemon:writtenRep "museum"@en .
+
+:museum_in_45_singular a    lemon:Form ;
+  lemon:writtenRep "museum"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:museum_in_45_plural a   lemon:Form ;
+  lemon:writtenRep "museums"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:museum_in_45_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_museum_in_45 ;
+  lexinfo:prepositionalAdjunct :arg1_museum_in_45 .
+
+:museum_in_45_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :museum_in_45_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/location> ;
+  lemon:subjOfProp          :arg2_museum_in_45 ;
+  lemon:objOfProp           :arg1_museum_in_45 ;
+  lemon:condition           :museum_in_45_sense_1_condition .
+
+:museum_in_45_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Building> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg1_museum_in_45 lemon:marker :museum_in_45_form_preposition .
+## Prepositions ##
+:museum_in_45_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

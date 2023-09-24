@@ -517,11 +517,20 @@ public class PrepareSparqlQuery {
       
     }
     
-    public static String getRealSparql(String template, String property, String value,String className) {
+    public static String getRealSparql(String template, String property, String value) {
+
+        String sparql
+                = "SELECT DISTINCT ?Answer WHERE { "+
+                "?Answer "+ "<" + property + ">" + " " + "<" + value + "> }";
+
+        return sparql;
+    }
+
+    public static String getRealSparql(String template, String property, String value, String className) {
 
         String sparql
                 = "SELECT DISTINCT ?Answer WHERE { "
-                + "?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + className+ ">" +" ; "
+                + "?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + className + ">" + " ; "
                 + "<" + property + ">" + " " + "<" + value + "> }";
 
         return sparql;

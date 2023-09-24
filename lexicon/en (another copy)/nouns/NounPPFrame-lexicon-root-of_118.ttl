@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :root-of_118 ;
+  lemon:entry    :root-of_118_form_preposition .
+
+:root-of_118 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :root-of_118_form ;
+  lemon:otherForm  :root-of_118_singular ;
+  lemon:otherForm  :root-of_118_plural ;
+  lemon:sense          :root-of_118_sense_1 ;
+  lemon:synBehavior    :root-of_118_nounpp .
+
+:root-of_118_form a lemon:Form ;
+  lemon:writtenRep "root"@en .
+
+:root-of_118_singular a    lemon:Form ;
+  lemon:writtenRep "root"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:root-of_118_plural a   lemon:Form ;
+  lemon:writtenRep "roots"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:root-of_118_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_root-of_118 ;
+  lexinfo:prepositionalAdjunct :arg2_root-of_118 .
+
+:root-of_118_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :root-of_118_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/languageFamily> ;
+  lemon:subjOfProp          :arg1_root-of_118 ;
+  lemon:objOfProp           :arg2_root-of_118 ;
+  lemon:condition           :root-of_118_sense_1_condition .
+
+:root-of_118_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Language> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:arg2_root-of_118 lemon:marker :root-of_118_form_preposition .
+## Prepositions ##
+:root-of_118_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

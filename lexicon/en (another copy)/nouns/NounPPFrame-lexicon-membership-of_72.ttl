@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :membership-of_72 ;
+  lemon:entry    :membership-of_72_form_preposition .
+
+:membership-of_72 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :membership-of_72_form ;
+  lemon:otherForm  :membership-of_72_singular ;
+  lemon:otherForm  :membership-of_72_plural ;
+  lemon:sense          :membership-of_72_sense_1 ;
+  lemon:synBehavior    :membership-of_72_nounpp .
+
+:membership-of_72_form a lemon:Form ;
+  lemon:writtenRep "member"@en .
+
+:membership-of_72_singular a    lemon:Form ;
+  lemon:writtenRep "member"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:membership-of_72_plural a   lemon:Form ;
+  lemon:writtenRep "members"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:membership-of_72_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_membership-of_72 ;
+  lexinfo:prepositionalAdjunct :arg2_membership-of_72 .
+
+:membership-of_72_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :membership-of_72_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/bandMember> ;
+  lemon:subjOfProp          :arg1_membership-of_72 ;
+  lemon:objOfProp           :arg2_membership-of_72 ;
+  lemon:condition           :membership-of_72_sense_1_condition .
+
+:membership-of_72_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Band> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MusicalArtist> .
+
+:arg2_membership-of_72 lemon:marker :membership-of_72_form_preposition .
+## Prepositions ##
+:membership-of_72_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

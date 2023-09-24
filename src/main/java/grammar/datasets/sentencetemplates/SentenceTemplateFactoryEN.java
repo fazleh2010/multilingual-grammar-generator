@@ -810,8 +810,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           "preposition interrogativeDeterminer(range:plural) verb(component_do:present:singular) verb(mainVerb:present:singular) object(domain)?",
          //What movies does Jesse Eisenberg play in?
         "interrogativePronoun(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", 
-        "interrogativePronoun(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?"
-     
+        "interrogativePronoun(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?",
+        //Which writers studied in Istanbul?
+        "interrogativeDeterminer(range:singular) verb(mainVerb:present:singular) preposition object(domain)?", 
+        "interrogativeDeterminer(range:plural) verb(mainVerb:past:singular) preposition object(domain)?"
+
         ),
         IntransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,

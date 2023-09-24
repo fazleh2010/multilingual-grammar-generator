@@ -99,4 +99,4 @@ follow_3,verb,follow,follows,followed,followed,TransitiveFrame,range,domain,3,db
 follow_4,verb,follow,follows,followed,followed,TransitiveFrame,range,domain,4,dbp:successor,dbo:Politician,dbo:Politician,by,"Which dbo:Politician (X) follows,followed Y(dbo:Politician)?","Who dbo:Politician (X) follows,followed Y(dbo:Politician)?",SELECT ?X WHERE { Y dbp:successor ?X.},Which dbo:Politician(X) was followed by Y(dbo:Politician)?,SELECT ?X WHERE { ?X dbo:Politician Y.},,,,,,,,,,,,
 adopt,verb,adopt,adopts,adopted,adopted,TransitiveFrame,range,domain,4,dbo:currency,dbo:Country,dbo:Currency,by,,,,,,,,,,,,,,,,,
 border,verb,border,borders,bordered,bordered,TransitiveFrame,range,domain,4,dbp:borderingstates,dbo:State,dbo:State,by,,,,,,,,,,,,,,,,,
-Play_4,verb,play,playes,played,played,TransitiveFrame,range,domain,1,dbo:genre,dbo:MusicalWork,dbo:Person,by,,,,,,,,,,,,,,,,,
+Play_4,verb,play,playes,played,played,TransitiveFrame,domain,range,1,dbo:genre,dbo:MusicalWork,dbo:Person,by,,,,,,,,,,,,,,,,,
