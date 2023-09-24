@@ -510,7 +510,7 @@ public class PrepareSparqlQuery {
             return sparql;
         } else if (template != null && template.contains("comperative")) {
              property=findPropertyAdjective(sparql);
-            return "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp "+ "<" +property+ ">" +" ?objOfProp FILTER ( ?objOfProp > "+"VARIABLE"+" ) }";
+            return "SELECT DISTINCT ?Answer WHERE { ?Answer "+ "<" +property+ ">" +" ?n FILTER ( ?n > "+"VARIABLE"+" ) }";
         }else {
             return sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         }

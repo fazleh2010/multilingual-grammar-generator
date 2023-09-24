@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :vice_president_of_306 ;
+  lemon:entry    :vice_president_of_306_form_preposition .
+
+:vice_president_of_306 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :vice_president_of_306_form ;
+  lemon:otherForm  :vice_president_of_306_singular ;
+  lemon:otherForm  :vice_president_of_306_plural ;
+  lemon:sense          :vice_president_of_306_sense_1 ;
+  lemon:synBehavior    :vice_president_of_306_nounpp .
+
+:vice_president_of_306_form a lemon:Form ;
+  lemon:writtenRep "vice president"@en .
+
+:vice_president_of_306_singular a    lemon:Form ;
+  lemon:writtenRep "vice president"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:vice_president_of_306_plural a   lemon:Form ;
+  lemon:writtenRep "vice president"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:vice_president_of_306_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_vice_president_of_306 ;
+  lexinfo:prepositionalAdjunct :arg2_vice_president_of_306 .
+
+:vice_president_of_306_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :vice_president_of_306_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/vicePresident> ;
+  lemon:subjOfProp          :arg1_vice_president_of_306 ;
+  lemon:objOfProp           :arg2_vice_president_of_306 ;
+  lemon:condition           :vice_president_of_306_sense_1_condition .
+
+:vice_president_of_306_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Politician> .
+
+:arg2_vice_president_of_306 lemon:marker :vice_president_of_306_form_preposition .
+## Prepositions ##
+:vice_president_of_306_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

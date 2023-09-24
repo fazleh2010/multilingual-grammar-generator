@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :architect_of_1_36 ;
+  lemon:entry    :architect_of_1_36_form_preposition .
+
+:architect_of_1_36 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :architect_of_1_36_form ;
+  lemon:otherForm  :architect_of_1_36_singular ;
+  lemon:otherForm  :architect_of_1_36_plural ;
+  lemon:sense          :architect_of_1_36_sense_1 ;
+  lemon:synBehavior    :architect_of_1_36_nounpp .
+
+:architect_of_1_36_form a lemon:Form ;
+  lemon:writtenRep "architect"@en .
+
+:architect_of_1_36_singular a    lemon:Form ;
+  lemon:writtenRep "architect"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:architect_of_1_36_plural a   lemon:Form ;
+  lemon:writtenRep "architects"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:architect_of_1_36_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_architect_of_1_36 ;
+  lexinfo:prepositionalAdjunct :arg2_architect_of_1_36 .
+
+:architect_of_1_36_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :architect_of_1_36_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/architect> ;
+  lemon:subjOfProp          :arg1_architect_of_1_36 ;
+  lemon:objOfProp           :arg2_architect_of_1_36 ;
+  lemon:condition           :architect_of_1_36_sense_1_condition .
+
+:architect_of_1_36_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ArchitecturalStructure> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_architect_of_1_36 lemon:marker :architect_of_1_36_form_preposition .
+## Prepositions ##
+:architect_of_1_36_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

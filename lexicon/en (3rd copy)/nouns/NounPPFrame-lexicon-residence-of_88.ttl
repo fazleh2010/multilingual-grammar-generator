@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :residence-of_88 ;
+  lemon:entry    :residence-of_88_form_preposition .
+
+:residence-of_88 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :residence-of_88_form ;
+  lemon:otherForm  :residence-of_88_singular ;
+  lemon:otherForm  :residence-of_88_plural ;
+  lemon:sense          :residence-of_88_sense_1 ;
+  lemon:synBehavior    :residence-of_88_nounpp .
+
+:residence-of_88_form a lemon:Form ;
+  lemon:writtenRep "residence"@en .
+
+:residence-of_88_singular a    lemon:Form ;
+  lemon:writtenRep "residence"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:residence-of_88_plural a   lemon:Form ;
+  lemon:writtenRep "residences"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:residence-of_88_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_residence-of_88 ;
+  lexinfo:prepositionalAdjunct :arg2_residence-of_88 .
+
+:residence-of_88_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :residence-of_88_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/residence> ;
+  lemon:subjOfProp          :arg1_residence-of_88 ;
+  lemon:objOfProp           :arg2_residence-of_88 ;
+  lemon:condition           :residence-of_88_sense_1_condition .
+
+:residence-of_88_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2_residence-of_88 lemon:marker :residence-of_88_form_preposition .
+## Prepositions ##
+:residence-of_88_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :governor_of_543 ;
+  lemon:entry    :governor_of_543_form_preposition .
+
+:governor_of_543 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :governor_of_543_form ;
+  lemon:otherForm  :governor_of_543_singular ;
+  lemon:otherForm  :governor_of_543_plural ;
+  lemon:sense          :governor_of_543_sense_1 ;
+  lemon:synBehavior    :governor_of_543_nounpp .
+
+:governor_of_543_form a lemon:Form ;
+  lemon:writtenRep "governor"@en .
+
+:governor_of_543_singular a    lemon:Form ;
+  lemon:writtenRep "governor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:governor_of_543_plural a   lemon:Form ;
+  lemon:writtenRep "governors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:governor_of_543_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_governor_of_543 ;
+  lexinfo:prepositionalAdjunct :arg2_governor_of_543 .
+
+:governor_of_543_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :governor_of_543_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/governor> ;
+  lemon:subjOfProp          :arg1_governor_of_543 ;
+  lemon:objOfProp           :arg2_governor_of_543 ;
+  lemon:condition           :governor_of_543_sense_1_condition .
+
+:governor_of_543_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_governor_of_543 lemon:marker :governor_of_543_form_preposition .
+## Prepositions ##
+:governor_of_543_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
