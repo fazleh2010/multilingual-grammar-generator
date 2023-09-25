@@ -95,13 +95,13 @@ public class EnglishCsv implements TempConstants {
             }
 
 
-            if (copulativeArg.contains("domain")) {
+            /*if (copulativeArg.contains("domain")) {
                 this.arg1 = "arg2"+"_"+lemonEntry;
                 this.arg2 = "arg1"+"_"+lemonEntry;
             } else {
                 this.arg1 = "arg1"+"_"+lemonEntry;
                 this.arg2 = "arg2"+"_"+lemonEntry;
-            }
+            }*/
 
             String writtenForm = ":" + lemonEntry + "_form a lemon:Form ;\n"
                     + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
@@ -156,8 +156,8 @@ public class EnglishCsv implements TempConstants {
                     String line = ":" + tupple.getSenseId() + " a lemon:OntoMap, lemon:LexicalSense ;\n"
                             + "  lemon:ontoMapping         :" + tupple.getSenseId() + " ;\n"
                             + "  lemon:reference           <" + tupple.getReference() + "> ;\n"
-                            + "  lemon:subjOfProp          :"+this.arg1+" ;\n"
-                            + "  lemon:objOfProp           :"+this.arg2+" ;\n"
+                            + "  lemon:subjOfProp          :"+this.arg2+" ;\n"
+                            + "  lemon:objOfProp           :"+this.arg1+" ;\n"
                             + "  lemon:condition           :" + tupple.getSenseId() + "_condition .\n"
                             + "\n"
                             + ":" + tupple.getSenseId() + "_condition a lemon:condition ;\n"

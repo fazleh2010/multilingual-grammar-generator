@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :largestcity_of_340 ;
+  lemon:entry    :largestcity_of_340_form_preposition .
+
+:largestcity_of_340 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :largestcity_of_340_form ;
+  lemon:otherForm  :largestcity_of_340_singular ;
+  lemon:otherForm  :largestcity_of_340_plural ;
+  lemon:sense          :largestcity_of_340_sense_1 ;
+  lemon:synBehavior    :largestcity_of_340_nounpp .
+
+:largestcity_of_340_form a lemon:Form ;
+  lemon:writtenRep "largest city"@en .
+
+:largestcity_of_340_singular a    lemon:Form ;
+  lemon:writtenRep "largest city"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:largestcity_of_340_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:largestcity_of_340_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:largestcity_of_340_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :largestcity_of_340_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/largestCity> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :largestcity_of_340_sense_1_condition .
+
+:largestcity_of_340_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:null lemon:marker :largestcity_of_340_form_preposition .
+## Prepositions ##
+:largestcity_of_340_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

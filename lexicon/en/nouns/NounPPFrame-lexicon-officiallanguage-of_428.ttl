@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :officiallanguage-of_428 ;
+  lemon:entry    :officiallanguage-of_428_form_preposition .
+
+:officiallanguage-of_428 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :officiallanguage-of_428_form ;
+  lemon:otherForm  :officiallanguage-of_428_singular ;
+  lemon:otherForm  :officiallanguage-of_428_plural ;
+  lemon:sense          :officiallanguage-of_428_sense_1 ;
+  lemon:synBehavior    :officiallanguage-of_428_nounpp .
+
+:officiallanguage-of_428_form a lemon:Form ;
+  lemon:writtenRep "official language"@en .
+
+:officiallanguage-of_428_singular a    lemon:Form ;
+  lemon:writtenRep "official language"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:officiallanguage-of_428_plural a   lemon:Form ;
+  lemon:writtenRep "official languages"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:officiallanguage-of_428_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:officiallanguage-of_428_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :officiallanguage-of_428_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/officialLanguage> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :officiallanguage-of_428_sense_1_condition .
+
+:officiallanguage-of_428_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:null lemon:marker :officiallanguage-of_428_form_preposition .
+## Prepositions ##
+:officiallanguage-of_428_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

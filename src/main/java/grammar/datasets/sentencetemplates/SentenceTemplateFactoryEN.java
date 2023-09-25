@@ -232,15 +232,15 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         
-         //"Who creates the song Captain America?
-        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?",
-        "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?",
+         //"Who creates the song Captain America? (X) (X) does not work for the moment
+        //"interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?",
+        //"interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?",
          //"Who creates the song Captain America?
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?",
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the)  object(domain)?",
-         //"Who created the song Captain America?
-        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?",
-        "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?",
+         //"Who created the song Captain America?(X) (X) does not work for the moment
+        //"interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?",
+        //"interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?",
          //Who presented BBC Wildlife Specials?
         "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) object(domain)?",
         "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) object(domain)?",
