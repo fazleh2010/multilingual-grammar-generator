@@ -1,3 +1,0 @@
-lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range
-highest_place_of,noun,highest place,-,of,NounPPFrame,range,domain,1,dbp:highest,dbo:Place,dbo:Place
-elevation_of,noun,elevation,-,of,NounPPFrame,range,domain,1,dbo:elevation,dbo:Airport,xsd:double

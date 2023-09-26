@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :birthyear_of_327 ;
+  lemon:entry    :birthyear_of_327_form_preposition .
+
+:birthyear_of_327 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :birthyear_of_327_form ;
+  lemon:otherForm  :birthyear_of_327_singular ;
+  lemon:otherForm  :birthyear_of_327_plural ;
+  lemon:sense          :birthyear_of_327_sense_1 ;
+  lemon:synBehavior    :birthyear_of_327_nounpp .
+
+:birthyear_of_327_form a lemon:Form ;
+  lemon:writtenRep "birth year"@en .
+
+:birthyear_of_327_singular a    lemon:Form ;
+  lemon:writtenRep "birth year"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:birthyear_of_327_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:birthyear_of_327_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:birthyear_of_327_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :birthyear_of_327_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/birthYear> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :birthyear_of_327_sense_1_condition .
+
+:birthyear_of_327_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#gYear> .
+
+:null lemon:marker :birthyear_of_327_form_preposition .
+## Prepositions ##
+:birthyear_of_327_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
