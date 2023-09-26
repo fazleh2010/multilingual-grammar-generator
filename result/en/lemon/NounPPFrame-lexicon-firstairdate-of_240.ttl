@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :firstairdate-of_240 ;
+  lemon:entry    :firstairdate-of_240_form_preposition .
+
+:firstairdate-of_240 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :firstairdate-of_240_form ;
+  lemon:otherForm  :firstairdate-of_240_singular ;
+  lemon:otherForm  :firstairdate-of_240_plural ;
+  lemon:sense          :firstairdate-of_240_sense_1 ;
+  lemon:synBehavior    :firstairdate-of_240_nounpp .
+
+:firstairdate-of_240_form a lemon:Form ;
+  lemon:writtenRep "first Air Date"@en .
+
+:firstairdate-of_240_singular a    lemon:Form ;
+  lemon:writtenRep "first Air Date"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:firstairdate-of_240_plural a   lemon:Form ;
+  lemon:writtenRep "first Air Dates"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:firstairdate-of_240_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:firstairdate-of_240_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :firstairdate-of_240_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAirDate> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :firstairdate-of_240_sense_1_condition .
+
+:firstairdate-of_240_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionSeason> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:null lemon:marker :firstairdate-of_240_form_preposition .
+## Prepositions ##
+:firstairdate-of_240_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
