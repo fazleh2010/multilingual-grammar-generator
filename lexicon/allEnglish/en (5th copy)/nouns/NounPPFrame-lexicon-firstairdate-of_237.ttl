@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :firstairdate-of_237 ;
+  lemon:entry    :firstairdate-of_237_form_preposition .
+
+:firstairdate-of_237 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :firstairdate-of_237_form ;
+  lemon:otherForm  :firstairdate-of_237_singular ;
+  lemon:otherForm  :firstairdate-of_237_plural ;
+  lemon:sense          :firstairdate-of_237_sense_1 ;
+  lemon:synBehavior    :firstairdate-of_237_nounpp .
+
+:firstairdate-of_237_form a lemon:Form ;
+  lemon:writtenRep "first Air Date"@en .
+
+:firstairdate-of_237_singular a    lemon:Form ;
+  lemon:writtenRep "first Air Date"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:firstairdate-of_237_plural a   lemon:Form ;
+  lemon:writtenRep "first Air Dates"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:firstairdate-of_237_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_firstairdate-of_237 ;
+  lexinfo:prepositionalAdjunct :arg2_firstairdate-of_237 .
+
+:firstairdate-of_237_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :firstairdate-of_237_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAirDate> ;
+  lemon:subjOfProp          :arg2_firstairdate-of_237 ;
+  lemon:objOfProp           :arg1_firstairdate-of_237 ;
+  lemon:condition           :firstairdate-of_237_sense_1_condition .
+
+:firstairdate-of_237_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionSeason> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_firstairdate-of_237 lemon:marker :firstairdate-of_237_form_preposition .
+## Prepositions ##
+:firstairdate-of_237_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :writer_of_58 ;
+  lemon:entry    :writer_of_58_form_preposition .
+
+:writer_of_58 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :writer_of_58_form ;
+  lemon:otherForm  :writer_of_58_singular ;
+  lemon:otherForm  :writer_of_58_plural ;
+  lemon:sense          :writer_of_58_sense_1 ;
+  lemon:synBehavior    :writer_of_58_nounpp .
+
+:writer_of_58_form a lemon:Form ;
+  lemon:writtenRep "writer"@en .
+
+:writer_of_58_singular a    lemon:Form ;
+  lemon:writtenRep "writer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:writer_of_58_plural a   lemon:Form ;
+  lemon:writtenRep "writers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:writer_of_58_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_writer_of_58 ;
+  lexinfo:prepositionalAdjunct :arg2_writer_of_58 .
+
+:writer_of_58_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :writer_of_58_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/writer> ;
+  lemon:subjOfProp          :arg1_writer_of_58 ;
+  lemon:objOfProp           :arg2_writer_of_58 ;
+  lemon:condition           :writer_of_58_sense_1_condition .
+
+:writer_of_58_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MusicalWork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Actor> .
+
+:arg2_writer_of_58 lemon:marker :writer_of_58_form_preposition .
+## Prepositions ##
+:writer_of_58_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

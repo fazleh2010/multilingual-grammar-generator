@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_starr_in_2_83 ;
+  lemon:entry    :starr_in_2_83ed ;
+  lemon:entry    :form_starr_in_2_83_preposition .
+
+:to_starr_in_2_83 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_starr_in_2_83 ;
+  lemon:otherForm      :form_starr_in_2_83s ;
+  lemon:otherForm      :form_starr_in_2_83ed ;
+  lemon:otherForm      :form_starr_in_2_83perfect ;
+  lemon:sense          :starr_in_2_83_sense_1 ;
+  lemon:synBehavior    :starr_in_2_83_frame_transitive .
+
+:form_starr_in_2_83 a         lemon:Form ;
+  lemon:writtenRep     "starring in"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_starr_in_2_83s a    lemon:Form ;
+  lemon:writtenRep "starring in"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_starr_in_2_83ed a   lemon:Form ;
+  lemon:writtenRep "starred_in"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_starr_in_2_83perfect a   lemon:Form ;
+  lemon:writtenRep "starred_in"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:starr_in_2_83_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :starr_in_2_83_subj ;
+  lexinfo:directObject     :starr_in_2_83_obj .
+
+:starr_in_2_83_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :starr_in_2_83_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/starring> ;
+  lemon:subjOfProp  :starr_in_2_83_obj ;
+  lemon:objOfProp   :starr_in_2_83_subj ;
+  lemon:condition   :starr_in_2_83_sense_1_condition .
+
+
+:starr_in_2_83_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Actor> .
+
+
+:starr_in_2_83_obj lemon:marker :form_starr_in_2_83_preposition .
+
+## Prepositions ##
+:form_starr_in_2_83_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

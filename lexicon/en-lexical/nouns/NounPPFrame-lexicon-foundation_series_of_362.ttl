@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :foundation_series_of_362 ;
+  lemon:entry    :foundation_series_of_362_form_preposition .
+
+:foundation_series_of_362 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :foundation_series_of_362_form ;
+  lemon:otherForm  :foundation_series_of_362_singular ;
+  lemon:otherForm  :foundation_series_of_362_plural ;
+  lemon:sense          :foundation_series_of_362_sense_1 ;
+  lemon:synBehavior    :foundation_series_of_362_nounpp .
+
+:foundation_series_of_362_form a lemon:Form ;
+  lemon:writtenRep "foundation series"@en .
+
+:foundation_series_of_362_singular a    lemon:Form ;
+  lemon:writtenRep "foundation series"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:foundation_series_of_362_plural a   lemon:Form ;
+  lemon:writtenRep "foundation series"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:foundation_series_of_362_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:foundation_series_of_362_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :foundation_series_of_362_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :foundation_series_of_362_sense_1_condition .
+
+:foundation_series_of_362_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:null lemon:marker :foundation_series_of_362_form_preposition .
+## Prepositions ##
+:foundation_series_of_362_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

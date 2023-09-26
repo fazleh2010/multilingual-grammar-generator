@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :successor_of_379 ;
+  lemon:entry    :successor_of_379_form_preposition .
+
+:successor_of_379 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :successor_of_379_form ;
+  lemon:otherForm  :successor_of_379_singular ;
+  lemon:otherForm  :successor_of_379_plural ;
+  lemon:sense          :successor_of_379_sense_1 ;
+  lemon:synBehavior    :successor_of_379_nounpp .
+
+:successor_of_379_form a lemon:Form ;
+  lemon:writtenRep "successor"@en .
+
+:successor_of_379_singular a    lemon:Form ;
+  lemon:writtenRep "successor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:successor_of_379_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:successor_of_379_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:successor_of_379_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :successor_of_379_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/successor> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :successor_of_379_sense_1_condition .
+
+:successor_of_379_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:null lemon:marker :successor_of_379_form_preposition .
+## Prepositions ##
+:successor_of_379_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

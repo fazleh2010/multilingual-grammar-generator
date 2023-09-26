@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_design_3_101 ;
+  lemon:entry    :design_3_101ed ;
+  lemon:entry    :form_design_3_101_preposition .
+
+:to_design_3_101 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_design_3_101 ;
+  lemon:otherForm      :form_design_3_101s ;
+  lemon:otherForm      :form_design_3_101ed ;
+  lemon:otherForm      :form_design_3_101perfect ;
+  lemon:sense          :design_3_101_sense_1 ;
+  lemon:synBehavior    :design_3_101_frame_transitive .
+
+:form_design_3_101 a         lemon:Form ;
+  lemon:writtenRep     "design"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_design_3_101s a    lemon:Form ;
+  lemon:writtenRep "designs"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_design_3_101ed a   lemon:Form ;
+  lemon:writtenRep "designed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_design_3_101perfect a   lemon:Form ;
+  lemon:writtenRep "designed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:design_3_101_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :design_3_101_subj ;
+  lexinfo:directObject     :design_3_101_obj .
+
+:design_3_101_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :design_3_101_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/designer> ;
+  lemon:subjOfProp  :design_3_101_obj ;
+  lemon:objOfProp   :design_3_101_subj ;
+  lemon:condition   :design_3_101_sense_1_condition .
+
+
+:design_3_101_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Software> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:design_3_101_obj lemon:marker :form_design_3_101_preposition .
+
+## Prepositions ##
+:form_design_3_101_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

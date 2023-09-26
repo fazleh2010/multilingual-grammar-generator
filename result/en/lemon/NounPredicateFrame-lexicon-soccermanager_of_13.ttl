@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soccermanager_of_13_sense_1_res ;
+  lemon:entry    :soccermanager_of_13 .
+
+:soccermanager_of_13 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :soccermanager_of_13_form ;
+  lemon:otherForm  :soccermanager_of_13_singular ;
+  lemon:otherForm  :soccermanager_of_13_plural ;
+  lemon:sense          :soccermanager_of_13_sense_1 ;
+  lemon:synBehavior    :soccermanager_of_13_predFrame .
+
+:soccermanager_of_13_form
+ lemon:writtenRep "Soccer Manager"@en .
+
+:soccermanager_of_13_singular a    lemon:Form ;
+  lemon:writtenRep "Soccer Manager"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soccermanager_of_13_plural a   lemon:Form ;
+  lemon:writtenRep "Soccer Managers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soccermanager_of_13_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :soccermanager_of_13_sense_1_res ;
+  lemon:isA       :soccermanager_of_13_PredSynArg .
+
+:soccermanager_of_13_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/SoccerManager> .

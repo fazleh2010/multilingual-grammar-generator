@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :firstascentperson-of_324 ;
+  lemon:entry    :firstascentperson-of_324_form_preposition .
+
+:firstascentperson-of_324 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :firstascentperson-of_324_form ;
+  lemon:otherForm  :firstascentperson-of_324_singular ;
+  lemon:otherForm  :firstascentperson-of_324_plural ;
+  lemon:sense          :firstascentperson-of_324_sense_1 ;
+  lemon:synBehavior    :firstascentperson-of_324_nounpp .
+
+:firstascentperson-of_324_form a lemon:Form ;
+  lemon:writtenRep "first Ascent Person"@en .
+
+:firstascentperson-of_324_singular a    lemon:Form ;
+  lemon:writtenRep "first Ascent Person"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:firstascentperson-of_324_plural a   lemon:Form ;
+  lemon:writtenRep "first Ascent Persons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:firstascentperson-of_324_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_firstascentperson-of_324 ;
+  lexinfo:prepositionalAdjunct :arg2_firstascentperson-of_324 .
+
+:firstascentperson-of_324_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :firstascentperson-of_324_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/firstAscentPerson> ;
+  lemon:subjOfProp          :arg1_firstascentperson-of_324 ;
+  lemon:objOfProp           :arg2_firstascentperson-of_324 ;
+  lemon:condition           :firstascentperson-of_324_sense_1_condition .
+
+:firstascentperson-of_324_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Mountain> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_firstascentperson-of_324 lemon:marker :firstascentperson-of_324_form_preposition .
+## Prepositions ##
+:firstascentperson-of_324_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

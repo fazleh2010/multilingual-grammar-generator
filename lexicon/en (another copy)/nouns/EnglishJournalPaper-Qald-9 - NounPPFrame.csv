@@ -4,8 +4,8 @@ mayor_of_1,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:mayor,dbo:City,db
 mayor_of_2,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:leaderName,dbo:City,dbo:Person
 officialLanguage-of_1,noun,official language,official languages,of,NounPPFrame,range,domain,1,dbo:officialLanguage,dbo:Country,dbo:Language
 child_of,noun,child,children,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person
-owner_of_1,noun,owner,owners,of,NounPPFrame,range,domain,1,dbo:owner,dbo:Company,dbo:Person
-astronaut_of,noun,astronaut ,astronauts,of,NounPPFrame,domain,range,1,dbo:mission,dbo:Person,dbo:SpaceMission
+owner_of_1,noun,owner,owners,of,NounPPFrame,domain,range,1,dbo:owner,dbo:Company,dbo:Person
+astronaut_of,noun,astronaut ,astronauts,of,NounPPFrame,range,domain,1,dbo:mission,dbo:Person,dbo:SpaceMission
 president_of,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Country,dbo:Person
 founder_of,noun,founder,founders,of,NounPPFrame,range,domain,1,dbo:foundedBy,dbo:BroadcastNetwork,dbo:Company
 mission-of,noun,mission,missions,of,NounPPFrame,range,domain,1,dbo:programme,dbo:Event,dbo:TelevisionShow
@@ -27,7 +27,7 @@ net-income-of,noun,net income,net incomes,of,NounPPFrame,range,domain,1,dbo:netI
 music-by,noun,music,musics,by,NounPPFrame,range,domain,1,dbo:musicBy,dbo:TelevisionShow,dbo:Person
 industry-of,noun,industry,industries,of,NounPPFrame,range,domain,1,dbo:industry,dbo:Agent,dbo:Food
 total-amount-of-employee-of,noun,total amount of employee,total amount of employee,of,NounPPFrame,range,domain,1,dbo:employees,dbo:Event,dbo:Agent
-part-of ,noun,part,parts,of,NounPPFrame,range,domain,1,dbo:alliance,dbo:Agent,dbo:Company
+part-of,noun,part,parts,of,NounPPFrame,domain,range,1,dbo:alliance,dbo:Agent,dbo:PoliticalParty
 member-of,noun,member,members,of,NounPPFrame,range,domain,1,dbo:alliance,dbo:Agent,dbo:Company
 residence-of,noun,residence,residences,of,NounPPFrame,range,domain,1,dbp:residence,dbo:Agent,dbo:Country
 birthday-of,noun,birthday,birthdays,of,NounPPFrame,range,domain,1,dbo:birthDate,dbo:Agent,xsd:string
@@ -43,7 +43,6 @@ speciality-of,noun,speciality,specialities,of,NounPPFrame,range,domain,1,dbo:tit
 king-of,noun,king,kings,of,NounPPFrame,range,domain,1,dbp:title,dbo:Agent,dbo:City
 father_of,noun,father,-,of,NounPPFrame,range,domain,1,dbp:father,dbo:Royalty,dbo:Person
 breweries-in,noun,brewery,breweries,of,NounPPFrame,range,domain,1,dbo:location,dbo:Place,dbo:Place
-breed-of,noun,breed,breeds,of,NounPPFrame,range,domain,1,dbo:breed,,
 alma-mater-of,noun,alma mater,alma maters,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double
 birthPlace_of,noun,birth place,-,of,NounPPFrame,range,domain,1,dbo:birthPlace,dbo:Person,dbo:Country
 ingredient_of,noun,ingredient,ingredients,of,NounPPFrame,range,domain,1,dbo:ingredient,dbo:Food,owl:Thing

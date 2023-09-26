@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :wife-of_328 ;
+  lemon:entry    :wife-of_328_form_preposition .
+
+:wife-of_328 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :wife-of_328_form ;
+  lemon:otherForm  :wife-of_328_singular ;
+  lemon:otherForm  :wife-of_328_plural ;
+  lemon:sense          :wife-of_328_sense_1 ;
+  lemon:synBehavior    :wife-of_328_nounpp .
+
+:wife-of_328_form a lemon:Form ;
+  lemon:writtenRep "wife"@en .
+
+:wife-of_328_singular a    lemon:Form ;
+  lemon:writtenRep "wife"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:wife-of_328_plural a   lemon:Form ;
+  lemon:writtenRep "wives"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:wife-of_328_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_wife-of_328 ;
+  lexinfo:prepositionalAdjunct :arg2_wife-of_328 .
+
+:wife-of_328_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :wife-of_328_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/spouse> ;
+  lemon:subjOfProp          :arg2_wife-of_328 ;
+  lemon:objOfProp           :arg1_wife-of_328 ;
+  lemon:condition           :wife-of_328_sense_1_condition .
+
+:wife-of_328_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_wife-of_328 lemon:marker :wife-of_328_form_preposition .
+## Prepositions ##
+:wife-of_328_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

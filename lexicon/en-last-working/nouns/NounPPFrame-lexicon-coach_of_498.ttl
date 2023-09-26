@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :coach_of_498 ;
+  lemon:entry    :coach_of_498_form_preposition .
+
+:coach_of_498 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :coach_of_498_form ;
+  lemon:otherForm  :coach_of_498_singular ;
+  lemon:otherForm  :coach_of_498_plural ;
+  lemon:sense          :coach_of_498_sense_1 ;
+  lemon:synBehavior    :coach_of_498_nounpp .
+
+:coach_of_498_form a lemon:Form ;
+  lemon:writtenRep "coach"@en .
+
+:coach_of_498_singular a    lemon:Form ;
+  lemon:writtenRep "coach"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:coach_of_498_plural a   lemon:Form ;
+  lemon:writtenRep "coaches"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:coach_of_498_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_coach_of_498 ;
+  lexinfo:prepositionalAdjunct :arg2_coach_of_498 .
+
+:coach_of_498_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :coach_of_498_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/coach> ;
+  lemon:subjOfProp          :arg2_coach_of_498 ;
+  lemon:objOfProp           :arg1_coach_of_498 ;
+  lemon:condition           :coach_of_498_sense_1_condition .
+
+:coach_of_498_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/HockeyTeam> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_coach_of_498 lemon:marker :coach_of_498_form_preposition .
+## Prepositions ##
+:coach_of_498_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

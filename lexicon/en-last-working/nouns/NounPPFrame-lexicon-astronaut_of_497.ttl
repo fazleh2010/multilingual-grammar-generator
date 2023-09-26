@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :astronaut_of_497 ;
+  lemon:entry    :astronaut_of_497_form_preposition .
+
+:astronaut_of_497 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :astronaut_of_497_form ;
+  lemon:otherForm  :astronaut_of_497_singular ;
+  lemon:otherForm  :astronaut_of_497_plural ;
+  lemon:sense          :astronaut_of_497_sense_1 ;
+  lemon:synBehavior    :astronaut_of_497_nounpp .
+
+:astronaut_of_497_form a lemon:Form ;
+  lemon:writtenRep "astronaut "@en .
+
+:astronaut_of_497_singular a    lemon:Form ;
+  lemon:writtenRep "astronaut "@en ;
+  lexinfo:number   lexinfo:singular .
+
+:astronaut_of_497_plural a   lemon:Form ;
+  lemon:writtenRep "astronauts"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:astronaut_of_497_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_astronaut_of_497 ;
+  lexinfo:prepositionalAdjunct :arg2_astronaut_of_497 .
+
+:astronaut_of_497_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :astronaut_of_497_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/mission> ;
+  lemon:subjOfProp          :arg2_astronaut_of_497 ;
+  lemon:objOfProp           :arg1_astronaut_of_497 ;
+  lemon:condition           :astronaut_of_497_sense_1_condition .
+
+:astronaut_of_497_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/SpaceMission> .
+
+:arg2_astronaut_of_497 lemon:marker :astronaut_of_497_form_preposition .
+## Prepositions ##
+:astronaut_of_497_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

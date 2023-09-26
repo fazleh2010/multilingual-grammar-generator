@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :numberofpages-of_263 ;
+  lemon:entry    :numberofpages-of_263_form_preposition .
+
+:numberofpages-of_263 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :numberofpages-of_263_form ;
+  lemon:otherForm  :numberofpages-of_263_singular ;
+  lemon:otherForm  :numberofpages-of_263_plural ;
+  lemon:sense          :numberofpages-of_263_sense_1 ;
+  lemon:synBehavior    :numberofpages-of_263_nounpp .
+
+:numberofpages-of_263_form a lemon:Form ;
+  lemon:writtenRep "number of pages"@en .
+
+:numberofpages-of_263_singular a    lemon:Form ;
+  lemon:writtenRep "number of pages"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:numberofpages-of_263_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:numberofpages-of_263_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_numberofpages-of_263 ;
+  lexinfo:prepositionalAdjunct :arg2_numberofpages-of_263 .
+
+:numberofpages-of_263_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :numberofpages-of_263_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfPages> ;
+  lemon:subjOfProp          :arg2_numberofpages-of_263 ;
+  lemon:objOfProp           :arg1_numberofpages-of_263 ;
+  lemon:condition           :numberofpages-of_263_sense_1_condition .
+
+:numberofpages-of_263_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+
+:arg2_numberofpages-of_263 lemon:marker :numberofpages-of_263_form_preposition .
+## Prepositions ##
+:numberofpages-of_263_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

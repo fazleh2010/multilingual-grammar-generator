@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :net-income-of_422 ;
+  lemon:entry    :net-income-of_422_form_preposition .
+
+:net-income-of_422 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :net-income-of_422_form ;
+  lemon:otherForm  :net-income-of_422_singular ;
+  lemon:otherForm  :net-income-of_422_plural ;
+  lemon:sense          :net-income-of_422_sense_1 ;
+  lemon:sense          :net-income-of_422_sense_2 ;
+  lemon:synBehavior    :net-income-of_422_nounpp .
+
+:net-income-of_422_form a lemon:Form ;
+  lemon:writtenRep "net income"@en .
+
+:net-income-of_422_singular a    lemon:Form ;
+  lemon:writtenRep "net income"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:net-income-of_422_plural a   lemon:Form ;
+  lemon:writtenRep "net incomes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:net-income-of_422_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_net-income-of_422 ;
+  lexinfo:prepositionalAdjunct :arg2_net-income-of_422 .
+
+:net-income-of_422_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :net-income-of_422_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/netIncome> ;
+  lemon:subjOfProp          :arg2_net-income-of_422 ;
+  lemon:objOfProp           :arg1_net-income-of_422 ;
+  lemon:condition           :net-income-of_422_sense_1_condition .
+
+:net-income-of_422_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Company> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:net-income-of_422_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :net-income-of_422_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/netIncome> ;
+  lemon:subjOfProp          :arg2_net-income-of_422 ;
+  lemon:objOfProp           :arg1_net-income-of_422 ;
+  lemon:condition           :net-income-of_422_sense_2_condition .
+
+:net-income-of_422_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Company> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_net-income-of_422 lemon:marker :net-income-of_422_form_preposition .
+## Prepositions ##
+:net-income-of_422_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

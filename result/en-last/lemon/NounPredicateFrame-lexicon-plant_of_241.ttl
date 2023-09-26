@@ -1,0 +1,48 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :plant_of_241_sense_1_res ;
+  lemon:entry    :plant_of_241_sense_2_res ;
+  lemon:entry    :plant_of_241 .
+
+:plant_of_241 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :plant_of_241_form ;
+  lemon:otherForm  :plant_of_241_singular ;
+  lemon:otherForm  :plant_of_241_plural ;
+  lemon:sense          :plant_of_241_sense_1 ;
+  lemon:sense          :plant_of_241_sense_2 ;
+  lemon:synBehavior    :plant_of_241_predFrame .
+
+:plant_of_241_form
+ lemon:writtenRep "plant"@en .
+
+:plant_of_241_singular a    lemon:Form ;
+  lemon:writtenRep "plant"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:plant_of_241_plural a   lemon:Form ;
+  lemon:writtenRep "plants"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:plant_of_241_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :plant_of_241_sense_1_res ;
+  lemon:isA       :plant_of_241_PredSynArg .
+
+:plant_of_241_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Planet> .
+:plant_of_241_sense_2 a  lemon:LexicalSense ;
+  lemon:reference :plant_of_241_sense_2_res ;
+  lemon:isA       :plant_of_241_PredSynArg .
+
+:plant_of_241_sense_2_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Plant> .

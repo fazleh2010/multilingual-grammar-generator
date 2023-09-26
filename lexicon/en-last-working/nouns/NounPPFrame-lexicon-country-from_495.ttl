@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :country-from_495 ;
+  lemon:entry    :country-from_495_form_preposition .
+
+:country-from_495 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :country-from_495_form ;
+  lemon:otherForm  :country-from_495_singular ;
+  lemon:otherForm  :country-from_495_plural ;
+  lemon:sense          :country-from_495_sense_1 ;
+  lemon:synBehavior    :country-from_495_nounpp .
+
+:country-from_495_form a lemon:Form ;
+  lemon:writtenRep "country"@en .
+
+:country-from_495_singular a    lemon:Form ;
+  lemon:writtenRep "country"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:country-from_495_plural a   lemon:Form ;
+  lemon:writtenRep "countries"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:country-from_495_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_country-from_495 ;
+  lexinfo:prepositionalAdjunct :arg2_country-from_495 .
+
+:country-from_495_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :country-from_495_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/foundationPlace> ;
+  lemon:subjOfProp          :arg2_country-from_495 ;
+  lemon:objOfProp           :arg1_country-from_495 ;
+  lemon:condition           :country-from_495_sense_1_condition .
+
+:country-from_495_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2_country-from_495 lemon:marker :country-from_495_form_preposition .
+## Prepositions ##
+:country-from_495_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "from"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

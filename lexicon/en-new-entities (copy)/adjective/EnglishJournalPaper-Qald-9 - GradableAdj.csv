@@ -1,0 +1,11 @@
+LemonEntry,partOfSpeech,writtenForm,comparative,superlative,SyntacticFrame,predFrame,sense,reference,oils:boundTo,oils:degree,domain,range,preposition,Question1,SPARQL Question 1,Question 3,SPARQL Question 3,Question 4,sparql 4,Question 5,sparql 5
+big_1,adjective,big,bigger,biggest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:seatingCapacity,oils:high,dbo:Country,dbo:Stadium,in,How big is X(dbo:Stadium)?,SELECT ?Y WHERE { X dbo:seatingCapacity ?Y. },#REF!,SELECT ?Y WHERE { ?Y dbo:seatingCapacity ?V } ORDER BY DESC ?Y LIMIT 1,What is the biggest X (dbo:Stadium) in Y(dbo:Country)?,,,
+big_2,adjective,big,bigger,biggest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:areaTotal ,oils:high,dbo:Lake,xsd:double,in,,,,,,,,
+Heavy_1,adjective,heavy,heavier,heaviest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:mass,oils:high,dbo:Place,xsd:double,in,,,,,,,,
+Light_1,adjective,light,lighter,lightest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:mass,oils:high,dbo:Place,xsd:double,in,,,,,,,,
+High_1,adjective,high,higher,highest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:elevation,oils:high,dbo:Mountain,xsd:double,in,,,,,,,,
+High_8,adjective,high,higher,highest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbp:elevationM,oils:high,dbo:Mountain,xsd:double,in,,,,,,,,
+Heavy_2,adjective,heavy,heavier,heaviest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:weight,oils:high,dbo:Person,xsd:double,of,,,,,,,,
+Earlier_1,adjective,early,earlier,earliest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:date,oils:high,dbo:Event,xsd:date,of,,,,,,,,
+Large_1,adjective,large,larger,largest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:areaTotal ,oils:high,dbo:Place,xsd:double,of,,,,,,,,
+Old_2,adjective,old,older,oldest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:birthDate,oils:high,dbo:Person,xsd:date,of,,,,,,,,

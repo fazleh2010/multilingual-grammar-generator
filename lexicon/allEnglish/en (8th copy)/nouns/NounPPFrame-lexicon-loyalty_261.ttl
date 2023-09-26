@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :loyalty_261 ;
+  lemon:entry    :loyalty_261_form_preposition .
+
+:loyalty_261 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :loyalty_261_form ;
+  lemon:otherForm  :loyalty_261_singular ;
+  lemon:otherForm  :loyalty_261_plural ;
+  lemon:sense          :loyalty_261_sense_1 ;
+  lemon:synBehavior    :loyalty_261_nounpp .
+
+:loyalty_261_form a lemon:Form ;
+  lemon:writtenRep "loyalty"@en .
+
+:loyalty_261_singular a    lemon:Form ;
+  lemon:writtenRep "loyalty"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:loyalty_261_plural a   lemon:Form ;
+  lemon:writtenRep "loyalties"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:loyalty_261_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_loyalty_261 ;
+  lexinfo:prepositionalAdjunct :arg2_loyalty_261 .
+
+:loyalty_261_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :loyalty_261_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/connotation> ;
+  lemon:subjOfProp          :arg2_loyalty_261 ;
+  lemon:objOfProp           :arg1_loyalty_261 ;
+  lemon:condition           :loyalty_261_sense_1_condition .
+
+:loyalty_261_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Loyalty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Color> .
+
+:arg2_loyalty_261 lemon:marker :loyalty_261_form_preposition .
+## Prepositions ##
+:loyalty_261_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

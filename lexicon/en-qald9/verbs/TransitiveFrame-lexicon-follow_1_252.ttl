@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_follow_1_252 ;
+  lemon:entry    :follow_1_252ed ;
+  lemon:entry    :form_follow_1_252_preposition .
+
+:to_follow_1_252 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_follow_1_252 ;
+  lemon:otherForm      :form_follow_1_252s ;
+  lemon:otherForm      :form_follow_1_252ed ;
+  lemon:otherForm      :form_follow_1_252perfect ;
+  lemon:sense          :follow_1_252_sense_1 ;
+  lemon:synBehavior    :follow_1_252_frame_transitive .
+
+:form_follow_1_252 a         lemon:Form ;
+  lemon:writtenRep     "follow"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_follow_1_252s a    lemon:Form ;
+  lemon:writtenRep "follows"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_follow_1_252ed a   lemon:Form ;
+  lemon:writtenRep "followed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_follow_1_252perfect a   lemon:Form ;
+  lemon:writtenRep "followed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:follow_1_252_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :follow_1_252_subj ;
+  lexinfo:directObject     :follow_1_252_obj .
+
+:follow_1_252_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :follow_1_252_sense_1 ;
+  lemon:reference   <http://dbpedia.org/property/nextTitle> ;
+  lemon:subjOfProp  :follow_1_252_obj ;
+  lemon:objOfProp   :follow_1_252_subj ;
+  lemon:condition   :follow_1_252_sense_1_condition .
+
+
+:follow_1_252_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Album> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Album> .
+
+
+:follow_1_252_obj lemon:marker :form_follow_1_252_preposition .
+
+## Prepositions ##
+:form_follow_1_252_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

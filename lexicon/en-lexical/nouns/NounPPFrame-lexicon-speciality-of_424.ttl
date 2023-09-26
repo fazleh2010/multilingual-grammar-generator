@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :speciality-of_424 ;
+  lemon:entry    :speciality-of_424_form_preposition .
+
+:speciality-of_424 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :speciality-of_424_form ;
+  lemon:otherForm  :speciality-of_424_singular ;
+  lemon:otherForm  :speciality-of_424_plural ;
+  lemon:sense          :speciality-of_424_sense_1 ;
+  lemon:synBehavior    :speciality-of_424_nounpp .
+
+:speciality-of_424_form a lemon:Form ;
+  lemon:writtenRep "speciality"@en .
+
+:speciality-of_424_singular a    lemon:Form ;
+  lemon:writtenRep "speciality"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:speciality-of_424_plural a   lemon:Form ;
+  lemon:writtenRep "specialities"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:speciality-of_424_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:speciality-of_424_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :speciality-of_424_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/title> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :speciality-of_424_sense_1_condition .
+
+:speciality-of_424_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:null lemon:marker :speciality-of_424_form_preposition .
+## Prepositions ##
+:speciality-of_424_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

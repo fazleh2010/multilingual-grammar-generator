@@ -1,0 +1,49 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix oils:     <http://lemon-model.net/oils#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :tall_4_569 ;
+  lemon:entry    :form_tall_4_569_preposition ;
+  lemon:entry    :tall_4_569_res .
+
+:tall_4_569 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_tall_4_569 ;
+  lemon:otherForm      :form_tall_4_569_comperative ;
+  lemon:otherForm      :form_tall_4_569_superlative ;
+  lemon:sense          :tall_4_569_sense_1 ;
+  lemon:synBehavior    :tall_4_569_predFrame .
+
+:form_tall_4_569 lemon:writtenRep "tall"@en .
+
+:form_tall_4_569_comperative lemon:writtenRep "taller"@en .
+
+:form_tall_4_569_superlative lemon:writtenRep "tallest"@en .
+
+:tall_4_569_predFrame a        lexinfo:AdjectiveSuperlativeFrame ;
+  lexinfo:copulativeSubject :tall_4_569_PredSynArg .
+
+:tall_4_569_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :tall_4_569_res ;
+  lemon:isA       :tall_4_569_PredSynArg ;
+  lemon:condition :tall_4_569_sense_1_condition .
+
+:tall_4_569_res a   oils:CovariantScalar ;
+  oils:boundTo  <http://dbpedia.org/ontology/height> ;
+  oils:degree   <http://lemon-model.net/oils/strong> .
+
+:tall_4_569_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain   <http://dbpedia.org/ontology/SportsTeam> ;
+  lemon:propertyRange    <http://dbpedia.org/ontology/VolleyballPlayer> .
+
+## Prepositions ##
+:form_tall_4_569_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

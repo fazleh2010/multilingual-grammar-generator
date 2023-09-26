@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :autobiography-of_411 ;
+  lemon:entry    :autobiography-of_411_form_preposition .
+
+:autobiography-of_411 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :autobiography-of_411_form ;
+  lemon:otherForm  :autobiography-of_411_singular ;
+  lemon:otherForm  :autobiography-of_411_plural ;
+  lemon:sense          :autobiography-of_411_sense_1 ;
+  lemon:synBehavior    :autobiography-of_411_nounpp .
+
+:autobiography-of_411_form a lemon:Form ;
+  lemon:writtenRep "autobiography"@en .
+
+:autobiography-of_411_singular a    lemon:Form ;
+  lemon:writtenRep "autobiography"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:autobiography-of_411_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:autobiography-of_411_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:autobiography-of_411_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :autobiography-of_411_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/literaryGenre> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :autobiography-of_411_sense_1_condition .
+
+:autobiography-of_411_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Autobiography> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Author> .
+
+:null lemon:marker :autobiography-of_411_form_preposition .
+## Prepositions ##
+:autobiography-of_411_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

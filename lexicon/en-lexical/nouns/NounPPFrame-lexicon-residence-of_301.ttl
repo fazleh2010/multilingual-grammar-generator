@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :residence-of_301 ;
+  lemon:entry    :residence-of_301_form_preposition .
+
+:residence-of_301 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :residence-of_301_form ;
+  lemon:otherForm  :residence-of_301_singular ;
+  lemon:otherForm  :residence-of_301_plural ;
+  lemon:sense          :residence-of_301_sense_1 ;
+  lemon:synBehavior    :residence-of_301_nounpp .
+
+:residence-of_301_form a lemon:Form ;
+  lemon:writtenRep "residence"@en .
+
+:residence-of_301_singular a    lemon:Form ;
+  lemon:writtenRep "residence"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:residence-of_301_plural a   lemon:Form ;
+  lemon:writtenRep "residences"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:residence-of_301_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:residence-of_301_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :residence-of_301_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/residence> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :residence-of_301_sense_1_condition .
+
+:residence-of_301_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:null lemon:marker :residence-of_301_form_preposition .
+## Prepositions ##
+:residence-of_301_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mission-of_557 ;
+  lemon:entry    :mission-of_557_form_preposition .
+
+:mission-of_557 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mission-of_557_form ;
+  lemon:otherForm  :mission-of_557_singular ;
+  lemon:otherForm  :mission-of_557_plural ;
+  lemon:sense          :mission-of_557_sense_1 ;
+  lemon:sense          :mission-of_557_sense_2 ;
+  lemon:synBehavior    :mission-of_557_nounpp .
+
+:mission-of_557_form a lemon:Form ;
+  lemon:writtenRep "mission"@en .
+
+:mission-of_557_singular a    lemon:Form ;
+  lemon:writtenRep "mission"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mission-of_557_plural a   lemon:Form ;
+  lemon:writtenRep "missions"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mission-of_557_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_mission-of_557 ;
+  lexinfo:prepositionalAdjunct :arg2_mission-of_557 .
+
+:mission-of_557_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mission-of_557_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/programme> ;
+  lemon:subjOfProp          :arg1_mission-of_557 ;
+  lemon:objOfProp           :arg2_mission-of_557 ;
+  lemon:condition           :mission-of_557_sense_1_condition .
+
+:mission-of_557_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Event> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/TelevisionShow> .
+
+:mission-of_557_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mission-of_557_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/programme> ;
+  lemon:subjOfProp          :arg1_mission-of_557 ;
+  lemon:objOfProp           :arg2_mission-of_557 ;
+  lemon:condition           :mission-of_557_sense_2_condition .
+
+:mission-of_557_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Event> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/TelevisionShow> .
+
+:arg2_mission-of_557 lemon:marker :mission-of_557_form_preposition .
+## Prepositions ##
+:mission-of_557_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

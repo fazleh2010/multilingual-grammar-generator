@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :b-sides_of_429 ;
+  lemon:entry    :b-sides_of_429_form_preposition .
+
+:b-sides_of_429 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :b-sides_of_429_form ;
+  lemon:otherForm  :b-sides_of_429_singular ;
+  lemon:otherForm  :b-sides_of_429_plural ;
+  lemon:sense          :b-sides_of_429_sense_1 ;
+  lemon:synBehavior    :b-sides_of_429_nounpp .
+
+:b-sides_of_429_form a lemon:Form ;
+  lemon:writtenRep "B-side "@en .
+
+:b-sides_of_429_singular a    lemon:Form ;
+  lemon:writtenRep "B-side "@en ;
+  lexinfo:number   lexinfo:singular .
+
+:b-sides_of_429_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:b-sides_of_429_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:b-sides_of_429_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :b-sides_of_429_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/bSide> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :b-sides_of_429_sense_1_condition .
+
+:b-sides_of_429_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MusicalWork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/CreativeWork> .
+
+:null lemon:marker :b-sides_of_429_form_preposition .
+## Prepositions ##
+:b-sides_of_429_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

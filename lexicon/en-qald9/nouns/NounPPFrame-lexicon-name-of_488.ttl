@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :name-of_488 ;
+  lemon:entry    :name-of_488_form_preposition .
+
+:name-of_488 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :name-of_488_form ;
+  lemon:otherForm  :name-of_488_singular ;
+  lemon:otherForm  :name-of_488_plural ;
+  lemon:sense          :name-of_488_sense_1 ;
+  lemon:synBehavior    :name-of_488_nounpp .
+
+:name-of_488_form a lemon:Form ;
+  lemon:writtenRep "name"@en .
+
+:name-of_488_singular a    lemon:Form ;
+  lemon:writtenRep "name"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:name-of_488_plural a   lemon:Form ;
+  lemon:writtenRep "names"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:name-of_488_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_name-of_488 ;
+  lexinfo:prepositionalAdjunct :arg2_name-of_488 .
+
+:name-of_488_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :name-of_488_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/name> ;
+  lemon:subjOfProp          :arg1_name-of_488 ;
+  lemon:objOfProp           :arg2_name-of_488 ;
+  lemon:condition           :name-of_488_sense_1_condition .
+
+:name-of_488_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_name-of_488 lemon:marker :name-of_488_form_preposition .
+## Prepositions ##
+:name-of_488_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

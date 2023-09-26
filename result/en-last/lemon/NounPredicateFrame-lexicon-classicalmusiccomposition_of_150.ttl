@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :classicalmusiccomposition_of_150_sense_1_res ;
+  lemon:entry    :classicalmusiccomposition_of_150 .
+
+:classicalmusiccomposition_of_150 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :classicalmusiccomposition_of_150_form ;
+  lemon:otherForm  :classicalmusiccomposition_of_150_singular ;
+  lemon:otherForm  :classicalmusiccomposition_of_150_plural ;
+  lemon:sense          :classicalmusiccomposition_of_150_sense_1 ;
+  lemon:synBehavior    :classicalmusiccomposition_of_150_predFrame .
+
+:classicalmusiccomposition_of_150_form
+ lemon:writtenRep "Classical Music Composition"@en .
+
+:classicalmusiccomposition_of_150_singular a    lemon:Form ;
+  lemon:writtenRep "Classical Music Composition"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:classicalmusiccomposition_of_150_plural a   lemon:Form ;
+  lemon:writtenRep "Classical Music Compositions"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:classicalmusiccomposition_of_150_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :classicalmusiccomposition_of_150_sense_1_res ;
+  lemon:isA       :classicalmusiccomposition_of_150_PredSynArg .
+
+:classicalmusiccomposition_of_150_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/ClassicalMusicComposition> .

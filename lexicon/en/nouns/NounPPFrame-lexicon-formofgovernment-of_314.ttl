@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :formofgovernment-of_314 ;
+  lemon:entry    :formofgovernment-of_314_form_preposition .
+
+:formofgovernment-of_314 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :formofgovernment-of_314_form ;
+  lemon:otherForm  :formofgovernment-of_314_singular ;
+  lemon:otherForm  :formofgovernment-of_314_plural ;
+  lemon:sense          :formofgovernment-of_314_sense_1 ;
+  lemon:synBehavior    :formofgovernment-of_314_nounpp .
+
+:formofgovernment-of_314_form a lemon:Form ;
+  lemon:writtenRep "form of government"@en .
+
+:formofgovernment-of_314_singular a    lemon:Form ;
+  lemon:writtenRep "form of government"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:formofgovernment-of_314_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:formofgovernment-of_314_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:formofgovernment-of_314_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :formofgovernment-of_314_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/governmentType> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :formofgovernment-of_314_sense_1_condition .
+
+:formofgovernment-of_314_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:null lemon:marker :formofgovernment-of_314_form_preposition .
+## Prepositions ##
+:formofgovernment-of_314_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

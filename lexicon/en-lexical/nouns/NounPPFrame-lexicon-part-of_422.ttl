@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :part-of_422 ;
+  lemon:entry    :part-of_422_form_preposition .
+
+:part-of_422 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :part-of_422_form ;
+  lemon:otherForm  :part-of_422_singular ;
+  lemon:otherForm  :part-of_422_plural ;
+  lemon:sense          :part-of_422_sense_1 ;
+  lemon:synBehavior    :part-of_422_nounpp .
+
+:part-of_422_form a lemon:Form ;
+  lemon:writtenRep "part"@en .
+
+:part-of_422_singular a    lemon:Form ;
+  lemon:writtenRep "part"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:part-of_422_plural a   lemon:Form ;
+  lemon:writtenRep "parts"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:part-of_422_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:part-of_422_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :part-of_422_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/alliance> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :part-of_422_sense_1_condition .
+
+:part-of_422_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PoliticalParty> .
+
+:null lemon:marker :part-of_422_form_preposition .
+## Prepositions ##
+:part-of_422_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

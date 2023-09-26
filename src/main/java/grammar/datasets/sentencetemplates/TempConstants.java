@@ -29,6 +29,7 @@ public interface TempConstants {
     public static String IntransitivePPFrame = "IntransitivePPFrame";
     public static String AdjectiveAttributiveFrame = "AdjectiveAttributiveFrame";
     public static String AdjectivePredicateFrame="AdjectivePredicateFrame";
+    public static String NounPredicateFrame="NounPredicateFrame";
     public static String AdjectivePPFrame = "AdjectivePPFrame";
     public static String AdjectiveSuperlativeFrame = "AdjectiveSuperlativeFrame";
     public static String FULL_DATASET = "FULL_DATASET";

@@ -73,7 +73,7 @@ public class QueGG {
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-         //args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
+         args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
        
         try {
             if (args.length < 2) {

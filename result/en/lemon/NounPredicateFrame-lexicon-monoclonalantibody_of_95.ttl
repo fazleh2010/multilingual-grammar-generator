@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :monoclonalantibody_of_95_sense_1_res ;
+  lemon:entry    :monoclonalantibody_of_95 .
+
+:monoclonalantibody_of_95 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :monoclonalantibody_of_95_form ;
+  lemon:otherForm  :monoclonalantibody_of_95_singular ;
+  lemon:otherForm  :monoclonalantibody_of_95_plural ;
+  lemon:sense          :monoclonalantibody_of_95_sense_1 ;
+  lemon:synBehavior    :monoclonalantibody_of_95_predFrame .
+
+:monoclonalantibody_of_95_form
+ lemon:writtenRep "Monoclonal Antibody"@en .
+
+:monoclonalantibody_of_95_singular a    lemon:Form ;
+  lemon:writtenRep "Monoclonal Antibody"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:monoclonalantibody_of_95_plural a   lemon:Form ;
+  lemon:writtenRep "Monoclonal Antibodys"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:monoclonalantibody_of_95_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :monoclonalantibody_of_95_sense_1_res ;
+  lemon:isA       :monoclonalantibody_of_95_PredSynArg .
+
+:monoclonalantibody_of_95_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/MonoclonalAntibody> .

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :successor_of_407 ;
+  lemon:entry    :successor_of_407_form_preposition .
+
+:successor_of_407 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :successor_of_407_form ;
+  lemon:otherForm  :successor_of_407_singular ;
+  lemon:otherForm  :successor_of_407_plural ;
+  lemon:sense          :successor_of_407_sense_1 ;
+  lemon:synBehavior    :successor_of_407_nounpp .
+
+:successor_of_407_form a lemon:Form ;
+  lemon:writtenRep "successor"@en .
+
+:successor_of_407_singular a    lemon:Form ;
+  lemon:writtenRep "successor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:successor_of_407_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:successor_of_407_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_successor_of_407 ;
+  lexinfo:prepositionalAdjunct :arg2_successor_of_407 .
+
+:successor_of_407_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :successor_of_407_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/successor> ;
+  lemon:subjOfProp          :arg2_successor_of_407 ;
+  lemon:objOfProp           :arg1_successor_of_407 ;
+  lemon:condition           :successor_of_407_sense_1_condition .
+
+:successor_of_407_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Politician> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_successor_of_407 lemon:marker :successor_of_407_form_preposition .
+## Prepositions ##
+:successor_of_407_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

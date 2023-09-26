@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :boxer_of_222_sense_1_res ;
+  lemon:entry    :boxer_of_222 .
+
+:boxer_of_222 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :boxer_of_222_form ;
+  lemon:otherForm  :boxer_of_222_singular ;
+  lemon:otherForm  :boxer_of_222_plural ;
+  lemon:sense          :boxer_of_222_sense_1 ;
+  lemon:synBehavior    :boxer_of_222_predFrame .
+
+:boxer_of_222_form
+ lemon:writtenRep "Boxer"@en .
+
+:boxer_of_222_singular a    lemon:Form ;
+  lemon:writtenRep "Boxer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:boxer_of_222_plural a   lemon:Form ;
+  lemon:writtenRep "Boxers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:boxer_of_222_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :boxer_of_222_sense_1_res ;
+  lemon:isA       :boxer_of_222_PredSynArg .
+
+:boxer_of_222_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Boxer> .

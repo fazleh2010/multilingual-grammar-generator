@@ -234,7 +234,11 @@ public class English implements TempConstants, MultilingualBuilder {
             SubjectType subjectType = interrogativeTemporal(attribute).second;
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
-        } else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
+        } 
+        else if (flagReference && attribute.contains("nounVariable")) {
+                word = "(X)";
+        }
+        else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
                 word = this.getReferenceWrttienForm(col[1]);

@@ -499,8 +499,9 @@ public class PrepareSparqlQuery {
         String property = findProperty(sparql);
 
         //if (frameType.equals("NPP") || frameType.equals("VP") || frameType.equals("IPP") || frameType.equals("AG")) {
+        
         if (template != null && template.contains("HOW_MANY")) {
-            return "SELECT COUNT(?" + "Answer" + " ) WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+            return "SELECT (COUNT(DISTINCT ?Answer) AS ?c)"+" WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         } else if (template != null && template.contains("booleanQuestion")) {
             return "ASK WHERE {?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         } else if (template != null && template.contains("adjectiveBaseForm")) {
@@ -510,18 +511,27 @@ public class PrepareSparqlQuery {
             return sparql;
         } else if (template != null && template.contains("comperative")) {
              property=findPropertyAdjective(sparql);
-            return "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp "+ "<" +property+ ">" +" ?objOfProp FILTER ( ?objOfProp > "+"VARIABLE"+" ) }";
+            return "SELECT DISTINCT ?Answer WHERE { ?Answer "+ "<" +property+ ">" +" ?n FILTER ( ?n > "+"VARIABLE"+" ) }";
         }else {
             return sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
         }
       
     }
     
-    public static String getRealSparql(String template, String property, String value,String className) {
+    public static String getRealSparql(String template, String property, String value) {
+
+        String sparql
+                = "SELECT DISTINCT ?Answer WHERE { "+
+                "?Answer "+ "<" + property + ">" + " " + "<" + value + "> }";
+
+        return sparql;
+    }
+
+    public static String getRealSparql(String template, String property, String value, String className) {
 
         String sparql
                 = "SELECT DISTINCT ?Answer WHERE { "
-                + "?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + className+ ">" +" ; "
+                + "?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" + " " + "<" + className + ">" + " ; "
                 + "<" + property + ">" + " " + "<" + value + "> }";
 
         return sparql;

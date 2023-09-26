@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :largest_country_in_7 ;
+  lemon:entry    :largest_country_in_7_form_preposition .
+
+:largest_country_in_7 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :largest_country_in_7_form ;
+  lemon:otherForm  :largest_country_in_7_singular ;
+  lemon:otherForm  :largest_country_in_7_plural ;
+  lemon:sense          :largest_country_in_7_sense_1 ;
+  lemon:synBehavior    :largest_country_in_7_nounpp .
+
+:largest_country_in_7_form a lemon:Form ;
+  lemon:writtenRep "largest country"@en .
+
+:largest_country_in_7_singular a    lemon:Form ;
+  lemon:writtenRep "largest country"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:largest_country_in_7_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:largest_country_in_7_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_largest_country_in_7 ;
+  lexinfo:prepositionalAdjunct :arg2_largest_country_in_7 .
+
+:largest_country_in_7_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :largest_country_in_7_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaTotal> ;
+  lemon:subjOfProp          :arg2_largest_country_in_7 ;
+  lemon:objOfProp           :arg1_largest_country_in_7 ;
+  lemon:condition           :largest_country_in_7_sense_1_condition .
+
+:largest_country_in_7_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2_largest_country_in_7 lemon:marker :largest_country_in_7_form_preposition .
+## Prepositions ##
+:largest_country_in_7_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

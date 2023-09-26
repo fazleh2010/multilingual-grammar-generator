@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_produce_6_80 ;
+  lemon:entry    :produce_6_80ed ;
+  lemon:entry    :form_produce_6_80_preposition .
+
+:to_produce_6_80 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_produce_6_80 ;
+  lemon:otherForm      :form_produce_6_80s ;
+  lemon:otherForm      :form_produce_6_80ed ;
+  lemon:otherForm      :form_produce_6_80perfect ;
+  lemon:sense          :produce_6_80_sense_1 ;
+  lemon:synBehavior    :produce_6_80_frame_transitive .
+
+:form_produce_6_80 a         lemon:Form ;
+  lemon:writtenRep     "produce"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_produce_6_80s a    lemon:Form ;
+  lemon:writtenRep "produce"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_produce_6_80ed a   lemon:Form ;
+  lemon:writtenRep "produced"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_produce_6_80perfect a   lemon:Form ;
+  lemon:writtenRep "produced"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:produce_6_80_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :produce_6_80_obj ;
+  lexinfo:directObject     :produce_6_80_subj .
+
+:produce_6_80_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :produce_6_80_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/director> ;
+  lemon:subjOfProp  :produce_6_80_obj ;
+  lemon:objOfProp   :produce_6_80_subj ;
+  lemon:condition   :produce_6_80_sense_1_condition .
+
+
+:produce_6_80_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:produce_6_80_obj lemon:marker :form_produce_6_80_preposition .
+
+## Prepositions ##
+:form_produce_6_80_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

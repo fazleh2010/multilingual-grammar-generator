@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_speak_1_197 ;
+  lemon:entry    :speak_1_197ed ;
+  lemon:entry    :form_speak_1_197_preposition .
+
+:to_speak_1_197 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_speak_1_197 ;
+  lemon:otherForm      :form_speak_1_197s ;
+  lemon:otherForm      :form_speak_1_197ed ;
+  lemon:otherForm      :form_speak_1_197perfect ;
+  lemon:sense          :speak_1_197_sense_1 ;
+  lemon:synBehavior    :speak_1_197_frame_transitive .
+
+:form_speak_1_197 a         lemon:Form ;
+  lemon:writtenRep     "speak"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_speak_1_197s a    lemon:Form ;
+  lemon:writtenRep "speaks"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_speak_1_197ed a   lemon:Form ;
+  lemon:writtenRep "spoke"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_speak_1_197perfect a   lemon:Form ;
+  lemon:writtenRep "spoken"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:speak_1_197_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :speak_1_197_subj ;
+  lexinfo:directObject     :speak_1_197_obj .
+
+:speak_1_197_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :speak_1_197_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/language> ;
+  lemon:subjOfProp  :speak_1_197_obj ;
+  lemon:objOfProp   :speak_1_197_subj ;
+  lemon:condition   :speak_1_197_sense_1_condition .
+
+
+:speak_1_197_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Language> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Country> .
+
+
+:speak_1_197_obj lemon:marker :form_speak_1_197_preposition .
+
+## Prepositions ##
+:form_speak_1_197_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

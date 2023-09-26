@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :doctoralsupervisor_of_468 ;
+  lemon:entry    :doctoralsupervisor_of_468_form_preposition .
+
+:doctoralsupervisor_of_468 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :doctoralsupervisor_of_468_form ;
+  lemon:otherForm  :doctoralsupervisor_of_468_singular ;
+  lemon:otherForm  :doctoralsupervisor_of_468_plural ;
+  lemon:sense          :doctoralsupervisor_of_468_sense_1 ;
+  lemon:synBehavior    :doctoralsupervisor_of_468_nounpp .
+
+:doctoralsupervisor_of_468_form a lemon:Form ;
+  lemon:writtenRep "doctoral supervisor"@en .
+
+:doctoralsupervisor_of_468_singular a    lemon:Form ;
+  lemon:writtenRep "doctoral supervisor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:doctoralsupervisor_of_468_plural a   lemon:Form ;
+  lemon:writtenRep "doctoral supervisors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:doctoralsupervisor_of_468_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:doctoralsupervisor_of_468_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :doctoralsupervisor_of_468_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/doctoralAdvisor> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :doctoralsupervisor_of_468_sense_1_condition .
+
+:doctoralsupervisor_of_468_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Scientist> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:null lemon:marker :doctoralsupervisor_of_468_form_preposition .
+## Prepositions ##
+:doctoralsupervisor_of_468_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

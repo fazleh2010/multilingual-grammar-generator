@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soapcharacter_of_131_sense_1_res ;
+  lemon:entry    :soapcharacter_of_131 .
+
+:soapcharacter_of_131 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :soapcharacter_of_131_form ;
+  lemon:otherForm  :soapcharacter_of_131_singular ;
+  lemon:otherForm  :soapcharacter_of_131_plural ;
+  lemon:sense          :soapcharacter_of_131_sense_1 ;
+  lemon:synBehavior    :soapcharacter_of_131_predFrame .
+
+:soapcharacter_of_131_form
+ lemon:writtenRep "Soap Character"@en .
+
+:soapcharacter_of_131_singular a    lemon:Form ;
+  lemon:writtenRep "Soap Character"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soapcharacter_of_131_plural a   lemon:Form ;
+  lemon:writtenRep "Soap Characters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soapcharacter_of_131_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :soapcharacter_of_131_sense_1_res ;
+  lemon:isA       :soapcharacter_of_131_PredSynArg .
+
+:soapcharacter_of_131_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/SoapCharacter> .

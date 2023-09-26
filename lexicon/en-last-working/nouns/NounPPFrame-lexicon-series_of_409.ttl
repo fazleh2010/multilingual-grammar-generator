@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :series_of_409 ;
+  lemon:entry    :series_of_409_form_preposition .
+
+:series_of_409 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :series_of_409_form ;
+  lemon:otherForm  :series_of_409_singular ;
+  lemon:otherForm  :series_of_409_plural ;
+  lemon:sense          :series_of_409_sense_1 ;
+  lemon:synBehavior    :series_of_409_nounpp .
+
+:series_of_409_form a lemon:Form ;
+  lemon:writtenRep "series"@en .
+
+:series_of_409_singular a    lemon:Form ;
+  lemon:writtenRep "series"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:series_of_409_plural a   lemon:Form ;
+  lemon:writtenRep "serieses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:series_of_409_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_series_of_409 ;
+  lexinfo:prepositionalAdjunct :arg2_series_of_409 .
+
+:series_of_409_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :series_of_409_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :arg2_series_of_409 ;
+  lemon:objOfProp           :arg1_series_of_409 ;
+  lemon:condition           :series_of_409_sense_1_condition .
+
+:series_of_409_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionEpisode> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Work> .
+
+:arg2_series_of_409 lemon:marker :series_of_409_form_preposition .
+## Prepositions ##
+:series_of_409_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
