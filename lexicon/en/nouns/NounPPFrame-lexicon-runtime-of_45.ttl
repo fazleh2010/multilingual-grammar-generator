@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :runtime-of_45 ;
+  lemon:entry    :runtime-of_45_form_preposition .
+
+:runtime-of_45 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :runtime-of_45_form ;
+  lemon:otherForm  :runtime-of_45_singular ;
+  lemon:otherForm  :runtime-of_45_plural ;
+  lemon:sense          :runtime-of_45_sense_1 ;
+  lemon:synBehavior    :runtime-of_45_nounpp .
+
+:runtime-of_45_form a lemon:Form ;
+  lemon:writtenRep "runtime"@en .
+
+:runtime-of_45_singular a    lemon:Form ;
+  lemon:writtenRep "runtime"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:runtime-of_45_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:runtime-of_45_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:runtime-of_45_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :runtime-of_45_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/borders> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :runtime-of_45_sense_1_condition .
+
+:runtime-of_45_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Software> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PopulatedPlace> .
+
+:null lemon:marker :runtime-of_45_form_preposition .
+## Prepositions ##
+:runtime-of_45_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
