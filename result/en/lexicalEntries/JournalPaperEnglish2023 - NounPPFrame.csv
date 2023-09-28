@@ -152,7 +152,7 @@ speciality-of,noun,speciality,specialities,of,NounPPFrame,range,domain,1,dbo:tit
 king-of,noun,king,kings,of,NounPPFrame,range,domain,1,dbp:title,dbo:Agent,dbo:City,
 father_of,noun,father,-,of,NounPPFrame,range,domain,1,dbp:father,dbo:Royalty,dbo:Person,
 breweries-in,noun,brewery,breweries,of,NounPPFrame,range,domain,1,dbo:location,dbo:Place,dbo:Place,
-alma-mater-of,noun,alma mater,alma maters,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double,
+areaTotal-of,noun,alma mater,alma maters,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double,
 birthPlace_of,noun,birth place,-,of,NounPPFrame,range,domain,1,dbo:birthPlace,dbo:Person,dbo:Country,
 ingredient_of,noun,ingredient,ingredients,of,NounPPFrame,range,domain,1,dbo:ingredient,dbo:Food,owl:Thing,
 federal-minister_of,noun,federal minister,federal ministers,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Organisation,dbo:Person,
