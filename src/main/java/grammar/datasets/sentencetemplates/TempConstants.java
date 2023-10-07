@@ -48,7 +48,8 @@ public interface TempConstants {
     public static final String pronounReflexive = "reflexive_pronoun";
     public static final String reference = "reference";
     
-    
+    public static final String REGULAR_EXPRESSION_X="(X)";
+    public static final String REGULAR_EXPRESSION_Y="(Y)";
     public static final String dativeCase = "dativeCase";
     public static final String accusativeCase = "accusativeCase";
     public static final String appos = "appos";

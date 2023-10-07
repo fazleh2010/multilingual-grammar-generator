@@ -140,6 +140,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         }
 
         System.out.println("sentences::" + sentences);
+        //exit(1);
 
         return this.filter(sentences);
     }

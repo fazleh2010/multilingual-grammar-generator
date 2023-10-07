@@ -54,12 +54,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     //NounPPFrame
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(     
-           //What city is the capital of the Philiphines?
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-          //which city is the capital of the Philiphines?
+           //which city is the capital of the Philiphines?
           "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
           "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
           "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",

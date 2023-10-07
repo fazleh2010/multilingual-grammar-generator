@@ -1,0 +1,75 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "de" ;
+  lemon:entry    :Geburtsname_von ;
+  lemon:entry    :Geburtsname_von_form_preposition .
+
+:Geburtsname_von a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :Geburtsname_von_form ;
+  lemon:otherForm      :Geburtsname_von_plural_form ;
+  lemon:otherForm      :Geburtsname_von_accusative_form ;
+  lemon:otherForm      :Geburtsname_von_dative_form ;
+  lemon:otherForm      :Geburtsname_von_genitive_form ;
+  lemon:otherForm      :Geburtsname_von_plural_form ;
+  lemon:sense          :Geburtsname_von_sense_1 ;
+  lemon:synBehavior    :Geburtsname_von_nounpp .
+
+:Geburtsname_von_form a lemon:Form ;
+  lemon:writtenRep "Geburtsname"@de ;
+  lexinfo:gender   lexinfo:feminine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Geburtsname_von_plural_form a lemon:Form ;
+  lemon:writtenRep "Geburtsnamen"@de ;
+  lexinfo:gender   lexinfo:feminine ;
+  lexinfo:number   lexinfo:plural ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Geburtsname_von_accusative_form a lemon:Form ;
+  lemon:writtenRep "Geburtsnamen"@de ;
+  lexinfo:gender   lexinfo:feminine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:accusativeCase .
+
+:Geburtsname_von_dative_form a lemon:Form ;
+  lemon:writtenRep "Geburtsnamen"@de ;
+  lexinfo:gender   lexinfo:feminine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:dativeCase .
+
+:Geburtsname_von_genitive_form a lemon:Form ;
+  lemon:writtenRep "Geburtsnamens"@de ;
+  lexinfo:gender   lexinfo:feminine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:genitiveCase .
+
+:Geburtsname_von_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:Geburtsname_von_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :Geburtsname_von_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/birthName> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :Geburtsname_von_sense_1_condition .
+
+:Geburtsname_von_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :Geburtsname_von_form_preposition .
+
+## Prepositions ##
+
+:Geburtsname_von_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "von"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

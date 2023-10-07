@@ -81,7 +81,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
 
                 CsvFile csvFile = new CsvFile();
                 String directory = inputDir + "/" + pathname + "/";
-                List<String[]> rows = csvFile.getRows(new File(directory + fileName));
+                List<String[]> rows = csvFile.getRowsManual(new File(directory + fileName));
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {

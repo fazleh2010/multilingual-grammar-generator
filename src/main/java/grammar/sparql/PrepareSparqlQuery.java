@@ -9,9 +9,12 @@ import grammar.generator.sentencebuilder.TemplateFinder;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_SUBJECT;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_OBJECT;
 import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
+import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.DomainOrRangeTypeCheck;
 import grammar.structure.component.Language;
 import static java.lang.System.exit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import lexicon.LexicalEntryUtil;
@@ -517,7 +520,8 @@ public class PrepareSparqlQuery {
         }
       
     }
-    
+
+  
     public static String getRealSparql(String template, String property, String value) {
 
         String sparql
@@ -536,6 +540,33 @@ public class PrepareSparqlQuery {
 
         return sparql;
     }
+    
+     //SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/BasketballPlayer> ; <http://dbpedia.org/ontology/height> ?n FILTER ( ?n > 2.0 ) }
+    public static String getRealSparqlT(String template, String sparql) {
+        System.out.println(template + " " + sparql);
+        String property = findProperty(sparql);
+
+        //if (frameType.equals("NPP") || frameType.equals("VP") || frameType.equals("IPP") || frameType.equals("AG")) {
+        
+        /*if (template != null && template.contains("HOW_MANY")) {
+            return "SELECT ?Answer"+" WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else*/
+        if (template != null && template.contains("booleanQuestion")) {
+            return "ASK WHERE {?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else if (template != null && template.contains("adjectiveBaseForm")) {
+            property=findPropertyAdjective(sparql);
+            return "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        } else if (template != null && template.contains("superlative")) {
+            return sparql;
+        } else if (template != null && template.contains("comperative")) {
+             property=findPropertyAdjective(sparql);
+            return "SELECT DISTINCT ?Answer WHERE { ?Answer "+ "<" +property+ ">" +" ?n FILTER ( ?n > "+"VARIABLE"+" ) }";
+        }else {
+            return sparql = "SELECT ?" + "Answer" + " WHERE { ?subjOfProp " + "<" + property + ">" + " ?objOfProp .}";
+        }
+      
+    }
+    
     
     private static String findProperty(String triple) {
         return StringUtils.substringBetween(triple, "<", ">");
@@ -556,6 +587,36 @@ public class PrepareSparqlQuery {
         }
         return property;
     }
+    
+    public static String findOppositeVariable(String variable) {
+        //fragmentEntry.setCombination(true);
+        if (variable.contains("subjOfProp")) {
+            return "objOfProp";
+        } else {
+            return "subjOfProp";
+        }
+    }
+    
+    public static String findBindingListAskQuery(List<DomainOrRangeType> bindingTypes) {
+        List<String> sparqls = new ArrayList<String>();
+        String sparqlArg1 = "SELECT ?Answer WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/" + bindingTypes.get(0) + "> . } ";
+        String sparqlArg2 = "SELECT ?Answer WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/" + bindingTypes.get(1) + "> . } ";
+        sparqls.add(sparqlArg1);
+        sparqls.add(sparqlArg2);
+        return sparqls.toString();
+    }
+
+    public static String findBindingListSuperlative(List<DomainOrRangeType> bindingTypes) {
+        return "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/" + bindingTypes.get(0) + "> . } ";
+
+    }
+    
+    public static String findBindingListCountVariable(String  sparql,String bindingVariable,String returnVariable) {
+        sparql.replace("Answer", bindingVariable);;
+        return sparql.replace("SELECT ?Answer", "SELECT (COUNT(DISTINCT ?"+returnVariable+") AS ?c)");
+
+    }
+
 
 
 }

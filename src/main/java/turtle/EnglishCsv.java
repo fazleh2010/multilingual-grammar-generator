@@ -90,6 +90,8 @@ public class EnglishCsv implements TempConstants {
                     + "  lexinfo:copulativeArg        :arg1 ;\n"
                     + "  lexinfo:prepositionalAdjunct :arg2 .\n"
                     + "\n";*/
+
+
             if (writtenFormPlural.contains("-")) {
                 writtenFormPlural = "XX";
             }

@@ -36,34 +36,44 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
     sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
-          //Was ist die Hauptstadt von Kamerun?
-          "interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) determiner(component_the_nominative:reference) noun(nominativeCase:singular) preposition adjunct(domain)",
-          "interrogativePronoun(nominativeCase:range:plural) verb(component_be:present:plural) noun(nominativeCase:plural) preposition adjunct(domain)",
-          "interrogativePronoun(nominativeCase:range:singular) verb(component_be:past:singular) determiner(component_the_nominative:reference) noun(nominativeCase:singular) preposition adjunct(domain)",
-          "interrogativePronoun(nominativeCase:range:plural) verb(component_be:past:plural) noun(nominativeCase:plural) preposition adjunct(domain)",
-           //Wer war der Vizepräsident unter Samuel Schmid?
-           "interrogativePronoun(nominativeCase:range:plural) verb(component_be:past:plural) noun(nominativeCase:plural) preposition adjunct(domain)",
-
-           //"Wer ist der Bürgermeister von Tel Aviv?",
-          "interrogativeDeterminer(nominativeCase:range:singular) verb(component_be:present:singular) nounPhrase",
-          "interrogativeDeterminer(nominativeCase:range:singular) verb(component_be:past:singular) nounPhrase",
-          "interrogativeDeterminer(nominativeCase:range:plural) verb(component_be:present:plural) nounPhrase",
-          "interrogativeDeterminer(nominativeCase:range:plural) verb(component_be:past:plural) nounPhrase",
-           
-          //Gib mir die Enkel von Elvis Presley.
-           "verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:reference:singular) noun(accusativeCase:singular) preposition adjunct(domain).",
-           "verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:reference:plural) noun(accusativeCase:plural) preposition adjunct(domain).",
-          //Gib mir alle Bandmitglieder von Prodigy
-           "verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) noun(accusativeCase:plural) preposition adjunct(domain).",
-           //"Liste die Kinder von Margaret Thatcher auf.",
-           "verb(imperative_verb:present:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) preposition adjunct(domain) preposition(auf)."  ,   
-           //"Liste die Kinder von Margaret Thatcher auf.",
-           "verb(imperative_verb:present:plural) determiner(alle) noun(nominativeCase:plural) preposition adjunct(domain) preposition(auf)." 
-           ////"In welchem Land ist der Mount Everest?", In welcher Stadt ist die Heinekenbrauerei?
-            ////"preposition interrogativeDeterminer(dativeCase:range:singular) verb(component_be:present:singular) adjunct(domain)?"
-            ////"interrogativePlace(nominativeCase:singular) verb(component_be:present:singular) determiner(component_the_nominative:domain:singular) object(domain)?"             
-            ////Was ist Batmans richtiger Name?
-            //// "interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(nominativeCase:singular)?"
+//Was ist die Hauptstadt von Kamerun?
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) determiner(component_the_nominative:reference:singular) noun(nominativeCase:singular) preposition adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:present:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) preposition adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:past:singular) determiner(component_the_nominative:reference:singular) noun(nominativeCase:singular) preposition adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:past:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) preposition adjunct(domain)",
+//Was sind die Amtssprachen der Philippinen?
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) determiner(component_the_nominative:reference:singular) noun(nominativeCase:singular) adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:present:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:past:singular) determiner(component_the_nominative:reference:singular) noun(nominativeCase:singular) adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:past:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) adjunct(domain)",
+ 
+//Wer war der Vizepräsident unter Samuel Schmid?
+/*"interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) determiner(component_the_nominative:reference) noun(nominativeCase:singular) preposition adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:present:plural) determiner(component_the_nominative:reference) noun(nominativeCase:plural) preposition adjunct(domain)", 
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:past:singular) determiner(component_the_nominative:reference) noun(nominativeCase:singular) preposition adjunct(domain)",
+"interrogativePronoun(nominativeCase:range:plural) verb(component_be:past:plural) determiner(component_the_nominative:reference) noun(nominativeCase:plural) preposition adjunct(domain)", 
+*/
+//welche (Y) waren die Buergermeister von (X)?
+"interrogativeDeterminer(nominativeCase:range:singular) verb(component_be:present:singular) nounPhrase",
+"interrogativeDeterminer(nominativeCase:range:singular) verb(component_be:past:singular) nounPhrase",
+"interrogativeDeterminer(nominativeCase:range:plural) verb(component_be:present:plural) nounPhrase",
+"interrogativeDeterminer(nominativeCase:range:plural) verb(component_be:past:plural) nounPhrase",           
+//Gib mir die Enkel von Elvis Presley.
+"verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:reference:singular) noun(accusativeCase:singular) preposition adjunct(domain).",
+"verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:reference:plural) noun(accusativeCase:plural) preposition adjunct(domain).",
+//Gib mir alle Bandmitglieder von Prodigy
+"verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) noun(accusativeCase:plural) preposition adjunct(domain).",
+//"Liste die Kinder von Margaret Thatcher auf.",
+"verb(imperative_verb:present:plural) determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) preposition adjunct(domain) preposition(auf)."  ,   
+//"Liste die Kinder von Margaret Thatcher auf.",
+"verb(imperative_verb:present:plural) determiner(alle) noun(nominativeCase:plural) preposition adjunct(domain) preposition(auf).",
+//"Liste alle Brettspiele von GMT. ",
+"verb(imperative_verb:present:plural) determiner(alle) noun(nominativeCase:plural) preposition adjunct(domain)."
+////"In welchem Land ist der Mount Everest?", In welcher Stadt ist die Heinekenbrauerei?
+////"preposition interrogativeDeterminer(dativeCase:range:singular) verb(component_be:present:singular) adjunct(domain)?"
+////"interrogativePlace(nominativeCase:singular) verb(component_be:present:singular) determiner(component_the_nominative:domain:singular) object(domain)?"             
+////Was ist Batmans richtiger Name?
+//// "interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(nominativeCase:singular)?"
 
         ),
         NounPPFrame,
@@ -176,36 +186,37 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
     sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
-        //Wer moderiert die BBC Wildlife Specials?
-        "interrogativePronoun(nominativeCase:range:singular) verb(mainVerb:present:thirdPerson) object(domain)?",
-         //Welche Person moderiert die BBC Wildlife Specials?
-        "interrogativeDeterminer(nominativeCase:range:singular) verb(mainVerb:past:thridPerson) object(domain)?",
-         "interrogativeDeterminer(nominativeCase:range:plural) verb(mainVerb:present:thridPerson) object(domain)?",
-        //Wer hat Slack entwickelt?
-        "interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?",    
-        ///Welche Person hat Slack entwickelt?
-         "interrogativeDeterminer(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?" ,           
-        //Wer hat sich Family Guy ausgedacht?"
-         //"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) pronoun(reflexive_pronoun) object(domain) verb(RefVerb:perfect:thridPerson)?"
-         //"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(RefVerb:perfect:thridPerson)?"
-         // Trenn Verb
-        "interrogativePronoun(nominativeCase:range:singular) verb(TrennVerbPart1:past:thridPerson) object(domain) verb(TrennVerbPart2:past:thridPerson)?",
-         "interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) object(domain) verb(TrennVerb:perfect:thridPerson)?",
-         "interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(TrennVerb:perfect:thridPerson)?",
-         "interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) pronoun(reflexive_pronoun) object(domain) verb(TrennVerb:perfect:thridPerson)?",
-         //Gib mir alle von der NASA betriebenen Startrampen.
-          "verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) preposition(von) adjunct(domain) verb(mainVerb:perfect:thridPerson) noun(domain:singular).",
-          "verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) preposition(von) adjunct(domain) verb(mainVerb:perfect:thridPerson) noun(domain:plural).",
-          //What is Batman"s real name?
-          "interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(singular)?",
-          "interrogativePronoun(nominativeCase:range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(singular)?"
-                
-         //Zeig mir das Buch, das Muhammad Ali geschrieben hat.
-         //"verb(imperative_transitive_show:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:range:singular) noun(accusativeCase:singular), verb(mainVerb:perfect:thridPerson) verb(component_haben:present:singular)."
-           //Wieviel hat Pulp Fiction gekostet?
-         //"interrogativeAmount(singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?"
-          //Zeig mir das Buch, das Muhammad Ali geschrieben hat.
-         //"verb(imperative_transitive_show:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:range:singular) noun(accusativeCase:singular), verb(mainVerb:perfect:thridPerson) verb(component_haben:present:singular)."
+//Wer moderiert die BBC Wildlife Specials?
+"interrogativePronoun(nominativeCase:range:singular) verb(mainVerb:present:thirdPerson) object(domain)?",
+//Welche Person moderiert die BBC Wildlife Specials?
+"interrogativeDeterminer(nominativeCase:range:singular) verb(mainVerb:past:thridPerson) object(domain)?",
+ "interrogativeDeterminer(nominativeCase:range:plural) verb(mainVerb:present:thridPerson) object(domain)?",
+//Wer entwickelt Skype?
+"interrogativePronoun(nominativeCase:range:singular) verb(mainVerb:perfect:thridPerson) object(domain)?",    
+//Wer hat Slack entwickelt?
+"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?",    
+///Welche Person hat Slack entwickelt?
+"interrogativeDeterminer(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?" ,           
+//Wer hat sich Family Guy ausgedacht?"
+//"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) pronoun(reflexive_pronoun) object(domain) verb(RefVerb:perfect:thridPerson)?"
+//"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(RefVerb:perfect:thridPerson)?"
+// Trenn Verb
+"interrogativePronoun(nominativeCase:range:singular) verb(TrennVerbPart1:past:thridPerson) object(domain) verb(TrennVerbPart2:past:thridPerson)?",
+//Welche Flughäfen fliegt Air China an?
+"interrogativeDeterminer(nominativeCase:range:plural) verb(TrennVerbPart1:present3rd:thridPerson) object(domain) verb(TrennVerbPart2:present3rd:thridPerson)?",
+
+"interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) object(domain) verb(TrennVerb:perfect:thridPerson)?",
+"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) object(domain) verb(TrennVerb:perfect:thridPerson)?",
+"interrogativePronoun(nominativeCase:range:singular) verb(component_haben:present:singular) pronoun(reflexive_pronoun) object(domain) verb(TrennVerb:perfect:thridPerson)?",
+//Gib mir alle von der NASA betriebenen Startrampen.
+"verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) preposition(von) adjunct(domain) verb(mainVerb:perfect:thridPerson) noun(domain:singular).",
+"verb(imperative_transitive:present:singular) pronoun(object_pronoun) determiner(alle) preposition(von) adjunct(domain) verb(mainVerb:perfect:thridPerson) noun(domain:plural)."
+//Zeig mir das Buch, das Muhammad Ali geschrieben hat.
+//"verb(imperative_transitive_show:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:range:singular) noun(accusativeCase:singular), verb(mainVerb:perfect:thridPerson) verb(component_haben:present:singular)."
+//Wieviel hat Pulp Fiction gekostet?
+//"interrogativeAmount(singular) verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?"
+//Zeig mir das Buch, das Muhammad Ali geschrieben hat.
+//"verb(imperative_transitive_show:present:singular) pronoun(object_pronoun) determiner(component_the_accusative:range:singular) noun(accusativeCase:singular), verb(mainVerb:perfect:thridPerson) verb(component_haben:present:singular)."
         
         ),
        TransitiveFrame,
@@ -471,8 +482,10 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
          "interrogativePlace verb(TrennVerbPart1:present3rd:thridPerson) adjunct(domain) verb(TrennVerbPart2:present3rd:thridPerson)?",
            
          //In welchem Land ist der Mount Everest?
-         "preposition interrogativeDeterminer(preposition:range:singular) verb(component_be:present:singular) adjunct(domain)?"
-              
+         "preposition interrogativeDeterminer(preposition:range:singular) verb(component_be:present:singular) adjunct(domain)?",
+          //Im welche US Zustand ist Bereich 51 gelegen? 
+          "preposition interrogativeDeterminer(preposition:range:singular) verb(component_be:present:singular) adjunct(domain) verb(TrennVerb:perfect:thridPerson)?"
+      
                 ),
         IntransitivePPFrame,
         WHAT_WHICH_LOCATION,
@@ -605,8 +618,10 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
         //In welcher Stadt ist der Pr├ñsident von Montenegro geboren?
         "preposition interrogativeDeterminer(dativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
          //In welcher Stadt wohnt Sylvester Stallone?
-        "preposition interrogativeDeterminer(dativeCase:range:singular) verb(mainVerb:present3rd:thridPerson) adjunct(domain)?"
-            
+        "preposition interrogativeDeterminer(dativeCase:range:singular) verb(mainVerb:present3rd:thridPerson) adjunct(domain)?",
+         //Woher hat getan Abraham Lincoln? 
+        "interrogativePronounWoher verb(component_werden:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"
+              
                ),
         IntransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
@@ -620,8 +635,10 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
         // welcher Person wurde in ($x | Place_NP) geboren?
         "interrogativeDeterminer(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?",
         //wer ist in ($x | Place_NP) geboren?
-        "interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
-            ),
+        "interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?",
+        //Welche Menschen wurden geboren im Heraklion?  
+        "interrogativeDeterminer(nominativeCase:domain:plural) verb(component_werden:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
+        ),
         IntransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         backward
@@ -635,8 +652,11 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
         //Woran ist Bruce Carver gestorben?
         "interrogativeCause(preposition) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
         //An was ist Bruce Carver gestorben?
-        "preposition interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"     
-               ),
+        "preposition interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",     
+        //Welche Flughäfen fliegt Air China an?
+        "interrogativeDeterminer(nominativeCase:domain:plural) verb(TrennVerbPart1:present3rd:thridPerson) adjunct(domain) verb(TrennVerbPart2:present3rd:thridPerson)?"
+
+        ),
         IntransitivePPFrame,
         PERSON_CAUSE,
         forward

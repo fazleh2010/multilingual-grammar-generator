@@ -1,0 +1,75 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "de" ;
+  lemon:entry    :Tod_von ;
+  lemon:entry    :Tod_von_form_preposition .
+
+:Tod_von a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :Tod_von_form ;
+  lemon:otherForm      :Tod_von_plural_form ;
+  lemon:otherForm      :Tod_von_accusative_form ;
+  lemon:otherForm      :Tod_von_dative_form ;
+  lemon:otherForm      :Tod_von_genitive_form ;
+  lemon:otherForm      :Tod_von_plural_form ;
+  lemon:sense          :Tod_von_sense_1 ;
+  lemon:synBehavior    :Tod_von_nounpp .
+
+:Tod_von_form a lemon:Form ;
+  lemon:writtenRep "Tod"@de ;
+  lexinfo:gender   lexinfo:masculine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Tod_von_plural_form a lemon:Form ;
+  lemon:writtenRep "Tode"@de ;
+  lexinfo:gender   lexinfo:masculine ;
+  lexinfo:number   lexinfo:plural ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Tod_von_accusative_form a lemon:Form ;
+  lemon:writtenRep "Tod"@de ;
+  lexinfo:gender   lexinfo:masculine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:accusativeCase .
+
+:Tod_von_dative_form a lemon:Form ;
+  lemon:writtenRep "Tod"@de ;
+  lexinfo:gender   lexinfo:masculine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:dativeCase .
+
+:Tod_von_genitive_form a lemon:Form ;
+  lemon:writtenRep "Todes"@de ;
+  lexinfo:gender   lexinfo:masculine ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:genitiveCase .
+
+:Tod_von_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:Tod_von_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :Tod_von_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :Tod_von_sense_1_condition .
+
+:Tod_von_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :Tod_von_form_preposition .
+
+## Prepositions ##
+
+:Tod_von_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "von"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
