@@ -1,0 +1,91 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :to_called_m ;
+  lemon:entry    :called_med ;
+  lemon:entry    :form_called_m_preposition .
+
+:to_called_m a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_called_m ;
+  lemon:otherForm      :form_called_ms ;
+  lemon:otherForm      :form_called_med ;
+  lemon:sense          :called_m_sense_1 ;
+  lemon:synBehavior    :called_m_frame_transitive .
+
+:form_called_m a         lemon:Form ;
+  lemon:writtenRep     "venire chiamato"@it ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_called_ms a    lemon:Form ;
+  lemon:writtenRep "viene chiamato"@it ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+
+:form_called_ms a    lemon:Form ;
+  lemon:writtenRep "venne chiamato"@it ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:form_called_med a   lemon:Form ;
+  lemon:writtenRep ""@it ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:called_m_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :called_m_subj ;
+  lexinfo:directObject     :called_m_obj .
+
+:called_m_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :called_m_sense_1 ;
+  lemon:reference   <http://dbpedia.org/property/nickname> ;
+  lemon:subjOfProp  :called_m_obj ;
+  lemon:objOfProp   :called_m_subj ;
+  lemon:condition   :called_m_sense_1_condition .
+
+
+:called_m_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://www.w3.org/2001/XMLSchema#string> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+:called_med a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_called_med_canonical ;
+  lemon:otherForm      :form_called_med_by ;
+  lemon:synBehavior    :called_med_frame_adjectivepp ;
+  lemon:sense          :called_med_ontomap .
+
+:form_called_med_canonical a lemon:Form ;
+  lemon:writtenRep         "venire chiamato"@it .
+
+:form_called_med_by a    lemon:Form ;
+  lemon:writtenRep     "venire chiamato"@it ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:called_med_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :called_med_subj ;
+  lexinfo:prepositionalAdjunct :called_med_obj .
+
+:called_med_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :called_med_ontomap ;
+  lemon:reference   <http://dbpedia.org/property/nickname> ;
+  lemon:subjOfProp  :called_med_subj ;
+  lemon:objOfProp   :called_med_obj ;
+  lemon:condition   :called_m_sense_1_condition .
+:called_med_obj lemon:marker :da .
+
+:arg2 lemon:marker :form_called_m_form_preposition .
+
+## Prepositions ##
+
+:form_called_m_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "da"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

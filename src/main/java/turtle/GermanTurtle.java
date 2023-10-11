@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import util.io.DomainRangeDictionary;
 import util.io.GenderUtils;
 import util.io.Property;
 import util.io.Tupples;
@@ -65,16 +66,21 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
+        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(inputDir, pathnames);
+        domainOrRange=domainRangeDictionary.getDomainOrRange();
+       
         for (String pathname : pathnames) {
+            if(pathname.contains("~lock.")||pathname.contains(".csv")){
+                continue;
+            }
+          
+            System.out.println(pathname);
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
-                 System.out.println(fileName);
-
-                 if(fileName.contains("DomainOrRange.csv")){
-                    domainOrRange=this.findDomainorRangeGerman(inputDir + File.separatorChar + pathname+ File.separatorChar +fileName);
+                if(fileName.contains("DomainOrRange.csv")){
                     continue;
                 }
-                 
+                
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
@@ -85,11 +91,16 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {
+                    
                     if (index == 0) {
                         index = index + 1;
                         continue;
                     }
+                    if(row.length<2){
+                       throw new Exception("the format of CSV file is wrong!!!!");
+                    }
                     String key = row[0];
+
                     List<String[]> values = new ArrayList<String[]>();
                     if (keyRows.containsKey(key)) {
                         values = keyRows.get(key);
@@ -112,13 +123,14 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                     }
 
                 } catch (Exception ex) {
-                    java.util.logging.Logger.getLogger(GermanTurtle.class.getName()).log(Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(EnglishTurtle.class.getName()).log(Level.SEVERE, null, ex);
                     throw new Exception(ex.getMessage());
                 }
 
             }
 
         }
+
     }
 
     private void setSyntacticFrame(String key, List<String[]> rows) throws Exception {
@@ -128,7 +140,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
             setNounPPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(TransitiveFrame)) {
             setTransitiveFrame(key, rows, syntacticFrame);
-        } else if (syntacticFrame.equals(IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(InTransitivePPFrame)) {
             setIntransitivePPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             setAdjectiveFrame(key, rows, syntacticFrame);
@@ -253,7 +265,7 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
                 = intransitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, language)
                 + intransitiveFrameCsv.getSenseIndexing(tupplesList, this.lemonEntry)
                 + intransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, language,subject)
-                + GermanCsv.getSenseDetail(tupplesList, TempConstants.IntransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
+                + GermanCsv.getSenseDetail(tupplesList, TempConstants.InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
                 + intransitiveFrameCsv.getPreposition(this.lemonEntry, this.preposition, language);
         this.tutleFileName = getFileName(syntacticFrame);
     }

@@ -18,7 +18,7 @@ public enum FrameType {
   NPF(TempConstants.NounPredicateFrame, new LexInfo().getSynArg("copulativeSubject"), AdjAttrGrammarRuleGenerator.class),
   //APP(TempConstants.AdjectivePPFrame, new LexInfo().getSynArg("copulativeSubject"), APPGrammarRuleGenerator.class),
   AG(TempConstants.AdjectiveSuperlativeFrame, new LexInfo().getSynArg("copulativeSubject"), AdjGradableGrammarRuleGenerator.class),
-  IPP(TempConstants.IntransitivePPFrame, new LexInfo().getSynArg("subject"), IntransitivePPGrammarRuleGenerator.class),
+  IPP(TempConstants.InTransitivePPFrame, new LexInfo().getSynArg("subject"), IntransitivePPGrammarRuleGenerator.class),
   FULL_DATASET(TempConstants.FULL_DATASET, null, GrammarRuleGeneratorRootImpl.class);
 
   private final String name;

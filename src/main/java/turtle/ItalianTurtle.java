@@ -14,10 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import util.io.DomainRangeDictionary;
 import util.io.Tupples;
 
 /**
@@ -26,6 +28,7 @@ import util.io.Tupples;
  */
 public class ItalianTurtle extends TurtleCreation implements TutleConverter {
     private static Integer index = 0;
+    private Map<String,List<String>>domainOrRange=new TreeMap<String,List<String>>();
     private ItalianCSV.NounPPFrameCsv nounPPFrameCsv = new ItalianCSV.NounPPFrameCsv();
     private ItalianCSV.TransitFrameCsv transitiveFrameCsv = new ItalianCSV.TransitFrameCsv();
     private ItalianCSV.InTransitFrameCsv intransitiveFrameCsv = new ItalianCSV.InTransitFrameCsv();
@@ -41,28 +44,47 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
     }
 
     private void generateTurtle() throws IOException, Exception {
-        
+        String lemonEntry = null;
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
+        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(inputDir, pathnames);
+        domainOrRange=domainRangeDictionary.getDomainOrRange();
+       
         for (String pathname : pathnames) {
+            if(pathname.contains("~lock.")){
+                continue;
+            }
+            else if (pathname.contains(".csv")) {
+                    continue;
+                }
+            System.out.println(pathname);
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
+                if(fileName.contains("DomainOrRange.csv")){
+                    continue;
+                }
+                
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
 
                 CsvFile csvFile = new CsvFile();
                 String directory = inputDir + "/" + pathname + "/";
-                List<String[]> rows = csvFile.getRows(new File(directory + fileName));
+                List<String[]> rows = csvFile.getRowsManual(new File(directory + fileName));
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {
+                    
                     if (index == 0) {
                         index = index + 1;
                         continue;
                     }
+                    if(row.length<2){
+                       throw new Exception("the format of CSV file is wrong!!!!");
+                    }
                     String key = row[0];
+
                     List<String[]> values = new ArrayList<String[]>();
                     if (keyRows.containsKey(key)) {
                         values = keyRows.get(key);
@@ -85,13 +107,14 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
                     }
 
                 } catch (Exception ex) {
-                    java.util.logging.Logger.getLogger(ItalianTurtle.class.getName()).log(Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(EnglishTurtle.class.getName()).log(Level.SEVERE, null, ex);
                     throw new Exception(ex.getMessage());
                 }
 
             }
 
         }
+
     }
 
     private void setSyntacticFrame(String key, List<String[]> rows) throws Exception {
@@ -101,7 +124,7 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
             setNounPPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(TransitiveFrame)) {
             setTransitiveFrame(key, rows, syntacticFrame);
-        } else if (syntacticFrame.equals(IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(InTransitivePPFrame)) {
             setIntransitivePPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             setAdjectiveFrame(key, rows, syntacticFrame);
@@ -228,7 +251,7 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
                 = intransitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, language)
                 + intransitiveFrameCsv.getSenseIndexing(tupplesList, lemonEntry)
                 + intransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, language,subject)
-                + SpanishCsv.getSenseDetail(tupplesList, TempConstants.IntransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
+                + SpanishCsv.getSenseDetail(tupplesList, TempConstants.InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
                 + intransitiveFrameCsv.getPreposition(lemonEntry, preposition, language);
         this.tutleFileName = getFileName(lemonEntry,syntacticFrame);
     }

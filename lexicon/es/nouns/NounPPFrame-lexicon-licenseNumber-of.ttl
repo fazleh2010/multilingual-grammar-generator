@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :licenseNumber-of ;
+  lemon:entry    :licenseNumber-of_form_preposition .
+
+:licenseNumber-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :licenseNumber-of_form ;
+  lemon:otherForm  :licenseNumber-of_singular ;
+  lemon:otherForm  :licenseNumber-of_plural ;
+  lemon:sense          :licenseNumber-of_sense_1 ;
+  lemon:synBehavior    :licenseNumber-of_nounpp .
+
+:licenseNumber-of_form a lemon:Form ;
+  lemon:writtenRep "número de licencia "@es .
+
+:licenseNumber-of_singular a    lemon:Form ;
+  lemon:writtenRep "número de licencia "@es ;
+  lexinfo:number   lexinfo:singular .
+
+:licenseNumber-of_plural a   lemon:Form ;
+  lemon:writtenRep "números de licencia "@es ;
+  lexinfo:number    lexinfo:plural .
+
+:licenseNumber-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:licenseNumber-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :licenseNumber-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/licenseNumber> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :licenseNumber-of_sense_1_condition .
+
+:licenseNumber-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :licenseNumber-of_form_preposition .
+## Prepositions ##
+:licenseNumber-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

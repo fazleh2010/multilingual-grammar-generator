@@ -6,7 +6,6 @@
 package turtle;
 
 import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveAttributiveFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.IntransitivePPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
 import grammar.structure.component.Language;
@@ -30,6 +29,7 @@ import util.io.GenderUtils;
 import static util.io.GenderUtils.nounWrittenForms;
 import util.io.Property;
 import util.io.Tupples;
+import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 /**
  *
@@ -69,9 +69,10 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         domainOrRange=domainRangeDictionary.getDomainOrRange();
        
         for (String pathname : pathnames) {
-            if(pathname.contains("~lock.")){
+            if(pathname.contains("~lock.")||pathname.contains(".csv")){
                 continue;
             }
+          
             System.out.println(pathname);
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
@@ -138,7 +139,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
             setNounPPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(TransitiveFrame)) {
             setTransitiveFrame(key, rows, syntacticFrame);
-        } else if (syntacticFrame.equals(IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(InTransitivePPFrame)) {
             setIntransitivePPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             setAdjectiveFrame(key, rows, syntacticFrame);

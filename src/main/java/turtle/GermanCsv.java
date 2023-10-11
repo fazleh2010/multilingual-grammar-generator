@@ -960,7 +960,7 @@ public class GermanCsv {
                     + ":" + lemonEntry + "_obj lemon:marker :" + preposition + " .\n"
                     + "\n";
             str = str + intransitiveStr + prep;
-        } else if (syntacticFrame.equals(TempConstants.IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(TempConstants.InTransitivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"

@@ -57,20 +57,8 @@ public class Spanish implements TempConstants,MultilingualBuilder {
         this.language = language;
         this.rangeSelectable = selectVariable;
         this.domainSelectable = oppositeSelectVariable;
-        this.domainVariable = String.format(
-                BINDING_TOKEN_TEMPLATE,
-                variable,
-                DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
-                        this.domainSelectable)).name(),
-                SentenceType.NP
-        );
-        this.rangeVariable = String.format(
-                BINDING_TOKEN_TEMPLATE,
-                variable,
-                DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
-                        this.rangeSelectable)).name(),
-                SentenceType.NP
-        );
+        this.domainVariable = REGULAR_EXPRESSION_X;
+        this.rangeVariable = REGULAR_EXPRESSION_X;
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
@@ -354,7 +342,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
     private String getDeteminerTokenManual(String subjectType, String domainOrRange,String number) throws QueGGMissingFactoryClassException {
         String noun = GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri,this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType);
-        return questionWord + " " + noun;
+        return questionWord + " " + REGULAR_EXPRESSION_Y;
 
     }
     

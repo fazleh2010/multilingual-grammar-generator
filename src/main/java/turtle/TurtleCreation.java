@@ -66,14 +66,22 @@ public class TurtleCreation implements TempConstants {
 
     public String findSyntacticFrame(String[] row) throws Exception {
         String nounPPFrame = row[nounPPIndex];
+        System.out.println("::::::::::::::::::::::::::::::;::");
+        System.out.println(nounPPFrame);
+        System.out.println("TransitiveFrame::"+transitiveIndex);
+        System.out.println("InTransitivePPFrame::"+InTransitiveIndex);
+        System.out.println("AdjectiveAttributiveFrame::"+adjectiveFrameIndex);
+        System.out.println("::::::::::::::::::::::::::::::;::");
+
+
 
         try {
             if (nounPPFrame.equals(NounPPFrame)) {
                 return NounPPFrame;
             } else if (row[transitiveIndex].equals(TransitiveFrame)) {
                 return TransitiveFrame;
-            } else if (row[InTransitiveIndex].equals(IntransitivePPFrame)) {
-                return IntransitivePPFrame;
+            } else if (row[InTransitiveIndex].equals(InTransitivePPFrame)) {
+                return InTransitivePPFrame;
             } else if (row[adjectiveFrameIndex].equals(AdjectiveAttributiveFrame)) {
                 return AdjectiveAttributiveFrame;
             } else if (row[gradableAdjectiveFrameIndex].equals(AdjectiveSuperlativeFrame)) {

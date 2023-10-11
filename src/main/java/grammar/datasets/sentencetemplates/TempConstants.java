@@ -26,7 +26,7 @@ public interface TempConstants {
 
     public static String NounPPFrame = "NounPPFrame";
     public static String TransitiveFrame = "TransitiveFrame";
-    public static String IntransitivePPFrame = "IntransitivePPFrame";
+    public static String InTransitivePPFrame = "IntransitivePPFrame";
     public static String AdjectiveAttributiveFrame = "AdjectiveAttributiveFrame";
     public static String AdjectivePredicateFrame="AdjectivePredicateFrame";
     public static String NounPredicateFrame="NounPredicateFrame";
@@ -140,7 +140,6 @@ public interface TempConstants {
      
      public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
      
-     public static final String REGULAR_EXPRESSION="(X)";
 
     
     //public static final String WHAT_PERSON_THING = "WHAT_PERSON_THING";

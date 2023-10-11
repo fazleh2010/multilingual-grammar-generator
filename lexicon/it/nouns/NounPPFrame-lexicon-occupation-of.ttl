@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :occupation-of ;
+  lemon:entry    :occupation-of_form_preposition .
+
+:occupation-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :occupation-of_form ;
+  lemon:otherForm  :occupation-of_singular ;
+  lemon:otherForm  :occupation-of_plural ;
+  lemon:sense          :occupation-of_sense_1 ;
+  lemon:synBehavior    :occupation-of_nounpp .
+
+:occupation-of_form a lemon:Form ;
+  lemon:writtenRep "professione"@it .
+
+:occupation-of_singular a    lemon:Form ;
+  lemon:writtenRep "professione"@it ;
+  lexinfo:number   lexinfo:singular .
+
+:occupation-of_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@it ;
+  lexinfo:number    lexinfo:plural .
+
+:occupation-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:occupation-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :occupation-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/occupation> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :occupation-of_sense_1_condition .
+
+:occupation-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PersonFunction> .
+
+:arg2 lemon:marker :occupation-of_form_preposition .
+## Prepositions ##
+:occupation-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "di"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

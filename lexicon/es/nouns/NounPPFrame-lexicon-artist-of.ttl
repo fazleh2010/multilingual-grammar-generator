@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :artist-of ;
+  lemon:entry    :artist-of_form_preposition .
+
+:artist-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :artist-of_form ;
+  lemon:otherForm  :artist-of_singular ;
+  lemon:otherForm  :artist-of_plural ;
+  lemon:sense          :artist-of_sense_1 ;
+  lemon:synBehavior    :artist-of_nounpp .
+
+:artist-of_form a lemon:Form ;
+  lemon:writtenRep "artista"@es .
+
+:artist-of_singular a    lemon:Form ;
+  lemon:writtenRep "artista"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:artist-of_plural a   lemon:Form ;
+  lemon:writtenRep "artistas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:artist-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:artist-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :artist-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/artist> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :artist-of_sense_1_condition .
+
+:artist-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MusicalWork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:arg2 lemon:marker :artist-of_form_preposition .
+## Prepositions ##
+:artist-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

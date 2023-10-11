@@ -12,7 +12,6 @@ import static grammar.datasets.sentencetemplates.SentenceTemplate.createVPTempla
 import static grammar.datasets.sentencetemplates.TempConstants.AdjectivePPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveSuperlativeFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.HOW_MANY_THING;
-import static grammar.datasets.sentencetemplates.TempConstants.IntransitivePPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
 import static grammar.datasets.sentencetemplates.TempConstants.PERSON_ACTIVITY;
 import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
@@ -28,6 +27,7 @@ import static grammar.datasets.sentencetemplates.TempConstants.location;
 import static grammar.datasets.sentencetemplates.TempConstants.noun;
 import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
 import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adjuct;
+import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 
 class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateRepository>,TempConstants{
@@ -752,7 +752,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
         //"interrogativeAmount(range:singular) object(domain) verb(component_be:present:plural) particleLocation?"
    
            ),
-       IntransitivePPFrame,
+       InTransitivePPFrame,
        HOW_MANY_TOTAL,
        forward
       )
@@ -764,7 +764,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
         //Which flim costed X?
         //"interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
            ),
-       IntransitivePPFrame,
+       InTransitivePPFrame,
        HOW_MANY_TOTAL,
        backward
       )
@@ -823,7 +823,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) determiner(that) verb(mainVerb:present:thridPerson) preposition adjunct(domain)?"
 
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,
         forward
       )
@@ -858,7 +858,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          "interrogativePronoun(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?"
 
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,
         backward
       )
@@ -873,7 +873,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
         //How many languages are spoken in Turkmenistan?      
         "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?" 
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING_BACKWARD+"_"+WHAT_WHICH_PRESENT_THING_1,
         backward
       )
@@ -894,7 +894,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?"
                 
                 ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_LOCATION,
         forward
       )
@@ -916,7 +916,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
           //Which rivers flow through Germany?
           "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?"             
             ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_LOCATION,
         backward
       )
@@ -941,7 +941,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          //What types of grapes grows in Oregon?
          "interrogativePronoun(range:plural) verb(mainVerb:past:singular) preposition object(domain)?"
                ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_2,
         forward
       )
@@ -959,15 +959,13 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
         "preposition interrogativeDeterminer(domain:plural) verb(component_be:present:plural) object(range) verb(mainVerb:perfect:singular)?",
         "preposition interrogativeDeterminer(domain:singular) verb(component_be:present:singular) object(range) verb(mainVerb:perfect:singular)?"
                  ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_2,
         backward
       )
     );
       ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
           //When was X completed?
           "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
@@ -984,43 +982,38 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
            //When did Operation Overlord commence?
           "interrogativeTemporal verb(component_do:past:singular) determiner(component_the) object(domain) verb(mainVerb:present:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHAT_PAST_THING,
         forward
       )
     );
        
         // TransitiveFrame passive amount
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //How many languages are spoken in Turkmenistan? 
         "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"  
             ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING,
         backward
       )
     );
     
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //what took place in Date?  
         "interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
          ////what happened in Date?
         //"interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
               ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHAT_PAST_THING,
         backward
       )
     );
     ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //When was X completed?
          "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?",
@@ -1029,16 +1022,14 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          //When did Elisabeth of Saxony die?
          "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHO_PAST_PERSON,
         forward
       )
     );
     //Welche Person wurde 2010 geboren?
     //Wer ist 2010 geboren?
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //which organisation was founded in ($x | date_NP)?     
          "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
@@ -1047,16 +1038,14 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          //Who was founded in ($x | date_NP)?,
          "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHO_PAST_PERSON,
         backward
       )
     );
       
        ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
                 //Which actors were born on the Philippines?
          "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?",
@@ -1073,16 +1062,14 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
  
          
              ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         forward
       )
     );
     //Welche Person wurde 2010 geboren?
     //Wer ist 2010 geboren?
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
               //Where was Bach born? and Where was Sparkling wine produced?
          "interrogativePlace verb(component_be:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
@@ -1103,7 +1090,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          "interrogativePlace verb(component_do:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?"
         
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         backward
       )
@@ -1111,58 +1098,50 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
       
       
           ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
          //"Welche Profisurfer wurden auf den Philippinen geboren?",
          //"interrogativeDeterminer(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?",
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
 
              ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         forward
       )
     );
     //Welche Person wurde 2010 geboren?
     //Wer ist 2010 geboren?
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //Wo wurde Donald Trump geboren?
          //"interrogativePlace(nominativeCase:singular) verb(component_werden:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         backward
       )
     );
       
             ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //what stars in Piccadilly?
         "interrogativePronoun(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?",
         //what stared in Piccadilly?
         "interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
              ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHAT_PRESENT_THING,
         forward
       )
     );
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //Where does Piccadilly start?
          "interrogativePlace verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHAT_PRESENT_THING,
         backward
       )
@@ -1177,7 +1156,7 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
         "interrogativePronoun(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?" 
       
         ),
-       IntransitivePPFrame,
+       InTransitivePPFrame,
        PERSON_CAUSE,
         forward
       )
@@ -1195,32 +1174,30 @@ class SentenceTemplateFactoryEN_LAST implements Factory<SentenceTemplateReposito
          //Who was died from X?
          "interrogativePronoun(domain:plural) verb(component_be:past:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?"
           ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         PERSON_CAUSE,
         backward
       )
     );
       
             ///////////////////////////////
-       sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+       sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //How many people live in Poland?
         "interrogativeAmount(nominativeCase:range:plural) verb(component_werden:present:plural) preposition object(domain) verb(mainVerb:perfect:thridPerson)?"
     
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING,
         forward
       )
     );
    
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
+      sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(  //Welches Buch kostet 10 Dollar?
              
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING,
         backward
       )

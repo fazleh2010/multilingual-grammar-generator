@@ -410,26 +410,27 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         if(propertyReference!=null)
             propertyReference="<"+propertyReference+">";
         
-        if (this.isHigh(lexicalEntryUtil)) {
-            if (sentenceTemplate.equals(superlativeCountry)||sentenceTemplate.equals(superlativeLocation)) {
-                sparql= PrepareSparqlQuery.descObj(range, propertyReference, reference, VARIABLE);
-            } else if (sentenceTemplate.equals(superlativePerson)) {
-                sparql= PrepareSparqlQuery.descObjOfPropPerson(range, propertyReference, reference, VARIABLE);
-            } else if (sentenceTemplate.equals(TemplateFinder.superlativeWorld)) {
-               sparql= PrepareSparqlQuery.desc(range, reference);
-            }
-            else if (sentenceTemplate.equals(TemplateFinder.superlativeTeamPlayer)) {
-                sparql= PrepareSparqlQuery.descTeam(propertyReference, reference, VARIABLE);
-            }
+        if (sentenceTemplate != null) {
+            if (this.isHigh(lexicalEntryUtil)) {
+                if (sentenceTemplate.equals(superlativeCountry) || sentenceTemplate.equals(superlativeLocation)) {
+                    sparql = PrepareSparqlQuery.descObj(range, propertyReference, reference, VARIABLE);
+                } else if (sentenceTemplate.equals(superlativePerson)) {
+                    sparql = PrepareSparqlQuery.descObjOfPropPerson(range, propertyReference, reference, VARIABLE);
+                } else if (sentenceTemplate.equals(TemplateFinder.superlativeWorld)) {
+                    sparql = PrepareSparqlQuery.desc(range, reference);
+                } else if (sentenceTemplate.equals(TemplateFinder.superlativeTeamPlayer)) {
+                    sparql = PrepareSparqlQuery.descTeam(propertyReference, reference, VARIABLE);
+                }
 
-        } else if (this.isLow(lexicalEntryUtil)) {
-            if (sentenceTemplate.equals(superlativeCountry)||sentenceTemplate.equals(superlativeLocation)) {
-                sparql= PrepareSparqlQuery.ascObj(range, propertyReference, reference, VARIABLE);
-            } else if (sentenceTemplate.contains(superlativePerson)) {
-                sparql= PrepareSparqlQuery.ascObjOfPropPerson(range, propertyReference, reference, VARIABLE);
+            } else if (this.isLow(lexicalEntryUtil)) {
+                if (sentenceTemplate.equals(superlativeCountry) || sentenceTemplate.equals(superlativeLocation)) {
+                    sparql = PrepareSparqlQuery.ascObj(range, propertyReference, reference, VARIABLE);
+                } else if (sentenceTemplate.contains(superlativePerson)) {
+                    sparql = PrepareSparqlQuery.ascObjOfPropPerson(range, propertyReference, reference, VARIABLE);
 
-            } else if (sentenceTemplate.equals(TemplateFinder.superlativeWorld)) {
-               sparql= PrepareSparqlQuery.asc(range, reference);
+                } else if (sentenceTemplate.equals(TemplateFinder.superlativeWorld)) {
+                    sparql = PrepareSparqlQuery.asc(range, reference);
+                }
             }
         }
         

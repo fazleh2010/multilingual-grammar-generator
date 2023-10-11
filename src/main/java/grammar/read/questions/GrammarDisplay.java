@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_OBJECT;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_SUBJECT;
+import grammar.structure.component.GrammarEntry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class GrammarDisplay {
     //@JsonProperty("sentenceTemplates")
     //private String sentenceTemplates = null;
     @JsonProperty("rules")
-    private List<Rule> rules = new ArrayList<Rule>();
+    private List<GrammarRule> rules = new ArrayList<GrammarRule>();
 
     public GrammarDisplay(Integer id, String lex, List<GrammarEntryUnit> grammarEntries) {
         this.id = id;
@@ -39,24 +40,43 @@ public class GrammarDisplay {
 
         for (GrammarEntryUnit grammarEntryUnit : grammarEntries) {
             index = index + 1;
-            String bindingType=null;
+            String bindingType = null;
             if (index == 1) {
                 syntacticFrame = grammarEntryUnit.getFrameType();
             }
-            if(grammarEntryUnit.getReturnVariable().contains(RETURN_TYPE_OBJECT)){
-                bindingType=RETURN_TYPE_SUBJECT;
+            if (grammarEntryUnit.getReturnVariable().contains(RETURN_TYPE_OBJECT)) {
+                bindingType = RETURN_TYPE_SUBJECT;
+            } else if (grammarEntryUnit.getReturnVariable().contains(RETURN_TYPE_SUBJECT)) {
+                bindingType = RETURN_TYPE_OBJECT;
             }
-            else if (grammarEntryUnit.getReturnVariable().contains(RETURN_TYPE_SUBJECT)){
-                 bindingType=RETURN_TYPE_OBJECT;
-            }
-      
+
             /*rules.add(new Rule(grammarEntryUnit.getId(), index, grammarEntryUnit.getSentences(), 
                     grammarEntryUnit.getBindingVariableName(),grammarEntryUnit.getSparqlQuery(),
                    bindingType,grammarEntryUnit.getReturnVariable(),grammarEntryUnit.getBindingType(),grammarEntryUnit.getReturnType()));*/
-            rules.add(new Rule(grammarEntryUnit.getId(), index, grammarEntryUnit.getSentences(), 
-                    grammarEntryUnit.getBindingVariableName(),grammarEntryUnit.getSparqlQuery(),
-                   bindingType,grammarEntryUnit.getReturnVariable(),
-                    grammarEntryUnit.getSentenceTemplate(),grammarEntryUnit.getFrameType()));
+            /*rules.add(new Rule(index.toString(), grammarEntryUnit.getSentences(),
+                    grammarEntryUnit.getSparqlQuery(),
+                    bindingType, grammarEntryUnit.getReturnVariable(),
+                    grammarEntryUnit.getSentenceTemplate(), grammarEntryUnit.getFrameType()));*/
+
+        }
+
+    }
+
+    public GrammarDisplay(Integer id, String lex, List<GrammarEntry> grammarEntries,boolean flag) {
+        this.id = id;
+        this.Entry = lex;
+        Integer index = 0;
+
+        for (GrammarEntry grammarEntry : grammarEntries) {
+            index = index + 1;
+            String bindingType = null;
+            if (index == 1) {
+                syntacticFrame = grammarEntry.getFrameType().getName();
+            }
+
+            rules.add(new GrammarRule(index.toString(), grammarEntry.getSentences(),
+                    grammarEntry.getBindingSparql(),grammarEntry.getSparqlQuery(),
+                    grammarEntry.getSentenceTemplate(), grammarEntry.getFrameType().getName(),grammarEntry.getReturnVariable()));
 
         }
 
@@ -66,7 +86,7 @@ public class GrammarDisplay {
         return syntacticFrame;
     }
 
-    public List<Rule> getRules() {
+    public List<GrammarRule> getRules() {
         return rules;
     }
 
@@ -77,6 +97,5 @@ public class GrammarDisplay {
     public String getEntry() {
         return Entry;
     }
-
 
 }
