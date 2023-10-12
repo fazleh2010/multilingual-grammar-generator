@@ -20,10 +20,10 @@
   lemon:synBehavior    :birth-name-of_75_nounpp .
 
 :birth-name-of_75_form a lemon:Form ;
-  lemon:writtenRep "birth name "@en .
+  lemon:writtenRep "birth name"@en .
 
 :birth-name-of_75_singular a    lemon:Form ;
-  lemon:writtenRep "birth name "@en ;
+  lemon:writtenRep "birth name"@en ;
   lexinfo:number   lexinfo:singular .
 
 :birth-name-of_75_plural a   lemon:Form ;

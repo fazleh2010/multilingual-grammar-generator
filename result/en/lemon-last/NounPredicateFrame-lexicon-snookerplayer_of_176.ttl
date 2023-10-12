@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :snookerplayer_of_176_sense_1_res ;
+  lemon:entry    :snookerplayer_of_176 .
+
+:snookerplayer_of_176 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :snookerplayer_of_176_form ;
+  lemon:otherForm  :snookerplayer_of_176_singular ;
+  lemon:otherForm  :snookerplayer_of_176_plural ;
+  lemon:sense          :snookerplayer_of_176_sense_1 ;
+  lemon:synBehavior    :snookerplayer_of_176_predFrame .
+
+:snookerplayer_of_176_form
+ lemon:writtenRep "Snooker Player"@en .
+
+:snookerplayer_of_176_singular a    lemon:Form ;
+  lemon:writtenRep "Snooker Player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:snookerplayer_of_176_plural a   lemon:Form ;
+  lemon:writtenRep "Snooker Players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:snookerplayer_of_176_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :snookerplayer_of_176_sense_1_res ;
+  lemon:isA       :snookerplayer_of_176_PredSynArg .
+
+:snookerplayer_of_176_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/SnookerPlayer> .

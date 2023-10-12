@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :soccerleague_of_135_sense_1_res ;
+  lemon:entry    :soccerleague_of_135 .
+
+:soccerleague_of_135 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :soccerleague_of_135_form ;
+  lemon:otherForm  :soccerleague_of_135_singular ;
+  lemon:otherForm  :soccerleague_of_135_plural ;
+  lemon:sense          :soccerleague_of_135_sense_1 ;
+  lemon:synBehavior    :soccerleague_of_135_predFrame .
+
+:soccerleague_of_135_form
+ lemon:writtenRep "Soccer League"@en .
+
+:soccerleague_of_135_singular a    lemon:Form ;
+  lemon:writtenRep "Soccer League"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:soccerleague_of_135_plural a   lemon:Form ;
+  lemon:writtenRep "Soccer Leagues"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:soccerleague_of_135_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :soccerleague_of_135_sense_1_res ;
+  lemon:isA       :soccerleague_of_135_PredSynArg .
+
+:soccerleague_of_135_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/SoccerLeague> .

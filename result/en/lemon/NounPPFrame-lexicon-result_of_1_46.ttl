@@ -19,14 +19,14 @@
   lemon:synBehavior    :result_of_1_46_nounpp .
 
 :result_of_1_46_form a lemon:Form ;
-  lemon:writtenRep "floor"@en .
+  lemon:writtenRep "result"@en .
 
 :result_of_1_46_singular a    lemon:Form ;
-  lemon:writtenRep "floor"@en ;
+  lemon:writtenRep "result"@en ;
   lexinfo:number   lexinfo:singular .
 
 :result_of_1_46_plural a   lemon:Form ;
-  lemon:writtenRep "floors"@en ;
+  lemon:writtenRep "results"@en ;
   lexinfo:number    lexinfo:plural .
 
 :result_of_1_46_nounpp a        lexinfo:NounPPFrame ;

@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :population-densty-rank-of_351 ;
+  lemon:entry    :population-densty-rank-of_351_form_preposition .
+
+:population-densty-rank-of_351 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :population-densty-rank-of_351_form ;
+  lemon:otherForm  :population-densty-rank-of_351_singular ;
+  lemon:otherForm  :population-densty-rank-of_351_plural ;
+  lemon:sense          :population-densty-rank-of_351_sense_1 ;
+  lemon:sense          :population-densty-rank-of_351_sense_2 ;
+  lemon:synBehavior    :population-densty-rank-of_351_nounpp .
+
+:population-densty-rank-of_351_form a lemon:Form ;
+  lemon:writtenRep "population densty rank"@en .
+
+:population-densty-rank-of_351_singular a    lemon:Form ;
+  lemon:writtenRep "population densty rank"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:population-densty-rank-of_351_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:population-densty-rank-of_351_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:population-densty-rank-of_351_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :population-densty-rank-of_351_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/populationDensityRank> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :population-densty-rank-of_351_sense_1_condition .
+
+:population-densty-rank-of_351_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PopulatedPlace> .
+
+:population-densty-rank-of_351_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :population-densty-rank-of_351_sense_2 ;
+  lemon:reference           <http://dbpedia.org/property/populationDensityRank> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :population-densty-rank-of_351_sense_2_condition .
+
+:population-densty-rank-of_351_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PopulatedPlace> .
+
+:null lemon:marker :population-densty-rank-of_351_form_preposition .
+## Prepositions ##
+:population-densty-rank-of_351_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

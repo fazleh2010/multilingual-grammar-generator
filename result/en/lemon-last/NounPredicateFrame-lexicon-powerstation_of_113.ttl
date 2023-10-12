@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :powerstation_of_113_sense_1_res ;
+  lemon:entry    :powerstation_of_113 .
+
+:powerstation_of_113 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :powerstation_of_113_form ;
+  lemon:otherForm  :powerstation_of_113_singular ;
+  lemon:otherForm  :powerstation_of_113_plural ;
+  lemon:sense          :powerstation_of_113_sense_1 ;
+  lemon:synBehavior    :powerstation_of_113_predFrame .
+
+:powerstation_of_113_form
+ lemon:writtenRep "Power Station"@en .
+
+:powerstation_of_113_singular a    lemon:Form ;
+  lemon:writtenRep "Power Station"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:powerstation_of_113_plural a   lemon:Form ;
+  lemon:writtenRep "Power Stations"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:powerstation_of_113_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :powerstation_of_113_sense_1_res ;
+  lemon:isA       :powerstation_of_113_PredSynArg .
+
+:powerstation_of_113_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/PowerStation> .

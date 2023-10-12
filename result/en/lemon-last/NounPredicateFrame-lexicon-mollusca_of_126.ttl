@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mollusca_of_126_sense_1_res ;
+  lemon:entry    :mollusca_of_126 .
+
+:mollusca_of_126 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :mollusca_of_126_form ;
+  lemon:otherForm  :mollusca_of_126_singular ;
+  lemon:otherForm  :mollusca_of_126_plural ;
+  lemon:sense          :mollusca_of_126_sense_1 ;
+  lemon:synBehavior    :mollusca_of_126_predFrame .
+
+:mollusca_of_126_form
+ lemon:writtenRep "Mollusca"@en .
+
+:mollusca_of_126_singular a    lemon:Form ;
+  lemon:writtenRep "Mollusca"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mollusca_of_126_plural a   lemon:Form ;
+  lemon:writtenRep "Molluscas"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mollusca_of_126_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :mollusca_of_126_sense_1_res ;
+  lemon:isA       :mollusca_of_126_PredSynArg .
+
+:mollusca_of_126_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Mollusca> .

@@ -20,14 +20,14 @@
   lemon:synBehavior    :ship_of_344_predFrame .
 
 :ship_of_344_form
- lemon:writtenRep "person"@en .
+ lemon:writtenRep "ship"@en .
 
 :ship_of_344_singular a    lemon:Form ;
-  lemon:writtenRep "person"@en ;
+  lemon:writtenRep "ship"@en ;
   lexinfo:number   lexinfo:singular .
 
 :ship_of_344_plural a   lemon:Form ;
-  lemon:writtenRep "persons"@en ;
+  lemon:writtenRep "ships"@en ;
   lexinfo:number    lexinfo:plural .
 
 :ship_of_344_sense_1 a  lemon:LexicalSense ;

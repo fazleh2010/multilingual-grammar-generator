@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :website_of_277_sense_1_res ;
+  lemon:entry    :website_of_277 .
+
+:website_of_277 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :website_of_277_form ;
+  lemon:otherForm  :website_of_277_singular ;
+  lemon:otherForm  :website_of_277_plural ;
+  lemon:sense          :website_of_277_sense_1 ;
+  lemon:synBehavior    :website_of_277_predFrame .
+
+:website_of_277_form
+ lemon:writtenRep "Website"@en .
+
+:website_of_277_singular a    lemon:Form ;
+  lemon:writtenRep "Website"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:website_of_277_plural a   lemon:Form ;
+  lemon:writtenRep "Websites"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:website_of_277_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :website_of_277_sense_1_res ;
+  lemon:isA       :website_of_277_PredSynArg .
+
+:website_of_277_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Website> .

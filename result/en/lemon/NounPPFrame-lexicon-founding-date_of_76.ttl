@@ -19,10 +19,10 @@
   lemon:synBehavior    :founding-date_of_76_nounpp .
 
 :founding-date_of_76_form a lemon:Form ;
-  lemon:writtenRep "founding date "@en .
+  lemon:writtenRep "founding date"@en .
 
 :founding-date_of_76_singular a    lemon:Form ;
-  lemon:writtenRep "founding date "@en ;
+  lemon:writtenRep "founding date"@en ;
   lexinfo:number   lexinfo:singular .
 
 :founding-date_of_76_plural a   lemon:Form ;

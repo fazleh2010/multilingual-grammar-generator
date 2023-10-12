@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :monument_of_70_sense_1_res ;
+  lemon:entry    :monument_of_70 .
+
+:monument_of_70 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+ lemon:canonicalForm  :monument_of_70_form ;
+  lemon:otherForm  :monument_of_70_singular ;
+  lemon:otherForm  :monument_of_70_plural ;
+  lemon:sense          :monument_of_70_sense_1 ;
+  lemon:synBehavior    :monument_of_70_predFrame .
+
+:monument_of_70_form
+ lemon:writtenRep "Monument"@en .
+
+:monument_of_70_singular a    lemon:Form ;
+  lemon:writtenRep "Monument"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:monument_of_70_plural a   lemon:Form ;
+  lemon:writtenRep "Monuments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:monument_of_70_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :monument_of_70_sense_1_res ;
+  lemon:isA       :monument_of_70_PredSynArg .
+
+:monument_of_70_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Monument> .

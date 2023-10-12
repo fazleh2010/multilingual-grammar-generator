@@ -23,7 +23,7 @@
  lemon:writtenRep "Library"@en .
 
 :library_of_11_singular a    lemon:Form ;
-  lemon:writtenRep "Library"@en ;
+  lemon:writtenRep "Libraries"@en ;
   lexinfo:number   lexinfo:singular .
 
 :library_of_11_plural a   lemon:Form ;
