@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :bolivian_47_sense_1_res ;
+  lemon:entry    :bolivian_47 .
+
+:bolivian_47 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :bolivian_47_lemma ;
+  lemon:sense          :bolivian_47_sense_1 ;
+  lemon:synBehavior    :bolivian_47_attrFrame, :bolivian_47_predFrame .
+
+:bolivian_47_lemma lemon:writtenRep "bolivian"@en .
+
+:bolivian_47_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :bolivian_47_PredSynArg .
+
+:bolivian_47_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :bolivian_47_AttrSynArg .
+
+:bolivian_47_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :bolivian_47_sense_1_res ;
+  lemon:isA       :bolivian_47_AttrSynArg, :bolivian_47_PredSynArg .
+
+:bolivian_47_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Bolivia> .

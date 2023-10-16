@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :governor_of_322 ;
+  lemon:entry    :governor_of_322_form_preposition .
+
+:governor_of_322 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :governor_of_322_form ;
+  lemon:otherForm  :governor_of_322_singular ;
+  lemon:otherForm  :governor_of_322_plural ;
+  lemon:sense          :governor_of_322_sense_1 ;
+  lemon:sense          :governor_of_322_sense_2 ;
+  lemon:synBehavior    :governor_of_322_nounpp .
+
+:governor_of_322_form a lemon:Form ;
+  lemon:writtenRep "governor"@en .
+
+:governor_of_322_singular a    lemon:Form ;
+  lemon:writtenRep "governor"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:governor_of_322_plural a   lemon:Form ;
+  lemon:writtenRep "governors"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:governor_of_322_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:governor_of_322_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :governor_of_322_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/governor> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :governor_of_322_sense_1_condition .
+
+:governor_of_322_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:governor_of_322_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :governor_of_322_sense_2 ;
+  lemon:reference           <http://dbpedia.org/property/governor> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :governor_of_322_sense_2_condition .
+
+:governor_of_322_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:null lemon:marker :governor_of_322_form_preposition .
+## Prepositions ##
+:governor_of_322_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

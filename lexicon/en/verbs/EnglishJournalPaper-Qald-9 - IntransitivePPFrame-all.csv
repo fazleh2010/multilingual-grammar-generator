@@ -1,0 +1,2 @@
+LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,preposition,SyntacticFrame,subject,prepositionalAdjunct,sense,reference,domain,range
+serving_in_1,verb,serve,serves,served,served,in,IntransitivePPFrame,domain,range,1,dbp:employees,dbo:Settlement,xsd:nonNegativeInteger
