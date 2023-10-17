@@ -1,0 +1,3 @@
+LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition
+desarrollar_1,verb,desarrollar,desarrolla,desarrolló,desarrollado,TransitiveFrame,domain,range,1,dbo:product,dbo:Company,dbo:Software,por
+Desarrollar_2,verb,desarrollar,desarrolla,desarrolló,desarrollado,TransitiveFrame,range,domain,1,dbo:developer,dbo:VideoGame,dbo:Agent,por

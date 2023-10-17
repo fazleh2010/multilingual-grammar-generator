@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :language-of ;
+  lemon:entry    :language-of_form_preposition .
+
+:language-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :language-of_form ;
+  lemon:otherForm  :language-of_singular ;
+  lemon:otherForm  :language-of_plural ;
+  lemon:sense          :language-of_sense_1 ;
+  lemon:sense          :language-of_sense_2 ;
+  lemon:synBehavior    :language-of_nounpp .
+
+:language-of_form a lemon:Form ;
+  lemon:writtenRep "idioma"@es .
+
+:language-of_singular a    lemon:Form ;
+  lemon:writtenRep "idioma"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:language-of_plural a   lemon:Form ;
+  lemon:writtenRep "idiomas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:language-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:language-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :language-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/language> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :language-of_sense_1_condition .
+
+:language-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:language-of_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :language-of_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/language> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :language-of_sense_2_condition .
+
+:language-of_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:arg2 lemon:marker :language-of_form_preposition .
+## Prepositions ##
+:language-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

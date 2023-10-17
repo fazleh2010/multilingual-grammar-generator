@@ -496,3 +496,8 @@ select  ?binding  ?label {
 SELECT  ?class  WHERE {     
  <http://dbpedia.org/resource/Universal_Studios> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
 }
+
+
+////////////////////////
+Spanish new lexical entries
+https://docs.google.com/spreadsheets/d/1s14T_pFc5L6RCBtt9ieilyV9DfadW59MtxmP668hUlM/edit#gid=155053395

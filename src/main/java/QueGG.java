@@ -52,6 +52,7 @@ import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
+import util.io.PrepareGrammarJson;
 
 @NoArgsConstructor
 public class QueGG {
@@ -72,10 +73,10 @@ public class QueGG {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
-        //languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
+        languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
         //languageDBs.add(new String[]{"inputConf_de.json", "dataset/dbpedia_de.json"});
         //languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
-        languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
+        //languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
 
         for (String[] languageDB : languageDBs) {
            runGrammarGeneration(languageDB); 
@@ -98,33 +99,42 @@ public class QueGG {
                 throw new IllegalArgumentException(String.format("Too few parameters (%s/%s)", args.length));
             } else if (args.length == 2) {
                 configFile = args[0];
-                InputCofiguration inputCofiguration = FileProcessUtils.getInputConfig(new File(configFile));
-                inputCofiguration.setLinkedData(args[1]);                
-                online=inputCofiguration.getOnline();
-                externalEntittyListflag=inputCofiguration.getExternalEntittyList();
+                InputCofiguration inputCof = FileProcessUtils.getInputConfig(new File(configFile));
+                inputCof.setLinkedData(args[1]);                
+                online=inputCof.getOnline();
+                externalEntittyListflag=inputCof.getExternalEntittyList();
           
-                if (inputCofiguration.isCsvToTurtle()) {
-                    if (queGG.csvToProto(inputCofiguration)) {
-                        queGG.turtleToProto(inputCofiguration);
+                if (inputCof.isCsvToTurtle()) {
+                    if (queGG.csvToProto(inputCof)) {
+                        queGG.turtleToProto(inputCof);
                         System.out.println("successfully converted csv files to turtle file!!");
                     }
                 }
-                if (inputCofiguration.getTurtleToProtoType()) {
-                    queGG.turtleToProto(inputCofiguration);
+                if (inputCof.getTurtleToProtoType()) {
+                    queGG.turtleToProto(inputCof);
                     System.out.println("successfully converted csv files to turtle file!!");
-                   
+  
                 }
-                if (inputCofiguration.isProtoTypeToQuestion()) {  
+                if (inputCof.getProtoTypeToQuestion()) {
+                    String outputFileName =grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
+                    File file = new File(inputCof.getOutputDir() +"/"+ outputFileName);
+                    List<File> protoSimpleQFiles = new ArrayList<File>();
+                    protoSimpleQFiles.add(file);
+                    outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
+                    PrepareGrammarJson prepareGrammarJson = 
+                            new PrepareGrammarJson(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                }
+                /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                     System.out.println("successfully converted turtle files to grammar file (.json)!!");
-                }
-                if (inputCofiguration.isEvalution()) {
-                    Language language = inputCofiguration.getLanguage();
-                    String qaldDir = inputCofiguration.getQaldDir();
-                    String outputDir = inputCofiguration.getOutputDir();
-                    LinkedData linkedData = inputCofiguration.getLinkedData();
-                    Double similarity = inputCofiguration.getSimilarityThresold();
-                    queGG.evalution(qaldDir, outputDir, inputCofiguration,language, linkedData.getEndpoint(), EvaluateAgainstQALD.REAL_QUESTION, similarity);
+                }*/
+                if (inputCof.isEvalution()) {
+                    Language language = inputCof.getLanguage();
+                    String qaldDir = inputCof.getQaldDir();
+                    String outputDir = inputCof.getOutputDir();
+                    LinkedData linkedData = inputCof.getLinkedData();
+                    Double similarity = inputCof.getSimilarityThresold();
+                    queGG.evalution(qaldDir, outputDir, inputCof,language, linkedData.getEndpoint(), EvaluateAgainstQALD.REAL_QUESTION, similarity);
                 }
 
             }

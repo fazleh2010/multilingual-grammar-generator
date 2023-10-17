@@ -34,7 +34,7 @@ public class LexiconImporter {
         try ( Stream<Path> paths = Files.walk(Paths.get(dir))) {
             List<Path> list = filterFiles(paths);
             for (Path file : list) {
-                 System.out.println("file!!" + file.toString());
+                 System.out.println("now checking file!!" + file.toString());
 
                 try {
                     if (model == null) {

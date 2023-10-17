@@ -12,14 +12,16 @@ import eu.monnetproject.lemon.model.PropertyValue;
 import grammar.datasets.annotated.AnnotatedNounOrQuestionWord;
 import grammar.datasets.annotated.AnnotatedVerb;
 import grammar.datasets.sentencetemplates.TempConstants;
+import static grammar.datasets.sentencetemplates.TempConstants.colon;
 import static grammar.generator.BindingConstants.BINDING_TOKEN_TEMPLATE;
+import grammar.generator.SubjectType;
+import static grammar.generator.sentencebuilder.English.isInterrogativeDeterminer;
 import static grammar.generator.sentencebuilder.Spanish.isInterrogative;
 import grammar.sparql.SelectVariable;
 import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
 import grammar.structure.component.Language;
 import grammar.structure.component.SentenceType;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -135,7 +137,17 @@ public class Spanish implements TempConstants,MultilingualBuilder {
 
         }
         
-        
+        else if (flagReference && isInterrogativeDeterminer(attribute).first) {
+            String subjectType = isInterrogativeDeterminer(attribute).second;
+            if (reference.contains(colon)) {
+                String[] col = reference.split(colon);
+                word = this.getDeteminerTokenManual(subjectType, col[0], col[1]);
+            }
+            else{
+                word=LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType); 
+            }
+
+        }
         else if (flagReference && isInterrogativePronoun(attribute)) {
             String subjectType = null;
             if (reference.contains(range)) {
@@ -143,17 +155,15 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             } else {
                 subjectType = findIntergativePronoun(lexicalEntryUtil, this.domainSelectable);
             }
-            
+            word=LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType);
           
-            if(subjectType.equals(interrogativePronoun))
-                word=LexicalEntryUtil.getSingle(lexicalEntryUtil, interrogativePronoun); 
-            else if(subjectType.equals(interrogativePronounThing))
-                 word=LexicalEntryUtil.getSingle(lexicalEntryUtil, interrogativePronounThing); 
-            else if(subjectType.equals("interrogativePronounThingPlural"))
+            /*if(subjectType.contains(interrogativePronounThing))
+                 word=LexicalEntryUtil.getSingle(lexicalEntryUtil, subjectType); 
+            else if(subjectType.contains("interrogativePronounThingPlural"))
                  word=LexicalEntryUtil.getSingle(lexicalEntryUtil, "interrogativePronounThingPlural"); 
-            //System.out.println("subjectType::"+subjectType);
-            //System.out.println("attribute::"+attribute);
-            //exit(1);
+            else if(subjectType.contains(interrogativePronoun))
+                   word=LexicalEntryUtil.getSingle(lexicalEntryUtil, interrogativePronoun); 
+            */
           
         } else if (flagReference && isInterrogative(attribute)) {
            
@@ -193,8 +203,15 @@ public class Spanish implements TempConstants,MultilingualBuilder {
 
         } else if (flagReference && attribute.contains(verb)) {
             word = new VerbFinderEnglish(this.frameType,this.lexicalEntryUtil,attribute, reference).getWord();
+            //System.out.println(word);
 
-        } else if (flagReference && attribute.equals(determiner)) {
+        } 
+        else if (flagReference && attribute.contains(article)) {
+            word =  LexicalEntryUtil.getSingle(lexicalEntryUtil, reference);
+            //System.out.println(word);
+
+        } 
+        else if (flagReference && attribute.equals(determiner)) {
 
             if (reference.contains(colon)) {
                 String[] col = reference.split(colon);
@@ -266,6 +283,14 @@ public class Spanish implements TempConstants,MultilingualBuilder {
         }
 
         return null;
+    }
+    
+    public static Pair<Boolean, String> isInterrogativeDeterminer(String questionType) throws QueGGMissingFactoryClassException {
+        if (questionType.equals(SubjectType.interrogativeDeterminer.toString())) {
+            return new Pair<Boolean, String>(Boolean.TRUE, questionType);
+        }
+        
+        return new Pair<Boolean, String>(Boolean.FALSE, null);
     }
 
     private String getDeteminerTokenDataBase(String subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
@@ -498,7 +523,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             System.out.println("word::" + word);
 
       
-        exit(1);
+        //exit(1);
         /*if (reference.contains(colon)) {
             String[] col = reference.split(colon);
             word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, baseReference, gender, col[0], number, col[1]);

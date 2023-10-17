@@ -62,7 +62,7 @@ public class VerbFinderEnglish implements TempConstants {
         System.out.println("auxilaryVerbFlag::" + this.auxilaryVerbFlag);
         System.out.println("imperativeVerbFlag::" + this.imperativeVerbFlag);
         System.out.println("word::" + this.word);
-        //exit(1);*/
+        exit(1);*/
         
     }
 
@@ -159,9 +159,11 @@ public class VerbFinderEnglish implements TempConstants {
     }*/
     
     private void setCategory(String reference) {
-        if (reference.contains(component_be)||reference.contains(component_do)||reference.contains(component_se)
+        if (reference.contains(component_be)||reference.contains(component_do)
+                ||reference.contains(component_se)||reference.contains(component_es)
                 ||reference.contains(component_ha)||reference.contains(component_estado)
-                ||reference.contains(component_esta)||reference.contains(component_aux_object_past)||reference.contains(componentVerb)) {
+                ||reference.contains(component_esta)||reference.contains(component_aux_object_past)
+                ||reference.contains(componentVerb)) {
             this.auxilaryVerbFlag = true;
             return;
         } else if (reference.contains(imperative)||reference.contains(verb)) {

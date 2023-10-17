@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :demonym-of ;
+  lemon:entry    :demonym-of_form_preposition .
+
+:demonym-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :demonym-of_form ;
+  lemon:otherForm  :demonym-of_singular ;
+  lemon:otherForm  :demonym-of_plural ;
+  lemon:sense          :demonym-of_sense_1 ;
+  lemon:synBehavior    :demonym-of_nounpp .
+
+:demonym-of_form a lemon:Form ;
+  lemon:writtenRep "demonio"@es .
+
+:demonym-of_singular a    lemon:Form ;
+  lemon:writtenRep "demonio"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:demonym-of_plural a   lemon:Form ;
+  lemon:writtenRep "demonios"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:demonym-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:demonym-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :demonym-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/demonym> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :demonym-of_sense_1_condition .
+
+:demonym-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :demonym-of_form_preposition .
+## Prepositions ##
+:demonym-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -6,7 +6,7 @@
    "offlineQuestion" : "true",
    "onlineAnswer" : "false",
    "inputDir"     : "lexicon",
-   "outputDir"    : "result/",
+   "outputDir"    : "/home/elahi/A-Grammar/original/grammar-rules/grammarFiles/",
    "entityDir"    : "resources/it/property/",
    "questionDir"  : "resources/it/questions/",
    "classDir"     : "resources/it/entity/",

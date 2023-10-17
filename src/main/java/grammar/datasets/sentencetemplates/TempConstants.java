@@ -159,6 +159,7 @@ public interface TempConstants {
     public static final String component_be = "component_be";
     public static final String component_do ="component_do";
     public static final String component_se = "component_se";
+    public static final String component_es = "component_es";
     public static final String component_ha = "component_ha";
     public static final String component_estado = "component_estado";
     public static final String component_esta = "component_esta";
