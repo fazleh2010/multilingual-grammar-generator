@@ -26,7 +26,7 @@
   lexinfo:number   lexinfo:singular .
 
 :first-name_of_62_plural a   lemon:Form ;
-  lemon:writtenRep "XX"@en ;
+  lemon:writtenRep "first names"@en ;
   lexinfo:number    lexinfo:plural .
 
 :first-name_of_62_nounpp a        lexinfo:NounPPFrame ;
