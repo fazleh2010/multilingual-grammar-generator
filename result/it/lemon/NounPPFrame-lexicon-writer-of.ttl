@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :writer-of ;
+  lemon:entry    :writer-of_form_preposition .
+
+:writer-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :writer-of_form ;
+  lemon:otherForm  :writer-of_singular ;
+  lemon:otherForm  :writer-of_plural ;
+  lemon:sense          :writer-of_sense_1 ;
+  lemon:synBehavior    :writer-of_nounpp .
+
+:writer-of_form a lemon:Form ;
+  lemon:writtenRep "scrittore"@it .
+
+:writer-of_singular a    lemon:Form ;
+  lemon:writtenRep "scrittore"@it ;
+  lexinfo:number   lexinfo:singular .
+
+:writer-of_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@it ;
+  lexinfo:number    lexinfo:plural .
+
+:writer-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:writer-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :writer-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/writer> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :writer-of_sense_1_condition .
+
+:writer-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :writer-of_form_preposition .
+## Prepositions ##
+:writer-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "di"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

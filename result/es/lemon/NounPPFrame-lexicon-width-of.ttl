@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :width-of ;
+  lemon:entry    :width-of_form_preposition .
+
+:width-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :width-of_form ;
+  lemon:otherForm  :width-of_singular ;
+  lemon:otherForm  :width-of_plural ;
+  lemon:sense          :width-of_sense_1 ;
+  lemon:synBehavior    :width-of_nounpp .
+
+:width-of_form a lemon:Form ;
+  lemon:writtenRep "ancho"@es .
+
+:width-of_singular a    lemon:Form ;
+  lemon:writtenRep "ancho"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:width-of_plural a   lemon:Form ;
+  lemon:writtenRep "anchos"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:width-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:width-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :width-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/width> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :width-of_sense_1_condition .
+
+:width-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BodyOfWater> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :width-of_form_preposition .
+## Prepositions ##
+:width-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+   lemon:entry          :bulgarian_f_sense_1_res ;
+  lemon:entry    :bulgarian_f .
+
+:bulgarian_f a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :bulgarian_f_lemma ;
+  lemon:sense          :bulgarian_f_sense_1 ;
+  lemon:synBehavior    :bulgarian_f_attrFrame, :bulgarian_f_predFrame .
+
+:bulgarian_f_lemma lemon:writtenRep "bulgara"@es .
+
+:bulgarian_f_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :bulgarian_f_PredSynArg .
+
+:bulgarian_f_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :bulgarian_f_AttrSynArg .
+
+:bulgarian_f_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :bulgarian_f_sense_1_res ;
+  lemon:isA       :bulgarian_f_AttrSynArg, :bulgarian_f_PredSynArg .
+
+:bulgarian_f_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/nationality> ;
+  owl:hasValue   <http://dbpedia.org/resource/Bulgaria> .

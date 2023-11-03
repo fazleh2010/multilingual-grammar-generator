@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :runtimeSeconds-of ;
+  lemon:entry    :runtimeSeconds-of_form_preposition .
+
+:runtimeSeconds-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :runtimeSeconds-of_form ;
+  lemon:otherForm  :runtimeSeconds-of_singular ;
+  lemon:otherForm  :runtimeSeconds-of_plural ;
+  lemon:sense          :runtimeSeconds-of_sense_1 ;
+  lemon:synBehavior    :runtimeSeconds-of_nounpp .
+
+:runtimeSeconds-of_form a lemon:Form ;
+  lemon:writtenRep "tiempo de ejecución en segundos"@es .
+
+:runtimeSeconds-of_singular a    lemon:Form ;
+  lemon:writtenRep "tiempo de ejecución en segundos"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:runtimeSeconds-of_plural a   lemon:Form ;
+  lemon:writtenRep "tiempos de ejecución en segundos"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:runtimeSeconds-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:runtimeSeconds-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :runtimeSeconds-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/runtime> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :runtimeSeconds-of_sense_1_condition .
+
+:runtimeSeconds-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :runtimeSeconds-of_form_preposition .
+## Prepositions ##
+:runtimeSeconds-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
