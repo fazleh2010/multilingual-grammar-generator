@@ -52,7 +52,7 @@ import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
-import grammar.read.questions.PrepareGrammarJson;
+import grammar.read.questions.PrettyGrammar;
 
 @NoArgsConstructor
 public class QueGG {
@@ -73,10 +73,10 @@ public class QueGG {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
-        languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
+        //languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
         //languageDBs.add(new String[]{"inputConf_de.json", "dataset/dbpedia_de.json"});
         //languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
-        //languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
+        languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
 
         for (String[] languageDB : languageDBs) {
            runGrammarGeneration(languageDB); 
@@ -121,8 +121,8 @@ public class QueGG {
                     List<File> protoSimpleQFiles = new ArrayList<File>();
                     protoSimpleQFiles.add(file);
                     outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
-                    PrepareGrammarJson prepareGrammarJson = 
-                            new PrepareGrammarJson(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                    PrettyGrammar prepareGrammarJson = 
+                            new PrettyGrammar(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
                 }
                 /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
@@ -369,93 +369,13 @@ public class QueGG {
         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
         LOG.info("Start generation of combined entries");
 
-        for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
-            grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
-            if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
-                     ;   
-            }
-            else  
-            {
-                String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
-                if (grammarEntry.getReturnVariable() != null) {
-                    sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
-                }
-                grammarEntry.setSparqlQuery(sparql);
-            }
-         
-        }
-        
-        /*String rdfs_label="<http://www.w3.org/2000/01/rdf-schema#label>";
-        for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
-            String questionSparql = null, bindingSparql = null;
-            grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
-            String returnVariable = null, bindingVariable = null;
-            if (grammarEntry.getReturnVariable() != null) {
-                returnVariable = grammarEntry.getReturnVariable();
-                bindingVariable = PrepareSparqlQuery.findOppositeVariable(returnVariable);
-            } else {
-                continue;
-            }
-
-            if (grammarEntry.getSentenceTemplate().contains("HOW_MANY_THING")) {
-                System.out.println(grammarEntry.getSentenceTemplate());
-            }
-
-            if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
-                ;
-
-            } else {
-                String sparql = PrepareSparqlQuery.getRealSparqlT(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
-                if (sparql.contains(QueryType.ASK.name())) {
-                    questionSparql = sparql;
-                    bindingSparql = PrepareSparqlQuery.findBindingListAskQuery(grammarEntry.getBindingType());
-                } else {
-                    if (grammarEntry.getSentenceTemplate() != null && grammarEntry.getSentenceTemplate().contains("superlative")) {
-                        bindingSparql = PrepareSparqlQuery.findBindingListSuperlative(grammarEntry.getBindingType());
-                        questionSparql = sparql.replace(returnVariable, "Answer");
-                    } else {
-
-                        if (grammarEntry.getSentenceTemplate() != null && grammarEntry.getSentenceTemplate().contains("HOW_MANY")) {
-                            bindingSparql = sparql.replace(bindingVariable,"Answer");;
-                            sparql = sparql.replace("SELECT ?Answer", "SELECT (COUNT(DISTINCT ?" + returnVariable + ") AS ?c)");
-                            questionSparql = sparql.replace(returnVariable,"Answer");
-                        } else {
-                            questionSparql = sparql.replace(returnVariable, "Answer");
-                            bindingSparql = sparql.replace(bindingVariable, "Answer");
-                        }
-
-                    }
-                }
-                bindingSparql=bindingSparql.replace("}",   "?Answer" + " " + rdfs_label + " " + "?label" + "}");
-                bindingSparql=bindingSparql.replace("SELECT ?Answer",   "SELECT ?label");    
-                questionSparql=questionSparql.replace("}",   "?Answer" + " " + rdfs_label + " " + "?label" + "}");
-                questionSparql=questionSparql.replace("SELECT ?Answer",   "SELECT ?label");
-                grammarEntry.setSparqlQuery(questionSparql);
-                grammarEntry.setBindingSparql(bindingSparql);
-            }
-
-        }*/
-
-        // Output file is too big, make two files
-        GrammarWrapper regularEntries = new GrammarWrapper();
-        regularEntries.setGrammarEntries(
-                grammarWrapper.getGrammarEntries()
-                        .stream()
-                        //.filter(grammarEntry -> !grammarEntry.isCombination())
-                        .collect(Collectors.toList())
-        );
-        
-        generatorRoot.dumpToJSON(
-                Path.of(
-                        outputDir,
-                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
-                ).toString(),
-                regularEntries
-        );
-        
-
+        PrettyGrammar.prettyGrammarFuntion(grammarWrapper,language,outputDir);
+        PrettyGrammar.outputForParser(grammarWrapper,language,outputDir);
     }
 
+
+    
+   
     private GrammarWrapper generateGrammarGeneric(LemonModel lemonModel, GrammarRuleGeneratorRoot grammarRuleGenerator) {
         GrammarWrapper grammarWrapper = new GrammarWrapper();
         lemonModel.getLexica().forEach(lexicon -> {
@@ -474,6 +394,8 @@ public class QueGG {
         GrammarRuleGeneratorRoot.setEndpoint(endpoint);
 
     }
+
+   
 
    
 

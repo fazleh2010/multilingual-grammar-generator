@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :signature-of ;
+  lemon:entry    :signature-of_form_preposition .
+
+:signature-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :signature-of_form ;
+  lemon:otherForm  :signature-of_singular ;
+  lemon:otherForm  :signature-of_plural ;
+  lemon:sense          :signature-of_sense_1 ;
+  lemon:synBehavior    :signature-of_nounpp .
+
+:signature-of_form a lemon:Form ;
+  lemon:writtenRep "firma"@es .
+
+:signature-of_singular a    lemon:Form ;
+  lemon:writtenRep "firma"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:signature-of_plural a   lemon:Form ;
+  lemon:writtenRep "firmas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:signature-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:signature-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :signature-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/signature> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :signature-of_sense_1_condition .
+
+:signature-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :signature-of_form_preposition .
+## Prepositions ##
+:signature-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

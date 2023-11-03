@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :mediaType-of ;
+  lemon:entry    :mediaType-of_form_preposition .
+
+:mediaType-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mediaType-of_form ;
+  lemon:otherForm  :mediaType-of_singular ;
+  lemon:otherForm  :mediaType-of_plural ;
+  lemon:sense          :mediaType-of_sense_1 ;
+  lemon:synBehavior    :mediaType-of_nounpp .
+
+:mediaType-of_form a lemon:Form ;
+  lemon:writtenRep "tipo de medios"@es .
+
+:mediaType-of_singular a    lemon:Form ;
+  lemon:writtenRep "tipo de medios"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:mediaType-of_plural a   lemon:Form ;
+  lemon:writtenRep "tipos de medios"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:mediaType-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:mediaType-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :mediaType-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/mediaType> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :mediaType-of_sense_1_condition .
+
+:mediaType-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :mediaType-of_form_preposition .
+## Prepositions ##
+:mediaType-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
