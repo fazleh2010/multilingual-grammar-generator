@@ -83,27 +83,18 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getWrittenTtl(String lemonEntry, String writtenFormInfinitive, String writtenFormSingular, String writtenFormPlural, String language, String copulativeArg) {
-            /*return ":" + lemonEntry + "_form a lemon:Form ;\n"
-                    + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
-                    + "\n"
-                    + ":" + lemonEntry + "_nounpp a        lexinfo:NounPPFrame ;\n"
-                    + "  lexinfo:copulativeArg        :arg1 ;\n"
-                    + "  lexinfo:prepositionalAdjunct :arg2 .\n"
-                    + "\n";*/
-
 
             if (writtenFormPlural.contains("-")) {
                 writtenFormPlural = "XX";
             }
 
-
-            /*if (copulativeArg.contains("domain")) {
+            if (copulativeArg.contains("domain")) {
                 this.arg1 = "arg2"+"_"+lemonEntry;
                 this.arg2 = "arg1"+"_"+lemonEntry;
             } else {
                 this.arg1 = "arg1"+"_"+lemonEntry;
                 this.arg2 = "arg2"+"_"+lemonEntry;
-            }*/
+            }
 
             String writtenForm = ":" + lemonEntry + "_form a lemon:Form ;\n"
                     + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
@@ -899,27 +890,27 @@ public class EnglishCsv implements TempConstants {
 
     }
     
-    /*public static class AttributiveAdjectiveFrame {			
+    public static class NounPredicateFrame {			
         private Integer lemonEntryIndex = 0;
         private Integer partOfSpeechIndex = 1;
-        private Integer writtenFormInfinitive = 2;
-        private Integer syntacticFrameIndex = 3;
-        private Integer copulativeSubjectIndex = 4;
-        private Integer attributiveArgIndex = 5;
-        private Integer senseIndex = 6;
-        private Integer referenceIndex = 7;
-        private Integer owl_onPropertyIndex = 8;
-        private Integer owl_hasValueIndex = 9;
-        private Integer domainIndex = 10;
-        private Integer rangeIndex = 11;
-        private Integer classIndex = 12;
-        private Integer originalIndex = 13;
-        private Integer size = originalIndex + 1;
+        private Integer writtenFormSingular = 2;
+        private Integer writtenFormPlural = 3;
+        private Integer syntacticFrameIndex =4 ;
+        private Integer copulativeSubjectIndex = 5;
+        private Integer prepositionalAdjunct = 6;
+        private Integer senseIndex = 7;
+        private Integer referenceIndex = 8;
+        private Integer domainIndex = 9;
+        private Integer rangeIndex = 10;
 
-        public String getAtrributiveFrameHeader(String lemonEntry, List<Tupples> senseIds, String language) {
-            String senseIdStr = getSenseIdRes(senseIds);
-
-            return "@prefix :        <http://localhost:8080/#> .\n"
+        public String getNounPredicateFrameTurtle(String[] row,String language,String lemonId) {
+            //String lemonId=this.format(this.getLemonEntryIndex(row)+"_"+id);
+            String singular=this.format(this.getWrittenFormSingular(row)).toLowerCase();
+            String plural=this.format(this.getWrittenFormPlural(row)).toLowerCase();
+            String property=Property.withPrefix(this.format(this.getReferenceIndex(row)));
+            String resource=Property.withPrefix(this.format(this.getDomainIndex(row)));
+            
+            String turtle = "@prefix :        <http://localhost:8080/#> .\n"
                     + "\n"
                     + "@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .\n"
                     + "@prefix lemon:   <http://lemon-model.net/lemon#> .\n"
@@ -928,122 +919,96 @@ public class EnglishCsv implements TempConstants {
                     + "@base            <http://localhost:8080#> .\n"
                     + "\n"
                     + ":lexicon_en a    lemon:Lexicon ;\n"
-                    + "  lemon:language \"" + language + "\" ;\n"
-                    //+ "  lemon:entry    :" + lemonEntry + "_res ;\n"
-                    + senseIdStr
-                    + "  lemon:entry    :" + lemonEntry + " .\n"
-                    + "\n";
-        }
-
-        public String getAtrributiveFrameIndexing(List<Tupples> senseIds, String lemonEntry) {
-            String senseIdStr = getSenseId(senseIds);
-            senseIdStr = ":" + lemonEntry + " a  lemon:LexicalEntry ;\n"
-                    + "  lexinfo:partOfSpeech lexinfo:noun ;\n"
-                     + " lemon:canonicalForm  :" + lemonEntry + "_form ;\n"
-                    + "  lemon:otherForm  :" + lemonEntry + "_singular ;\n"
-                    + "  lemon:otherForm  :" + lemonEntry + "_plural ;\n"
-                    + senseIdStr
-                    + "  lemon:synBehavior    :" + lemonEntry + "_predFrame .\n"
-                    + "\n";
-            return senseIdStr;
-        }
-
-        public String getAtrrtibutiveWrittenForm(String lemonEntry, String writtenFormInfinitive, String language) {
-            return ":" + lemonEntry + "_form\n"
-                    +" lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
+                    + "  lemon:language \""+language+"\" ;\n"
+                    + "  lemon:entry    :"+lemonId+"_sense_1_res ;\n"
+                    + "  lemon:entry    :"+lemonId+" .\n"
                     + "\n"
-                    + ":" + lemonEntry + "_singular a    lemon:Form ;\n"
-                    + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " ;\n"
+                    + ":"+lemonId+" a  lemon:LexicalEntry ;\n"
+                    + "  lexinfo:partOfSpeech lexinfo:noun ;\n"
+                    + "  lemon:canonicalForm  :"+lemonId+"_form ;\n"
+                    + "  lemon:otherForm  :"+lemonId+"_singular ;\n"
+                    + "  lemon:otherForm  :"+lemonId+"_plural ;\n"
+                    + "  lemon:sense          :"+lemonId+"_sense_1 ;\n"
+                    + "  lemon:synBehavior    :"+lemonId+"_predFrame .\n"
+                    + "\n"
+                    + ":"+lemonId+"_form\n"
+                    + " lemon:writtenRep \""+singular+"\"@en .\n"
+                    + "\n"
+                    + ":"+lemonId+"_singular a    lemon:Form ;\n"
+                    + "  lemon:writtenRep \""+singular+"\"@en ;\n"
                     + "  lexinfo:number   lexinfo:singular .\n"
                     + "\n"
-                    + ":" + lemonEntry + "_plural a   lemon:Form ;\n"
-                    + "  lemon:writtenRep \"" + writtenFormInfinitive+"s" + "\"@" + language + " ;\n"
+                    + ":"+lemonId+"_plural a   lemon:Form ;\n"
+                    + "  lemon:writtenRep \""+plural+"\"@en ;\n"
                     + "  lexinfo:number    lexinfo:plural .\n"
-                    + "\n";
-
+                    + "\n"
+                    + ":"+lemonId+"_sense_1 a  lemon:LexicalSense ;\n"
+                    + "  lemon:reference :"+lemonId+"_sense_1_res ;\n"
+                    + "  lemon:isA       :"+lemonId+"_PredSynArg .\n"
+                    + "\n"
+                    + ":"+lemonId+"_sense_1_res a   owl:Restriction ;\n"
+                    + "  owl:onProperty <"+property+"> ;\n"
+                    + "  owl:hasValue   <"+resource+"> .";
+            return turtle;
         }
 
-        public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
-            String str = "";
-            for (Tupples tupple : tupples) {
-                String line = ":" + tupple.getSenseId() + " a  lemon:LexicalSense ;\n"
-                        + "  lemon:reference :" + tupple.getSenseId() + "_res ;\n"
-                        + "  lemon:isA       :" + lemonEntry + "_PredSynArg .\n"
-                        + "\n"
-                        + ":" + tupple.getSenseId() + "_res a   owl:Restriction ;\n"
-                        + "  owl:onProperty <" + tupple.getDomain() + "> ;\n"
-                        + "  owl:hasValue   <" + tupple.getRange() + "> .\n";
-                str += line;
-            }
-
-            return str;
-        }
-
-        public String getLemonEntryIndex(String[] row) {
-            return row[lemonEntryIndex];
-        }
-
-        public String getPartOfSpeechIndex(String[] row) {
-            return row[partOfSpeechIndex];
-        }
-
-        public String getWrittenFormInfinitive(String[] row) {
-            return row[writtenFormInfinitive];
-        }
-
-        public String getSyntacticFrameIndex(String[] row) {
-            return row[syntacticFrameIndex];
-        }
 
         public Integer getSyntacticFrameIndex() {
             return syntacticFrameIndex;
         }
 
-        public String getCopulativeSubjectIndex(String[] row) {
+        public String getLemonEntryIndex(String []row) {
+            return row[lemonEntryIndex];
+        }
+
+        public String getPartOfSpeechIndex(String row[]) {
+            return row[partOfSpeechIndex];
+        }
+
+       
+        public String getWrittenFormSingular(String row[]) {
+            return row[writtenFormSingular];
+        }
+
+        public String getWrittenFormPlural(String row[]) {
+            return row[writtenFormPlural];
+        }
+
+        public String getSyntacticFrameIndex(String row[]) {
+            return row[syntacticFrameIndex];
+        }
+
+        public String getCopulativeSubjectIndex(String row[]) {
             return row[copulativeSubjectIndex];
         }
 
-        public String getAttributiveArgIndex(String[] row) {
-            return row[attributiveArgIndex];
+        public String getPrepositionalAdjunct(String row[]) {
+            return row[prepositionalAdjunct];
         }
 
-        public String getSenseIndex(String[] row) {
+        public String getSenseIndex(String row[]) {
             return row[senseIndex];
         }
 
-        public String getReferenceIndex(String[] row) {
+        public String getReferenceIndex(String []row) {
             return row[referenceIndex];
         }
 
-        public String getOwl_onPropertyIndex(String[] row) {
-            return row[owl_onPropertyIndex];
-        }
-
-        public String getOwl_hasValueIndex(String[] row) {
-            return row[owl_hasValueIndex];
-        }
-
-        public String getDomainIndex(String[] row) {
+        public String getDomainIndex(String [] row) {
             return row[domainIndex];
         }
 
-        public String getRangeIndex(String[] row) {
+        public String getRangeIndex(String []row) {
             return row[rangeIndex];
         }
 
-        public String getClassIndex(String[] row) {
-            return row[classIndex];
+        private String format(String string) {
+            string=string.stripLeading().stripTrailing().strip().trim();
+            return string;
         }
 
-        public String getOriginalIndex(String[] row) {
-            return row[originalIndex];
-        }
-
-        public Integer getSize() {
-            return size;
-        }
-
-    }*/
+       
+    }
 
     public static class GradbleAdjectiveFrameCsv {
 

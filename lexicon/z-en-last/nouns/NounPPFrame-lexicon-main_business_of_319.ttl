@@ -20,10 +20,10 @@
   lemon:synBehavior    :main_business_of_319_nounpp .
 
 :main_business_of_319_form a lemon:Form ;
-  lemon:writtenRep "main_business_of"@en .
+  lemon:writtenRep "main business"@en .
 
 :main_business_of_319_singular a    lemon:Form ;
-  lemon:writtenRep "main_business_of"@en ;
+  lemon:writtenRep "main business"@en ;
   lexinfo:number   lexinfo:singular .
 
 :main_business_of_319_plural a   lemon:Form ;

@@ -1,0 +1,67 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :associate_with_2_127 ;
+  lemon:entry    :form_associate_with_2_127_preposition .
+
+:associate_with_2_127 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_associate_with_2_127 ;
+  lemon:otherForm      :form_associate_with_2_127_present3rd ;
+  lemon:otherForm      :form_associate_with_2_127_past ;
+  lemon:otherForm      :form_associate_with_2_127_perfect ;
+  lemon:sense          :associate_with_2_127_sense_1 ;
+  lemon:synBehavior    :associate_with_2_127_frame .
+
+:form_associate_with_2_127 a           lemon:Form ;
+  lemon:writtenRep     "associate"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_associate_with_2_127_present3rd a      lemon:Form ;
+  lemon:writtenRep "associated"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_associate_with_2_127_past a lemon:Form ;
+  lemon:writtenRep  "associated"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_associate_with_2_127_perfect a   lemon:Form ;
+  lemon:writtenRep "associated"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:associate_with_2_127_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :associate_with_2_127_subj ;
+  lexinfo:prepositionalAdjunct :associate_with_2_127_obj .
+
+:associate_with_2_127_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :associate_with_2_127_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/associatedMusicalArtist> ;
+  lemon:subjOfProp  :associate_with_2_127_subj ;
+  lemon:objOfProp   :associate_with_2_127_obj ;
+  lemon:condition   :associate_with_2_127_sense_1_condition .
+
+:associate_with_2_127_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Band> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/MusicalArtist> .
+
+
+:associate_with_2_127_obj lemon:marker :form_associate_with_2_127_preposition .
+
+## Prepositions ##
+:form_associate_with_2_127_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "with"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

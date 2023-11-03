@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :speciality-of_816 ;
+  lemon:entry    :speciality-of_816_form_preposition .
+
+:speciality-of_816 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :speciality-of_816_form ;
+  lemon:otherForm  :speciality-of_816_singular ;
+  lemon:otherForm  :speciality-of_816_plural ;
+  lemon:sense          :speciality-of_816_sense_1 ;
+  lemon:sense          :speciality-of_816_sense_2 ;
+  lemon:synBehavior    :speciality-of_816_nounpp .
+
+:speciality-of_816_form a lemon:Form ;
+  lemon:writtenRep "speciality"@en .
+
+:speciality-of_816_singular a    lemon:Form ;
+  lemon:writtenRep "speciality"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:speciality-of_816_plural a   lemon:Form ;
+  lemon:writtenRep "specialities"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:speciality-of_816_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_speciality-of_816 ;
+  lexinfo:prepositionalAdjunct :arg2_speciality-of_816 .
+
+:speciality-of_816_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :speciality-of_816_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/title> ;
+  lemon:subjOfProp          :arg2_speciality-of_816 ;
+  lemon:objOfProp           :arg1_speciality-of_816 ;
+  lemon:condition           :speciality-of_816_sense_1_condition .
+
+:speciality-of_816_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:speciality-of_816_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :speciality-of_816_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/title> ;
+  lemon:subjOfProp          :arg2_speciality-of_816 ;
+  lemon:objOfProp           :arg1_speciality-of_816 ;
+  lemon:condition           :speciality-of_816_sense_2_condition .
+
+:speciality-of_816_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_speciality-of_816 lemon:marker :speciality-of_816_form_preposition .
+## Prepositions ##
+:speciality-of_816_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

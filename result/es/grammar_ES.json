@@ -1,0 +1,4 @@
+{
+  "sparql-endpoint" : "http://localhost:19999/bigdata/sparql",
+  "grammarEntries" : [ ]
+}

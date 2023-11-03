@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :grape_253_sense_1_res ;
+  lemon:entry    :grape_253 .
+
+:grape_253 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :grape_253_form ;
+  lemon:otherForm  :grape_253_singular ;
+  lemon:otherForm  :grape_253_plural ;
+  lemon:sense          :grape_253_sense_1 ;
+  lemon:synBehavior    :grape_253_predFrame .
+
+:grape_253_form
+ lemon:writtenRep "grape"@en .
+
+:grape_253_singular a    lemon:Form ;
+  lemon:writtenRep "grape"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:grape_253_plural a   lemon:Form ;
+  lemon:writtenRep "grapes"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:grape_253_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :grape_253_sense_1_res ;
+  lemon:isA       :grape_253_PredSynArg .
+
+:grape_253_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Grape> .

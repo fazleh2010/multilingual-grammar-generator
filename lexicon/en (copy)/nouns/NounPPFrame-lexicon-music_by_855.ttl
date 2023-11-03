@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :music_by_855 ;
+  lemon:entry    :music_by_855_form_preposition .
+
+:music_by_855 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :music_by_855_form ;
+  lemon:otherForm  :music_by_855_singular ;
+  lemon:otherForm  :music_by_855_plural ;
+  lemon:sense          :music_by_855_sense_1 ;
+  lemon:synBehavior    :music_by_855_nounpp .
+
+:music_by_855_form a lemon:Form ;
+  lemon:writtenRep "music"@en .
+
+:music_by_855_singular a    lemon:Form ;
+  lemon:writtenRep "music"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:music_by_855_plural a   lemon:Form ;
+  lemon:writtenRep "musics"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:music_by_855_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_music_by_855 ;
+  lexinfo:prepositionalAdjunct :arg1_music_by_855 .
+
+:music_by_855_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :music_by_855_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/musicBy> ;
+  lemon:subjOfProp          :arg1_music_by_855 ;
+  lemon:objOfProp           :arg2_music_by_855 ;
+  lemon:condition           :music_by_855_sense_1_condition .
+
+:music_by_855_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Musical> .
+
+:arg1_music_by_855 lemon:marker :music_by_855_form_preposition .
+## Prepositions ##
+:music_by_855_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -52,7 +52,7 @@ import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
-import util.io.PrepareGrammarJson;
+import grammar.read.questions.PrepareGrammarJson;
 
 @NoArgsConstructor
 public class QueGG {
@@ -73,7 +73,7 @@ public class QueGG {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
-        languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
+        languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
         //languageDBs.add(new String[]{"inputConf_de.json", "dataset/dbpedia_de.json"});
         //languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
         //languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});

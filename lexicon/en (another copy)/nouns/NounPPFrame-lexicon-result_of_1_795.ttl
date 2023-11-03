@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :result_of_1_795 ;
+  lemon:entry    :result_of_1_795_form_preposition .
+
+:result_of_1_795 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :result_of_1_795_form ;
+  lemon:otherForm  :result_of_1_795_singular ;
+  lemon:otherForm  :result_of_1_795_plural ;
+  lemon:sense          :result_of_1_795_sense_1 ;
+  lemon:synBehavior    :result_of_1_795_nounpp .
+
+:result_of_1_795_form a lemon:Form ;
+  lemon:writtenRep "result"@en .
+
+:result_of_1_795_singular a    lemon:Form ;
+  lemon:writtenRep "result"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:result_of_1_795_plural a   lemon:Form ;
+  lemon:writtenRep "results"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:result_of_1_795_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_result_of_1_795 ;
+  lexinfo:prepositionalAdjunct :arg2_result_of_1_795 .
+
+:result_of_1_795_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :result_of_1_795_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/result> ;
+  lemon:subjOfProp          :arg2_result_of_1_795 ;
+  lemon:objOfProp           :arg1_result_of_1_795 ;
+  lemon:condition           :result_of_1_795_sense_1_condition .
+
+:result_of_1_795_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Event> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_result_of_1_795 lemon:marker :result_of_1_795_form_preposition .
+## Prepositions ##
+:result_of_1_795_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

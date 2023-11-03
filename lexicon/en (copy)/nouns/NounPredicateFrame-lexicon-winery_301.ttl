@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :winery_301_sense_1_res ;
+  lemon:entry    :winery_301 .
+
+:winery_301 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :winery_301_form ;
+  lemon:otherForm  :winery_301_singular ;
+  lemon:otherForm  :winery_301_plural ;
+  lemon:sense          :winery_301_sense_1 ;
+  lemon:synBehavior    :winery_301_predFrame .
+
+:winery_301_form
+ lemon:writtenRep "winery"@en .
+
+:winery_301_singular a    lemon:Form ;
+  lemon:writtenRep "winery"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:winery_301_plural a   lemon:Form ;
+  lemon:writtenRep "wineries"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:winery_301_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :winery_301_sense_1_res ;
+  lemon:isA       :winery_301_PredSynArg .
+
+:winery_301_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Winery> .

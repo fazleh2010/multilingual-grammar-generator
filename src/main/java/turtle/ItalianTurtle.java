@@ -356,4 +356,9 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
         return preposition;
     }
 
+    @Override
+    public void setNounPredicateFrame(String key, List<String[]> rows, String syntacticFrame) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

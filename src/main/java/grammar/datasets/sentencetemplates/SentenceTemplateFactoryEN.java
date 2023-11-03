@@ -1203,11 +1203,11 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         language,
         List.of(
         //Give me all Danish films.
-        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjective(adjectiveBaseForm)",
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjective(adjectiveBaseForm) object(domain).",
         //what is a Danish film.
         //"interrogativePronoun(domain:plural) verb(component_be:present:singular) adjective(adjectiveBaseForm)",
         //what are Danish film.
-        "interrogativePronoun(domain:plural) verb(component_be:present:plural) adjective(adjectiveBaseForm)"
+        "interrogativePronoun(domain:plural) verb(component_be:present:plural) adjective(adjectiveBaseForm) object(domain)."
  
         ),
         AdjectivePredicateFrame,

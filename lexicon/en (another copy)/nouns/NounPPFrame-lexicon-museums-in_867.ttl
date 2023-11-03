@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :museums-in_867 ;
+  lemon:entry    :museums-in_867_form_preposition .
+
+:museums-in_867 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :museums-in_867_form ;
+  lemon:otherForm  :museums-in_867_singular ;
+  lemon:otherForm  :museums-in_867_plural ;
+  lemon:sense          :museums-in_867_sense_1 ;
+  lemon:sense          :museums-in_867_sense_2 ;
+  lemon:synBehavior    :museums-in_867_nounpp .
+
+:museums-in_867_form a lemon:Form ;
+  lemon:writtenRep "museum"@en .
+
+:museums-in_867_singular a    lemon:Form ;
+  lemon:writtenRep "museum"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:museums-in_867_plural a   lemon:Form ;
+  lemon:writtenRep "museums"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:museums-in_867_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_museums-in_867 ;
+  lexinfo:prepositionalAdjunct :arg2_museums-in_867 .
+
+:museums-in_867_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :museums-in_867_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/location> ;
+  lemon:subjOfProp          :arg2_museums-in_867 ;
+  lemon:objOfProp           :arg1_museums-in_867 ;
+  lemon:condition           :museums-in_867_sense_1_condition .
+
+:museums-in_867_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Settlement> .
+
+:museums-in_867_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :museums-in_867_sense_2 ;
+  lemon:reference           <http://dbpedia.org/property/museum> ;
+  lemon:subjOfProp          :arg2_museums-in_867 ;
+  lemon:objOfProp           :arg1_museums-in_867 ;
+  lemon:condition           :museums-in_867_sense_2_condition .
+
+:museums-in_867_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Artwork> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Museum> .
+
+:arg2_museums-in_867 lemon:marker :museums-in_867_form_preposition .
+## Prepositions ##
+:museums-in_867_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

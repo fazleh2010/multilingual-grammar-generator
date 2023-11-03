@@ -115,7 +115,7 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
             sentences.add(sentence);
         }*/
         for(String sentence:generatedSentences){
-            sentence=sentence+" "+"(X)"+".";
+            //sentence=sentence+" "+"(X)"+".";
             sentences.add(sentence);
         }
         this.template = TempConstants.predicateAdjectiveBaseForm;

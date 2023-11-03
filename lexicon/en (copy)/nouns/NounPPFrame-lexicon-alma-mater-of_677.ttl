@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :alma-mater-of_677 ;
+  lemon:entry    :alma-mater-of_677_form_preposition .
+
+:alma-mater-of_677 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :alma-mater-of_677_form ;
+  lemon:otherForm  :alma-mater-of_677_singular ;
+  lemon:otherForm  :alma-mater-of_677_plural ;
+  lemon:sense          :alma-mater-of_677_sense_1 ;
+  lemon:sense          :alma-mater-of_677_sense_2 ;
+  lemon:synBehavior    :alma-mater-of_677_nounpp .
+
+:alma-mater-of_677_form a lemon:Form ;
+  lemon:writtenRep "alma mater"@en .
+
+:alma-mater-of_677_singular a    lemon:Form ;
+  lemon:writtenRep "alma mater"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:alma-mater-of_677_plural a   lemon:Form ;
+  lemon:writtenRep "alma maters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:alma-mater-of_677_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_alma-mater-of_677 ;
+  lexinfo:prepositionalAdjunct :arg2_alma-mater-of_677 .
+
+:alma-mater-of_677_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :alma-mater-of_677_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaTotal> ;
+  lemon:subjOfProp          :arg2_alma-mater-of_677 ;
+  lemon:objOfProp           :arg1_alma-mater-of_677 ;
+  lemon:condition           :alma-mater-of_677_sense_1_condition .
+
+:alma-mater-of_677_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:alma-mater-of_677_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :alma-mater-of_677_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaTotal> ;
+  lemon:subjOfProp          :arg2_alma-mater-of_677 ;
+  lemon:objOfProp           :arg1_alma-mater-of_677 ;
+  lemon:condition           :alma-mater-of_677_sense_2_condition .
+
+:alma-mater-of_677_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2_alma-mater-of_677 lemon:marker :alma-mater-of_677_form_preposition .
+## Prepositions ##
+:alma-mater-of_677_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

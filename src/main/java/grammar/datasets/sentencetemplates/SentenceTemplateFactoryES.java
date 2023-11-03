@@ -57,8 +57,9 @@ class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,
            "interrogativePronounPerson(range:singular) verb(component_be:present:singular) noun(singular) preposition adjunct(domain)?",
            //¿En qué zona horaria esta Roma?
            "interrogativeDeterminerEn noun(singular) verb(component_esta:present:singular) object(domain)?",
-           //¿Cuáles son los condados de Monarquía constitucional? ¿Cuáles son condados ($x | Country_NP)?
-           "interrogativePronounThingPlural verb(component_be:present:plural) noun(plural) preposition object(domain)?",
+           //¿Cuáles son los condados de Monarquía constitucional? 
+           "interrogativePronounThingPlural verb(component_be:present:plural) article(los) noun(plural) preposition object(domain)?",
+           "interrogativePronounThingPlural verb(component_be:present:plural) article(las) noun(plural) preposition object(domain)?",
            //¿Qué ingredientes son necesarios para una tarta de zanahorias?
             "interrogativeVariableDeterminer(range:singular) verb(component_be:present:plural) noun(singular) preposition adjunct(domain)?",
             ///Muéstrame todos los libros en la serie Fundación de Asimov
@@ -182,6 +183,8 @@ class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,
         "interrogativePronounPersonQuien verb(mainVerb:past:thirdPerson) object(domain)?",
         "interrogativePronounPerson verb(mainVerb:perfect:thirdPerson) object(domain)?",
         "interrogativePronounPersonQuien verb(mainVerb:perfect:thirdPerson) object(domain)?",
+        "interrogativePronounPersonQuien verb(mainVerb:present3rd:thirdPerson) object(domain)?",
+        "interrogativePronounPerson verb(mainVerb:present3rd:thirdPerson) object(domain)?",
         //¿En qué museo está expuesto el Grito?
         "interrogativeDeterminerEn(range:singular) verb(mainVerb:past:thridPerson) object(domain)?",
         "interrogativeDeterminerEn(range:plural) verb(mainVerb:present:thridPerson) object(domain)?",
@@ -728,6 +731,25 @@ class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,
         InTransitivePPFrame,
         HOW_MANY_TOTAL,
         backward
+      )
+    );
+      
+    sentenceTemplateRepository.add(
+      createSentenceTemplate(
+        language,
+        List.of(
+        //Dame todas las películas danesas.
+        "verb(component_imperative_transitive:present:singular) determiner(component_todas) article(las) object(domain) adjective(adjectiveBaseForm).",
+        "verb(component_imperative_transitive:present:singular) determiner(component_todas) article(los) object(domain) adjective(adjectiveBaseForm)."
+        //what is a Danish film.
+        //"interrogativePronoun(domain:plural) verb(component_be:present:singular) adjective(adjectiveBaseForm)",
+        //what are Danish film.
+        //"interrogativePronoun(domain:plural) verb(component_be:present:plural) adjective(adjectiveBaseForm)"
+ 
+        ),
+        AdjectivePredicateFrame,
+        predicateAdjectiveBaseForm,
+        forward
       )
     );
     

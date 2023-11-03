@@ -65,6 +65,7 @@
   lemon:entry    :sobre ;
   lemon:entry    :como ;
   lemon:entry    :los ;
+  lemon:entry    :las ;
   lemon:entry    :appos ;
   lemon:entry    :hasta .
 
@@ -378,7 +379,11 @@
 
   :los a                 lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "los"@en ] ;
-  lexinfo:partOfSpeech lexinfo:particle .
+  lexinfo:partOfSpeech lexinfo:article .
+  
+  :las a                 lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "las"@en ] ;
+  lexinfo:partOfSpeech lexinfo:article .
 
  :appos a                 lemon:SynRoleMarker ;
   lemon:canonicalForm  [ lemon:writtenRep "'s"@en ] ;

@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :mammal_591_sense_1_res ;
+  lemon:entry    :mammal_591 .
+
+:mammal_591 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :mammal_591_form ;
+  lemon:otherForm  :mammal_591_singular ;
+  lemon:otherForm  :mammal_591_plural ;
+  lemon:sense          :mammal_591_sense_1 ;
+  lemon:synBehavior    :mammal_591_predFrame .
+
+:mammal_591_form
+ lemon:writtenRep "mammal"@en .
+
+:mammal_591_singular a    lemon:Form ;
+  lemon:writtenRep "mammal"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:mammal_591_plural a   lemon:Form ;
+  lemon:writtenRep "mammals"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:mammal_591_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :mammal_591_sense_1_res ;
+  lemon:isA       :mammal_591_PredSynArg .
+
+:mammal_591_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Mammal> .

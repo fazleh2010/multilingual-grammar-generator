@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :colombian_932_sense_1_res ;
+  lemon:entry    :colombian_932 .
+
+:colombian_932 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :colombian_932_lemma ;
+  lemon:sense          :colombian_932_sense_1 ;
+  lemon:synBehavior    :colombian_932_attrFrame, :colombian_932_predFrame .
+
+:colombian_932_lemma lemon:writtenRep "colombian"@en .
+
+:colombian_932_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :colombian_932_PredSynArg .
+
+:colombian_932_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :colombian_932_AttrSynArg .
+
+:colombian_932_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :colombian_932_sense_1_res ;
+  lemon:isA       :colombian_932_AttrSynArg, :colombian_932_PredSynArg .
+
+:colombian_932_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Colombia> .

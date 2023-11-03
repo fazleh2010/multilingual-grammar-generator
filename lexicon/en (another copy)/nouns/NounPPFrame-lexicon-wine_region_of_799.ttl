@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :wine_region_of_799 ;
+  lemon:entry    :wine_region_of_799_form_preposition .
+
+:wine_region_of_799 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :wine_region_of_799_form ;
+  lemon:otherForm  :wine_region_of_799_singular ;
+  lemon:otherForm  :wine_region_of_799_plural ;
+  lemon:sense          :wine_region_of_799_sense_1 ;
+  lemon:synBehavior    :wine_region_of_799_nounpp .
+
+:wine_region_of_799_form a lemon:Form ;
+  lemon:writtenRep "wine region"@en .
+
+:wine_region_of_799_singular a    lemon:Form ;
+  lemon:writtenRep "wine region"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:wine_region_of_799_plural a   lemon:Form ;
+  lemon:writtenRep "wine regions"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:wine_region_of_799_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_wine_region_of_799 ;
+  lexinfo:prepositionalAdjunct :arg2_wine_region_of_799 .
+
+:wine_region_of_799_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :wine_region_of_799_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/wineRegion> ;
+  lemon:subjOfProp          :arg2_wine_region_of_799 ;
+  lemon:objOfProp           :arg1_wine_region_of_799 ;
+  lemon:condition           :wine_region_of_799_sense_1_condition .
+
+:wine_region_of_799_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Grape> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_wine_region_of_799 lemon:marker :wine_region_of_799_form_preposition .
+## Prepositions ##
+:wine_region_of_799_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

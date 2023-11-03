@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :work_641_sense_1_res ;
+  lemon:entry    :work_641 .
+
+:work_641 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :work_641_form ;
+  lemon:otherForm  :work_641_singular ;
+  lemon:otherForm  :work_641_plural ;
+  lemon:sense          :work_641_sense_1 ;
+  lemon:synBehavior    :work_641_predFrame .
+
+:work_641_form
+ lemon:writtenRep "work"@en .
+
+:work_641_singular a    lemon:Form ;
+  lemon:writtenRep "work"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:work_641_plural a   lemon:Form ;
+  lemon:writtenRep "works"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:work_641_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :work_641_sense_1_res ;
+  lemon:isA       :work_641_PredSynArg .
+
+:work_641_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Work> .

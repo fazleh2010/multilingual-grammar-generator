@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :span_of_925 ;
+  lemon:entry    :span_of_925_form_preposition .
+
+:span_of_925 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :span_of_925_form ;
+  lemon:otherForm  :span_of_925_singular ;
+  lemon:otherForm  :span_of_925_plural ;
+  lemon:sense          :span_of_925_sense_1 ;
+  lemon:synBehavior    :span_of_925_nounpp .
+
+:span_of_925_form a lemon:Form ;
+  lemon:writtenRep "span"@en .
+
+:span_of_925_singular a    lemon:Form ;
+  lemon:writtenRep "span"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:span_of_925_plural a   lemon:Form ;
+  lemon:writtenRep "spans"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:span_of_925_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_span_of_925 ;
+  lexinfo:prepositionalAdjunct :arg2_span_of_925 .
+
+:span_of_925_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :span_of_925_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/mainspan> ;
+  lemon:subjOfProp          :arg2_span_of_925 ;
+  lemon:objOfProp           :arg1_span_of_925 ;
+  lemon:condition           :span_of_925_sense_1_condition .
+
+:span_of_925_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Bridge> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2_span_of_925 lemon:marker :span_of_925_form_preposition .
+## Prepositions ##
+:span_of_925_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

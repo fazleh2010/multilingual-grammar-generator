@@ -45,7 +45,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private String writtenFormPast = "";
     private String writtenFormPerfect = "";
     private String preposition = "";
-    private static Integer index = 0;
+    private static Integer overallIndex = 0;
     private Map<String,List<String>>domainOrRange=new TreeMap<String,List<String>>();
 
     private EnglishCsv.NounPPFrameCsv nounPPFrameCsv = new EnglishCsv.NounPPFrameCsv();
@@ -53,10 +53,13 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private EnglishCsv.InTransitFrame IntransitiveFrameCsv = new EnglishCsv.InTransitFrame();
     private EnglishCsv.AttributiveAdjectiveFrame attributiveAdjectiveFrame = new EnglishCsv.AttributiveAdjectiveFrame();
     private EnglishCsv.GradbleAdjectiveFrameCsv gradableAdjectiveFrameCsv = new EnglishCsv.GradbleAdjectiveFrameCsv();
+    private EnglishCsv.NounPredicateFrame nounPredicateFrame = new EnglishCsv.NounPredicateFrame();
 
     public EnglishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
         super(inputDir, linkedData, language);
-        super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(), transitiveFrameCsv.getSyntacticFrameIndex(), IntransitiveFrameCsv.getSyntacticFrameIndex(), attributiveAdjectiveFrame.getSyntacticFrameIndex(), gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
+        super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(), transitiveFrameCsv.getSyntacticFrameIndex(), IntransitiveFrameCsv.getSyntacticFrameIndex(), 
+                attributiveAdjectiveFrame.getSyntacticFrameIndex(), gradableAdjectiveFrameCsv.getSyntacticFrameIndex(),
+                nounPredicateFrame.getSyntacticFrameIndex());
         this.generateTurtle();
     }
 
@@ -143,7 +146,9 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
             setIntransitivePPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             setAdjectiveFrame(key, rows, syntacticFrame);
-        }else if (syntacticFrame.equals(AdjectiveSuperlativeFrame)) {
+        } else if (syntacticFrame.equals(NounPredicateFrame)) {
+            setNounPredicateFrame(key, rows, syntacticFrame);
+        } else if (syntacticFrame.equals(AdjectiveSuperlativeFrame)) {
             setAdjectiveGradableFrame(key, rows, syntacticFrame);
         }
         else {
@@ -181,7 +186,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + nounPPFrameCsv.getWrittenTtl(this.lemonEntry, this.writtenFormInfinitive, this.writtenFormInfinitive,this.writtenForm_plural,this.language,copulativeArg)
                 + nounPPFrameCsv.getSenseDetail(tupplesList, NounPPFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + nounPPFrameCsv.getPreposition(this.lemonEntry,this.preposition, language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName(key,syntacticFrame);
          
     }
 
@@ -223,7 +228,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + transitiveFrameCsv.getWritten(this.lemonEntry, this.partOfSpeech,this.writtenFormInfinitive, this.writtenForm3rdPerson, this.writtenFormPast, this.writtenFormPerfect,this.language,subject)
                 + transitiveFrameCsv.getSenseDetail(tupples, syntacticFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + transitiveFrameCsv.getPrepostion(this.lemonEntry,this.preposition, this.language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName(key,syntacticFrame);
     }
 
     @Override
@@ -259,7 +264,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + IntransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast,this.writtenFormPerfect, this.language,subject)
                 + IntransitiveFrameCsv.getSenseDetail(tupples, syntacticFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + IntransitiveFrameCsv.getPrepostion(this.lemonEntry,this.preposition, this.language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName(key,syntacticFrame);
     }
 
     @Override
@@ -286,9 +291,24 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + attributiveAdjectiveFrame.getAtrributiveFrameIndexing(tupples, this.lemonEntry)
                 + attributiveAdjectiveFrame.getAtrrtibutiveWrittenForm(lemonEntry, writtenFormInfinitive, this.language)
                 + attributiveAdjectiveFrame.getSenseDetail(tupples, syntacticFrame, this.lemonEntry, "", "", this.language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName(key,syntacticFrame);
         //this.tutleFileName = getFileName("NounPredicateFrame");
     }
+    
+    @Override
+    public void setNounPredicateFrame(String key, List<String[]> rows, String syntacticFrame) {
+        Integer index = 1;
+        for (String[] row : rows) {
+            this.setLemonEntryId(IntransitiveFrameCsv.getLemonEntryIndex(row));
+            this.turtleString = nounPredicateFrame.getNounPredicateFrameTurtle(row,"en",this.lemonEntry);
+            this.tutleFileName = getFileName(key,syntacticFrame);
+            index=index+1;
+        }
+         
+    }
+
+    
+    
     
     
     @Override
@@ -324,7 +344,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
                 + gradableAdjectiveFrameCsv.getWrittenTtl(this.lemonEntry, this.writtenFormInfinitive, this.writtenForm3rdPerson,this.writtenFormPast,this.language)
                 + gradableAdjectiveFrameCsv.getSenseDetail(lemonEntry, tupplesList, language)
                 + gradableAdjectiveFrameCsv.getPrepostion(lemonEntry, this.preposition, language);
-        this.tutleFileName = getFileName(syntacticFrame);
+        this.tutleFileName = getFileName(key,syntacticFrame);
 
         /*for (String[] row : rows) {
             Tupples tupple = new Tupples(lemonEntry,
@@ -347,22 +367,24 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
     private String modify(String string) {
         /*string = string.replaceAll("[^a-zA-Z0-9]", " ");
         string = string.toLowerCase().strip().trim().replace(" ", "_");*/
-        index = index + 1;
+        overallIndex = overallIndex + 1;
         //return "LexicalEntry_" + string+"_"+index.toString();
-        string = string.toLowerCase().strip().trim().replace(" ", "_")+"_"+index;
+        string = string.toLowerCase().strip().trim().replace(" ", "_")+"_"+overallIndex;
         return string;
     }
 
     private void setLemonEntryId(String writtenForm) {
+        writtenForm=writtenForm.replace("(", "_").replace(")", "_");
+        writtenForm=writtenForm.replace(" ", "_").strip().stripLeading().stripTrailing().trim();
         this.lemonEntry = this.modify(writtenForm);
 
     }
 
-    private String getFileName(String syntacticFrame) {
+    private String getFileName(String id,String syntacticFrame) {
         return syntacticFrame + "-lexicon" + "-" + lemonEntry.replace("/", "") + ".ttl";
 
     }
 
-    
+   
 
 }

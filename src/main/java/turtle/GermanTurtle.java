@@ -377,6 +377,36 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
         }
         return domainOrRange;
     }
+
+    @Override
+    public void setNounPredicateFrame(String key, List<String[]> rows, String syntacticFrame) {
+        List<Tupples> tupples = new ArrayList<Tupples>();
+        Integer index = 0;
+        for (String[] row : rows) {
+            
+            if (index == 0) {
+                this.setLemonEntryId(row[GermanCsv.lemonEntryIndex]);
+                this.partOfSpeech = row[GermanCsv.partOfSpeechIndex];
+                this.writtenFormInfinitive = row[GermanCsv.writtenFormInfinitive];
+
+            }
+
+            tupples.add(new Tupples(this.lemonEntry,
+                    index + 1,
+                    "",
+                    this.setReference(row[attributiveAdjectiveFrame.owl_onPropertyIndex]),
+                    this.setReference(row[attributiveAdjectiveFrame.owl_hasValueIndex])));
+            index = index + 1;
+        }
+        this.turtleString
+                = attributiveAdjectiveFrame.getAtrributiveFrameHeader(this.lemonEntry, tupples, this.language)
+                + attributiveAdjectiveFrame.getAtrributiveFrameIndexing(tupples, this.lemonEntry)
+                + attributiveAdjectiveFrame.getAtrrtibutiveWrittenForm(lemonEntry, writtenFormInfinitive, this.language)
+                + GermanCsv.getSenseDetail(tupples, syntacticFrame, this.lemonEntry, "", "", this.language);
+        this.tutleFileName = getFileName(syntacticFrame);
+    }
+
+   
      
 
 }
