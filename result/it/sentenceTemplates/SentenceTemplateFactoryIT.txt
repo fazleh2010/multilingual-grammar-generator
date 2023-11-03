@@ -1,4 +1,6 @@
-
+ //NounPPFrame
+    sentenceTemplateRepository.add(
+      createSentenceTemplate(language,
         List.of(
           //"Qual è la capitale del Cameroon",
           "interrogativePronoun(range:singular) verb(component_be:present:singular) noun(singular) preposition adjunct(domain)?",
@@ -27,7 +29,7 @@
 
         ),
         NounPPFrame,
-        whQuestion
+        Prepositional_Adjuct
       )
     );
     
@@ -307,7 +309,7 @@
          "preposition interrogativeDeterminer(preposition:range:plural) verb(component_be:present:plural) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
           */
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,
         forward
       )
@@ -335,7 +337,7 @@
          //"preposition interrogativePronounThing(dativeCase:masculine:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
          */
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_1,
         backward
       )
@@ -368,7 +370,7 @@
           */
    
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_2,
         forward
       )
@@ -394,7 +396,7 @@
          //"preposition interrogativePronounThing(dativeCase:masculine:singular) verb(component_be:present:singular) adjunct(range) verb(mainVerb:perfect:thridPerson)?",
        */
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_PRESENT_THING_2,
         backward
       )
@@ -424,7 +426,7 @@
           "interrogativePlace verb(mainVerb:past:thridPerson) adjunct(domain)?"   
                 
                 ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_LOCATION,
         forward
       )
@@ -443,7 +445,7 @@
          //Trenn
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(range) verb(TrennVerbPart2:past:thridPerson)? "
           */  ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHAT_WHICH_LOCATION,
         backward
       )
@@ -451,8 +453,7 @@
       
       ///////////////////////////////
        sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
           //"Quando ha avuto luogo la battaglia di Gettysburg?"
           "interrogativeTemporal verb(mainVerb:present:thridPerson) object(domain)?",
@@ -462,15 +463,14 @@
           //¿Quién es el anfitrión de la American Idol?
           //"interrogativePronounPerson verb(component_be:present:singular) verb(mainVerb:past:thridPerson) object(domain)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHAT_PAST_THING,
         forward
       )
     );
     
       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
          /*//Was wurde 2010 fertiggestellt?
          "interrogativePronoun(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?",
@@ -484,15 +484,14 @@
          //"interrogativeDeterminer(nominativeCase:domain:singular) verb(component_werden:past:plural) preposition adjunct(range) verb(TrennVerb:perfect:thridPerson)",
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:past:thridPerson)?"
         */),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHAT_PAST_THING,
         backward
       )
     );
     ///////////////////////////////
        sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
           //"Quando è stata fondata Seagate Technology?
          "interrogativeVariableDeterminer(range:plural) verb(component_aux_object_past:present:singular) verb(mainVerb:perfect:thridPerson) adjunct(domain)?",
@@ -504,7 +503,7 @@
           "preposition interrogativeDeterminerSingular(range:singular) verb(component_be:present:singular) verb(mainVerb:past:thridPerson) adjunct(domain)?"
         // "preposition interrogativeDeterminer(dativeCase:range:singular) verb(component_werden:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?",
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHO_PAST_PERSON,
         forward
       )
@@ -512,13 +511,12 @@
     //Welche Person wurde 2010 geboren?
     //Wer ist 2010 geboren?
       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
          //"interrogativeDeterminer(nominativeCase:domain:singular) verb(component_werden:past:singular) adjunct(range) verb(mainVerb:perfect:thridPerson)?",
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHEN_WHO_PAST_PERSON,
         backward
       )
@@ -526,15 +524,14 @@
       
     
       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
         //¿En qué ciudad murió John F. Kennedy?
          "interrogativeDeterminerEn(domain:singular) verb(mainVerb:present:thridPerson) preposition adjunct(range)?",
          "interrogativeDeterminerEn(domain:plural) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
          
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHO_WHO_PERSON,
         forward
       )
@@ -544,8 +541,7 @@
       
           ///////////////////////////////
        sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
           //¿Qué surfistas profesionales nacieron en las Filipinas?
          "interrogativeVariableDeterminer(range:singular) verb(mainVerb:present:thridPerson) preposition adjunct(domain)?",   
@@ -564,7 +560,7 @@
 
 
                    ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         forward
       )
@@ -575,8 +571,7 @@
     //Welche Person wurde 2010 geboren?
     //Wer ist 2010 geboren?
       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(     
           //In quale città morì John F. Kennedy?
         "preposition interrogativeDeterminer(domain:singular) verb(component_be:present:singular) verb(mainVerb:past:thridPerson) adjunct(range)?",
@@ -586,7 +581,7 @@
         "interrogativeVariableDeterminer noun(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?"
         
             ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHO_PAST_PERSON,
         backward
       )
@@ -603,7 +598,7 @@
         //¿Quién era llamado Frank The Tank?
         //"interrogativePronounPerson verb(component_be:present:singular) verb(mainVerb:past:thridPerson) adjunct(domain)?"
                 ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         PERSON_CAUSE,
         forward
       )
@@ -619,7 +614,7 @@
         //"interrogativePronoun(nominativeCase:domain:singular) verb(component_be:past:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
       
           ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         PERSON_CAUSE,
         backward
       )
@@ -630,27 +625,25 @@
       
              ///////////////////////////////
        sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
          //Wo f├ñngt Piccadilly an? Trenn example
          "interrogativePlace verb(TrennVerbPart1:present3rd:thridPerson) object(domain) verb(TrennVerbPart2:present3rd:thridPerson)?",
          "interrogativePlace verb(TrennVerbPart1:past:thridPerson) object(domain) verb(TrennVerbPart2:past:thridPerson)?"
              ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHAT_PRESENT_THING,
         backward
       )
     );
       sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
+      createSentenceTemplate(language,
         List.of(
         //Was beginnt in Piccadilly?      
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:present3rd:thridPerson) preposition adjunct(domain) verb(TrennVerbPart2:present3rd:thridPerson)?",
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(domain) verb(TrennVerbPart2:past:thridPerson)?"
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         WHERE_WHAT_PRESENT_THING,
         forward
       )
@@ -673,7 +666,7 @@
        
     
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_TOTAL,
         forward
       )
@@ -694,7 +687,7 @@
         //"interrogativeDeterminer(nominativeCase:domain:singular) verb(component_haben:present:singular) object(range) verb(mainVerb:perfect:singular)?"      
             
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_TOTAL,
         backward
       )
@@ -778,7 +771,7 @@
         "interrogativeAmount(nominativeCase:range:plural) verb(component_werden:present:plural) preposition object(domain) verb(mainVerb:perfect:thridPerson)?"
     
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING,
         forward
       )
@@ -789,7 +782,7 @@
         List.of(  //Welches Buch kostet 10 Dollar?
              
         ),
-        IntransitivePPFrame,
+        InTransitivePPFrame,
         HOW_MANY_THING,
         backward
       )
@@ -797,4 +790,3 @@
       
       
    }
-
