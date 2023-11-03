@@ -1,4 +1,0 @@
-LemonEntry,partOfSpeech,writtenFormInfinitive,writtenFormThridPerson,writtenFormPast,writtenFormPast,preposition,SyntacticFrame,subject,prepositionalAdjunct,sense,reference,domain,range,domainArticle,domainWrittenSingular,domainWrittenPlural,rangeArticle,rangeWrittenSingular,rangeWrittenPlural
-geborn_am_1,verb,gebären,gebärt,gebar,geboren,am,IntransitivePPFrame,domain,range,1,dbo:birthYear,dbo:Person,xsd:date,masculine,Person,Personen,neuter,Jahr,Jahren
-geborn_im_1,verb,gebären,gebärt,gebar,geboren,im,IntransitivePPFrame,domain,range,1,dbo:birthPlace,dbo:Person,dbo:Place,masculine,Person,Personen,neuter,Stadt,Städte
-Liegen_1,verb,liegen,liegt,lag,gelegen,in,IntransitivePPFrame,domain,range,1,dbo:country,dbo:City,dbo:Country,masculine,Person,Personen,neuter,Stadt,Städte

@@ -1,2 +1,0 @@
-LemonEntry,partOfSpeech,writtenFormInfinitive,writtenForm3rdPresent,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition
-entwickeln,verb,entwickeln,entwickelt,entwickelte,entwickelt,TransitiveFrame,domain,range,1,dbo:product,dbo:Company,dbo:Software,von

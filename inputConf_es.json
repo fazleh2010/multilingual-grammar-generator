@@ -6,7 +6,7 @@
    "offlineQuestion" : "true",
    "onlineAnswer" : "false",
    "inputDir"     : "lexicon",
-   "outputDir"    : "result/",
+   "outputDir"    : "result-test/",
    "entityDir"    : "resources/es/property/",
    "questionDir"  : "resources/es/questions/",
    "classDir"     : "resources/es/entity/",
