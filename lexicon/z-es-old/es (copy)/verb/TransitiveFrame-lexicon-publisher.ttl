@@ -1,0 +1,91 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :to_publisher ;
+  lemon:entry    :publishered ;
+  lemon:entry    :form_publisher_preposition .
+
+:to_publisher a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_publisher ;
+  lemon:otherForm      :form_publishers ;
+  lemon:otherForm      :form_publishered ;
+  lemon:sense          :publisher_sense_1 ;
+  lemon:synBehavior    :publisher_frame_transitive .
+
+:form_publisher a         lemon:Form ;
+  lemon:writtenRep     "publicar"@es ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_publishers a    lemon:Form ;
+  lemon:writtenRep "publica"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+
+:form_publishers a    lemon:Form ;
+  lemon:writtenRep "publicó"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:form_publishered a   lemon:Form ;
+  lemon:writtenRep "publicado"@es ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:publisher_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :publisher_subj ;
+  lexinfo:directObject     :publisher_obj .
+
+:publisher_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :publisher_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/publisher> ;
+  lemon:subjOfProp  :publisher_obj ;
+  lemon:objOfProp   :publisher_subj ;
+  lemon:condition   :publisher_sense_1_condition .
+
+
+:publisher_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+:publishered a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_publishered_canonical ;
+  lemon:otherForm      :form_publishered_by ;
+  lemon:synBehavior    :publishered_frame_adjectivepp ;
+  lemon:sense          :publishered_ontomap .
+
+:form_publishered_canonical a lemon:Form ;
+  lemon:writtenRep         "publicar"@es .
+
+:form_publishered_by a    lemon:Form ;
+  lemon:writtenRep     "publicar"@es ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:publishered_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :publishered_subj ;
+  lexinfo:prepositionalAdjunct :publishered_obj .
+
+:publishered_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :publishered_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/publisher> ;
+  lemon:subjOfProp  :publishered_subj ;
+  lemon:objOfProp   :publishered_obj ;
+  lemon:condition   :publisher_sense_1_condition .
+:publishered_obj lemon:marker :por .
+
+:arg2 lemon:marker :form_publisher_form_preposition .
+
+## Prepositions ##
+
+:form_publisher_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "por"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

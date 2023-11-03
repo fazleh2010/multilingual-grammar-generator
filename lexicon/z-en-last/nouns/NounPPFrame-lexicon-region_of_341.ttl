@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :region_of_341 ;
+  lemon:entry    :region_of_341_form_preposition .
+
+:region_of_341 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :region_of_341_form ;
+  lemon:otherForm  :region_of_341_singular ;
+  lemon:otherForm  :region_of_341_plural ;
+  lemon:sense          :region_of_341_sense_1 ;
+  lemon:synBehavior    :region_of_341_nounpp .
+
+:region_of_341_form a lemon:Form ;
+  lemon:writtenRep "region"@en .
+
+:region_of_341_singular a    lemon:Form ;
+  lemon:writtenRep "region"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:region_of_341_plural a   lemon:Form ;
+  lemon:writtenRep "regions"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:region_of_341_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:region_of_341_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :region_of_341_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/wineRegion> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :region_of_341_sense_1_condition .
+
+:region_of_341_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Grape> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:null lemon:marker :region_of_341_form_preposition .
+## Prepositions ##
+:region_of_341_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

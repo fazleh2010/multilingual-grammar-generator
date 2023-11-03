@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :book_in_439 ;
+  lemon:entry    :book_in_439_form_preposition .
+
+:book_in_439 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :book_in_439_form ;
+  lemon:otherForm  :book_in_439_singular ;
+  lemon:otherForm  :book_in_439_plural ;
+  lemon:sense          :book_in_439_sense_1 ;
+  lemon:sense          :book_in_439_sense_2 ;
+  lemon:synBehavior    :book_in_439_nounpp .
+
+:book_in_439_form a lemon:Form ;
+  lemon:writtenRep "book"@en .
+
+:book_in_439_singular a    lemon:Form ;
+  lemon:writtenRep "book"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:book_in_439_plural a   lemon:Form ;
+  lemon:writtenRep "books"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:book_in_439_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:book_in_439_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :book_in_439_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :book_in_439_sense_1_condition .
+
+:book_in_439_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionEpisode> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Work> .
+
+:book_in_439_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :book_in_439_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :book_in_439_sense_2_condition .
+
+:book_in_439_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionEpisode> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Work> .
+
+:null lemon:marker :book_in_439_form_preposition .
+## Prepositions ##
+:book_in_439_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

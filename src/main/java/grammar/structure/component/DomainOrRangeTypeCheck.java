@@ -182,7 +182,9 @@ public enum DomainOrRangeTypeCheck {
             URI.create(DBO.getUri() + "activeYearsEndDate"),
             URI.create(DBO.getUri() + "activeYearsStartDate"),
             URI.create(DBP.getUri() + "published"),
-            URI.create(DBP.getUri() + "beginningDate")
+            URI.create(DBP.getUri() + "beginningDate"),
+            URI.create(DBP.getUri() + "founded") 
+            
             
     )),
     

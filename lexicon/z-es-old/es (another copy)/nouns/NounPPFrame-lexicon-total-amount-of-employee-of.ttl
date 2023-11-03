@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :total-amount-of-employee-of ;
+  lemon:entry    :total-amount-of-employee-of_form_preposition .
+
+:total-amount-of-employee-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :total-amount-of-employee-of_form ;
+  lemon:otherForm  :total-amount-of-employee-of_singular ;
+  lemon:otherForm  :total-amount-of-employee-of_plural ;
+  lemon:sense          :total-amount-of-employee-of_sense_1 ;
+  lemon:synBehavior    :total-amount-of-employee-of_nounpp .
+
+:total-amount-of-employee-of_form a lemon:Form ;
+  lemon:writtenRep "número de empleados"@es .
+
+:total-amount-of-employee-of_singular a    lemon:Form ;
+  lemon:writtenRep "número de empleados"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:total-amount-of-employee-of_plural a   lemon:Form ;
+  lemon:writtenRep "números de empleados"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:total-amount-of-employee-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:total-amount-of-employee-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :total-amount-of-employee-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/employees> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :total-amount-of-employee-of_sense_1_condition .
+
+:total-amount-of-employee-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Event> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Agent> .
+
+:arg2 lemon:marker :total-amount-of-employee-of_form_preposition .
+## Prepositions ##
+:total-amount-of-employee-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

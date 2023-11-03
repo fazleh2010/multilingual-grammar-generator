@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :revenueYear-of ;
+  lemon:entry    :revenueYear-of_form_preposition .
+
+:revenueYear-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :revenueYear-of_form ;
+  lemon:otherForm  :revenueYear-of_singular ;
+  lemon:otherForm  :revenueYear-of_plural ;
+  lemon:sense          :revenueYear-of_sense_1 ;
+  lemon:synBehavior    :revenueYear-of_nounpp .
+
+:revenueYear-of_form a lemon:Form ;
+  lemon:writtenRep "año de ingresos declarados"@es .
+
+:revenueYear-of_singular a    lemon:Form ;
+  lemon:writtenRep "año de ingresos declarados"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:revenueYear-of_plural a   lemon:Form ;
+  lemon:writtenRep "años de ingresos declarados"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:revenueYear-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:revenueYear-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :revenueYear-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/revenueYear> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :revenueYear-of_sense_1_condition .
+
+:revenueYear-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#gYear> .
+
+:arg2 lemon:marker :revenueYear-of_form_preposition .
+## Prepositions ##
+:revenueYear-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

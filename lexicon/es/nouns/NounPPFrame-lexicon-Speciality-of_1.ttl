@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :Speciality-of_1 ;
+  lemon:entry    :Speciality-of_1_form_preposition .
+
+:Speciality-of_1 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :Speciality-of_1_form ;
+  lemon:otherForm  :Speciality-of_1_singular ;
+  lemon:otherForm  :Speciality-of_1_plural ;
+  lemon:sense          :Speciality-of_1_sense_1 ;
+  lemon:synBehavior    :Speciality-of_1_nounpp .
+
+:Speciality-of_1_form a lemon:Form ;
+  lemon:writtenRep "especialidad"@es .
+
+:Speciality-of_1_singular a    lemon:Form ;
+  lemon:writtenRep "especialidad"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:Speciality-of_1_plural a   lemon:Form ;
+  lemon:writtenRep "especialidades"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:Speciality-of_1_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:Speciality-of_1_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :Speciality-of_1_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/title> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :Speciality-of_1_sense_1_condition .
+
+:Speciality-of_1_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :Speciality-of_1_form_preposition .
+## Prepositions ##
+:Speciality-of_1_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

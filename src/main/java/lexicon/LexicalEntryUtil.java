@@ -665,9 +665,9 @@ public class LexicalEntryUtil implements TempConstants{
 
         for (LexicalForm lexicalForm : this.lexicalEntry.getForms()) {
             Pair<Boolean, String> pair = getLastPart(lexicalForm.toString());
-            System.out.println(lexicalForm.toString());
+            //System.out.println(lexicalForm.toString());
             if (reference.contains(superlative) || reference.contains(comperative)) {
-                System.out.println(pair.component1()+" "+pair.component2());
+                //System.out.println(pair.component1()+" "+pair.component2());
                 if (pair.component1() && pair.component2().contains(reference)) {
                     return lexicalForm.getWrittenRep().value;
                 }

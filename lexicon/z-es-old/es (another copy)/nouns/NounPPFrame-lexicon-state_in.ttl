@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :state_in ;
+  lemon:entry    :state_in_form_preposition .
+
+:state_in a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :state_in_form ;
+  lemon:otherForm  :state_in_singular ;
+  lemon:otherForm  :state_in_plural ;
+  lemon:sense          :state_in_sense_1 ;
+  lemon:synBehavior    :state_in_nounpp .
+
+:state_in_form a lemon:Form ;
+  lemon:writtenRep "state"@es .
+
+:state_in_singular a    lemon:Form ;
+  lemon:writtenRep "state"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:state_in_plural a   lemon:Form ;
+  lemon:writtenRep "states"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:state_in_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:state_in_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :state_in_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :state_in_sense_1_condition .
+
+:state_in_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Holiday> .
+
+:arg2 lemon:marker :state_in_form_preposition .
+## Prepositions ##
+:state_in_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

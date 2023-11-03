@@ -838,7 +838,7 @@ public class ItalianCSV {
                     + ":" + lemonEntry + "_obj lemon:marker :" + preposition + " .\n"
                     + "\n";
             str = str + intransitiveStr + prep;
-        } else if (syntacticFrame.equals(TempConstants.IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(TempConstants.InTransitivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
@@ -1047,13 +1047,10 @@ public class ItalianCSV {
         public void setArticle(Tupples tupple, String[] row) {
             //GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingularFormIndex(row), getRangeWrittenSingularFormIndex(row));
             //GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingularFormIndex(row), getRangeWrittenPluralFormIndex(row));
-            System.out.println("domainArticleIndex::"+domainArticleIndex);
-            System.out.println("rangeArticleIndex::"+rangeArticleIndex);
-            
-            GenderUtils.setArticles(tupple.getDomain(), row[this.domainArticleIndex]);
-            GenderUtils.setArticles(tupple.getRange(), row[this.rangeArticleIndex]);
-            GenderUtils.setWrittenForms(tupple.getDomain(), row[this.domainWrittenSingularFormIndex], row[this.domainWrittenPluralFormIndex]);
-            GenderUtils.setWrittenForms(tupple.getRange(), row[this.rangeWrittenSingularFormIndex], row[this.rangeWrittenPluralFormIndex]);
+            GenderUtils.setArticles(tupple.getDomain(),"domainArticle");
+            GenderUtils.setArticles(tupple.getRange(), "rangeArticle");
+            GenderUtils.setWrittenForms(tupple.getDomain(), "domainWrittenSingular", "domainWrittenPlural");
+            GenderUtils.setWrittenForms(tupple.getRange(), "rangeWrittenSingular", "rangeWrittenPlural");
 
         }
 

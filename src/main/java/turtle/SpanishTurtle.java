@@ -14,10 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import util.io.DomainRangeDictionary;
 import util.io.Tupples;
 
 /**
@@ -26,6 +28,7 @@ import util.io.Tupples;
  */
 public class SpanishTurtle extends TurtleCreation implements TutleConverter {
     private static Integer index = 0;
+    private Map<String,List<String>>domainOrRange=new TreeMap<String,List<String>>();
     private SpanishCsv.NounPPFrameCsv nounPPFrameCsv = new SpanishCsv.NounPPFrameCsv();
     private SpanishCsv.TransitFrameCsv transitiveFrameCsv = new SpanishCsv.TransitFrameCsv();
     private SpanishCsv.InTransitFrameCsv intransitiveFrameCsv = new SpanishCsv.InTransitFrameCsv();
@@ -34,35 +37,52 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
 
 
 
-    public SpanishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
+   public SpanishTurtle(String inputDir, LinkedData linkedData, Language language) throws Exception {
         super(inputDir, linkedData, language);
-        super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(),transitiveFrameCsv.getSyntacticFrameIndex(),intransitiveFrameCsv.getSyntacticFrameIndex(),attributiveAdjectiveFrame.getSyntacticFrameIndex(),gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
+        super.setSyntacticFrameIndexes(nounPPFrameCsv.getSyntacticFrameIndex(), transitiveFrameCsv.getSyntacticFrameIndex(), intransitiveFrameCsv.getSyntacticFrameIndex(), attributiveAdjectiveFrame.getSyntacticFrameIndex(), gradableAdjectiveFrameCsv.getSyntacticFrameIndex());
         this.generateTurtle();
     }
 
     private void generateTurtle() throws IOException, Exception {
-        
+        String lemonEntry = null;
         File f = new File(inputDir);
         Boolean flag = false;
         String[] pathnames = f.list();
+        DomainRangeDictionary domainRangeDictionary=new DomainRangeDictionary(inputDir, pathnames);
+        domainOrRange=domainRangeDictionary.getDomainOrRange();
+       
         for (String pathname : pathnames) {
+            if(pathname.contains("~lock.")||pathname.contains(".csv")){
+                continue;
+            }
+            
+            System.out.println(pathname);
             String[] files = new File(inputDir + File.separatorChar + pathname).list();
             for (String fileName : files) {
+                if(fileName.contains("DomainOrRange.csv")){
+                    continue;
+                }
+                
                 if (!fileName.contains(".csv")) {
                     continue;
                 }
 
                 CsvFile csvFile = new CsvFile();
                 String directory = inputDir + "/" + pathname + "/";
-                List<String[]> rows = csvFile.getRows(new File(directory + fileName));
+                List<String[]> rows = csvFile.getRowsManual(new File(directory + fileName));
                 Integer index = 0;
                 Map<String, List<String[]>> keyRows = new HashMap<String, List<String[]>>();
                 for (String[] row : rows) {
+                    
                     if (index == 0) {
                         index = index + 1;
                         continue;
                     }
+                    if(row.length<2){
+                       throw new Exception("the format of CSV file is wrong!!!!");
+                    }
                     String key = row[0];
+
                     List<String[]> values = new ArrayList<String[]>();
                     if (keyRows.containsKey(key)) {
                         values = keyRows.get(key);
@@ -85,13 +105,14 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
                     }
 
                 } catch (Exception ex) {
-                    java.util.logging.Logger.getLogger(SpanishTurtle.class.getName()).log(Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(EnglishTurtle.class.getName()).log(Level.SEVERE, null, ex);
                     throw new Exception(ex.getMessage());
                 }
 
             }
 
         }
+
     }
 
     private void setSyntacticFrame(String key, List<String[]> rows) throws Exception {
@@ -101,7 +122,7 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
             setNounPPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(TransitiveFrame)) {
             setTransitiveFrame(key, rows, syntacticFrame);
-        } else if (syntacticFrame.equals(IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(InTransitivePPFrame)) {
             setIntransitivePPFrame(key, rows, syntacticFrame);
         } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             setAdjectiveFrame(key, rows, syntacticFrame);
@@ -228,7 +249,7 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
                 = intransitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, language)
                 + intransitiveFrameCsv.getSenseIndexing(tupplesList, lemonEntry)
                 + intransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, language,subject)
-                + SpanishCsv.getSenseDetail(tupplesList, TempConstants.IntransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
+                + SpanishCsv.getSenseDetail(tupplesList, TempConstants.InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
                 + intransitiveFrameCsv.getPreposition(lemonEntry, preposition, language);
         this.tutleFileName = getFileName(lemonEntry,syntacticFrame);
     }
@@ -278,7 +299,7 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
         for (String[] row : rows) {
             if (index == 0) {
                 partOfSpeech = gradableAdjectiveFrameCsv.getPartOfSpeechIndex(row);
-                writtenFormInfinitive=gradableAdjectiveFrameCsv.getWrittenFormIndex(row);
+                writtenFormInfinitive=gradableAdjectiveFrameCsv.getDomainWrittenSingularFormIndex(row);
                 writtenForm3rdPerson=gradableAdjectiveFrameCsv.getComparativIndex(row);
                 writtenFormPast=gradableAdjectiveFrameCsv.getSuperlativeIndex(row);
                 preposition=gradableAdjectiveFrameCsv.getPrepostion(row);
@@ -331,6 +352,11 @@ public class SpanishTurtle extends TurtleCreation implements TutleConverter {
         /*if(preposition.contains("X"))
           return "";*/
         return preposition;
+    }
+
+    @Override
+    public void setNounPredicateFrame(String key, List<String[]> rows, String syntacticFrame) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -179,8 +179,8 @@ public class GermanCsv {
             GenderUtils.setArticles(referene, gender);
             for (String key : domainOrRange.keySet()) {
                 List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
+                GenderUtils.setArticles(key, "");
+                GenderUtils.setWrittenForms(key, "", "");
                 //System.out.println(key+" "+row.get(1)+" "+row.get(2));
 
             }
@@ -399,8 +399,8 @@ public class GermanCsv {
             GenderUtils.setArticles(referene, gender);
             for (String key : domainOrRange.keySet()) {
                 List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
+                GenderUtils.setArticles(key, "");
+                GenderUtils.setWrittenForms(key, "", "");
             }
             
         }
@@ -620,13 +620,13 @@ public class GermanCsv {
                 GenderUtils.setArticles(lasName, row.get(0));
                 GenderUtils.setWrittenForms(lasName, row.get(1), row.get(2));
             }*/
-            
             String referene = Property.shortPrefix(tupple.getReference());
             GenderUtils.setArticles(referene, gender);
             for (String key : domainOrRange.keySet()) {
+                System.out.println(key+" "+domainOrRange.get(key));
                 List<String> row = domainOrRange.get(key);
-                GenderUtils.setArticles(key, row.get(0));
-                GenderUtils.setWrittenForms(key, row.get(1), row.get(2));
+                GenderUtils.setArticles(key, "");
+                GenderUtils.setWrittenForms(key, "", "");
             }
             /*String domain = Property.shortPrefix(tupple.getDomain());
             String range = Property.shortPrefix(tupple.getRange());
@@ -960,7 +960,7 @@ public class GermanCsv {
                     + ":" + lemonEntry + "_obj lemon:marker :" + preposition + " .\n"
                     + "\n";
             str = str + intransitiveStr + prep;
-        } else if (syntacticFrame.equals(TempConstants.IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(TempConstants.InTransitivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
@@ -1175,11 +1175,11 @@ public class GermanCsv {
                 List<String> row = domainOrRange.get(domain);
                 GenderUtils.setArticles(domain, row.get(0));
                 //System.out.println(domain+"....:"+row.get(0)+" "+row.get(1)+" "+row.get(2));
-                GenderUtils.setWrittenForms(domain, row.get(1), row.get(2));
+                GenderUtils.setWrittenForms(domain, "", "");
             } else if (domainOrRange.containsKey(range)) {
                 List<String> row = domainOrRange.get(range);
                 GenderUtils.setArticles(range, row.get(0));
-                GenderUtils.setWrittenForms(range, row.get(1), row.get(2));
+                GenderUtils.setWrittenForms(range,"","");
             }
         }
 

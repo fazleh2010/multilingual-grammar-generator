@@ -1,0 +1,47 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix oils:     <http://lemon-model.net/oils#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :populous ;
+  lemon:entry    :form_populous_preposition ;
+  lemon:entry    :populous_res .
+
+:populous a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_populous ;
+  lemon:otherForm      :form_populous_comperative ;
+  lemon:otherForm      :form_populous_superlative ;
+  lemon:sense          :populous_sense_1 ;
+  lemon:synBehavior    :populous_predFrame .
+
+:form_populous lemon:writtenRep "popolosa"@it .
+
+:form_populous_comperative lemon:writtenRep "-"@it .
+
+:form_populous_superlative lemon:writtenRep "la più popolosa"@it .
+
+:populous_predFrame a        lexinfo:AdjectiveSuperlativeFrame ;
+  lexinfo:copulativeSubject :populous_PredSynArg .
+
+:populous_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :populous_res ;
+  lemon:isA       :populous_PredSynArg ;
+  lemon:condition :populous_sense_1_condition .
+
+:populous_res a   oils:CovariantScalar ;
+  oils:boundTo  <http://dbpedia.org/ontology/populationTotal> ;
+  oils:degree   <http://lemon-model.net/oils/high> .
+
+:populous_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain   <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange    <http://dbpedia.org/ontology/City> .## Prepositions ##
+:form_populous_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "al"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

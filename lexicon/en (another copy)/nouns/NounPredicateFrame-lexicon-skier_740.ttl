@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :skier_740_sense_1_res ;
+  lemon:entry    :skier_740 .
+
+:skier_740 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :skier_740_form ;
+  lemon:otherForm  :skier_740_singular ;
+  lemon:otherForm  :skier_740_plural ;
+  lemon:sense          :skier_740_sense_1 ;
+  lemon:synBehavior    :skier_740_predFrame .
+
+:skier_740_form
+ lemon:writtenRep "skier"@en .
+
+:skier_740_singular a    lemon:Form ;
+  lemon:writtenRep "skier"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:skier_740_plural a   lemon:Form ;
+  lemon:writtenRep "skiers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:skier_740_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :skier_740_sense_1_res ;
+  lemon:isA       :skier_740_PredSynArg .
+
+:skier_740_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Skier> .

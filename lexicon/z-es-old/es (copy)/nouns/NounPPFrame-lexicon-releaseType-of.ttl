@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :releaseType-of ;
+  lemon:entry    :releaseType-of_form_preposition .
+
+:releaseType-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :releaseType-of_form ;
+  lemon:otherForm  :releaseType-of_singular ;
+  lemon:otherForm  :releaseType-of_plural ;
+  lemon:sense          :releaseType-of_sense_1 ;
+  lemon:synBehavior    :releaseType-of_nounpp .
+
+:releaseType-of_form a lemon:Form ;
+  lemon:writtenRep "tipo de liberación"@es .
+
+:releaseType-of_singular a    lemon:Form ;
+  lemon:writtenRep "tipo de liberación"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:releaseType-of_plural a   lemon:Form ;
+  lemon:writtenRep "tipos de liberación"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:releaseType-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:releaseType-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :releaseType-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/type> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :releaseType-of_sense_1_condition .
+
+:releaseType-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Song> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :releaseType-of_form_preposition .
+## Prepositions ##
+:releaseType-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

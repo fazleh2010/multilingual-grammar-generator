@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :numberofseasons-of_754 ;
+  lemon:entry    :numberofseasons-of_754_form_preposition .
+
+:numberofseasons-of_754 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :numberofseasons-of_754_form ;
+  lemon:otherForm  :numberofseasons-of_754_singular ;
+  lemon:otherForm  :numberofseasons-of_754_plural ;
+  lemon:sense          :numberofseasons-of_754_sense_1 ;
+  lemon:synBehavior    :numberofseasons-of_754_nounpp .
+
+:numberofseasons-of_754_form a lemon:Form ;
+  lemon:writtenRep "number Of Season"@en .
+
+:numberofseasons-of_754_singular a    lemon:Form ;
+  lemon:writtenRep "number Of Season"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:numberofseasons-of_754_plural a   lemon:Form ;
+  lemon:writtenRep "number Of Seasons"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:numberofseasons-of_754_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_numberofseasons-of_754 ;
+  lexinfo:prepositionalAdjunct :arg2_numberofseasons-of_754 .
+
+:numberofseasons-of_754_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :numberofseasons-of_754_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfSeasons> ;
+  lemon:subjOfProp          :arg2_numberofseasons-of_754 ;
+  lemon:objOfProp           :arg1_numberofseasons-of_754 ;
+  lemon:condition           :numberofseasons-of_754_sense_1_condition .
+
+:numberofseasons-of_754_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:arg2_numberofseasons-of_754 lemon:marker :numberofseasons-of_754_form_preposition .
+## Prepositions ##
+:numberofseasons-of_754_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

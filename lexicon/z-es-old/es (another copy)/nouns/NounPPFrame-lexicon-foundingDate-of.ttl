@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :foundingDate-of ;
+  lemon:entry    :foundingDate-of_form_preposition .
+
+:foundingDate-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :foundingDate-of_form ;
+  lemon:otherForm  :foundingDate-of_singular ;
+  lemon:otherForm  :foundingDate-of_plural ;
+  lemon:sense          :foundingDate-of_sense_1 ;
+  lemon:synBehavior    :foundingDate-of_nounpp .
+
+:foundingDate-of_form a lemon:Form ;
+  lemon:writtenRep "fecha de fundación"@es .
+
+:foundingDate-of_singular a    lemon:Form ;
+  lemon:writtenRep "fecha de fundación"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:foundingDate-of_plural a   lemon:Form ;
+  lemon:writtenRep "fechas de fundación"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:foundingDate-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:foundingDate-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :foundingDate-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/foundingDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :foundingDate-of_sense_1_condition .
+
+:foundingDate-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :foundingDate-of_form_preposition .
+## Prepositions ##
+:foundingDate-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

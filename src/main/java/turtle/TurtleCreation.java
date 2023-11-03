@@ -30,24 +30,34 @@ public class TurtleCreation implements TempConstants {
     protected String turtleString = null;
     protected String tutleFileName = "";
     protected Boolean conversionFlag = false;
-    private Integer nounPPIndex=0;
-    private Integer transitiveIndex=0;
-    private Integer InTransitiveIndex=0;
-    private Integer adjectiveFrameIndex=0;
-    private Integer gradableAdjectiveFrameIndex=0;
+    private Integer nounPPIndex = 0;
+    private Integer transitiveIndex = 0;
+    private Integer InTransitiveIndex = 0;
+    private Integer adjectiveFrameIndex = 0;
+    private Integer nounPredicateFrameIndex = 0;
+    private Integer gradableAdjectiveFrameIndex = 0;
 
     public TurtleCreation(String inputDir, LinkedData linkedData, Language language) throws Exception {
         this.linkedData = linkedData;
         this.language = language.name().toLowerCase();
         this.inputDir = inputDir;
     }
-    
-    public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex,Integer gradableAdjectiveFrameIndex) throws Exception {
+
+    public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex, Integer gradableAdjectiveFrameIndex) throws Exception {
         this.nounPPIndex = nounPPIndex;
         this.transitiveIndex = transitiveIndex;
         this.InTransitiveIndex = InTransitiveIndex;
         this.adjectiveFrameIndex = adjectiveFrameIndex;
-        this.gradableAdjectiveFrameIndex=gradableAdjectiveFrameIndex;
+        this.gradableAdjectiveFrameIndex = gradableAdjectiveFrameIndex;
+    }
+
+    public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex, Integer gradableAdjectiveFrameIndex, Integer nounPredicateFrameIndex) throws Exception {
+        this.nounPPIndex = nounPPIndex;
+        this.transitiveIndex = transitiveIndex;
+        this.InTransitiveIndex = InTransitiveIndex;
+        this.adjectiveFrameIndex = adjectiveFrameIndex;
+        this.nounPredicateFrameIndex = nounPredicateFrameIndex;
+        this.gradableAdjectiveFrameIndex = gradableAdjectiveFrameIndex;
     }
 
     public String findSyntacticFrame(List<String[]> rows) throws Exception {
@@ -66,23 +76,32 @@ public class TurtleCreation implements TempConstants {
 
     public String findSyntacticFrame(String[] row) throws Exception {
         String nounPPFrame = row[nounPPIndex];
+        /*System.out.println("::::::::::::::::::::::::::::::;::");
+        System.out.println(nounPPFrame);
+        System.out.println("TransitiveFrame::" + transitiveIndex);
+        System.out.println("InTransitivePPFrame::" + InTransitiveIndex);
+        System.out.println("AdjectiveAttributiveFrame::" + adjectiveFrameIndex);
+        System.out.println("nounPredicateFrameIndex::" + row[nounPredicateFrameIndex]);
+        System.out.println("::::::::::::::::::::::::::::::;::");*/
 
         try {
             if (nounPPFrame.equals(NounPPFrame)) {
                 return NounPPFrame;
-            } else if (row[transitiveIndex].equals(TransitiveFrame)) {
+            } else if (row[transitiveIndex].contains(TransitiveFrame)) {
                 return TransitiveFrame;
-            } else if (row[InTransitiveIndex].equals(IntransitivePPFrame)) {
-                return IntransitivePPFrame;
-            } else if (row[adjectiveFrameIndex].equals(AdjectiveAttributiveFrame)) {
+            } else if (row[InTransitiveIndex].contains(InTransitivePPFrame)) {
+                return InTransitivePPFrame;
+            } else if (row[adjectiveFrameIndex].contains(AdjectiveAttributiveFrame)) {
                 return AdjectiveAttributiveFrame;
-            } else if (row[gradableAdjectiveFrameIndex].equals(AdjectiveSuperlativeFrame)) {
+            } else if (row[nounPredicateFrameIndex].contains(NounPredicateFrame)) {
+                return NounPredicateFrame;
+            } else if (row[gradableAdjectiveFrameIndex].contains(AdjectiveSuperlativeFrame)) {
                 return AdjectiveSuperlativeFrame;
             } else {
                 throw new Exception("No grammar entry is found!!!!");
             }
         } catch (Exception ex) {
-            throw new Exception("lexial entry:"+row[0]+" invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
+            throw new Exception("lexial entry:" + row[0] + " invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
         }
     }
 
@@ -113,13 +132,11 @@ public class TurtleCreation implements TempConstants {
         }
         return reference;
     }
-    
-  
+
     public String getTutleFileName() {
         return tutleFileName;
     }
 
- 
     public LinkedData getLinkedData() {
         return linkedData;
     }

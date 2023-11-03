@@ -31,39 +31,29 @@ public class TemplateFinder implements TempConstants{
 
 
     public TemplateFinder(LexicalEntryUtil lexicalEntryUtil, FrameType frameType) {
-       this.lexicalEntryUtil=lexicalEntryUtil;
-        if (frameType.equals(FrameType.IPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
-            this.findForwardDomainAndRange();
-        }
-        else if (frameType.equals(FrameType.VP)) {
-            this.selectedTemplate = this.findTransitiveTemplates();
-            this.findForwardDomainAndRange();
-        }
-        else if (frameType.equals(FrameType.NPP)) {
-            this.selectedTemplate = this.findINtransitiveTemplate();
-        }
-        else if (frameType.equals(FrameType.AG)) {
-          
+        this.lexicalEntryUtil = lexicalEntryUtil;
+        try {
+            if (frameType.equals(FrameType.IPP)) {
+                this.selectedTemplate = this.findINtransitiveTemplate();
+                this.findForwardDomainAndRange();
+            } else if (frameType.equals(FrameType.VP)) {
+                this.selectedTemplate = this.findTransitiveTemplates();
+                this.findForwardDomainAndRange();
+            } else if (frameType.equals(FrameType.NPP)) {
+                this.selectedTemplate = this.findINtransitiveTemplate();
+            } else if (frameType.equals(FrameType.AG)) {
                 this.selectedTemplate = this.findGradableTemplate();
                 this.propertyReference = this.findReference();
-                /*System.out.println("selectedTemplate::::"+selectedTemplate);
-                System.out.println("propertyReference::::"+propertyReference);
-                exit(1);*/
-
-        }
-         else if (frameType.equals(FrameType.AA)) {
+            } else if (frameType.equals(FrameType.AA)) {
                 this.selectedTemplate = predicateAdjectiveBaseForm;
                 this.propertyReference = this.findReference();
-                /*System.out.println("selectedTemplate::::"+selectedTemplate);
-                System.out.println("propertyReference::::"+propertyReference);
-                exit(1);*/
+            }
+
+        } catch (Exception ex) {
 
         }
-        
-        
-        //System.out.println("selectedTemplate::::"+selectedTemplate);
-        //exit(1);
+
+       
     }
 
     private void findForwardDomainAndRange() {
@@ -401,11 +391,11 @@ public class TemplateFinder implements TempConstants{
         String referenceUri = this.lexicalEntryUtil.getReferenceUri();
         String string=subjectUri;
         String type=null;
-        /*System.out.println("subjectUri::"+subjectUri);
+        System.out.println("subjectUri::"+subjectUri);
          System.out.println("objectUri::"+objectUri);
          System.out.println("referenceUri::"+referenceUri);
           System.out.println("string::"+string);
-        */
+        
         
 
         if (this.isPlace(string)&&this.isArchitecturalStructureCheck(objectUri)) {

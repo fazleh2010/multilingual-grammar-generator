@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :architect_588_sense_1_res ;
+  lemon:entry    :architect_588 .
+
+:architect_588 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :architect_588_form ;
+  lemon:otherForm  :architect_588_singular ;
+  lemon:otherForm  :architect_588_plural ;
+  lemon:sense          :architect_588_sense_1 ;
+  lemon:synBehavior    :architect_588_predFrame .
+
+:architect_588_form
+ lemon:writtenRep "architect"@en .
+
+:architect_588_singular a    lemon:Form ;
+  lemon:writtenRep "architect"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:architect_588_plural a   lemon:Form ;
+  lemon:writtenRep "architects"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:architect_588_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :architect_588_sense_1_res ;
+  lemon:isA       :architect_588_PredSynArg .
+
+:architect_588_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Architect> .

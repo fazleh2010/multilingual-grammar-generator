@@ -93,10 +93,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         } else if (this.frameType.equals(FrameType.VP)) {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
-            if (selectVariable.equals(SelectVariable.subjOfProp) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
+            /*if (selectVariable.equals(SelectVariable.subjOfProp) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
                 this.templateFinder.setSelectedTemplate(PERSON_CAUSE_SUBJECT);
                 this.setTemplate(PERSON_CAUSE_SUBJECT);
-            }
+            }*/
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                     language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate(), activeTransitive});
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
@@ -140,6 +140,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         }
 
         System.out.println("sentences::" + sentences);
+        //exit(1);
 
         return this.filter(sentences);
     }
@@ -158,10 +159,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         } else if (this.frameType.equals(FrameType.VP)) {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
-            if (selectVariable.equals(SelectVariable.subjOfProp) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
+            /*if (selectVariable.equals(SelectVariable.subjOfProp) && this.templateFinder.getSelectedTemplate().contains(PERSON_CAUSE)) {
                 this.setTemplate(PERSON_CAUSE_SUBJECT);
             }
-            else
+            else*/
                 this.setTemplate(this.templateFinder.getSelectedTemplate()); 
 
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
@@ -254,9 +255,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                     language, new String[]{frameType.getName(), this.sentenceTemplate, passiveTransitive});
+            System.out.println(this.sentenceTemplate);
             this.setTemplate(HOW_MANY_THING_BACKWARD);
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
-
+            System.out.println(sentences);
         } else if (this.frameType.equals(FrameType.IPP)) {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :profession-of ;
+  lemon:entry    :profession-of_form_preposition .
+
+:profession-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :profession-of_form ;
+  lemon:otherForm  :profession-of_singular ;
+  lemon:otherForm  :profession-of_plural ;
+  lemon:sense          :profession-of_sense_1 ;
+  lemon:synBehavior    :profession-of_nounpp .
+
+:profession-of_form a lemon:Form ;
+  lemon:writtenRep "profesión"@es .
+
+:profession-of_singular a    lemon:Form ;
+  lemon:writtenRep "profesión"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:profession-of_plural a   lemon:Form ;
+  lemon:writtenRep "profesiones"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:profession-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:profession-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :profession-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/profession> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :profession-of_sense_1_condition .
+
+:profession-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PersonFunction> .
+
+:arg2 lemon:marker :profession-of_form_preposition .
+## Prepositions ##
+:profession-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

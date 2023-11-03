@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :código ;
+  lemon:entry    :código_form_preposition .
+
+:código a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :código_form ;
+  lemon:otherForm  :código_singular ;
+  lemon:otherForm  :código_plural ;
+  lemon:sense          :código_sense_1 ;
+  lemon:synBehavior    :código_nounpp .
+
+:código_form a lemon:Form ;
+  lemon:writtenRep "código de área"@es .
+
+:código_singular a    lemon:Form ;
+  lemon:writtenRep "código de área"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:código_plural a   lemon:Form ;
+  lemon:writtenRep "códigos de área"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:código_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:código_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :código_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaCode> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :código_sense_1_condition .
+
+:código_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :código_form_preposition .
+## Prepositions ##
+:código_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

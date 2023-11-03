@@ -72,20 +72,8 @@ public class German implements TempConstants,MultilingualBuilder {
         this.language = language;
         this.rangeSelectable = selectVariable;
         this.domainSelectable = oppositeSelectVariable;
-        this.domainVariable = String.format(
-                BINDING_TOKEN_TEMPLATE,
-                variable,
-                DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
-                        this.domainSelectable)).name(),
-                SentenceType.NP
-        );
-        this.rangeVariable = String.format(
-                BINDING_TOKEN_TEMPLATE,
-                variable,
-                DomainOrRangeType.getMatchingType(lexicalEntryUtil.getConditionUriBySelectVariable(
-                        this.rangeSelectable)).name(),
-                SentenceType.NP
-        );
+        this.domainVariable = REGULAR_EXPRESSION_X;
+        this.rangeVariable = REGULAR_EXPRESSION_X;
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
@@ -242,7 +230,7 @@ public class German implements TempConstants,MultilingualBuilder {
                 } else if (col.length == 3) {
                     try {
                         word = this.getDeteminerTokenManual(subjectType, col[0], col[1], col[2]);
-                         System.out.println("subjectType::"+subjectType+" "+col[0]+" "+col[1]+" "+col[2]+" "+word);
+                         //System.out.println("subjectType::"+subjectType+" "+col[0]+" "+col[1]+" "+col[2]+" "+word);
                     } catch (Exception ex) {
                         Logger.getLogger(German.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -290,8 +278,8 @@ public class German implements TempConstants,MultilingualBuilder {
                     String second = col[1];
                     String article = this.getArticleFromUri(second);
                     word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil,first, gender, article);
-                    //System.out.println("first:"+first+" "+"second::"+second+" article:"+article);
-                    //System.out.println("word:"+word);
+                    System.out.println("first:"+first+" "+"second::"+second+" article:"+article);
+                    System.out.println("word:"+word);
                 } else if (col.length == 3) {
                     String baseReference = col[0];
                     String article = this.getArticleFromUri(col[1]);
@@ -330,14 +318,14 @@ public class German implements TempConstants,MultilingualBuilder {
 
         }
 
-        if (attribute.contains(QuestionMark)) {
+        /*if (attribute.contains(QuestionMark)) {
             word = word + QuestionMark;
 
-        }
+        }*/
 
         System.out.println("word:::" + word);
-         System.out.println("domainVariable:::" + this.domainVariable);
-         System.out.println("rangeVariable:::" + this.rangeVariable);
+         //System.out.println("domainVariable:::" + this.domainVariable);
+         //System.out.println("rangeVariable:::" + this.rangeVariable);
 
         return word;
     }
@@ -446,7 +434,7 @@ public class German implements TempConstants,MultilingualBuilder {
          System.out.println("artile " + GenderUtils.referenceArticleMap.keySet());
         exit(1);*/
 
-        return questionWord + " " + noun;
+        return questionWord + " " + REGULAR_EXPRESSION_Y;
 
     }
 
@@ -637,6 +625,28 @@ public class German implements TempConstants,MultilingualBuilder {
         }
 
         return result;
+    }
+
+    private String findArticle(String first, String second,String third) {
+        if(first.contains("nominativeCase")&&second.contains("masculine")&&second.contains("singular")){
+            return "der";
+        }
+        else if(first.contains("nominativeCase")&&second.contains("masculine")&&second.contains("plural")){
+            return "die";
+        }
+        else if(first.contains("nominativeCase")&&second.contains("feminine")&&second.contains("singular")){
+            return "die";
+        }
+        else if(first.contains("nominativeCase")&&second.contains("feminine")&&second.contains("plural")){
+            return "die";
+        }
+        else if(first.contains("nominativeCase")&&second.contains("neuter")&&second.contains("singular")){
+            return "das";
+        }
+        else if(first.contains("nominativeCase")&&second.contains("neuter")&&second.contains("plural")){
+            return "die";
+        }
+        return "die";
     }
     
 

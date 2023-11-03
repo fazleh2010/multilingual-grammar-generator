@@ -1,0 +1,91 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :to_attend ;
+  lemon:entry    :attended ;
+  lemon:entry    :form_attend_preposition .
+
+:to_attend a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_attend ;
+  lemon:otherForm      :form_attends ;
+  lemon:otherForm      :form_attended ;
+  lemon:sense          :attend_sense_1 ;
+  lemon:synBehavior    :attend_frame_transitive .
+
+:form_attend a         lemon:Form ;
+  lemon:writtenRep     "visitar"@es ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_attends a    lemon:Form ;
+  lemon:writtenRep "visita"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+
+:form_attends a    lemon:Form ;
+  lemon:writtenRep "visitó"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:form_attended a   lemon:Form ;
+  lemon:writtenRep "visitado"@es ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:attend_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :attend_subj ;
+  lexinfo:directObject     :attend_obj .
+
+:attend_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :attend_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/almaMater> ;
+  lemon:subjOfProp  :attend_obj ;
+  lemon:objOfProp   :attend_subj ;
+  lemon:condition   :attend_sense_1_condition .
+
+
+:attend_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/University> .
+
+:attended a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_attended_canonical ;
+  lemon:otherForm      :form_attended_by ;
+  lemon:synBehavior    :attended_frame_adjectivepp ;
+  lemon:sense          :attended_ontomap .
+
+:form_attended_canonical a lemon:Form ;
+  lemon:writtenRep         "visitar"@es .
+
+:form_attended_by a    lemon:Form ;
+  lemon:writtenRep     "visitar"@es ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:attended_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :attended_subj ;
+  lexinfo:prepositionalAdjunct :attended_obj .
+
+:attended_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :attended_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/almaMater> ;
+  lemon:subjOfProp  :attended_subj ;
+  lemon:objOfProp   :attended_obj ;
+  lemon:condition   :attend_sense_1_condition .
+:attended_obj lemon:marker :por .
+
+:arg2 lemon:marker :form_attend_form_preposition .
+
+## Prepositions ##
+
+:form_attend_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "por"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

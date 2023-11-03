@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :tunnel_341_sense_1_res ;
+  lemon:entry    :tunnel_341 .
+
+:tunnel_341 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :tunnel_341_form ;
+  lemon:otherForm  :tunnel_341_singular ;
+  lemon:otherForm  :tunnel_341_plural ;
+  lemon:sense          :tunnel_341_sense_1 ;
+  lemon:synBehavior    :tunnel_341_predFrame .
+
+:tunnel_341_form
+ lemon:writtenRep "tunnel"@en .
+
+:tunnel_341_singular a    lemon:Form ;
+  lemon:writtenRep "tunnel"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:tunnel_341_plural a   lemon:Form ;
+  lemon:writtenRep "tunnels"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:tunnel_341_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :tunnel_341_sense_1_res ;
+  lemon:isA       :tunnel_341_PredSynArg .
+
+:tunnel_341_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Tunnel> .

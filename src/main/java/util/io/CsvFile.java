@@ -7,6 +7,7 @@ package util.io;
 
 import com.google.gdata.data.spreadsheet.Cell;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
 import java.io.BufferedReader;
@@ -34,7 +35,12 @@ import java.util.logging.Logger;
 import java.io.File;  
 import java.io.FileInputStream;  
 import java.io.IOException;  
+import java.io.InputStreamReader;
+import java.io.Reader;
 import static java.lang.System.exit;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
  
 
 /**
@@ -115,32 +121,6 @@ public class CsvFile implements CsvConstants {
             Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*try {
-            
-            if (FileFolderUtils.isFileBig(qaldFile, limit)) {
-                rows = generateLinebyLine(qaldFile,lineLimit);
-                //System.out.println("@@@@@@@@@@@@@@@@@@@@@@" + qaldFile.getName()+" size:"+rows.size());
-            } else {
-                reader = new CSVReader(new FileReader(qaldFile));
-                rows = reader.readAll();
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        } catch (IOException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        }  catch (CsvException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV problems:!!!" + ex.getMessage());
-        }
-         catch (Exception ex) {
-            try {
-                rows = generateLinebyLine(qaldFile,lineLimit);
-            } catch (IOException ex1) {
-                Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }*/
         return rows;
     }
 
@@ -170,33 +150,9 @@ public class CsvFile implements CsvConstants {
 
         return rows;
     }
-
-     public List<String[]> getRowsManual(File qaldFile) {
-        List<String[]> rows = new ArrayList<String[]>();
-
-        /*if (FileFolderUtils.isFileSizeManageable(qaldFile, 40.0)) {
-            //System.out.println("..........." + qaldFile.getName());
-            return rows;
-        }*/
-        Stack<String> stack = new Stack<String>();
-        CSVReader reader;
-        try {
-            //if (!FileFolderUtils.isFileBig(qaldFile, 100.0)) {
-                rows = generateLinebyLine(qaldFile,100000);
-                 //System.out.println("@@@@@@@@@@@@@@@@@@@@@@" + qaldFile.getName()+" size:"+rows.size());
-            /*} else {
-                reader = new CSVReader(new FileReader(qaldFile));
-                rows = reader.readAll();
-            }*/
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        } catch (IOException ex) {
-            Logger.getLogger(CsvFile.class.getName()).log(Level.SEVERE, null, ex);
-            LOGGER.log(Level.SEVERE, "CSV File not found:!!!" + ex.getMessage());
-        } 
-
-        return rows;
+    
+    public List<String[]> getRowsManual(File qaldFile) {
+        return readAllDataAtOnce(qaldFile, 100000);
     }
 
     public List<String[]> cvsModifier(File qaldFile) throws Exception {
@@ -245,10 +201,51 @@ public class CsvFile implements CsvConstants {
         }
         return modifyrows;
     }
+    
+    public static List<String[]> readAllDataAtOnce(File file,Integer lineLimit) {
+        try {
+            // Create an object of file reader
+            // class with CSV file as a parameter.
+            FileReader filereader = new FileReader(file);
 
-  
+            // create csvReader object and skip first Line
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .build();
+            return csvReader.readAll();
+
+            // print Data
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<String[]>();
+    }
 
     private List<String[]> generateLinebyLine(File pathToCsv, Integer lineLimit) throws FileNotFoundException, IOException {
+        List<String[]> rows = new ArrayList<String[]>();
+        BufferedReader in = null;
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(pathToCsv), "UTF-8");
+        BufferedReader csvReader = new BufferedReader(inputStreamReader);
+
+        String line = null;
+        Integer index = 0;
+        while ((line = csvReader.readLine()) != null) {
+            try {
+                line = line.replace("\"", "");
+                String[] data = line.split(",");
+                rows.add(data);
+            } catch (Exception ex) {
+                ;
+            }
+            index = index + 1;
+            if (index > lineLimit) {
+                break;
+            }
+        }
+        csvReader.close();
+        return rows;
+    }
+
+    private List<String[]> generateLinebyLineT(File pathToCsv, Integer lineLimit) throws FileNotFoundException, IOException {
         List<String[]> rows = new ArrayList<String[]>();
         BufferedReader csvReader = new BufferedReader(new FileReader(pathToCsv));
         String line = null;

@@ -1,0 +1,76 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :borough-of_435 ;
+  lemon:entry    :borough-of_435_form_preposition .
+
+:borough-of_435 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :borough-of_435_form ;
+  lemon:otherForm  :borough-of_435_singular ;
+  lemon:otherForm  :borough-of_435_plural ;
+  lemon:sense          :borough-of_435_sense_1 ;
+  lemon:sense          :borough-of_435_sense_2 ;
+  lemon:sense          :borough-of_435_sense_3 ;
+  lemon:synBehavior    :borough-of_435_nounpp .
+
+:borough-of_435_form a lemon:Form ;
+  lemon:writtenRep "borough"@en .
+
+:borough-of_435_singular a    lemon:Form ;
+  lemon:writtenRep "borough"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:borough-of_435_plural a   lemon:Form ;
+  lemon:writtenRep "boroughs"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:borough-of_435_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:borough-of_435_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :borough-of_435_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/governmentType> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :borough-of_435_sense_1_condition .
+
+:borough-of_435_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Town> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:borough-of_435_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :borough-of_435_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/governmentType> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :borough-of_435_sense_2_condition .
+
+:borough-of_435_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Town> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:borough-of_435_sense_3 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :borough-of_435_sense_3 ;
+  lemon:reference           <http://dbpedia.org/ontology/governmentType> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :borough-of_435_sense_3_condition .
+
+:borough-of_435_sense_3_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Town> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:null lemon:marker :borough-of_435_form_preposition .
+## Prepositions ##
+:borough-of_435_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

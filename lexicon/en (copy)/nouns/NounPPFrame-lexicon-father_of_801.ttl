@@ -1,0 +1,76 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :father_of_801 ;
+  lemon:entry    :father_of_801_form_preposition .
+
+:father_of_801 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :father_of_801_form ;
+  lemon:otherForm  :father_of_801_singular ;
+  lemon:otherForm  :father_of_801_plural ;
+  lemon:sense          :father_of_801_sense_1 ;
+  lemon:sense          :father_of_801_sense_2 ;
+  lemon:sense          :father_of_801_sense_3 ;
+  lemon:synBehavior    :father_of_801_nounpp .
+
+:father_of_801_form a lemon:Form ;
+  lemon:writtenRep "father"@en .
+
+:father_of_801_singular a    lemon:Form ;
+  lemon:writtenRep "father"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:father_of_801_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:father_of_801_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_father_of_801 ;
+  lexinfo:prepositionalAdjunct :arg2_father_of_801 .
+
+:father_of_801_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :father_of_801_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/father> ;
+  lemon:subjOfProp          :arg2_father_of_801 ;
+  lemon:objOfProp           :arg1_father_of_801 ;
+  lemon:condition           :father_of_801_sense_1_condition .
+
+:father_of_801_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Royalty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:father_of_801_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :father_of_801_sense_2 ;
+  lemon:reference           <http://dbpedia.org/property/father> ;
+  lemon:subjOfProp          :arg2_father_of_801 ;
+  lemon:objOfProp           :arg1_father_of_801 ;
+  lemon:condition           :father_of_801_sense_2_condition .
+
+:father_of_801_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Royalty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:father_of_801_sense_3 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :father_of_801_sense_3 ;
+  lemon:reference           <http://dbpedia.org/property/father> ;
+  lemon:subjOfProp          :arg2_father_of_801 ;
+  lemon:objOfProp           :arg1_father_of_801 ;
+  lemon:condition           :father_of_801_sense_3_condition .
+
+:father_of_801_sense_3_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Royalty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_father_of_801 lemon:marker :father_of_801_form_preposition .
+## Prepositions ##
+:father_of_801_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

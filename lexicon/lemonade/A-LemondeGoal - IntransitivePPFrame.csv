@@ -1,2 +1,0 @@
-LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,preposition,SyntacticFrame,subject,prepositionalAdjunct,sense,reference,domain,range
-born_in_8,verb,born,-,born,born,in,IntransitivePPFrame,range,domain,1,dbo:birthDate,dbo:President,xsd:gYear

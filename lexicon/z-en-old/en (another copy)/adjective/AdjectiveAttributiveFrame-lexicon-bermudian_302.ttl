@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :bermudian_302_sense_1_res ;
+  lemon:entry    :bermudian_302 .
+
+:bermudian_302 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :bermudian_302_lemma ;
+  lemon:sense          :bermudian_302_sense_1 ;
+  lemon:synBehavior    :bermudian_302_attrFrame, :bermudian_302_predFrame .
+
+:bermudian_302_lemma lemon:writtenRep "bermudian"@en .
+
+:bermudian_302_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :bermudian_302_PredSynArg .
+
+:bermudian_302_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :bermudian_302_AttrSynArg .
+
+:bermudian_302_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :bermudian_302_sense_1_res ;
+  lemon:isA       :bermudian_302_AttrSynArg, :bermudian_302_PredSynArg .
+
+:bermudian_302_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Bermuda> .

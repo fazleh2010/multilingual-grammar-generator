@@ -17,7 +17,7 @@ import static java.util.Objects.isNull;
 
 @Data
 public class GrammarEntry implements Serializable {
-  private String id;
+   private String id;
   private URI lexicalEntryUri;
   private Language language;
   private SentenceType type;
@@ -28,11 +28,12 @@ public class GrammarEntry implements Serializable {
   private List<String> sentences = new ArrayList<>();
   //private QueryType queryType;
   private String sparqlQuery;
+  private String bindingSparql;
   //private String executable;
   //private String bindingListType;
   //private Map<String, String> sentenceToSparqlParameterMapping;
   private String returnVariable; // aka selectVariable
-  private boolean isCombination = false;
+  //private boolean isCombination = false;
   //private SentenceBindings sentenceBindings;
   //private String qaldMatchedQuestion;
   
@@ -65,11 +66,11 @@ public class GrammarEntry implements Serializable {
     grammarEntry.sentenceTemplate = this.sentenceTemplate;
     grammarEntry.sentences.addAll(this.sentences);
     //grammarEntry.queryType = this.queryType;
+    grammarEntry.bindingSparql=this.bindingSparql;
     grammarEntry.sparqlQuery = this.sparqlQuery;
-    //grammarEntry.executable=this.executable;
     grammarEntry.returnVariable = this.returnVariable;
     //grammarEntry.bindingListType = this.bindingListType;
-    grammarEntry.isCombination = this.isCombination;
+//    grammarEntry.isCombination = this.isCombination;
     /*if (this.sentenceToSparqlParameterMapping != null) {
       grammarEntry.sentenceToSparqlParameterMapping = new HashMap<>(this.sentenceToSparqlParameterMapping);
     }
@@ -90,16 +91,20 @@ public class GrammarEntry implements Serializable {
       "  S =\t" + this.getSentences() + ",\n" +
       //"  queryType =\t" + this.getQueryType() + ",\n" +
       "-".repeat(30) + "\n" +
-      "sparqlQuery =\n" +
+      "bindingSparql =\n" +
+      this.getBindingSparql() + ",\n" +
+      "sparqlQueryBinding =\n" +
       this.getSparqlQuery() + ",\n" +
        "  sentenceTemplate =\t" + this.getSentenceTemplate() + ",\n" +
       //this.getExecutable() + ",\n" +
       "-".repeat(30) + "\n" +
       //"  sentenceToSparqlParameterMapping = \t" + this.getSentenceToSparqlParameterMapping() + ",\n" +
-      "  returnVariable =\t" + this.getReturnVariable() + ",\n" +
-      "  isCombination =\t" + this.isCombination() + ",\n" +
+      "  sparqlQueryQuestion =\t" + this.getReturnVariable() + ",\n" +
+      //"  isCombination =\t" + this.isCombination() + ",\n" +
       "  bindings =\n" +
       //(!isNull(this.getSentenceBindings()) ? this.getSentenceBindings().toString() : Collections.EMPTY_LIST) + "\n" +
       ")";
   }
+  
+   
 }

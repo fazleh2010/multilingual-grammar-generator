@@ -78,9 +78,11 @@ public class Statistics {
     public static void main(String[] args) throws Exception {
         String inputDir = "result/en/";
         String grammar_FULL_DATASET = "/grammar_FULL_DATASET_EN.json";
-        File file = new File(inputDir + grammar_FULL_DATASET);
-        Statistics.findNumberOfGrammarRules(file);
-        System.out.println("hello world!!");
+        //File file = new File(inputDir + grammar_FULL_DATASET);
+        //Statistics.findNumberOfGrammarRules(file);
+        Integer sum=13373+3078+2183+910+168;
+        System.out.println(sum);
+        
 
     }
 

@@ -26,9 +26,10 @@ public interface TempConstants {
 
     public static String NounPPFrame = "NounPPFrame";
     public static String TransitiveFrame = "TransitiveFrame";
-    public static String IntransitivePPFrame = "IntransitivePPFrame";
+    public static String InTransitivePPFrame = "IntransitivePPFrame";
     public static String AdjectiveAttributiveFrame = "AdjectiveAttributiveFrame";
     public static String AdjectivePredicateFrame="AdjectivePredicateFrame";
+    public static String NounPredicateFrame="NounPredicateFrame";
     public static String AdjectivePPFrame = "AdjectivePPFrame";
     public static String AdjectiveSuperlativeFrame = "AdjectiveSuperlativeFrame";
     public static String FULL_DATASET = "FULL_DATASET";
@@ -47,7 +48,8 @@ public interface TempConstants {
     public static final String pronounReflexive = "reflexive_pronoun";
     public static final String reference = "reference";
     
-    
+    public static final String REGULAR_EXPRESSION_X="(X)";
+    public static final String REGULAR_EXPRESSION_Y="(Y)";
     public static final String dativeCase = "dativeCase";
     public static final String accusativeCase = "accusativeCase";
     public static final String appos = "appos";
@@ -138,7 +140,6 @@ public interface TempConstants {
      
      public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
      
-     public static final String REGULAR_EXPRESSION="(X)";
 
     
     //public static final String WHAT_PERSON_THING = "WHAT_PERSON_THING";
@@ -158,6 +159,7 @@ public interface TempConstants {
     public static final String component_be = "component_be";
     public static final String component_do ="component_do";
     public static final String component_se = "component_se";
+    public static final String component_es = "component_es";
     public static final String component_ha = "component_ha";
     public static final String component_estado = "component_estado";
     public static final String component_esta = "component_esta";

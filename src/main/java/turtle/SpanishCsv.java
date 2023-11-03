@@ -128,8 +128,10 @@ public class SpanishCsv {
         }
 
         public void setArticle(Tupples tupple, String[] row) {
-            GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingular(row), getDomainWrittenPlural(row));
-            GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
+            //GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingular(row), getDomainWrittenPlural(row));
+            //GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
+            GenderUtils.setWrittenForms(tupple.getDomain(), "domainSingular", "domainPlural");
+            GenderUtils.setWrittenForms(tupple.getRange(), "rangeSingular", "rangePlural");
         }
 
         public static String getPreposition(String lemonEntry, String preposition, String language) {
@@ -255,13 +257,13 @@ public class SpanishCsv {
         public static Integer referenceIndex = 10;
         public static Integer domainIndex = 11;
         public static Integer rangeIndex = 12;
-        public static Integer domainArticleIndex = 13;
+        /*public static Integer domainArticleIndex = 13;
         public static Integer domainWrittenSingular = 14;
         public static Integer domainWrittenPlural = 15;
         public static Integer rangeArticleIndex = 16;
         public static Integer rangeWrittenSingular = 17;
-        public static Integer rangeWrittenPlural = 18;
-        public static Integer passivePrepositionIndex = 19;
+        public static Integer rangeWrittenPlural = 18;*/
+        public static Integer passivePrepositionIndex = 13;
 
         public static String getHeader(String lemonEntry, String prepositionAttr, String preposition, String language) {
             return "@prefix :        <http://localhost:8080/lexicon#> .\n"
@@ -331,10 +333,10 @@ public class SpanishCsv {
 
         public void setArticle(Tupples tupple, String gender, String[] row) {
             GenderUtils.setArticles(tupple.getReference(), gender);
-            GenderUtils.setArticles(tupple.getDomain(), row[getDomainArticleIndex()]);
-            GenderUtils.setArticles(tupple.getRange(), row[getRangeArticleIndex()]);
-            GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
-            GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
+            GenderUtils.setArticles(tupple.getDomain(), "domainArticle");
+            GenderUtils.setArticles(tupple.getRange(), "rangeArticle");
+            GenderUtils.setWrittenForms(tupple.getDomain(), "domainSingular", "domainPlural");
+            GenderUtils.setWrittenForms(tupple.getRange(), "rangeSingular","rangePlural");
         }
 
         public void setVerbInfo(String partOfSpeech, String writtenFromIn, String writtenForm3rd, String writtenFormPast, String writtenFormPerfect) {
@@ -401,7 +403,7 @@ public class SpanishCsv {
             return passivePrepositionIndex;
         }
 
-        public Integer getDomainArticleIndex() {
+        /*public Integer getDomainArticleIndex() {
             return domainArticleIndex;
         }
 
@@ -411,19 +413,19 @@ public class SpanishCsv {
 
         public Integer getDomainWrittenPlural() {
             return domainWrittenPlural;
-        }
+        }*/
 
         public Integer getRangeArticleIndex() {
             return rangeArticleIndex;
         }
 
-        public Integer getRangeWrittenSingular() {
+        /*public Integer getRangeWrittenSingular() {
             return rangeWrittenSingular;
         }
 
         public Integer getRangeWrittenPlural() {
             return rangeWrittenPlural;
-        }
+        }*/
 
         public Integer getSyntacticFrameIndex() {
             return SyntacticFrame;
@@ -534,10 +536,10 @@ public class SpanishCsv {
 
         public static void setNoun(Tupples tupple, String gender, String[] row) {
             GenderUtils.setArticles(tupple.getReference(), gender);
-            GenderUtils.setArticles(tupple.getDomain(), row[getDomainArticleIndex()]);
-            GenderUtils.setArticles(tupple.getRange(), row[getRangeArticleIndex()]);
-            GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
-            GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
+            GenderUtils.setArticles(tupple.getDomain(), "domainArticle");
+            GenderUtils.setArticles(tupple.getRange(), "rangeArticle");
+            GenderUtils.setWrittenForms(tupple.getDomain(), "domainSingular","domainPlural");
+            GenderUtils.setWrittenForms(tupple.getRange(), "rangeSingular","rangePlural");
         }
 
         public static void setVerbInfo(String partOfSpeech, String writtenFromIn, String writtenForm3rd, String writtenFormPast, String writtenFormPerfect) {
@@ -841,7 +843,7 @@ public class SpanishCsv {
                     + ":" + lemonEntry + "_obj lemon:marker :" + preposition + " .\n"
                     + "\n";
             str = str + intransitiveStr + prep;
-        } else if (syntacticFrame.equals(TempConstants.IntransitivePPFrame)) {
+        } else if (syntacticFrame.equals(TempConstants.InTransitivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
@@ -939,25 +941,29 @@ public class SpanishCsv {
         //predFrame	sense	reference	oils:boundTo	oils:degree	domain	range
         private Integer lemonEntryIndex = 0;
         private Integer partOfSpeechIndex = 1;
-        private Integer writtenFormIndex = 2;
-        private Integer comparativIndex = 3;
-        private Integer superlativeSingularIndex = 4;
-        private Integer superlativePluralIndex = 5;
-        private Integer syntacticFrameIndex = 6;
-        private Integer predFrameIndex = 7;
-        private Integer senseIndex = 8;
-        private Integer referenceIndex = 9;
-        private Integer oils_boundToIndex = 10;
-        private Integer oils_degreeIndex = 11;
-        private Integer domainIndex = 12;
-        private Integer rangeIndex = 13;
-        private Integer prepostionIndex = 14;
-        public  Integer domainArticleIndex = 15;
-        private Integer domainWrittenSingularFormIndex = 16;
-        private Integer domainWrittenPluralFormIndex = 17;
-        public  Integer rangeArticleIndex = 18;
-        private Integer rangeWrittenSingularFormIndex = 19;
-        private Integer rangeWrittenPluralFormIndex = 20;
+        
+        private Integer writtenFormMasculine = 2;
+        private Integer writtenFormFeminine = 3;
+        private Integer comparativIndex = 4;
+        private Integer superlative_singular_masculine = 5;
+        private Integer superlative_singular_femine = 6;
+        private Integer superlative_plural_masculine = 7;
+        private Integer superlative_plural_feminine = 8;
+        private Integer syntacticFrameIndex = 9;
+        private Integer predFrameIndex = 10;
+        private Integer senseIndex = 11;
+        private Integer referenceIndex = 12;
+        private Integer oils_boundToIndex = 13;
+        private Integer oils_degreeIndex = 14;
+        private Integer domainIndex = 15;
+        private Integer rangeIndex = 16;
+        private Integer prepostionIndex = 17;
+        public  Integer domainArticleIndex = 18;
+        private Integer domainWrittenSingularFormIndex = 19;
+        private Integer domainWrittenPluralFormIndex = 20;
+        public  Integer rangeArticleIndex = 21;
+        private Integer rangeWrittenSingularFormIndex = 22;
+        private Integer rangeWrittenPluralFormIndex = 23;
               
 
         public String getHeader(String lemonEntry, String language) {
@@ -1055,8 +1061,8 @@ public class SpanishCsv {
             
             GenderUtils.setArticles(tupple.getDomain(), row[this.domainArticleIndex]);
             GenderUtils.setArticles(tupple.getRange(), row[this.rangeArticleIndex]);
-            GenderUtils.setWrittenForms(tupple.getDomain(), row[this.domainWrittenSingularFormIndex], row[this.domainWrittenPluralFormIndex]);
-            GenderUtils.setWrittenForms(tupple.getRange(), row[this.rangeWrittenSingularFormIndex], row[this.rangeWrittenPluralFormIndex]);
+            GenderUtils.setWrittenForms(tupple.getDomain(), "domainSingular", "domainPlural");
+            GenderUtils.setWrittenForms(tupple.getRange(), "rangeSingular", "rangePLural");
 
         }
 
@@ -1068,24 +1074,33 @@ public class SpanishCsv {
             return row[partOfSpeechIndex];
         }
 
-        public String getWrittenFormIndex(String[] row) {
-            return row[writtenFormIndex];
+
+        public String getWrittenFormMasculine(String[] row) {
+            return row[writtenFormMasculine];
         }
 
-        public String getPrepostion(String[] row) {
-            return row[prepostionIndex];
+        public Integer getWrittenFormFeminine(String[] row) {
+            return writtenFormFeminine;
         }
 
         public String getComparativIndex(String[] row) {
             return row[comparativIndex];
         }
 
-        public String getSuperlativeIndex(String[] row) {
-            return row[superlativeSingularIndex];
+        public String getSuperlative_singular_masculine(String[] row) {
+            return row[superlative_singular_masculine];
         }
 
-        public Integer getSyntacticFrameIndex() {
-            return syntacticFrameIndex;
+        public String getSuperlative_singular_femine(String[] row) {
+            return row[superlative_singular_femine];
+        }
+
+        public String getSuperlative_plural_masculine(String[] row) {
+            return row[superlative_plural_masculine];
+        }
+
+        public String getSuperlative_plural_feminine(String[] row) {
+            return row[superlative_plural_feminine];
         }
 
         public String getPredFrameIndex(String[] row) {
@@ -1116,12 +1131,24 @@ public class SpanishCsv {
             return row[rangeIndex];
         }
 
+        public String getPrepostionIndex(String[] row) {
+            return row[prepostionIndex];
+        }
+
+        public String getDomainArticleIndex(String[] row) {
+            return row[domainArticleIndex];
+        }
+
         public String getDomainWrittenSingularFormIndex(String[] row) {
             return row[domainWrittenSingularFormIndex];
         }
 
         public String getDomainWrittenPluralFormIndex(String[] row) {
             return row[domainWrittenPluralFormIndex];
+        }
+
+        public String getRangeArticleIndex(String[] row) {
+            return row[rangeArticleIndex];
         }
 
         public String getRangeWrittenSingularFormIndex(String[] row) {
@@ -1132,7 +1159,18 @@ public class SpanishCsv {
             return row[rangeWrittenPluralFormIndex];
         }
 
-     
+        public String getSuperlativeIndex(String[] row) {
+            return row[superlative_singular_masculine];
+        }
+
+        public Integer getSyntacticFrameIndex() {
+            return syntacticFrameIndex;
+        }
+         public String getPrepostion(String[] row) {
+            return row[prepostionIndex];
+        }
+
+       
 
     }
 

@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :chemist_449_sense_1_res ;
+  lemon:entry    :chemist_449 .
+
+:chemist_449 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :chemist_449_form ;
+  lemon:otherForm  :chemist_449_singular ;
+  lemon:otherForm  :chemist_449_plural ;
+  lemon:sense          :chemist_449_sense_1 ;
+  lemon:synBehavior    :chemist_449_predFrame .
+
+:chemist_449_form
+ lemon:writtenRep "chemist"@en .
+
+:chemist_449_singular a    lemon:Form ;
+  lemon:writtenRep "chemist"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:chemist_449_plural a   lemon:Form ;
+  lemon:writtenRep "chemists"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:chemist_449_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :chemist_449_sense_1_res ;
+  lemon:isA       :chemist_449_PredSynArg .
+
+:chemist_449_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/profession> ;
+  owl:hasValue   <http://dbpedia.org/resource/Chemist> .

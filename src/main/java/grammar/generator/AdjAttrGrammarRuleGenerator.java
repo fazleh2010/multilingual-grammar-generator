@@ -65,7 +65,7 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
             QueGGMissingFactoryClassException {
         List<GrammarEntry> grammarEntries = new ArrayList<GrammarEntry>();
         Map<String, String> classNamesMap = new HashMap<String, String>();
-        classNamesMap.put("movie", "http://dbpedia.org/ontology/Film");
+        /*classNamesMap.put("movie", "http://dbpedia.org/ontology/Film");
         classNamesMap.put("person", "http://dbpedia.org/ontology/Person");
         classNamesMap.put("film", "http://dbpedia.org/ontology/Film");
         classNamesMap.put("non-profit organization","http://dbpedia.org/resource/Nonprofit_organization");
@@ -77,17 +77,29 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         classNamesMap.put("nonprofit organizations","http://dbpedia.org/resource/Nonprofit_organization");
         classNamesMap.put("holiday","http://dbpedia.org/resource/Holiday");
         classNamesMap.put("holidays","http://dbpedia.org/resource/Holiday");
-        for (String className : classNamesMap.keySet()) {
+        classNamesMap.put("band","http://dbpedia.org/resource/Band");
+        classNamesMap.put("bands","http://dbpedia.org/resource/Band");
+        classNamesMap.put("politician","http://dbpedia.org/resource/Politician");
+        classNamesMap.put("politicians","http://dbpedia.org/resource/Politician");*/
+        /*for (String className : classNamesMap.keySet()) {
             String classNameUrl=classNamesMap.get(className);
             grammarEntry.setSentenceTemplate(this.template);
             GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil, className,classNameUrl);
             grammarEntries.add(baseGrammarEntry);
-        }
+        }*/
+        grammarEntry.setSentenceTemplate(this.template);
+        GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil);
+        grammarEntries.add(baseGrammarEntry);
+        /*String className="(X)",classNameUrl="VARIABLE";
+        grammarEntry.setSentenceTemplate(this.template);
+        GrammarEntry baseGrammarEntry = getBasFormGrammarEntry(grammarEntry, lexicalEntryUtil, className,classNameUrl);
+        grammarEntries.add(baseGrammarEntry);*/
+       
         return grammarEntries;
     }
 
-    private GrammarEntry getBasFormGrammarEntry(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil,
-                                                String className,String classNameUrl) throws QueGGMissingFactoryClassException {
+    private GrammarEntry getBasFormGrammarEntry(GrammarEntry grammarEntry, LexicalEntryUtil lexicalEntryUtil
+                                               ) throws QueGGMissingFactoryClassException {
         GrammarEntry fragmentEntry = copyGrammarEntry(grammarEntry);
         fragmentEntry.setType(SentenceType.SENTENCE);
         // Assign opposite values
@@ -98,8 +110,12 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         fragmentEntry.setFrameType(FrameType.AA);
         List<String> generatedSentences = generateSentences(lexicalEntryUtil);
          List<String> sentences = new ArrayList<String>();
-        for(String sentence:generatedSentences){
+        /*for(String sentence:generatedSentences){
             sentence=sentence+" "+className+".";
+            sentences.add(sentence);
+        }*/
+        for(String sentence:generatedSentences){
+            //sentence=sentence+" "+"(X)"+".";
             sentences.add(sentence);
         }
         this.template = TempConstants.predicateAdjectiveBaseForm;
@@ -108,7 +124,8 @@ public class AdjAttrGrammarRuleGenerator extends GrammarRuleGeneratorRoot implem
         OWLRestriction owlRestriction = lexicalEntryUtil.getOwlRestriction();
         String property = owlRestriction.getProperty();
         String value = owlRestriction.getValue();
-        String sparql = PrepareSparqlQuery.getRealSparql(this.template, property, value, classNameUrl);
+        //String sparql = PrepareSparqlQuery.getRealSparql(this.template, property, value, classNameUrl);
+        String sparql = PrepareSparqlQuery.getRealSparql(this.template, property, value);
         //System.out.println(sparql);
         fragmentEntry.setSparqlQuery(sparql);
         return fragmentEntry;

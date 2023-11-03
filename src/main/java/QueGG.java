@@ -45,12 +45,14 @@ import org.apache.commons.text.similarity.CosineDistance;
 import turtle.EnglishTurtle;
 import util.io.GenderUtils;
 import linkeddata.LinkedData;
+import org.apache.jena.query.QueryType;
 import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
 import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
+import grammar.read.questions.PrettyGrammar;
 
 @NoArgsConstructor
 public class QueGG {
@@ -70,10 +72,26 @@ public class QueGG {
     public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
+        List<String[]> languageDBs = new ArrayList<String[]>();
+        //languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
+        //languageDBs.add(new String[]{"inputConf_de.json", "dataset/dbpedia_de.json"});
+        languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
+        //languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
+
+        for (String[] languageDB : languageDBs) {
+           runGrammarGeneration(languageDB); 
+           System.out.println("completed gramar generation completed!!!!"+languageDB[0]);
+        }
+
+    }
+    
+     public static void runGrammarGeneration(String[] args) throws Exception {
+        JenaSystem.init();
+        QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-         //args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
+
        
         try {
             if (args.length < 2) {
@@ -81,33 +99,42 @@ public class QueGG {
                 throw new IllegalArgumentException(String.format("Too few parameters (%s/%s)", args.length));
             } else if (args.length == 2) {
                 configFile = args[0];
-                InputCofiguration inputCofiguration = FileProcessUtils.getInputConfig(new File(configFile));
-                inputCofiguration.setLinkedData(args[1]);                
-                online=inputCofiguration.getOnline();
-                externalEntittyListflag=inputCofiguration.getExternalEntittyList();
+                InputCofiguration inputCof = FileProcessUtils.getInputConfig(new File(configFile));
+                inputCof.setLinkedData(args[1]);                
+                online=inputCof.getOnline();
+                externalEntittyListflag=inputCof.getExternalEntittyList();
           
-                if (inputCofiguration.isCsvToTurtle()) {
-                    if (queGG.csvToProto(inputCofiguration)) {
-                        queGG.turtleToProto(inputCofiguration);
+                if (inputCof.isCsvToTurtle()) {
+                    if (queGG.csvToProto(inputCof)) {
+                        queGG.turtleToProto(inputCof);
                         System.out.println("successfully converted csv files to turtle file!!");
                     }
                 }
-                if (inputCofiguration.getTurtleToProtoType()) {
-                    queGG.turtleToProto(inputCofiguration);
+                if (inputCof.getTurtleToProtoType()) {
+                    queGG.turtleToProto(inputCof);
                     System.out.println("successfully converted csv files to turtle file!!");
-                   
+  
                 }
-                if (inputCofiguration.isProtoTypeToQuestion()) {  
+                if (inputCof.getProtoTypeToQuestion()) {
+                    String outputFileName =grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
+                    File file = new File(inputCof.getOutputDir() +"/"+ outputFileName);
+                    List<File> protoSimpleQFiles = new ArrayList<File>();
+                    protoSimpleQFiles.add(file);
+                    outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
+                    PrettyGrammar prepareGrammarJson = 
+                            new PrettyGrammar(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                }
+                /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
                     System.out.println("successfully converted turtle files to grammar file (.json)!!");
-                }
-                if (inputCofiguration.isEvalution()) {
-                    Language language = inputCofiguration.getLanguage();
-                    String qaldDir = inputCofiguration.getQaldDir();
-                    String outputDir = inputCofiguration.getOutputDir();
-                    LinkedData linkedData = inputCofiguration.getLinkedData();
-                    Double similarity = inputCofiguration.getSimilarityThresold();
-                    queGG.evalution(qaldDir, outputDir, inputCofiguration,language, linkedData.getEndpoint(), EvaluateAgainstQALD.REAL_QUESTION, similarity);
+                }*/
+                if (inputCof.isEvalution()) {
+                    Language language = inputCof.getLanguage();
+                    String qaldDir = inputCof.getQaldDir();
+                    String outputDir = inputCof.getOutputDir();
+                    LinkedData linkedData = inputCof.getLinkedData();
+                    Double similarity = inputCof.getSimilarityThresold();
+                    queGG.evalution(qaldDir, outputDir, inputCof,language, linkedData.getEndpoint(), EvaluateAgainstQALD.REAL_QUESTION, similarity);
                 }
 
             }
@@ -339,48 +366,16 @@ public class QueGG {
             }
         }
         // Make a GrammarRuleGeneratorRoot instance to use the combination function
-        GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
-        LOG.info("Start generation of combined entries");
+        //GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
+        //LOG.info("Start generation of combined entries");
 
-        for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
-            grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
-            if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
-                     ;   
-            }
-            else  
-            {
-                String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
-                if (grammarEntry.getReturnVariable() != null) {
-                    sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
-                }
-                grammarEntry.setSparqlQuery(sparql);
-            }
-            /*if(grammarEntry.getSentenceTemplate()!=null&!grammarEntry.getSentenceTemplate().contains(nounPhrase)){
-                grammarEntry.setCombination(true);
-            }*/
-
-        }
-
-        // Output file is too big, make two files
-        GrammarWrapper regularEntries = new GrammarWrapper();
-        regularEntries.setGrammarEntries(
-                grammarWrapper.getGrammarEntries()
-                        .stream()
-                        .filter(grammarEntry -> !grammarEntry.isCombination())
-                        .collect(Collectors.toList())
-        );
-        
-        generatorRoot.dumpToJSON(
-                Path.of(
-                        outputDir,
-                        "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
-                ).toString(),
-                regularEntries
-        );
-        
-
+        PrettyGrammar.prettyGrammarFuntion(grammarWrapper,language,outputDir);
+        PrettyGrammar.outputForParser(grammarWrapper,language,outputDir);
     }
 
+
+    
+   
     private GrammarWrapper generateGrammarGeneric(LemonModel lemonModel, GrammarRuleGeneratorRoot grammarRuleGenerator) {
         GrammarWrapper grammarWrapper = new GrammarWrapper();
         lemonModel.getLexica().forEach(lexicon -> {
@@ -399,5 +394,9 @@ public class QueGG {
         GrammarRuleGeneratorRoot.setEndpoint(endpoint);
 
     }
+
+   
+
+   
 
 }

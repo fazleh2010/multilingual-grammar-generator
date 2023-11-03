@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :moss_634_sense_1_res ;
+  lemon:entry    :moss_634 .
+
+:moss_634 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :moss_634_form ;
+  lemon:otherForm  :moss_634_singular ;
+  lemon:otherForm  :moss_634_plural ;
+  lemon:sense          :moss_634_sense_1 ;
+  lemon:synBehavior    :moss_634_predFrame .
+
+:moss_634_form
+ lemon:writtenRep "moss"@en .
+
+:moss_634_singular a    lemon:Form ;
+  lemon:writtenRep "moss"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:moss_634_plural a   lemon:Form ;
+  lemon:writtenRep "mossses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:moss_634_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :moss_634_sense_1_res ;
+  lemon:isA       :moss_634_PredSynArg .
+
+:moss_634_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Moss> .

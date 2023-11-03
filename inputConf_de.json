@@ -6,7 +6,7 @@
    "offlineQuestion" : "true",
    "onlineAnswer" : "false",
   "inputDir"     : "lexicon",
-  "outputDir"    : "result/",
+  "outputDir"    : "/home/elahi/A-Grammar/original/grammar-rules/grammarFiles/",
   "entityDir"    : "resources/de/property/",
   "questionDir"  : "resources/de/questions/",
   "classDir"     : "resources/de/entity/",
@@ -19,9 +19,9 @@
   "similarityThresold" : 0.7,
   "csvToTurtle" : true,
   "turtleToProtoType" : true,
-  "single": true,
+  "single": false,
   "composite": false,
-  "protoTypeToQuestion" : true,
+  "protoTypeToQuestion" : false,
   "evalution" : false
 }
 

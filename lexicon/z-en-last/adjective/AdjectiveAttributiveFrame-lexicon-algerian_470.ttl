@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :algerian_470_sense_1_res ;
+  lemon:entry    :algerian_470 .
+
+:algerian_470 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :algerian_470_lemma ;
+  lemon:sense          :algerian_470_sense_1 ;
+  lemon:synBehavior    :algerian_470_attrFrame, :algerian_470_predFrame .
+
+:algerian_470_lemma lemon:writtenRep "algerian"@en .
+
+:algerian_470_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :algerian_470_PredSynArg .
+
+:algerian_470_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :algerian_470_AttrSynArg .
+
+:algerian_470_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :algerian_470_sense_1_res ;
+  lemon:isA       :algerian_470_AttrSynArg, :algerian_470_PredSynArg .
+
+:algerian_470_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Algeria> .

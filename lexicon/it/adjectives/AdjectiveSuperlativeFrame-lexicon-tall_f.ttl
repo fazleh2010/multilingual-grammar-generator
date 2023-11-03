@@ -1,0 +1,47 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix oils:     <http://lemon-model.net/oils#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :tall_f ;
+  lemon:entry    :form_tall_f_preposition ;
+  lemon:entry    :tall_f_res .
+
+:tall_f a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_tall_f ;
+  lemon:otherForm      :form_tall_f_comperative ;
+  lemon:otherForm      :form_tall_f_superlative ;
+  lemon:sense          :tall_f_sense_1 ;
+  lemon:synBehavior    :tall_f_predFrame .
+
+:form_tall_f lemon:writtenRep "alta"@it .
+
+:form_tall_f_comperative lemon:writtenRep "più alta"@it .
+
+:form_tall_f_superlative lemon:writtenRep "la piiù alta"@it .
+
+:tall_f_predFrame a        lexinfo:AdjectiveSuperlativeFrame ;
+  lexinfo:copulativeSubject :tall_f_PredSynArg .
+
+:tall_f_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :tall_f_res ;
+  lemon:isA       :tall_f_PredSynArg ;
+  lemon:condition :tall_f_sense_1_condition .
+
+:tall_f_res a   oils:CovariantScalar ;
+  oils:boundTo  <http://dbpedia.org/ontology/height> ;
+  oils:degree   <http://lemon-model.net/oils/high> .
+
+:tall_f_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain   <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange    <http://www.w3.org/2001/XMLSchema#double> .## Prepositions ##
+:form_tall_f_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

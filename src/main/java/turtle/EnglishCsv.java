@@ -45,8 +45,9 @@ public class EnglishCsv implements TempConstants {
         public static Integer rangeWrittenSingular = 14;
         public static Integer rangeWrittenPlural = 15;
         private static String proeposition_id;
-        private static String arg1 = "arg1";
-        private static String arg2 = "arg2";
+        private static String arg1 = null;
+        private static String arg2 = null;
+
 
         public NounPPFrameCsv() {
 
@@ -82,30 +83,21 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getWrittenTtl(String lemonEntry, String writtenFormInfinitive, String writtenFormSingular, String writtenFormPlural, String language, String copulativeArg) {
-            /*return ":" + lemonEntry + "_form a lemon:Form ;\n"
-                    + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
-                    + "\n"
-                    + ":" + lemonEntry + "_nounpp a        lexinfo:NounPPFrame ;\n"
-                    + "  lexinfo:copulativeArg        :arg1 ;\n"
-                    + "  lexinfo:prepositionalAdjunct :arg2 .\n"
-                    + "\n";*/
+
             if (writtenFormPlural.contains("-")) {
                 writtenFormPlural = "XX";
             }
-            
-            String arg1=null,arg2=null;
-            if (copulativeArg.contains("domain")) {
-                arg1 = "arg2" + "_" + lemonEntry;
-                arg2 = "arg1" + "_" + lemonEntry;
-            } else {
-                arg1 = "arg1" + "_" + lemonEntry;
-                arg2 = "arg2" + "_" + lemonEntry;
-            }
-            
 
-            String writtenForm = 
-                    ":" + lemonEntry + "_form a lemon:Form ;\n"
-                    + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " ;\n"
+            if (copulativeArg.contains("domain")) {
+                this.arg1 = "arg2"+"_"+lemonEntry;
+                this.arg2 = "arg1"+"_"+lemonEntry;
+            } else {
+                this.arg1 = "arg1"+"_"+lemonEntry;
+                this.arg2 = "arg2"+"_"+lemonEntry;
+            }
+
+            String writtenForm = ":" + lemonEntry + "_form a lemon:Form ;\n"
+                    + "  lemon:writtenRep \"" + writtenFormInfinitive + "\"@" + language + " .\n"
                     + "\n"
                     + ":" + lemonEntry + "_singular a    lemon:Form ;\n"
                     + "  lemon:writtenRep \"" + writtenFormSingular + "\"@" + language + " ;\n"
@@ -117,8 +109,8 @@ public class EnglishCsv implements TempConstants {
                     + "\n";
 
             String copulativeStr = ":" + lemonEntry + "_nounpp" + " a        lexinfo:NounPPFrame ;\n"
-                    + "  lexinfo:copulativeArg        :" + this.arg1 + " ;\n"
-                    + "  lexinfo:prepositionalAdjunct :" + this.arg2 + " .\n"
+                    + "  lexinfo:copulativeArg        :" + arg1 + " ;\n"
+                    + "  lexinfo:prepositionalAdjunct :" + arg2 + " .\n"
                     + "\n";
 
             return writtenForm + copulativeStr;
@@ -128,6 +120,7 @@ public class EnglishCsv implements TempConstants {
             GenderUtils.setWrittenForms(tupple.getDomain(), getDomainWrittenSingular(row), getDomainWrittenPlural(row));
             GenderUtils.setWrittenForms(tupple.getRange(), getRangeWrittenSingular(row), getRangeWrittenPlural(row));
         }*/
+
         public void setArticle(Map<String, List<String>> domainOrRange) {
             for (String key : domainOrRange.keySet()) {
                 List<String> row = domainOrRange.get(key);
@@ -140,7 +133,7 @@ public class EnglishCsv implements TempConstants {
             if (preposition.contains("X")) {
                 preposition = "";
             }
-            return ":" + "arg2" + " lemon:marker :" + proeposition_id + " .\n"
+            return ":"+arg2+" lemon:marker :" + proeposition_id + " .\n"
                     + "## Prepositions ##\n"
                     + ":" + proeposition_id + " a                  lemon:SynRoleMarker ;\n"
                     + "  lemon:canonicalForm  [ lemon:writtenRep \"" + preposition + "\"@" + language + " ] ;\n"
@@ -148,16 +141,16 @@ public class EnglishCsv implements TempConstants {
                     + "\n"
                     + "";
         }
-
-        public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
+        
+         public String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
             String str = "";
             if (syntacticFrame.equals(NounPPFrame)) {
                 for (Tupples tupple : tupples) {
                     String line = ":" + tupple.getSenseId() + " a lemon:OntoMap, lemon:LexicalSense ;\n"
                             + "  lemon:ontoMapping         :" + tupple.getSenseId() + " ;\n"
                             + "  lemon:reference           <" + tupple.getReference() + "> ;\n"
-                            + "  lemon:subjOfProp          :"+"arg2"+" ;\n"
-                            + "  lemon:objOfProp           :"+"arg1"+" ;\n"
+                            + "  lemon:subjOfProp          :"+this.arg2+" ;\n"
+                            + "  lemon:objOfProp           :"+this.arg1+" ;\n"
                             + "  lemon:condition           :" + tupple.getSenseId() + "_condition .\n"
                             + "\n"
                             + ":" + tupple.getSenseId() + "_condition a lemon:condition ;\n"
@@ -216,7 +209,7 @@ public class EnglishCsv implements TempConstants {
         }
 
         public String getDomainIndex(String[] row) {
-            return Spliter.splitString(row[domainIndex]);
+            return Spliter.splitString(row[domainIndex]);       
         }
 
         public static String getRangeIndex(String[] row) {
@@ -242,6 +235,8 @@ public class EnglishCsv implements TempConstants {
         public String getRangeWrittenPlural(String[] row) {
             return row[rangeWrittenPlural];
         }*/
+       
+
     }
 
     public static class TransitFrameCsv {
@@ -267,8 +262,6 @@ public class EnglishCsv implements TempConstants {
         private Integer rangeWrittenSingularFormIndex=16;
         private Integer rangeWrittenPluralFormIndex=17;*/
         private static String proeposition_id;
-        private static String arg1 = "arg1";
-        private static String arg2 = "arg2";
 
         public String getHeader(String lemonEntry, String preposition, String language) {
 
@@ -399,10 +392,10 @@ public class EnglishCsv implements TempConstants {
            GenderUtils.setWrittenForms(tupple.getDomain(), row[getDomainWrittenSingular()], row[getDomainWrittenPlural()]);
            GenderUtils.setWrittenForms(tupple.getRange(), row[getRangeWrittenSingular()], row[getRangeWrittenPlural()]);
         }*/
-        public void setArticle(Map<String, List<String>> domainOrRange) {
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setWrittenForms(key, row.get(0), row.get(1));
+        public void setArticle( Map<String, List<String>> domainOrRange) {
+               for(String key:domainOrRange.keySet()){
+               List<String> row= domainOrRange.get(key);
+               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }
@@ -531,8 +524,8 @@ public class EnglishCsv implements TempConstants {
         private Integer rangeWrittenSingularFormIndex = domainWrittenPluralFormIndex + 1;
         private Integer rangeWrittenPluralFormIndex = rangeWrittenSingularFormIndex + 1;
         private static String preposition_id;
-        private String subjectLemon = null;
-        private String objectLemon = null;
+        private String subjectLemon=null;
+        private String objectLemon=null;
 
         public String getHeader(String lemonEntry, String proposition, String language) {
             preposition_id = "form_" + lemonEntry + "_preposition";
@@ -597,8 +590,8 @@ public class EnglishCsv implements TempConstants {
                     + "  lexinfo:person   lexinfo:thirdPerson .\n"
                     + "\n"
                     + ":" + lemonEntry + "_frame a  lexinfo:IntransitivePPFrame ;\n"
-                    + "  lexinfo:subject              :" + lemonEntry + "_subj" + " ;\n"
-                    + "  lexinfo:prepositionalAdjunct :" + lemonEntry + "_obj" + " .\n"
+                    + "  lexinfo:subject              :" + lemonEntry + "_subj" +" ;\n"
+                    + "  lexinfo:prepositionalAdjunct :" + lemonEntry + "_obj" +" .\n"
                     + "\n";
         }
 
@@ -609,7 +602,7 @@ public class EnglishCsv implements TempConstants {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
                         + "  lemon:reference   <" + tupple.getReference() + "> ;\n"
-                        + "  lemon:subjOfProp  :" + this.subjectLemon + " ;\n"
+                        + "  lemon:subjOfProp  :" + this.subjectLemon +" ;\n"
                         + "  lemon:objOfProp   :" + this.objectLemon + " ;\n"
                         + "  lemon:condition   :" + tupple.getSenseId() + "_condition .\n"
                         + "\n"
@@ -643,9 +636,9 @@ public class EnglishCsv implements TempConstants {
                 GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
 
             }*/
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setWrittenForms(key, row.get(0), row.get(1));
+            for(String key:domainOrRange.keySet()){
+               List<String> row= domainOrRange.get(key);
+               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }
@@ -896,6 +889,126 @@ public class EnglishCsv implements TempConstants {
         }
 
     }
+    
+    public static class NounPredicateFrame {			
+        private Integer lemonEntryIndex = 0;
+        private Integer partOfSpeechIndex = 1;
+        private Integer writtenFormSingular = 2;
+        private Integer writtenFormPlural = 3;
+        private Integer syntacticFrameIndex =4 ;
+        private Integer copulativeSubjectIndex = 5;
+        private Integer prepositionalAdjunct = 6;
+        private Integer senseIndex = 7;
+        private Integer referenceIndex = 8;
+        private Integer domainIndex = 9;
+        private Integer rangeIndex = 10;
+
+        public String getNounPredicateFrameTurtle(String[] row,String language,String lemonId) {
+            //String lemonId=this.format(this.getLemonEntryIndex(row)+"_"+id);
+            String singular=this.format(this.getWrittenFormSingular(row)).toLowerCase();
+            String plural=this.format(this.getWrittenFormPlural(row)).toLowerCase();
+            String property=Property.withPrefix(this.format(this.getReferenceIndex(row)));
+            String resource=Property.withPrefix(this.format(this.getDomainIndex(row)));
+            
+            String turtle = "@prefix :        <http://localhost:8080/#> .\n"
+                    + "\n"
+                    + "@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .\n"
+                    + "@prefix lemon:   <http://lemon-model.net/lemon#> .\n"
+                    + "@prefix owl:     <http://www.w3.org/2002/07/owl#> .\n"
+                    + "\n"
+                    + "@base            <http://localhost:8080#> .\n"
+                    + "\n"
+                    + ":lexicon_en a    lemon:Lexicon ;\n"
+                    + "  lemon:language \""+language+"\" ;\n"
+                    + "  lemon:entry    :"+lemonId+"_sense_1_res ;\n"
+                    + "  lemon:entry    :"+lemonId+" .\n"
+                    + "\n"
+                    + ":"+lemonId+" a  lemon:LexicalEntry ;\n"
+                    + "  lexinfo:partOfSpeech lexinfo:noun ;\n"
+                    + "  lemon:canonicalForm  :"+lemonId+"_form ;\n"
+                    + "  lemon:otherForm  :"+lemonId+"_singular ;\n"
+                    + "  lemon:otherForm  :"+lemonId+"_plural ;\n"
+                    + "  lemon:sense          :"+lemonId+"_sense_1 ;\n"
+                    + "  lemon:synBehavior    :"+lemonId+"_predFrame .\n"
+                    + "\n"
+                    + ":"+lemonId+"_form\n"
+                    + " lemon:writtenRep \""+singular+"\"@en .\n"
+                    + "\n"
+                    + ":"+lemonId+"_singular a    lemon:Form ;\n"
+                    + "  lemon:writtenRep \""+singular+"\"@en ;\n"
+                    + "  lexinfo:number   lexinfo:singular .\n"
+                    + "\n"
+                    + ":"+lemonId+"_plural a   lemon:Form ;\n"
+                    + "  lemon:writtenRep \""+plural+"\"@en ;\n"
+                    + "  lexinfo:number    lexinfo:plural .\n"
+                    + "\n"
+                    + ":"+lemonId+"_sense_1 a  lemon:LexicalSense ;\n"
+                    + "  lemon:reference :"+lemonId+"_sense_1_res ;\n"
+                    + "  lemon:isA       :"+lemonId+"_PredSynArg .\n"
+                    + "\n"
+                    + ":"+lemonId+"_sense_1_res a   owl:Restriction ;\n"
+                    + "  owl:onProperty <"+property+"> ;\n"
+                    + "  owl:hasValue   <"+resource+"> .";
+            return turtle;
+        }
+
+
+        public Integer getSyntacticFrameIndex() {
+            return syntacticFrameIndex;
+        }
+
+        public String getLemonEntryIndex(String []row) {
+            return row[lemonEntryIndex];
+        }
+
+        public String getPartOfSpeechIndex(String row[]) {
+            return row[partOfSpeechIndex];
+        }
+
+       
+        public String getWrittenFormSingular(String row[]) {
+            return row[writtenFormSingular];
+        }
+
+        public String getWrittenFormPlural(String row[]) {
+            return row[writtenFormPlural];
+        }
+
+        public String getSyntacticFrameIndex(String row[]) {
+            return row[syntacticFrameIndex];
+        }
+
+        public String getCopulativeSubjectIndex(String row[]) {
+            return row[copulativeSubjectIndex];
+        }
+
+        public String getPrepositionalAdjunct(String row[]) {
+            return row[prepositionalAdjunct];
+        }
+
+        public String getSenseIndex(String row[]) {
+            return row[senseIndex];
+        }
+
+        public String getReferenceIndex(String []row) {
+            return row[referenceIndex];
+        }
+
+        public String getDomainIndex(String [] row) {
+            return row[domainIndex];
+        }
+
+        public String getRangeIndex(String []row) {
+            return row[rangeIndex];
+        }
+
+        private String format(String string) {
+            string=string.stripLeading().stripTrailing().strip().trim();
+            return string;
+        }
+
+       
+    }
 
     public static class GradbleAdjectiveFrameCsv {
 
@@ -990,7 +1103,7 @@ public class EnglishCsv implements TempConstants {
                 String condition
                         = ":" + tupple.getSenseId() + "_condition" + " a lemon:condition ;\n"
                         + "  lemon:propertyDomain   <" + tupple.getDomain() + "> ;\n"
-                        + "  lemon:propertyRange    <" + tupple.getRange() + "> .";
+                        + "  lemon:propertyRange    <" + tupple.getRange() + "> .\n";
 
                 str += line + res + condition;
             }
@@ -1002,7 +1115,7 @@ public class EnglishCsv implements TempConstants {
             if (preposition.contains("X")) {
                 preposition = "";
             }
-            return "## Prepositions ##\n"
+            return "\n## Prepositions ##\n"
                     + ":" + "form_" + lemonEntry + "_preposition" + " a                  lemon:SynRoleMarker ;\n"
                     + "  lemon:canonicalForm  [ lemon:writtenRep \"" + preposition + "\"@" + language + " ] ;\n"
                     + "  lexinfo:partOfSpeech lexinfo:preposition .\n"
@@ -1027,9 +1140,9 @@ public class EnglishCsv implements TempConstants {
                 GenderUtils.setWrittenForms(range, row.get(0), row.get(1));
 
             }*/
-            for (String key : domainOrRange.keySet()) {
-                List<String> row = domainOrRange.get(key);
-                GenderUtils.setWrittenForms(key, row.get(0), row.get(1));
+            for(String key:domainOrRange.keySet()){
+               List<String> row= domainOrRange.get(key);
+               GenderUtils.setWrittenForms(key, row.get(0), row.get(1)); 
             }
 
         }
@@ -1120,7 +1233,7 @@ public class EnglishCsv implements TempConstants {
     public static String getSenseIdRes(List<Tupples> senseIds) {
         String str = "";
         for (Tupples tupple : senseIds) {
-            String line = "   lemon:entry          :" + tupple.getSenseId() + "_res ;\n";
+            String line = "  lemon:entry    :" + tupple.getSenseId() + "_res ;\n";
             str += line;
         }
         return str;

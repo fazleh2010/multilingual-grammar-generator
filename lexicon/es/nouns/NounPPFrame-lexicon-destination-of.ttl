@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :destination-of ;
+  lemon:entry    :destination-of_form_preposition .
+
+:destination-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :destination-of_form ;
+  lemon:otherForm  :destination-of_singular ;
+  lemon:otherForm  :destination-of_plural ;
+  lemon:sense          :destination-of_sense_1 ;
+  lemon:synBehavior    :destination-of_nounpp .
+
+:destination-of_form a lemon:Form ;
+  lemon:writtenRep "destino"@es .
+
+:destination-of_singular a    lemon:Form ;
+  lemon:writtenRep "destino"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:destination-of_plural a   lemon:Form ;
+  lemon:writtenRep "destinos"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:destination-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:destination-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :destination-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/destination> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :destination-of_sense_1_condition .
+
+:destination-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PublicTransitSystem> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/PopulatedPlace> .
+
+:arg2 lemon:marker :destination-of_form_preposition .
+## Prepositions ##
+:destination-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

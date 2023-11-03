@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :star_525_sense_1_res ;
+  lemon:entry    :star_525 .
+
+:star_525 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :star_525_form ;
+  lemon:otherForm  :star_525_singular ;
+  lemon:otherForm  :star_525_plural ;
+  lemon:sense          :star_525_sense_1 ;
+  lemon:synBehavior    :star_525_predFrame .
+
+:star_525_form
+ lemon:writtenRep "star"@en .
+
+:star_525_singular a    lemon:Form ;
+  lemon:writtenRep "star"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:star_525_plural a   lemon:Form ;
+  lemon:writtenRep "stars"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:star_525_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :star_525_sense_1_res ;
+  lemon:isA       :star_525_PredSynArg .
+
+:star_525_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Star> .

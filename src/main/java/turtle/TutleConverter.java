@@ -23,6 +23,7 @@ public interface TutleConverter {
 
     public void setAdjectiveFrame(String key, List<String[]> rows, String syntacticFrame);
     
+    public void setNounPredicateFrame(String key, List<String[]> rows, String syntacticFrame);
     
     public void setAdjectiveGradableFrame(String key, List<String[]> rows, String syntacticFrame);
     

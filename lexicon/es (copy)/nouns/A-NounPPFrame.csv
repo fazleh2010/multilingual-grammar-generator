@@ -1,0 +1,2 @@
+LemonEntry,partOfSpeech,article_singular,writtenForm (singular),spanish_writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range
+idioma_oficial_1,noun,masculine,idioma oficial,idiomas oficiales,de,NounPPFrame,range,domain,1,dbo:officialLanguage,dbo:Country,dbo:Language

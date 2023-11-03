@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :openingdate-of_839 ;
+  lemon:entry    :openingdate-of_839_form_preposition .
+
+:openingdate-of_839 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :openingdate-of_839_form ;
+  lemon:otherForm  :openingdate-of_839_singular ;
+  lemon:otherForm  :openingdate-of_839_plural ;
+  lemon:sense          :openingdate-of_839_sense_1 ;
+  lemon:synBehavior    :openingdate-of_839_nounpp .
+
+:openingdate-of_839_form a lemon:Form ;
+  lemon:writtenRep "opening Date"@en .
+
+:openingdate-of_839_singular a    lemon:Form ;
+  lemon:writtenRep "opening Date"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:openingdate-of_839_plural a   lemon:Form ;
+  lemon:writtenRep "opening Dates"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:openingdate-of_839_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_openingdate-of_839 ;
+  lexinfo:prepositionalAdjunct :arg2_openingdate-of_839 .
+
+:openingdate-of_839_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :openingdate-of_839_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/openingDate> ;
+  lemon:subjOfProp          :arg2_openingdate-of_839 ;
+  lemon:objOfProp           :arg1_openingdate-of_839 ;
+  lemon:condition           :openingdate-of_839_sense_1_condition .
+
+:openingdate-of_839_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/ArchitecturalStructure> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_openingdate-of_839 lemon:marker :openingdate-of_839_form_preposition .
+## Prepositions ##
+:openingdate-of_839_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

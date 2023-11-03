@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :length-of ;
+  lemon:entry    :length-of_form_preposition .
+
+:length-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :length-of_form ;
+  lemon:otherForm  :length-of_singular ;
+  lemon:otherForm  :length-of_plural ;
+  lemon:sense          :length-of_sense_1 ;
+  lemon:synBehavior    :length-of_nounpp .
+
+:length-of_form a lemon:Form ;
+  lemon:writtenRep "longitud"@es .
+
+:length-of_singular a    lemon:Form ;
+  lemon:writtenRep "longitud"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:length-of_plural a   lemon:Form ;
+  lemon:writtenRep "longitudes"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:length-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:length-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :length-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/length> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :length-of_sense_1_condition .
+
+:length-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/River> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :length-of_form_preposition .
+## Prepositions ##
+:length-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

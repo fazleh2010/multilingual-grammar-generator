@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_express_59 ;
+  lemon:entry    :express_59ed ;
+  lemon:entry    :form_express_59_preposition .
+
+:to_express_59 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_express_59 ;
+  lemon:otherForm      :form_express_59s ;
+  lemon:otherForm      :form_express_59ed ;
+  lemon:otherForm      :form_express_59perfect ;
+  lemon:sense          :express_59_sense_1 ;
+  lemon:synBehavior    :express_59_frame_transitive .
+
+:form_express_59 a         lemon:Form ;
+  lemon:writtenRep     "express"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_express_59s a    lemon:Form ;
+  lemon:writtenRep "expresses"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_express_59ed a   lemon:Form ;
+  lemon:writtenRep "expressed"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_express_59perfect a   lemon:Form ;
+  lemon:writtenRep "expressed"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:express_59_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :express_59_obj ;
+  lexinfo:directObject     :express_59_subj .
+
+:express_59_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :express_59_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/connotation> ;
+  lemon:subjOfProp  :express_59_obj ;
+  lemon:objOfProp   :express_59_subj ;
+  lemon:condition   :express_59_sense_1_condition .
+
+
+:express_59_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Colour> ;
+  lemon:propertyRange  <http://www.w3.org/2002/07/owl#Thing> .
+
+
+:express_59_obj lemon:marker :form_express_59_preposition .
+
+## Prepositions ##
+:form_express_59_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

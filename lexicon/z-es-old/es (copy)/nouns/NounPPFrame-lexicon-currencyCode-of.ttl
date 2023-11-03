@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :currencyCode-of ;
+  lemon:entry    :currencyCode-of_form_preposition .
+
+:currencyCode-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :currencyCode-of_form ;
+  lemon:otherForm  :currencyCode-of_singular ;
+  lemon:otherForm  :currencyCode-of_plural ;
+  lemon:sense          :currencyCode-of_sense_1 ;
+  lemon:synBehavior    :currencyCode-of_nounpp .
+
+:currencyCode-of_form a lemon:Form ;
+  lemon:writtenRep "código de divisa"@es .
+
+:currencyCode-of_singular a    lemon:Form ;
+  lemon:writtenRep "código de divisa"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:currencyCode-of_plural a   lemon:Form ;
+  lemon:writtenRep "códigos de divisas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:currencyCode-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:currencyCode-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :currencyCode-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/currencyCode> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :currencyCode-of_sense_1_condition .
+
+:currencyCode-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Currency> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :currencyCode-of_form_preposition .
+## Prepositions ##
+:currencyCode-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

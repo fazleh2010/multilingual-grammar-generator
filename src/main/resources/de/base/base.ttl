@@ -27,6 +27,7 @@
   lemon:entry    :interrogativeTemporal ;
   lemon:entry    :interrogativeCause;
   lemon:entry    :interrogativePronounWhom ;
+  lemon:entry    :interrogativePronounWoher ;
   lemon:entry    :component_heißen ;
   lemon:entry    :component_haben ;
   lemon:entry    :component_werden ;
@@ -233,7 +234,7 @@
   lexinfo:gender                          lexinfo:feminine ;
   lexinfo:case                            lexinfo:nominativeCase ;
   lexinfo:number                          lexinfo:plural ] ;
-  lemon:otherForm      [ lemon:writtenRep "die"@de ;
+  lemon:otherForm      [ lemon:writtenRep "d"@de ;
   lexinfo:gender                          lexinfo:neuter ;
   lexinfo:case                            lexinfo:nominativeCase ;
   lexinfo:number                          lexinfo:plural ] ;
@@ -601,6 +602,10 @@
 
  :interrogativePronounWhom a      lemon:LexicalEntry ;
   lemon:canonicalForm  [ lemon:writtenRep "Wen"@en ] ;
+  lexinfo:partOfSpeech lexinfo:article .
+
+  :interrogativePronounWoher a      lemon:LexicalEntry ;
+  lemon:canonicalForm  [ lemon:writtenRep "Woher"@de ] ;
   lexinfo:partOfSpeech lexinfo:article .
 
 

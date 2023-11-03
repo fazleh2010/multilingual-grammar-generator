@@ -85,8 +85,8 @@ public class English implements TempConstants, MultilingualBuilder {
                         this.rangeSelectable)).name(),
                 SentenceType.NP
         );*/
-        this.domainVariable = REGULAR_EXPRESSION;
-        this.rangeVariable = REGULAR_EXPRESSION;
+        this.domainVariable = REGULAR_EXPRESSION_X;
+        this.rangeVariable = REGULAR_EXPRESSION_X;
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
@@ -234,7 +234,11 @@ public class English implements TempConstants, MultilingualBuilder {
             SubjectType subjectType = interrogativeTemporal(attribute).second;
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
-        } else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
+        } 
+        else if (flagReference && attribute.contains("nounVariable")) {
+                word = "(X)";
+        }
+        else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
                 word = this.getReferenceWrttienForm(col[1]);
@@ -403,7 +407,7 @@ public class English implements TempConstants, MultilingualBuilder {
     private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
         String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
-        return questionWord + " " + REGULAR_EXPRESSION;
+        return questionWord + " " + REGULAR_EXPRESSION_Y;
 
     }
 

@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :theatre_470_sense_1_res ;
+  lemon:entry    :theatre_470 .
+
+:theatre_470 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :theatre_470_form ;
+  lemon:otherForm  :theatre_470_singular ;
+  lemon:otherForm  :theatre_470_plural ;
+  lemon:sense          :theatre_470_sense_1 ;
+  lemon:synBehavior    :theatre_470_predFrame .
+
+:theatre_470_form
+ lemon:writtenRep "theatre"@en .
+
+:theatre_470_singular a    lemon:Form ;
+  lemon:writtenRep "theatre"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:theatre_470_plural a   lemon:Form ;
+  lemon:writtenRep "theatres"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:theatre_470_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :theatre_470_sense_1_res ;
+  lemon:isA       :theatre_470_PredSynArg .
+
+:theatre_470_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Theatre> .
