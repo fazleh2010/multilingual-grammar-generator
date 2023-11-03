@@ -1,0 +1,411 @@
+ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+1,Liste alle Brettspiele von GMT. ,8,0,0,1,1,1
+2,Wer entwickelt Skype? ,2,0,0,1,1,1
+3,Welche Menschen wurden geboren im Heraklion? ,57,0,0,1,1,1
+4,Im welche US Zustand ist Bereich 51 gelegen? ,0,0,2,0,0,0
+5,Wer ist der Bürgermeister von New York City?,1,0,0,1,1,1
+6,In welchen Ländern gibt es Orte mit mehr als zwei Höhlen?,0,0,34,0,0,0
+7,Woher hat getan Abraham Lincoln die? ,2,0,0,1,1,1
+8,Welche Flughäfen fliegt Air China an?,9,0,0,1,1,1
+9,"Gib mir alle Schauspieler von Filmen, in denen William Shatner sowohl Regie geführt als auch selber mitgespielt hat.",0,0,12,0,0,0
+10,Was sind die Amtssprachen der Philippinen?,2,0,0,1,1,1
+11,Gib mir alle dänischen Filme.,122,0,0,1,1,1
+12,"Bei welchen Filmen, in denen Brad Pitt mitspielt, hat Guy Ritchie Regie geführt?",0,0,1,0,0,0
+13,Gib mir die Enkel von Bruce Lee.,0,0,1,0,0,0
+14,Welche anderen Waffen hat der Erfinder der Uzi entwickelt?,0,0,1,0,0,0
+15,Wem gehören die Universal Studios?,0,0,1,0,0,0
+16,Welcher Staat in den USA hat die höchste Bevölkerungsdichte?,0,0,0,0,0,0
+17,Welche Monarchen waren mit jemand deutschem verheiratet?,0,0,1,0,0,0
+18,Welche Unternehmen wurden 1950 gegründet?,0,107,0,0,0,0
+19,Wer hat den Comic Captain America erfunden?,2,0,0,1,1,1
+20,Gib mir alle Apollo-14-Astronauten.,3,0,0,1,1,1
+21,Wer schrieb das Buch Das Säulen von das Erde? ,1,0,0,1,1,1
+22,Welche Zustand von das Vereinigt Zustände von Amerika hat das höchste Dichte? ,0,0,1,0,0,0
+23,Welche Raumflüge sind von Baikonur gestartet?,13,0,0,1,1,1
+24,"Gib mit eine Liste aller Trompeter, die Bandleader waren.",0,0,46,0,0,0
+25,Welche US-Bundesstaaten liegen in derselben Zeitzone wie Utah?,0,0,0,0,0,0
+26,In welchen US-Staaten gibt es Goldvorkommen?,0,0,0,0,0,0
+27,Mit wem ist die Tochter von Ingrid Bergman verheiratet?,0,0,0,0,0,0
+28,Wie tief ist Lake Placid?,1,0,0,1,1,1
+29,Zeig mir alle Museen in London.,81,0,0,1,1,1
+30,Welche Höhlen haben mehr als 3 Eingänge?,0,0,34,0,0,0
+31,Wer ist der größte Spieler der Atlanta Falcons?,1,0,0,1,1,1
+32,Was sind laut IGN die Top-10-Action-Rollenspiele?,0,0,0,0,0,0
+33,"Gib mir alle Schriftsteller, die den Literaturnobelpreis gewonnen haben.",0,0,21,0,0,0
+34,"Zeig mir alle Basketballspieler, die größer als 2 Meter sind.",4253,0,0,1,1,1
+35,Wann wurde die Freiheitsstatue erbaut?,1,0,0,1,1,1
+36,Welche Staaten grenzen an Illinois?,5,0,0,1,1,1
+37,Wer hat Minecraft entwickelt?,1,0,0,1,1,1
+38,Wo ist Hillel Slovak gestorben?,2,0,0,1,1,1
+39,In welchen Filmen spielt Jesse Eisenberg mit?,0,0,25,0,0,0
+40,"Zeig mir alle Schwimmer, die in Moskau geboren wurden.",55,0,0,1,1,1
+41,Gib mir alle Kosmonauten.,0,0,118,0,0,0
+42,Nenne mir alle Schweizer Nonprofit-Organisationen?,1,0,0,1,1,1
+43,Welche Präsidenten wurden 1945 geboren?,0,0,0,0,0,0
+44,Was für Musik hat Lou Reed gemacht?,5,0,0,1,1,1
+45,Wo spielen die Red Sox?,0,0,1,0,0,0
+46,"Zeig mir eine Liste der Fußballvereine, die in der Bundesliga spielen.",0,0,52,0,0,0
+47,Welche japanischen Vulkane sind seit 2000 ausgebrochen?,0,0,0,0,0,0
+48,Welche Brücken überqueren die Seine?,33,0,0,1,1,1
+49,Was ist die offizielle Farbe der Universität Oxford?,1,0,0,1,1,1
+50,Wieviele Filme hat Hal Roach produziert?,1,0,0,1,1,1
+51,Gib mir alle dänischen Filme.,122,0,0,1,1,1
+52,Was ist die häufigste Todesursache?,0,0,0,0,0,0
+53,Wer sind die vier jüngsten MVP Baskettballspieler?,0,0,0,0,0,0
+54,Gib mir alle Unternehmen in München.,0,0,140,0,0,0
+55,"Gib mir die Haupstädte aller Länder, über die sich der Himalaya erstreckt.",0,0,1,0,0,0
+56,Bei wievielen Filmen hat Park Chan-wook Regie geführt?,0,0,0,0,0,0
+57,Welche Flüsse fließen in deutsche Seen?,0,0,105,0,0,0
+58,Wieviele Fluggesellschaften gibt es?,0,0,1,0,0,0
+59,"Gib mir alle Inseln, die zu Japan gehören.",0,0,88,0,0,0
+60,Wieviele Einwohner hat Maribor?,1,0,0,1,1,1
+61,Gib mir alle Apollo-14-Astronauten.,3,0,0,1,1,1
+62,Welche Unternehmen haben mehr als 1 Millionen Angestellte?,0,0,16,0,0,0
+63,"In welchem Filmen, bei denen Garry Marshall Regie geführt hat, hat Julia Roberts mitgespielt?",0,0,3,0,0,0
+64,Gib mir alle Vereine in der Premier League.,264,47,0,0.84887457,1,0.9182609
+65,Was ist die höhchste Stelle des Ural?,0,0,1,0,0,0
+66,Wer ist der Gouverneur von Wyoming?,1,0,0,1,1,1
+67,Wo hat der Architekt des Eiffelturms studiert?,1,0,0,1,1,1
+68,"Gib mir alle Welterbestätten, die in den vergangenen zwei Jahren aufgenommen wurden.",0,0,33,0,0,0
+69,"Gib mir alle Schauspieler, die nach 1950 in Paris geboren wurden.",0,0,0,0,0,0
+70,In welchen Filmen spielen sowohl Liz Taylor als auch Richard Burton mit?,0,0,11,0,0,0
+71,Gib mir alle gemeinnützigen Organisationen in Australien.,1,0,0,1,1,1
+72,Welcher Papst folgte auf Johannes Paul II?,1,0,0,1,1,1
+73,Gib mir alle ESA-Astronauten.,0,0,1,0,0,0
+74,Wer war 1978 Präsident von Pakistan?,0,0,1,0,0,0
+75,Wem gehört Rolls-Royce?,2,0,0,1,1,1
+76,Wieviele Museen hat Paris?,21,0,0,1,1,1
+77,Wo wurde JFK ermordet?,1,0,0,1,1,1
+78,Gib mir alle Bundeskanzler.,0,0,13,0,0,0
+79,"Nenne mir alle Personen, die an Halloween geboren sind. ",0,0,1,0,0,0
+80,Welches Bier kommt aus Irland?,1,0,0,1,1,1
+81,Über welche Länder erstreckt sich der Himalaya?,1,0,0,1,1,1
+82,Welche Schauspieler wurden in Deutschland geboren?,0,0,26,0,0,0
+83,Wieviele Kohlenhydrate hat Erdnussbutter?,1,0,0,1,1,1
+84,Wer hat die meisten Filme produziert?,0,0,0,0,0,0
+85,Wieviele Angestellte hat Google?,1,0,0,1,1,1
+86,Gib mir alle in Berlin geborenenen Schauspieler.,1,0,0,1,1,1
+87,Wer hat Goofy erfunden?,3,0,0,1,1,1
+88,Auf welchen Musikalben ist das Lied Last Christmas?,0,0,0,0,0,0
+89,Wann wurde die Provinz Alberta gegründet?,1,0,0,1,1,1
+90,Wieviele Missionen umfasst das Soyuz-Programm?,1,0,0,1,1,1
+91,Gib mir alle Fernsehserien mit Neil Patrick Harris.,12,20,0,0.375,1,0.54545456
+92,Wann wurden die Hells Angels gegründet?,1,0,0,1,1,1
+93,Was ist der Nettogewinn von Apple?,1,0,0,1,1,1
+94,Gib mir alle schwedischen Feiertage.,4,0,0,1,1,1
+95,In welcher Stadt wurde die ehemalige niederländische Königin Juliana beerdigt?,0,0,1,0,0,0
+96,Liste alle Musicals mit Musik von Leonard Bernstein auf.,8,0,0,1,1,1
+97,"Gib mir alle Unternehmen, die in der Werbebranche tätig sind.",1,0,0,1,1,1
+98,Was ist das größte Ballungsgebiet im Staat Washington?,1,0,0,1,1,1
+99,Wer hat John Lennon getötet?,0,0,1,0,0,0
+100,Welche Schriftsteller haben in Istanbul studiert?,0,0,12,0,0,0
+101,Gib mir alle australischen Metalcore-Bands.,21,0,0,1,1,1
+102,Welche Länder haben den Euro übernommen?,0,0,47,0,0,0
+103,Zeig mir alle Arten von Essstörungen.,0,0,0,0,0,0
+104,War Marc Chagall ein Jude?,0,0,0,0,0,0
+105,Was war Brasiliens niedrigste Platzierung in der FIFA-Weltrangliste?,0,0,1,0,0,0
+106,In wievielen Filmen hat Leonardo DiCaprio mitgespielt?,1,0,0,1,1,1
+107,War Margaret Thatcher Chemikerin?,0,0,0,0,0,0
+108,Welche US-Bundesstaaten liegen in derselben Zeitzone wie Utah?,0,0,0,0,0,0
+109,"Gib mir alle Bücher, die Danielle Steel geschrieben hat.",47,0,0,1,1,1
+110,Welches Land hat die meisten Amtssprachen?,0,0,0,0,0,0
+111,Wieviele Männer und Frauen arbeiten in der New Yorker Berufsfeuerwehr?,0,0,1,0,0,0
+112,Welcher Schauspieler hat Chewbacca gespielt?,2,0,0,1,1,1
+113,"Gib mir alle Bibliotheken, die vor 1400 gegründet worden.",0,0,12,0,0,0
+114,Welche Programmiersprachen wurden durch Perl beeinflusst?,18,0,0,1,1,1
+115,In welchem US-Bundesstaat befindet sich der Mount McKinley?,0,0,0,0,0,0
+116,Welche Fluggesellschaften sind Teil der SkyTeam-Allianz?,54,0,0,1,1,1
+117,Welche Schiffe wurden nach Benjamin Franklin benannt?,4,0,0,1,1,1
+118,"Gib mir alle Politiker, die Methodisten sind.",0,0,86,0,0,0
+119,Welche anderen Bücher wurden vom Autor von Der Fehler unserer Sterne geschrieben? ,0,0,6,0,0,0
+120,Was ist der höchste Berg?,1,0,0,1,1,1
+121,Welcher Dichter hat die meisten Bücher geschrieben?,0,0,0,0,0,0
+122,Welche Programmiersprachen haben Javascript beeinflusst?,9,0,0,1,1,1
+123,Welcher Musiker hat die meisten Bücher geschrieben?,0,0,0,0,0,0
+124,Bei welchen Filmen mit Clint Eastwood hat er selber Regie geführt?,0,0,10,0,0,0
+125,"Welche Softwareprodukte wurden von Unternehmen entwickelt, die in Kalifornien gegründet wurden?",0,0,216,0,0,0
+126,Welche Instrumente spielt Cat Stevens?,10,0,0,1,1,1
+127,Wieviele Fluggesellschaften sind in der Star Alliance?,1,0,0,1,1,1
+128,"Gib mir alle Schauspieler, die Baldwin heißen.",0,0,0,0,0,0
+129,Wer hat Die Tribute von Panem geschrieben?,1,0,0,1,1,1
+130,Welche Plattenfirma hat Elvis' erstes Album aufgenommen?,0,0,1,0,0,0
+131,Spielt Christian Bale in Batman Begins mit?,0,0,0,0,0,0
+132,Wo wohnt der Premierminister von Spanien?,1,0,0,1,1,1
+133,Welcher Schauspieler spielte in den meisten Filmen mit?,0,0,0,0,0,0
+134,Welche Länder haben mehr als zwei Amtssprachen?,0,0,33,0,0,0
+135,In welchen Ländern gibt es mehr als zehn Höhlen?,0,0,22,0,0,0
+136,"Zeige mir alle Lieder von Bruce Springsteen, die zwischen 1980 und 1990 herausgebracht wurden.",0,0,7,0,0,0
+137,Welche Fernsehserien hat John Cleese entworfen?,7,0,0,1,1,1
+138,Wann ist Lettland der EU beigetreten?,0,0,1,0,0,0
+139,Welche Fußballer wurden auf Malta geboren?,113,0,0,1,1,1
+140,Wieviele Politiker haben einen Abschluss von der Columbia University?,1,0,0,1,1,1
+141,Gib mir die Geburtstage von allen Darstellern der Fernsehserie Charmed.,0,0,10,0,0,0
+142,Welche Telekommunikationsunternehmen haben ihren Sitz in Belgien?,0,229,1,0,0,0
+143,Gib mir eine Liste aller Seen in Dänemark.,0,0,8,0,0,0
+144,Wieviele Kinder hat Eddie Murphy?,1,0,0,1,1,1
+145,"Zeige mir alle Gebäude in Kent, die im Stil der englischen Gothik erbaut wurden.",0,0,18,0,0,0
+146,Wer ist der Manager von Real Madrid?,1,0,0,1,1,1
+147,In welchen Ländern kann ich mit dem CFA-Franc BCEAO bezahlen?,0,0,15,0,0,0
+148,Welche Feiertage werden auf der Welt gefeiert?,2077,0,0,1,1,1
+149,Was ist der längste Fluss?,1,0,0,1,1,1
+150,Welche Unternehmen wurden 1930 gegründet?,0,0,0,0,0,0
+151,Was ist der Geburtsname von Angela Merkel?,0,0,0,0,0,0
+152,Mit wem war Tom Cruise verheiratet?,3,0,0,1,1,1
+153,Welche Waffen hat Heckler & Koch entwickelt?,13,0,0,1,1,1
+154,Was ist die kleinste Stadt gemessen an der Fläche in Deutschland? ,0,0,0,0,0,0
+155,Welche Partei regiert in Lissabon?,1,0,0,1,1,1
+156,Wie schwer ist Jupiters leichtester Mond?,1,0,0,1,1,1
+157,Wieviele Angestellte hat IBM?,1,0,0,1,1,1
+158,Liste alle Episoden der ersten Staffel der HBO-Fernsehserie Die Sopranos auf.,0,0,0,0,0,0
+159,Wofür steht ICRO?,0,0,1,0,0,0
+160,Hat die neue Battlestar-Galactica-Serie mehr Episoden als die alte?,0,0,0,0,0,0
+161,Gib mir alle Filme des Produzenten Hal Roach.,527,0,0,1,1,1
+162,Wer hat Agent Smith in Matrix gespielt?,0,0,2,0,0,0
+163,Welche griechischen Parteien sind pro-europäisch?,0,0,8,0,0,0
+164,"Gib mir eine Liste aller Bandleader, die Trompete spielen.",46,0,0,1,1,1
+165,Was ist der zweithöchste Berg der Erde?,0,0,1,0,0,0
+166,Ist Ägyptens größte Stadt auch seine Hauptstadt?,0,0,0,0,0,0
+167,Welche Raketen sind von Baikonur gestartet?,37,0,0,1,1,1
+168,Wieviele Programmiersprachen gibt es?,0,0,1,0,0,0
+169,"Welche Schachspieler starben am selben Ort, an dem sie geboren wurden?",0,0,66,0,0,0
+170,Wem gehört Facebook?,5,0,0,1,1,1
+171,Gib mir alle Filme mit Tom Cruise.,25,0,0,1,1,1
+172,In welchem US-Bundesstaat liegt Fort Knox?,0,0,1,0,0,0
+173,"Gib mir alle Städte in New Jersey, die mehr als 100000 Einwohner haben.",0,0,4,0,0,0
+174,Welche Berge sind höher als der Nanga Parbat?,0,0,12,0,0,0
+175,Gib mir alle B-Seiten der Ramones.,0,0,11,0,0,0
+176,Worauf ist die UNC Health Care spezialisiert?,0,0,2,0,0,0
+177,Wann wurde Olof Palme erschossen?,0,0,1,0,0,0
+178,Gib mir eine Liste aller Könige von Rom.,0,0,7,0,0,0
+179,"Gib mir alle Personen, die in Wien geboren wurden und in Berlin gestorben sind.",0,0,13,0,0,0
+180,Ist Darth Vader Lukes Vater?,0,0,0,0,0,0
+181,Zeig mir alle Brauereien in Australien.,0,0,3,0,0,0
+182,"Gib mir alle Filme, die von Steven Spielberg produziert wurden und ein Budget von mindestens 80 Millionen Dollar hatten.",0,0,0,0,0,0
+183,Gib mir alle Fußballvereine in Spanien.,695,0,0,1,1,1
+184,"Wer produzierte Filme, in denen Natalie Portman mitspielt?",0,0,36,0,0,0
+185,Gib mir alle Schäferhundrassen.,8,0,0,1,1,1
+186,Wer ist der schwerste Spieler der Chicago Bulls?,0,0,1,0,0,0
+187,Welche Sprachen werden in Estland gesprochen?,8,0,0,1,1,1
+188,Was ist das größte Land der Welt?,1,0,0,1,1,1
+189,Was ist das größten Stadt im Amerika? ,1,0,0,1,1,1
+190,Welcher Papst hat das Vatikanische Fernsehen gegründet?,1,0,0,1,1,1
+191,Wer entdeckte Ceres?,1,0,0,1,1,1
+192,Wer ist der König der Niederlande?,0,0,1,0,0,0
+193,Ist Cola ein Getränk?,0,0,0,0,0,0
+194,Was ist das Alma mater von das Kanzler von Deutschland Angela Merkel? ,0,0,1,0,0,0
+195,Wer schrieb das Buch Die Säulen der Erde?,0,0,1,0,0,0
+196,Welche Flughäfen fliegt Yeti Airlines an?,3,0,0,1,1,1
+197,Woher ist das Geburtsort von Goethe? ,0,0,2,0,0,0
+198,War die Kubakrise vor der Schweinebuchtinvasion?,0,0,0,0,0,0
+199,Welche Zutaten brauche ich für Möhrenkuchen?,0,0,6,0,0,0
+200,Wer hat Wikipedia gegründet?,2,0,0,1,1,1
+201,Was ist das höchste Berg im Sachsen Deutschland? ,1,0,0,1,1,1
+202,Wer ist das Strom Bundes Minister von Finanzen im Deutschland? ,0,0,1,0,0,0
+203,In welchem Land liegt Mekka?,1,0,0,1,1,1
+204,Wer hat Gus Fring in Breaking Bad gespielt?,0,0,1,0,0,0
+205,In welchem Land entspringt der Nil?,2,0,0,1,1,1
+206,Im welche Zustand Penn Zustand Universität ist gelegen? ,1,0,0,1,1,1
+207,Was ist das größte Stadion in Spanien?,1,0,0,1,1,1
+208,Wer ist der Trainer von Ankaras Eishockeymannschaft?,0,0,1,0,0,0
+209,Wie groß ist das Bereich von VEREINIGTES KÖNIGREICH? ,0,0,2,0,0,0
+210,Wer hat Batman erfunden?,2,0,0,1,1,1
+211,War Sigmund Freud verheiratet?,0,0,0,0,0,0
+212,Wer sind die Entwickler von DBpedia?,3,0,0,1,1,1
+213,"Gib mir alle Filme, bei denen Francis Ford Coppola Regie geführt hat.",0,0,28,0,0,0
+214,Sind Laubfrösche Amphibien?,0,0,0,0,0,0
+215,Wo ist der Westminster-Palast?,0,0,2,0,0,0
+216,Wie viel ist das Elevation von Düsseldorf Flughafen ? ,1,1,0,0.5,1,0.6666667
+217,Wie viel ist das Population von Mexiko Stadt ? ,1,0,0,1,1,1
+218,wann war das Gründung Datum von Französisch fünfte Republik? ,0,0,1,0,0,0
+219,Wer war der erste König von England?,0,0,0,0,0,0
+220,Wer ist der Herausgeber von Forbes?,1,0,0,1,1,1
+221,Welche Preise hat Douglas Hofstadter gewonnen?,3,0,0,1,1,1
+222,Wer ist der jüngste Dartspieler?,1,0,0,1,1,1
+223,Ist Pferderennen ein Sport,0,0,0,0,0,0
+224,Welchen Fluss überspannt die Brooklyn Bridge?,1,0,0,1,1,1
+225,Wieviele Menschen leben in Polen?,1,0,0,1,1,1
+226,Wann war das letzte Folge von das Fernseher Serie Freunde ausgestrahlt? ,0,0,1,0,0,0
+227,Heißt die Frau von Präsident Obama Michelle?,0,0,0,0,0,0
+229,Wer ist 8. Präsident von UNS? ,0,0,0,0,0,0
+230,Wie viel ist das gesamt Population von europäisch Union? ,1,0,0,1,1,1
+231,Gib mir alle von der NASA betriebenen Startrampen.,7,0,0,1,1,1
+232,Wer hat das Videospiel World of Warcraft entwickelt?,1,0,0,1,1,1
+233,Was ist das Geburt Name von Adele? ,1,0,0,1,1,1
+234,Was ist das Population von Kairo? ,1,0,0,1,1,1
+235,Lebt Frank Herbert noch?,0,0,0,0,0,0
+236,Was ist das letzte Arbeit von Und Braun? ,0,0,0,0,0,0
+237,Woher ist Sungkyunkwan Universität? ,0,0,1,0,0,0
+238,Wer ist das Autor von das Deutung von Träume? ,1,0,0,1,1,1
+239,Wann war das Tod von Shakespeare? ,1,0,0,1,1,1
+241,Wer hat Slack entwickelt?,1,0,0,1,1,1
+242,Woher ist das Ursprung von Carolina Sensenmann? ,0,0,1,0,0,0
+243,In welchem Jahr wurde Rachel Stevens geboren?,1,0,0,1,1,1
+244,Wie oft hat Jane Fonda geheiratet?,1,0,0,1,1,1
+245,Hieß die Frau von Präsident Lincoln Mary?,0,0,0,0,0,0
+246,Durch welche Städte fließt die Weser?,7,0,0,1,1,1
+247,In welcher Programmiersprache wurde GIMP geschrieben?,2,0,0,1,1,1
+248,Welche Universiät hat Angela Merkel besucht?,1,0,0,1,1,1
+249,Liste alle Musicals mit Musik von Elton John auf.,5,0,0,1,1,1
+250,Wieviele Aldi-Filialen gibt es?,0,0,1,0,0,0
+251,Was ist der längste Fluss der Welt?,1,0,0,1,1,1
+252,Wann wurde John Adams geboren?,1,0,0,1,1,1
+253,Welche Firmen stellen Hovercrafts her?,3,0,0,1,1,1
+254,Wer war die Frau von US-Präsident Lincoln?,0,0,1,0,0,0
+255,Welche Spezies tut ein Elefant gehören? ,0,0,0,0,0,0
+256,Wieviele Menschen leben in der Hauptstadt Australiens?,0,0,1,0,0,0
+257,In welchem alten Reich konnte man mit Kakaobohnen bezahlen?,0,0,1,0,0,0
+258,Wie viele Theorien hat Albert Einstein formuliert?,1,0,0,1,1,1
+259,Wer hat den Soundtrack für Camerons Titanic geschrieben?,0,0,1,0,0,0
+260,Gib mir die Laufzeit von Toy Story.,1,0,0,1,1,1
+262,Mit Wie viele Länder Ich rannte hat Grenzen? ,0,0,8,0,0,0
+263,Welche Elektronikunternehmen wurden in Peking gegründet?,0,0,1,0,0,0
+264,Wer war der Nachfolger von John F. Kennedy?,3,0,0,1,1,1
+265,Wer ist Bürgermeister von Paris?,1,0,0,1,1,1
+266,Hat Arnold Schwarzenegger eine Universität besucht?,0,0,0,0,0,0
+267,Ist James Bond verheiratet?,0,0,0,0,0,0
+268,Fließt die Isar in einen See?,0,0,0,0,0,0
+269,Welches indische Unternehmen hat die meisten Angestellten?,0,0,1,0,0,0
+270,Wer war der Vizepräsident unter John F. Kennedy?,1,0,0,1,1,1
+271,Aus welchem Land kommt der Erfinder von Nijntje?,0,0,1,0,0,0
+273,In welcher Stadt ist die Heinekenbrauerei?,0,0,1,0,0,0
+274,Ist Barack Obama ein Demokrat?,0,0,0,0,0,0
+275,Liste die Kinder von Margaret Thatcher auf.,2,0,0,1,1,1
+276,Aus welcher Region ist der Melon de Bourgogne?,4,0,0,1,1,1
+278,Wie groß ist das gesamt Bereich von Norden Rhein- Westfalen? ,1,0,0,1,1,1
+279,Welche Stadt hat die meisten Einwohner?,0,0,1,0,0,0
+280,Was ist Donald Trumps Main Geschäft? ,4,0,0,1,1,1
+281,Wann werden Anfang das Finale Spiel von das Fußball Welt Tasse 2018? ,0,0,1,0,0,0
+282,Bei wievielen Filmen hat Stanley Kubrick Regie geführt?,16,0,0,1,1,1
+283,Wie viel ist das Population Irak? ,1,0,0,1,1,1
+284,Wieviele Einwohner hat die größte Stadt in Kanada?,0,0,1,0,0,0
+285,Wer ist der Bürgermeister der Hauptstadt von Französisch-Polynesien?,0,0,1,0,0,0
+286,"Gib mir alle Schauspieler von Filmen, in denen William Shatner Regie geführt hat.",0,0,18,0,0,0
+287,Wie groß ist Claudia Schiffer?,1,0,0,1,1,1
+288,Wie viel ist das Population Dichte Rang von Deutschland? ,1,0,0,1,1,1
+289,Was ist der höchste Berg in Italien?,1,0,0,1,1,1
+290,Liste alle Spiele von GMT auf.,8,0,0,1,1,1
+291,Was ist die Amtssprache Von Surinam?,1,0,0,1,1,1
+292,In welcher Stadt ist Nikos Kazantzakis gestorben?,1,0,0,1,1,1
+293,Was ist in Chocolate Chip Cookies drin?,0,0,10,0,0,0
+294,In welchem Land befindet sich der Limerick Lake?,1,0,0,1,1,1
+295,Gib mir alle Videospiele von Mean Hamster Software.,2,0,0,1,1,1
+296,Gib mir alle Bandmitglieder von Prodigy.,3,0,0,1,1,1
+297,In welcher Zeitzone liegt Rom?,1,0,0,1,1,1
+298,Wie hoch ist der Leuchtturm in Colombo?,0,0,1,0,0,0
+299,Wer sind das Schriftsteller von das Mauer Album von Rosa Floyd? ,0,0,0,0,0,0
+300,Wer ist der Bürgermeister von Rotterdam?,1,0,0,1,1,1
+301,Was ist die größte Stadt in Australien?,1,0,0,1,1,1
+302,Wer war mit Präsident Chirac verheiratet?,1,0,0,1,1,1
+303,Welche Regierungsform hat Südafrika?,1,0,0,1,1,1
+304,Wie hoch ist der Yokohama Marine Tower?,1,0,0,1,1,1
+305,Welche Feiertage werden auf der Welt gefeiert? test1,0,0,2077,0,0,0
+306,Wer ist der größte Basketballspieler?,1,0,0,1,1,1
+307,Wieviele Sprachen werden in Turkmenistan gesprochen?,1,0,0,1,1,1
+308,Hatte Che Guevara Kinder?,0,0,0,0,0,0
+309,Hat Kaurismäki jemals den Großen Preis der Jury in Cannes gewonnen?,0,0,0,0,0,0
+310,Welcher Partei gehört die Bürgermeisterin von Paris an?,0,0,1,0,0,0
+311,Wer ist der Formel-1-Fahrer mit den meisten Rennen?,0,0,1,0,0,0
+312,Aus welchem Land kommt Sitecore?,1,0,0,1,1,1
+313,Gib mir den Geburtsort von Frank Sinatra.,1,0,0,1,1,1
+314,Spielt Christian Bale in Velvet Goldmine mit?,0,0,0,0,0,0
+315,Wer ist der Sohn von Sonny und Cher?,1,0,0,1,1,1
+316,Wieviele ethnische Gruppen leben in Slovenien?,1,0,0,1,1,1
+317,Was ist die Hauptstadt von Kamerun?,1,0,0,1,1,1
+318,Wurde Natalie Portman in den Vereinigten Staaten geboren?,0,0,0,0,0,0
+319,Wieviele Seiten hat Krieg und Frieden?,1,0,0,1,1,1
+320,Wer ist das älteste Kind von Meryl Streep?,1,0,0,1,1,1
+321,Welche Fernsehserien hat Walt Disney entworfen?,8,0,0,1,1,1
+322,Wofür steht IYCM?,0,0,1,0,0,0
+323,Welche Traubenarten wachsen in Oregon?,82,0,0,1,1,1
+324,War US-Präsident Jackson in einen Krieg verwickelt?,0,0,0,0,0,0
+325,Wann wurde die Titanic fertiggestellt?,1,0,0,1,1,1
+326,Hat Tesla den Nobelpreis für Physik gewonnen?,0,0,0,0,0,0
+327,Wie viele Staaten gibt es in Mexiko?,0,0,1,0,0,0
+328,Welcher Wissenschaftler ist bekannt für das Manhattan-Projekt und den Friedensnobelpreis?,0,0,1,0,0,0
+329,Wieviel hat der Legofilm gekostet?,1,0,0,1,1,1
+330,Wer hat die Musik für Harold und Maude komponiert?,1,0,0,1,1,1
+331,Liste alle Episoden der ersten Staffel der HBO-Fernsehserie Die Sopranos auf.,0,0,0,0,0,0
+332,Welche Stadt hat die wenigsten Einwohner?,0,0,1,0,0,0
+333,Wo liegt Syngman Rhee begraben?,1,0,0,1,1,1
+334,Spielt Neymar für Real Madrid?,0,0,0,0,0,0
+335,Wer schrieb das Buch Die Säulen der Erde?,1,0,0,1,1,1
+336,Haben Prinz Harry und Prinz William dieselben Eltern?,0,0,0,0,0,0
+337,Wer war der Doktorvater von Albert Einstein?,1,0,0,1,1,1
+338,Hat Breaking Bad mehr Episoden als Game of Thrones?,0,0,0,0,0,0
+339,Wer hat Vincent van Gogh inspiriert?,1,0,0,1,1,1
+340,Welches Gebäude nach dem Burj Khalifa hat die meisten Etagen,0,0,1,0,0,0
+341,Was war das Endergebnis der Rosenkriege?,1,0,0,1,1,1
+342,Wieviel hat Pulp Fiction gekostet?,1,0,0,1,1,1
+343,Ist Proinsulin ein Protein?,0,0,0,0,0,0
+344,Haben Urdu und Persisch gemeinsame Wurzeln?,0,0,0,0,0,0
+345,Wer spielt alles in spanischen Filmen produziert von Benicio del Toro mit? ,1,0,0,1,1,1
+346,Ist der Baikalsee größer als der Große Bärensee?,0,0,0,0,0,0
+347,Zeig mir alle Bücher in Asimovs Foundation-Serie.,3,0,0,1,1,1
+348,Wo wurde Bach geboren?,1,0,0,1,1,1
+349,Welche Stadt hat die älteste funktionierende U-Bahn?,0,0,1,0,0,0
+350,Wer hat die Brooklyn Bridge entworfen?,1,0,0,1,1,1
+351,Wie viele Menschen leben in Eurasien?,1,0,0,1,1,1
+352,Wer moderiert die BBC Wildlife Specials?,1,0,0,1,1,1
+353,"Was ist die Gesamteinwohnerzahl von Melbourne, Florida?",1,0,0,1,1,1
+354,In welchem Land ist der Mount Everest?,2,5,0,0.2857143,1,0.44444448
+355,Welcher Stilrichtung gehörte der Maler der Drei Tänzer an?,0,0,2,0,0,0
+356,Wann wurde die Operation Overlord durchgeführt?,1,0,0,1,1,1
+357,Welche Brücke hat die längste Spannweite?,0,0,1,0,0,0
+358,"Gibt es ein Videospiel, das Battle Chess heißt?",0,0,0,0,0,0
+359,Wer wurde in der Cheops-Pyramide begraben?,2,0,0,1,1,1
+360,Hat Ford eine Frabik in Malaysia?,0,0,0,0,0,0
+361,Hat Sokrates Aristoteles beeinflusst?,0,0,0,0,0,0
+362,Wieviele Kinder hatte Benjamin Franklin?,1,0,0,1,1,1
+363,Wie groß ist Michael Jordan?,1,0,0,1,1,1
+364,In welcher Stadt im Vereinigten Königreich ist das Hauptquartier des MI6?,0,0,1,0,0,0
+365,Wer hat sich Family Guy ausgedacht?,1,0,0,1,1,1
+366,In welcher Stadt hört die Ruta 68 auf?,1,0,0,1,1,1
+367,Gib mir die Enkel von Elvis Presley.,0,0,1,0,0,0
+368,Wann endete die Ming-Dynastie?,1,0,0,1,1,1
+369,An welchen militärischen Auseinandersetzungen war Lawrence von Arabien beteiligt?,0,0,6,0,0,0
+370,In welcher Zeitzone liegt San Pedro de Atacama?,1,0,0,1,1,1
+371,Gib mir alle Bücher von William Goldman mit mehr als 300 Seiten.,0,0,10,0,0,0
+372,Woran ist Bruce Carver gestorben?,1,0,0,1,1,1
+373,Welche Tochtergesellschaft von Lufthansa fliegt sowohl Dortmund als auch Berlin Tegel an?,0,0,1,0,0,0
+374,Hat Abraham Lincolns Sterbeort eine Webseite?,0,0,0,0,0,0
+375,Hatte Elvis Presley Kinder?,0,0,0,0,0,0
+376,Ist Michelle Obama die Ehefrau von Barack Obama?,0,0,0,0,0,0
+377,In welcher Stadt wohnt Sylvester Stallone?,1,0,0,1,1,1
+378,Welche Bücher von Kerouac wurden von Viking Press verlegt?,0,0,3,0,0,0
+379,Wer hat das Lied Hotel California geschrieben?,3,0,0,1,1,1
+380,Was ist die Hauptstadt von Kanada?,1,0,0,1,1,1
+381,Wer ist der Bürgermeister von Tel Aviv?,1,0,0,1,1,1
+382,Welche Regierungsform hat Russland?,1,0,0,1,1,1
+383,"Zeig mir das Buch, das Muhammad Ali geschrieben hat.",2,0,0,1,1,1
+384,Wer hat als erstes den Mount Everest bestiegen?,4,0,0,1,1,1
+385,Wieviele Sprachen werden in Kolumbien gesprochen?,1,0,0,1,1,1
+386,Was ist die Währung der Tschechischen Republik?,1,0,0,1,1,1
+387,Wo in Frankreich wird Schaumwein hergestellt?,0,0,1,0,0,0
+388,Wann hat Boris Becker seine aktive Karriere beendet?,1,0,0,1,1,1
+389,"Bei welchen Filmen, in denen Mickey Rourke mitspielt, hat Guy Ritchie Regie geführt?",0,0,1,0,0,0
+390,In welchen Filmen spielen sowohl Julia Roberts als auch Richard Gere mit?,0,0,2,0,0,0
+391,Zeig mir Hemmingways Autobiographie.,1,24,0,0.04,1,0.07692308
+392,Wie groß ist Amazon Eve?,1,0,0,1,1,1
+393,Was sind die fünf Stadtteile von New York?,0,0,5,0,0,0
+394,Gib mir alle kanadischen Grunge-Plattenfirmen.,1,0,0,1,1,1
+395,In welchem Land entspringt der Ganges?,1,0,0,1,1,1
+396,Wer hat Penguin Books gegründet?,1,0,0,1,1,1
+397,Wer hat das Titellied für Games of Thrones geschrieben?,1,0,0,1,1,1
+398,Wer ist der Präsident von Eritrea?,1,0,0,1,1,1
+399,In welcher Stadt ist John F. Kennedy gestorben?,1,0,0,1,1,1
+400,Was ist der höchste Berg in Australien?,1,0,0,1,1,1
+401,Wer schreibt das Farmes' Almanac?,0,0,0,0,0,0
+402,Zeig mir die Währung in China an.,1,0,0,1,1,1
+403,Gib mir alle in Schweden geborenen Ozeanographen.,1,0,0,1,1,1
+404,In welcher Stadt ist das Hauptquartier der Vereinten Nationen?,1,0,0,1,1,1
+405,Ist Rita Wilson die Ehefrau von Tom Hanks?,0,0,0,0,0,0
+406,In welchen Ländern wird Japanisch gesprochen?,5,0,0,1,1,1
+407,Welcher von Tim Burtons Filmen hatte das höchste Budget?,0,0,1,0,0,0
+408,Welches Museum in New York hat die meisten Besucher?,0,0,1,0,0,0
+409,Was war das erste Queen-Album?,0,0,1,0,0,0
+410,Was war der erste Name der Band Queens of the Stone Age?,1,0,0,1,1,1
+411,Was war der letzte Film mit Alec Guinness?,1,0,0,1,1,1
+412,"Gib mir alle Schauspieler, die in Last Action Hero mitgespielt haben.",10,0,0,1,1,1
+413,Wer hat Pluto entdeckt?,1,0,0,1,1,1
+,,9160,433,3693,0.9548629,0.7126741,0.81618106
+,,,,,0.5123764,0.51960784,0.5138523
