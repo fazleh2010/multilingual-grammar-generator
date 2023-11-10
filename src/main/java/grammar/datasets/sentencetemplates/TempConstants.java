@@ -91,6 +91,8 @@ public interface TempConstants {
     public static String property = "property";
     public static String defaultGender = "masculine";
     public static String defaultNumber = singular;
+    
+    public static String Prepositional_Adjuct_AGENT="Prepositional_Adjuct_NON_AGENT";
 
     public static String article = "article";
     public static String thirdPerson = "thirdPerson";
@@ -101,6 +103,8 @@ public interface TempConstants {
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
     public static final String nounPhrase = "nounPhrase";
+    
+    public static final String nounPhraseAgent= "nounPhrase";
     public static final String noun = "noun";
     public static final String location = "location";
 

@@ -154,33 +154,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
       )
     );
     
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //Was ist die Hauptstadt von Kamerun?
-         "determiner(component_the_nominative:reference) noun(nominativeCase)"
-          //Welche Person ist das Mitglied von...?
-          //"interrogativeDeterminer noun(condition:copulativeArg) verb(reference:component_be) NP(prepositionalAdjunct)?"
-          //Wer ist das Mitglied von...?
-          //"interrogativePronoun verb(reference:component_be) NP(prepositionalAdjunct)?",
-          //Gib mir das Mitglied von...?
-          //"verb(reference:component_imperative_transitive) pronoun(reference:object_pronoun) determiner(reference:component_the_accusative) noun(root:accusativeCase) preposition prepositionalAdjunct"
-          ),
-        NounPPFrame,
-        noun
-      )
-    );
-    
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //Wo ist der Westminster-Palast?",
-          //"interrogativePlace(nominativeCase:range:singular) verb(component_be:present:singular) object(domain)?"
-          ),
-        NounPPFrame,
-        location
-      )
-    );
+
     
      // TransitiveFrame
     sentenceTemplateRepository.add(
@@ -739,36 +713,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
       )
     );
       
-       // InTransitiveFrame 
-    /*sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(
-        //How many people live in Poland?
-        "interrogativeAmount verb(mainVerb:present:thridPerson) preposition adjunct(domain)?",
-        //How many people lived in Poland?
-        "interrogativeAmount verb(mainVerb:past:thridPerson) preposition adjunct(domain)?",
-         //How many seats does (X_Statdium) have?        
-        "interrogativeAmount(range:singular) verb(component_do:present:singular) object(domain:plural) verb(mainVerb:present:thridPerson)?"
-        //       
-        //"interrogativeAmount(range:singular) object(domain) verb(component_be:present:plural) particleLocation?"
    
-           ),
-       IntransitivePPFrame,
-       HOW_MANY_TOTAL,
-       forward
-      )
-    );
-    
-     // InTransitiveFrame active
-    sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(
-        //Which flim costed X?
-        //"interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
-           ),
-       IntransitivePPFrame,
-       HOW_MANY_TOTAL,
-       backward
-      )
-    );*/
       
             ///////////////////////////////
        sentenceTemplateRepository.add(
@@ -786,17 +731,7 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
       )
     );
    
-      sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(  //Welches Buch kostet 10 Dollar?
-             
-        ),
-        InTransitivePPFrame,
-        HOW_MANY_THING,
-        backward
-      )
-    );
-      
+    
        //NounPPFrame
      sentenceTemplateRepository.add(
       createSentenceTemplate(language,
@@ -818,74 +753,6 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
     );
     
     
-    
-    
-     /*sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
-        List.of(
-          //Welche Person entwickelte...?
-          "interrogativeDeterminer noun(condition:subject) VP(directObject)?",
-          //Wer entwickelte...?
-          "interrogativePronoun VP(directObject)?"
-        ),
-        "subject",
-        "directObject"
-      )
-    );
-    // VP(directObject)
-    sentenceTemplateRepository.add(
-      createVPTemplate(
-        language,
-        List.of(
-          //entwickelte...
-          "verb(root) directObject"
-        ),
-        "directObject"
-      )
-    );*/
-    
-    
-  
-  
-    /* Not working yet
-    // IntransitivePPFrame
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
-        List.of(
-          //Welcher Fluss fließt durch...?
-          "interrogativeDeterminer noun(condition:subject) VP(prepositionalAdjunct)?",
-          //Was fließt durch...?
-          "interrogativePronoun VP(prepositionalAdjunct)?"
-        ),
-        "subject",
-        "prepositionalAdjunct"
-      )
-    );
-    // VP(prepositionalAdjunct)
-    sentenceTemplateRepository.add(
-      createVPTemplate(
-        language,
-        List.of(
-          //fließt durch...
-          "verb(root) preposition prepositionalAdjunct"
-        ),
-        "prepositionalAdjunct"
-      )
-    );
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(
-        language,
-        List.of(
-          "TemporalDeterminer noun(condition:subject) VP(temporalAdjunct)?"
-        ),
-        "subject",
-        "temporalAdjunct"
-      )
-    );*/
-    // TransitiveFrame
-   
       // AdjectiveAttributiveFrame
     sentenceTemplateRepository.add(
       createSentenceTemplate(

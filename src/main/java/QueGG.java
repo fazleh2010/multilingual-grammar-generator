@@ -75,8 +75,8 @@ public class QueGG {
         List<String[]> languageDBs = new ArrayList<String[]>();
         //languageDBs.add(new String[]{"inputConf_en.json", "dataset/dbpedia_en.json"});
         //languageDBs.add(new String[]{"inputConf_de.json", "dataset/dbpedia_de.json"});
-        //languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
-        languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
+        languageDBs.add(new String[]{"inputConf_it.json", "dataset/dbpedia_it.json"});
+        //languageDBs.add(new String[]{"inputConf_es.json", "dataset/dbpedia_es.json"});
 
         for (String[] languageDB : languageDBs) {
            runGrammarGeneration(languageDB); 
@@ -365,10 +365,6 @@ public class QueGG {
                 grammarWrapper.merge(gw);
             }
         }
-        // Make a GrammarRuleGeneratorRoot instance to use the combination function
-        GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
-        LOG.info("Start generation of combined entries");
-
         PrettyGrammar.prettyGrammarFuntion(grammarWrapper,language,outputDir);
         PrettyGrammar.outputForParser(grammarWrapper,language,outputDir);
     }

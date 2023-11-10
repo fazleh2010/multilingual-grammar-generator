@@ -30,12 +30,12 @@ import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adj
 import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 
-class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,TempConstants{
+class SentenceTemplateFactoryENPaper implements Factory<SentenceTemplateRepository>,TempConstants{
 
   private final SentenceTemplateRepository sentenceTemplateRepository;
   private final Language language;
 
-  SentenceTemplateFactoryEN() {
+  SentenceTemplateFactoryENPaper() {
     this.language = Language.EN;
     this.sentenceTemplateRepository = new SentenceTemplateDataset();
   }
@@ -54,35 +54,49 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     //NounPPFrame
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(     
-           //which city is the capital of the Philiphines?
-          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-           //What is the capital of Cameron?
+        //which city is the capital of Cameron?
+        "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+        "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
+        "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+        "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)", 
+        //which city is the capital of the Philiphines?
+        "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
+        "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
+        "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
+        "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",        
+        //List all the capitals of Cameron.
+        "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(reference:plural) preposition adjunct(domain)" ,
+        "verb(imperative_verb:present:plural) determiner(all) noun(reference:plural) preposition adjunct(domain)" ,
+        //Give me all the capitals of Cameron.
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjunct(domain) noun(reference:plural)", 
+        //"Give me the capital of Cameron.
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:singular)",
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:plural)" ,//Show me all books in Asimov's Foundation series.
+        "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
+    
+        ),
+        NounPPFrame,
+        Prepositional_Adjuct
+      )
+    );
+    
+    
+    //NounPPFrame
+    sentenceTemplateRepository.add(createSentenceTemplate(language,
+        List.of(     
+           //which person is the mayor of Paris?
+          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
+          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
+          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition  adjunct(domain)",
+          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition  adjunct(domain)",
+           //who is the mayor of Paris?
           "interrogativePronoun(singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
           "interrogativePronoun(plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
           "interrogativePronoun(sinular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
           "interrogativePronoun(plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
-           //What is the capital of the Cameron?
-          "interrogativePronoun(singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)",
-          "interrogativePronoun(plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition determiner(component_the) adjunct(domain)",
-          //which city is the capital of Cameron?
-          "interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:present:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
            ///What is Batman"s real name? Apostrophe temporary losed..
           "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
           "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
-           //"Who is the mayor of Paris?",
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",   
-           //"Who is the mayor of Paris?",
-          "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)", 
-          "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition determiner(component_the) adjunct(domain)" , 
           //"Who was Samuel Schmid's vice president?", 
           "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) adjunct(domain) appos noun(singular)?", 
           "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) adjunct(domain) appos noun(singular)?",   
@@ -92,19 +106,15 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
           //List all the musicals with music by Leonard Bernstein.
           "verb(imperative_verb:present:plural) determiner(all) determiner(component_the) noun(range:plural) determiner(with) noun(singular) preposition adjunct(domain)." ,
           //Give me all Apollo 14 astronauts.
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjunct(domain) noun(reference:plural)", 
-          //Give me all Prodigy.
-          "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)", 
-         
-          //"Give me the Apollo 14 astronauts?
-            "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:singular)",
-            "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:plural)" ,
-          //Show me all books in Asimov's Foundation series.
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) adjunct(domain) noun(reference:plural)", 
+         //"Give me the Apollo 14 astronauts?
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:singular)",
+        "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(component_the) adjunct(domain) noun(reference:plural)" ,//Show me all books in Asimov's Foundation series.
           "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) noun(reference:plural) preposition adjunct(domain)" 
         
         ),
         NounPPFrame,
-        Prepositional_Adjuct
+        Prepositional_Adjuct_AGENT
       )
     );
     
@@ -123,11 +133,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         sentenceTemplateRepository.add(
       createSentenceTemplate(language,
         List.of(
-        //"How many [NounSingular] does <NPmap(prepositionalAdjunct),Property> have?
-        //"interrogativeAmount noun(reference:singular) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)" ,
-        //"How many [NounPlural] does <NPmap(prepositionalAdjunct),Property> have?
-        "interrogativeAmount noun(reference:plural) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)?"         
-               
+             "interrogativeAmount noun(reference:plural) verb(component_do:present:singular) adjunct(domain) verb(component_have:present:plural)?"                   
               ),
         NounPPFrame,
         HOW_MANY_THING
@@ -142,15 +148,29 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         List.of(
           //the capital of germany
          "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
+         "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?"
+                ),
+        NounPPFrame,
+        nounPhrase
+      )
+    );
+    
+    //NounPPFrame
+    sentenceTemplateRepository.add(
+      createSentenceTemplate(language,
+        List.of(
+          //the mayor of germany
+         "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
          "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
          //the Dracula's creator
          "determiner adjunct(domain) Apostrophe noun(reference:singular)?"
                 
                 ),
         NounPPFrame,
-        nounPhrase
+        nounPhraseAgent
       )
     );
+    
     
     
      //NounPPFrame boolean question
@@ -162,32 +182,6 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
                  ),
         NounPPFrame,
         booleanQuestionDomainRange
-      )
-    );
-     //NounPPFrame boolean question
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //"Hatte Che Guevara Kinder?",
-         // "verb(component_haben:past:singular) object(domain) noun(nominativeCase)?" 
-        
-          //Gibt es ein Videospiel, das Battle Chess heißt?
-          // "verb(imperative_transitive) pronoun(object_pronoun_es) article(definite_article:nominativeCase:neuter), noun(nominativeCase), article(component_the_nominative:nominativeCase:neuter) object(domain)"    
-          //Hat Abraham Lincolns Sterbeort eine Webseite?", 
-          //"verb(component_haben:present:singular) object(domain) article(definite_article:nominativeCase:feminine) noun(nominativeCase)?"
-           //"Was ist Batmans richtiger Name?",                
-           
-
-            // "interrogativePronoun(range:singular)  verb(component_be:present:singular) object(range) noun(nominativeCase)?"    
-            //"Welche Regierungsform hat Russland?",
-            //"interrogativeDeterminer(range:singular) verb(component_haben:present:singular) object(domain)?"   
-            //"Aus welcher Region ist der Melon de Bourgogne?"
-            // "preposition(auf) interrogativeDeterminer(range:singular) verb(component_be:present:singular) adjunct(domain)? "
-           // Wieviele Seiten hat Krieg und Frieden?
-           // "interrogativeAmount(range:singular) noun(nominativeCase:plural) verb(component_haben:present:singular) object(domain)?"        
-                 ),
-        NounPPFrame,
-        booleanQuestionDomain
       )
     );
     
@@ -1063,32 +1057,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     );
       
       
-          ///////////////////////////////
-       sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(
-         //"Welche Profisurfer wurden auf den Philippinen geboren?",
-         //"interrogativeDeterminer(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?",
-         //"interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
-
-             ),
-        InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        forward
-      )
-    );
-    //Welche Person wurde 2010 geboren?
-    //Wer ist 2010 geboren?
-      sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(
-        //Wo wurde Donald Trump geboren?
-         //"interrogativePlace(nominativeCase:singular) verb(component_werden:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"
-        ),
-        InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        backward
-      )
-    );
-      
+   
             ///////////////////////////////
        sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
@@ -1113,7 +1082,6 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       )
     );
       
-        // IntransitivePPFrame 
     sentenceTemplateRepository.add(createSentenceTemplate(language,
         List.of(
         //What did Abraham Lincoln die from?
@@ -1159,15 +1127,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
       )
     );
    
-      sentenceTemplateRepository.add(createSentenceTemplate(language,
-        List.of(  //Welches Buch kostet 10 Dollar?
-             
-        ),
-        InTransitivePPFrame,
-        HOW_MANY_THING,
-        backward
-      )
-    );
+   
       
     sentenceTemplateRepository.add(
       createSentenceTemplate(

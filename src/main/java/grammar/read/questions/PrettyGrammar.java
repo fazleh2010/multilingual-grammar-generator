@@ -46,6 +46,7 @@ public class PrettyGrammar {
         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
         String rdfs_label = "<http://www.w3.org/2000/01/rdf-schema#label>";
         for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
+            //System.out.println(grammarEntry);
             String questionSparql = null, bindingSparql = null;
             grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
             String returnVariable = null, bindingVariable = null;
@@ -55,10 +56,14 @@ public class PrettyGrammar {
             } else {
                 continue;
             }
-
-            if (grammarEntry.getSentenceTemplate().contains("HOW_MANY_THING")) {
-                System.out.println(grammarEntry.getSentenceTemplate());
+            
+            if (grammarEntry.getSentenceTemplate() != null) {
+                if (grammarEntry.getSentenceTemplate().contains("HOW_MANY_THING")) {
+                    //System.out.println(grammarEntry.getSentenceTemplate());
+                }
             }
+
+           
 
             if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
                 ;
