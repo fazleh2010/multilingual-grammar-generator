@@ -1,4 +1,4 @@
-# Automatic Grammar Generation (QueGG)
+# Automatic Grammar Generation (QueGG-Generator)
 
 This command-line tool is designed for automatic grammar generation.
 
