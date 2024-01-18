@@ -49,7 +49,7 @@ The file (inputConf.json) contains input parameter for the system:
 }
 
 ````
-dbpedia.json: The input configuration for linked data.
+The file (dbpedia.json) contains the input configuration for linked data.
 ```
 - endpoint: the sparql endpoint of the linked data.
 - prefix: the prefixes of Uris.
