@@ -24,7 +24,7 @@ mvn clean install
 mvn clean package
 ```
 The file (inputConf.json) contains input parameter for the system:
-- languageCode: `en` (English), `de` (German), `it` (Italian)
+- languageCode: `en` (English), `de` (German), `it` (Italian), and `es` (Spanish)
 - inputDir: The input directory that contains lemon csv files  that will be processed by QueGG. 
 - outputDir: The output directory for the json grammar entry files that are produced by QueGG.
 - qaldDir: The directory contains qald questions
