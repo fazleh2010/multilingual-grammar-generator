@@ -87,7 +87,10 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
                                  
 ````  
 
-
+## Developers
+* **Mohammad Fazleh Elahi**
+### Supervisors:
+* **Dr. Philipp Cimiano**
 
 
 
