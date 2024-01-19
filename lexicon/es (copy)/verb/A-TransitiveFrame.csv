@@ -1,3 +1,0 @@
-LemonEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition
-Sirve_1,verb,sirve,sirve,sirvió,servía,TransitiveFrame,range,domain,1,dbo:targetAirport,dbo:Airline,dbo:Airport,por
-Pertenece_1,verb,pertenece,pertenecen,perteneció,pertenecido,TransitiveFrame,range,domain,1,dbo:owner,dbo:Company,dbo:Person,por
