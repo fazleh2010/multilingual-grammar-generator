@@ -53,13 +53,17 @@ public class TemplateGeneration implements TempConstants {
         return sentenceTemplatesFrames;
     }
 
-    private static List<SentenceTemplate> findGrammarRuleTemplates(SentenceTemplateFactoryEN sentenceTemplateFactoryEN, SentenceTemplateRepository sentenceTempRep, SentenceType SentenceType, String frame, Map<String, String> groups, Integer index) {
+    private static List<SentenceTemplate> findGrammarRuleTemplates(SentenceTemplateFactoryEN senTempFactoryEN, 
+            SentenceTemplateRepository sentenceTempRep, SentenceType sentenceType, String frame, Map<String, String> groups, Integer index) {
         List<SentenceTemplate> sentenceTemplates = new ArrayList<SentenceTemplate>();
         for (String key : groups.keySet()) {
             String groupName = groups.get(key);
             index = index + 1;
-            List<String> list = sentenceTempRep.findOneByEntryTypeAndLanguageAndArguments(SentenceType,
-                    sentenceTemplateFactoryEN.getLanguage(), new String[]{frame, key});
+            List<String> list = new ArrayList<String>();
+           
+                list = sentenceTempRep.findOneByEntryTypeAndLanguageAndArguments(sentenceType,
+                        senTempFactoryEN.getLanguage(), new String[]{frame, key});
+            
             sentenceTemplates.add(new SentenceTemplate(index.toString(), groupName, list));
         }
         return sentenceTemplates;

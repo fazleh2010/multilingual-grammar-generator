@@ -233,8 +233,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
  
                 ),
        TransitiveFrame,
-       PERSON_CAUSE,
-        activeTransitive
+       PERSON_CAUSE+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -284,8 +283,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         "interrogativeDeterminer(domain:plural) verb(component_do:present:singular) object(range) verb(mainVerb:present:thridPerson)?"
         ),
         TransitiveFrame,
-        PERSON_CAUSE,
-        passiveTransitive
+        PERSON_CAUSE+passiveTransitive
       )
     );
     
@@ -328,8 +326,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
          
          ),
        TransitiveFrame,
-       PERSON_CAUSE_OPPOSITITE,
-        activeTransitive
+       PERSON_CAUSE_OPPOSITITE+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -372,8 +369,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
        
         ),
         TransitiveFrame,
-        PERSON_CAUSE_OPPOSITITE,
-        passiveTransitive
+        PERSON_CAUSE_OPPOSITITE+passiveTransitive
       )
     );
     
@@ -411,8 +407,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
 
         ),
         TransitiveFrame,
-        PERSON_CAUSE_NOUN_PHRASE,
-        passiveTransitive
+        PERSON_CAUSE_NOUN_PHRASE+passiveTransitive
       )
     );
     
@@ -468,8 +463,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
           "verb(imperative_verb:present:plural) determiner(all) nounVariable(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?"
         ),
        TransitiveFrame,
-       PERSON_CAUSE_SUBJECT,
-        activeTransitive
+       PERSON_CAUSE_SUBJECT+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -502,8 +496,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         
         ),
         TransitiveFrame,
-        PERSON_CAUSE_SUBJECT,
-        passiveTransitive
+        PERSON_CAUSE_SUBJECT+passiveTransitive
       )
     );
     
@@ -524,8 +517,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         "verb(imperative_verb:present:plural) determiner(all) nounVariable(domain:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?"
         ),
        TransitiveFrame,
-       PERSON_CAUSE_SUBJECT_PREPOSITION,
-        activeTransitive
+       PERSON_CAUSE_SUBJECT_PREPOSITION+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -558,8 +550,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         
         ),
         TransitiveFrame,
-        PERSON_CAUSE_SUBJECT_PREPOSITION,
-        passiveTransitive
+        PERSON_CAUSE_SUBJECT_PREPOSITION+passiveTransitive
       )
     );
     
@@ -581,8 +572,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         
             ),
        TransitiveFrame,
-       PERSON_PERSON,
-        activeTransitive
+       PERSON_PERSON+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -606,8 +596,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
 
         ),
         TransitiveFrame,
-        PERSON_PERSON,
-        passiveTransitive
+        PERSON_PERSON+passiveTransitive
       )
     );
     
@@ -627,8 +616,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         "interrogativePronounWhom verb(component_be:present:singular) object(domain) verb(mainVerb:present:thridPerson)?"
             ),
        TransitiveFrame,
-       PERSON_ACTIVITY,
-        activeTransitive
+       PERSON_ACTIVITY+activeTransitive
       )
     );
     // TransitiveFrame passive
@@ -647,8 +635,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         "interrogativePronounWhom verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?"
         ),
         TransitiveFrame,
-        PERSON_ACTIVITY,
-        passiveTransitive
+        PERSON_ACTIVITY+passiveTransitive
       )
     );
     
@@ -665,8 +652,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
               
         ),
        TransitiveFrame,
-       HOW_MANY_TOTAL,
-       activeTransitive
+       HOW_MANY_TOTAL+activeTransitive
       )
     );
     
@@ -677,8 +663,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
         "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
            ),
        TransitiveFrame,
-       HOW_MANY_TOTAL,
-       passiveTransitive
+       HOW_MANY_TOTAL+passiveTransitive
       )
     );
     
@@ -697,8 +682,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
                        
             ),
         TransitiveFrame,
-        HOW_MANY_THING,
-        passiveTransitive
+        HOW_MANY_THING+passiveTransitive
       )
     );
     

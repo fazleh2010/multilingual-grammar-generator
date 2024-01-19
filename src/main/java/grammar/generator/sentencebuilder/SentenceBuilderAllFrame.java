@@ -98,7 +98,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 this.setTemplate(PERSON_CAUSE_SUBJECT);
             }*/
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                    language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate(), activeTransitive});
+                    language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate()+activeTransitive});
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
             this.setTemplate(this.templateFinder.getSelectedTemplate());
 
@@ -166,7 +166,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                 this.setTemplate(this.templateFinder.getSelectedTemplate()); 
 
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                    language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate(), passiveTransitive});
+                    language, new String[]{frameType.getName(), this.templateFinder.getSelectedTemplate()+passiveTransitive});
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
           
 
@@ -254,7 +254,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();
             SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(this.lexicalEntryUtil.getSelectVariable());
             List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
-                    language, new String[]{frameType.getName(), this.sentenceTemplate, passiveTransitive});
+                    language, new String[]{frameType.getName(), this.sentenceTemplate+ passiveTransitive});
             System.out.println(this.sentenceTemplate);
             this.setTemplate(HOW_MANY_THING_BACKWARD);
             sentences = SentenceBuilderAllFrame.this.generateSentences(bindingVariable, lexicalEntryUtil, selectVariable, oppositeSelectVariable, sentenceTemplates);
