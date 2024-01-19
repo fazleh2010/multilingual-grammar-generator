@@ -37,6 +37,7 @@ public interface TempConstants {
     public static String subject = "subject";
     public static String directObject = "directObject";
     public static String object = "object";
+    public static String  ask = "ask";
     public static String mainVerb = "mainVerb";
     public static String TrennVerb = "TrennVerb";
      public static String imperative="imperative";

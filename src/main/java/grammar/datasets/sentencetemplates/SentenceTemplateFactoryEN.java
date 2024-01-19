@@ -30,12 +30,12 @@ import static grammar.datasets.sentencetemplates.TempConstants.Prepositional_Adj
 import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 
-class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,TempConstants{
+public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,TempConstants{
 
   private final SentenceTemplateRepository sentenceTemplateRepository;
   private final Language language;
 
-  SentenceTemplateFactoryEN() {
+ public SentenceTemplateFactoryEN() {
     this.language = Language.EN;
     this.sentenceTemplateRepository = new SentenceTemplateDataset();
   }
@@ -1310,5 +1310,13 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     
     
   }
+
+    public SentenceTemplateRepository getSentenceTemplateRepository() {
+        return sentenceTemplateRepository;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
  
 }

@@ -11,12 +11,12 @@ import grammar.structure.component.Language;
 import java.util.List;
 
 
-class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, TempConstants {
+public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, TempConstants {
 
   private final SentenceTemplateRepository sentenceTemplateRepository;
   private final Language language;
 
-  SentenceTemplateFactoryDE() {
+  public SentenceTemplateFactoryDE() {
     this.language = Language.DE;
     this.sentenceTemplateRepository = new SentenceTemplateDataset();
   }
@@ -917,5 +917,13 @@ class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, 
          // "verb(component_be:present:singular) subject(range) article(definite_article:nominativeCase:neuter) object(domain)?",   
           //"Sind Laubfrösche Amphibien?"
          // "verb(component_be:present:plural) subject(range) object(domain)?"
+  
+  public SentenceTemplateRepository getSentenceTemplateRepository() {
+        return sentenceTemplateRepository;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
           
 }

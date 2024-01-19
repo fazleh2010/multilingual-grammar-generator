@@ -76,12 +76,12 @@ public class Statistics {
     }
 
     public static void main(String[] args) throws Exception {
-        String inputDir = "result/en/";
+        String inputDir = "output/en/";
         String grammar_FULL_DATASET = "/grammar_FULL_DATASET_EN.json";
-        //File file = new File(inputDir + grammar_FULL_DATASET);
-        //Statistics.findNumberOfGrammarRules(file);
-        Integer sum=13373+3078+2183+910+168;
-        System.out.println(sum);
+        File file = new File(inputDir + grammar_FULL_DATASET);
+        Statistics.findNumberOfGrammarRules(file);
+        //Integer sum=13373+3078+2183+910+168;
+        //System.out.println(sum);
         
 
     }
