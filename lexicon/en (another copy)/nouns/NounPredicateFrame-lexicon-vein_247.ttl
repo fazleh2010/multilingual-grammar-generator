@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :vein_247_sense_1_res ;
+  lemon:entry    :vein_247 .
+
+:vein_247 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :vein_247_form ;
+  lemon:otherForm  :vein_247_singular ;
+  lemon:otherForm  :vein_247_plural ;
+  lemon:sense          :vein_247_sense_1 ;
+  lemon:synBehavior    :vein_247_predFrame .
+
+:vein_247_form
+ lemon:writtenRep "vein"@en .
+
+:vein_247_singular a    lemon:Form ;
+  lemon:writtenRep "vein"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:vein_247_plural a   lemon:Form ;
+  lemon:writtenRep "veins"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:vein_247_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :vein_247_sense_1_res ;
+  lemon:isA       :vein_247_PredSynArg .
+
+:vein_247_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Vein> .

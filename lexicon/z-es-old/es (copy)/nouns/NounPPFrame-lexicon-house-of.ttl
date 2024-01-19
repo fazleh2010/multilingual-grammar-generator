@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :house-of ;
+  lemon:entry    :house-of_form_preposition .
+
+:house-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :house-of_form ;
+  lemon:otherForm  :house-of_singular ;
+  lemon:otherForm  :house-of_plural ;
+  lemon:sense          :house-of_sense_1 ;
+  lemon:synBehavior    :house-of_nounpp .
+
+:house-of_form a lemon:Form ;
+  lemon:writtenRep "casa"@es .
+
+:house-of_singular a    lemon:Form ;
+  lemon:writtenRep "casa"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:house-of_plural a   lemon:Form ;
+  lemon:writtenRep "casas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:house-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:house-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :house-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/house> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :house-of_sense_1_condition .
+
+:house-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :house-of_form_preposition .
+## Prepositions ##
+:house-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

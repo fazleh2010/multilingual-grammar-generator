@@ -1,0 +1,91 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :to_actuó ;
+  lemon:entry    :actuóed ;
+  lemon:entry    :form_actuó_preposition .
+
+:to_actuó a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_actuó ;
+  lemon:otherForm      :form_actuós ;
+  lemon:otherForm      :form_actuóed ;
+  lemon:sense          :actuó_sense_1 ;
+  lemon:synBehavior    :actuó_frame_transitive .
+
+:form_actuó a         lemon:Form ;
+  lemon:writtenRep     "actuó-como"@es ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_actuós a    lemon:Form ;
+  lemon:writtenRep "actuó-como"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+
+:form_actuós a    lemon:Form ;
+  lemon:writtenRep "actuó-como"@es ;
+  lexinfo:tense    lexinfo:past ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:form_actuóed a   lemon:Form ;
+  lemon:writtenRep "actuó-como"@es ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:actuó_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :actuó_subj ;
+  lexinfo:directObject     :actuó_obj .
+
+:actuó_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :actuó_sense_1 ;
+  lemon:reference   <http://dbpedia.org/property/portrayer> ;
+  lemon:subjOfProp  :actuó_obj ;
+  lemon:objOfProp   :actuó_subj ;
+  lemon:condition   :actuó_sense_1_condition .
+
+
+:actuó_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/FictionalCharacter> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+:actuóed a            lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_actuóed_canonical ;
+  lemon:otherForm      :form_actuóed_by ;
+  lemon:synBehavior    :actuóed_frame_adjectivepp ;
+  lemon:sense          :actuóed_ontomap .
+
+:form_actuóed_canonical a lemon:Form ;
+  lemon:writtenRep         "actuó-como"@es .
+
+:form_actuóed_by a    lemon:Form ;
+  lemon:writtenRep     "actuó-como"@es ;
+  lexinfo:verbFormMood lexinfo:participle .
+
+
+:actuóed_frame_adjectivepp a  lexinfo:AdjectivePPFrame ;
+  lexinfo:copulativeSubject    :actuóed_subj ;
+  lexinfo:prepositionalAdjunct :actuóed_obj .
+
+:actuóed_ontomap a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :actuóed_ontomap ;
+  lemon:reference   <http://dbpedia.org/property/portrayer> ;
+  lemon:subjOfProp  :actuóed_subj ;
+  lemon:objOfProp   :actuóed_obj ;
+  lemon:condition   :actuó_sense_1_condition .
+:actuóed_obj lemon:marker :por .
+
+:arg2 lemon:marker :form_actuó_form_preposition .
+
+## Prepositions ##
+
+:form_actuó_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "por"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

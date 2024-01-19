@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :isbn-of_792 ;
+  lemon:entry    :isbn-of_792_form_preposition .
+
+:isbn-of_792 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :isbn-of_792_form ;
+  lemon:otherForm  :isbn-of_792_singular ;
+  lemon:otherForm  :isbn-of_792_plural ;
+  lemon:sense          :isbn-of_792_sense_1 ;
+  lemon:synBehavior    :isbn-of_792_nounpp .
+
+:isbn-of_792_form a lemon:Form ;
+  lemon:writtenRep "isbn"@en .
+
+:isbn-of_792_singular a    lemon:Form ;
+  lemon:writtenRep "isbn"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:isbn-of_792_plural a   lemon:Form ;
+  lemon:writtenRep "isbns"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:isbn-of_792_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_isbn-of_792 ;
+  lexinfo:prepositionalAdjunct :arg2_isbn-of_792 .
+
+:isbn-of_792_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :isbn-of_792_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/isbn> ;
+  lemon:subjOfProp          :arg2_isbn-of_792 ;
+  lemon:objOfProp           :arg1_isbn-of_792 ;
+  lemon:condition           :isbn-of_792_sense_1_condition .
+
+:isbn-of_792_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Book> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_isbn-of_792 lemon:marker :isbn-of_792_form_preposition .
+## Prepositions ##
+:isbn-of_792_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :music-by_790 ;
+  lemon:entry    :music-by_790_form_preposition .
+
+:music-by_790 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :music-by_790_form ;
+  lemon:otherForm  :music-by_790_singular ;
+  lemon:otherForm  :music-by_790_plural ;
+  lemon:sense          :music-by_790_sense_1 ;
+  lemon:sense          :music-by_790_sense_2 ;
+  lemon:synBehavior    :music-by_790_nounpp .
+
+:music-by_790_form a lemon:Form ;
+  lemon:writtenRep "music"@en .
+
+:music-by_790_singular a    lemon:Form ;
+  lemon:writtenRep "music"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:music-by_790_plural a   lemon:Form ;
+  lemon:writtenRep "musics"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:music-by_790_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_music-by_790 ;
+  lexinfo:prepositionalAdjunct :arg2_music-by_790 .
+
+:music-by_790_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :music-by_790_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/musicBy> ;
+  lemon:subjOfProp          :arg2_music-by_790 ;
+  lemon:objOfProp           :arg1_music-by_790 ;
+  lemon:condition           :music-by_790_sense_1_condition .
+
+:music-by_790_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:music-by_790_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :music-by_790_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/musicBy> ;
+  lemon:subjOfProp          :arg2_music-by_790 ;
+  lemon:objOfProp           :arg1_music-by_790 ;
+  lemon:condition           :music-by_790_sense_2_condition .
+
+:music-by_790_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_music-by_790 lemon:marker :music-by_790_form_preposition .
+## Prepositions ##
+:music-by_790_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,67 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :have_seat_1_280 ;
+  lemon:entry    :form_have_seat_1_280_preposition .
+
+:have_seat_1_280 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_have_seat_1_280 ;
+  lemon:otherForm      :form_have_seat_1_280_present3rd ;
+  lemon:otherForm      :form_have_seat_1_280_past ;
+  lemon:otherForm      :form_have_seat_1_280_perfect ;
+  lemon:sense          :have_seat_1_280_sense_1 ;
+  lemon:synBehavior    :have_seat_1_280_frame .
+
+:form_have_seat_1_280 a           lemon:Form ;
+  lemon:writtenRep     "have"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+
+:form_have_seat_1_280_present3rd a      lemon:Form ;
+  lemon:writtenRep "has"@en ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:person   lexinfo:thirdPerson ;
+  lexinfo:tense    lexinfo:present .
+
+:form_have_seat_1_280_past a lemon:Form ;
+  lemon:writtenRep  "had"@en ;
+  lexinfo:number    lexinfo:singular ;
+  lexinfo:person    lexinfo:thirdPerson ;
+  lexinfo:tense     lexinfo:past .
+
+
+:form_have_seat_1_280_perfect a   lemon:Form ;
+  lemon:writtenRep "had"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:have_seat_1_280_frame a  lexinfo:IntransitivePPFrame ;
+  lexinfo:subject              :have_seat_1_280_subj ;
+  lexinfo:prepositionalAdjunct :have_seat_1_280_obj .
+
+:have_seat_1_280_sense_1 a     lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :have_seat_1_280_ontomap ;
+  lemon:reference   <http://dbpedia.org/ontology/seatingCapacity> ;
+  lemon:subjOfProp  :have_seat_1_280_obj ;
+  lemon:objOfProp   :have_seat_1_280_subj ;
+  lemon:condition   :have_seat_1_280_sense_1_condition .
+
+:have_seat_1_280_sense_1_condition a      lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Stadium> ;
+  lemon:propertyRange  <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+
+:have_seat_1_280_obj lemon:marker :form_have_seat_1_280_preposition .
+
+## Prepositions ##
+:form_have_seat_1_280_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

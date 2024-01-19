@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :stream_330_sense_1_res ;
+  lemon:entry    :stream_330 .
+
+:stream_330 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :stream_330_form ;
+  lemon:otherForm  :stream_330_singular ;
+  lemon:otherForm  :stream_330_plural ;
+  lemon:sense          :stream_330_sense_1 ;
+  lemon:synBehavior    :stream_330_predFrame .
+
+:stream_330_form
+ lemon:writtenRep "stream"@en .
+
+:stream_330_singular a    lemon:Form ;
+  lemon:writtenRep "stream"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:stream_330_plural a   lemon:Form ;
+  lemon:writtenRep "streams"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:stream_330_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :stream_330_sense_1_res ;
+  lemon:isA       :stream_330_PredSynArg .
+
+:stream_330_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Stream> .

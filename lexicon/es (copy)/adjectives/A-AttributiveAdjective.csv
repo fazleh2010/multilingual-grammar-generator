@@ -1,0 +1,5 @@
+LemonEntry,partOfSpeech,writtenForm,SyntacticFrame,copulativeSubject,attributiveArg,sense,reference,owl:onProperty,owl:hasValue,domain,range
+danish_m_f,adjective,danesas,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:nationality,res:Denmark,dbo:Person,dbo:Artist
+danish_p,adjective,danesi,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:nationality,res:Denmark,dbo:Person,dbo:Artist
+danish_m_f,adjective,danesas,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Denmark,dbo:Person,dbo:Artist
+danish_p,adjective,danesi,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Denmark,dbo:Person,dbo:Artist

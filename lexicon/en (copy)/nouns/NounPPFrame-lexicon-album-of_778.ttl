@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :album-of_778 ;
+  lemon:entry    :album-of_778_form_preposition .
+
+:album-of_778 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :album-of_778_form ;
+  lemon:otherForm  :album-of_778_singular ;
+  lemon:otherForm  :album-of_778_plural ;
+  lemon:sense          :album-of_778_sense_1 ;
+  lemon:synBehavior    :album-of_778_nounpp .
+
+:album-of_778_form a lemon:Form ;
+  lemon:writtenRep "album"@en .
+
+:album-of_778_singular a    lemon:Form ;
+  lemon:writtenRep "album"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:album-of_778_plural a   lemon:Form ;
+  lemon:writtenRep "albums"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:album-of_778_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_album-of_778 ;
+  lexinfo:prepositionalAdjunct :arg2_album-of_778 .
+
+:album-of_778_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :album-of_778_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/album> ;
+  lemon:subjOfProp          :arg2_album-of_778 ;
+  lemon:objOfProp           :arg1_album-of_778 ;
+  lemon:condition           :album-of_778_sense_1_condition .
+
+:album-of_778_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Song> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Album> .
+
+:arg2_album-of_778 lemon:marker :album-of_778_form_preposition .
+## Prepositions ##
+:album-of_778_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :womens_tennis_association_tournament_351_sense_1_res ;
+  lemon:entry    :womens_tennis_association_tournament_351 .
+
+:womens_tennis_association_tournament_351 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :womens_tennis_association_tournament_351_form ;
+  lemon:otherForm  :womens_tennis_association_tournament_351_singular ;
+  lemon:otherForm  :womens_tennis_association_tournament_351_plural ;
+  lemon:sense          :womens_tennis_association_tournament_351_sense_1 ;
+  lemon:synBehavior    :womens_tennis_association_tournament_351_predFrame .
+
+:womens_tennis_association_tournament_351_form
+ lemon:writtenRep "women tennis association tournament"@en .
+
+:womens_tennis_association_tournament_351_singular a    lemon:Form ;
+  lemon:writtenRep "women tennis association tournament"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:womens_tennis_association_tournament_351_plural a   lemon:Form ;
+  lemon:writtenRep "women tennis association tournaments"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:womens_tennis_association_tournament_351_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :womens_tennis_association_tournament_351_sense_1_res ;
+  lemon:isA       :womens_tennis_association_tournament_351_PredSynArg .
+
+:womens_tennis_association_tournament_351_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/WomensTennisAssociationTournament> .

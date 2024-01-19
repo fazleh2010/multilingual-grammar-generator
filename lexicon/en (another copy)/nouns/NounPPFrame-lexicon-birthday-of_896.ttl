@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :birthday-of_896 ;
+  lemon:entry    :birthday-of_896_form_preposition .
+
+:birthday-of_896 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :birthday-of_896_form ;
+  lemon:otherForm  :birthday-of_896_singular ;
+  lemon:otherForm  :birthday-of_896_plural ;
+  lemon:sense          :birthday-of_896_sense_1 ;
+  lemon:sense          :birthday-of_896_sense_2 ;
+  lemon:synBehavior    :birthday-of_896_nounpp .
+
+:birthday-of_896_form a lemon:Form ;
+  lemon:writtenRep "birthday"@en .
+
+:birthday-of_896_singular a    lemon:Form ;
+  lemon:writtenRep "birthday"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:birthday-of_896_plural a   lemon:Form ;
+  lemon:writtenRep "birthdays"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:birthday-of_896_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_birthday-of_896 ;
+  lexinfo:prepositionalAdjunct :arg2_birthday-of_896 .
+
+:birthday-of_896_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :birthday-of_896_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/birthDate> ;
+  lemon:subjOfProp          :arg2_birthday-of_896 ;
+  lemon:objOfProp           :arg1_birthday-of_896 ;
+  lemon:condition           :birthday-of_896_sense_1_condition .
+
+:birthday-of_896_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:birthday-of_896_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :birthday-of_896_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/birthDate> ;
+  lemon:subjOfProp          :arg2_birthday-of_896 ;
+  lemon:objOfProp           :arg1_birthday-of_896 ;
+  lemon:condition           :birthday-of_896_sense_2_condition .
+
+:birthday-of_896_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Agent> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_birthday-of_896 lemon:marker :birthday-of_896_form_preposition .
+## Prepositions ##
+:birthday-of_896_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

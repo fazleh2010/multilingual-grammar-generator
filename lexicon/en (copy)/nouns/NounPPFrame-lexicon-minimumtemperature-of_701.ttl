@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :minimumtemperature-of_701 ;
+  lemon:entry    :minimumtemperature-of_701_form_preposition .
+
+:minimumtemperature-of_701 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :minimumtemperature-of_701_form ;
+  lemon:otherForm  :minimumtemperature-of_701_singular ;
+  lemon:otherForm  :minimumtemperature-of_701_plural ;
+  lemon:sense          :minimumtemperature-of_701_sense_1 ;
+  lemon:synBehavior    :minimumtemperature-of_701_nounpp .
+
+:minimumtemperature-of_701_form a lemon:Form ;
+  lemon:writtenRep "minimum Temperature"@en .
+
+:minimumtemperature-of_701_singular a    lemon:Form ;
+  lemon:writtenRep "minimum Temperature"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:minimumtemperature-of_701_plural a   lemon:Form ;
+  lemon:writtenRep "minimum Temperatures"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:minimumtemperature-of_701_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_minimumtemperature-of_701 ;
+  lexinfo:prepositionalAdjunct :arg2_minimumtemperature-of_701 .
+
+:minimumtemperature-of_701_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :minimumtemperature-of_701_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/minimumTemperature> ;
+  lemon:subjOfProp          :arg2_minimumtemperature-of_701 ;
+  lemon:objOfProp           :arg1_minimumtemperature-of_701 ;
+  lemon:condition           :minimumtemperature-of_701_sense_1_condition .
+
+:minimumtemperature-of_701_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Planet> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2_minimumtemperature-of_701 lemon:marker :minimumtemperature-of_701_form_preposition .
+## Prepositions ##
+:minimumtemperature-of_701_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

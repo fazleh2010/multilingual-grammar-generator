@@ -1,0 +1,76 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :officiallanguage-of_800 ;
+  lemon:entry    :officiallanguage-of_800_form_preposition .
+
+:officiallanguage-of_800 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :officiallanguage-of_800_form ;
+  lemon:otherForm  :officiallanguage-of_800_singular ;
+  lemon:otherForm  :officiallanguage-of_800_plural ;
+  lemon:sense          :officiallanguage-of_800_sense_1 ;
+  lemon:sense          :officiallanguage-of_800_sense_2 ;
+  lemon:sense          :officiallanguage-of_800_sense_3 ;
+  lemon:synBehavior    :officiallanguage-of_800_nounpp .
+
+:officiallanguage-of_800_form a lemon:Form ;
+  lemon:writtenRep "official language"@en .
+
+:officiallanguage-of_800_singular a    lemon:Form ;
+  lemon:writtenRep "official language"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:officiallanguage-of_800_plural a   lemon:Form ;
+  lemon:writtenRep "official languages"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:officiallanguage-of_800_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_officiallanguage-of_800 ;
+  lexinfo:prepositionalAdjunct :arg2_officiallanguage-of_800 .
+
+:officiallanguage-of_800_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :officiallanguage-of_800_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/officialLanguage> ;
+  lemon:subjOfProp          :arg2_officiallanguage-of_800 ;
+  lemon:objOfProp           :arg1_officiallanguage-of_800 ;
+  lemon:condition           :officiallanguage-of_800_sense_1_condition .
+
+:officiallanguage-of_800_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:officiallanguage-of_800_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :officiallanguage-of_800_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/officialLanguage> ;
+  lemon:subjOfProp          :arg2_officiallanguage-of_800 ;
+  lemon:objOfProp           :arg1_officiallanguage-of_800 ;
+  lemon:condition           :officiallanguage-of_800_sense_2_condition .
+
+:officiallanguage-of_800_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:officiallanguage-of_800_sense_3 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :officiallanguage-of_800_sense_3 ;
+  lemon:reference           <http://dbpedia.org/ontology/officialLanguage> ;
+  lemon:subjOfProp          :arg2_officiallanguage-of_800 ;
+  lemon:objOfProp           :arg1_officiallanguage-of_800 ;
+  lemon:condition           :officiallanguage-of_800_sense_3_condition .
+
+:officiallanguage-of_800_sense_3_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Language> .
+
+:arg2_officiallanguage-of_800 lemon:marker :officiallanguage-of_800_form_preposition .
+## Prepositions ##
+:officiallanguage-of_800_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -192,35 +192,6 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
     );
     
     
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //Was ist die Hauptstadt von Kamerun?
-         "noun(singular)"
-          //Welche Person ist das Mitglied von...?
-          //"interrogativeDeterminer noun(condition:copulativeArg) verb(reference:component_be) NP(prepositionalAdjunct)?"
-          //Wer ist das Mitglied von...?
-          //"interrogativePronoun verb(reference:component_be) NP(prepositionalAdjunct)?",
-          //Gib mir das Mitglied von...?
-          //"verb(reference:component_imperative_transitive) pronoun(reference:object_pronoun) determiner(reference:component_the_accusative) noun(root:accusativeCase) preposition prepositionalAdjunct"
-          ),
-        NounPPFrame,
-        noun
-      )
-    );
-    
-    sentenceTemplateRepository.add(
-      createSentenceTemplate(language,
-        List.of(
-          //Wo ist der Westminster-Palast?",
-          "interrogativePlace(nominativeCase:range:singular) verb(component_be:present:singular) object(domain)?"
-          ),
-        NounPPFrame,
-        location
-      )
-    );
-    
-    
     //////////////////////////////////////// Transitive ///////////////////////////////////
     
      // TransitiveFrame active
@@ -741,7 +712,7 @@ class SentenceTemplateFactoryEN implements Factory<SentenceTemplateRepository>,T
         "interrogativeAmount verb(mainVerb:present:thridPerson) preposition adjunct(domain)?",
         //How many people lived in Poland?
         "interrogativeAmount verb(mainVerb:past:thridPerson) preposition adjunct(domain)?",
-         //How many seats does (X_Statdium) have?        
+         //How many seatFs does (X_Statdium) have?        
         "interrogativeAmount(range:singular) verb(component_do:present:singular) object(domain:plural) verb(mainVerb:present:thridPerson)?"
         //       
         //"interrogativeAmount(range:singular) object(domain) verb(component_be:present:plural) particleLocation?"

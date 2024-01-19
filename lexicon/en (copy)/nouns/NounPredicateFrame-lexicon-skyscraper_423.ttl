@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :skyscraper_423_sense_1_res ;
+  lemon:entry    :skyscraper_423 .
+
+:skyscraper_423 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :skyscraper_423_form ;
+  lemon:otherForm  :skyscraper_423_singular ;
+  lemon:otherForm  :skyscraper_423_plural ;
+  lemon:sense          :skyscraper_423_sense_1 ;
+  lemon:synBehavior    :skyscraper_423_predFrame .
+
+:skyscraper_423_form
+ lemon:writtenRep "skyscraper"@en .
+
+:skyscraper_423_singular a    lemon:Form ;
+  lemon:writtenRep "skyscraper"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:skyscraper_423_plural a   lemon:Form ;
+  lemon:writtenRep "skyscrapers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:skyscraper_423_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :skyscraper_423_sense_1_res ;
+  lemon:isA       :skyscraper_423_PredSynArg .
+
+:skyscraper_423_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Skyscraper> .

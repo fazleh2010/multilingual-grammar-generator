@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :entrance_of_1_343 ;
+  lemon:entry    :entrance_of_1_343_form_preposition .
+
+:entrance_of_1_343 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :entrance_of_1_343_form ;
+  lemon:otherForm  :entrance_of_1_343_singular ;
+  lemon:otherForm  :entrance_of_1_343_plural ;
+  lemon:sense          :entrance_of_1_343_sense_1 ;
+  lemon:synBehavior    :entrance_of_1_343_nounpp .
+
+:entrance_of_1_343_form a lemon:Form ;
+  lemon:writtenRep "entrance"@en .
+
+:entrance_of_1_343_singular a    lemon:Form ;
+  lemon:writtenRep "entrance"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:entrance_of_1_343_plural a   lemon:Form ;
+  lemon:writtenRep "entrances"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:entrance_of_1_343_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:entrance_of_1_343_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :entrance_of_1_343_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/entranceCount> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :entrance_of_1_343_sense_1_condition .
+
+:entrance_of_1_343_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Cave> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:null lemon:marker :entrance_of_1_343_form_preposition .
+## Prepositions ##
+:entrance_of_1_343_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

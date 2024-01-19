@@ -1,0 +1,76 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :causeofdeath_of_331 ;
+  lemon:entry    :causeofdeath_of_331_form_preposition .
+
+:causeofdeath_of_331 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :causeofdeath_of_331_form ;
+  lemon:otherForm  :causeofdeath_of_331_singular ;
+  lemon:otherForm  :causeofdeath_of_331_plural ;
+  lemon:sense          :causeofdeath_of_331_sense_1 ;
+  lemon:sense          :causeofdeath_of_331_sense_2 ;
+  lemon:sense          :causeofdeath_of_331_sense_3 ;
+  lemon:synBehavior    :causeofdeath_of_331_nounpp .
+
+:causeofdeath_of_331_form a lemon:Form ;
+  lemon:writtenRep "cause of death"@en .
+
+:causeofdeath_of_331_singular a    lemon:Form ;
+  lemon:writtenRep "cause of death"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:causeofdeath_of_331_plural a   lemon:Form ;
+  lemon:writtenRep "causes of death"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:causeofdeath_of_331_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:causeofdeath_of_331_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :causeofdeath_of_331_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathCause> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :causeofdeath_of_331_sense_1_condition .
+
+:causeofdeath_of_331_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#String> .
+
+:causeofdeath_of_331_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :causeofdeath_of_331_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathCause> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :causeofdeath_of_331_sense_2_condition .
+
+:causeofdeath_of_331_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#String> .
+
+:causeofdeath_of_331_sense_3 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :causeofdeath_of_331_sense_3 ;
+  lemon:reference           <http://dbpedia.org/ontology/deathCause> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :causeofdeath_of_331_sense_3_condition .
+
+:causeofdeath_of_331_sense_3_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#String> .
+
+:null lemon:marker :causeofdeath_of_331_form_preposition .
+## Prepositions ##
+:causeofdeath_of_331_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -2,19 +2,10 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.monnetproject.lemon.LemonModel;
 import evaluation.EvaluateAgainstQALD;
-import static evaluation.EvaluateAgainstQALD.PROTOTYPE_QUESTION;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
-import evaluation.QALD;
-import evaluation.QALDImporter;
-import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
-import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
-import grammar.generator.GrammarRuleGeneratorRootImpl;
 import grammar.read.questions.ProtoToRealQuesrion;
-import grammar.sparql.PrepareSparqlQuery;
-import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
-import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.GrammarWrapper;
 import grammar.structure.component.Language;
 import lexicon.LexiconImporter;
@@ -23,32 +14,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.jena.sys.JenaSystem;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.file.Path;
 import java.util.*;
 import java.util.List;
-import java.util.stream.Collectors;
 import static java.util.Objects.isNull;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import turtle.GermanTurtle;
 import java.io.File;
 import java.io.IOException;
-import grammar.sparql.SparqlQuery;
 import grammar.sparql.SPARQLRequest;
-import java.io.FileInputStream;
-import static java.lang.System.exit;
-import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
-import org.apache.commons.text.similarity.CosineDistance;
 import turtle.EnglishTurtle;
-import util.io.GenderUtils;
 import linkeddata.LinkedData;
-import org.apache.jena.query.QueryType;
 import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
-import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
@@ -69,7 +48,7 @@ public class QueGG {
 
 
 
-    public static void main(String[] args) throws Exception {
+    /*public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
@@ -83,9 +62,9 @@ public class QueGG {
            System.out.println("completed gramar generation completed!!!!"+languageDB[0]);
         }
 
-    }
+    }*/
     
-     public static void runGrammarGeneration(String[] args) throws Exception {
+     public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
@@ -365,10 +344,6 @@ public class QueGG {
                 grammarWrapper.merge(gw);
             }
         }
-        // Make a GrammarRuleGeneratorRoot instance to use the combination function
-        //GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
-        //LOG.info("Start generation of combined entries");
-
         PrettyGrammar.prettyGrammarFuntion(grammarWrapper,language,outputDir);
         PrettyGrammar.outputForParser(grammarWrapper,language,outputDir);
     }

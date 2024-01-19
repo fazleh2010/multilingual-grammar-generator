@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :province_of_2_743 ;
+  lemon:entry    :province_of_2_743_form_preposition .
+
+:province_of_2_743 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :province_of_2_743_form ;
+  lemon:otherForm  :province_of_2_743_singular ;
+  lemon:otherForm  :province_of_2_743_plural ;
+  lemon:sense          :province_of_2_743_sense_1 ;
+  lemon:synBehavior    :province_of_2_743_nounpp .
+
+:province_of_2_743_form a lemon:Form ;
+  lemon:writtenRep "province"@en .
+
+:province_of_2_743_singular a    lemon:Form ;
+  lemon:writtenRep "province"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:province_of_2_743_plural a   lemon:Form ;
+  lemon:writtenRep "provinces"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:province_of_2_743_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_province_of_2_743 ;
+  lexinfo:prepositionalAdjunct :arg2_province_of_2_743 .
+
+:province_of_2_743_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :province_of_2_743_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/state> ;
+  lemon:subjOfProp          :arg2_province_of_2_743 ;
+  lemon:objOfProp           :arg1_province_of_2_743 ;
+  lemon:condition           :province_of_2_743_sense_1_condition .
+
+:province_of_2_743_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_province_of_2_743 lemon:marker :province_of_2_743_form_preposition .
+## Prepositions ##
+:province_of_2_743_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

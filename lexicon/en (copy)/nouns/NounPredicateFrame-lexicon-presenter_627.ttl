@@ -1,0 +1,39 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :presenter_627_sense_1_res ;
+  lemon:entry    :presenter_627 .
+
+:presenter_627 a  lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :presenter_627_form ;
+  lemon:otherForm  :presenter_627_singular ;
+  lemon:otherForm  :presenter_627_plural ;
+  lemon:sense          :presenter_627_sense_1 ;
+  lemon:synBehavior    :presenter_627_predFrame .
+
+:presenter_627_form
+ lemon:writtenRep "presenter"@en .
+
+:presenter_627_singular a    lemon:Form ;
+  lemon:writtenRep "presenter"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:presenter_627_plural a   lemon:Form ;
+  lemon:writtenRep "presenters"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:presenter_627_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :presenter_627_sense_1_res ;
+  lemon:isA       :presenter_627_PredSynArg .
+
+:presenter_627_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  owl:hasValue   <http://dbpedia.org/ontology/Presenter> .

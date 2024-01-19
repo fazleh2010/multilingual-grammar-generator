@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :postcode-of_844 ;
+  lemon:entry    :postcode-of_844_form_preposition .
+
+:postcode-of_844 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :postcode-of_844_form ;
+  lemon:otherForm  :postcode-of_844_singular ;
+  lemon:otherForm  :postcode-of_844_plural ;
+  lemon:sense          :postcode-of_844_sense_1 ;
+  lemon:synBehavior    :postcode-of_844_nounpp .
+
+:postcode-of_844_form a lemon:Form ;
+  lemon:writtenRep "post code"@en .
+
+:postcode-of_844_singular a    lemon:Form ;
+  lemon:writtenRep "post code"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:postcode-of_844_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:postcode-of_844_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_postcode-of_844 ;
+  lexinfo:prepositionalAdjunct :arg2_postcode-of_844 .
+
+:postcode-of_844_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :postcode-of_844_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/postalCode> ;
+  lemon:subjOfProp          :arg2_postcode-of_844 ;
+  lemon:objOfProp           :arg1_postcode-of_844 ;
+  lemon:condition           :postcode-of_844_sense_1_condition .
+
+:postcode-of_844_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:arg2_postcode-of_844 lemon:marker :postcode-of_844_form_preposition .
+## Prepositions ##
+:postcode-of_844_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :fifa_world__ranking_of_835 ;
+  lemon:entry    :fifa_world__ranking_of_835_form_preposition .
+
+:fifa_world__ranking_of_835 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :fifa_world__ranking_of_835_form ;
+  lemon:otherForm  :fifa_world__ranking_of_835_singular ;
+  lemon:otherForm  :fifa_world__ranking_of_835_plural ;
+  lemon:sense          :fifa_world__ranking_of_835_sense_1 ;
+  lemon:synBehavior    :fifa_world__ranking_of_835_nounpp .
+
+:fifa_world__ranking_of_835_form a lemon:Form ;
+  lemon:writtenRep "FIFA World Ranking"@en .
+
+:fifa_world__ranking_of_835_singular a    lemon:Form ;
+  lemon:writtenRep "FIFA World Ranking"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:fifa_world__ranking_of_835_plural a   lemon:Form ;
+  lemon:writtenRep "FIFA World Rankings"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:fifa_world__ranking_of_835_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_fifa_world__ranking_of_835 ;
+  lexinfo:prepositionalAdjunct :arg2_fifa_world__ranking_of_835 .
+
+:fifa_world__ranking_of_835_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :fifa_world__ranking_of_835_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/fifaMin> ;
+  lemon:subjOfProp          :arg2_fifa_world__ranking_of_835 ;
+  lemon:objOfProp           :arg1_fifa_world__ranking_of_835 ;
+  lemon:condition           :fifa_world__ranking_of_835_sense_1_condition .
+
+:fifa_world__ranking_of_835_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/SportsClub> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Country> .
+
+:arg2_fifa_world__ranking_of_835 lemon:marker :fifa_world__ranking_of_835_form_preposition .
+## Prepositions ##
+:fifa_world__ranking_of_835_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
