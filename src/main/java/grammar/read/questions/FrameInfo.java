@@ -9,9 +9,11 @@ import grammar.datasets.sentencetemplates.SentenceTemplateFactoryDE;
 import grammar.datasets.sentencetemplates.SentenceTemplateFactoryEN;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import grammar.datasets.sentencetemplates.TempConstants;
+import grammar.structure.component.FrameType;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -24,6 +26,7 @@ public class FrameInfo implements TempConstants {
     private Map<String, String> nounGroups = new LinkedHashMap<String, String>();
     private SentenceTemplateFactoryDE sentenceTemplateFactoryDE = null;
     private SentenceTemplateRepository sentenceTempRepDE = null;
+    private static Set<FrameType> frames = Set.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
 
     public FrameInfo(String language) {
         //english
@@ -69,6 +72,10 @@ public class FrameInfo implements TempConstants {
 
     public static void main(String[] args) {
         System.out.println("test");
+    }
+
+    public Set<FrameType> getFrames() {
+        return frames;
     }
 
 }

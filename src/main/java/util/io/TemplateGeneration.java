@@ -25,22 +25,26 @@ import java.util.Map;
 public class TemplateGeneration implements TempConstants {
 
     public static void main(String[] args) {
-        FrameInfo frameInfo=new FrameInfo("en");
-        String sentenceTemplateFileName = "output/en/sentenceTemplate.json";
         SentenceTemplateAll sentenceTemplateAll = new SentenceTemplateAll();
-        String frame = FrameType.NPP.getName();
-        TemplateGeneration templateGeneration = new TemplateGeneration();
-        sentenceTemplateAll=templateGeneration.findNounPPFrame(frameInfo,frame,sentenceTemplateAll);
-        JsonWriter.writeSentenceTemplateToJson(sentenceTemplateAll, sentenceTemplateFileName);
-        
+        List<String> languages = new ArrayList<String>();
+
+        for (String language : languages) {
+            FrameInfo frameInfo = new FrameInfo(language);
+            String fileName = "output/" + language + "/sentenceTemplate.json";
+            for (FrameType frameType : frameInfo.getFrames()) {
+                String frame = frameType.getName();
+                sentenceTemplateAll = findNounPPFrame(frameInfo, frame, sentenceTemplateAll);
+            }
+            JsonWriter.writeSentenceTemplateToJson(sentenceTemplateAll, fileName);
+        }
+
     }
-    
-    private SentenceTemplateAll findNounPPFrame(FrameInfo frameInfo,String frame,SentenceTemplateAll sentenceTemplateAll) {
+
+    private static SentenceTemplateAll findNounPPFrame(FrameInfo frameInfo, String frame, SentenceTemplateAll sentenceTemplateAll) {
         List<SentenceTemplatesFrame> sentenceTemplatesFrames = new ArrayList<SentenceTemplatesFrame>();
         Integer index = 0;
         List<SentenceTemplate> sentenceTemplates = findGrammarRuleTemplates(frameInfo.getSentenceTemplateFactoryEN(), frameInfo.getSentenceTempRepEN(), SentenceType.SENTENCE, frame, frameInfo.getNounGroups(), index);
         SentenceTemplatesFrame sentenceTemplatesFrame = new SentenceTemplatesFrame(frame, sentenceTemplates);
-        //System.out.println(sentenceTemplatesFrame);
         sentenceTemplatesFrames.add(sentenceTemplatesFrame);
         sentenceTemplateAll.setFrameSentenceTemplates(sentenceTemplatesFrames);
         return sentenceTemplateAll;
