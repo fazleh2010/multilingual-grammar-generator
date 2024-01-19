@@ -12,6 +12,7 @@ import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.structure.component.FrameType;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,10 +24,9 @@ public class FrameInfo implements TempConstants {
 
     private SentenceTemplateFactoryEN sentenceTemplateFactoryEN = null;
     private SentenceTemplateRepository sentenceTempRepEN = null;
-    private Map<String, String> nounGroups = new LinkedHashMap<String, String>();
     private SentenceTemplateFactoryDE sentenceTemplateFactoryDE = null;
     private SentenceTemplateRepository sentenceTempRepDE = null;
-    private static Set<FrameType> frames = Set.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
+    private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
 
     public FrameInfo(String language) {
         //english
@@ -34,12 +34,7 @@ public class FrameInfo implements TempConstants {
             sentenceTemplateFactoryEN = new SentenceTemplateFactoryEN();
             sentenceTemplateFactoryEN.init();
             sentenceTempRepEN = sentenceTemplateFactoryEN.getSentenceTemplateRepository();
-            nounGroups = new LinkedHashMap<String, String>();
-            nounGroups.put(Prepositional_Adjuct, subject);
-            nounGroups.put(Copulative_Subject, object);
-            nounGroups.put(HOW_MANY_THING, amount);
-            nounGroups.put(booleanQuestionDomainRange, ask);
-            nounGroups.put(nounPhrase, nounPhrase);
+            
         }
         if (language.contains("de")) {
             // german
@@ -58,8 +53,44 @@ public class FrameInfo implements TempConstants {
         return sentenceTempRepEN;
     }
 
-    public Map<String, String> getNounGroups() {
-        return nounGroups;
+    public Map<String, String> getNounGroups(String frame) {
+        Map<String, String> group = new LinkedHashMap<String, String>();
+        if (frame.contains(FrameType.NPP.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }
+        else if (frame.contains(FrameType.VP.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }
+        else if (frame.contains(FrameType.IPP.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }else if (frame.contains(FrameType.AA.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }
+        else if (frame.contains(FrameType.AG.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }
+
+        return group;
     }
 
     public SentenceTemplateFactoryDE getSentenceTemplateFactoryDE() {
@@ -74,7 +105,7 @@ public class FrameInfo implements TempConstants {
         System.out.println("test");
     }
 
-    public Set<FrameType> getFrames() {
+    public List<FrameType> getFrames() {
         return frames;
     }
 

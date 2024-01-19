@@ -25,29 +25,32 @@ import java.util.Map;
 public class TemplateGeneration implements TempConstants {
 
     public static void main(String[] args) {
-        SentenceTemplateAll sentenceTemplateAll = new SentenceTemplateAll();
-        List<String> languages = new ArrayList<String>();
+        
+        List<String> languages = List.of("en");
+
 
         for (String language : languages) {
             FrameInfo frameInfo = new FrameInfo(language);
             String fileName = "output/" + language + "/sentenceTemplate.json";
+            List<SentenceTemplatesFrame> allFrames =new ArrayList<SentenceTemplatesFrame>();
             for (FrameType frameType : frameInfo.getFrames()) {
                 String frame = frameType.getName();
-                sentenceTemplateAll = findNounPPFrame(frameInfo, frame, sentenceTemplateAll);
+                List<SentenceTemplatesFrame> sentenceTemplatesFrames = findNounPPFrame(frameInfo, frame);
+                allFrames.addAll(sentenceTemplatesFrames);
             }
+            SentenceTemplateAll sentenceTemplateAll = new SentenceTemplateAll(allFrames);
             JsonWriter.writeSentenceTemplateToJson(sentenceTemplateAll, fileName);
         }
 
     }
 
-    private static SentenceTemplateAll findNounPPFrame(FrameInfo frameInfo, String frame, SentenceTemplateAll sentenceTemplateAll) {
+    private static List<SentenceTemplatesFrame> findNounPPFrame(FrameInfo frameInfo, String frame) {
         List<SentenceTemplatesFrame> sentenceTemplatesFrames = new ArrayList<SentenceTemplatesFrame>();
         Integer index = 0;
-        List<SentenceTemplate> sentenceTemplates = findGrammarRuleTemplates(frameInfo.getSentenceTemplateFactoryEN(), frameInfo.getSentenceTempRepEN(), SentenceType.SENTENCE, frame, frameInfo.getNounGroups(), index);
+        List<SentenceTemplate> sentenceTemplates = findGrammarRuleTemplates(frameInfo.getSentenceTemplateFactoryEN(), frameInfo.getSentenceTempRepEN(), SentenceType.SENTENCE, frame, frameInfo.getNounGroups(frame), index);
         SentenceTemplatesFrame sentenceTemplatesFrame = new SentenceTemplatesFrame(frame, sentenceTemplates);
         sentenceTemplatesFrames.add(sentenceTemplatesFrame);
-        sentenceTemplateAll.setFrameSentenceTemplates(sentenceTemplatesFrames);
-        return sentenceTemplateAll;
+        return sentenceTemplatesFrames;
     }
 
     private static List<SentenceTemplate> findGrammarRuleTemplates(SentenceTemplateFactoryEN sentenceTemplateFactoryEN, SentenceTemplateRepository sentenceTempRep, SentenceType SentenceType, String frame, Map<String, String> groups, Integer index) {

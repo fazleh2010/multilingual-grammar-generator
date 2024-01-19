@@ -23,5 +23,97 @@
       "group" : "nounPhrase",
       "sentences" : [ "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?", "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?", "determiner adjunct(domain) Apostrophe noun(reference:singular)?" ]
     } ]
+  }, {
+    "frame" : "TransitiveFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "sentences" : [ ]
+    } ]
+  }, {
+    "frame" : "IntransitivePPFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "sentences" : [ ]
+    } ]
+  }, {
+    "frame" : "AdjectivePredicateFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "sentences" : [ ]
+    } ]
+  }, {
+    "frame" : "AdjectiveSuperlativeFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "sentences" : [ ]
+    } ]
   } ]
 }
