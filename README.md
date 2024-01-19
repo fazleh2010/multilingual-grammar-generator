@@ -1,5 +1,6 @@
-# QueGG
-The project creates QA system given a lemon lexica or Csv file (contains information Syntactic Frame such NounPPframe, TransitiveFrame, etc. )
+# Automatic Grammar Generation (QueGG-Generator)
+
+This command-line tool is designed for automatic grammar generation.
 
 ### Resource: lexicon and grammar
 
@@ -21,10 +22,9 @@ build the jar file
 ```shell script
 mvn clean install
 mvn clean package
-
-inputConf.json: The file contains input parameter for the system
 ```
-- languageCode: `en` (English), `de` (German), `it` (Italian)
+The file (inputConf.json) contains input parameter for the system:
+- languageCode: `en` (English), `de` (German), `it` (Italian), and `es` (Spanish)
 - inputDir: The input directory that contains lemon csv files  that will be processed by QueGG. 
 - outputDir: The output directory for the json grammar entry files that are produced by QueGG.
 - qaldDir: The directory contains qald questions
@@ -49,11 +49,11 @@ inputConf.json: The file contains input parameter for the system
 }
 
 ````
-dbpedia.json: The input configuration for linked data.
-```
+The file (dbpedia.json) contains the input configuration for linked data.
 - endpoint: the sparql endpoint of the linked data.
 - prefix: the prefixes of Uris.
-````input configuration file
+
+````
 {
   "endpoint" : "https://dbpedia.org/sparql",
   "prefix" : {
@@ -87,8 +87,10 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
                                  
 ````  
 
-
-
+## Developers
+* **Mohammad Fazleh Elahi**
+### Supervisors:
+* **Dr. Philipp Cimiano**
 
 
 
