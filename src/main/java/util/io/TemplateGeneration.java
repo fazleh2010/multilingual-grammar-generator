@@ -39,33 +39,13 @@ public class TemplateGeneration implements TempConstants {
         for (String language : languages) {
             FrameInfo frameInfo = new FrameInfo(language);
             String sentenceFileName = "output/" + language + "/sentenceTemplate.json";
-            List<SentenceTemplatesFrame> allStFrames = new ArrayList<SentenceTemplatesFrame>();
-            for (FrameType frameType : frameInfo.getFrames()) {
-                String frame = frameType.getName();
-                List<SentenceTemplatesFrame> stFrames = findFrameTemplate(frameInfo, frame);
-                allStFrames.addAll(stFrames);
-            }
-            SentenceTemplateAll stAll = new SentenceTemplateAll(allStFrames);
-            JsonSerializer.writeSentenceTemplateToJson(stAll, sentenceFileName);
-        }
-        
-        for (String language : languages) {
-            FrameInfo frameInfo = new FrameInfo(language);
-            String sentenceFileName = "output/" + language + "/sentenceTemplate.json";
             String grammarRuleTemplateFileName = "output/" + language + "/grammarRuleTemplate.json";
             String dictFileName = "src/main/resources/" + language + "_dictionary.txt";
             Map<String, String> dictionary = getDictionary(dictFileName);
-            SentenceTemplateAll stAll =JsonSerializer.readJsonToSentenceTemplates(sentenceFileName);
-            List<GrammarRuleTemplateFrame> allGrtFrames = new ArrayList<GrammarRuleTemplateFrame>();
-            for (FrameType frameType : frameInfo.getFrames()) {
-                String frame = frameType.getName();
-                List<SentenceTemplatesFrame> stFrames = stAll.getSentenceTemplatesFrame(frame);
-                List<GrammarRuleTemplateFrame> grtFrames = findFrameGrammarRuleTemplates(stFrames, dictionary);
-                allGrtFrames.addAll(grtFrames);
-            }
-            GrammarRuleTemplateAll grtAll = new GrammarRuleTemplateAll(allGrtFrames);
-            JsonSerializer.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
+            writeSentenceTemplateJson(frameInfo, sentenceFileName);
+            stToGrt(sentenceFileName, frameInfo, dictionary, grammarRuleTemplateFileName);
         }
+
 
         /*for (String language : languages) {
             FrameInfo frameInfo = new FrameInfo(language);
@@ -87,6 +67,30 @@ public class TemplateGeneration implements TempConstants {
             GrammarRuleTemplateAll grtAll = new GrammarRuleTemplateAll(allGrtFrames);
             JsonSerializer.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
         }*/
+    }
+
+    private static void stToGrt(String sentenceFileName, FrameInfo frameInfo, Map<String, String> dictionary, String grammarRuleTemplateFileName) {
+        SentenceTemplateAll stAll =JsonSerializer.readJsonToSentenceTemplates(sentenceFileName);
+        List<GrammarRuleTemplateFrame> allGrtFrames = new ArrayList<GrammarRuleTemplateFrame>();
+        for (FrameType frameType : frameInfo.getFrames()) {
+            String frame = frameType.getName();
+            List<SentenceTemplatesFrame> stFrames = stAll.getSentenceTemplatesFrame(frame);
+            List<GrammarRuleTemplateFrame> grtFrames = findFrameGrammarRuleTemplates(stFrames, dictionary);
+            allGrtFrames.addAll(grtFrames);
+        }
+        GrammarRuleTemplateAll grtAll = new GrammarRuleTemplateAll(allGrtFrames);
+        JsonSerializer.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
+    }
+
+    private static void writeSentenceTemplateJson(FrameInfo frameInfo, String sentenceFileName) {
+        List<SentenceTemplatesFrame> allStFrames = new ArrayList<SentenceTemplatesFrame>();
+        for (FrameType frameType : frameInfo.getFrames()) {
+            String frame = frameType.getName();
+            List<SentenceTemplatesFrame> stFrames = findFrameTemplate(frameInfo, frame);
+            allStFrames.addAll(stFrames);
+        }
+        SentenceTemplateAll stAll = new SentenceTemplateAll(allStFrames);
+        JsonSerializer.writeSentenceTemplateToJson(stAll, sentenceFileName);
     }
 
     private static List<SentenceTemplatesFrame> findFrameTemplate(FrameInfo frameInfo, String frame) {
