@@ -35,7 +35,7 @@ public class TemplateGeneration implements TempConstants {
             List<SentenceTemplatesFrame> allFrames =new ArrayList<SentenceTemplatesFrame>();
             for (FrameType frameType : frameInfo.getFrames()) {
                 String frame = frameType.getName();
-                List<SentenceTemplatesFrame> sentenceTemplatesFrames = findNounPPFrame(frameInfo, frame);
+                List<SentenceTemplatesFrame> sentenceTemplatesFrames = findFrameTemplate(frameInfo, frame);
                 allFrames.addAll(sentenceTemplatesFrames);
             }
             SentenceTemplateAll sentenceTemplateAll = new SentenceTemplateAll(allFrames);
@@ -44,16 +44,16 @@ public class TemplateGeneration implements TempConstants {
 
     }
 
-    private static List<SentenceTemplatesFrame> findNounPPFrame(FrameInfo frameInfo, String frame) {
+    private static List<SentenceTemplatesFrame> findFrameTemplate(FrameInfo frameInfo, String frame) {
         List<SentenceTemplatesFrame> sentenceTemplatesFrames = new ArrayList<SentenceTemplatesFrame>();
         Integer index = 0;
-        List<SentenceTemplate> sentenceTemplates = findGrammarRuleTemplates(frameInfo.getSentenceTemplateFactoryEN(), frameInfo.getSentenceTempRepEN(), SentenceType.SENTENCE, frame, frameInfo.getNounGroups(frame), index);
+        List<SentenceTemplate> sentenceTemplates = findSentenceTemplate(frameInfo.getSentenceTemplateFactoryEN(), frameInfo.getSentenceTempRepEN(), SentenceType.SENTENCE, frame, frameInfo.getNounGroups(frame), index);
         SentenceTemplatesFrame sentenceTemplatesFrame = new SentenceTemplatesFrame(frame, sentenceTemplates);
         sentenceTemplatesFrames.add(sentenceTemplatesFrame);
         return sentenceTemplatesFrames;
     }
 
-    private static List<SentenceTemplate> findGrammarRuleTemplates(SentenceTemplateFactoryEN senTempFactoryEN, 
+    private static List<SentenceTemplate> findSentenceTemplate(SentenceTemplateFactoryEN senTempFactoryEN, 
             SentenceTemplateRepository sentenceTempRep, SentenceType sentenceType, String frame, Map<String, String> groups, Integer index) {
         List<SentenceTemplate> sentenceTemplates = new ArrayList<SentenceTemplate>();
         for (String key : groups.keySet()) {
