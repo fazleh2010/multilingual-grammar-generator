@@ -25,7 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.apache.jena.query.QueryType;
-import util.io.JsonWriter;
+import util.io.JsonSerializer;
 
 /**
  *
@@ -38,7 +38,7 @@ public class PrettyGrammar {
     public PrettyGrammar(String propertyDir, List<File> protoSimpleQFiles, String outputFileName) {
         Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntries, true);
-        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
+        JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
 
     }
 
@@ -127,7 +127,7 @@ public class PrettyGrammar {
         String outputFileName = "grammar_" + language + ".json";
         Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntries, true);
-        JsonWriter.writeClassToJson(grammarEntriesLex, outputDir + "/" + outputFileName);
+        JsonSerializer.writeClassToJson(grammarEntriesLex, outputDir + "/" + outputFileName);
 
     }
     

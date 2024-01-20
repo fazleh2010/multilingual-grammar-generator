@@ -39,6 +39,37 @@ public class TemplateGeneration implements TempConstants {
         for (String language : languages) {
             FrameInfo frameInfo = new FrameInfo(language);
             String sentenceFileName = "output/" + language + "/sentenceTemplate.json";
+            List<SentenceTemplatesFrame> allStFrames = new ArrayList<SentenceTemplatesFrame>();
+            for (FrameType frameType : frameInfo.getFrames()) {
+                String frame = frameType.getName();
+                List<SentenceTemplatesFrame> stFrames = findFrameTemplate(frameInfo, frame);
+                allStFrames.addAll(stFrames);
+            }
+            SentenceTemplateAll stAll = new SentenceTemplateAll(allStFrames);
+            JsonSerializer.writeSentenceTemplateToJson(stAll, sentenceFileName);
+        }
+        
+        for (String language : languages) {
+            FrameInfo frameInfo = new FrameInfo(language);
+            String sentenceFileName = "output/" + language + "/sentenceTemplate.json";
+            String grammarRuleTemplateFileName = "output/" + language + "/grammarRuleTemplate.json";
+            String dictFileName = "src/main/resources/" + language + "_dictionary.txt";
+            Map<String, String> dictionary = getDictionary(dictFileName);
+            SentenceTemplateAll stAll =JsonSerializer.readJsonToSentenceTemplates(sentenceFileName);
+            List<GrammarRuleTemplateFrame> allGrtFrames = new ArrayList<GrammarRuleTemplateFrame>();
+            for (FrameType frameType : frameInfo.getFrames()) {
+                String frame = frameType.getName();
+                List<SentenceTemplatesFrame> stFrames = stAll.getSentenceTemplatesFrame(frame);
+                List<GrammarRuleTemplateFrame> grtFrames = findFrameGrammarRuleTemplates(stFrames, dictionary);
+                allGrtFrames.addAll(grtFrames);
+            }
+            GrammarRuleTemplateAll grtAll = new GrammarRuleTemplateAll(allGrtFrames);
+            JsonSerializer.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
+        }
+
+        /*for (String language : languages) {
+            FrameInfo frameInfo = new FrameInfo(language);
+            String sentenceFileName = "output/" + language + "/sentenceTemplate.json";
             String grammarRuleTemplateFileName = "output/" + language + "/grammarRuleTemplate.json";
             String dictFileName = "src/main/resources/" + language + "_dictionary.txt";
             Map<String, String> dictionary = getDictionary(dictFileName);
@@ -52,11 +83,10 @@ public class TemplateGeneration implements TempConstants {
                 allGrtFrames.addAll(grtFrames);
             }
             SentenceTemplateAll stAll = new SentenceTemplateAll(allStFrames);
-            JsonWriter.writeSentenceTemplateToJson(stAll, sentenceFileName);
+            JsonSerializer.writeSentenceTemplateToJson(stAll, sentenceFileName);
             GrammarRuleTemplateAll grtAll = new GrammarRuleTemplateAll(allGrtFrames);
-            JsonWriter.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
-        }
-
+            JsonSerializer.writeSentenceTemplateToJson(grtAll, grammarRuleTemplateFileName);
+        }*/
     }
 
     private static List<SentenceTemplatesFrame> findFrameTemplate(FrameInfo frameInfo, String frame) {

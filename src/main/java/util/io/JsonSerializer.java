@@ -11,7 +11,6 @@ import grammar.read.questions.GrammarEntriesLex;
 import grammar.read.questions.GrammarRuleTemplateAll;
 import grammar.read.questions.ProtoToRealQuesrion;
 import grammar.read.questions.SentenceTemplateAll;
-import grammar.read.questions.SentenceTemplatesFrame;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author elahi
  */
-public class JsonWriter {
+public class JsonSerializer {
 
     public static void writeClassToJson(GrammarEntriesLex grammarEntriesLex, String fileName) {
         ObjectMapper mapper = new ObjectMapper();
@@ -34,7 +33,7 @@ public class JsonWriter {
         }
 
     }
-    
+
     public static void writeSentenceTemplateToJson(SentenceTemplateAll sentenceTemplateAll, String fileName) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -46,7 +45,7 @@ public class JsonWriter {
         }
 
     }
-    
+
     public static void writeSentenceTemplateToJson(GrammarRuleTemplateAll grammarRuleTemplateAll, String fileName) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -57,6 +56,26 @@ public class JsonWriter {
             Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public static SentenceTemplateAll readJsonToSentenceTemplates(String filePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.readValue(new File(filePath), SentenceTemplateAll.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static GrammarRuleTemplateAll readJsonToGrammarRuleTemplates(String filePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.readValue(new File(filePath), GrammarRuleTemplateAll.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

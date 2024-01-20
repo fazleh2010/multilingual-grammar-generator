@@ -46,4 +46,14 @@ public class SentenceTemplateAll {
         this.frameSentenceTemplates = frameSentenceTemplates;
     }
 
+    public List<SentenceTemplatesFrame> getSentenceTemplatesFrame(String frame) {
+         List<SentenceTemplatesFrame> frameTemplates=new ArrayList<SentenceTemplatesFrame>();
+       for(SentenceTemplatesFrame SentenceTemplatesFrame:this.frameSentenceTemplates){
+           if(SentenceTemplatesFrame.getFrame().contains(frame)) {
+             frameTemplates.add(SentenceTemplatesFrame);
+           }
+       }
+       return frameTemplates;
+    }
+
 }
