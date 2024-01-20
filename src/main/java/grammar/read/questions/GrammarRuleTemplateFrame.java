@@ -14,25 +14,26 @@ import java.util.List;
  *
  * @author elahi
  */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SentenceTemplatesFrame {
+public class GrammarRuleTemplateFrame {
 
     @JsonProperty("frame")
     private String frame = null;
-    @JsonProperty("sentenceTemplates")
-    private List<SentenceTemplate> sentenceTemplates = new ArrayList<SentenceTemplate>();
+    @JsonProperty("grammarRuleTemplates")
+    private List<GrammarRuleTemplate> grammarRuleTemplates = new ArrayList<GrammarRuleTemplate>();
     
-    public SentenceTemplatesFrame() {
+    public GrammarRuleTemplateFrame() {
 
     }
 
-    public SentenceTemplatesFrame(String frame,List<SentenceTemplate> sentenceTemplates) {
+    public GrammarRuleTemplateFrame(String frame,List<GrammarRuleTemplate> grammarRuleTemplates) {
         this.frame = frame;
-        this.sentenceTemplates = sentenceTemplates;
+        this.grammarRuleTemplates = grammarRuleTemplates;
     }
 
-    public List<SentenceTemplate> getSentenceTemplates() {
-        return sentenceTemplates;
+    public List<GrammarRuleTemplate> getSentenceTemplates() {
+        return grammarRuleTemplates;
     }
 
     public String getFrame() {
@@ -41,7 +42,8 @@ public class SentenceTemplatesFrame {
 
     @Override
     public String toString() {
-        return "SentenceTemplatesFrame{" + "frame=" + frame + ", sentenceTemplates=" + sentenceTemplates + '}';
+        return "SentenceTemplatesFrame{" + "frame=" + frame + ", grammarRuleTemplates=" + grammarRuleTemplates + '}';
     }
 
 }
+

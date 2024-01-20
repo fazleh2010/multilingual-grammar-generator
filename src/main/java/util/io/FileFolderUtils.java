@@ -194,20 +194,20 @@ public class FileFolderUtils {
         String line = "";
         try {
             reader = new BufferedReader(new FileReader(fileName));
-            line = reader.readLine();
-            while (line != null) {
-                line = reader.readLine();
-                if (line != null) {
+            //line = reader.readLine();
+            while ((line= reader.readLine()) != null) {
+                //line = reader.readLine();
+                //if (line != null) {
                     if (line.contains(seperator)) {
                         String[] info = line.split(seperator);
                         String key = info[0].trim().stripLeading().stripTrailing().strip();
                         String value = info[1].trim().stripLeading().stripTrailing().strip();
                         hash.put(key, value);
                     }
-                    else
-                       System.out.println("line::"+line);
+                    //else
+                    //   System.out.println("line::"+line);
 
-                }
+                //}
 
             }
             reader.close();

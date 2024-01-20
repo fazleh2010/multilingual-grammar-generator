@@ -8,6 +8,7 @@ package util.io;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import grammar.read.questions.GrammarEntriesLex;
+import grammar.read.questions.GrammarRuleTemplateAll;
 import grammar.read.questions.ProtoToRealQuesrion;
 import grammar.read.questions.SentenceTemplateAll;
 import grammar.read.questions.SentenceTemplatesFrame;
@@ -40,6 +41,18 @@ public class JsonWriter {
 
         try {
             mapper.writeValue(new File(fileName), sentenceTemplateAll);
+        } catch (IOException ex) {
+            Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public static void writeSentenceTemplateToJson(GrammarRuleTemplateAll grammarRuleTemplateAll, String fileName) {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        try {
+            mapper.writeValue(new File(fileName), grammarRuleTemplateAll);
         } catch (IOException ex) {
             Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
         }

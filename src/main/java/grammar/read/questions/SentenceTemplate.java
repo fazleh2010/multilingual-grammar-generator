@@ -16,22 +16,28 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SentenceTemplate {
+
     @JsonProperty("templateNo")
     private String templateNo = null;
     @JsonProperty("group")
     private String group = null;
     @JsonProperty("sentences")
     private List<String> sentences = new ArrayList<String>();
-    
 
     public SentenceTemplate() {
 
     }
 
-    public SentenceTemplate(String sentenceTemplateNo, String syntacticType,List<String> sentencesT) {
+    public SentenceTemplate(String sentenceTemplateNo, String syntacticType, List<String> sentencesT) {
         this.templateNo = sentenceTemplateNo;
         this.group = syntacticType;
         this.sentences = sentencesT;
+    }
+
+    public SentenceTemplate(SentenceTemplate sentenceTemplate, List<String> modifiedSentences) {
+        this.templateNo = sentenceTemplate.getTemplateNo();
+        this.group = sentenceTemplate.getGroup();
+        this.sentences = modifiedSentences;
     }
 
     public String getTemplateNo() {
@@ -51,7 +57,4 @@ public class SentenceTemplate {
         return "SentenceTemplate{" + "templateNo=" + templateNo + ", group=" + group + ", sentences=" + sentences + '}';
     }
 
-   
-   
 }
-

@@ -1,0 +1,6 @@
+interrogativeDeterminer(range:singular)=which
+verb(component_be:present:singular)=is
+determiner(component_the)=the
+noun(reference:singular)=[NounSingular]
+preposition=[Preposition]
+adjunct(domain)=<NP_{map(SyntacticFunction), Property}>
