@@ -1,0 +1,114 @@
+{
+  "TemplateType" : "grammarRuleTemplate",
+  "FrameSentenceTemplates" : [ {
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "who is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who are noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_una) determiner(component_lista) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_una) determiner(component_lista) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_todos) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_todos) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>.", "interrogativeVariableDeterminer NounSingular determiner(component_tiene) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson(range:singular) is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn NounSingular verb(component_esta:present:singular) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounThingPlural are article(los) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounThingPlural are article(las) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which are NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "show determiner(component_todos) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "verb(component_imperative_plural:present:plural) determiner(component_todas) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>." ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> determiner(component_the_nominative:reference) noun(nominativeCase:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "are <NP_{map(SyntacticFunction), Property}> determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "determiner(component_the_nominative:reference) noun(nominativeCase:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ],
+    "frame" : "NounPPFrame",
+    "grammarRuleTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "who is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who are noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_una) determiner(component_lista) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_una) determiner(component_lista) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_todos) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "give determiner(component_todos) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>.", "interrogativeVariableDeterminer NounSingular determiner(component_tiene) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson(range:singular) is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn NounSingular verb(component_esta:present:singular) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounThingPlural are article(los) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounThingPlural are article(las) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which are NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "show determiner(component_todos) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>.", "verb(component_imperative_plural:present:plural) determiner(component_todas) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>." ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> determiner(component_the_nominative:reference) noun(nominativeCase:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "are <NP_{map(SyntacticFunction), Property}> determiner(component_the_nominative:reference:plural) noun(nominativeCase:plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "determiner(component_the_nominative:reference) noun(nominativeCase:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ]
+  }, {
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "interrogativePronounPerson [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson verb(mainVerb:perfect:thirdPerson) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien verb(mainVerb:perfect:thirdPerson) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn(range:singular) [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn(range:plural) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerPor(range:singular) [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerPor(range:plural) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_todos) NounSingular interrogativeRelative1 determiner(component_hayan) [VerbPresent] <NP_{map(SyntacticFunction), Property}>", "interrogativeVariableDeterminer [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativeVariableDeterminer(domain:singular) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ],
+    "frame" : "TransitiveFrame",
+    "grammarRuleTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "interrogativePronounPerson [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson verb(mainVerb:perfect:thirdPerson) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien verb(mainVerb:perfect:thirdPerson) <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPersonQuien [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounPerson [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn(range:singular) [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerEn(range:plural) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerPor(range:singular) [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "interrogativeDeterminerPor(range:plural) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_todos) NounSingular interrogativeRelative1 determiner(component_hayan) [VerbPresent] <NP_{map(SyntacticFunction), Property}>", "interrogativeVariableDeterminer [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "interrogativeVariableDeterminer(domain:singular) [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ]
+  }, {
+    "sentenceTemplates" : [ ],
+    "frame" : "IntransitivePPFrame",
+    "grammarRuleTemplates" : [ ]
+  } ]
+}

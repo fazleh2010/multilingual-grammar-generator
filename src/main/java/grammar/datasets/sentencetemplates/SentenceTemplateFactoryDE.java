@@ -7,8 +7,11 @@ import static grammar.datasets.sentencetemplates.SentenceTemplate.createSentence
 import static grammar.datasets.sentencetemplates.SentenceTemplate.createVPTemplate;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import static grammar.datasets.sentencetemplates.TempConstants.PERSON_CAUSE;
+import grammar.structure.component.FrameType;
 import grammar.structure.component.Language;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateRepository>, TempConstants {
@@ -194,8 +197,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
         
         ),
        TransitiveFrame,
-        PERSON_CAUSE,
-        activeTransitive
+       PERSON_CAUSE+activeTransitive
       )
     );
       // TransitiveFrame
@@ -224,8 +226,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
 
         ),
         TransitiveFrame,
-        PERSON_CAUSE,
-        passiveTransitive
+        PERSON_CAUSE+passiveTransitive
       )
     );
     
@@ -242,8 +243,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
         "interrogativeDeterminer(nominativeCase:range:plural) verb(mainVerb:present:thridPerson) object(domain)?"
          ),
        TransitiveFrame,
-        PERSON_PERSON,
-        activeTransitive
+        PERSON_PERSON+activeTransitive
       )
     );
  
@@ -257,8 +257,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
         "interrogativePronounWhom verb(component_haben:present:singular) object(domain) verb(mainVerb:perfect:thridPerson)?"
         ),
         TransitiveFrame,
-        PERSON_PERSON,
-        passiveTransitive
+        PERSON_PERSON+passiveTransitive
       )
     );
     
@@ -279,8 +278,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
     
         ),
         TransitiveFrame,
-        HOW_MANY_TOTAL,
-        activeTransitive
+        HOW_MANY_TOTAL+activeTransitive
       )
     );
    
@@ -293,8 +291,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
            
         ),
         TransitiveFrame,
-        HOW_MANY_TOTAL,
-        passiveTransitive
+        HOW_MANY_TOTAL+passiveTransitive
       )
     );
     
@@ -351,8 +348,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
 
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        forward
+        WHAT_WHICH_PRESENT_THING_1+forward
       )
     );
     //Durch welches Land fließt der Rhein?
@@ -375,8 +371,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
        
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        backward
+        WHAT_WHICH_PRESENT_THING_1+backward
       )
     );
       
@@ -406,8 +401,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
 
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        forward
+        WHAT_WHICH_PRESENT_THING_2+forward
       )
     );
     //Durch welches Land fließt der Rhein?
@@ -430,8 +424,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
        
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        backward
+        WHAT_WHICH_PRESENT_THING_2+backward
       )
     );
       
@@ -462,8 +455,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
       
                 ),
         InTransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        forward
+        WHAT_WHICH_LOCATION+forward
       )
     );
     
@@ -481,8 +473,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(range) verb(TrennVerbPart2:past:thridPerson)? "
             ),
         InTransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        backward
+        WHAT_WHICH_LOCATION+backward
       )
     );
       
@@ -500,8 +491,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          
         ),
         InTransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        forward
+        WHEN_WHAT_PAST_THING+forward
       )
     );
     
@@ -521,8 +511,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:past:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        backward
+        WHEN_WHAT_PAST_THING+backward
       )
     );
     ///////////////////////////////
@@ -539,8 +528,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
         "interrogativeTemporal verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        forward
+        WHEN_WHO_PAST_PERSON+forward
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -552,8 +540,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          "interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        backward
+        WHEN_WHO_PAST_PERSON+backward
       )
     );
       
@@ -570,8 +557,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
 
         ),
         InTransitivePPFrame,
-        WHO_WHO_PERSON,
-        forward
+        WHO_WHO_PERSON+forward
       )
     );
       
@@ -592,8 +578,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
               
                ),
         InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        forward
+        WHERE_WHO_PAST_PERSON+forward
       )
     );
       sentenceTemplateRepository.add(
@@ -607,8 +592,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
         "interrogativeDeterminer(nominativeCase:domain:plural) verb(component_werden:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?"
         ),
         InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        backward
+        WHERE_WHO_PAST_PERSON+backward
       )
     );
       
@@ -625,8 +609,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
 
         ),
         InTransitivePPFrame,
-        PERSON_CAUSE,
-        forward
+        PERSON_CAUSE+forward
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -641,8 +624,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
       
           ),
         InTransitivePPFrame,
-        PERSON_CAUSE,
-        backward
+        PERSON_CAUSE+backward
       )
     );
       
@@ -658,8 +640,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          "interrogativePlace verb(TrennVerbPart1:past:thridPerson) object(domain) verb(TrennVerbPart2:past:thridPerson)?"
              ),
         InTransitivePPFrame,
-        WHERE_WHAT_PRESENT_THING,
-        backward
+        WHERE_WHAT_PRESENT_THING+backward
       )
     );
       sentenceTemplateRepository.add(
@@ -670,8 +651,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(domain) verb(TrennVerbPart2:past:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHERE_WHAT_PRESENT_THING,
-        forward
+        WHERE_WHAT_PRESENT_THING+forward
       )
     );
       
@@ -694,8 +674,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
     
         ),
         InTransitivePPFrame,
-        HOW_MANY_TOTAL,
-        forward
+        HOW_MANY_TOTAL+forward
       )
     );
    
@@ -708,8 +687,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
            
         ),
         InTransitivePPFrame,
-        HOW_MANY_TOTAL,
-        backward
+        HOW_MANY_TOTAL+backward
       )
     );
       
@@ -726,8 +704,7 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
     
         ),
         InTransitivePPFrame,
-        HOW_MANY_THING,
-        forward
+        HOW_MANY_THING+forward
       )
     );
    
@@ -917,7 +894,55 @@ public class SentenceTemplateFactoryDE implements Factory<SentenceTemplateReposi
          // "verb(component_be:present:singular) subject(range) article(definite_article:nominativeCase:neuter) object(domain)?",   
           //"Sind Laubfrösche Amphibien?"
          // "verb(component_be:present:plural) subject(range) object(domain)?"
-  
+  public static Map<String, String> getGroupsDE(String frame) {
+        Map<String, String> group = new LinkedHashMap<String, String>();
+        
+        if (frame.contains(FrameType.NPP.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        }
+        else if (frame.contains(FrameType.VP.getName())) {
+            group.put(PERSON_CAUSE+activeTransitive, subject+"-"+"type"+"1");
+            group.put(PERSON_CAUSE+passiveTransitive, object+"-"+"type"+"1");
+            group.put(PERSON_CAUSE+activeTransitive, subject+"-"+"type"+"2");
+            group.put(PERSON_CAUSE+passiveTransitive, object+"-"+"type"+"2");
+            group.put(HOW_MANY_TOTAL+activeTransitive, amount+"-"+"type"+"1");
+            group.put(HOW_MANY_TOTAL+passiveTransitive, amount+"-"+"type"+"1");
+            group.put(booleanQuestionDomainRange, ask+"-"+"type"+"1");
+        }
+        else if (frame.contains(FrameType.IPP.getName())) {
+          group.put(WHAT_WHICH_PRESENT_THING_1+forward, subject+"-"+"type"+"1");
+          group.put(WHAT_WHICH_PRESENT_THING_1+backward, object+"-"+"type"+"1"); 
+          group.put(WHAT_WHICH_PRESENT_THING_2+forward, subject+"-"+"type"+"2");
+          group.put(WHAT_WHICH_PRESENT_THING_2+backward, object+"-"+"type"+"2"); 
+          group.put(WHAT_WHICH_LOCATION+forward, subject+"-"+"type"+"3");
+          group.put(WHAT_WHICH_LOCATION+backward, object+"-"+"type"+"3"); 
+          group.put(WHEN_WHAT_PAST_THING+forward, subject+"-"+"type"+"4");
+          group.put(WHEN_WHAT_PAST_THING+backward, object+"-"+"type"+"4"); 
+          group.put(WHEN_WHO_PAST_PERSON+forward, subject+"-"+"type"+"5");
+          group.put(WHEN_WHO_PAST_PERSON+backward, object+"-"+"type"+"5");
+          group.put(WHO_WHO_PERSON+forward, subject+"-"+"type"+"6");
+          group.put(WHO_WHO_PERSON+backward, object+"-"+"type"+"6");
+          group.put(WHERE_WHO_PAST_PERSON+forward, subject+"-"+"type"+"7");
+          group.put(WHERE_WHO_PAST_PERSON+backward, object+"-"+"type"+"7");
+          group.put(PERSON_CAUSE+forward, subject+"-"+"type"+"8");
+          group.put(PERSON_CAUSE+backward, object+"-"+"type"+"8");
+          group.put(WHERE_WHAT_PRESENT_THING+forward, subject+"-"+"type"+"9");
+          group.put(WHERE_WHAT_PRESENT_THING+backward, object+"-"+"type"+"9");
+          group.put(HOW_MANY_THING+forward, subject+"-"+"type"+"10");
+          group.put(HOW_MANY_THING+backward, object+"-"+"type"+"10");
+        }else if (frame.contains(FrameType.AA.getName())) {
+           
+        }
+        else if (frame.contains(FrameType.AG.getName())) {
+           
+        }
+
+        return group;
+    }
   public SentenceTemplateRepository getSentenceTemplateRepository() {
         return sentenceTemplateRepository;
     }

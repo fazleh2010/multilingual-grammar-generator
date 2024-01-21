@@ -32,7 +32,7 @@ public class FrameInfo implements TempConstants {
     private SentenceTemplateRepository sentenceTempRep = null;
 
     //private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
-    private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP);
+    private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP);
 
     public FrameInfo(Language language) {
         //english
@@ -40,29 +40,24 @@ public class FrameInfo implements TempConstants {
             sentenceTemplateFactoryEN = new SentenceTemplateFactoryEN();
             sentenceTemplateFactoryEN.init();
             sentenceTempRep = sentenceTemplateFactoryEN.getSentenceTemplateRepository();
-            
-        }
-        else if (language.equals(Language.DE)) {
+
+        } else if (language.equals(Language.DE)) {
             // german
             sentenceTemplateFactoryDE = new SentenceTemplateFactoryDE();
             sentenceTemplateFactoryDE.init();
             sentenceTempRep = sentenceTemplateFactoryDE.getSentenceTemplateRepository();
-        }
-        
-        else if (language.equals(Language.IT)) {
+        } else if (language.equals(Language.IT)) {
             // italian
             sentenceTemplateFactoryIT = new SentenceTemplateFactoryIT();
             sentenceTemplateFactoryIT.init();
             sentenceTempRep = sentenceTemplateFactoryIT.getSentenceTemplateRepository();
-        }
-        
-        else if (language.equals(Language.ES)) {
+        } else if (language.equals(Language.ES)) {
             // spanish
             sentenceTemplateFactoryES = new SentenceTemplateFactoryES();
             sentenceTemplateFactoryES.init();
             sentenceTempRep = sentenceTemplateFactoryES.getSentenceTemplateRepository();
         }
-    
+
     }
 
     public SentenceTemplateFactoryEN getSentenceTemplateFactoryEN() {
@@ -73,66 +68,21 @@ public class FrameInfo implements TempConstants {
         return sentenceTempRep;
     }
 
-    public Map<String, String> getNounGroups(String frame) {
-        Map<String, String> group = new LinkedHashMap<String, String>();
-        if (frame.contains(FrameType.NPP.getName())) {
-            group.put(Prepositional_Adjuct, subject);
-            group.put(Copulative_Subject, object);
-            group.put(HOW_MANY_THING, amount);
-            group.put(booleanQuestionDomainRange, ask);
-            group.put(nounPhrase, nounPhrase);
-        }
-        else if (frame.contains(FrameType.VP.getName())) {
-            group.put(PERSON_CAUSE+activeTransitive, subject+"-"+"type"+"1");
-            group.put(PERSON_CAUSE+passiveTransitive, object+"-"+"type"+"1");
-            
-            group.put(PERSON_CAUSE_OPPOSITITE+activeTransitive, subject+"-"+"type"+"2");
-            group.put(PERSON_CAUSE_OPPOSITITE+passiveTransitive, object+"-"+"type"+"2");
-            
-            group.put(PERSON_CAUSE_NOUN_PHRASE+activeTransitive, subject+"-"+"type"+"3");
-            group.put(PERSON_CAUSE_NOUN_PHRASE+passiveTransitive, object+"-"+"type"+"3");
-            
-            group.put(PERSON_CAUSE_SUBJECT+activeTransitive, subject+"-"+"type"+"4");
-            group.put(PERSON_CAUSE_SUBJECT+passiveTransitive, object+"-"+"type"+"4");
-            
-            group.put(PERSON_CAUSE_SUBJECT_PREPOSITION+activeTransitive, subject+"-"+"type"+"5");
-            group.put(PERSON_CAUSE_SUBJECT_PREPOSITION+passiveTransitive, object+"-"+"type"+"5");
-            
-            group.put(PERSON_PERSON+activeTransitive, subject+"-"+"type"+"6");
-            group.put(PERSON_PERSON+passiveTransitive+passiveTransitive, object+"-"+"type"+"6");
-            
-            group.put(PERSON_ACTIVITY+activeTransitive, subject+"-"+"type"+"7");
-            group.put(PERSON_ACTIVITY+passiveTransitive, object+"-"+"type"+"7");
-            
-            group.put(HOW_MANY_TOTAL+activeTransitive, subject+"-"+amount+"-"+"type"+"1");
-            group.put(HOW_MANY_TOTAL+passiveTransitive, object+"-"+amount+"-"+"type"+"1");
-            
-            group.put(HOW_MANY_THING+activeTransitive, subject+"-"+amount+"-"+"type"+"2");
-            group.put(HOW_MANY_THING+passiveTransitive, object+"-"+amount+"-"+"type"+"2");
-            
-        }
-        else if (frame.contains(FrameType.IPP.getName())) {
-            group.put(Prepositional_Adjuct, subject);
-            group.put(Copulative_Subject, object);
-            group.put(HOW_MANY_THING, amount);
-            group.put(booleanQuestionDomainRange, ask);
-            group.put(nounPhrase, nounPhrase);
-        }else if (frame.contains(FrameType.AA.getName())) {
-            group.put(Prepositional_Adjuct, subject);
-            group.put(Copulative_Subject, object);
-            group.put(HOW_MANY_THING, amount);
-            group.put(booleanQuestionDomainRange, ask);
-            group.put(nounPhrase, nounPhrase);
-        }
-        else if (frame.contains(FrameType.AG.getName())) {
-            group.put(Prepositional_Adjuct, subject);
-            group.put(Copulative_Subject, object);
-            group.put(HOW_MANY_THING, amount);
-            group.put(booleanQuestionDomainRange, ask);
-            group.put(nounPhrase, nounPhrase);
-        }
+    public Map<String, String> getGroups(String frame, Language language) {
 
-        return group;
+        if (language.equals(Language.EN)) {
+            return SentenceTemplateFactoryEN.getGroupsEN(frame);
+        }
+        if (language.equals(Language.DE)) {
+            return SentenceTemplateFactoryDE.getGroupsDE(frame);
+        }
+        if (language.equals(Language.IT)) {
+            return SentenceTemplateFactoryIT.getGroupsIT(frame);
+        }
+        if (language.equals(Language.ES)) {
+            return SentenceTemplateFactoryES.getGroupsES(frame);
+        }
+        return null;
     }
 
     public SentenceTemplateFactoryDE getSentenceTemplateFactoryDE() {
@@ -149,12 +99,6 @@ public class FrameInfo implements TempConstants {
 
     public SentenceTemplateRepository getSentenceTempRep() {
         return sentenceTempRep;
-    }
-
-   
-
-    public static void main(String[] args) {
-        System.out.println("test");
     }
 
     public List<FrameType> getFrames() {

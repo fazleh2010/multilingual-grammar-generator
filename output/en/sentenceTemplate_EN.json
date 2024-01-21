@@ -98,5 +98,8 @@
       "group" : "object-amount-type2",
       "sentences" : [ "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeOften(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "interrogativeAmount(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?" ]
     } ]
+  }, {
+    "frame" : "IntransitivePPFrame",
+    "sentenceTemplates" : [ ]
   } ]
 }

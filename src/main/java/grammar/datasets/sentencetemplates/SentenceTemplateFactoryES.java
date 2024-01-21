@@ -10,6 +10,9 @@ import static grammar.datasets.sentencetemplates.SentenceTemplate.createNPTempla
 import static grammar.datasets.sentencetemplates.SentenceTemplate.createSentenceTemplate;
 import static grammar.datasets.sentencetemplates.SentenceTemplate.createVPTemplate;
 import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
+import grammar.structure.component.FrameType;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,TempConstants {
@@ -202,8 +205,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          */        
         ),
        TransitiveFrame,
-        PERSON_CAUSE,
-        activeTransitive
+        PERSON_CAUSE+activeTransitive
       )
     );
       // TransitiveFrame
@@ -223,8 +225,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          "interrogativeDeterminerEn(domain:singular) verb(mainVerb:past:thridPerson) object(range)?"
           ),
         TransitiveFrame,
-        PERSON_CAUSE,
-        passiveTransitive
+        PERSON_CAUSE+passiveTransitive
       )
     );
     
@@ -272,8 +273,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
       */        
          ),
        TransitiveFrame,
-        PERSON_PERSON,
-        activeTransitive
+        PERSON_PERSON+activeTransitive
       )
     );
     
@@ -284,8 +284,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
         "interrogativePronounWhom verb(component_be:present:singular) verb(mainVerb:past:thridPerson) object(domain)?"
             ),
         TransitiveFrame,
-        PERSON_PERSON,
-        passiveTransitive
+        PERSON_PERSON+passiveTransitive
       )
     );
     
@@ -317,8 +316,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          //"interrogativePronounDeterminer(domain:singular) verb(mainVerb:present:thridPerson) object(domain)?"
         ),
         TransitiveFrame,
-        PERSON_CAUSE,
-        passiveTransitive
+        PERSON_CAUSE+passiveTransitive
       )
     );
       
@@ -333,8 +331,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
               
         ),
        TransitiveFrame,
-       HOW_MANY_TOTAL,
-       activeTransitive
+       HOW_MANY_TOTAL+activeTransitive
       )
     );
     
@@ -345,8 +342,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
         //"interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?"
            ),
        TransitiveFrame,
-       HOW_MANY_TOTAL,
-       passiveTransitive
+       HOW_MANY_TOTAL+passiveTransitive
       )
     );
     
@@ -363,8 +359,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
                 
             ),
         TransitiveFrame,
-        HOW_MANY_THING,
-        passiveTransitive
+        HOW_MANY_THING+passiveTransitive
       )
     );
     
@@ -398,8 +393,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
 
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        forward
+        WHAT_WHICH_PRESENT_THING_1+forward
       )
     );
     //Durch welches Land fließt der Rhein?
@@ -423,8 +417,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          */
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_1,
-        backward
+        WHAT_WHICH_PRESENT_THING_1+backward
       )
     );
       
@@ -436,8 +429,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
        
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        forward
+        WHAT_WHICH_PRESENT_THING_2+forward
       )
     );
     //Durch welches Land fließt der Rhein?
@@ -459,8 +451,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
        */
         ),
         InTransitivePPFrame,
-        WHAT_WHICH_PRESENT_THING_2,
-        backward
+        WHAT_WHICH_PRESENT_THING_2+backward
       )
     );
       
@@ -482,8 +473,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
    
                 ),
         InTransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        forward
+        WHAT_WHICH_LOCATION+forward
       )
     );
     
@@ -501,8 +491,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(range) verb(TrennVerbPart2:past:thridPerson)? "
           */  ),
         InTransitivePPFrame,
-        WHAT_WHICH_LOCATION,
-        backward
+        WHAT_WHICH_LOCATION+backward
       )
     );
       
@@ -518,8 +507,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
           //"interrogativePronounPerson verb(component_be:present:singular) verb(mainVerb:past:thridPerson) object(domain)?"
         ),
         InTransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        forward
+        WHEN_WHAT_PAST_THING+forward
       )
     );
     
@@ -538,8 +526,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_werden:past:singular) preposition adjunct(range) verb(mainVerb:past:thridPerson)?"
         */),
         InTransitivePPFrame,
-        WHEN_WHAT_PAST_THING,
-        backward
+        WHEN_WHAT_PAST_THING+backward
       )
     );
     ///////////////////////////////
@@ -566,8 +553,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
         "interrogativeDeterminerPor(range:plural) verb(mainVerb:present:thridPerson) object(domain)?",*/
         ),
         InTransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        forward
+        WHEN_WHO_PAST_PERSON+forward
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -578,8 +564,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          //"interrogativePronoun(nominativeCase:domain:singular) verb(component_be:present:singular) preposition adjunct(range) verb(mainVerb:perfect:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHEN_WHO_PAST_PERSON,
-        backward
+        WHEN_WHO_PAST_PERSON+backward
       )
     );
       
@@ -592,8 +577,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          
         ),
         InTransitivePPFrame,
-        WHO_WHO_PERSON,
-        forward
+        WHO_WHO_PERSON+forward
       )
     );
       
@@ -614,8 +598,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          "interrogativeDeterminerCual(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(domain)?"
                    ),
         InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        forward
+        WHERE_WHO_PAST_PERSON+forward
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -635,8 +618,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
         "interrogativePlace verb(component_do:past:singular) adjunct(range) article(component_el)?"
             ),
         InTransitivePPFrame,
-        WHERE_WHO_PAST_PERSON,
-        backward
+        WHERE_WHO_PAST_PERSON+backward
       )
     );
       
@@ -653,8 +635,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
         //"preposition interrogativePronoun(nominativeCase:range:singular) verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?"     
                ),
         InTransitivePPFrame,
-        PERSON_CAUSE,
-        forward
+        PERSON_CAUSE+forward
       )
     );
     //Welche Person wurde 2010 geboren?
@@ -668,8 +649,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
       
           ),
         InTransitivePPFrame,
-        PERSON_CAUSE,
-        backward
+        PERSON_CAUSE+backward
       )
     );
       
@@ -684,8 +664,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          "interrogativePlace verb(TrennVerbPart1:past:thridPerson) object(domain) verb(TrennVerbPart2:past:thridPerson)?"
              ),
         InTransitivePPFrame,
-        WHERE_WHAT_PRESENT_THING,
-        backward
+        WHERE_WHAT_PRESENT_THING+backward
       )
     );
       sentenceTemplateRepository.add(createSentenceTemplate(language,
@@ -695,8 +674,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
          "interrogativePronoun(nominativeCase:domain:singular) verb(TrennVerbPart1:past:thridPerson) preposition adjunct(domain) verb(TrennVerbPart2:past:thridPerson)?"
         ),
         InTransitivePPFrame,
-        WHERE_WHAT_PRESENT_THING,
-        forward
+        WHERE_WHAT_PRESENT_THING+forward
       )
     );
       
@@ -716,8 +694,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
     
         ),
         InTransitivePPFrame,
-        HOW_MANY_TOTAL,
-        forward
+        HOW_MANY_TOTAL+forward
       )
     );
    
@@ -729,8 +706,7 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
            
         ),
         InTransitivePPFrame,
-        HOW_MANY_TOTAL,
-        backward
+        HOW_MANY_TOTAL+backward
       )
     );
       
@@ -841,6 +817,54 @@ public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepos
       
       
    }
+    
+    public static Map<String, String> getGroupsES(String frame) {
+        Map<String, String> group = new LinkedHashMap<String, String>();
+
+        if (frame.contains(FrameType.NPP.getName())) {
+            group.put(Prepositional_Adjuct, subject);
+            group.put(Copulative_Subject, object);
+            group.put(HOW_MANY_THING, amount);
+            group.put(booleanQuestionDomainRange, ask);
+            group.put(nounPhrase, nounPhrase);
+        } else if (frame.contains(FrameType.VP.getName())) {
+            group.put(PERSON_CAUSE + activeTransitive, subject + "-" + "type" + "1");
+            group.put(PERSON_CAUSE + passiveTransitive, object + "-" + "type" + "1");
+            group.put(PERSON_PERSON + activeTransitive, subject + "-" + "type" + "2");
+            group.put(PERSON_PERSON + passiveTransitive, object + "-" + "type" + "2");        
+            group.put(HOW_MANY_TOTAL + activeTransitive, subject + "-" + "type" + "3");
+            group.put(HOW_MANY_TOTAL + passiveTransitive, object + "-" + "type" + "3");
+            group.put(HOW_MANY_THING + activeTransitive, subject + "-" + "type" + "3");
+            group.put(HOW_MANY_THING + passiveTransitive, object + "-" + "type" + "3");
+        } else if (frame.contains(FrameType.IPP.getName())) {
+          group.put(WHAT_WHICH_PRESENT_THING_1+forward, subject + "-" + "type" + "1");
+          group.put(WHAT_WHICH_PRESENT_THING_1+backward, object + "-" + "type" + "1"); 
+          group.put(WHAT_WHICH_PRESENT_THING_2+forward, subject + "-" + "type" + "2");
+          group.put(WHAT_WHICH_PRESENT_THING_2+backward, object + "-" + "type" + "2"); 
+          group.put(WHAT_WHICH_LOCATION+forward, subject + "-" + "type" + "3");
+          group.put(WHAT_WHICH_LOCATION+backward, object + "-" + "type" + "3"); 
+          group.put(WHEN_WHAT_PAST_THING+forward, subject + "-" + "type" + "4");
+          group.put(WHEN_WHAT_PAST_THING+backward, object + "-" + "type" + "4"); 
+          group.put(WHEN_WHO_PAST_PERSON+forward, subject + "-" + "type" + "5");
+          group.put(WHEN_WHO_PAST_PERSON+backward, object + "-" + "type" + "5"); 
+          group.put(WHO_WHO_PERSON+forward, subject + "-" + "type" + "6");
+          group.put(WHO_WHO_PERSON+backward, object + "-" + "type" + "6"); 
+          group.put(WHERE_WHO_PAST_PERSON+forward, subject + "-" + "type" + "7");
+          group.put(WHERE_WHO_PAST_PERSON+backward, object + "-" + "type" + "7"); 
+          group.put(PERSON_CAUSE+forward, subject + "-" + "type" + "8");
+          group.put(PERSON_CAUSE+backward, object + "-" + "type" + "8"); 
+          group.put(WHERE_WHAT_PRESENT_THING+forward, subject + "-" + "type" + "9");
+          group.put(WHERE_WHAT_PRESENT_THING+backward, object + "-" + "type" + "9"); 
+          group.put(HOW_MANY_TOTAL+forward, subject + "-" + "type" + "10");
+          group.put(HOW_MANY_TOTAL+backward, object + "-" + "type" + "10"); 
+        } else if (frame.contains(FrameType.AA.getName())) {
+
+        } else if (frame.contains(FrameType.AG.getName())) {
+
+        }
+
+        return group;
+    }
 
     public SentenceTemplateRepository getSentenceTemplateRepository() {
         return sentenceTemplateRepository;

@@ -28,75 +28,14 @@
     "sentenceTemplates" : [ {
       "templateNo" : "1",
       "group" : "subject-type1",
-      "sentences" : [ ]
+      "sentences" : [ "interrogativePronounPerson verb(mainVerb:present:thirdPerson) object(domain)?", "interrogativePronounPersonQuien verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativePronounPerson verb(mainVerb:perfect:thirdPerson) object(domain)?", "interrogativePronounPersonQuien verb(mainVerb:perfect:thirdPerson) object(domain)?", "interrogativePronounPersonQuien verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronounPerson verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativeDeterminerEn(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminerEn(range:plural) verb(mainVerb:present:thridPerson) object(domain)?", "interrogativeDeterminerPor(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminerPor(range:plural) verb(mainVerb:present:thridPerson) object(domain)?", "verb(component_imperative_transitive:present:singular) determiner(component_todos) noun(singular) interrogativeRelative1 determiner(component_hayan) verb(mainVerb:present:thridPerson) object(domain)", "interrogativeVariableDeterminer verb(mainVerb:present:thirdPerson) object(domain)?", "interrogativeVariableDeterminer(domain:singular) verb(mainVerb:present:thirdPerson) object(domain)?" ]
     }, {
       "templateNo" : "2",
       "group" : "object-type1",
       "sentences" : [ ]
-    }, {
-      "templateNo" : "3",
-      "group" : "subject-type2",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "4",
-      "group" : "object-type2",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "5",
-      "group" : "subject-type3",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "6",
-      "group" : "object-type3",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "7",
-      "group" : "subject-type4",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "8",
-      "group" : "object-type4",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "9",
-      "group" : "subject-type5",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "10",
-      "group" : "object-type5",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "11",
-      "group" : "subject-type6",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "12",
-      "group" : "object-type6",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "13",
-      "group" : "subject-type7",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "14",
-      "group" : "object-type7",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "15",
-      "group" : "subject-amount-type1",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "16",
-      "group" : "object-amount-type1",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "17",
-      "group" : "subject-amount-type2",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "18",
-      "group" : "object-amount-type2",
-      "sentences" : [ ]
     } ]
+  }, {
+    "frame" : "IntransitivePPFrame",
+    "sentenceTemplates" : [ ]
   } ]
 }
