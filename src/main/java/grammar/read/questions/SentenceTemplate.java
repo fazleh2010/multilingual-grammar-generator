@@ -65,19 +65,23 @@ public class SentenceTemplate {
     }
 
     public static List<SentenceTemplate> findSentenceTemplate(Language language,
-            SentenceTemplateRepository sentenceTempRep, SentenceType sentenceType, 
+            SentenceTemplateRepository sentenceTempRep, SentenceType sentenceType,
             String frame, Map<String, String> groups, Integer index) {
         List<SentenceTemplate> sentenceTemplates = new ArrayList<SentenceTemplate>();
         for (String key : groups.keySet()) {
             String groupName = groups.get(key);
-            index = index + 1;
+            
             List<String> list = new ArrayList<String>();
 
             list = sentenceTempRep.findOneByEntryTypeAndLanguageAndArguments(sentenceType,
                     language, new String[]{frame, key});
-            addToCategoryDictionary(list);
 
-            sentenceTemplates.add(new SentenceTemplate(index.toString(), groupName, list));
+            if (!list.isEmpty()) {
+                index = index + 1;
+                addToCategoryDictionary(list);
+                sentenceTemplates.add(new SentenceTemplate(index.toString(), groupName, list));
+            }
+
         }
         return sentenceTemplates;
     }

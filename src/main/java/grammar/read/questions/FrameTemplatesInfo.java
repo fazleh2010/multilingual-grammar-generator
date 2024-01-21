@@ -23,7 +23,7 @@ import java.util.Set;
  *
  * @author elahi
  */
-public class FrameInfo implements TempConstants {
+public class FrameTemplatesInfo implements TempConstants {
 
     private SentenceTemplateFactoryEN sentenceTemplateFactoryEN = null;
     private SentenceTemplateFactoryDE sentenceTemplateFactoryDE = null;
@@ -34,13 +34,12 @@ public class FrameInfo implements TempConstants {
     //private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
     private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP);
 
-    public FrameInfo(Language language) {
+    public FrameTemplatesInfo(Language language) {
         //english
         if (language.equals(Language.EN)) {
             sentenceTemplateFactoryEN = new SentenceTemplateFactoryEN();
             sentenceTemplateFactoryEN.init();
             sentenceTempRep = sentenceTemplateFactoryEN.getSentenceTemplateRepository();
-
         } else if (language.equals(Language.DE)) {
             // german
             sentenceTemplateFactoryDE = new SentenceTemplateFactoryDE();
@@ -58,14 +57,6 @@ public class FrameInfo implements TempConstants {
             sentenceTempRep = sentenceTemplateFactoryES.getSentenceTemplateRepository();
         }
 
-    }
-
-    public SentenceTemplateFactoryEN getSentenceTemplateFactoryEN() {
-        return sentenceTemplateFactoryEN;
-    }
-
-    public SentenceTemplateRepository getSentenceTempRepEN() {
-        return sentenceTempRep;
     }
 
     public Map<String, String> getGroups(String frame, Language language) {
@@ -103,6 +94,14 @@ public class FrameInfo implements TempConstants {
 
     public List<FrameType> getFrames() {
         return frames;
+    }
+
+    public SentenceTemplateFactoryEN getSentenceTemplateFactoryEN() {
+        return sentenceTemplateFactoryEN;
+    }
+
+    public SentenceTemplateRepository getSentenceTempRepEN() {
+        return sentenceTempRep;
     }
 
 }

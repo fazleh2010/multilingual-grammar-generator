@@ -43,60 +43,131 @@
       "sentences" : [ "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the)  object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:present:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?", "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) nounVariable(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?" ]
     }, {
       "templateNo" : "5",
-      "group" : "subject-type3",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "6",
       "group" : "object-type3",
       "sentences" : [ "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(domain:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(imperative_verb:present:plural) determiner(all) nounVariable(domain:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(component_the) nounVariable(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson).", "verb(component_imperative_show:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:singular) determiner(that) object(range) verb(mainVerb:past:thridPerson)." ]
     }, {
-      "templateNo" : "7",
+      "templateNo" : "6",
       "group" : "subject-type4",
       "sentences" : [ "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:singular) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) nounVariable(domain:plural) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the)  object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:present3rd:thirdPerson) determiner(component_the) object(domain)?", "interrogativePronoun(range:singular) verb(mainVerb:past:thirdPerson) determiner(component_the) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:present:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) nounVariable(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativePronoun(range) verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronoun(range) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:present:thridPerson) object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:past:thridPerson) object(domain)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) Give me all(range:plural) determiner(that) verb(mainVerb:past:thridPerson) determiner(component_the) adjunct(domain).", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) determiner(that) verb(mainVerb:past:thridPerson) determiner(component_the) adjunct(domain)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) determiner(that) verb(mainVerb:past:thridPerson) adjunct(domain)?", "verb(imperative_verb:present:plural) determiner(all) nounVariable(range:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?" ]
     }, {
-      "templateNo" : "8",
+      "templateNo" : "7",
       "group" : "object-type4",
       "sentences" : [ "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(imperative_verb:present:plural) determiner(all) nounVariable(range:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeVariableDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ]
     }, {
-      "templateNo" : "9",
+      "templateNo" : "8",
       "group" : "subject-type5",
       "sentences" : [ "interrogativePronoun(domain) verb(mainVerb:present:thirdPerson) object(domain)?", "interrogativePronoun(domain) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) object(domain)?", "interrogativeDeterminer(domain:plural) verb(mainVerb:past:thridPerson) object(domain)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?", "verb(imperative_verb:present:plural) determiner(all) nounVariable(domain:plural) verb(mainVerb:present:thridPerson) adjunct(domain)?" ]
     }, {
-      "templateNo" : "10",
+      "templateNo" : "9",
       "group" : "object-type5",
       "sentences" : [ "interrogativePronoun(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronoun(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(imperative_verb:present:plural) determiner(all) nounVariable(range:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeVariableDeterminer(range:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ]
     }, {
-      "templateNo" : "11",
+      "templateNo" : "10",
       "group" : "subject-type6",
       "sentences" : [ "interrogativePronoun(range) verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronoun(range) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativePronounWhom verb(component_be:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativePronounWhom verb(component_be:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) nounVariable(range:singular) determiner(that) verb(mainVerb:past:thirdPerson) object(domain)?" ]
     }, {
-      "templateNo" : "12",
-      "group" : "object-type6",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "13",
+      "templateNo" : "11",
       "group" : "subject-type7",
       "sentences" : [ "interrogativePronoun(range) verb(mainVerb:present3rd:thirdPerson) object(domain)?", "interrogativePronoun(range) verb(mainVerb:past:thirdPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:thridPerson) object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:thridPerson) object(domain)?", "interrogativePronounWhom verb(component_be:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativePronounWhom verb(component_be:present:singular) object(domain) verb(mainVerb:present:thridPerson)?" ]
     }, {
-      "templateNo" : "14",
+      "templateNo" : "12",
       "group" : "object-type7",
       "sentences" : [ "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronounWhom verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativePronounWhom verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?" ]
     }, {
-      "templateNo" : "15",
+      "templateNo" : "13",
       "group" : "subject-amount-type1",
       "sentences" : [ "interrogativeMuch verb(component_do:present:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeMuch verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?" ]
     }, {
-      "templateNo" : "16",
+      "templateNo" : "14",
       "group" : "object-amount-type1",
       "sentences" : [ "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?" ]
     }, {
-      "templateNo" : "17",
-      "group" : "subject-amount-type2",
-      "sentences" : [ ]
-    }, {
-      "templateNo" : "18",
+      "templateNo" : "15",
       "group" : "object-amount-type2",
       "sentences" : [ "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeOften(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?", "interrogativeAmount(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson)?" ]
+    } ]
+  }, {
+    "frame" : "IntransitivePPFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "sentences" : [ "interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativeDeterminer(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativeDeterminer(range:singular) verb(component_do:present:singular) determiner(component_the) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativeDeterminer(range:plural) verb(component_do:present:singular) determiner(component_the) object(domain) verb(mainVerb:present:singular) preposition?", "preposition interrogativeDeterminer(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular)?", "preposition interrogativeDeterminer(range:plural) verb(component_do:present:plural) object(domain) verb(mainVerb:present:singular)?", "preposition interrogativeDeterminer(range:plural) verb(component_be:present:plural) object(domain) verb(mainVerb:perfect:singular)?", "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?", "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?", "preposition interrogativeDeterminer(range:plural) verb(component_do:present:singular) verb(mainVerb:present:singular) object(domain)?", "interrogativePronoun(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativePronoun(range:plural) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativeDeterminer(range:singular) verb(mainVerb:present:singular) preposition object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:past:singular) preposition object(domain)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(range:plural) determiner(that) verb(mainVerb:present:thridPerson) preposition adjunct(domain)?" ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "sentences" : [ "interrogativePronoun(domain) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(mainVerb:past:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePlace verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:singular)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:plural) determiner(that) verb(mainVerb:present:thridPerson) preposition adjunct(range)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:plural) determiner(that) verb(mainVerb:present:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:singular) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?", "interrogativePronoun(domain:singular) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?" ]
+    }, {
+      "templateNo" : "3",
+      "group" : "object-type2",
+      "sentences" : [ "interrogativeAmount(domain:plural) verb(mainVerb:present:singular) preposition adjunct(range)?", "interrogativeAmount(domain:plural) verb(component_do:past:singular) adjunct(range) verb(mainVerb:present:singular) preposition?", "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "4",
+      "group" : "subject-type3",
+      "sentences" : [ "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) determiner(component_the) object(domain)?", "preposition interrogativeDeterminer(range:singular) verb(component_be:present:plural) determiner(component_the) object(domain)?", "interrogativePronounDeterminer(range:singular) verb(component_be:present:singular) adjunct(domain) preposition?", "preposition interrogativeDeterminer(range:plural) verb(component_be:present:plural) object(domain) verb(mainVerb:perfect:singular)?", "preposition interrogativeDeterminer(range:singular) verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?", "interrogativePlace verb(component_be:present:singular) object(domain) verb(mainVerb:perfect:singular)?" ]
+    }, {
+      "templateNo" : "5",
+      "group" : "object-type3",
+      "sentences" : [ "interrogativePronoun(domain) verb(mainVerb:present:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain) verb(component_do:present:singular) adjunct(range) verb(mainVerb:present:thridPerson) preposition?", "interrogativeDeterminer(domain:singular) verb(mainVerb:present:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain) verb(mainVerb:past:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(mainVerb:present:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "6",
+      "group" : "subject-type4",
+      "sentences" : [ "interrogativeDeterminer(range:singular) verb(mainVerb:present3rd:singular) preposition object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:present:singular) preposition object(domain)?", "interrogativePronoun(range:plural) verb(mainVerb:present:singular) preposition object(domain)?", "interrogativeDeterminer(range:singular) verb(mainVerb:past:singular) preposition object(domain)?", "interrogativeDeterminer(range:plural) verb(mainVerb:past:singular) preposition object(domain)?", "interrogativePronoun(range:plural) verb(mainVerb:past:singular) preposition object(domain)?" ]
+    }, {
+      "templateNo" : "7",
+      "group" : "object-type4",
+      "sentences" : [ "preposition interrogativeDeterminer(domain:singular) verb(component_do:present:singular) object(range) verb(mainVerb:present:singular)?", "preposition interrogativeDeterminer(domain:plural) verb(component_do:present:singular) object(range) verb(mainVerb:present:singular)?", "preposition interrogativeDeterminer(domain:plural) verb(component_be:present:plural) object(range) verb(mainVerb:perfect:singular)?", "preposition interrogativeDeterminer(domain:singular) verb(component_be:present:singular) object(range) verb(mainVerb:perfect:singular)?" ]
+    }, {
+      "templateNo" : "8",
+      "group" : "subject-type5",
+      "sentences" : [ "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?", "interrogativeTemporal verb(component_be:past:plural) object(domain) verb(mainVerb:past:thridPerson)?", "interrogativeTemporal verb(component_be:past:singular) determiner(component_the) object(domain) verb(mainVerb:past:thridPerson)?", "interrogativeTemporal verb(component_be:past:plural) determiner(component_the) object(domain) verb(mainVerb:past:thridPerson)?", "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?", "interrogativeTemporal verb(component_do:past:singular) determiner(component_the) object(domain) verb(mainVerb:present:thridPerson)?" ]
+    }, {
+      "templateNo" : "9",
+      "group" : "object-type5",
+      "sentences" : [ "interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "10",
+      "group" : "subject-type6",
+      "sentences" : [ "interrogativeTemporal verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?", "preposition interrogativeDeterminer(range:singular) verb(component_be:past:singular) object(domain) verb(mainVerb:past:thridPerson)?", "interrogativeTemporal verb(component_do:past:singular) object(domain) verb(mainVerb:present:thridPerson)?" ]
+    }, {
+      "templateNo" : "11",
+      "group" : "object-type6",
+      "sentences" : [ "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "12",
+      "group" : "subject-type7",
+      "sentences" : [ "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(component_imperative_transitive:present:singular) pronoun(pronoun_personal) determiner(all) nounVariable(domain:plural) interrogativePronoun(range:singular) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "verb(component_imperative_transitive:present:singular) determiner(all) nounVariable(domain:plural) determiner(that) verb(component_be:past:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:singular) verb(component_be:past:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "13",
+      "group" : "object-type7",
+      "sentences" : [ "interrogativePlace verb(component_be:past:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?", "interrogativePlace verb(component_be:present:singular) adjunct(domain) verb(mainVerb:perfect:thridPerson)?", "preposition interrogativeDeterminer(range:singular) verb(component_do:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?", "interrogativeDeterminer(range:singular) verb(component_be:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?", "interrogativeDeterminer(range:singular) verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson) preposition?", "interrogativePlace verb(component_do:past:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?" ]
+    }, {
+      "templateNo" : "14",
+      "group" : "subject-type8",
+      "sentences" : [ "interrogativePronoun(domain:singular) verb(mainVerb:present3rd:thridPerson) preposition adjunct(range)?", "interrogativePronoun(domain:singular) verb(mainVerb:past:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "15",
+      "group" : "object-type8",
+      "sentences" : [ "interrogativePlace verb(component_do:present:singular) adjunct(domain) verb(mainVerb:present:thridPerson)?" ]
+    }, {
+      "templateNo" : "16",
+      "group" : "subject-type9",
+      "sentences" : [ "interrogativePronoun(range:singular) verb(component_do:past:singular) object(domain) verb(mainVerb:present:singular) preposition?", "interrogativePronoun(range:singular) verb(component_do:present:singular) object(domain) verb(mainVerb:present:singular) preposition?" ]
+    }, {
+      "templateNo" : "17",
+      "group" : "object-type9",
+      "sentences" : [ "interrogativeDeterminer(domain:singular) verb(component_be:past:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:past:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?", "interrogativeDeterminer(domain:singular) verb(component_be:present:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?", "interrogativeDeterminer(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:singular) preposition adjunct(range)?", "interrogativePronoun(domain:singular) verb(component_be:present:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?", "interrogativePronoun(domain:plural) verb(component_be:past:singular) verb(mainVerb:perfect:singular) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "18",
+      "group" : "subject-type10",
+      "sentences" : [ "interrogativeAmount(nominativeCase:range:plural) verb(component_werden:present:plural) preposition object(domain) verb(mainVerb:perfect:thridPerson)?" ]
+    }, {
+      "templateNo" : "19",
+      "group" : "object-type10",
+      "sentences" : [ "interrogativeAmount(domain:plural) verb(component_be:present:plural) verb(mainVerb:perfect:thridPerson) preposition adjunct(range)?" ]
+    }, {
+      "templateNo" : "20",
+      "group" : "subject-type11",
+      "sentences" : [ "interrogativeAmount verb(mainVerb:present:thridPerson) preposition adjunct(domain)?", "interrogativeAmount verb(mainVerb:past:thridPerson) preposition adjunct(domain)?", "interrogativeAmount(range:singular) verb(component_do:present:singular) object(domain:plural) verb(mainVerb:present:thridPerson)?" ]
     } ]
   } ]
 }

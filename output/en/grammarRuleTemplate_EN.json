@@ -105,97 +105,76 @@
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
       "templateNo" : "5",
-      "group" : "subject-type3",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "6",
       "group" : "object-type3",
       "grammarRuleTemplates" : [ " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "show me the NounSingular that <NP_{map(SyntacticFunction), Property}> [VerbPast].", "show me all NounSingular that <NP_{map(SyntacticFunction), Property}> [VerbPast]." ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "7",
+      "templateNo" : "6",
       "group" : "subject-type4",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] the NounSingular <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the NounPlural <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the  <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "who were the [NounSingular] that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "give me all Give me all) that [VerbPast] the <NP_{map(SyntacticFunction), Property}>.", "give me all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "8",
+      "templateNo" : "7",
       "group" : "object-type4",
       "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "9",
+      "templateNo" : "8",
       "group" : "subject-type5",
       "grammarRuleTemplates" : [ "who [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "10",
+      "templateNo" : "9",
       "group" : "object-type5",
       "grammarRuleTemplates" : [ "who were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "11",
+      "templateNo" : "10",
       "group" : "subject-type6",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "whom were <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "who were the [NounSingular] that [VerbPast] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "12",
-      "group" : "object-type6",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "13",
+      "templateNo" : "11",
       "group" : "subject-type7",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "whom were <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "14",
+      "templateNo" : "12",
       "group" : "object-type7",
       "grammarRuleTemplates" : [ " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "whom did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "15",
+      "templateNo" : "13",
       "group" : "subject-amount-type1",
       "grammarRuleTemplates" : [ "how much does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "how much did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "16",
+      "templateNo" : "14",
       "group" : "object-amount-type1",
       "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "17",
-      "group" : "subject-amount-type2",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "18",
+      "templateNo" : "15",
       "group" : "object-amount-type2",
       "grammarRuleTemplates" : [ "how many(domain:plural) are [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "how many(domain:singular) did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
@@ -233,97 +212,76 @@
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
       "templateNo" : "5",
-      "group" : "subject-type3",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "6",
       "group" : "object-type3",
       "grammarRuleTemplates" : [ " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "show me the NounSingular that <NP_{map(SyntacticFunction), Property}> [VerbPast].", "show me all NounSingular that <NP_{map(SyntacticFunction), Property}> [VerbPast]." ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "7",
+      "templateNo" : "6",
       "group" : "subject-type4",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] the NounSingular <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the NounPlural <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the  <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] the <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "who were the [NounSingular] that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "give me all Give me all) that [VerbPast] the <NP_{map(SyntacticFunction), Property}>.", "give me all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "8",
+      "templateNo" : "7",
       "group" : "object-type4",
       "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "9",
+      "templateNo" : "8",
       "group" : "subject-type5",
       "grammarRuleTemplates" : [ "who [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "10",
+      "templateNo" : "9",
       "group" : "object-type5",
       "grammarRuleTemplates" : [ "who were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "give me all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "11",
+      "templateNo" : "10",
       "group" : "subject-type6",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "whom were <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "who were the [NounSingular] that [VerbPast] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "12",
-      "group" : "object-type6",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "13",
+      "templateNo" : "11",
       "group" : "subject-type7",
       "grammarRuleTemplates" : [ "who [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "whom were <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "14",
+      "templateNo" : "12",
       "group" : "object-type7",
       "grammarRuleTemplates" : [ " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "whom did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "whom does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "15",
+      "templateNo" : "13",
       "group" : "subject-amount-type1",
       "grammarRuleTemplates" : [ "how much does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "how much did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "16",
+      "templateNo" : "14",
       "group" : "object-amount-type1",
       "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
       "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     }, {
-      "templateNo" : "17",
-      "group" : "subject-amount-type2",
-      "grammarRuleTemplates" : [ ],
-      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
-      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
-      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
-    }, {
-      "templateNo" : "18",
+      "templateNo" : "15",
       "group" : "object-amount-type2",
       "grammarRuleTemplates" : [ "how many(domain:plural) are [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "how many(domain:singular) did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
       "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
@@ -331,8 +289,288 @@
       "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
     } ]
   }, {
-    "sentenceTemplates" : [ ],
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> verb(component_do:present:plural) <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does verb(mainVerb:present:singular) <NP_{map(SyntacticFunction), Property}>?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "who [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativePlace does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", " did <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ "how many(domain:plural) verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many(domain:plural) did <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "how many(domain:plural) are verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "subject-type3",
+      "grammarRuleTemplates" : [ "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is the <NP_{map(SyntacticFunction), Property}>?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are the <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounDeterminer(range:singular) is <NP_{map(SyntacticFunction), Property}> [Preposition]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "object-type3",
+      "grammarRuleTemplates" : [ "who [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "6",
+      "group" : "subject-type4",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present3rd:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "7",
+      "group" : "object-type4",
+      "grammarRuleTemplates" : [ "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "8",
+      "group" : "subject-type5",
+      "grammarRuleTemplates" : [ "interrogativeTemporal were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal was <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal were the <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal was the <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "interrogativeTemporal did the <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "9",
+      "group" : "object-type5",
+      "grammarRuleTemplates" : [ " [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "10",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ "interrogativeTemporal were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "11",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "12",
+      "group" : "subject-type7",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural that was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " were [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "13",
+      "group" : "object-type7",
+      "grammarRuleTemplates" : [ "interrogativePlace were <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "interrogativePlace did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "14",
+      "group" : "subject-type8",
+      "grammarRuleTemplates" : [ " [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "15",
+      "group" : "object-type8",
+      "grammarRuleTemplates" : [ "interrogativePlace does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "16",
+      "group" : "subject-type9",
+      "grammarRuleTemplates" : [ "who did <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "17",
+      "group" : "object-type9",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", " is verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "18",
+      "group" : "subject-type10",
+      "grammarRuleTemplates" : [ "how many(nominativeCase:range:plural) verb(component_werden:present:plural) [Preposition] <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "19",
+      "group" : "object-type10",
+      "grammarRuleTemplates" : [ "how many(domain:plural) are [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "20",
+      "group" : "subject-type11",
+      "grammarRuleTemplates" : [ "how many [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many(range:singular) does object(domain:plural) [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ],
     "frame" : "IntransitivePPFrame",
-    "grammarRuleTemplates" : [ ]
+    "grammarRuleTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> verb(component_do:present:plural) <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does verb(mainVerb:present:singular) <NP_{map(SyntacticFunction), Property}>?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "who [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "interrogativePlace does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural that [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", " did <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ "how many(domain:plural) verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many(domain:plural) did <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "how many(domain:plural) are verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "subject-type3",
+      "grammarRuleTemplates" : [ "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is the <NP_{map(SyntacticFunction), Property}>?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are the <NP_{map(SyntacticFunction), Property}>?", "interrogativePronounDeterminer(range:singular) is <NP_{map(SyntacticFunction), Property}> [Preposition]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "object-type3",
+      "grammarRuleTemplates" : [ "who [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "6",
+      "group" : "subject-type4",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present3rd:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who verb(mainVerb:present:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who verb(mainVerb:past:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "7",
+      "group" : "object-type4",
+      "grammarRuleTemplates" : [ "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> verb(mainVerb:perfect:singular)?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "8",
+      "group" : "subject-type5",
+      "grammarRuleTemplates" : [ "interrogativeTemporal were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal was <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal were the <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal was the <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "interrogativeTemporal did the <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "9",
+      "group" : "object-type5",
+      "grammarRuleTemplates" : [ " [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "10",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ "interrogativeTemporal were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> were <NP_{map(SyntacticFunction), Property}> [VerbPast]?", "interrogativeTemporal did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "11",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "12",
+      "group" : "subject-type7",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give me all NounPlural who was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "list all NounPlural that was [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " were [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "13",
+      "group" : "object-type7",
+      "grammarRuleTemplates" : [ "interrogativePlace were <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "interrogativePlace is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "[Preposition] which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] [Preposition]?", "interrogativePlace did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "14",
+      "group" : "subject-type8",
+      "grammarRuleTemplates" : [ " [Verb3rdPerson] [Preposition] <NP_{map(SyntacticFunction), Property}>?", " [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "15",
+      "group" : "object-type8",
+      "grammarRuleTemplates" : [ "interrogativePlace does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "16",
+      "group" : "subject-type9",
+      "grammarRuleTemplates" : [ "who did <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?", "who does <NP_{map(SyntacticFunction), Property}> verb(mainVerb:present:singular) [Preposition]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "17",
+      "group" : "object-type9",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> were verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", " is verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were verb(mainVerb:perfect:singular) [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "18",
+      "group" : "subject-type10",
+      "grammarRuleTemplates" : [ "how many(nominativeCase:range:plural) verb(component_werden:present:plural) [Preposition] <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "19",
+      "group" : "object-type10",
+      "grammarRuleTemplates" : [ "how many(domain:plural) are [VerbParticiple] [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "20",
+      "group" : "subject-type11",
+      "grammarRuleTemplates" : [ "how many [VerbPresent] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many [VerbPast] [Preposition] <NP_{map(SyntacticFunction), Property}>?", "how many(range:singular) does object(domain:plural) [VerbPresent]?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ]
   } ]
 }
