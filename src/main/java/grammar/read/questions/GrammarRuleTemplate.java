@@ -23,10 +23,20 @@ public class GrammarRuleTemplate {
     private String group = null;
     @JsonProperty("grammarRuleTemplates")
     private List<String> grammarRuleTemplates = new ArrayList<String>();
-    @JsonProperty("nonTerminalSparql")
+    @JsonProperty("<NP_{map(SyntacticFunction), Property}>")
     private String nonTerminalSparql = null;
-    @JsonProperty("questionSparql")
+    @JsonProperty("<NP_{Class, <map(SyntacticFunction),Property>}>")
+    private String nonTerminalClassSparql =null;
+    @JsonProperty("Sparql")
     private String questionSparql = null;
+    
+    
+    private static String ENTITY_SPARQL="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .}"+
+                                     " "+"OR"+" "+
+                                     "SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    private static String CLASS_SPARQL="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label }" +
+                                                                  " "+"OR"+" "+
+                                       "SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }" ;
 
     public GrammarRuleTemplate() {
 
@@ -36,8 +46,9 @@ public class GrammarRuleTemplate {
         this.templateNo = st.getTemplateNo();
         this.group = st.getGroup();
         this.grammarRuleTemplates = modSentences;
-        this.nonTerminalSparql = "nonTerminalSparql";
-        this.questionSparql = "questionSparql";
+        this.nonTerminalSparql = ENTITY_SPARQL;
+        this.nonTerminalClassSparql =CLASS_SPARQL;
+        this.questionSparql = ENTITY_SPARQL;
     }
 
     public String getTemplateNo() {
@@ -58,6 +69,10 @@ public class GrammarRuleTemplate {
 
     public String getQuestionSparql() {
         return questionSparql;
+    }
+
+    public String getNonTerminalClassSparql() {
+        return nonTerminalClassSparql;
     }
     
 }
