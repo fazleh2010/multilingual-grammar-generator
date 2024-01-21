@@ -119,7 +119,10 @@ public class TemplateGeneration implements TempConstants {
             for (String key : dictionary.keySet()) {
                 String value = dictionary.get(key);
                 sentence = sentence.replace(key, value);
+                
             }
+            //temporary solution..
+            sentence=sentence.replace("give all", "list all");
             String grammarRuleTemplate = sentence;
             //System.out.println("grammarRuleTemplate::" + grammarRuleTemplate);
             grammarRuleTemplates.add(grammarRuleTemplate);
