@@ -7,9 +7,12 @@ package grammar.read.questions;
 
 import grammar.datasets.sentencetemplates.SentenceTemplateFactoryDE;
 import grammar.datasets.sentencetemplates.SentenceTemplateFactoryEN;
+import grammar.datasets.sentencetemplates.SentenceTemplateFactoryES;
+import grammar.datasets.sentencetemplates.SentenceTemplateFactoryIT;
 import grammar.datasets.sentencetemplates.SentenceTemplateRepository;
 import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.structure.component.FrameType;
+import grammar.structure.component.Language;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -23,27 +26,43 @@ import java.util.Set;
 public class FrameInfo implements TempConstants {
 
     private SentenceTemplateFactoryEN sentenceTemplateFactoryEN = null;
-    private SentenceTemplateRepository sentenceTempRepEN = null;
     private SentenceTemplateFactoryDE sentenceTemplateFactoryDE = null;
-    private SentenceTemplateRepository sentenceTempRepDE = null;
+    private SentenceTemplateFactoryIT sentenceTemplateFactoryIT = null;
+    private SentenceTemplateFactoryES sentenceTemplateFactoryES = null;
+    private SentenceTemplateRepository sentenceTempRep = null;
+
     //private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP, FrameType.IPP,FrameType.AA,FrameType.AG);
     private static List<FrameType> frames = List.of(FrameType.NPP, FrameType.VP);
 
-    public FrameInfo(String language) {
+    public FrameInfo(Language language) {
         //english
-        if (language.contains("en")) {
+        if (language.equals(Language.EN)) {
             sentenceTemplateFactoryEN = new SentenceTemplateFactoryEN();
             sentenceTemplateFactoryEN.init();
-            sentenceTempRepEN = sentenceTemplateFactoryEN.getSentenceTemplateRepository();
+            sentenceTempRep = sentenceTemplateFactoryEN.getSentenceTemplateRepository();
             
         }
-        if (language.contains("de")) {
+        else if (language.equals(Language.DE)) {
             // german
             sentenceTemplateFactoryDE = new SentenceTemplateFactoryDE();
             sentenceTemplateFactoryDE.init();
-            sentenceTempRepDE = sentenceTemplateFactoryDE.getSentenceTemplateRepository();
+            sentenceTempRep = sentenceTemplateFactoryDE.getSentenceTemplateRepository();
         }
-
+        
+        else if (language.equals(Language.IT)) {
+            // italian
+            sentenceTemplateFactoryIT = new SentenceTemplateFactoryIT();
+            sentenceTemplateFactoryIT.init();
+            sentenceTempRep = sentenceTemplateFactoryIT.getSentenceTemplateRepository();
+        }
+        
+        else if (language.equals(Language.ES)) {
+            // spanish
+            sentenceTemplateFactoryES = new SentenceTemplateFactoryES();
+            sentenceTemplateFactoryES.init();
+            sentenceTempRep = sentenceTemplateFactoryES.getSentenceTemplateRepository();
+        }
+    
     }
 
     public SentenceTemplateFactoryEN getSentenceTemplateFactoryEN() {
@@ -51,7 +70,7 @@ public class FrameInfo implements TempConstants {
     }
 
     public SentenceTemplateRepository getSentenceTempRepEN() {
-        return sentenceTempRepEN;
+        return sentenceTempRep;
     }
 
     public Map<String, String> getNounGroups(String frame) {
@@ -120,9 +139,19 @@ public class FrameInfo implements TempConstants {
         return sentenceTemplateFactoryDE;
     }
 
-    public SentenceTemplateRepository getSentenceTempRepDE() {
-        return sentenceTempRepDE;
+    public SentenceTemplateFactoryIT getSentenceTemplateFactoryIT() {
+        return sentenceTemplateFactoryIT;
     }
+
+    public SentenceTemplateFactoryES getSentenceTemplateFactoryES() {
+        return sentenceTemplateFactoryES;
+    }
+
+    public SentenceTemplateRepository getSentenceTempRep() {
+        return sentenceTempRep;
+    }
+
+   
 
     public static void main(String[] args) {
         System.out.println("test");

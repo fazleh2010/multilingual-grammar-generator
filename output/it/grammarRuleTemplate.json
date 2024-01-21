@@ -1,0 +1,334 @@
+{
+  "TemplateType" : "grammarRuleTemplate",
+  "FrameSentenceTemplates" : [ {
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "who is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who are noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_la) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_transitive:present:plural) determiner(component_la) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "give determiner(component_tutti) determiner(component_i) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_transitive:present:plural) determiner(component_tutti) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_list:present:singular) determiner(component_tutti) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "show determiner(component_li) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "show determiner(component_li) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "interrogativeDeterminerSingular NounSingular verb(component_ha:present:singular) <NP_{map(SyntacticFunction), Property}>?", "verb(component_imperative_list:present:singular) determiner(component_i) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_list:present:plural) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "[Preposition] who NounSingular is <NP_{map(SyntacticFunction), Property}>", "[Preposition] interrogativePronounPerson noun(plural) is <NP_{map(SyntacticFunction), Property}>" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "determiner(component_la) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "determiner(component_li) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ],
+    "frame" : "NounPPFrame",
+    "grammarRuleTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "who is NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who were NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who are noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "who was noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>?", "give determiner(component_la) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_transitive:present:plural) determiner(component_la) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "give determiner(component_tutti) determiner(component_i) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_transitive:present:plural) determiner(component_tutti) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_list:present:singular) determiner(component_tutti) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "show determiner(component_li) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "show determiner(component_li) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "interrogativeDeterminerSingular NounSingular verb(component_ha:present:singular) <NP_{map(SyntacticFunction), Property}>?", "verb(component_imperative_list:present:singular) determiner(component_i) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>", "verb(component_imperative_list:present:plural) determiner(component_i) noun(plural) [Preposition] <NP_{map(SyntacticFunction), Property}>", "[Preposition] who NounSingular is <NP_{map(SyntacticFunction), Property}>", "[Preposition] interrogativePronounPerson noun(plural) is <NP_{map(SyntacticFunction), Property}>" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "determiner(component_la) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?", "determiner(component_li) NounSingular [Preposition] <NP_{map(SyntacticFunction), Property}>?" ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ]
+  }, {
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "subject-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "subject-type3",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "6",
+      "group" : "object-type3",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "7",
+      "group" : "subject-type4",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "8",
+      "group" : "object-type4",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "9",
+      "group" : "subject-type5",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "10",
+      "group" : "object-type5",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "11",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "12",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "13",
+      "group" : "subject-type7",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "14",
+      "group" : "object-type7",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "15",
+      "group" : "subject-amount-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "16",
+      "group" : "object-amount-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "17",
+      "group" : "subject-amount-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "18",
+      "group" : "object-amount-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ],
+    "frame" : "TransitiveFrame",
+    "grammarRuleTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "3",
+      "group" : "subject-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "4",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "5",
+      "group" : "subject-type3",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "6",
+      "group" : "object-type3",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "7",
+      "group" : "subject-type4",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "8",
+      "group" : "object-type4",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "9",
+      "group" : "subject-type5",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "10",
+      "group" : "object-type5",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "11",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "12",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "13",
+      "group" : "subject-type7",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "14",
+      "group" : "object-type7",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "15",
+      "group" : "subject-amount-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "16",
+      "group" : "object-amount-type1",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "17",
+      "group" : "subject-amount-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    }, {
+      "templateNo" : "18",
+      "group" : "object-amount-type2",
+      "grammarRuleTemplates" : [ ],
+      "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}",
+      "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }",
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}"
+    } ]
+  } ]
+}

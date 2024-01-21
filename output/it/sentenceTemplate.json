@@ -1,0 +1,102 @@
+{
+  "TemplateType" : "sentenceTemplates",
+  "FrameSentenceTemplates" : [ {
+    "frame" : "NounPPFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject",
+      "sentences" : [ "interrogativePronoun(range:singular) verb(component_be:present:singular) noun(singular) preposition adjunct(domain)?", "interrogativePronoun(range:singular) verb(component_be:past:singular) noun(singular) preposition adjunct(domain)?", "interrogativePronoun(range:plural) verb(component_be:present:plural) noun(plural) preposition adjunct(domain)?", "interrogativePronoun(range:plural) verb(component_be:past:plural) noun(plural) preposition adjunct(domain)?", "verb(component_imperative_transitive:present:singular) determiner(component_la) noun(singular) preposition adjunct(domain)", "verb(component_imperative_transitive:present:plural) determiner(component_la) noun(plural) preposition adjunct(domain)", "verb(component_imperative_transitive:present:singular) determiner(component_tutti) determiner(component_i) noun(singular) preposition adjunct(domain)", "verb(component_imperative_transitive:present:plural) determiner(component_tutti) determiner(component_i) noun(plural) preposition adjunct(domain)", "verb(component_imperative_list:present:singular) determiner(component_tutti) determiner(component_i) noun(plural) preposition adjunct(domain)", "verb(component_imperative_show:present:singular) determiner(component_li) noun(singular) preposition adjunct(domain)", "verb(component_imperative_show:present:singular) determiner(component_li) noun(plural) preposition adjunct(domain)", "interrogativeDeterminerSingular noun(singular) verb(component_ha:present:singular) adjunct(domain)?", "verb(component_imperative_list:present:singular) determiner(component_i) noun(singular) preposition adjunct(domain)", "verb(component_imperative_list:present:plural) determiner(component_i) noun(plural) preposition adjunct(domain)", "preposition interrogativePronoun(range:singular) noun(singular) verb(component_be:present:singular) adjunct(domain)", "preposition interrogativePronounPerson noun(plural) verb(component_be:present:singular) adjunct(domain)" ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "amount",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "ask",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "nounPhrase",
+      "sentences" : [ "determiner(component_la) noun(singular) preposition adjunct(domain)?", "determiner(component_li) noun(singular) preposition adjunct(domain)?" ]
+    } ]
+  }, {
+    "frame" : "TransitiveFrame",
+    "sentenceTemplates" : [ {
+      "templateNo" : "1",
+      "group" : "subject-type1",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "2",
+      "group" : "object-type1",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "3",
+      "group" : "subject-type2",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "4",
+      "group" : "object-type2",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "5",
+      "group" : "subject-type3",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "6",
+      "group" : "object-type3",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "7",
+      "group" : "subject-type4",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "8",
+      "group" : "object-type4",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "9",
+      "group" : "subject-type5",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "10",
+      "group" : "object-type5",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "11",
+      "group" : "subject-type6",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "12",
+      "group" : "object-type6",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "13",
+      "group" : "subject-type7",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "14",
+      "group" : "object-type7",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "15",
+      "group" : "subject-amount-type1",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "16",
+      "group" : "object-amount-type1",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "17",
+      "group" : "subject-amount-type2",
+      "sentences" : [ ]
+    }, {
+      "templateNo" : "18",
+      "group" : "object-amount-type2",
+      "sentences" : [ ]
+    } ]
+  } ]
+}

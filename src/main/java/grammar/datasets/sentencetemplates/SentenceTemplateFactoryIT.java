@@ -22,7 +22,7 @@ public class SentenceTemplateFactoryIT  implements Factory<SentenceTemplateRepos
     private final SentenceTemplateRepository sentenceTemplateRepository;
     private final Language language;
 
-    SentenceTemplateFactoryIT() {
+    public SentenceTemplateFactoryIT() {
         this.language = Language.IT;
         this.sentenceTemplateRepository = new SentenceTemplateDataset();
     }
@@ -830,5 +830,12 @@ public class SentenceTemplateFactoryIT  implements Factory<SentenceTemplateRepos
       
    }
 
+    public SentenceTemplateRepository getSentenceTemplateRepository() {
+        return sentenceTemplateRepository;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
 
 }

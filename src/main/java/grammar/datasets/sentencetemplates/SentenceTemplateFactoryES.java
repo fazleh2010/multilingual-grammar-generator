@@ -12,12 +12,12 @@ import static grammar.datasets.sentencetemplates.SentenceTemplate.createVPTempla
 import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 
-class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,TempConstants {
+public class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,TempConstants {
 
     private final SentenceTemplateRepository sentenceTemplateRepository;
     private final Language language;
 
-    SentenceTemplateFactoryES() {
+    public SentenceTemplateFactoryES() {
         this.language = Language.ES;
         this.sentenceTemplateRepository = new SentenceTemplateDataset();
     }
@@ -841,6 +841,14 @@ class SentenceTemplateFactoryES  implements Factory<SentenceTemplateRepository>,
       
       
    }
+
+    public SentenceTemplateRepository getSentenceTemplateRepository() {
+        return sentenceTemplateRepository;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
 
 
 }
