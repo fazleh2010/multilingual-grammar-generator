@@ -55,6 +55,7 @@ import static grammar.datasets.sentencetemplates.TempConstants.superlativeCountr
 import static grammar.datasets.sentencetemplates.TempConstants.superlativeLocation;
 import static grammar.read.questions.ReadWriteConstants.VARIABLE;
 import java.util.Arrays;
+import util.io.GenericElement;
 
 @Getter
 @Setter
@@ -62,6 +63,8 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
     private static final Logger LOG = LogManager.getLogger(GrammarRuleGeneratorRoot.class);
     private static String endpoint=null;
+    private  Boolean genericFlag = true;
+
     //"https://dbpedia.org/sparql";
 
 
@@ -131,7 +134,6 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
 
     @Override
     public void generateBindings(GrammarEntry grammarEntry) {
-        System.out.println("endpoint:::"+endpoint);
         if (endpoint.contains("dbpedia")) {
             generateBindingsDBpedia(grammarEntry);
         } else  {
@@ -214,7 +216,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
     @Override
     public List<GrammarEntry> generate(Lexicon lexicon) {
         List<GrammarEntry> grammarEntries = new ArrayList<>();
-
+       
         // filter lexicon for correct grammar type:
         List<LexicalEntry> entriesFilteredByLanguageAndGrammarType = getEntriesFilteredByGrammarType(lexicon);
         try {
@@ -293,6 +295,7 @@ public abstract class GrammarRuleGeneratorRoot implements GrammarRuleGenerator {
         }
         return grammarEntries;
     }
+    
 
     private SPARQLRequest createLabelAndUriForPropertyRequest(LexicalEntryUtil lexicalEntryUtil) throws
             QueGGMissingFieldDeclarationException {

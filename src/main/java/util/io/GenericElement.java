@@ -6,6 +6,8 @@
 package util.io;
 
 import grammar.datasets.sentencetemplates.TempConstants;
+import grammar.structure.component.FrameType;
+import java.util.List;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.ParamterFinder;
 
@@ -24,6 +26,7 @@ public class GenericElement implements TempConstants {
     public static final String PreTerminalAdjectivePositive = "[AdjectivePositive]";
     public static final String PreTerminalAdjectiveSuperlative = "[AdjectiveSuperlative]";
     public static final String PreTerminalAdjectiveComparative = "[AdjectiveComparative]";
+    public static final String NonTerminalSparqlEntity ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
 
     public static String findMainGenericVerb(ParamterFinder paramterFinder) throws QueGGMissingFactoryClassException {
         String word = "XX";
@@ -75,6 +78,14 @@ public class GenericElement implements TempConstants {
             word = PreTerminalAdjectiveComparative;
         }
         return word;
+    }
+    
+    public static String getFrameSPARQL(FrameType frame,List<String> sentences) {
+        String sparql=NonTerminalSparqlEntity;
+        if(sentences.contains("<NP_{map(SyntacticFunction), Property}>")){
+            return NonTerminalSparqlEntity;
+        }
+        return sparql;
     }
 
 }
