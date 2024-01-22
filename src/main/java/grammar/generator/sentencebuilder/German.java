@@ -64,6 +64,7 @@ public class German implements TempConstants,MultilingualBuilder {
     private String objectUri = null;
     private String referenceUri = null;
     private FrameType frameType = null;
+    private Boolean genericFlag  = true;
 
 
     public German(FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
@@ -254,7 +255,7 @@ public class German implements TempConstants,MultilingualBuilder {
             if (reference.contains(range) || reference.contains(domain)) {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
-                    word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
+                    word = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,col[0], col[1], this.subjectUri, this.objectUri);
                 } else {
                     System.out.println("number of paramters are not correct::" + reference);
                 }

@@ -89,6 +89,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
                     language, new String[]{frameType.getName(), Prepositional_Adjuct});
             sentences = nounPPframeSentence(bindingVariable, lexicalEntryUtil, sentenceTemplates);
             this.setTemplate(Prepositional_Adjuct);
+            //exit(1);
 
         } else if (this.frameType.equals(FrameType.VP)) {
             SelectVariable selectVariable = this.lexicalEntryUtil.getSelectVariable();

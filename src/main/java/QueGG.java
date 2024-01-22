@@ -64,22 +64,25 @@ public class QueGG {
 
     }*/
     
-     public static void main(String[] args) throws Exception {
+     public static void main(String[] args1) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-
+         String[] args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
        
         try {
             if (args.length < 2) {
                  System.err.printf("Too few parameters (%s/%s)", args.length);
                 throw new IllegalArgumentException(String.format("Too few parameters (%s/%s)", args.length));
             } else if (args.length == 2) {
-                configFile = args[0];
+                //configFile = args[0];
+                //dataSetConfFile= args[1];
+                configFile ="inputConf_en.json";
+                dataSetConfFile="dataset/dbpedia_en.json";
                 InputCofiguration inputCof = FileProcessUtils.getInputConfig(new File(configFile));
-                inputCof.setLinkedData(args[1]);                
+                inputCof.setLinkedData(dataSetConfFile);                
                 online=inputCof.getOnline();
                 externalEntittyListflag=inputCof.getExternalEntittyList();
           

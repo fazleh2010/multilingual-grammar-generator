@@ -76,14 +76,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "When did (X) born?", "When was (X) born?", "in which (Y) was (X) born?" ],
+      "sentences" : [ ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHEN_WHO_PAST_PERSON",
-      "sentences" : [ "Who was born in (X)?", "which (Y) was born in (X)?", "which (Y) were born in (X)?" ],
+      "sentences" : [ ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -103,14 +103,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "When did (X) born?", "When was (X) born?", "in which (Y) was (X) born?" ],
+      "sentences" : [ ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHEN_WHO_PAST_PERSON",
-      "sentences" : [ "Who was born in (X)?", "which (Y) was born in (X)?", "which (Y) were born in (X)?" ],
+      "sentences" : [ ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"

@@ -9,6 +9,7 @@ import com.google.gdata.util.common.base.Pair;
 import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.sparql.SelectVariable;
 import static grammar.sparql.SelectVariable.reference;
+import grammar.structure.component.FrameType;
 import grammar.structure.component.Language;
 import java.util.Map;
 import java.util.Set;
@@ -134,8 +135,13 @@ public class GenderUtils implements TempConstants {
         return pair;
     }
 
-    public static String getConditionLabelManually(String domainOrRange, String numberType, String subjectUri, String objectUri) {
-        String word = "XX";
+    public static String getConditionLabelManually(FrameType frame,Boolean genericFlag,String domainOrRange, String numberType, String subjectUri, String objectUri) {
+        String word = "XX";   
+        
+        if((frame.equals(FrameType.NPP)||frame.equals(FrameType.VP))&&genericFlag){
+           return GenericElement.getGenericNounNonTerminalClass(numberType);
+        }
+        
         if (domainOrRange.contains(domain) && numberType.contains(singular)) {
             word = getWrittenFormSingular(subjectUri);
         } else if (domainOrRange.contains(domain) && numberType.contains(plural)) {
@@ -148,6 +154,8 @@ public class GenderUtils implements TempConstants {
 
         return word;
     }
+    
+   
 
     /*public static Boolean isTrennVerbType(String verb) {
         if (trennVerbType.containsKey(verb)) {

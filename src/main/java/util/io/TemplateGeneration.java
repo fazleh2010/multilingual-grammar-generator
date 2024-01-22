@@ -46,6 +46,22 @@ public class TemplateGeneration implements TempConstants {
         }
 
     }
+    
+    public static void prepareDict(List<Language> languages) {
+        //List<Language> languages = List.of(Language.ES);
+        for (Language language : languages) {
+            FrameTemplatesInfo frameInfo = new FrameTemplatesInfo(language);
+            String sentenceFileName = "output/" + language + "/sentenceTemplate"+"_"+language+".json";
+            String grammarRuleTemplateFileName = "output/" + language + "/grammarRuleTemplate"+"_"+language+".json";
+            String dictFileName = "src/main/resources/" + language + "_dictionary.txt";
+            Map<String, String> dictionary = getDictionary(dictFileName);
+            //System.out.println(dictionary);
+            manualToSt(language, frameInfo, sentenceFileName);
+            //FileFolderUtils.setToFile(SentenceTemplate.getCategories(), dictFileName);
+            stToGrt(sentenceFileName, frameInfo, dictionary, grammarRuleTemplateFileName);
+        }
+
+    }
 
     private static void manualToSt(Language language, FrameTemplatesInfo frameInfo, String sentenceFileName) {
         List<SentenceTemplatesFrame> allStFrames = new ArrayList<SentenceTemplatesFrame>();

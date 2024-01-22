@@ -333,7 +333,7 @@
     "returnType" : [ "date" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "forward",
-    "sentences" : [ "When did (X) born?", "When was (X) born?", "in which (Y) was (X) born?" ],
+    "sentences" : [ ],
     "sparqlQuery" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "bindingSparql" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "returnVariable" : "objOfProp"
@@ -346,7 +346,7 @@
     "returnType" : [ "President" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "WHEN_WHO_PAST_PERSON",
-    "sentences" : [ "Who was born in (X)?", "which (Y) was born in (X)?", "which (Y) were born in (X)?" ],
+    "sentences" : [ ],
     "sparqlQuery" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "bindingSparql" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "returnVariable" : "subjOfProp"
@@ -372,7 +372,7 @@
     "returnType" : [ "date" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "forward",
-    "sentences" : [ "When did (X) born?", "When was (X) born?", "in which (Y) was (X) born?" ],
+    "sentences" : [ ],
     "sparqlQuery" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "bindingSparql" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "returnVariable" : "objOfProp"
@@ -385,7 +385,7 @@
     "returnType" : [ "President" ],
     "frameType" : "IPP",
     "sentenceTemplate" : "WHEN_WHO_PAST_PERSON",
-    "sentences" : [ "Who was born in (X)?", "which (Y) was born in (X)?", "which (Y) were born in (X)?" ],
+    "sentences" : [ ],
     "sparqlQuery" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "bindingSparql" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
     "returnVariable" : "subjOfProp"
