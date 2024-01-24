@@ -8,9 +8,11 @@ package grammar.read.questions;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import grammar.sparql.PrepareSparqlQuery;
+import grammar.structure.component.FrameType;
 import java.util.ArrayList;
 import java.util.List;
 import util.io.AddQuote;
+import util.io.GenericElement;
 
 /**
  *
@@ -66,6 +68,50 @@ public class GrammarRule {
         this.sentences = sentencesT;
         //this.sentences = StringMatcher.modifySentencesWithNonTerminals(sentencesT, nonTerminal);
         //this.sentences = StringMatcher.modifySentencesWithRegularExpression(sentencesT, nonTerminal);
+
+    }
+    
+     public GrammarRule(Boolean genericFlag,String ruleNo, List<String> sentencesT, String bindingSparql, String questionSparql,
+            String sentTemplate, String frameType, String returnVariable) {
+        this.ruleNo = ruleNo;
+        this.sentTemplate = sentTemplate;
+        String property = null;
+
+        try {
+            property = AddQuote.getProperty(questionSparql).replace("_", ":");
+        } catch (Exception ex) {
+            return;
+        }
+
+        String domainOrRange = null;
+
+        String bindingType = PrepareSparqlQuery.findOppositeVariable(returnVariable);
+
+        if (bindingType.contains("subjOfProp")) {
+            domainOrRange = "domain";
+        } else {
+            domainOrRange = "range";
+        }
+
+        this.nonTerminal_X = bindingSparql;
+        this.nonTerminal_Y = "([A-Za-z0-9_-]*)";
+        this.question = questionSparql;
+
+        String nonTerminal = this.generateNonTerminals(property, domainOrRange);
+        this.sentences = sentencesT;
+        //this.sentences = StringMatcher.modifySentencesWithNonTerminals(sentencesT, nonTerminal);
+        //this.sentences = StringMatcher.modifySentencesWithRegularExpression(sentencesT, nonTerminal);
+
+    }
+
+    
+     public GrammarRule(Boolean genericFlag, String ruleNo, List<String> sentences, String sentenceTemplate, FrameType frameType) {
+        this.ruleNo = ruleNo;
+        this.sentTemplate = sentenceTemplate;
+        //this.nonTerminal_X = GenericElement.getFrameEntitySparqlDomain(frameType,sentences);
+        //this.nonTerminal_Y = GenericElement.getFrameClassSparqlRange(frameType,sentences);
+        //this.question = GenericElement.getFrameEntitySparqlRange(frameType,sentences);;
+        this.sentences = sentences;
 
     }
     

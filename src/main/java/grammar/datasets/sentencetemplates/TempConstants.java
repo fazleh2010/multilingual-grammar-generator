@@ -198,4 +198,13 @@ public interface TempConstants {
             new AbstractMap.SimpleEntry<String, String>(FrameType.AG.name(), "AdjectiveSuperlativeFrame"))
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     
+    public Map<String, String> sentenceTemplateMapping = Stream.of(
+            new AbstractMap.SimpleEntry<String, String>(forward, subject),
+            new AbstractMap.SimpleEntry<String, String>(Prepositional_Adjuct, subject),
+            new AbstractMap.SimpleEntry<String, String>(Copulative_Subject, object),
+            new AbstractMap.SimpleEntry<String, String>(HOW_MANY_THING, amount),
+            new AbstractMap.SimpleEntry<String, String>(booleanQuestionDomainRange, ask),
+            new AbstractMap.SimpleEntry<String, String>(nounPhrase, nounPhrase))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    
 }

@@ -65,7 +65,7 @@ public class English implements TempConstants, MultilingualBuilder {
     private String objectUri = null;
     private String referenceUri = null;
     private FrameType frameType = null;
-    private static Boolean genericFlag = false;
+    private static Boolean genericFlag = true;
 
    
 

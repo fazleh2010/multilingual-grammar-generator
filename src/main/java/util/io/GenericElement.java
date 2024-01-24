@@ -26,7 +26,15 @@ public class GenericElement implements TempConstants {
     public static final String PreTerminalAdjectivePositive = "[AdjectivePositive]";
     public static final String PreTerminalAdjectiveSuperlative = "[AdjectiveSuperlative]";
     public static final String PreTerminalAdjectiveComparative = "[AdjectiveComparative]";
-    public static final String NonTerminalSparqlEntity ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    //public static final String NonTerminalSparqlEntity ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    //public static final String NonTerminalSparqlClass ="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }";
+    public static final String entityDomain = "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}";
+    public static final String entityRange = "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}";
+    public static final String NonTerminalSparqlClassDomain = "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }";
+    public static final String classRange = "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }";
+    public static final String entityAtrribute = "<NP_{map(SyntacticFunction), Property}>";
+    public static final String classAtrribute = "<NP_{Class, <map(SyntacticFunction),Property>}>";
+
 
     public static String findMainGenericVerb(ParamterFinder paramterFinder) throws QueGGMissingFactoryClassException {
         String word = "XX";
@@ -64,10 +72,6 @@ public class GenericElement implements TempConstants {
         return word;
     }
 
-    public static String getGenericNounNonTerminalClass(String numberType) {
-        return GENARIC_Class;
-    }
-
     public static String getAdjectiveReference(String reference) {
         String word = "XX";
         if (reference.contains(adjectiveBaseForm)) {
@@ -79,13 +83,34 @@ public class GenericElement implements TempConstants {
         }
         return word;
     }
-    
-    public static String getFrameSPARQL(FrameType frame,List<String> sentences) {
-        String sparql=NonTerminalSparqlEntity;
-        if(sentences.contains("<NP_{map(SyntacticFunction), Property}>")){
-            return NonTerminalSparqlEntity;
+
+    public Boolean checkSyntacticFunction(FrameType frame, List<String> sentences) {
+        for (String sentence : sentences) {
+            if (sentence.contains("SyntacticFunction")) {
+                return true;
+            }
         }
-        return sparql;
+        return false;
+    }
+
+    public Boolean checkClassFunction(FrameType frame, List<String> sentences) {
+        for (String sentence : sentences) {
+            if (sentence.contains("Class")) {
+                 return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getGenericNounNonTerminalClass(String numberType) {
+        return GENARIC_Class;
+    }
+
+    public String findGroup(FrameType frame,String group) {
+        if(sentenceTemplateMapping.containsKey(group)){
+            return sentenceTemplateMapping.get(group);
+        }
+        return null;
     }
 
 }

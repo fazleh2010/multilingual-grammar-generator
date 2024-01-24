@@ -1,288 +1,110 @@
 {
   "sparql-endpoint" : "http://localhost:19999/bigdata/sparql",
   "grammarEntries" : [ {
-    "entry" : "australian_3",
-    "id" : 1,
-    "Entry" : "australian_3",
-    "syntacticFrame" : "AdjectivePredicateFrame",
     "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "(bgp (triple ?subjOfProp <http://localhost:8080#australian_3_sense_1_res> ?objOfProp))\n"
+      "groupNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "Give me all <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "Give me the <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me the <NP_{map(SyntacticFunction), Property}> [NounSingular].", "List all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "List all the <NP_{Class, <map(SyntacticFunction),Property>}> with [NounSingular] of <NP_{map(SyntacticFunction), Property}>.", "List all the [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "show me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "What are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "Who is <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "Who is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "Who is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "Who was <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "Who was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "Who was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Australia> }"
+      "groupNo" : "2",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?." ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "(bgp (triple ?subjOfProp <http://localhost:8080#australian_3_sense_1_res> ?objOfProp))\n"
+      "groupNo" : "3",
+      "group" : "object",
+      "grammarRuleTemplates" : [ "<NP_{map(SyntacticFunction), Property}> is the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?", "<NP_{map(SyntacticFunction), Property}> was the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "4",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Australia> }"
-    } ]
-  }, {
-    "entry" : "australian_4",
-    "id" : 2,
-    "Entry" : "australian_4",
-    "syntacticFrame" : "AdjectivePredicateFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "(bgp (triple ?subjOfProp <http://localhost:8080#australian_4_sense_1_res> ?objOfProp))\n"
+      "groupNo" : "4",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ "How many [NounPlural] does <NP_{map(SyntacticFunction), Property}> have??" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Australia> }"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "(bgp (triple ?subjOfProp <http://localhost:8080#australian_4_sense_1_res> ?objOfProp))\n"
-    }, {
-      "grammarRuleNo" : "4",
-      "sentTemplate" : "predicateAdjectiveBaseForm",
-      "sentences" : [ "Give me all australian (X)", "What (Y) are australian (X)" ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Australia> }"
-    } ]
-  }, {
-    "entry" : "born_in_8_2",
-    "id" : 3,
-    "Entry" : "born_in_8_2",
-    "syntacticFrame" : "IntransitivePPFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "forward",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "WHEN_WHO_PAST_PERSON",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "HOW_MANY_THING_BACKWARD",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT (COUNT(DISTINCT ?Answer) AS ?c) WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "born_in_8_5",
-    "id" : 4,
-    "Entry" : "born_in_8_5",
-    "syntacticFrame" : "IntransitivePPFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "forward",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "WHEN_WHO_PAST_PERSON",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "HOW_MANY_THING_BACKWARD",
-      "sentences" : [ ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT (COUNT(DISTINCT ?Answer) AS ?c) WHERE { ?Answer <http://dbpedia.org/ontology/birthDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "high_1_2",
-    "id" : 5,
-    "Entry" : "high_1_2",
-    "syntacticFrame" : "AdjectiveSuperlativeFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "superlativeCountry",
-      "sentences" : [ "What (Y) is the highest (X) in (X)?", "What (Y) is the highest (X) in the (X)?", "What (Y) is the highest the (X) in (X)?", "What (Y) is the highest the (X) in the (X)?" ],
-      "nonTerminal-X" : "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> . ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?VARIABLE . ?subjOfProp <http://dbpedia.org/ontology/elevation> ?num . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ORDER BY DESC(?num) LIMIT 1"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "adjectiveBaseForm",
-      "sentences" : [ "How high is (X)?", "How high is the (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/elevation> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "comperative",
-      "sentences" : [ "show me all (X) that are higher than (X)" ],
-      "nonTerminal-X" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?n FILTER ( ?n > VARIABLE ) ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?n FILTER ( ?n > VARIABLE ) ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "high_1_5",
-    "id" : 6,
-    "Entry" : "high_1_5",
-    "syntacticFrame" : "AdjectiveSuperlativeFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "superlativeCountry",
-      "sentences" : [ "What (Y) is the highest (X) in (X)?", "What (Y) is the highest (X) in the (X)?", "What (Y) is the highest the (X) in (X)?", "What (Y) is the highest the (X) in the (X)?" ],
-      "nonTerminal-X" : "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> . ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?VARIABLE . ?subjOfProp <http://dbpedia.org/ontology/elevation> ?num . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ORDER BY DESC(?num) LIMIT 1"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "adjectiveBaseForm",
-      "sentences" : [ "How high is (X)?", "How high is the (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/elevation> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "comperative",
-      "sentences" : [ "show me all (X) that are higher than (X)" ],
-      "nonTerminal-X" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?n FILTER ( ?n > VARIABLE ) ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT DISTINCT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/elevation> ?n FILTER ( ?n > VARIABLE ) ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "mayor_of_1_1",
-    "id" : 7,
-    "Entry" : "mayor_of_1_1",
+      "groupNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    } ],
     "syntacticFrame" : "NounPPFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "forward",
-      "sentences" : [ "Give me all (X) mayors.", "Give me all mayors of (X).", "Give me the (X) mayor.", "Give me the (X) mayors.", "List all mayors of (X).", "List all the mayors of (X).", "List all the persons with mayor of (X).", "show me all mayors of (X).", "What are the mayors of (X)?", "What are the mayors of the (X)?", "What is the mayor of (X)?", "What is the mayor of the (X)?", "What was the mayor of (X)?", "What was the mayor of the (X)?", "What were the mayors of (X)?", "What were the mayors of the (X)?", "which (Y) are the mayors of (X)?", "which (Y) are the mayors of the (X)?", "which (Y) is the mayor of (X)?", "which (Y) is the mayor of the (X)?", "which (Y) was the mayor of (X)?", "which (Y) was the mayor of the (X)?", "which (Y) were the mayors of (X)?", "which (Y) were the mayors of the (X)?", "Who is (X) 's mayor?", "Who is the mayor of (X)?", "Who is the mayor of the (X)?", "Who was (X) 's mayor?", "Who was the mayor of (X)?", "Who was the mayor of the (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/mayor> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/mayor> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
+    "Frame" : "NounPPFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject",
+      "grammarRuleTemplates" : [ "Give me all <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "Give me the <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me the <NP_{map(SyntacticFunction), Property}> [NounSingular].", "List all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "List all the <NP_{Class, <map(SyntacticFunction),Property>}> with [NounSingular] of <NP_{map(SyntacticFunction), Property}>.", "List all the [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "show me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "What are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "Who is <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "Who is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "Who is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "Who was <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "Who was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "Who was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "is (X) the mayor of (X)?." ],
-      "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/City> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/mayor> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
+      "groupNo" : "2",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?." ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "Copulative_Subject",
-      "sentences" : [ "(X) is the mayor of which (Y)?", "(X) was the mayor of which (Y)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/mayor> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/mayor> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
+      "groupNo" : "3",
+      "group" : "object",
+      "grammarRuleTemplates" : [ "<NP_{map(SyntacticFunction), Property}> is the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?", "<NP_{map(SyntacticFunction), Property}> was the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class rdfs:label ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "4",
-      "sentTemplate" : "HOW_MANY_THING",
-      "sentences" : [ "How many mayors does (X) have??" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/mayor> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT (COUNT(DISTINCT ?Answer) AS ?c) WHERE { ?subjOfProp <http://dbpedia.org/ontology/mayor> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
+      "groupNo" : "4",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ "How many [NounPlural] does <NP_{map(SyntacticFunction), Property}> have??" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     }, {
-      "grammarRuleNo" : "5",
-      "sentTemplate" : "nounPhrase",
-      "sentences" : [ "the mayor of (X)?", "the mayors of (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/mayor> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/mayor> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
+      "groupNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
     } ]
   }, {
-    "entry" : "to_develop_2_1",
-    "id" : 8,
-    "Entry" : "to_develop_2_1",
-    "syntacticFrame" : "TransitiveFrame",
     "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "PERSON_CAUSE",
-      "sentences" : [ "Give me all (X) develop (X)?", "Give me all (X) that developed (X)?", "Give me all (X) that developed the (X)", "List all (X) develop (X)?", "Who developed (X)?", "Who developed the (X)?", "Who develops (X)?", "Who develops the (X)?", "Who was the (X) that developed (X)?", "which (Y) develop (X)?", "which (Y) developed (X)?", "which (Y) develops (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "PERSON_CAUSE",
-      "sentences" : [ "Give me all (X) developed by (X)?", "List all (X) developed by (X)?", "What (Y) was developed by (X)?", "What (Y) were developed by (X)?", "What kind of (X) did (X) develop?", "show me all (X) that (X) developed", "show me the (X) that (X) developed", "which (Y) develop the (X)?", "which (Y) develops the (X)?", "which (Y) did (X) develop?", "which (Y) does (X) develop?", "which (Y) was developed by (X)?", "which (Y) were developed by (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "HOW_MANY_THING_BACKWARD",
-      "sentences" : [ "How many (Y) are developed by (X)?", "How many (Y) did (X) develop?", "How often did (X) develop?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT (COUNT(DISTINCT ?Answer) AS ?c) WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "to_develop_2_4",
-    "id" : 9,
-    "Entry" : "to_develop_2_4",
-    "syntacticFrame" : "TransitiveFrame",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : "PERSON_CAUSE",
-      "sentences" : [ "Give me all (X) develop (X)?", "Give me all (X) that developed (X)?", "Give me all (X) that developed the (X)", "List all (X) develop (X)?", "Who developed (X)?", "Who developed the (X)?", "Who develops (X)?", "Who develops the (X)?", "Who was the (X) that developed (X)?", "which (Y) develop (X)?", "which (Y) developed (X)?", "which (Y) develops (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "2",
-      "sentTemplate" : "PERSON_CAUSE",
-      "sentences" : [ "Give me all (X) developed by (X)?", "List all (X) developed by (X)?", "What (Y) was developed by (X)?", "What (Y) were developed by (X)?", "What kind of (X) did (X) develop?", "show me all (X) that (X) developed", "show me the (X) that (X) developed", "which (Y) develop the (X)?", "which (Y) develops the (X)?", "which (Y) did (X) develop?", "which (Y) does (X) develop?", "which (Y) was developed by (X)?", "which (Y) were developed by (X)?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    }, {
-      "grammarRuleNo" : "3",
-      "sentTemplate" : "HOW_MANY_THING_BACKWARD",
-      "sentences" : [ "How many (Y) are developed by (X)?", "How many (Y) did (X) develop?", "How often did (X) develop?" ],
-      "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/developer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
-      "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
-      "question" : "SELECT (COUNT(DISTINCT ?Answer) AS ?c) WHERE { ?Answer <http://dbpedia.org/ontology/developer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
-    } ]
-  }, {
-    "entry" : "unknown_0",
-    "id" : 10,
-    "Entry" : "unknown_0",
+      "groupNo" : "1",
+      "group" : null,
+      "grammarRuleTemplates" : [ "Where is $x located?" ],
+      "nonTerminals" : { },
+      "Sparql" : null
+    } ],
     "syntacticFrame" : "FULL_DATASET",
-    "rules" : [ {
-      "grammarRuleNo" : "1",
-      "sentTemplate" : null,
-      "sentences" : [ ],
-      "nonTerminal-X" : null,
-      "nonTerminal-Y" : null,
-      "question" : null
+    "Frame" : "FULL_DATASET",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : null,
+      "grammarRuleTemplates" : [ "Where is $x located?" ],
+      "nonTerminals" : { },
+      "Sparql" : null
     } ]
   } ]
 }

@@ -7,8 +7,12 @@ package grammar.read.questions;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import grammar.structure.component.FrameType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import util.io.GenericElement;
 
 /**
  *
@@ -17,43 +21,45 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GrammarRuleTemplate {
     
-    @JsonProperty("templateNo")
-    private String templateNo = null;
+    @JsonProperty("groupNo")
+    private String groupNo = null;
     @JsonProperty("group")
     private String group = null;
     @JsonProperty("grammarRuleTemplates")
     private List<String> grammarRuleTemplates = new ArrayList<String>();
-    @JsonProperty("<NP_{map(SyntacticFunction), Property}>")
-    private String nonTerminalSparql = null;
-    @JsonProperty("<NP_{Class, <map(SyntacticFunction),Property>}>")
-    private String nonTerminalClassSparql =null;
+    @JsonProperty("nonTerminals")
+    private Map<String,String> nonTerminalSparql = new HashMap<String,String>();
     @JsonProperty("Sparql")
     private String questionSparql = null;
     
-    
-    private static String ENTITY_SPARQL="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .}"+
-                                     " "+"OR"+" "+
-                                     "SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
-    private static String CLASS_SPARQL="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label }" +
-                                                                  " "+"OR"+" "+
-                                       "SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }" ;
-
     public GrammarRuleTemplate() {
 
     }
 
     public GrammarRuleTemplate(SentenceTemplate st, List<String> modSentences) {
-        this.templateNo = st.getTemplateNo();
         this.group = st.getGroup();
         this.grammarRuleTemplates = modSentences;
-        this.nonTerminalSparql = ENTITY_SPARQL;
-        this.nonTerminalClassSparql =CLASS_SPARQL;
-        this.questionSparql = ENTITY_SPARQL;
+        //this.nonTerminalSparql = ENTITY_SPARQL;
+        //this.nonTerminalClassSparql =CLASS_SPARQL;
+        //this.questionSparql = ENTITY_SPARQL;
+    }
+    
+    public GrammarRuleTemplate(FrameType frameType, String templateNo, String group, List<String> sentences) {
+        GenericElement genericElement = new GenericElement();
+        this.group = genericElement.findGroup(frameType,group);
+        this.groupNo=templateNo;
+        this.grammarRuleTemplates = sentences;
+        if (genericElement.checkSyntacticFunction(frameType, sentences)) {
+            this.nonTerminalSparql.put(GenericElement.entityAtrribute,
+                    GenericElement.entityDomain);
+            this.questionSparql = GenericElement.entityRange;
+        }
+        if (genericElement.checkClassFunction(frameType, sentences)) {
+            this.nonTerminalSparql.put(GenericElement.classAtrribute,
+                    GenericElement.classRange);
+        }
     }
 
-    public String getTemplateNo() {
-        return templateNo;
-    }
 
     public String getGroup() {
         return group;
@@ -63,16 +69,18 @@ public class GrammarRuleTemplate {
         return grammarRuleTemplates;
     }
 
-    public String getNonTerminalSparql() {
+    public Map<String, String> getNonTerminalSparql() {
         return nonTerminalSparql;
+    }
+
+    private boolean isEmpty(String[] array) {
+        return array.length == 0;
     }
 
     public String getQuestionSparql() {
         return questionSparql;
     }
 
-    public String getNonTerminalClassSparql() {
-        return nonTerminalClassSparql;
-    }
+    
     
 }

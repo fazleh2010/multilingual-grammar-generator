@@ -81,6 +81,29 @@ public class GrammarDisplay {
         }
 
     }
+    
+     public GrammarDisplay(Boolean genericFlag,Integer id, String lex, List<GrammarEntry> grammarEntries,boolean flag) {
+        this.id = id;
+        this.Entry = lex;
+        Integer index = 0;
+
+        for (GrammarEntry grammarEntry : grammarEntries) {
+            index = index + 1;
+            String bindingType = null;
+            if (index == 1) {
+                syntacticFrame = grammarEntry.getFrameType().getName();
+            }
+
+            rules.add(new GrammarRule(
+                    genericFlag,index.toString(), 
+                    grammarEntry.getSentences(),
+                    grammarEntry.getSentenceTemplate(), 
+                    grammarEntry.getFrameType()));
+            
+
+        }
+
+    }
 
     public String getSyntacticFrame() {
         return syntacticFrame;

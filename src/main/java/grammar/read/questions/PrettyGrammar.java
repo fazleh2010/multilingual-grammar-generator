@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.apache.jena.query.QueryType;
+import util.io.GenericElement;
 import util.io.JsonSerializer;
 
 /**
@@ -34,11 +35,71 @@ import util.io.JsonSerializer;
 public class PrettyGrammar {
 
     private String grammarFileName = null;
+    
+    public PrettyGrammar(Boolean genericFlag, String propertyDir, List<File> protoSimpleQFiles, String outputFileName) {
+        if (!genericFlag) {
+            this.process(propertyDir, protoSimpleQFiles, outputFileName);
+        } else {
+            Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
+            GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntries, genericFlag);
+            JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
+        }
 
-    public PrettyGrammar(String propertyDir, List<File> protoSimpleQFiles, String outputFileName) {
+    }
+    
+    public void process(String propertyDir, List<File> protoSimpleQFiles, String outputFileName) {
         Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntries, true);
         JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
+
+    }
+    
+    public static void prettyGrammarFuntion(Boolean genericFlag, GrammarWrapper grammarWrapper, Language language, String outputDir) {
+        GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
+        /*for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
+            FrameType frameType = grammarEntry.getFrameType();
+            List<String> sentences = grammarEntry.getSentences();
+            String questionSparql = null, bindingSparql = null;
+            grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
+
+            //bindingSparql = GenericElement.getFrameEntitySparqlDomain(frameType, sentences);
+            //questionSparql = GenericElement.getFrameEntitySparqlRange(frameType, sentences);
+            bindingSparql = grammarEntry.getBindingSparql();
+            questionSparql = grammarEntry.getSparqlQuery();
+            System.out.println(sentences);
+            grammarEntry.setSparqlQuery(questionSparql);
+            grammarEntry.setBindingSparql(bindingSparql);
+
+        }*/
+        GrammarWrapper regularEntries = new GrammarWrapper();
+        regularEntries.setGrammarEntries(
+                grammarWrapper.getGrammarEntries()
+                        .stream()
+                        //.filter(grammarEntry -> !grammarEntry.isCombination())
+                        .collect(Collectors.toList())
+        );
+
+        String grammarInterFile = "temp_" + generatorRoot.getFrameType().getName() + "_" + language + ".json";
+
+        try {
+            generatorRoot.dumpToJSON(
+                    Path.of(
+                            outputDir,
+                            grammarInterFile
+                    ).toString(),
+                    regularEntries
+            );
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(PrettyGrammar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        File file = new File(outputDir + "/" + grammarInterFile);
+        List<File> protoSimpleQFiles = new ArrayList<File>();
+        protoSimpleQFiles.add(file);
+        String outputFileName = "grammar_" + language + ".json";
+        Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
+        GrammarEntriesLexT grammarEntriesLexT = new GrammarEntriesLexT(lexicalEntries);
+        JsonSerializer.writeClassToJson(grammarEntriesLexT, outputDir + "/" + outputFileName);
 
     }
 
@@ -131,6 +192,44 @@ public class PrettyGrammar {
 
     }
     
+    public static void outputForParser(Boolean genericFlag,GrammarWrapper grammarWrapper, Language language, String outputDir) {
+
+         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
+        for (GrammarEntry grammarEntry : grammarWrapper.getGrammarEntries()) {
+            grammarEntry.setId(String.valueOf(grammarWrapper.getGrammarEntries().indexOf(grammarEntry) + 1));
+            if (grammarEntry.getFrameType().getName().contains(FrameType.AA.getName())) {
+                ;
+            } else {
+                String sparql = PrepareSparqlQuery.getRealSparql(grammarEntry.getSentenceTemplate(), grammarEntry.getSparqlQuery());
+                if (grammarEntry.getReturnVariable() != null) {
+                    sparql = sparql.replace(grammarEntry.getReturnVariable(), "Answer");
+                }
+                grammarEntry.setSparqlQuery(sparql);
+            }
+
+        }
+        GrammarWrapper regularEntries = new GrammarWrapper();
+        regularEntries.setGrammarEntries(
+                grammarWrapper.getGrammarEntries()
+                        .stream()
+                        //.filter(grammarEntry -> !grammarEntry.isCombination())
+                        .collect(Collectors.toList())
+        );
+        
+        try {
+            generatorRoot.dumpToJSON(
+                    Path.of(
+                            outputDir,
+                            "grammar_" + generatorRoot.getFrameType().getName() + "_" + language + ".json"
+                    ).toString(),
+                    regularEntries
+            );
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(PrettyGrammar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
       public static void outputForParser(GrammarWrapper grammarWrapper, Language language, String outputDir) {
 
          GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
@@ -215,7 +314,7 @@ public class PrettyGrammar {
         List<File> protoSimpleQFiles = new ArrayList<File>();
         protoSimpleQFiles.add(file);
         String outputFileName = "grammar_" + Language.ES + ".json";
-        PrettyGrammar prepareGrammarJson = new PrettyGrammar(propertyDir, protoSimpleQFiles, outputFileName);
+        PrettyGrammar prepareGrammarJson = new PrettyGrammar(true,propertyDir, protoSimpleQFiles, outputFileName);
 
     }
 

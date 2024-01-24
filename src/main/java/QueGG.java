@@ -45,6 +45,7 @@ public class QueGG {
     private static String grammar_FULL_DATASET = "grammar_FULL_DATASET";
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
+    private static Boolean genericFlag = true;
 
 
 
@@ -64,13 +65,13 @@ public class QueGG {
 
     }*/
     
-     public static void main(String[] args) throws Exception {
+     public static void main(String[] args1) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-         //String[] args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
+         String[] args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
        
         try {
             if (args.length < 2) {
@@ -104,7 +105,7 @@ public class QueGG {
                     protoSimpleQFiles.add(file);
                     outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
                     PrettyGrammar prepareGrammarJson = 
-                            new PrettyGrammar(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                            new PrettyGrammar(genericFlag,inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
                 }
                 /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);
@@ -347,8 +348,8 @@ public class QueGG {
                 grammarWrapper.merge(gw);
             }
         }
-        PrettyGrammar.prettyGrammarFuntion(grammarWrapper,language,outputDir);
-        PrettyGrammar.outputForParser(grammarWrapper,language,outputDir);
+        PrettyGrammar.prettyGrammarFuntion(this.genericFlag,grammarWrapper,language,outputDir);
+        //PrettyGrammar.outputForParser(this.genericFlag,grammarWrapper,language,outputDir);
     }
 
 

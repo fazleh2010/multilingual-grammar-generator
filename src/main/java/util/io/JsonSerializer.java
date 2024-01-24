@@ -8,6 +8,7 @@ package util.io;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import grammar.read.questions.GrammarEntriesLex;
+import grammar.read.questions.GrammarEntriesLexT;
 import grammar.read.questions.GrammarRuleTemplateAll;
 import grammar.read.questions.ProtoToRealQuesrion;
 import grammar.read.questions.SentenceTemplateAll;
@@ -44,6 +45,17 @@ public class JsonSerializer {
             Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public static void writeClassToJson(GrammarEntriesLexT grammarEntriesLexTemplate, String fileName) {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        try {
+            mapper.writeValue(new File(fileName), grammarEntriesLexTemplate);
+        } catch (IOException ex) {
+            Logger.getLogger(ProtoToRealQuesrion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public static void writeSentenceTemplateToJson(GrammarRuleTemplateAll grammarRuleTemplateAll, String fileName) {
