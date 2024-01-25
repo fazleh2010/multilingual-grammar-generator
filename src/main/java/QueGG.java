@@ -45,6 +45,8 @@ public class QueGG {
     private static String grammar_FULL_DATASET = "grammar_FULL_DATASET";
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
+    private static Boolean genericFlag = true;
+
 
 
 
@@ -104,7 +106,7 @@ public class QueGG {
                     protoSimpleQFiles.add(file);
                     outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
                     PrettyGrammar prepareGrammarJson = 
-                            new PrettyGrammar(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                            new PrettyGrammar(genericFlag,inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
                 }
                 /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);

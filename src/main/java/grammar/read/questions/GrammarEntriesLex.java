@@ -46,5 +46,14 @@ public class GrammarEntriesLex {
             this.grammarEntries.add(grammarDisplay);
         }
     }
+    public GrammarEntriesLex(Boolean genericFlag,Map<String, List<GrammarEntry>> lexicalEntiryUris,Boolean flag) {
+        Integer index = 0;
+        for (String lex : lexicalEntiryUris.keySet()) {
+            index = index + 1;
+            List<GrammarEntry> grammarEntries = lexicalEntiryUris.get(lex);
+            GrammarDisplay grammarDisplay = new GrammarDisplay(genericFlag,index, lex, grammarEntries, flag);
+            this.grammarEntries.add(grammarDisplay);
+        }
+    }
 
 }

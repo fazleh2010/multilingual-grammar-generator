@@ -41,6 +41,14 @@ public class PrettyGrammar {
         JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
 
     }
+    
+    public PrettyGrammar(Boolean genericFlag,String propertyDir, List<File> protoSimpleQFiles, String outputFileName) {
+        Map<String, List<GrammarEntry>> lexicalEntries = getLexicalEntries(protoSimpleQFiles);
+        GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntries, true);
+        JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + outputFileName);
+
+    }
+    
 
     public static void prettyGrammarFuntion(GrammarWrapper grammarWrapper, Language language, String outputDir) {
         GrammarRuleGeneratorRoot generatorRoot = new GrammarRuleGeneratorRootImpl(language);
@@ -210,12 +218,12 @@ public class PrettyGrammar {
     }
 
     public static void main(String[] args) throws IOException {
-        String propertyDir = "result/es/";
-        File file = new File(propertyDir + "grammar_FULL_DATASET_ES.json");
+        String propertyDir = "output/en/";
+        File file = new File(propertyDir + "grammar_FULL_DATASET_EN.json");
         List<File> protoSimpleQFiles = new ArrayList<File>();
         protoSimpleQFiles.add(file);
-        String outputFileName = "grammar_" + Language.ES + ".json";
-        PrettyGrammar prepareGrammarJson = new PrettyGrammar(propertyDir, protoSimpleQFiles, outputFileName);
+        String outputFileName = "grammar_" + Language.EN + ".json";
+        PrettyGrammar prepareGrammarJson = new PrettyGrammar(false,propertyDir, protoSimpleQFiles, outputFileName);
 
     }
 

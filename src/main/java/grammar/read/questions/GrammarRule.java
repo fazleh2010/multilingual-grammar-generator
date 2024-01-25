@@ -8,9 +8,11 @@ package grammar.read.questions;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import grammar.sparql.PrepareSparqlQuery;
+import grammar.structure.component.FrameType;
 import java.util.ArrayList;
 import java.util.List;
 import util.io.AddQuote;
+import util.io.GenericElement;
 
 /**
  *
@@ -66,6 +68,17 @@ public class GrammarRule {
         this.sentences = sentencesT;
         //this.sentences = StringMatcher.modifySentencesWithNonTerminals(sentencesT, nonTerminal);
         //this.sentences = StringMatcher.modifySentencesWithRegularExpression(sentencesT, nonTerminal);
+
+    }
+
+  
+    public GrammarRule(Boolean genericFlag,FrameType frameType,String ruleNo,String sentTemplate, List<String> sentencesT) {
+        this.ruleNo = ruleNo;
+        this.sentTemplate = sentTemplate;
+        this.nonTerminal_X = GenericElement.getFrameEntitySparqlDomain(frameType,sentencesT);
+        this.nonTerminal_Y = GenericElement.getFrameClassSparqlRange(frameType,sentencesT);
+        this.question = GenericElement.getFrameEntitySparqlRange(frameType,sentencesT);;
+        this.sentences = sentencesT;
 
     }
     

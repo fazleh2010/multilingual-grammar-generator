@@ -26,8 +26,14 @@ public class GenericElement implements TempConstants {
     public static final String PreTerminalAdjectivePositive = "[AdjectivePositive]";
     public static final String PreTerminalAdjectiveSuperlative = "[AdjectiveSuperlative]";
     public static final String PreTerminalAdjectiveComparative = "[AdjectiveComparative]";
-    public static final String NonTerminalSparqlEntity ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    //public static final String NonTerminalSparqlEntity ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .} OR SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    //public static final String NonTerminalSparqlClass ="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label } OR SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }";
+    public static final String NonTerminalSparqlEntityDomain ="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .}";
+    public static final String NonTerminalSparqlEntityRange ="SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    public static final String NonTerminalSparqlClassDomain ="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label }";
+    public static final String NonTerminalSparqlClassRange ="SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }";
 
+    
     public static String findMainGenericVerb(ParamterFinder paramterFinder) throws QueGGMissingFactoryClassException {
         String word = "XX";
 
@@ -80,10 +86,33 @@ public class GenericElement implements TempConstants {
         return word;
     }
     
-    public static String getFrameSPARQL(FrameType frame,List<String> sentences) {
-        String sparql=NonTerminalSparqlEntity;
+    public static String getFrameEntitySparqlDomain(FrameType frame,List<String> sentences) {
+        String sparql=null;
         if(sentences.contains("<NP_{map(SyntacticFunction), Property}>")){
-            return NonTerminalSparqlEntity;
+            return NonTerminalSparqlEntityDomain;
+        }
+        return sparql;
+    }
+    
+    public static String getFrameEntitySparqlRange(FrameType frame,List<String> sentences) {
+        String sparql=null;
+        if(sentences.contains("<NP_{map(SyntacticFunction), Property}>")){
+            return NonTerminalSparqlEntityRange;
+        }
+        return sparql;
+    }
+    
+    public static String getFrameClassSparqlDomain(FrameType frame,List<String> sentences) {
+        String sparql=null;
+        if(sentences.contains("<NP_{Class, <map(SyntacticFunction),Property>}>")){
+            return NonTerminalSparqlClassDomain;
+        }
+        return sparql;
+    }
+    public static String getFrameClassSparqlRange(FrameType frame,List<String> sentences) {
+        String sparql=null;
+        if(sentences.contains("<NP_{Class, <map(SyntacticFunction),Property>}>")){
+            return NonTerminalSparqlClassRange;
         }
         return sparql;
     }

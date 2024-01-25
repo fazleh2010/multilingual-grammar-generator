@@ -69,7 +69,8 @@ public class English implements TempConstants, MultilingualBuilder {
 
    
 
-    public English(FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
+    public English(Boolean genericFlag,FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
+        this.genericFlag = genericFlag;
         this.frameType = frameType;
         this.lexicalEntryUtil = lexicalEntryUtil;
         this.language = language;

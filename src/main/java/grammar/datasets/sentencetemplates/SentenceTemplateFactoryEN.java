@@ -71,8 +71,8 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
                         "interrogativeDeterminer(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
                         "interrogativeDeterminer(range:plural) verb(component_be:past:plural) determiner(component_the) noun(reference:plural) preposition adjunct(domain)",
                         ///What is Batman"s real name? Apostrophe temporary losed..
-                        "interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
-                        "interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
+                        //"interrogativePronoun(range:singular) verb(component_be:present:singular) adjunct(domain) Apostrophe noun(reference:singular)",
+                        //"interrogativePronoun(range:singular) verb(component_be:past:singular) adjunct(domain) Apostrophe noun(reference:singular)",
                         //"Who is the mayor of Paris?",
                         "interrogativePronoun(range:singular) verb(component_be:present:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
                         "interrogativePronoun(range:singular) verb(component_be:past:singular) determiner(component_the) noun(reference:singular) preposition adjunct(domain)",
@@ -135,7 +135,7 @@ public class SentenceTemplateFactoryEN implements Factory<SentenceTemplateReposi
                                 "determiner(component_the) noun(reference:singular) preposition adjunct(domain)?",
                                 "determiner(component_the) noun(reference:plural) preposition adjunct(domain)?",
                                 //the Dracula's creator
-                                "determiner adjunct(domain) Apostrophe noun(reference:singular)?"
+                                "determiner(component_the) adjunct(domain) Apostrophe noun(reference:singular)?"
                         ),
                         NounPPFrame,
                         nounPhrase

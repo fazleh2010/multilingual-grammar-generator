@@ -50,6 +50,8 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     private final LexicalEntryUtil lexicalEntryUtil;
     private TemplateFinder templateFinder = null;
     private String sentenceTemplate=null;
+    private  Boolean genericFlag = true;
+
 
     public SentenceBuilderAllFrame(
             Language language,
@@ -304,7 +306,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         List<String> sentences = new ArrayList<String>();
         MultilingualBuilder multilingualBuilder = null;
         if (this.language.equals(Language.EN)) {
-            multilingualBuilder = new English(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
+            multilingualBuilder = new English( this.genericFlag,this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
         } else if (this.language.equals(Language.DE)) {
             multilingualBuilder = new German(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
         } else if (this.language.equals(Language.ES)) {
@@ -365,10 +367,10 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
         List<String> sentences = new ArrayList<String>();
         SelectVariable selectVariable = lexicalEntryUtil.getSelectVariable();
         SelectVariable oppositeSelectVariable = LexicalEntryUtil.getOppositeSelectVariable(lexicalEntryUtil.getSelectVariable());
-        MultilingualBuilder bultilingualBuilder = new English(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
+        MultilingualBuilder bultilingualBuilder = new English( this.genericFlag,this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
 
         if (this.language.equals(Language.EN)) {
-            bultilingualBuilder = new English(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
+            bultilingualBuilder = new English( this.genericFlag,this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
         } else if (this.language.equals(Language.DE)) {
             bultilingualBuilder = new German(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
         } else if (this.language.equals(Language.ES)) {
@@ -555,7 +557,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
 
         List<String> sentenceTemplates = sentenceTemplateRepository.findOneByEntryTypeAndLanguageAndArguments(SentenceType.SENTENCE,
                 language, new String[]{frameType.getName(), nounPhrase});
-        English sentenceBuilderFromTemplates = new English(this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
+        English sentenceBuilderFromTemplates = new English( this.genericFlag,this.frameType, this.language, this.lexicalEntryUtil, selectVariable, oppositeSelectVariable, bindingVariable);
 
         for (String sentenceTemplate : sentenceTemplates) {
             index = index + 1;

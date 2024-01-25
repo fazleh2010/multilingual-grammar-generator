@@ -27,7 +27,9 @@ public class TransitiveVPGrammarRuleGenerator extends GrammarRuleGeneratorRoot i
     private static final Logger LOG = LogManager.getLogger(TransitiveVPGrammarRuleGenerator.class);
     private String template = "";
 
-    public TransitiveVPGrammarRuleGenerator(Language language) {
+
+
+    public TransitiveVPGrammarRuleGenerator(Boolean genericFlag,Language language) {
         super(FrameType.VP, language, BindingConstants.DEFAULT_BINDING_VARIABLE);
     }
 

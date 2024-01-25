@@ -7,8 +7,10 @@ package grammar.read.questions;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import grammar.structure.component.FrameType;
 import java.util.ArrayList;
 import java.util.List;
+import util.io.GenericElement;
 
 /**
  *
@@ -31,12 +33,12 @@ public class GrammarRuleTemplate {
     private String questionSparql = null;
     
     
-    private static String ENTITY_SPARQL="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .}"+
-                                     " "+"OR"+" "+
-                                     "SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
-    private static String CLASS_SPARQL="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label }" +
-                                                                  " "+"OR"+" "+
-                                       "SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }" ;
+    //private static String ENTITY_SPARQL="SELECT  ?label WHERE {?Domain Property ?Range . ?Domain rdfs:label ?label .}"+
+    //                                 " "+"OR"+" "+
+    //                                "SELECT  ?label WHERE {?Domain Property ?Range . ?Range rdfs:label ?label .}";
+    //private static String CLASS_SPARQL="SELECT ?label WHERE {?Domain Property ?Range. ?Domain rdf:type ?Class. ?Class rdfs:label ?label }" +
+    //                                                              " "+"OR"+" "+
+    //                                   "SELECT ?label WHERE {?Domain Property ?Range. ?Range rdf:type ?Class. ?Class rdfs:label ?label }" ;
 
     public GrammarRuleTemplate() {
 
@@ -46,9 +48,18 @@ public class GrammarRuleTemplate {
         this.templateNo = st.getTemplateNo();
         this.group = st.getGroup();
         this.grammarRuleTemplates = modSentences;
-        this.nonTerminalSparql = ENTITY_SPARQL;
-        this.nonTerminalClassSparql =CLASS_SPARQL;
-        this.questionSparql = ENTITY_SPARQL;
+        this.nonTerminalSparql = GenericElement.getFrameClassSparqlDomain(FrameType.AA, modSentences);
+        this.nonTerminalClassSparql =GenericElement.getFrameClassSparqlRange(FrameType.AA, modSentences);
+        this.questionSparql = GenericElement.getFrameEntitySparqlRange(FrameType.AA, modSentences);
+    }
+    
+     public GrammarRuleTemplate(FrameType frameType, String templateNo, String group,List<String> modSentences) {
+        this.templateNo = templateNo;
+        this.group = group;
+        this.grammarRuleTemplates = modSentences;
+        this.nonTerminalSparql = GenericElement.getFrameClassSparqlDomain(frameType, modSentences);
+        this.nonTerminalClassSparql =GenericElement.getFrameClassSparqlRange(frameType, modSentences);
+        this.questionSparql = GenericElement.getFrameEntitySparqlRange(frameType, modSentences);
     }
 
     public String getTemplateNo() {
