@@ -69,7 +69,7 @@ public class EnglishTurtle extends TurtleCreation implements TutleConverter {
         domainOrRange=domainRangeDictionary.getDomainOrRange();
        
         for (String pathname : pathnames) {
-            if(pathname.contains(".csv#")){
+            if(pathname.contains(".csv#")||pathname.contains(".DS_Store")){
                 continue;
             }
             System.out.println(pathname);

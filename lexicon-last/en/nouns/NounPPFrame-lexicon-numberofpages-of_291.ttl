@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :numberofpages-of_291 ;
+  lemon:entry    :numberofpages-of_291_form_preposition .
+
+:numberofpages-of_291 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :numberofpages-of_291_form ;
+  lemon:otherForm  :numberofpages-of_291_singular ;
+  lemon:otherForm  :numberofpages-of_291_plural ;
+  lemon:sense          :numberofpages-of_291_sense_1 ;
+  lemon:synBehavior    :numberofpages-of_291_nounpp .
+
+:numberofpages-of_291_form a lemon:Form ;
+  lemon:writtenRep "number of pages"@en .
+
+:numberofpages-of_291_singular a    lemon:Form ;
+  lemon:writtenRep "number of pages"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:numberofpages-of_291_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:numberofpages-of_291_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:numberofpages-of_291_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :numberofpages-of_291_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/numberOfPages> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :numberofpages-of_291_sense_1_condition .
+
+:numberofpages-of_291_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/WrittenWork> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+
+:null lemon:marker :numberofpages-of_291_form_preposition .
+## Prepositions ##
+:numberofpages-of_291_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :atmosphere_of_1 ;
+  lemon:entry    :atmosphere_of_1_form_preposition .
+
+:atmosphere_of_1 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :atmosphere_of_1_form ;
+  lemon:otherForm  :atmosphere_of_1_singular ;
+  lemon:otherForm  :atmosphere_of_1_plural ;
+  lemon:sense          :atmosphere_of_1_sense_1 ;
+  lemon:synBehavior    :atmosphere_of_1_nounpp .
+
+:atmosphere_of_1_form a lemon:Form ;
+  lemon:writtenRep "atmosphere"@en .
+
+:atmosphere_of_1_singular a    lemon:Form ;
+  lemon:writtenRep "atmosphere"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:atmosphere_of_1_plural a   lemon:Form ;
+  lemon:writtenRep "atmospheres"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:atmosphere_of_1_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:atmosphere_of_1_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :atmosphere_of_1_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/atmosphereComposition> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :atmosphere_of_1_sense_1_condition .
+
+:atmosphere_of_1_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/MilitaryUnit> .
+
+:null lemon:marker :atmosphere_of_1_form_preposition .
+## Prepositions ##
+:atmosphere_of_1_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

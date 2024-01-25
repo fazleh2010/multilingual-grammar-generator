@@ -1,0 +1,49 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix oils:     <http://lemon-model.net/oils#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :short_465 ;
+  lemon:entry    :form_short_465_preposition ;
+  lemon:entry    :short_465_res .
+
+:short_465 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :form_short_465 ;
+  lemon:otherForm      :form_short_465_comperative ;
+  lemon:otherForm      :form_short_465_superlative ;
+  lemon:sense          :short_465_sense_1 ;
+  lemon:synBehavior    :short_465_predFrame .
+
+:form_short_465 lemon:writtenRep "short"@en .
+
+:form_short_465_comperative lemon:writtenRep "shorter"@en .
+
+:form_short_465_superlative lemon:writtenRep "shortest"@en .
+
+:short_465_predFrame a        lexinfo:AdjectiveSuperlativeFrame ;
+  lexinfo:copulativeSubject :short_465_PredSynArg .
+
+:short_465_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :short_465_res ;
+  lemon:isA       :short_465_PredSynArg ;
+  lemon:condition :short_465_sense_1_condition .
+
+:short_465_res a   oils:CovariantScalar ;
+  oils:boundTo  <http://dbpedia.org/ontology/length> ;
+  oils:degree   <http://lemon-model.net/oils/low> .
+
+:short_465_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain   <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange    <http://dbpedia.org/ontology/BodyOfWater> .
+
+## Prepositions ##
+:form_short_465_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

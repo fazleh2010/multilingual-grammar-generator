@@ -1,0 +1,8 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range
+boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,domain,range,1,dbo:publisher,dbo:Work,dbo:Agent
+abbreviation_of,noun,abbreviation,abbreviations,of,NounPPFrame,domain,range,1,dbp:postalabbreviation,dbo:Place,xsd:string
+active_player_of,noun,active player,active players,of,NounPPFrame,domain,range,1,dbo:activeYearsEndYear,dbo:BasketballPlayer,xsd:date
+industry_of,noun,industry,industries,of,NounPPFrame,domain,range,1,dbo:industry,dbo:Company,dbo:Organisation
+atmosphere_of,noun,atmosphere,atmospheres,of,NounPPFrame,domain,range,1,dbp:atmosphereComposition,dbo:Place,dbo:MilitaryUnit
+battle_in,noun,battle,battles,in,NounPPFrame,domain,range,1,dbo:date,dbo:MilitaryConflict,xsd:date
+calory_of,noun,calory,calories,of,NounPPFrame,domain,range,1,dbp:calories,dbo:Food,xsd:integer

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :active_player_of_5 ;
+  lemon:entry    :active_player_of_5_form_preposition .
+
+:active_player_of_5 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :active_player_of_5_form ;
+  lemon:otherForm  :active_player_of_5_singular ;
+  lemon:otherForm  :active_player_of_5_plural ;
+  lemon:sense          :active_player_of_5_sense_1 ;
+  lemon:synBehavior    :active_player_of_5_nounpp .
+
+:active_player_of_5_form a lemon:Form ;
+  lemon:writtenRep "active player"@en .
+
+:active_player_of_5_singular a    lemon:Form ;
+  lemon:writtenRep "active player"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:active_player_of_5_plural a   lemon:Form ;
+  lemon:writtenRep "active players"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:active_player_of_5_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:active_player_of_5_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :active_player_of_5_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/activeYearsEndYear> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :active_player_of_5_sense_1_condition .
+
+:active_player_of_5_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/BasketballPlayer> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:null lemon:marker :active_player_of_5_form_preposition .
+## Prepositions ##
+:active_player_of_5_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

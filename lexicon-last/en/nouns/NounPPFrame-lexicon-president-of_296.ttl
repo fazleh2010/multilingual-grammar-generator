@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :president-of_296 ;
+  lemon:entry    :president-of_296_form_preposition .
+
+:president-of_296 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :president-of_296_form ;
+  lemon:otherForm  :president-of_296_singular ;
+  lemon:otherForm  :president-of_296_plural ;
+  lemon:sense          :president-of_296_sense_1 ;
+  lemon:synBehavior    :president-of_296_nounpp .
+
+:president-of_296_form a lemon:Form ;
+  lemon:writtenRep "president"@en .
+
+:president-of_296_singular a    lemon:Form ;
+  lemon:writtenRep "president"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:president-of_296_plural a   lemon:Form ;
+  lemon:writtenRep "presidents"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:president-of_296_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:president-of_296_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :president-of_296_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/office> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :president-of_296_sense_1_condition .
+
+:president-of_296_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:null lemon:marker :president-of_296_form_preposition .
+## Prepositions ##
+:president-of_296_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :battle_in_4 ;
+  lemon:entry    :battle_in_4_form_preposition .
+
+:battle_in_4 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :battle_in_4_form ;
+  lemon:otherForm  :battle_in_4_singular ;
+  lemon:otherForm  :battle_in_4_plural ;
+  lemon:sense          :battle_in_4_sense_1 ;
+  lemon:synBehavior    :battle_in_4_nounpp .
+
+:battle_in_4_form a lemon:Form ;
+  lemon:writtenRep "battle"@en .
+
+:battle_in_4_singular a    lemon:Form ;
+  lemon:writtenRep "battle"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:battle_in_4_plural a   lemon:Form ;
+  lemon:writtenRep "battles"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:battle_in_4_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_battle_in_4 ;
+  lexinfo:prepositionalAdjunct :arg1_battle_in_4 .
+
+:battle_in_4_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :battle_in_4_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/date> ;
+  lemon:subjOfProp          :arg1_battle_in_4 ;
+  lemon:objOfProp           :arg2_battle_in_4 ;
+  lemon:condition           :battle_in_4_sense_1_condition .
+
+:battle_in_4_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/MilitaryConflict> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg1_battle_in_4 lemon:marker :battle_in_4_form_preposition .
+## Prepositions ##
+:battle_in_4_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

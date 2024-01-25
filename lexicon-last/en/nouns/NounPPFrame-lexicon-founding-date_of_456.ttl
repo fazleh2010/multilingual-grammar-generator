@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :founding-date_of_456 ;
+  lemon:entry    :founding-date_of_456_form_preposition .
+
+:founding-date_of_456 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :founding-date_of_456_form ;
+  lemon:otherForm  :founding-date_of_456_singular ;
+  lemon:otherForm  :founding-date_of_456_plural ;
+  lemon:sense          :founding-date_of_456_sense_1 ;
+  lemon:synBehavior    :founding-date_of_456_nounpp .
+
+:founding-date_of_456_form a lemon:Form ;
+  lemon:writtenRep "founding date "@en .
+
+:founding-date_of_456_singular a    lemon:Form ;
+  lemon:writtenRep "founding date "@en ;
+  lexinfo:number   lexinfo:singular .
+
+:founding-date_of_456_plural a   lemon:Form ;
+  lemon:writtenRep "founding dates"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:founding-date_of_456_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:founding-date_of_456_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :founding-date_of_456_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/foundingDate> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :founding-date_of_456_sense_1_condition .
+
+:founding-date_of_456_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:null lemon:marker :founding-date_of_456_form_preposition .
+## Prepositions ##
+:founding-date_of_456_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :holiday-of_532 ;
+  lemon:entry    :holiday-of_532_form_preposition .
+
+:holiday-of_532 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :holiday-of_532_form ;
+  lemon:otherForm  :holiday-of_532_singular ;
+  lemon:otherForm  :holiday-of_532_plural ;
+  lemon:sense          :holiday-of_532_sense_1 ;
+  lemon:synBehavior    :holiday-of_532_nounpp .
+
+:holiday-of_532_form a lemon:Form ;
+  lemon:writtenRep "holiday"@en .
+
+:holiday-of_532_singular a    lemon:Form ;
+  lemon:writtenRep "holiday"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:holiday-of_532_plural a   lemon:Form ;
+  lemon:writtenRep "holidays"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:holiday-of_532_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:holiday-of_532_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :holiday-of_532_sense_1 ;
+  lemon:reference           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :holiday-of_532_sense_1_condition .
+
+:holiday-of_532_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Holiday> .
+
+:null lemon:marker :holiday-of_532_form_preposition .
+## Prepositions ##
+:holiday-of_532_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

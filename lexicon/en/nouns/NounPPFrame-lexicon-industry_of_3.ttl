@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :industry_of_3 ;
+  lemon:entry    :industry_of_3_form_preposition .
+
+:industry_of_3 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :industry_of_3_form ;
+  lemon:otherForm  :industry_of_3_singular ;
+  lemon:otherForm  :industry_of_3_plural ;
+  lemon:sense          :industry_of_3_sense_1 ;
+  lemon:synBehavior    :industry_of_3_nounpp .
+
+:industry_of_3_form a lemon:Form ;
+  lemon:writtenRep "industry"@en .
+
+:industry_of_3_singular a    lemon:Form ;
+  lemon:writtenRep "industry"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:industry_of_3_plural a   lemon:Form ;
+  lemon:writtenRep "industries"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:industry_of_3_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :null ;
+  lexinfo:prepositionalAdjunct :null .
+
+:industry_of_3_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :industry_of_3_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/industry> ;
+  lemon:subjOfProp          :null ;
+  lemon:objOfProp           :null ;
+  lemon:condition           :industry_of_3_sense_1_condition .
+
+:industry_of_3_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Company> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Organisation> .
+
+:null lemon:marker :industry_of_3_form_preposition .
+## Prepositions ##
+:industry_of_3_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

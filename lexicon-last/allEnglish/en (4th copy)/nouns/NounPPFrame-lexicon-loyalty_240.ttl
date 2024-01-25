@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :loyalty_240 ;
+  lemon:entry    :loyalty_240_form_preposition .
+
+:loyalty_240 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :loyalty_240_form ;
+  lemon:otherForm  :loyalty_240_singular ;
+  lemon:otherForm  :loyalty_240_plural ;
+  lemon:sense          :loyalty_240_sense_1 ;
+  lemon:synBehavior    :loyalty_240_nounpp .
+
+:loyalty_240_form a lemon:Form ;
+  lemon:writtenRep "loyalty"@en .
+
+:loyalty_240_singular a    lemon:Form ;
+  lemon:writtenRep "loyalty"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:loyalty_240_plural a   lemon:Form ;
+  lemon:writtenRep "loyalties"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:loyalty_240_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_loyalty_240 ;
+  lexinfo:prepositionalAdjunct :arg2_loyalty_240 .
+
+:loyalty_240_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :loyalty_240_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/connotation> ;
+  lemon:subjOfProp          :arg2_loyalty_240 ;
+  lemon:objOfProp           :arg1_loyalty_240 ;
+  lemon:condition           :loyalty_240_sense_1_condition .
+
+:loyalty_240_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Loyalty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Color> .
+
+:arg2_loyalty_240 lemon:marker :loyalty_240_form_preposition .
+## Prepositions ##
+:loyalty_240_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep ""@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

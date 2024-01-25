@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :book-in_288 ;
+  lemon:entry    :book-in_288_form_preposition .
+
+:book-in_288 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :book-in_288_form ;
+  lemon:otherForm  :book-in_288_singular ;
+  lemon:otherForm  :book-in_288_plural ;
+  lemon:sense          :book-in_288_sense_1 ;
+  lemon:synBehavior    :book-in_288_nounpp .
+
+:book-in_288_form a lemon:Form ;
+  lemon:writtenRep "book"@en .
+
+:book-in_288_singular a    lemon:Form ;
+  lemon:writtenRep "book"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:book-in_288_plural a   lemon:Form ;
+  lemon:writtenRep "books"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:book-in_288_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg2_book-in_288 ;
+  lexinfo:prepositionalAdjunct :arg1_book-in_288 .
+
+:book-in_288_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :book-in_288_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :arg1_book-in_288 ;
+  lemon:objOfProp           :arg2_book-in_288 ;
+  lemon:condition           :book-in_288_sense_1_condition .
+
+:book-in_288_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Book> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/TelevisionShow> .
+
+:arg1_book-in_288 lemon:marker :book-in_288_form_preposition .
+## Prepositions ##
+:book-in_288_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
