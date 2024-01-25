@@ -1,0 +1,381 @@
+{
+  "GrammarRuleTemplates" : [ {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type2",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "show me the <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{Class, <map(SyntacticFunction),Property>}> <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{Class, <map(SyntacticFunction),Property>}> <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ],
+    "syntacticFrame" : "TransitiveFrame",
+    "Frame" : "TransitiveFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type2",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "show me the <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type2",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{Class, <map(SyntacticFunction),Property>}> <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{Class, <map(SyntacticFunction),Property>}> <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ]
+  }, {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] the <NP_{map(SyntacticFunction), Property}>", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What kind of <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "show me all <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "show me the <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ],
+    "syntacticFrame" : "TransitiveFrame",
+    "Frame" : "TransitiveFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] the <NP_{map(SyntacticFunction), Property}>", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "List all <NP_{Class, <map(SyntacticFunction),Property>}> [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "What kind of <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "show me all <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "show me the <NP_{Class, <map(SyntacticFunction),Property>}> that <NP_{map(SyntacticFunction), Property}> [VerbPast]", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ]
+  }, {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ "Who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Who [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "Who was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "Whom was <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ "Who was <NP_{map(SyntacticFunction), Property}> [VerbParticiple] by?", "Who was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "Who were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "Whom did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ],
+    "syntacticFrame" : "TransitiveFrame",
+    "Frame" : "TransitiveFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-type6",
+      "grammarRuleTemplates" : [ "Who [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Who [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "Who was the <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "Whom is <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "Whom was <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type6",
+      "grammarRuleTemplates" : [ "Who was <NP_{map(SyntacticFunction), Property}> [VerbParticiple] by?", "Who was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "Who were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "Whom did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ]
+  }, {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-amount",
+      "grammarRuleTemplates" : [ "How much did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How much does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ],
+    "syntacticFrame" : "TransitiveFrame",
+    "Frame" : "TransitiveFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-amount",
+      "grammarRuleTemplates" : [ "How much did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How much does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] by <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-amount",
+      "grammarRuleTemplates" : [ "How many <NP_{Class, <map(SyntacticFunction),Property>}> are [VerbParticiple] by <NP_{map(SyntacticFunction), Property}>?", "How many <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "How often did <NP_{map(SyntacticFunction), Property}> [VerbPresent]?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    } ]
+  }, {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-Agent",
+      "grammarRuleTemplates" : [ "Give me all <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "Give me the <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me the <NP_{map(SyntacticFunction), Property}> [NounSingular].", "List all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "List all the <NP_{Class, <map(SyntacticFunction),Property>}> with [NounSingular] of <NP_{map(SyntacticFunction), Property}>.", "List all the [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "show me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "What <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "What <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?." ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>-2" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{map(SyntacticFunction), Property}>-1" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "ASK WHERE { Domain Property Range .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-Agent",
+      "grammarRuleTemplates" : [ "<NP_{map(SyntacticFunction), Property}> is the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?", "<NP_{map(SyntacticFunction), Property}> was the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "4",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ "How many [NounPlural] does <NP_{map(SyntacticFunction), Property}> have??" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    } ],
+    "syntacticFrame" : "NounPPFrame",
+    "Frame" : "NounPPFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-Agent",
+      "grammarRuleTemplates" : [ "Give me all <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "Give me the <NP_{map(SyntacticFunction), Property}> [NounPlural].", "Give me the <NP_{map(SyntacticFunction), Property}> [NounSingular].", "List all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "List all the <NP_{Class, <map(SyntacticFunction),Property>}> with [NounSingular] of <NP_{map(SyntacticFunction), Property}>.", "List all the [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "show me all [NounPlural] of <NP_{map(SyntacticFunction), Property}>.", "What <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "What <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was <NP_{map(SyntacticFunction), Property}> 's [NounSingular]?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "What was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "What were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> are the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> is the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was the [NounSingular] of the <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were the [NounPlural] of the <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "ask",
+      "grammarRuleTemplates" : [ "is <NP_{map(SyntacticFunction), Property}> the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?." ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>-2" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{map(SyntacticFunction), Property}>-1" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "ASK WHERE { Domain Property Range .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "object-Agent",
+      "grammarRuleTemplates" : [ "<NP_{map(SyntacticFunction), Property}> is the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?", "<NP_{map(SyntacticFunction), Property}> was the [NounSingular] of which <NP_{Class, <map(SyntacticFunction),Property>}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "4",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ "How many [NounPlural] does <NP_{map(SyntacticFunction), Property}> have??" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT Count(?Range) WHERE { ?Domain Property ?Range }"
+    }, {
+      "groupNo" : "5",
+      "group" : "nounPhrase",
+      "grammarRuleTemplates" : [ "the [NounPlural] of <NP_{map(SyntacticFunction), Property}>?", "the [NounSingular] of <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    } ]
+  }, {
+    "rules" : [ {
+      "groupNo" : "1",
+      "group" : "subject-Agent",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "Where is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}>  <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> does [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "What <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "What [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "What [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "Where does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] as <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "nonTerminals" : { },
+      "Sparql" : null
+    } ],
+    "syntacticFrame" : "IntransitivePPFrame",
+    "Frame" : "IntransitivePPFrame",
+    "GrammarRuleTemplates" : [ {
+      "groupNo" : "1",
+      "group" : "subject-Agent",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "Where is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}>  <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> are <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> does [VerbPresent] <NP_{map(SyntacticFunction), Property}>?", "as which <NP_{Class, <map(SyntacticFunction),Property>}> is <NP_{map(SyntacticFunction), Property}> [VerbParticiple]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "which <NP_{Class, <map(SyntacticFunction),Property>}> does the <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "2",
+      "group" : "object-type1",
+      "grammarRuleTemplates" : [ "Give me all <NP_{Class, <map(SyntacticFunction),Property>}> that [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "What <NP_{Class, <map(SyntacticFunction),Property>}> did <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "What <NP_{Class, <map(SyntacticFunction),Property>}> does <NP_{map(SyntacticFunction), Property}> [VerbPresent] as?", "What [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "What [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "Where does <NP_{map(SyntacticFunction), Property}> [VerbPresent]?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPast] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> [VerbPresent] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> was [VerbParticiple] as <NP_{map(SyntacticFunction), Property}>?", "which <NP_{Class, <map(SyntacticFunction),Property>}> were [VerbParticiple] as <NP_{map(SyntacticFunction), Property}>?" ],
+      "nonTerminals" : {
+        "<NP_{map(SyntacticFunction), Property}>" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Range <http://www.w3.org/2000/01/rdf-schema#label> ?label .}",
+        "<NP_{Class, <map(SyntacticFunction),Property>}>" : "SELECT ?label WHERE {?Domain Property ?Range. ?Domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?Class. ?Class <http://www.w3.org/2000/01/rdf-schema#label> ?label }"
+      },
+      "Sparql" : "SELECT  ?label WHERE {?Domain Property ?Range . ?Domain <http://www.w3.org/2000/01/rdf-schema#label> ?label .}"
+    }, {
+      "groupNo" : "3",
+      "group" : "amount",
+      "grammarRuleTemplates" : [ ],
+      "nonTerminals" : { },
+      "Sparql" : null
+    } ]
+  } ]
+}
