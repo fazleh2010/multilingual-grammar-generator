@@ -24,10 +24,9 @@ mvn clean package
 ```
 input_configuration_file: The file (inputConf.json) contains input parameter for the system:
 - languageCode: `en` (English), `de` (German), `it` (Italian), and `es` (Spanish)
-- inputDir: The input directory that contains lemon csv files  that will be processed by QueGG. 
-- outputDir: The output directory for the json grammar entry files that are produced by QueGG.
-- qaldDir: The directory contains qald questions
-- csvToTurtle: the indicator for generating lemon from turtle file.
+- inputDir: The input directory that contains lexical entries (i.e., csv files). 
+- outputDir: The output directory for the grammar (Json files).
+- csvToTurtle: the indicator for generating lemon (turtle file) from csv files.
 - turtleToProtoType: the indicator for generating grammar from lemon.
 ````input configuration file
 {
