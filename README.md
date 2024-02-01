@@ -30,13 +30,12 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
 - turtleToProtoType: the indicator for generating grammar from lemon.
 ````input configuration file
 {
-  "languageCode" : "de",
+  "languageCode" : "en",
   "inputDir" : "lexicon",
   "outputDir" : "output",
-  "qaldDir" : "qald",
   "csvToTurtle" : true,
   "turtleToProtoType" : true,
-  "protoTypeToQuestion" : true
+  "protoTypeToQuestion" : false
  }
 
 ````
@@ -61,6 +60,9 @@ Run the system:
 ````shell script
 java -jar <jar file> <input_configuration_file> <linked_data_configuration_file>
 
+english and DBpedia
+java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/dbpedia_en.json 
+
 german
 java -jar target/QuestionGrammarGenerator.jar inputConf_de.json dataset/dbpedia_de.json   
 
@@ -69,12 +71,6 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_es.json dataset/dbpedia_
 
 italain
 java -jar target/QuestionGrammarGenerator.jar inputConf_it.json dataset/dbpedia_it.json  
-
-english and dbpedia
-java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/dbpedia_en.json 
-
-english and aifd
-java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.json 
                                  
 ````  
 
