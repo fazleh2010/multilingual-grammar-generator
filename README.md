@@ -20,7 +20,6 @@ git clone https://github.com/fazleh2010/multilingual-grammar-generator.git
 ```
 build the jar file
 ```shell script
-mvn clean install
 mvn clean package
 ```
 input_configuration_file: The file (inputConf.json) contains input parameter for the system:
@@ -28,12 +27,8 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
 - inputDir: The input directory that contains lemon csv files  that will be processed by QueGG. 
 - outputDir: The output directory for the json grammar entry files that are produced by QueGG.
 - qaldDir: The directory contains qald questions
-- numberOfEntities: The number of entities in binding list. 
-- similarityThresold: The thresold for similary check between questions for evalution.
 - csvToTurtle: the indicator for generating lemon from turtle file.
-- turtleToProtoType: the indicator for generating lemon from turtle file.
-- protoTypeToQuestion: the indicator for generating questions from prototype questions.
-- evalution: Mark true if we want evalution against qald
+- turtleToProtoType: the indicator for generating grammar from lemon.
 ````input configuration file
 {
   "languageCode" : "de",
@@ -86,13 +81,10 @@ java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.jso
 
 The output can be seen the folder output/
 
-For English output/en/
-
-For German output/de/
-
-For Italian output/it/
-
-For Spanish output/es/
+- output/en/ (English)
+- output/de/ (German)
+- output/it/ (Italian)
+- output/es/ (Spanish)
 
 
 ## Developers
