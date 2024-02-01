@@ -2,10 +2,19 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.monnetproject.lemon.LemonModel;
 import evaluation.EvaluateAgainstQALD;
+import static evaluation.EvaluateAgainstQALD.PROTOTYPE_QUESTION;
 import static evaluation.EvaluateAgainstQALD.REAL_QUESTION;
+import evaluation.QALD;
+import evaluation.QALDImporter;
+import static grammar.datasets.sentencetemplates.TempConstants.nounPhrase;
+import grammar.generator.BindingResolver;
 import grammar.generator.GrammarRuleGeneratorRoot;
+import grammar.generator.GrammarRuleGeneratorRootImpl;
 import grammar.read.questions.ProtoToRealQuesrion;
+import grammar.sparql.PrepareSparqlQuery;
+import grammar.structure.component.DomainOrRangeType;
 import grammar.structure.component.FrameType;
+import grammar.structure.component.GrammarEntry;
 import grammar.structure.component.GrammarWrapper;
 import grammar.structure.component.Language;
 import lexicon.LexiconImporter;
@@ -14,20 +23,32 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.jena.sys.JenaSystem;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 import static java.util.Objects.isNull;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import turtle.GermanTurtle;
 import java.io.File;
 import java.io.IOException;
+import grammar.sparql.SparqlQuery;
 import grammar.sparql.SPARQLRequest;
+import java.io.FileInputStream;
+import static java.lang.System.exit;
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
+import org.apache.commons.text.similarity.CosineDistance;
 import turtle.EnglishTurtle;
+import util.io.GenderUtils;
 import linkeddata.LinkedData;
+import org.apache.jena.query.QueryType;
 import turtle.ItalianTurtle;
 import turtle.SpanishTurtle;
+import static util.io.ResourceHelper.loadResource;
 import turtle.TutleConverter;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
@@ -45,8 +66,6 @@ public class QueGG {
     private static String grammar_FULL_DATASET = "grammar_FULL_DATASET";
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
-    private static Boolean genericFlag = false;
-
 
 
 
@@ -72,7 +91,7 @@ public class QueGG {
         String configFile = null, dataSetConfFile = null;   
         
          Properties batch = new Properties();
-         //String[] args=new String[]{"inputConf_en.json","dataset/dbpedia_en.json"};
+
        
         try {
             if (args.length < 2) {
@@ -80,11 +99,8 @@ public class QueGG {
                 throw new IllegalArgumentException(String.format("Too few parameters (%s/%s)", args.length));
             } else if (args.length == 2) {
                 configFile = args[0];
-                dataSetConfFile= args[1];
-                //configFile ="inputConf_en.json";
-                //dataSetConfFile="dataset/dbpedia_en.json";
                 InputCofiguration inputCof = FileProcessUtils.getInputConfig(new File(configFile));
-                inputCof.setLinkedData(dataSetConfFile);                
+                inputCof.setLinkedData(args[1]);                
                 online=inputCof.getOnline();
                 externalEntittyListflag=inputCof.getExternalEntittyList();
           
@@ -106,7 +122,7 @@ public class QueGG {
                     protoSimpleQFiles.add(file);
                     outputFileName ="FINAL_"+grammar_FULL_DATASET+"_"+inputCof.getLanguage()+".json";
                     PrettyGrammar prepareGrammarJson = 
-                            new PrettyGrammar(genericFlag,inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
+                            new PrettyGrammar(inputCof.getOutputDir(),protoSimpleQFiles, outputFileName);
                 }
                 /*if (inputCofiguration.isProtoTypeToQuestion()) {  
                     queGG.protoToReal(inputCofiguration, grammar_FULL_DATASET, grammar_COMBINATIONS);

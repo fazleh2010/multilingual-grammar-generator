@@ -43,7 +43,6 @@ import net.lexinfo.LexInfo;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.GenderUtils;
 import static util.io.GenderUtils.nounWrittenForms;
-import util.io.GenericElement;
 import util.io.ParamterFinder;
 import util.io.PronounFinder;
 import util.io.StringMatcher;
@@ -65,12 +64,8 @@ public class English implements TempConstants, MultilingualBuilder {
     private String objectUri = null;
     private String referenceUri = null;
     private FrameType frameType = null;
-    private static Boolean genericFlag = false;
 
-   
-
-    public English(Boolean genericFlag,FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
-        this.genericFlag = genericFlag;
+    public English(FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
         this.frameType = frameType;
         this.lexicalEntryUtil = lexicalEntryUtil;
         this.language = language;
@@ -90,14 +85,8 @@ public class English implements TempConstants, MultilingualBuilder {
                         this.rangeSelectable)).name(),
                 SentenceType.NP
         );*/
-        if (this.genericFlag) {
-            this.domainVariable = GenericElement.getGenericNonTerminalEntity();
-            this.rangeVariable = GenericElement.getGenericNonTerminalEntity();
-        } else {
-            this.domainVariable = REGULAR_EXPRESSION_X;
-            this.rangeVariable = REGULAR_EXPRESSION_X;
-        }
-
+        this.domainVariable = REGULAR_EXPRESSION_X;
+        this.rangeVariable = REGULAR_EXPRESSION_X;
         this.subjectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.subjOfProp).toString();
         this.objectUri = lexicalEntryUtil.getConditionUriBySelectVariable(SelectVariable.objOfProp).toString();
         this.referenceUri = lexicalEntryUtil.getReferenceUri();
@@ -145,22 +134,19 @@ public class English implements TempConstants, MultilingualBuilder {
         } else if (tokens.length == 1) {
             attribute = tokens[0];
         }
-        System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index);
+       System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index );
+
 
         if (flagReference && (attribute.equals(pronoun))) {
             word = new PronounFinder(this.lexicalEntryUtil, attribute, reference, templateFeatures).getWord();
 
         } else if (flagReference && attribute.contains(adjective)) {
-            if (this.genericFlag) {
-                word = GenericElement.getAdjectiveReference(reference);
-            } else {
-                word = this.lexicalEntryUtil.getAdjectiveReference(reference);
-            }
+            word = this.lexicalEntryUtil.getAdjectiveReference(reference);
 
         } else if (flagReference && attribute.equals(preposition)) {
-            word = LexicalEntryUtil.getSingle(lexicalEntryUtil, reference);
+           word = LexicalEntryUtil.getSingle(lexicalEntryUtil, reference);
 
-        } else if (attribute.contains(preposition)) {
+        }else if (attribute.contains(preposition)) {
             word = this.findPreposition(attribute, reference, flagReference);
 
         } else if (attribute.contains(Apostrophe)) {
@@ -248,23 +234,20 @@ public class English implements TempConstants, MultilingualBuilder {
             SubjectType subjectType = interrogativeTemporal(attribute).second;
             word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
 
-        } else if (flagReference && attribute.contains("nounVariable")) {
-            if (this.genericFlag) {
-                word = GenericElement.getGenericNonTerminalClass();
-            } else {
-                word = REGULAR_EXPRESSION_X;
-            }
-        } else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
+        } 
+        else if (flagReference && attribute.contains("nounVariable")) {
+                word = "(X)";
+        }
+        else if (flagReference && attribute.contains(noun) && reference.contains("reference")) {
             String[] col = reference.split(colon);
             if (col.length == 2) {
                 word = this.getReferenceWrttienForm(col[1]);
             }
         } else if (flagReference && attribute.contains(noun)) {
-
             if (reference.contains(range) || reference.contains(domain)) {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
-                    word = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, col[0], col[1], this.subjectUri, this.objectUri);
+                    word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
 
                 } else {
                     System.out.println("number of paramters are not correct::" + reference);
@@ -274,7 +257,7 @@ public class English implements TempConstants, MultilingualBuilder {
             }
 
         } else if (flagReference && attribute.contains(verb)) {
-            word = new VerbFinderEnglish(this.genericFlag, this.frameType, this.lexicalEntryUtil, attribute, reference).getWord();
+            word = new VerbFinderEnglish(this.frameType, this.lexicalEntryUtil, attribute, reference).getWord();
 
         } else if (flagReference && attribute.equals(determiner)) {
 
@@ -325,7 +308,7 @@ public class English implements TempConstants, MultilingualBuilder {
 
         }
         //System.out.println("attribute::" + attribute + " parameter::" + reference + " index::" + index + " " + "word::" + word);
-        System.out.println("word::" + word);
+         System.out.println( "word::" + word);
 
         return word;
     }
@@ -361,7 +344,7 @@ public class English implements TempConstants, MultilingualBuilder {
             }
             String noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, number, this.subjectUri, this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
             }
             String article = this.getArticleFromUri(domainOrRange);
             String questionWord = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, subjectType.name(), TempConstants.number, number, TempConstants.gender, article);
@@ -385,7 +368,7 @@ public class English implements TempConstants, MultilingualBuilder {
             }
             noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, number, this.subjectUri, this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
             }
             return noun;
         }
@@ -405,7 +388,7 @@ public class English implements TempConstants, MultilingualBuilder {
             }
             String noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, number, this.subjectUri, this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
             }
             String article = this.getArticleFromUri(domainOrRange);
             String questionWord = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, subjectType.name(), TempConstants.number, number, TempConstants.gender, article);
@@ -422,19 +405,14 @@ public class English implements TempConstants, MultilingualBuilder {
 
     }*/
     private String getDeteminerTokenManual(SubjectType subjectType, String domainOrRange, String number) throws QueGGMissingFactoryClassException {
-        String noun = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, number, this.subjectUri, this.objectUri);
+        String noun = GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType.name());
-
-        if (this.genericFlag) {
-            return questionWord + " " + GenericElement.getGenericNonTerminalClass();
-        } else {
-            return questionWord + " " + REGULAR_EXPRESSION_Y;
-        }
+        return questionWord + " " + REGULAR_EXPRESSION_Y;
 
     }
 
     private String getTokenManual(String domainOrRange, String number) throws QueGGMissingFactoryClassException {
-        return GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, number, this.subjectUri, this.objectUri);
+        return GenderUtils.getConditionLabelManually(domainOrRange, number, this.subjectUri, this.objectUri);
     }
 
     /*private String getConditionLabelManually(String domainOrRange, String numberType) {
@@ -453,7 +431,7 @@ public class English implements TempConstants, MultilingualBuilder {
         if (conditionLabel == null || conditionLabel.isEmpty()) {
             conditionLabel = this.getConditionLabelManually(selectVariable,numberType);
         }*/
-        String conditionLabel = GenderUtils.getConditionLabelManually(this.frameType, this.genericFlag, domainOrRange, numberType, this.subjectUri, this.objectUri);
+        String conditionLabel = GenderUtils.getConditionLabelManually(domainOrRange, numberType, this.subjectUri, this.objectUri);
         String domain = lexicalEntryUtil.getDomain(lexicalEntryUtil);
         String determiner = GenderUtils.getArticle(domain);
 
@@ -596,10 +574,6 @@ public class English implements TempConstants, MultilingualBuilder {
     }
 
     private String getReferenceWrttienForm(String numberType) {
-        if (genericFlag) {
-            return GenericElement.getGenericNounPreTerminal(numberType);
-        }
-
         List<AnnotatedNounOrQuestionWord> annotatedLexicalEntryNouns = lexicalEntryUtil.parseLexicalEntryToAnnotatedAnnotatedNounOrQuestionWords();
         String result = "";
         for (AnnotatedNounOrQuestionWord annotatedNounOrQuestionWord : annotatedLexicalEntryNouns) {

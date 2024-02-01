@@ -51,7 +51,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
     private String objectUri = null;
     private String referenceUri = null;
     private FrameType frameType = null;
-    private Boolean genericFlag  = true;
+
 
     public Spanish(FrameType frameType, Language language, LexicalEntryUtil lexicalEntryUtil, SelectVariable selectVariable, SelectVariable oppositeSelectVariable, String variable) {
         this.frameType=frameType;
@@ -192,7 +192,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             if (reference.contains(range) || reference.contains(domain)) {
                 if (reference.contains(colon)) {
                     String[] col = reference.split(colon);
-                    word = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,col[0], col[1], this.subjectUri, this.objectUri);
+                    word = GenderUtils.getConditionLabelManually(col[0], col[1], this.subjectUri, this.objectUri);
                 }
                 else
                   System.out.println("number of paramters are not correct::"+reference);  
@@ -202,7 +202,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             }
 
         } else if (flagReference && attribute.contains(verb)) {
-            word = new VerbFinderEnglish(this.genericFlag,this.frameType,this.lexicalEntryUtil,attribute, reference).getWord();
+            word = new VerbFinderEnglish(this.frameType,this.lexicalEntryUtil,attribute, reference).getWord();
             //System.out.println(word);
 
         } 
@@ -306,7 +306,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             }
             String noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, number,this.subjectUri,this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri,this.objectUri);
             }
             String article = this.getArticleFromUri(domainOrRange);
             String questionWord = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil,subjectType, TempConstants.number, number, TempConstants.gender, article);
@@ -331,7 +331,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             }
             noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, number,this.subjectUri,this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri,this.objectUri);
             }
             return noun;
         } 
@@ -351,7 +351,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
             }
             String noun = lexicalEntryUtil.getReturnVariableConditionLabel(selectVariable);
             if (noun == null || noun.isEmpty()) {
-                noun = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, number,this.subjectUri, this.objectUri);
+                noun = GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri, this.objectUri);
             }
             String article = this.getArticleFromUri(domainOrRange);
             String questionWord = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil,subjectType, TempConstants.number, number, TempConstants.gender, article);
@@ -365,14 +365,14 @@ public class Spanish implements TempConstants,MultilingualBuilder {
 
    
     private String getDeteminerTokenManual(String subjectType, String domainOrRange,String number) throws QueGGMissingFactoryClassException {
-        String noun = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, number,this.subjectUri,this.objectUri);
+        String noun = GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri,this.objectUri);
         String questionWord = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, subjectType);
         return questionWord + " " + REGULAR_EXPRESSION_Y;
 
     }
     
      private String getTokenManual(String domainOrRange,String number) throws QueGGMissingFactoryClassException {
-        return GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, number,this.subjectUri,this.objectUri);
+        return GenderUtils.getConditionLabelManually(domainOrRange, number,this.subjectUri,this.objectUri);
     }
     
   
@@ -394,7 +394,7 @@ public class Spanish implements TempConstants,MultilingualBuilder {
         if (conditionLabel == null || conditionLabel.isEmpty()) {
             conditionLabel = this.getConditionLabelManually(selectVariable,numberType);
         }*/
-        String conditionLabel = GenderUtils.getConditionLabelManually(this.frameType,genericFlag,domainOrRange, numberType, this.subjectUri, this.objectUri);
+        String conditionLabel = GenderUtils.getConditionLabelManually(domainOrRange, numberType, this.subjectUri, this.objectUri);
         String domain = lexicalEntryUtil.getDomain(lexicalEntryUtil);
         String determiner = GenderUtils.getArticle(domain);
 

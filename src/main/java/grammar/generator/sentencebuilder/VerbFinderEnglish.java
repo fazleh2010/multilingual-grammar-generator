@@ -19,7 +19,6 @@ import java.util.Map;
 import lexicon.LexicalEntryUtil;
 import util.exceptions.QueGGMissingFactoryClassException;
 import util.io.GenderUtils;
-import util.io.GenericElement;
 import util.io.ParamterFinder;
 
 /**
@@ -36,38 +35,37 @@ public class VerbFinderEnglish implements TempConstants {
     private ParamterFinder paramterFinder = null;
     private FrameType frameType = null;
 
-    public VerbFinderEnglish(Boolean genericFlag, FrameType frameType, LexicalEntryUtil lexicalEntryUtil, String attribute, String reference) throws QueGGMissingFactoryClassException {
+    public VerbFinderEnglish(FrameType frameType, LexicalEntryUtil lexicalEntryUtil, String attribute, String reference) throws QueGGMissingFactoryClassException {
         this.frameType = frameType;
         this.lexicalEntryUtil = lexicalEntryUtil;
-        this.paramterFinder = new ParamterFinder(attribute, reference);
+        this.paramterFinder = new ParamterFinder(attribute, reference);        
         this.setCategory(paramterFinder.getReference());
+      
+      
 
-        if (this.mainVerbFlag && genericFlag) {
-            word = GenericElement.findMainGenericVerb(this.paramterFinder);
-        } else {
-            if (this.mainVerbFlag) {
-                word = findMainVerb(attribute, reference);
-            } else if (this.auxilaryVerbFlag || this.imperativeVerbFlag) {
-                if (paramterFinder.getParameterLength() == 2 && paramterFinder.getTensePair().first != null) {
-                    word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, paramterFinder.getReference(), paramterFinder.getTensePair().first, paramterFinder.getTensePair().second);
-                } else if (paramterFinder.getParameterLength() == 3 && paramterFinder.getTensePair().first != null && paramterFinder.getNumberPair().first != null) {
-                    word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, paramterFinder.getReference(), paramterFinder.getTensePair().first, paramterFinder.getTensePair().second,
-                            paramterFinder.getNumberPair().first, paramterFinder.getNumberPair().second);
-                } else {
-                    word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, paramterFinder.getReference());
-                }
+
+        if (this.mainVerbFlag) {
+            word = findMainVerb(attribute, reference);
+        }  else if (this.auxilaryVerbFlag || this.imperativeVerbFlag) {
+            if (paramterFinder.getParameterLength() == 2 && paramterFinder.getTensePair().first != null) {
+                word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, paramterFinder.getReference(), paramterFinder.getTensePair().first, paramterFinder.getTensePair().second);
+            } else if (paramterFinder.getParameterLength() == 3 && paramterFinder.getTensePair().first != null && paramterFinder.getNumberPair().first != null) {
+                word = LexicalEntryUtil.getEntryOneAtrributeCheck(this.lexicalEntryUtil, paramterFinder.getReference(), paramterFinder.getTensePair().first, paramterFinder.getTensePair().second,
+                        paramterFinder.getNumberPair().first, paramterFinder.getNumberPair().second);
+            } else {
+                word = LexicalEntryUtil.getSingle(this.lexicalEntryUtil, paramterFinder.getReference());
             }
         }
-
+          
         /*System.out.println("paramterFinder::" + paramterFinder);
         System.out.println("mainVerbFlag::" + this.mainVerbFlag);
         System.out.println("auxilaryVerbFlag::" + this.auxilaryVerbFlag);
         System.out.println("imperativeVerbFlag::" + this.imperativeVerbFlag);
         System.out.println("word::" + this.word);
         exit(1);*/
+        
     }
-    
-   
+
     private String findMainVerb(String attribute, String reference) throws QueGGMissingFactoryClassException {
         String word = "XX";
 
@@ -179,7 +177,5 @@ public class VerbFinderEnglish implements TempConstants {
     public String getWord() {
         return word;
     }
-
-    
 
 }

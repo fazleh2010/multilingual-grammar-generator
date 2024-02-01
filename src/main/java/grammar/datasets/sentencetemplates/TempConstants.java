@@ -28,8 +28,8 @@ public interface TempConstants {
     public static String TransitiveFrame = "TransitiveFrame";
     public static String InTransitivePPFrame = "IntransitivePPFrame";
     public static String AdjectiveAttributiveFrame = "AdjectiveAttributiveFrame";
-    public static String AdjectivePredicateFrame = "AdjectivePredicateFrame";
-    public static String NounPredicateFrame = "NounPredicateFrame";
+    public static String AdjectivePredicateFrame="AdjectivePredicateFrame";
+    public static String NounPredicateFrame="NounPredicateFrame";
     public static String AdjectivePPFrame = "AdjectivePPFrame";
     public static String AdjectiveSuperlativeFrame = "AdjectiveSuperlativeFrame";
     public static String FULL_DATASET = "FULL_DATASET";
@@ -37,10 +37,9 @@ public interface TempConstants {
     public static String subject = "subject";
     public static String directObject = "directObject";
     public static String object = "object";
-    public static String ask = "ask";
     public static String mainVerb = "mainVerb";
     public static String TrennVerb = "TrennVerb";
-    public static String imperative = "imperative";
+     public static String imperative="imperative";
     public static String auxVerb = "auxVerb";
     public static String RefVerb = "RefVerb";
     public static String TrennVerbPart2 = "TrennVerbPart2";
@@ -48,14 +47,14 @@ public interface TempConstants {
     public static final String verb = "verb";
     public static final String pronounReflexive = "reflexive_pronoun";
     public static final String reference = "reference";
-
-    public static final String REGULAR_EXPRESSION_X = "(X)";
-    public static final String REGULAR_EXPRESSION_Y = "(Y)";
-    public static final String GENARIC_ENTITY = "<NP_{map(SyntacticFunction), Property}>";
-    public static final String GENARIC_Class = "<NP_{Class, <map(SyntacticFunction),Property>}>";
+    
+    public static final String REGULAR_EXPRESSION_X="(X)";
+    public static final String REGULAR_EXPRESSION_Y="(Y)";
     public static final String dativeCase = "dativeCase";
     public static final String accusativeCase = "accusativeCase";
     public static final String appos = "appos";
+    
+    
 
     public static String questionMark = "?";
     public static String space = " ";
@@ -93,8 +92,6 @@ public interface TempConstants {
     public static String defaultGender = "masculine";
     public static String defaultNumber = singular;
 
-    public static String Prepositional_Adjuct_AGENT = "Prepositional_Adjuct_NON_AGENT";
-
     public static String article = "article";
     public static String thirdPerson = "thirdPerson";
     public static String secondPerson = "secondPerson";
@@ -104,12 +101,10 @@ public interface TempConstants {
     public static final String booleanQuestionDomainRange = "booleanQuestion";
     public static final String booleanQuestionDomain = "booleanQuestionWithoutReference";
     public static final String nounPhrase = "nounPhrase";
-
-    public static final String nounPhraseAgent = "nounPhrase";
     public static final String noun = "noun";
     public static final String location = "location";
 
-    public static Set<String> TENSES = new HashSet<String>(Arrays.asList(infinitive, present, present3rd, past, perfect, future));
+    public static Set<String> TENSES = new HashSet<String>(Arrays.asList(infinitive,present, present3rd,past, perfect, future));
     public static Set<String> NUMBERS = new HashSet<String>(Arrays.asList(singular, plural));
     public static Set<String> PERSONS = new HashSet<String>(Arrays.asList(secondPerson, thirdPerson));
 
@@ -122,26 +117,34 @@ public interface TempConstants {
     public static final String WHAT_WHICH_LOCATION = "WHAT_WHICH_LOCATION";
     public static final String WHAT_WHICH_LOCATION_COMPANY = "WHAT_WHICH_LOCATION_COMPANY";
 
+    
     public static final String PERSON_PERSON = "PERSON_PERSON";
     public static final String Copulative_Subject = "Copulative_Subject";
-
+    
+    
+    
+     
     public static final String WHO_WHO_PERSON = "WHO_WHO_PERSON";
-    public static final String WHEN_WHO_PAST_PERSON = "WHEN_WHO_PAST_PERSON";
-    public static final String WHERE_WHO_PAST_PERSON = "WHERE_WHO_PAST_PERSON";
-    public static final String PERSON_CAUSE = "PERSON_CAUSE";
-    public static final String PERSON_CAUSE_OPPOSITITE = "PERSON_CAUSE_OPPOSITITE";
+     public static final String WHEN_WHO_PAST_PERSON = "WHEN_WHO_PAST_PERSON";
+     public static final String WHERE_WHO_PAST_PERSON = "WHERE_WHO_PAST_PERSON";
+     public static final String PERSON_CAUSE = "PERSON_CAUSE";
+     public static final String PERSON_CAUSE_OPPOSITITE = "PERSON_CAUSE_OPPOSITITE";
 
-    public static final String PERSON_CAUSE_SUBJECT = "PERSON_CAUSE_SUBJECT";
-    public static final String PERSON_CAUSE_SUBJECT_PREPOSITION = "PERSON_CAUSE_SUBJECT_PREPOSITION";
-    public static final String HOW_MANY_THING_BACKWARD = "HOW_MANY_THING_BACKWARD";
-    public static final String HOW_MANY_THING_FORWARD = "HOW_MANY_THING_FORWARD";
+     public static final String PERSON_CAUSE_SUBJECT  = "PERSON_CAUSE_SUBJECT";
+     public static final String PERSON_CAUSE_SUBJECT_PREPOSITION  = "PERSON_CAUSE_SUBJECT_PREPOSITION";
+     public static final String HOW_MANY_THING_BACKWARD="HOW_MANY_THING_BACKWARD";
+          public static final String HOW_MANY_THING_FORWARD="HOW_MANY_THING_FORWARD";
 
-    public static final String PERSON_CAUSE_NOUN_PHRASE = "PERSON_CAUSE_NOUN_PHRASE";
+     public static final String PERSON_CAUSE_NOUN_PHRASE="PERSON_CAUSE_NOUN_PHRASE";
+     
+     
+     public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
+     
 
-    public static final String PERSON_ACTIVITY = "PERSON_ACTIVITY";
-
+    
     //public static final String WHAT_PERSON_THING = "WHAT_PERSON_THING";
     //public static final String WHO_PERSON_THING = "WHO_PERSON_THING";
+
     public static final String Adjunct = "adjunct";
     public static final String determiner = "determiner";
     public static final String question = "question";
@@ -150,18 +153,18 @@ public interface TempConstants {
     public static final String backward = "backward";
     public static final String preposition = "preposition";
     public static final String Apostrophe = "Apostrophe";
-    public static final String particleLocation = "particleLocation";
+    public static final String particleLocation="particleLocation";
     public static final String adjunct = "adjunct";
     public static final String QuestionMark = "?";
     public static final String component_be = "component_be";
-    public static final String component_do = "component_do";
+    public static final String component_do ="component_do";
     public static final String component_se = "component_se";
     public static final String component_es = "component_es";
     public static final String component_ha = "component_ha";
     public static final String component_estado = "component_estado";
     public static final String component_esta = "component_esta";
-    public static final String copulativeSubject = "copulativeSubject";
-
+    public static final String copulativeSubject="copulativeSubject";
+    
     public static final String component_aux_object_past = "component_aux_object_past";
     public static final String componentVerb = "componentVerb";
 
@@ -172,30 +175,32 @@ public interface TempConstants {
 
     public static String superlativeCountry = "superlativeCountry";
     public static String superlativePerson = "superlativePerson";
-    public static String superlativeLocation = "superlativeLocation";
-    public static String superlativeTeamPlayer = "superlativeTeamPlayer";
+    public static String superlativeLocation="superlativeLocation";
+    public static String superlativeTeamPlayer="superlativeTeamPlayer";
 
     public static String superlativeWorld = "superlativeWorld";
-    public static String attributiveSimple = "attributiveSimple";
-    public static String adjectiveBaseForm = "adjectiveBaseForm";
-    public static String predicateAdjectiveBaseForm = "predicateAdjectiveBaseForm";
-    public static String comperative = "comperative";
+    public static String attributiveSimple="attributiveSimple";
+    public static String adjectiveBaseForm="adjectiveBaseForm";
+    public static String predicateAdjectiveBaseForm="predicateAdjectiveBaseForm";
+    public static String comperative="comperative";
     public static String degree = "degree";
-
-    public static String past_imperfect = "past_imperfect";
-    public static String past_indefinite = "past_indefinite";
-
+    
+    public static String past_imperfect="past_imperfect";
+    public static String past_indefinite="past_indefinite";
+    
     public static String interrogativePronounPerson = "interrogativePronounPerson";
     public static String interrogativePronounThing = "interrogativePronounThing";
     public static String interrogativePronoun = "interrogativePronoun";
     public static String interrogativeDeterminer = "interrogativeDeterminer";
-    public static String interrogativePronounThingPlural = "interrogativePronounThingPlural";
+    public static String interrogativePronounThingPlural="interrogativePronounThingPlural";
     public Map<String, String> SYNTACTIC_FRAME = Stream.of(
-            new AbstractMap.SimpleEntry<String, String>(FrameType.NPP.name(), "NounPPFrame"),
+            new AbstractMap.SimpleEntry<String, String>(FrameType.NPP.name(), "NounPPFrame"), 
             new AbstractMap.SimpleEntry<String, String>(FrameType.VP.name(), "TransitiveFrame"),
             new AbstractMap.SimpleEntry<String, String>(FrameType.IPP.name(), "InTransitivePPFrame"),
             //new AbstractMap.SimpleEntry<String, String>(FrameType.AA.name(), "AdjectivePredicativeFrame"),
             new AbstractMap.SimpleEntry<String, String>(FrameType.AG.name(), "AdjectiveSuperlativeFrame"))
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    
+
+
 }
+  

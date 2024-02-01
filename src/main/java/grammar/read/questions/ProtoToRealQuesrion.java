@@ -43,7 +43,7 @@ import static util.io.BashScript.FIND_IMAGE_LINK;
 import static util.io.BashScript.FIND_WIKI_LINK;
 import util.io.FileFolderUtils;
 import util.io.InputCofiguration;
-import util.io.JsonSerializer;
+import util.io.JsonWriter;
 import util.io.OffLineResult;
 import util.io.Statistics;
 import util.io.StringMatcher;
@@ -128,7 +128,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
         Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles);
         GrammarEntriesLex grammarEntriesLex=new GrammarEntriesLex(lexicalEntiryUris);
         //NounPPFrame 
-        JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + "TransitiveFrame.json");       
+        JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + "TransitiveFrame.json");       
         
         this.findCoverage(this.propertyDir,lexicalEntiryUris,propertyDir + "TransitiveFrame"+"missedProperty.txt");
         
@@ -689,7 +689,7 @@ public class ProtoToRealQuesrion implements ReadWriteConstants {
              Map<String, List<GrammarEntryUnit>> lexicalEntiryUris = GrammarEntryUnit.getLexicalEntries(protoSimpleQFiles,frameType);
              GrammarEntriesLex grammarEntriesLex = new GrammarEntriesLex(lexicalEntiryUris);
              //NounPPFrame 
-             JsonSerializer.writeClassToJson(grammarEntriesLex, propertyDir + syntaktikFrame+".json");
+             JsonWriter.writeClassToJson(grammarEntriesLex, propertyDir + syntaktikFrame+".json");
 
              this.findCoverage(this.propertyDir, lexicalEntiryUris, propertyDir + syntaktikFrame + "MissedProperty.txt");
          }

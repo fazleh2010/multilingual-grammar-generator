@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_OBJECT;
 import static grammar.read.questions.ReadWriteConstants.RETURN_TYPE_SUBJECT;
-import grammar.structure.component.FrameType;
 import grammar.structure.component.GrammarEntry;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,23 +78,6 @@ public class GrammarDisplay {
                     grammarEntry.getBindingSparql(),grammarEntry.getSparqlQuery(),
                     grammarEntry.getSentenceTemplate(), grammarEntry.getFrameType().getName(),grammarEntry.getReturnVariable()));
 
-        }
-
-    }
-    
-    public GrammarDisplay(Boolean genericFlag,Integer id, String lex, List<GrammarEntry> grammarEntries,boolean flag) {
-        this.id = id;
-        this.Entry = lex;
-        Integer index = 0;
-
-        for (GrammarEntry grammarEntry : grammarEntries) {
-            index = index + 1;
-            String bindingType = null;
-            if (index == 1) {
-                syntacticFrame = grammarEntry.getFrameType().getName();
-            }
-            rules.add(new GrammarRule(genericFlag,grammarEntry.getFrameType(), 
-                     index.toString(),grammarEntry.getSentenceTemplate(), grammarEntry.getSentences()));
         }
 
     }
