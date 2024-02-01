@@ -35,21 +35,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Album von (X).", "Gib mir das Album von (X).", "Gib mir die Album von (X).", "Liste alle Album von (X) auf.", "Liste alle Album von (X).", "Liste d Album von (X) auf.", "welche (Y) sind d Album von (X)?", "welche (Y) waren d Album von (X)?", "welcher (Y) ist d Album von (X)?", "welcher (Y) war d Album von (X)?", "wer ist das Album (X)?", "wer ist das Album von (X)?", "wer sind d Album (X)?", "wer sind d Album von (X)?", "wer war das Album (X)?", "wer war das Album von (X)?", "wer waren d Album (X)?", "wer waren d Album von (X)?" ],
+      "sentences" : [ "Gib mir alle Album von (X).", "Gib mir das Album von (X).", "Gib mir die Album von (X).", "Liste alle Album von (X) auf.", "Liste alle Album von (X).", "Liste d Album von (X) auf.", "welche (Y) sind das Album von (X)?", "welche (Y) waren das Album von (X)?", "welcher (Y) ist das Album von (X)?", "welcher (Y) war das Album von (X)?", "wer ist das Album (X)?", "wer ist das Album von (X)?", "wer sind d Album (X)?", "wer sind d Album von (X)?", "wer war das Album (X)?", "wer war das Album von (X)?", "wer waren d Album (X)?", "wer waren d Album von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/writer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/writer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Album von (X).", "sind (X) d Album von (X)." ],
+      "sentences" : [ "ist (X) das Album von (X).", "sind (X) d Album von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Work> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/property/writer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Album von (X)" ],
+      "sentences" : [ "das Album von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/writer> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/writer> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -116,7 +116,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo fängt (X) an", "Wo ist (X)", "in welchem (Y) fängt (X) an", "in welchem (Y) ist (X) angefangen" ],
+      "sentences" : [ "Wo fängt (X) an", "Wo ist (X)", "in welcher (Y) fängt (X) an", "in welcher (Y) ist (X) angefangen" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/routeStart> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/routeStart> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -170,7 +170,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo hört (X) auf", "Wo ist (X)", "in welchem (Y) hört (X) auf", "in welchem (Y) hörte (X) auf", "in welchem (Y) ist (X) aufgehört" ],
+      "sentences" : [ "Wo hört (X) auf", "Wo ist (X)", "in welcher (Y) hört (X) auf", "in welcher (Y) hörte (X) auf", "in welcher (Y) ist (X) aufgehört" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/routeEnd> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/routeEnd> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -197,7 +197,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo stellt (X) aus", "in welchem (Y) ist (X) ausgestellt", "in welchem (Y) stellt (X) aus", "in welchem (Y) stellte (X) aus" ],
+      "sentences" : [ "Wo ist (X)", "Wo stellt (X) aus", "in welcher (Y) ist (X) ausgestellt", "in welcher (Y) stellt (X) aus", "in welcher (Y) stellte (X) aus" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/museum> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/museum> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -333,7 +333,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "in welchem (Y) befindet (X)", "in welchem (Y) ist (X)", "in welchem (Y) ist (X) befunden", "in welchen (Y) befinden (X)", "in welchen (Y) sind (X) befunden" ],
+      "sentences" : [ "in welchen (Y) befinden (X)", "in welchen (Y) sind (X) befunden", "in welcher (Y) befindet (X)", "in welcher (Y) ist (X)", "in welcher (Y) ist (X) befunden" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/country> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/country> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -360,21 +360,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Brettspiele von (X).", "Gib mir das Brettspiel von (X).", "Gib mir die Brettspiele von (X).", "Liste alle Brettspiele von (X) auf.", "Liste alle Brettspiele von (X).", "Liste d Brettspiele von (X) auf.", "was ist das Brettspiel (X)?", "was ist das Brettspiel von (X)?", "was sind d Brettspiele (X)?", "was sind d Brettspiele von (X)?", "was war das Brettspiel (X)?", "was war das Brettspiel von (X)?", "was waren d Brettspiele (X)?", "was waren d Brettspiele von (X)?", "welche (Y) sind d Brettspiel von (X)?", "welche (Y) waren d Brettspiel von (X)?", "welcher (Y) ist d Brettspiel von (X)?", "welcher (Y) war d Brettspiel von (X)?" ],
+      "sentences" : [ "Gib mir alle Brettspiele von (X).", "Gib mir das Brettspiel von (X).", "Gib mir die Brettspiele von (X).", "Liste alle Brettspiele von (X) auf.", "Liste alle Brettspiele von (X).", "Liste d Brettspiele von (X) auf.", "was ist das Brettspiel (X)?", "was ist das Brettspiel von (X)?", "was sind d Brettspiele (X)?", "was sind d Brettspiele von (X)?", "was war das Brettspiel (X)?", "was war das Brettspiel von (X)?", "was waren d Brettspiele (X)?", "was waren d Brettspiele von (X)?", "welche (Y) sind das Brettspiel von (X)?", "welche (Y) waren das Brettspiel von (X)?", "welcher (Y) ist das Brettspiel von (X)?", "welcher (Y) war das Brettspiel von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Brettspiel von (X).", "sind (X) d Brettspiele von (X)." ],
+      "sentences" : [ "ist (X) das Brettspiel von (X).", "sind (X) d Brettspiele von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Agent> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Work> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Brettspiel von (X)" ],
+      "sentences" : [ "das Brettspiel von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -766,14 +766,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo entspringt (X)", "Wo ist (X)", "in welchem (Y) entspringt (X)", "in welchem (Y) ist (X) entsprungen", "in welchen (Y) entspringen (X)", "in welchen (Y) sind (X) entsprungen" ],
+      "sentences" : [ "Wo entspringt (X)", "Wo ist (X)", "in welchen (Y) entspringen (X)", "in welchen (Y) sind (X) entsprungen", "in welcher (Y) entspringt (X)", "in welcher (Y) ist (X) entsprungen" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/mouthLocation> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/mouthLocation> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was entspringt (X)", "in welchem (Y) wird (X) entsprungen", "in welchen (Y) werden (X) entsprungen", "was entspringen in (X)", "welche (Y) entspringen in (X)", "welcher (Y) entspringt in (X)" ],
+      "sentences" : [ "in was entspringt (X)", "in welchen (Y) werden (X) entsprungen", "in welcher (Y) wird (X) entsprungen", "was entspringen in (X)", "welche (Y) entspringen in (X)", "welcher (Y) entspringt in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/mouthLocation> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/mouthLocation> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -847,21 +847,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind d Spiel von (X)?", "welche (Y) waren d Spiel von (X)?", "welcher (Y) ist d Spiel von (X)?", "welcher (Y) war d Spiel von (X)?" ],
+      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind das Spiel von (X)?", "welche (Y) waren das Spiel von (X)?", "welcher (Y) ist das Spiel von (X)?", "welcher (Y) war das Spiel von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/date> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/date> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Spiel von (X).", "sind (X) d Spiele von (X)." ],
+      "sentences" : [ "ist (X) das Spiel von (X).", "sind (X) d Spiele von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Event> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/date> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/property/date> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Spiel von (X)" ],
+      "sentences" : [ "das Spiel von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/date> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/date> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1009,7 +1009,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) geboren", "in welchem (Y) gebärt (X)", "in welchem (Y) ist (X) geboren" ],
+      "sentences" : [ "Wo wurde (X) geboren", "in welcher (Y) gebärt (X)", "in welcher (Y) ist (X) geboren" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1036,7 +1036,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) geboren", "in welchem (Y) gebärt (X)", "in welchem (Y) ist (X) geboren" ],
+      "sentences" : [ "Wo wurde (X) geboren", "in welcher (Y) gebärt (X)", "in welcher (Y) ist (X) geboren" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1063,7 +1063,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) geboren", "in welchem (Y) gebärt (X)", "in welchem (Y) ist (X) geboren" ],
+      "sentences" : [ "Wo wurde (X) geboren", "in welcher (Y) gebärt (X)", "in welcher (Y) ist (X) geboren" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1090,7 +1090,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) geboren", "in welchem (Y) gebärt (X)", "in welchem (Y) ist (X) geboren" ],
+      "sentences" : [ "Wo wurde (X) geboren", "in welcher (Y) gebärt (X)", "in welcher (Y) ist (X) geboren" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1117,7 +1117,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) geboren", "in welchem (Y) gebärt (X)", "in welchem (Y) ist (X) geboren" ],
+      "sentences" : [ "Wo wurde (X) geboren", "in welcher (Y) gebärt (X)", "in welcher (Y) ist (X) geboren" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/birthPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/birthPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1360,7 +1360,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) gestorben", "in welchem (Y) ist (X) gestorben", "in welchem (Y) stirbt (X)" ],
+      "sentences" : [ "Wo wurde (X) gestorben", "in welcher (Y) ist (X) gestorben", "in welcher (Y) stirbt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/deathPlace> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/deathPlace> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1529,7 +1529,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "superlativeLocation",
-      "sentences" : [ "was ist die größte  in (X)" ],
+      "sentences" : [ "was ist das größte  in (X)" ],
       "nonTerminal-X" : "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Stadium> . ?subjOfProp <http://dbpedia.org/ontology/location> ?VARIABLE . ?subjOfProp <http://dbpedia.org/ontology/seatingCapacity> ?num . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ORDER BY DESC(?num) LIMIT 1"
@@ -1556,21 +1556,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Gruendungsdaten von (X).", "Gib mir das Gruendungsdatum von (X).", "Gib mir die Gruendungsdaten von (X).", "Liste alle Gruendungsdaten von (X) auf.", "Liste alle Gruendungsdaten von (X).", "Liste d Gruendungsdaten von (X) auf.", "was ist das Gruendungsdatum (X)?", "was ist das Gruendungsdatum von (X)?", "was sind d Gruendungsdaten (X)?", "was sind d Gruendungsdaten von (X)?", "was war das Gruendungsdatum (X)?", "was war das Gruendungsdatum von (X)?", "was waren d Gruendungsdaten (X)?", "was waren d Gruendungsdaten von (X)?", "welche (Y) sind d Gruendungsdatum von (X)?", "welche (Y) waren d Gruendungsdatum von (X)?", "welcher (Y) ist d Gruendungsdatum von (X)?", "welcher (Y) war d Gruendungsdatum von (X)?" ],
+      "sentences" : [ "Gib mir alle Gruendungsdaten von (X).", "Gib mir das Gruendungsdatum von (X).", "Gib mir die Gruendungsdaten von (X).", "Liste alle Gruendungsdaten von (X) auf.", "Liste alle Gruendungsdaten von (X).", "Liste d Gruendungsdaten von (X) auf.", "was ist das Gruendungsdatum (X)?", "was ist das Gruendungsdatum von (X)?", "was sind d Gruendungsdaten (X)?", "was sind d Gruendungsdaten von (X)?", "was war das Gruendungsdatum (X)?", "was war das Gruendungsdatum von (X)?", "was waren d Gruendungsdaten (X)?", "was waren d Gruendungsdaten von (X)?", "welche (Y) sind das Gruendungsdatum von (X)?", "welche (Y) waren das Gruendungsdatum von (X)?", "welcher (Y) ist das Gruendungsdatum von (X)?", "welcher (Y) war das Gruendungsdatum von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/foundingDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Gruendungsdatum von (X).", "sind (X) d Gruendungsdaten von (X)." ],
+      "sentences" : [ "ist (X) das Gruendungsdatum von (X).", "sind (X) d Gruendungsdaten von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Organisation> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/date> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Gruendungsdatum von (X)" ],
+      "sentences" : [ "das Gruendungsdatum von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/foundingDate> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/foundingDate> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1637,21 +1637,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle HeimStadien von (X).", "Gib mir das HeimStadion von (X).", "Gib mir die HeimStadien von (X).", "Liste alle HeimStadien von (X) auf.", "Liste alle HeimStadien von (X).", "Liste d HeimStadien von (X) auf.", "was ist das HeimStadion (X)?", "was ist das HeimStadion von (X)?", "was sind d HeimStadien (X)?", "was sind d HeimStadien von (X)?", "was war das HeimStadion (X)?", "was war das HeimStadion von (X)?", "was waren d HeimStadien (X)?", "was waren d HeimStadien von (X)?", "welche (Y) sind d HeimStadion von (X)?", "welche (Y) waren d HeimStadion von (X)?", "welcher (Y) ist d HeimStadion von (X)?", "welcher (Y) war d HeimStadion von (X)?" ],
+      "sentences" : [ "Gib mir alle HeimStadien von (X).", "Gib mir das HeimStadion von (X).", "Gib mir die HeimStadien von (X).", "Liste alle HeimStadien von (X) auf.", "Liste alle HeimStadien von (X).", "Liste d HeimStadien von (X) auf.", "was ist das HeimStadion (X)?", "was ist das HeimStadion von (X)?", "was sind d HeimStadien (X)?", "was sind d HeimStadien von (X)?", "was war das HeimStadion (X)?", "was war das HeimStadion von (X)?", "was waren d HeimStadien (X)?", "was waren d HeimStadien von (X)?", "welche (Y) sind das HeimStadion von (X)?", "welche (Y) waren das HeimStadion von (X)?", "welcher (Y) ist das HeimStadion von (X)?", "welcher (Y) war das HeimStadion von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/ground> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/ground> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d HeimStadion von (X).", "sind (X) d HeimStadien von (X)." ],
+      "sentences" : [ "ist (X) das HeimStadion von (X).", "sind (X) d HeimStadien von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/SportsClub> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Stadium> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/ground> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d HeimStadion von (X)" ],
+      "sentences" : [ "das HeimStadion von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/ground> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/ground> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -1691,7 +1691,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "superlativeCountry",
-      "sentences" : [ "was ist die höchste  in (X)" ],
+      "sentences" : [ "was ist das höchste  in (X)" ],
       "nonTerminal-X" : "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> . ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?VARIABLE . ?subjOfProp <http://dbpedia.org/ontology/elevation> ?num . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ORDER BY DESC(?num) LIMIT 1"
@@ -1718,7 +1718,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "superlativeCountry",
-      "sentences" : [ "was ist die höchste  in (X)" ],
+      "sentences" : [ "was ist das höchste  in (X)" ],
       "nonTerminal-X" : "SELECT ?subjOfProp WHERE {  ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT DISTINCT ?subjOfProp WHERE { ?subjOfProp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Colombo_Lighthouse> . ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?VARIABLE . ?subjOfProp <http://dbpedia.org/ontology/height> ?num . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ORDER BY DESC(?num) LIMIT 1"
@@ -1988,7 +1988,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "in welchem (Y) ist (X)", "in welchem (Y) ist (X) gelegen", "in welchem (Y) liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen" ],
+      "sentences" : [ "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen", "in welcher (Y) ist (X)", "in welcher (Y) ist (X) gelegen", "in welcher (Y) liegt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/country> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/country> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2015,14 +2015,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo liegt (X)", "in welchem (Y) ist (X) gelegen", "in welchem (Y) liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen" ],
+      "sentences" : [ "Wo ist (X)", "Wo liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen", "in welcher (Y) ist (X) gelegen", "in welcher (Y) liegt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/location> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/location> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was liegt (X)", "in welchem (Y) wird (X) gelegen", "in welchen (Y) werden (X) gelegen", "was liegen in (X)", "welche (Y) liegen in (X)", "welcher (Y) liegt in (X)" ],
+      "sentences" : [ "in was liegt (X)", "in welchen (Y) werden (X) gelegen", "in welcher (Y) wird (X) gelegen", "was liegen in (X)", "welche (Y) liegen in (X)", "welcher (Y) liegt in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/location> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/location> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2042,14 +2042,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo liegt (X)", "in welchem (Y) ist (X) gelegen", "in welchem (Y) liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen" ],
+      "sentences" : [ "Wo ist (X)", "Wo liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen", "in welcher (Y) ist (X) gelegen", "in welcher (Y) liegt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/location> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/location> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was liegt (X)", "in welchem (Y) wird (X) gelegen", "in welchen (Y) werden (X) gelegen", "was liegen in (X)", "welche (Y) liegen in (X)", "welcher (Y) liegt in (X)" ],
+      "sentences" : [ "in was liegt (X)", "in welchen (Y) werden (X) gelegen", "in welcher (Y) wird (X) gelegen", "was liegen in (X)", "welche (Y) liegen in (X)", "welcher (Y) liegt in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/property/location> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/property/location> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2069,7 +2069,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "in welchem (Y) ist (X)", "in welchem (Y) ist (X) gelegen", "in welchem (Y) liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen" ],
+      "sentences" : [ "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen", "in welcher (Y) ist (X)", "in welcher (Y) ist (X) gelegen", "in welcher (Y) liegt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/country> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/country> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2096,7 +2096,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "in welchem (Y) ist (X)", "in welchem (Y) ist (X) gelegen", "in welchem (Y) liegt (X)", "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen" ],
+      "sentences" : [ "in welchen (Y) liegen (X)", "in welchen (Y) sind (X) gelegen", "in welcher (Y) ist (X)", "in welcher (Y) ist (X) gelegen", "in welcher (Y) liegt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/locatedInArea> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/locatedInArea> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2528,14 +2528,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo schreibt (X)", "in welchem (Y) ist (X) geschrieben", "in welchem (Y) schreibt (X)", "in welchen (Y) schreiben (X)", "in welchen (Y) sind (X) geschrieben" ],
+      "sentences" : [ "Wo ist (X)", "Wo schreibt (X)", "in welchen (Y) schreiben (X)", "in welchen (Y) sind (X) geschrieben", "in welcher (Y) ist (X) geschrieben", "in welcher (Y) schreibt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/programmingLanguage> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/programmingLanguage> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was schreibt (X)", "in welchem (Y) wird (X) geschrieben", "in welchen (Y) werden (X) geschrieben", "was schreiben in (X)", "welche (Y) schreiben in (X)", "welcher (Y) schreibt in (X)" ],
+      "sentences" : [ "in was schreibt (X)", "in welchen (Y) werden (X) geschrieben", "in welcher (Y) wird (X) geschrieben", "was schreiben in (X)", "welche (Y) schreiben in (X)", "welcher (Y) schreibt in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/programmingLanguage> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/programmingLanguage> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2677,21 +2677,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind d Spiel von (X)?", "welche (Y) waren d Spiel von (X)?", "welcher (Y) ist d Spiel von (X)?", "welcher (Y) war d Spiel von (X)?" ],
+      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind das Spiel von (X)?", "welche (Y) waren das Spiel von (X)?", "welcher (Y) ist das Spiel von (X)?", "welcher (Y) war das Spiel von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Spiel von (X).", "sind (X) d Spiele von (X)." ],
+      "sentences" : [ "ist (X) das Spiel von (X).", "sind (X) d Spiele von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Agent> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Work> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Spiel von (X)" ],
+      "sentences" : [ "das Spiel von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2704,21 +2704,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind d Spiel von (X)?", "welche (Y) waren d Spiel von (X)?", "welcher (Y) ist d Spiel von (X)?", "welcher (Y) war d Spiel von (X)?" ],
+      "sentences" : [ "Gib mir alle Spiele von (X).", "Gib mir das Spiel von (X).", "Gib mir die Spiele von (X).", "Liste alle Spiele von (X) auf.", "Liste alle Spiele von (X).", "Liste d Spiele von (X) auf.", "was ist das Spiel (X)?", "was ist das Spiel von (X)?", "was sind d Spiele (X)?", "was sind d Spiele von (X)?", "was war das Spiel (X)?", "was war das Spiel von (X)?", "was waren d Spiele (X)?", "was waren d Spiele von (X)?", "welche (Y) sind das Spiel von (X)?", "welche (Y) waren das Spiel von (X)?", "welcher (Y) ist das Spiel von (X)?", "welcher (Y) war das Spiel von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Spiel von (X).", "sind (X) d Spiele von (X)." ],
+      "sentences" : [ "ist (X) das Spiel von (X).", "sind (X) d Spiele von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Publisher> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Spiel von (X)" ],
+      "sentences" : [ "das Spiel von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -2758,14 +2758,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo spricht (X)", "in welchem (Y) ist (X) gesprochen", "in welchem (Y) spricht (X)", "in welchen (Y) sind (X) gesprochen", "in welchen (Y) sprechen (X)" ],
+      "sentences" : [ "Wo ist (X)", "Wo spricht (X)", "in welchen (Y) sind (X) gesprochen", "in welchen (Y) sprechen (X)", "in welcher (Y) ist (X) gesprochen", "in welcher (Y) spricht (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/language> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/language> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was spricht (X)", "in welchem (Y) wird (X) gesprochen", "in welchen (Y) werden (X) gesprochen", "was sprechen in (X)", "welche (Y) sprechen in (X)", "welcher (Y) spricht in (X)" ],
+      "sentences" : [ "in was spricht (X)", "in welchen (Y) werden (X) gesprochen", "in welcher (Y) wird (X) gesprochen", "was sprechen in (X)", "welche (Y) sprechen in (X)", "welcher (Y) spricht in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/language> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/language> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -4055,21 +4055,21 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Gib mir alle Videospiele von (X).", "Gib mir das Videospiel von (X).", "Gib mir die Videospiele von (X).", "Liste alle Videospiele von (X) auf.", "Liste alle Videospiele von (X).", "Liste d Videospiele von (X) auf.", "was ist das Videospiel (X)?", "was ist das Videospiel von (X)?", "was sind d Videospiele (X)?", "was sind d Videospiele von (X)?", "was war das Videospiel (X)?", "was war das Videospiel von (X)?", "was waren d Videospiele (X)?", "was waren d Videospiele von (X)?", "welche (Y) sind d Videospiel von (X)?", "welche (Y) waren d Videospiel von (X)?", "welcher (Y) ist d Videospiel von (X)?", "welcher (Y) war d Videospiel von (X)?" ],
+      "sentences" : [ "Gib mir alle Videospiele von (X).", "Gib mir das Videospiel von (X).", "Gib mir die Videospiele von (X).", "Liste alle Videospiele von (X) auf.", "Liste alle Videospiele von (X).", "Liste d Videospiele von (X) auf.", "was ist das Videospiel (X)?", "was ist das Videospiel von (X)?", "was sind d Videospiele (X)?", "was sind d Videospiele von (X)?", "was war das Videospiel (X)?", "was war das Videospiel von (X)?", "was waren d Videospiele (X)?", "was waren d Videospiele von (X)?", "welche (Y) sind das Videospiel von (X)?", "welche (Y) waren das Videospiel von (X)?", "welcher (Y) ist das Videospiel von (X)?", "welcher (Y) war das Videospiel von (X)?" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "booleanQuestion",
-      "sentences" : [ "ist (X) d Videospiel von (X).", "sind (X) d Videospiele von (X)." ],
+      "sentences" : [ "ist (X) das Videospiel von (X).", "sind (X) d Videospiele von (X)." ],
       "nonTerminal-X" : "[SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} , SELECT ?label WHERE {?Answer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/VideoGame> . ?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label} ]",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "ASK WHERE {?subjOfProp <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "3",
       "sentTemplate" : "nounPhrase",
-      "sentences" : [ "d Videospiel von (X)" ],
+      "sentences" : [ "das Videospiel von (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/publisher> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/publisher> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -4163,14 +4163,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo wächst (X)", "in welchem (Y) ist (X) gewachsen", "in welchem (Y) wächst (X)", "in welchen (Y) sind (X) gewachsen", "in welchen (Y) wachsen (X)", "welchem (Y) wächst in (X)", "welchen (Y) wachsen in (X)" ],
+      "sentences" : [ "Wo ist (X)", "Wo wächst (X)", "in welchen (Y) sind (X) gewachsen", "in welchen (Y) wachsen (X)", "in welcher (Y) ist (X) gewachsen", "in welcher (Y) wächst (X)", "welchen (Y) wachsen in (X)", "welcher (Y) wächst in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/growingGrape> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_2",
-      "sentences" : [ "in was wächst (X)", "in welchem (Y) wird (X) gewachsen", "in welchen (Y) werden (X) gewachsen", "was wachsen in (X)", "welche (Y) wachsen in (X)", "welcher (Y) wächst in (X)" ],
+      "sentences" : [ "in was wächst (X)", "in welchen (Y) werden (X) gewachsen", "in welcher (Y) wird (X) gewachsen", "was wachsen in (X)", "welche (Y) wachsen in (X)", "welcher (Y) wächst in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/growingGrape> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/growingGrape> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -4190,14 +4190,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo wächst (X)", "in welchem (Y) ist (X) gewachsen", "in welchem (Y) wächst (X)", "in welchen (Y) sind (X) gewachsen", "in welchen (Y) wachsen (X)" ],
+      "sentences" : [ "Wo ist (X)", "Wo wächst (X)", "in welchen (Y) sind (X) gewachsen", "in welchen (Y) wachsen (X)", "in welcher (Y) ist (X) gewachsen", "in welcher (Y) wächst (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/wineRegion> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/wineRegion> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was wächst (X)", "in welchem (Y) wird (X) gewachsen", "in welchen (Y) werden (X) gewachsen", "was wachsen in (X)", "welche (Y) wachsen in (X)", "welcher (Y) wächst in (X)" ],
+      "sentences" : [ "in was wächst (X)", "in welchen (Y) werden (X) gewachsen", "in welcher (Y) wird (X) gewachsen", "was wachsen in (X)", "welche (Y) wachsen in (X)", "welcher (Y) wächst in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/wineRegion> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/wineRegion> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -4251,7 +4251,7 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo wurde (X) gewohnt", "in welchem (Y) ist (X) gewohnt", "in welchem (Y) wohnt (X)" ],
+      "sentences" : [ "Wo wurde (X) gewohnt", "in welcher (Y) ist (X) gewohnt", "in welcher (Y) wohnt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/residence> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/residence> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
@@ -4386,14 +4386,14 @@
     "rules" : [ {
       "grammarRuleNo" : "1",
       "sentTemplate" : "forward",
-      "sentences" : [ "Wo ist (X)", "Wo überspannt (X)", "in welchem (Y) ist (X) überspannt", "in welchem (Y) überspannt (X)", "in welchen (Y) sind (X) überspannt", "in welchen (Y) überspannen (X)" ],
+      "sentences" : [ "Wo ist (X)", "Wo überspannt (X)", "in welchen (Y) sind (X) überspannt", "in welchen (Y) überspannen (X)", "in welcher (Y) ist (X) überspannt", "in welcher (Y) überspannt (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/crosses> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/crosses> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
     }, {
       "grammarRuleNo" : "2",
       "sentTemplate" : "WHAT_WHICH_PRESENT_THING_1",
-      "sentences" : [ "in was überspannt (X)", "in welchem (Y) wird (X) überspannt", "in welchen (Y) werden (X) überspannt", "was überspannen in (X)", "welche (Y) überspannen in (X)", "welcher (Y) überspannt in (X)" ],
+      "sentences" : [ "in was überspannt (X)", "in welchen (Y) werden (X) überspannt", "in welcher (Y) wird (X) überspannt", "was überspannen in (X)", "welche (Y) überspannen in (X)", "welcher (Y) überspannt in (X)" ],
       "nonTerminal-X" : "SELECT ?label WHERE { ?subjOfProp <http://dbpedia.org/ontology/crosses> ?Answer .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
       "nonTerminal-Y" : "([A-Za-z0-9_-]*)",
       "question" : "SELECT ?label WHERE { ?Answer <http://dbpedia.org/ontology/crosses> ?objOfProp .?Answer <http://www.w3.org/2000/01/rdf-schema#label> ?label}"
