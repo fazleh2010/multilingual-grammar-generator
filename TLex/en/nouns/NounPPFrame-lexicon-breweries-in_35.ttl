@@ -1,0 +1,64 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :breweries-in_35 ;
+  lemon:entry    :breweries-in_35_form_preposition .
+
+:breweries-in_35 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :breweries-in_35_form ;
+  lemon:otherForm  :breweries-in_35_singular ;
+  lemon:otherForm  :breweries-in_35_plural ;
+  lemon:sense          :breweries-in_35_sense_1 ;
+  lemon:sense          :breweries-in_35_sense_2 ;
+  lemon:synBehavior    :breweries-in_35_nounpp .
+
+:breweries-in_35_form a lemon:Form ;
+  lemon:writtenRep "brewery"@en .
+
+:breweries-in_35_singular a    lemon:Form ;
+  lemon:writtenRep "brewery"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:breweries-in_35_plural a   lemon:Form ;
+  lemon:writtenRep "breweries"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:breweries-in_35_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_breweries-in_35 ;
+  lexinfo:prepositionalAdjunct :arg2_breweries-in_35 .
+
+:breweries-in_35_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :breweries-in_35_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/location> ;
+  lemon:subjOfProp          :arg2_breweries-in_35 ;
+  lemon:objOfProp           :arg1_breweries-in_35 ;
+  lemon:condition           :breweries-in_35_sense_1_condition .
+
+:breweries-in_35_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:breweries-in_35_sense_2 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :breweries-in_35_sense_2 ;
+  lemon:reference           <http://dbpedia.org/ontology/location> ;
+  lemon:subjOfProp          :arg2_breweries-in_35 ;
+  lemon:objOfProp           :arg1_breweries-in_35 ;
+  lemon:condition           :breweries-in_35_sense_2_condition .
+
+:breweries-in_35_sense_2_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Place> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Place> .
+
+:arg2_breweries-in_35 lemon:marker :breweries-in_35_form_preposition .
+## Prepositions ##
+:breweries-in_35_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

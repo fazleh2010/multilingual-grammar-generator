@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :leaderName-of ;
+  lemon:entry    :leaderName-of_form_preposition .
+
+:leaderName-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :leaderName-of_form ;
+  lemon:otherForm  :leaderName-of_singular ;
+  lemon:otherForm  :leaderName-of_plural ;
+  lemon:sense          :leaderName-of_sense_1 ;
+  lemon:synBehavior    :leaderName-of_nounpp .
+
+:leaderName-of_form a lemon:Form ;
+  lemon:writtenRep "nombre del líder"@es .
+
+:leaderName-of_singular a    lemon:Form ;
+  lemon:writtenRep "nombre del líder"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:leaderName-of_plural a   lemon:Form ;
+  lemon:writtenRep "nombres de los líderes"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:leaderName-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:leaderName-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :leaderName-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/leaderName> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :leaderName-of_sense_1_condition .
+
+:leaderName-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :leaderName-of_form_preposition .
+## Prepositions ##
+:leaderName-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

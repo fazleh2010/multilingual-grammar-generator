@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :foundation_series_of_149 ;
+  lemon:entry    :foundation_series_of_149_form_preposition .
+
+:foundation_series_of_149 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :foundation_series_of_149_form ;
+  lemon:otherForm  :foundation_series_of_149_singular ;
+  lemon:otherForm  :foundation_series_of_149_plural ;
+  lemon:sense          :foundation_series_of_149_sense_1 ;
+  lemon:synBehavior    :foundation_series_of_149_nounpp .
+
+:foundation_series_of_149_form a lemon:Form ;
+  lemon:writtenRep "foundation series"@en .
+
+:foundation_series_of_149_singular a    lemon:Form ;
+  lemon:writtenRep "foundation series"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:foundation_series_of_149_plural a   lemon:Form ;
+  lemon:writtenRep "foundation series"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:foundation_series_of_149_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_foundation_series_of_149 ;
+  lexinfo:prepositionalAdjunct :arg2_foundation_series_of_149 .
+
+:foundation_series_of_149_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :foundation_series_of_149_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/series> ;
+  lemon:subjOfProp          :arg2_foundation_series_of_149 ;
+  lemon:objOfProp           :arg1_foundation_series_of_149 ;
+  lemon:condition           :foundation_series_of_149_sense_1_condition .
+
+:foundation_series_of_149_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/TelevisionShow> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2_foundation_series_of_149 lemon:marker :foundation_series_of_149_form_preposition .
+## Prepositions ##
+:foundation_series_of_149_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :numberOfStaff ;
+  lemon:entry    :numberOfStaff_form_preposition .
+
+:numberOfStaff a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :numberOfStaff_form ;
+  lemon:otherForm  :numberOfStaff_singular ;
+  lemon:otherForm  :numberOfStaff_plural ;
+  lemon:sense          :numberOfStaff_sense_1 ;
+  lemon:synBehavior    :numberOfStaff_nounpp .
+
+:numberOfStaff_form a lemon:Form ;
+  lemon:writtenRep "numero di dipendenti"@it .
+
+:numberOfStaff_singular a    lemon:Form ;
+  lemon:writtenRep "numero di dipendenti"@it ;
+  lexinfo:number   lexinfo:singular .
+
+:numberOfStaff_plural a   lemon:Form ;
+  lemon:writtenRep "partiti"@it ;
+  lexinfo:number    lexinfo:plural .
+
+:numberOfStaff_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:numberOfStaff_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :numberOfStaff_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/staff> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :numberOfStaff_sense_1_condition .
+
+:numberOfStaff_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Organisation> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:arg2 lemon:marker :numberOfStaff_form_preposition .
+## Prepositions ##
+:numberOfStaff_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "di"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -50,7 +50,7 @@ public class SentenceBuilderAllFrame implements SentenceBuilder, TempConstants {
     private final LexicalEntryUtil lexicalEntryUtil;
     private TemplateFinder templateFinder = null;
     private String sentenceTemplate=null;
-    private  Boolean genericFlag = true;
+    private  Boolean genericFlag = false;
 
 
     public SentenceBuilderAllFrame(

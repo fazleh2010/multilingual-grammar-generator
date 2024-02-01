@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :albanian_206_sense_1_res ;
+  lemon:entry    :albanian_206 .
+
+:albanian_206 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :albanian_206_lemma ;
+  lemon:sense          :albanian_206_sense_1 ;
+  lemon:synBehavior    :albanian_206_attrFrame, :albanian_206_predFrame .
+
+:albanian_206_lemma lemon:writtenRep "albanian"@en .
+
+:albanian_206_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :albanian_206_PredSynArg .
+
+:albanian_206_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :albanian_206_AttrSynArg .
+
+:albanian_206_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :albanian_206_sense_1_res ;
+  lemon:isA       :albanian_206_AttrSynArg, :albanian_206_PredSynArg .
+
+:albanian_206_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Albania> .

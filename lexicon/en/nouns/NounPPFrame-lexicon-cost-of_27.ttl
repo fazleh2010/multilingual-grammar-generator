@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :cost-of_27 ;
+  lemon:entry    :cost-of_27_form_preposition .
+
+:cost-of_27 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :cost-of_27_form ;
+  lemon:otherForm  :cost-of_27_singular ;
+  lemon:otherForm  :cost-of_27_plural ;
+  lemon:sense          :cost-of_27_sense_1 ;
+  lemon:synBehavior    :cost-of_27_nounpp .
+
+:cost-of_27_form a lemon:Form ;
+  lemon:writtenRep "cost"@en .
+
+:cost-of_27_singular a    lemon:Form ;
+  lemon:writtenRep "cost"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:cost-of_27_plural a   lemon:Form ;
+  lemon:writtenRep "costs"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:cost-of_27_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_cost-of_27 ;
+  lexinfo:prepositionalAdjunct :arg2_cost-of_27 .
+
+:cost-of_27_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :cost-of_27_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/budget> ;
+  lemon:subjOfProp          :arg2_cost-of_27 ;
+  lemon:objOfProp           :arg1_cost-of_27 ;
+  lemon:condition           :cost-of_27_sense_1_condition .
+
+:cost-of_27_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2_cost-of_27 lemon:marker :cost-of_27_form_preposition .
+## Prepositions ##
+:cost-of_27_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

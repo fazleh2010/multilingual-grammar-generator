@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 99,What is the time zone of Salt Lake City?,1,0,0,1,1,1
 98,Who killed Caesar?,0,0,0,0,0,0
 86,What is the highest mountain in Germany?,1,0,0,1,1,1
@@ -150,4 +150,4 @@ ID,sentence,TP,FP,FN,Precision,Recall,Fscore
 43,Give me the websites of companies with more than 500000 employees.,0,0,37,0,0,0
 179,What were the names of the three ships by Columbus?,0,0,0,0,0,0
 ,,625,7,3625,0.988924,0.14705883,0.25604263
-,,,,,0.24,0.2358013,0.23693568
+,,,,Macro,0.24,0.2358013,0.23693568

@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_play_3_375 ;
+  lemon:entry    :play_3_375ed ;
+  lemon:entry    :form_play_3_375_preposition .
+
+:to_play_3_375 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_play_3_375 ;
+  lemon:otherForm      :form_play_3_375s ;
+  lemon:otherForm      :form_play_3_375ed ;
+  lemon:otherForm      :form_play_3_375perfect ;
+  lemon:sense          :play_3_375_sense_1 ;
+  lemon:synBehavior    :play_3_375_frame_transitive .
+
+:form_play_3_375 a         lemon:Form ;
+  lemon:writtenRep     "play"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_play_3_375s a    lemon:Form ;
+  lemon:writtenRep "playes"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_play_3_375ed a   lemon:Form ;
+  lemon:writtenRep "played"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_play_3_375perfect a   lemon:Form ;
+  lemon:writtenRep "played"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:play_3_375_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :play_3_375_subj ;
+  lexinfo:directObject     :play_3_375_obj .
+
+:play_3_375_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :play_3_375_sense_1 ;
+  lemon:reference   <http://dbpedia.org/ontology/starring> ;
+  lemon:subjOfProp  :play_3_375_obj ;
+  lemon:objOfProp   :play_3_375_subj ;
+  lemon:condition   :play_3_375_sense_1_condition .
+
+
+:play_3_375_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <http://dbpedia.org/ontology/Film> ;
+  lemon:propertyRange  <http://dbpedia.org/ontology/Person> .
+
+
+:play_3_375_obj lemon:marker :form_play_3_375_preposition .
+
+## Prepositions ##
+:form_play_3_375_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

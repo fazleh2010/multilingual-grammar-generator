@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "it" ;
+  lemon:entry    :ingredients ;
+  lemon:entry    :ingredients_form_preposition .
+
+:ingredients a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :ingredients_form ;
+  lemon:otherForm  :ingredients_singular ;
+  lemon:otherForm  :ingredients_plural ;
+  lemon:sense          :ingredients_sense_1 ;
+  lemon:synBehavior    :ingredients_nounpp .
+
+:ingredients_form a lemon:Form ;
+  lemon:writtenRep "-"@it .
+
+:ingredients_singular a    lemon:Form ;
+  lemon:writtenRep "-"@it ;
+  lexinfo:number   lexinfo:singular .
+
+:ingredients_plural a   lemon:Form ;
+  lemon:writtenRep "ingredienti"@it ;
+  lexinfo:number    lexinfo:plural .
+
+:ingredients_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:ingredients_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :ingredients_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/Ingredient> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :ingredients_sense_1_condition .
+
+:ingredients_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Food> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:arg2 lemon:marker :ingredients_form_preposition .
+## Prepositions ##
+:ingredients_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "di"@it ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

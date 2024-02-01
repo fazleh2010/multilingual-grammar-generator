@@ -45,7 +45,7 @@ public class QueGG {
     private static String grammar_FULL_DATASET = "grammar_FULL_DATASET";
     private static String grammar_COMBINATIONS = "grammar_COMBINATIONS";
     private static Boolean online = false;
-    private static Boolean genericFlag = true;
+    private static Boolean genericFlag = false;
 
 
 
@@ -79,10 +79,10 @@ public class QueGG {
                  System.err.printf("Too few parameters (%s/%s)", args.length);
                 throw new IllegalArgumentException(String.format("Too few parameters (%s/%s)", args.length));
             } else if (args.length == 2) {
-                //configFile = args[0];
-                //dataSetConfFile= args[1];
-                configFile ="inputConf_en.json";
-                dataSetConfFile="dataset/dbpedia_en.json";
+                configFile = args[0];
+                dataSetConfFile= args[1];
+                //configFile ="inputConf_en.json";
+                //dataSetConfFile="dataset/dbpedia_en.json";
                 InputCofiguration inputCof = FileProcessUtils.getInputConfig(new File(configFile));
                 inputCof.setLinkedData(dataSetConfFile);                
                 online=inputCof.getOnline();

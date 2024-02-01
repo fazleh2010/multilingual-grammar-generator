@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :country-of ;
+  lemon:entry    :country-of_form_preposition .
+
+:country-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :country-of_form ;
+  lemon:otherForm  :country-of_singular ;
+  lemon:otherForm  :country-of_plural ;
+  lemon:sense          :country-of_sense_1 ;
+  lemon:synBehavior    :country-of_nounpp .
+
+:country-of_form a lemon:Form ;
+  lemon:writtenRep "país"@es .
+
+:country-of_singular a    lemon:Form ;
+  lemon:writtenRep "país"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:country-of_plural a   lemon:Form ;
+  lemon:writtenRep "países"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:country-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:country-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :country-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/Country> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :country-of_sense_1_condition .
+
+:country-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/City> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2 lemon:marker :country-of_form_preposition .
+## Prepositions ##
+:country-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
