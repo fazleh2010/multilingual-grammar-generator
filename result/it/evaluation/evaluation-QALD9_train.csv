@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 1,Elenco tutti giochi da tavolo di GMT. ,8,0,0,1,1,1
 2,Chi sviluppato Skype? ,2,0,0,1,1,1
 3,Quale persone erano Nato in Candia? ,57,0,0,1,1,1
@@ -408,4 +408,4 @@ ID,sentence,TP,FP,FN,Precision,Recall,Fscore
 412,Dammi tutti gli attori che hanno recitato in Last Action Hero.,10,0,0,1,1,1
 413,Chi scoprì Plutone?,1,0,0,1,1,1
 ,,6862,806,5991,0.89488786,0.53388315,0.66877836
-,,,,,0.45637557,0.46332282,0.4554028
+,,,,Macro,0.45637557,0.46332282,0.4554028

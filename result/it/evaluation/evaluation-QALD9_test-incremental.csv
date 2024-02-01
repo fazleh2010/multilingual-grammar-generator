@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 99,In quale fuso orario si trova Salt Lake City?,1,0,0,1,1,1
 98,Chi uccise Giulio Cesare?,0,0,0,0,0,0
 86,Che cosa è il massimo montagna in Germania? ,1,0,0,1,1,1

@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 99,In quale fuso orario si trova Salt Lake City?,1,0,0,1,1,1
 98,Chi uccise Giulio Cesare?,0,0,0,0,0,0
 86,Che cosa è il massimo montagna in Germania? ,1,0,0,1,1,1
@@ -150,4 +150,4 @@ ID,sentence,TP,FP,FN,Precision,Recall,Fscore
 43,Dammi tutti i siti internet di aziende con più di 500000 dipendenti.,0,0,37,0,0,0
 179,Quali furono i nomi delle tre navi utilizzate da Colombo?,0,0,0,0,0,0
 ,,599,7,3651,0.98844886,0.14094117,0.24670511
-,,,,,0.21333334,0.20913462,0.21026902
+,,,,Macro,0.21333334,0.20913462,0.21026902

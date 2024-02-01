@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 99,¿En qué zona horaria se encuentra Salt Lake City?,1,0,0,1,1,1
 98,¿Quién mató a César?,0,0,0,0,0,0
 86,Qué es el más alto montaña en ¿Alemania? ,1,0,0,1,1,1
@@ -150,4 +150,4 @@ ID,sentence,TP,FP,FN,Precision,Recall,Fscore
 43,Dame todas las páginas de Web de empresas con más de 500000 empleados.,0,0,37,0,0,0
 179,¿Cuáles fueron los nombres de las tres naves utilizadas por Colón?,0,0,0,0,0,0
 ,,585,7,3665,0.9881757,0.13764706,0.2416357
-,,,,,0.2,0.19580129,0.19693568
+,,,,Macro,0.2,0.19580129,0.19693568

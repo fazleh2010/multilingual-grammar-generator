@@ -1,4 +1,4 @@
-ID,sentence,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,TP,FP,FN,Precision,Recall,Fscore
 1,Lista todas juegos de mesa por GMT. ,8,0,0,1,1,1
 2,Quien desarrollado Skype? ,2,0,0,1,1,1
 3,Cual gente fueron nacido en Heraklion? ,0,0,57,0,0,0
@@ -408,4 +408,4 @@ ID,sentence,TP,FP,FN,Precision,Recall,Fscore
 412,Dame todos los actores que hayan actuado en Last Action Hero.,10,0,0,1,1,1
 413,,0,0,1,0,0,0
 ,,6690,698,6163,0.90552247,0.5205011,0.6610346
-,,,,,0.43186578,0.438813,0.43089297
+,,,,Macro,0.43186578,0.438813,0.43089297

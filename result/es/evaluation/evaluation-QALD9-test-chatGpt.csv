@@ -1,4 +1,4 @@
-ID,sentence,sparqlQueGG,sparqlQald,TP,FP,FN,Precision,Recall,Fscore
+QALD_ID,QALD_Question,QALD_SPARQL,ChatGPT_SPARQL,TP,FP,FN,Precision,Recall,Fscore
 99,¿En qué zona horaria se encuentra Salt Lake City?,PREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { res:Salt_Lake_City <http://dbpedia.org/ontology/timeZone> ?uri },"SELECT ?timezone
 WHERE {
   dbpedia:Salt_Lake_City dbpedia-owl:utcOffset ?offset .
@@ -1049,4 +1049,4 @@ ORDER BY DESC(?empleados)",0,0,37,0,0,0
   FILTER (LANG(?nombre) = 'es')
 } LIMIT 3",0,0,0,0,0,0
 ,,,,187,27,4063,0.87383175,0.044,0.08378136
-,,,,,,,0.046666667,0.046624474,0.0466455
+,,,,,,Macro,0.046666667,0.046624474,0.0466455
