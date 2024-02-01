@@ -16,7 +16,7 @@ This command-line tool is designed for automatic grammar generation.
 <p>The source code can be compiled and run using <em>Java 11</em> and <em>Maven</em>.</p>
 
 ```shell script
-git clone https://github.com/fazleh2010/question-grammar-generator.git 
+git clone https://github.com/fazleh2010/multilingual-grammar-generator.git 
 ```
 build the jar file
 ```shell script
@@ -40,13 +40,10 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
   "inputDir" : "lexicon",
   "outputDir" : "output",
   "qaldDir" : "qald",
-  "numberOfEntities" : 10,
-  "similarityThresold" : 80.0,
   "csvToTurtle" : true,
   "turtleToProtoType" : true,
-  "protoTypeToQuestion" : true,
-  "evalution" : true
-}
+  "protoTypeToQuestion" : true
+ }
 
 ````
 linked_data_configuration_file: The file (dbpedia.json) contains the input configuration for linked data.
@@ -86,6 +83,17 @@ english and aifd
 java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/aifd.json 
                                  
 ````  
+
+The output can be seen the folder output/
+
+For English output/en/
+
+For German output/de/
+
+For Italian output/it/
+
+For Spanish output/es/
+
 
 ## Developers
 * **Mohammad Fazleh Elahi**
