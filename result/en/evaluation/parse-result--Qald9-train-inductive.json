@@ -1,11 +1,11 @@
 {
   "results" : [ {
     "Id" : "1",
-    "Status" : "NonParsed",
+    "Status" : "Parsed",
     "QaldSentence" : "List all boardgames by GMT",
     "QaldSparql" : "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?uri WHERE { ?uri dbo:publisher res:GMT_Games }",
-    "QueggRegularExpr" : [ ],
-    "QueggSparqls" : [ ]
+    "QueggRegularExpr" : ["list_all_boardgames_by_([a-za-z0-9_-]*)?" ],
+    "QueggSparqls" : [ "SELECT ?Answer WHERE { ?Answer <http://dbpedia.org/ontology/publisher> <http://dbpedia.org/resource/GMT_Games> }"]
   }, {
     "Id" : "2",
     "Status" : "Parsed",
