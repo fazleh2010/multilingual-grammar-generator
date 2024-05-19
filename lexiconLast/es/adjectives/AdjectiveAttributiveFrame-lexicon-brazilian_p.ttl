@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+   lemon:entry          :brazilian_p_sense_1_res ;
+  lemon:entry    :brazilian_p .
+
+:brazilian_p a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :brazilian_p_lemma ;
+  lemon:sense          :brazilian_p_sense_1 ;
+  lemon:synBehavior    :brazilian_p_attrFrame, :brazilian_p_predFrame .
+
+:brazilian_p_lemma lemon:writtenRep "brasiliani"@es .
+
+:brazilian_p_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :brazilian_p_PredSynArg .
+
+:brazilian_p_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :brazilian_p_AttrSynArg .
+
+:brazilian_p_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :brazilian_p_sense_1_res ;
+  lemon:isA       :brazilian_p_AttrSynArg, :brazilian_p_PredSynArg .
+
+:brazilian_p_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/nationality> ;
+  owl:hasValue   <http://dbpedia.org/resource/Brazil> .

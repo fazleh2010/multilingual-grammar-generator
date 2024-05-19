@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :colour-of ;
+  lemon:entry    :colour-of_form_preposition .
+
+:colour-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :colour-of_form ;
+  lemon:otherForm  :colour-of_singular ;
+  lemon:otherForm  :colour-of_plural ;
+  lemon:sense          :colour-of_sense_1 ;
+  lemon:synBehavior    :colour-of_nounpp .
+
+:colour-of_form a lemon:Form ;
+  lemon:writtenRep "color"@es .
+
+:colour-of_singular a    lemon:Form ;
+  lemon:writtenRep "color"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:colour-of_plural a   lemon:Form ;
+  lemon:writtenRep "colores"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:colour-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:colour-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :colour-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/colour> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :colour-of_sense_1_condition .
+
+:colour-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PoliticalParty> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Colour> .
+
+:arg2 lemon:marker :colour-of_form_preposition .
+## Prepositions ##
+:colour-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

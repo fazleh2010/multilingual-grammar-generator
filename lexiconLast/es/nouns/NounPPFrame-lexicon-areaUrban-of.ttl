@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :areaUrban-of ;
+  lemon:entry    :areaUrban-of_form_preposition .
+
+:areaUrban-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :areaUrban-of_form ;
+  lemon:otherForm  :areaUrban-of_singular ;
+  lemon:otherForm  :areaUrban-of_plural ;
+  lemon:sense          :areaUrban-of_sense_1 ;
+  lemon:synBehavior    :areaUrban-of_nounpp .
+
+:areaUrban-of_form a lemon:Form ;
+  lemon:writtenRep "área urbana"@es .
+
+:areaUrban-of_singular a    lemon:Form ;
+  lemon:writtenRep "área urbana"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:areaUrban-of_plural a   lemon:Form ;
+  lemon:writtenRep "áreas urbanas"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:areaUrban-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:areaUrban-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :areaUrban-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/areaUrban> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :areaUrban-of_sense_1_condition .
+
+:areaUrban-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/PopulatedPlace> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#double> .
+
+:arg2 lemon:marker :areaUrban-of_form_preposition .
+## Prepositions ##
+:areaUrban-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

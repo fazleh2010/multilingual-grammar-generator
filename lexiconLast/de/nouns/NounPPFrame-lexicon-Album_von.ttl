@@ -1,0 +1,75 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "de" ;
+  lemon:entry    :Album_von ;
+  lemon:entry    :Album_von_form_preposition .
+
+:Album_von a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :Album_von_form ;
+  lemon:otherForm      :Album_von_plural_form ;
+  lemon:otherForm      :Album_von_accusative_form ;
+  lemon:otherForm      :Album_von_dative_form ;
+  lemon:otherForm      :Album_von_genitive_form ;
+  lemon:otherForm      :Album_von_plural_form ;
+  lemon:sense          :Album_von_sense_1 ;
+  lemon:synBehavior    :Album_von_nounpp .
+
+:Album_von_form a lemon:Form ;
+  lemon:writtenRep "Album"@de ;
+  lexinfo:gender   lexinfo:neuter ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Album_von_plural_form a lemon:Form ;
+  lemon:writtenRep "Album"@de ;
+  lexinfo:gender   lexinfo:neuter ;
+  lexinfo:number   lexinfo:plural ;
+  lexinfo:case     lexinfo:nominativeCase .
+
+:Album_von_accusative_form a lemon:Form ;
+  lemon:writtenRep "Album"@de ;
+  lexinfo:gender   lexinfo:neuter ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:accusativeCase .
+
+:Album_von_dative_form a lemon:Form ;
+  lemon:writtenRep "Album"@de ;
+  lexinfo:gender   lexinfo:neuter ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:dativeCase .
+
+:Album_von_genitive_form a lemon:Form ;
+  lemon:writtenRep "Album"@de ;
+  lexinfo:gender   lexinfo:neuter ;
+  lexinfo:number   lexinfo:singular ;
+  lexinfo:case     lexinfo:genitiveCase .
+
+:Album_von_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:Album_von_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :Album_von_sense_1 ;
+  lemon:reference           <http://dbpedia.org/property/writer> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :Album_von_sense_1_condition .
+
+:Album_von_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Work> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/Person> .
+
+:arg2 lemon:marker :Album_von_form_preposition .
+
+## Prepositions ##
+
+:Album_von_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "von"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .

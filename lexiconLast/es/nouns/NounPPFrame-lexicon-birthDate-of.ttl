@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "es" ;
+  lemon:entry    :birthDate-of ;
+  lemon:entry    :birthDate-of_form_preposition .
+
+:birthDate-of a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :birthDate-of_form ;
+  lemon:otherForm  :birthDate-of_singular ;
+  lemon:otherForm  :birthDate-of_plural ;
+  lemon:sense          :birthDate-of_sense_1 ;
+  lemon:synBehavior    :birthDate-of_nounpp .
+
+:birthDate-of_form a lemon:Form ;
+  lemon:writtenRep "lugar de nacimiento"@es .
+
+:birthDate-of_singular a    lemon:Form ;
+  lemon:writtenRep "lugar de nacimiento"@es ;
+  lexinfo:number   lexinfo:singular .
+
+:birthDate-of_plural a   lemon:Form ;
+  lemon:writtenRep "lugares de nacimiento"@es ;
+  lexinfo:number    lexinfo:plural .
+
+:birthDate-of_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1 ;
+  lexinfo:prepositionalAdjunct :arg2 .
+
+:birthDate-of_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :birthDate-of_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/birthDate> ;
+  lemon:subjOfProp          :arg2 ;
+  lemon:objOfProp           :arg1 ;
+  lemon:condition           :birthDate-of_sense_1_condition .
+
+:birthDate-of_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Person> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2 lemon:marker :birthDate-of_form_preposition .
+## Prepositions ##
+:birthDate-of_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "de"@es ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

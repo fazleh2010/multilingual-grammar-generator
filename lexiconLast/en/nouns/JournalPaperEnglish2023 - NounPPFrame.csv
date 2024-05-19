@@ -1,0 +1,5 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,Dataset
+height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model/dbo:Tower/dbo:BasketballPlayer,xsd:double,Qald-7-training-dataset
+cost-of,noun,cost,costs,of,NounPPFrame,range,domain,1,dbo:budget,dbo:Film,xsd:double,Qald-7-training-dataset
+creator-of,noun,creator,creators,of,NounPPFrame,range,domain,1,dbo:creator,dbo:FictionalCharacter,dbo:Person,Qald-7-training-dataset
+population-of,noun,population,-,of,NounPPFrame,range,domain,1,dbo:populationTotal,dbo:PopulatedPlace,xsd:nonNegativeInteger,Qald-7-training-dataset
