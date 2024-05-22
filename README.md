@@ -1,4 +1,4 @@
-# Automatic Grammar Generation (QueGG-Generator)
+# Automatic Lexicon Creation
 
 This command-line tool is designed for automatic grammar generation.
 
