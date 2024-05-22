@@ -8,7 +8,7 @@ This command-line tool is designed for automatic grammar generation.
 <p>The source code can be compiled and run using <em>Java 11</em> and <em>Maven</em>.</p>
 
 ```shell script
-git clone https://github.com/fazleh2010/multilingual-grammar-generator.git 
+git clone https://github.com/fazleh2010/multilingual-grammar-generator.git -b lexicon-creation
 ```
 build the jar file
 ```shell script
@@ -18,8 +18,8 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
 - languageCode: `en` (English), `de` (German), `it` (Italian), and `es` (Spanish)
 - inputDir: The input directory that contains lexical entries (i.e., csv files). 
 - outputDir: The output directory for the grammar (Json files).
-- csvToTurtle: the indicator for generating lemon (turtle file) from csv files.
-- turtleToProtoType: the indicator for generating grammar from lemon.
+
+
 ````input configuration file
 {
   "languageCode" : "en",
