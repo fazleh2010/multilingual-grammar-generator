@@ -9,29 +9,21 @@ import linkeddata.LinkedData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import evaluation.Matcher;
-import grammar.read.questions.UriLabel;
-import static grammar.sparql.SparqlQuery.RETURN_TYPE_SUBJECT;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringReader;
-import static java.lang.System.exit;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -609,77 +601,7 @@ public class FileProcessUtils {
         return reverseHash;
     }
 
-    public static Set<String> getClassHash(String fileName) {
-        Set<String> results = new TreeSet<String>();
-        String line = "";
-        BufferedReader reader = null;
-        File file = new File(fileName);
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
-            line = reader.readLine();
-            while (line != null) {
-                line = reader.readLine();
-                line = Matcher.cleanLine(line);
-                results.add(line);
-            }
-            reader.close();
-        } catch (Exception ex) {
 
-        }
-        return results;
-
-    }
-
-    private static boolean match(Set<String> subjectClass, String subjectUri) throws MalformedURLException {
-        subjectUri=Matcher.cleanLine(Matcher.cleanUrl(subjectUri));
-        if(subjectClass.contains(subjectUri)){
-            return true;
-        }
-        return false;
-    }
-
-    public static Set<String> filetoSet(String fileName) {
-          Set<String> results = new TreeSet<String>();
-        String line = "";
-        BufferedReader reader = null;
-        File file = new File(fileName);
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
-            line = reader.readLine();
-            while (line != null) {
-                line = reader.readLine();
-                line = Matcher.cleanLine(line);
-                results.add(line);
-            }
-            reader.close();
-        } catch (Exception ex) {
-
-        }
-        return results;
-    }
-
-  
-    public static Set<String> getSetFromFile(String propertyFile) {
-        Set<String> results = new TreeSet<String>();
-
-        Path path = Paths.get(propertyFile);
-
-        try {
-            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-            for (String line : lines) {
-                if (line.contains("=")) {
-                    String[] info = line.split("=");
-                    String key = Matcher.cleanPrefix(info[0]);
-                    results.add(key);
-                }
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return results;
-    }
     
     public static <T> Set<T> findCommonElements(Set<T> common, Set<T> second) {
         common.retainAll(second);

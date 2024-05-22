@@ -5,7 +5,6 @@
  */
 package util.io;
 
-import grammar.read.questions.UriLabel;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
@@ -59,18 +58,6 @@ public class AddQuote {
         return property;
     }
 
-    public static boolean isKbValid(UriLabel uriLabel) {
-        if (uriLabel.getLabel() != null)
-            ; else {
-            return false;
-        }
-
-        String kb = uriLabel.getUri().replace("http://dbpedia.org/resource/", "");
-        if (excludes.contains(kb)) {
-            return false;
-        }
-
-        return true;
-    }
+   
 
 }

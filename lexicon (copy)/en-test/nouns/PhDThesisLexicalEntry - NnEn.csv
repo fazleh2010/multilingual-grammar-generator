@@ -1,3 +1,0 @@
-lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,QALD
-flyer_program_of,noun,flyer program,flyer program of,of,NounPPFrame,range,domain,1,dbp:frequentFlyer,dbo:Company,xsd:string,Qald9-test
-profession_of_2,noun,profession,professions,of,NounPPFrame,range,domain,1,dbp:occupation,dbo:Person,xsd:string,Qald9-test

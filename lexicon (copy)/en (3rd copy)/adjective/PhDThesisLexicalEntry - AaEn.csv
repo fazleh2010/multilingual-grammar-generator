@@ -1,7 +1,0 @@
-LemonEntry,partOfSpeech,writtenForm,SyntacticFrame,copulativeSubject,attributiveArg,sense,reference,owl:onProperty,owl:hasValue,domain,range,QALD
-Spanish_233,adjective,Spanish,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Argentinian,dbo:Film,dbo:Film,other
-Spanish_234,adjective,Spanish,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:nationality,res:Argentinian,dbo:Film,dbo:Film,other
-English_235,adjective,English,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:United_Kingdom,dbo:Film,dbo:Film,other
-English_236,adjective,English,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:nationality,res:United_Kingdom,dbo:Film,dbo:Film,other
-Irish_237,adjective,Irish,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Ireland,dbo:Film,dbo:Film,other
-Irish_238,adjective,Irish,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:nationality,res:Ireland,dbo:Film,dbo:Film,other

@@ -6,14 +6,8 @@
 package util.io;
 
 import com.google.gdata.util.common.base.Pair;
-import grammar.datasets.sentencetemplates.TempConstants;
-import grammar.sparql.SelectVariable;
-import static grammar.sparql.SelectVariable.reference;
-import grammar.structure.component.Language;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
+import turtle.EnglishCsv.TempConstants;
 
 /**
  *

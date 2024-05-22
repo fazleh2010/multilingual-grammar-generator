@@ -1,5 +1,0 @@
-LemonEntry,partOfSpeech,writtenFormInfinitive,writtenFormThridPerson,writtenFormPast,writtenFormPast,preposition,SyntacticFrame,subject,prepositionalAdjunct,sense,reference,domain,range,QALD
-produced_on_3,verb,produce,produced,produced,produced,in,IntransitivePPFrame,domain,range,1,dbo:assembly,dbo:Company,dbo:Country,Qald9-training
-produced_on_4,verb,produce,produced,produced,produced,in,IntransitivePPFrame,domain,range,1,dbo:assembly,dbo:Automobile,dbo:Company,Qald9-training
-flow_into_5,verb,flow,flows,flew,flew,into,IntransitivePPFrame,domain,range,1,dbp:launched,dbo:ArtificialSatellite,xsd:string,Qald9-test
-flow_into_6,verb,flow,flows,flew,flew,into,IntransitivePPFrame,domain,range,1,dbp:spacecraft,dbo:ArtificialSatellite,xsd:string,Qald9-test

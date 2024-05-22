@@ -6,17 +6,10 @@
 package turtle;
 
 import com.google.gdata.util.common.base.Pair;
-import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.structure.component.Language;
-import java.io.File;
-import java.io.IOException;
-import static java.lang.System.exit;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
 import linkeddata.LinkedData;
+import static turtle.EnglishCsv.TempConstants.*;
 
 /**
  *

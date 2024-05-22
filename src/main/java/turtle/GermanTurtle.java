@@ -7,11 +7,9 @@ package turtle;
 
 import turtle.TurtleCreation;
 import turtle.TutleConverter;
-import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.structure.component.Language;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +19,7 @@ import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import static turtle.EnglishCsv.TempConstants.*;
 import util.io.DomainRangeDictionary;
 import util.io.GenderUtils;
 import util.io.Property;
@@ -184,10 +183,10 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
         }
        
         this.turtleString
-                = GermanCsv.NounPPFrameCsv.getNounPPFrameHeader(this.lemonEntry, TempConstants.preposition, this.language)
+                = GermanCsv.NounPPFrameCsv.getNounPPFrameHeader(this.lemonEntry, preposition, this.language)
                 + GermanCsv.NounPPFrameCsv.getIndexing(this.lemonEntry, tupplesList)
                 + GermanCsv.NounPPFrameCsv.getWrittenFormAll(this.lemonEntry, this.gender, this.writtenFormInfinitive, this.writtenForm2, writtenForm4, this.writtenForm5, this.writtenForm6, this.language,copulativeArg)
-                + GermanCsv.getSenseDetail(tupplesList, TempConstants.NounPPFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
+                + GermanCsv.getSenseDetail(tupplesList, NounPPFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + GermanCsv.NounPPFrameCsv.getPreposition(this.lemonEntry, this.preposition, language);
         this.tutleFileName = getFileName(syntacticFrame);
     }
@@ -224,10 +223,10 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
 
         }
         this.turtleString
-                = transitiveFrameCsv.getHeader(this.lemonEntry, TempConstants.preposition, this.preposition, this.language)
+                = transitiveFrameCsv.getHeader(this.lemonEntry, preposition, this.preposition, this.language)
                 + transitiveFrameCsv.getSenseIndexing(tupples, lemonEntry)
                 + transitiveFrameCsv.getWritten(this.lemonEntry, this.writtenFormInfinitive, this.writtenForm3rdPerson, this.writtenFormPast, writtenFormPerfect,this.language,subject)
-                + GermanCsv.getSenseDetail(tupples, TempConstants.TransitiveFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
+                + GermanCsv.getSenseDetail(tupples, TransitiveFrame, this.lemonEntry, this.writtenFormInfinitive, this.preposition, this.language)
                 + transitiveFrameCsv.getPreposition(this.lemonEntry, this.preposition, this.language);
         this.tutleFileName = getFileName(syntacticFrame);
     }
@@ -262,10 +261,10 @@ public class GermanTurtle extends TurtleCreation implements TutleConverter {
 
         }
         this.turtleString
-                = intransitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, language)
+                = intransitiveFrameCsv.getHeader(lemonEntry, preposition, language)
                 + intransitiveFrameCsv.getSenseIndexing(tupplesList, this.lemonEntry)
                 + intransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, language,subject)
-                + GermanCsv.getSenseDetail(tupplesList, TempConstants.InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
+                + GermanCsv.getSenseDetail(tupplesList, InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
                 + intransitiveFrameCsv.getPreposition(this.lemonEntry, this.preposition, language);
         this.tutleFileName = getFileName(syntacticFrame);
     }

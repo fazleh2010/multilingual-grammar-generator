@@ -5,11 +5,9 @@
  */
 package turtle;
 
-import grammar.datasets.sentencetemplates.TempConstants;
 import grammar.structure.component.Language;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +17,7 @@ import java.util.logging.Level;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import static turtle.EnglishCsv.TempConstants.*;
 import util.io.DomainRangeDictionary;
 import util.io.Tupples;
 
@@ -200,17 +199,17 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(row[transitiveFrameCsv.domainIndex]),
                     this.setReference(row[transitiveFrameCsv.rangeIndex]));
 
-            transitiveFrameCsv.setArticle(tupple, this.gender, row);
+            transitiveFrameCsv.setArticle(tupple, gender, row);
             transitiveFrameCsv.setVerbInfo(partOfSpeech, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect);
             tupples.add(tupple);
             index = index + 1;
 
         }
         this.turtleString
-                = transitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, preposition, this.language)
+                = transitiveFrameCsv.getHeader(lemonEntry, preposition, preposition, this.language)
                 + transitiveFrameCsv.getSenseIndexing(tupples, lemonEntry)
                 + transitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, this.language, subject)
-                + SpanishCsv.getSenseDetail(tupples, TempConstants.TransitiveFrame, lemonEntry, writtenFormInfinitive, preposition, this.language)
+                + SpanishCsv.getSenseDetail(tupples, TransitiveFrame, lemonEntry, writtenFormInfinitive, preposition, this.language)
                 + transitiveFrameCsv.getPreposition(lemonEntry, preposition, this.language);
         this.tutleFileName = getFileName(lemonEntry,syntacticFrame);
     }
@@ -243,15 +242,15 @@ public class ItalianTurtle extends TurtleCreation implements TutleConverter {
                     this.setReference(row[SpanishCsv.InTransitFrameCsv.getRangeIndex()]));
             tupplesList.add(tupple);
             index = index + 1;
-            intransitiveFrameCsv.setNoun(tupple, this.gender, row);
+            intransitiveFrameCsv.setNoun(tupple, gender, row);
             intransitiveFrameCsv.setVerbInfo(partOfSpeech, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect);
 
         }
         this.turtleString
-                = intransitiveFrameCsv.getHeader(lemonEntry, TempConstants.preposition, language)
+                = intransitiveFrameCsv.getHeader(lemonEntry, preposition, language)
                 + intransitiveFrameCsv.getSenseIndexing(tupplesList, lemonEntry)
                 + intransitiveFrameCsv.getWritten(lemonEntry, writtenFormInfinitive, writtenForm3rdPerson, writtenFormPast, writtenFormPerfect, language,subject)
-                + SpanishCsv.getSenseDetail(tupplesList, TempConstants.InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
+                + SpanishCsv.getSenseDetail(tupplesList, InTransitivePPFrame, lemonEntry, writtenFormInfinitive, preposition, language)
                 + intransitiveFrameCsv.getPreposition(lemonEntry, preposition, language);
         this.tutleFileName = getFileName(lemonEntry,syntacticFrame);
     }

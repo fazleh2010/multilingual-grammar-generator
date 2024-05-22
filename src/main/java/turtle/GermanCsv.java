@@ -5,18 +5,11 @@
  */
 package turtle;
 
-import grammar.datasets.sentencetemplates.TempConstants;
-import static grammar.datasets.sentencetemplates.TempConstants.past;
-import static grammar.datasets.sentencetemplates.TempConstants.perfect;
-import static grammar.datasets.sentencetemplates.TempConstants.present;
-import static grammar.datasets.sentencetemplates.TempConstants.present3rd;
-import static java.lang.System.exit;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
-import static turtle.EnglishCsv.getSenseId;
+import static turtle.EnglishCsv.TempConstants.*;
 import util.io.GenderUtils;
-import static util.io.GenderUtils.referenceArticleMap;
 import util.io.Property;
 import util.io.Tupples;
 
@@ -909,7 +902,7 @@ public class GermanCsv {
 
     public static String getSenseDetail(List<Tupples> tupples, String syntacticFrame, String lemonEntry, String pastTense, String preposition, String language) {
         String str = "";
-        if (syntacticFrame.equals(TempConstants.TransitiveFrame)) {
+        if (syntacticFrame.equals(TransitiveFrame)) {
             str = "";
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a   lemon:OntoMap, lemon:LexicalSense ;\n"
@@ -960,7 +953,7 @@ public class GermanCsv {
                     + ":" + lemonEntry + "_obj lemon:marker :" + preposition + " .\n"
                     + "\n";
             str = str + intransitiveStr + prep;
-        } else if (syntacticFrame.equals(TempConstants.InTransitivePPFrame)) {
+        } else if (syntacticFrame.equals(InTransitivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a     lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping :" + lemonEntry + "_ontomap ;\n"
@@ -980,7 +973,7 @@ public class GermanCsv {
                     + "\n";
             str = str + prep;
 
-        } else if (syntacticFrame.equals(TempConstants.NounPPFrame)) {
+        } else if (syntacticFrame.equals(NounPPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a lemon:OntoMap, lemon:LexicalSense ;\n"
                         + "  lemon:ontoMapping         :" + tupple.getSenseId() + " ;\n"
@@ -995,7 +988,7 @@ public class GermanCsv {
                         + "\n";
                 str += line;
             }
-        } else if (syntacticFrame.equals(TempConstants.AdjectiveAttributiveFrame)) {
+        } else if (syntacticFrame.equals(AdjectiveAttributiveFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a  lemon:LexicalSense ;\n"
                         + "  lemon:reference :" + tupple.getSenseId() + "_res ;\n"
@@ -1006,7 +999,7 @@ public class GermanCsv {
                         + "  owl:hasValue   <" + tupple.getRange() + "> .\n";
                 str += line;
             }
-        } else if (syntacticFrame.equals(TempConstants.AdjectivePPFrame)) {
+        } else if (syntacticFrame.equals(AdjectivePPFrame)) {
             for (Tupples tupple : tupples) {
                 String line = ":" + tupple.getSenseId() + " a  lemon:LexicalSense ;\n"
                         + "  lemon:reference :" + tupple.getSenseId() + "_res ;\n"
@@ -1124,7 +1117,7 @@ public class GermanCsv {
                     + "\n";
 
             String predFrame
-                    = ":" + lemonEntry + "_predFrame" + " a        lexinfo:" + TempConstants.AdjectiveSuperlativeFrame + " ;\n"
+                    = ":" + lemonEntry + "_predFrame" + " a        lexinfo:" + AdjectiveSuperlativeFrame + " ;\n"
                     + "  lexinfo:copulativeSubject :" + lemonEntry + "_PredSynArg .\n"
                     + "\n";
 

@@ -5,31 +5,17 @@
  */
 package turtle;
 
-import static grammar.datasets.sentencetemplates.TempConstants.AdjectiveAttributiveFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.NounPPFrame;
-import static grammar.datasets.sentencetemplates.TempConstants.TransitiveFrame;
 import grammar.structure.component.Language;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.exit;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.logging.Level;
-import java.util.stream.Stream;
 import util.io.CsvFile;
 import util.io.FileProcessUtils;
 import linkeddata.LinkedData;
+import static turtle.EnglishCsv.TempConstants.*;
 import util.io.DomainRangeDictionary;
-import util.io.GenderUtils;
-import static util.io.GenderUtils.nounWrittenForms;
-import util.io.Property;
 import util.io.Tupples;
-import static grammar.datasets.sentencetemplates.TempConstants.InTransitivePPFrame;
 
 /**
  *

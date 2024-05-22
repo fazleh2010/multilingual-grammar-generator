@@ -1,3 +1,0 @@
-LemonEntry,partOfSpeech,writtenForm,SyntacticFrame,copulativeSubject,attributiveArg,sense,reference,owl:onProperty,owl:hasValue,domain,range,QALD,,,,,,,,,,,,,
-extinct,adjective,extinct,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:conservationStatus,"""EX""",dbo:Animal,xsd:string,Qald9-test,,,,,,,,,,,,,
-critically endangered,adjective,critically endangered,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:conservationStatus,"""CR""",dbo:Animal,xsd:string,Qald9-test,,,,,,,,,,,,,
