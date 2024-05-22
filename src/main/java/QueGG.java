@@ -69,7 +69,7 @@ public class QueGG {
 
 
 
-    /*public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
@@ -83,9 +83,9 @@ public class QueGG {
            System.out.println("completed gramar generation completed!!!!"+languageDB[0]);
         }
 
-    }*/
+    }
     
-     public static void main(String[] args) throws Exception {
+     public static void runGrammarGeneration(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;   
@@ -105,10 +105,15 @@ public class QueGG {
                 externalEntittyListflag=inputCof.getExternalEntittyList();
           
                 if (inputCof.isCsvToTurtle()) {
-                    if (queGG.csvToProto(inputCof)) {
-                        queGG.turtleToProto(inputCof);
-                        System.out.println("successfully converted csv files to turtle file!!");
-                    }
+                    queGG.csvToProto(inputCof);
+                    //queGG.turtleToProto(inputCof);
+                    System.out.println("successfully converted csv files to turtle file!!");
+
+
+                    //if (queGG.csvToProto(inputCof)) {
+                        //queGG.turtleToProto(inputCof);
+                        //System.out.println("successfully converted csv files to turtle file!!");
+                    //}
                 }
                 if (inputCof.getTurtleToProtoType()) {
                     queGG.turtleToProto(inputCof);

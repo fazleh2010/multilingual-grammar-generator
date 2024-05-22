@@ -1,0 +1,22 @@
+LemonEntry,partOfSpeech,writtenFormInfinitive,writtenFormThridPerson,writtenFormPast,writtenFormPast,preposition,SyntacticFrame,subject,prepositionalAdjunct,sense,reference,domain,range,QALD
+born_on,verb,born,-,born,born,on,IntransitivePPFrame,domain,range,1,dbo:birthDate,dbo:President,xsd:gYear,Qald9-test
+located_in,verb,locate,locates,located,located,in,IntransitivePPFrame,domain,range,1,dbo:location,dbo:Organisation,dbo:Place,Qald9-test
+born_in,verb,born,-,born,born,in,IntransitivePPFrame,domain,range,1,dbo:birthPlace,dbo:Swimmer,dbo:City,Qald9-test
+die,verb,die,dies,died,died,-,IntransitivePPFrame,domain,range,1,dbp:deathCause,dbo:Person,dbo:Disease,Qald9-test
+belong_to,verb,belong,belongs,belonged,belonged,to,IntransitivePPFrame,domain,range,1,dbp:taxon,dbo:Animal,xsd:string,Qald9-test
+play_in,verb,play,plays,played,played,in,IntransitivePPFrame,domain,range,1,dbo:starring,dbo:Film,dbo:Person,Qald9-test
+starring_in,verb,starr,starring,starred,starred,in,IntransitivePPFrame,domain,range,1,dbo:birthPlace,dbo:Swimmer,dbo:City,Qald9-test
+die,verb,die,dies,died,died,in,IntransitivePPFrame,domain,range,1,dbo:deathDate,dbo:Person,xsd:date,Qald9-test
+speak_in,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:spokenIn,dbo:Language,dbo:Place,Qald9-test
+going_to_be,verb,-,-,-,-,-,IntransitivePPFrame,domain,range,1,dbo:releaseDate,dbo:Work,xsd:date,Qald9-test
+speak_in,verb,speak,speaks,spoken,spoken,in,IntransitivePPFrame,domain,range,1,dbo:language,dbo:Work,dbo:Language,Qald9-test
+flow_into,verb,flow,flows,flew,flew,into,IntransitivePPFrame,domain,range,1,dbo:riverMouth,dbo:BodyOfWater,dbo:River,Qald9-test
+died_at,verb,die,dies,died,died,at,IntransitivePPFrame,domain,range,1,dbo:deathPlace,dbo:Person,dbo:Place,Qald9-test
+start_in,verb,start,starts,started,started,in,IntransitivePPFrame,domain,range,1,dbo:routeStart,dbo:Road,dbo:Road,Qald9-test
+founded_in,verb,found,founded,founded,founded,in,IntransitivePPFrame,domain,range,1,dbo:foundingYear,dbo:Organisation,xsd:gYear,Qald9-test
+take_place_in,verb,take place,takes place,took place,took place,in,IntransitivePPFrame,domain,range,1,dbp:date,dbo:MilitaryConflict,xsd:date,Qald9-test
+established_in,verb,establish,establishes,established,established,in,IntransitivePPFrame,domain,range,1,dbp:established,dbo:Agent,xsd:gYear,Qald9-test
+belong_to,verb,belong,belongs,belonged,belonged,-,IntransitivePPFrame,domain,range,1,dbo:country,dbo:Mountain,dbo:Country,Qald9-test
+founded_in,verb,founded,founded,founded,founded,in,IntransitivePPFrame,domain,range,1,dbo:foundingYear,dbo:Organisation,xsd:gYear,Qald9-test
+founded_in,verb,founded,founded,founded,founded,in,IntransitivePPFrame,domain,range,1,dbp:founders,dbo:Company,dbo:Person,Qald9-test
+going_to_be_in,verb,going_to_be_in,-,-,-,in,IntransitivePPFrame,range,domain,1,dbo:releaseDate,dbo:Film,xsd:date,Qald9-test

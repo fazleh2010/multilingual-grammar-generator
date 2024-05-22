@@ -59,8 +59,21 @@ public class MatcherExample {
         return false;
 
     }
-    
-      public static void main(String[] args) throws Exception {
+
+    public static String replaceSpecial(String string) {
+        string = string.replace(" ", "");
+
+        if (string.contains("dct:")) {
+            string = string.replace("dct:", "http://purl.org/dc/terms/");
+        }
+        if (string.contains("dbc:")) {
+            string = string.replace("dbc:", "http://dbpedia.org/resource/Category:");
+        }
+
+        return string;
+    }
+
+    public static void main(String[] args) throws Exception {
         String question = "ist ($x | Person_NP) die Kind von ($x | Person_NP)?";
         //replaceQuestion(String question, String rangeLabel, String domainLabel);
         System.out.println("question:" + question);
@@ -68,6 +81,5 @@ public class MatcherExample {
         System.out.println("questionT:" + questionT);
 
     }
-
 
 }

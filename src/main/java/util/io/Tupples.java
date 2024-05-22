@@ -21,18 +21,18 @@ public class Tupples {
     public Tupples(String lemonEntry, Integer index,  String reference, String domain, String range) {
         this.senseId = lemonEntry + "_sense_" + index.toString();
         this.reference = reference.replace(" ", "");
-        this.domain = domain.replace(" ", "");
-        this.range = range.replace(" ", "");
+        this.domain = MatcherExample.replaceSpecial(domain);
+        this.range = MatcherExample.replaceSpecial(range);
 
     }
     
     public Tupples(String lemonEntry, Integer index, String reference, String domain, String range, String oils_boundTo, String oils_degree) {
         this.senseId = lemonEntry + "_sense_" + index.toString();
         this.reference = reference.replace(" ", "");
-        this.domain = domain.replace(" ", "");
-        this.range = range.replace(" ", "");
-        this.oils_boundTo = oils_boundTo.replace(" ", "");
-        this.oils_degree = oils_degree.replace(" ", "");
+        this.domain = MatcherExample.replaceSpecial(domain);
+        this.range = MatcherExample.replaceSpecial(range);
+        this.oils_boundTo = MatcherExample.replaceSpecial(oils_boundTo);
+        this.oils_degree = MatcherExample.replaceSpecial(oils_degree);
     }
 
     public String getSenseId() {
@@ -58,5 +58,7 @@ public class Tupples {
     public String getOils_degree() {
         return oils_degree;
     }
+
+   
 
 }

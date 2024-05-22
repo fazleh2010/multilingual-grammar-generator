@@ -1,0 +1,29 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,property,resource
+state_of_the_United_States_of_America,noun,State of the United States of America,State of the United States of America,NounPredicateFrame,range,domain,1,rdf:type,yago:WikicatStatesOfTheUnitedStates
+American_president,noun,American president,American presidents,NounPredicateFrame,range,domain,1,dct:subject,dbc:Presidents_of_the_United_States
+Japanese_musical_instrument,noun,Japanese musical instrument,Japanese musical instrument,NounPredicateFrame,range,domain,1,rdf:type,yago:WikicatJapaneseMusicalInstruments
+European_country,noun,European country,European countries,NounPredicateFrame,range,domain,1,dct:subject ,dbc:Countries_in_Europe
+professional_skateboarder,noun,professional skateboarder,professional skateboarders,NounPredicateFrame,domain,range,1,dbo:occupation ,res:Skateboarder
+critically_endangered_animals,noun,critically endangered animal,critically endangered animals,NounPredicateFrame,domain,range,1,dct:subject  ,dbc:Critically_endangered_animals
+monarch_of_the_United_Kingdom,noun,monarch of the United Kingdom,monarchs of the United Kingdom,NounPredicateFrame,domain,range,1,rdf:type ,yago:WikicatMonarchsOfTheUnitedKingdom
+US_state_3,noun,U.S. state,U.S. states,NounPredicateFrame,domain,range,1,dct:subject ,dbc:States_of_the_United_States
+computer_scientist,noun,computer scientist,computer scientists,NounPredicateFrame,domain,range,1,dbo:field,res:Computer_science
+professional_surfer,noun,professional surfer,professional surfers,NounPredicateFrame,domain,range,1,dbo:occupation,res:Surfer
+car,noun,car,cars,NounPredicateFrame,range,domain,1,rdf:type,dbo:Automobile
+poet,noun,poet,poets,NounPredicateFrame,range,domain,1,dbo:occupation,res:Poet
+gangster,noun,gangster,gangsters,NounPredicateFrame,domain,range,1,dbo:occupation,res:Gangster
+prohibition_era,noun,prohibition era,prohibition eras,NounPredicateFrame,domain,range,1,dct:subject,dbc:Prohibition-era_gangsters
+spacecraft_1,noun,spacecraft,spacecrafts,NounPredicateFrame,range,domain,1,rdf:type,dbo:Satellite
+spacecraft_2,noun,spacecraft,spacecrafts,NounPredicateFrame,range,domain,1,rdf:type,dbo:ArtificialSatellite
+space_probe_1,noun,space probe,space probes,NounPredicateFrame,range,domain,1,rdf:type,dbo:Satellite
+space_probe_2,noun,space probe,space probes,NounPredicateFrame,range,domain,1,rdf:type,dbo:ArtificialSatellite
+castle_in_the_United States,noun,castle in the United States,castles in the United States,NounPredicateFrame,domain,range,1,dct:subject,dbc:Castles_in_the_United_States
+American_president,noun,American president,American presidents,NounPredicateFrame,domain,range,1,dct:subject,dbc:Presidents_of_the_United_States
+chemical_elements,noun,chemical element,chemical elements,NounPredicateFrame,domain,range,1,dct:subject,dbc:Chemical_elements
+daughters_of_British_earls,noun,daughter of British earls,daughters of British earls,NounPredicateFrame,domain,range,1,dct:subject,yago:WikicatDaughtersOfBritishEarls
+critically_endangered_animal,noun,critically endangered animal,critically endangered animals,NounPredicateFrame,domain,range,1,dct:subject,dbc:Critically_endangered_animals
+Frisian_islands,noun,Frisian island,Frisian islands,NounPredicateFrame,range,domain,1,rdf:type,yago:WikicatFrisianIslands
+beer_brewing,noun,beer brewing,beer brewings,NounPredicateFrame,range,domain,1,rdf:type,dbo:Brewery
+state_1,noun,state,states,NounPredicateFrame,range,domain,1,rdf:type ,dbo:AdministrativeRegion
+state_2,noun,state,states,NounPredicateFrame,domain,range,1,dct:subject ,dbc:States_of_the_United_States
+critically_endangered_animal,noun,critically endangered animal,critically endangered animals,NounPredicateFrame,domain,range,1,dct:subject,dbc:Critically_endangered_animals

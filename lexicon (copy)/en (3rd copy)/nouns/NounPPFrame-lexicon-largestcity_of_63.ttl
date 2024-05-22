@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :largestcity_of_63 ;
+  lemon:entry    :largestcity_of_63_form_preposition .
+
+:largestcity_of_63 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :largestcity_of_63_form ;
+  lemon:otherForm  :largestcity_of_63_singular ;
+  lemon:otherForm  :largestcity_of_63_plural ;
+  lemon:sense          :largestcity_of_63_sense_1 ;
+  lemon:synBehavior    :largestcity_of_63_nounpp .
+
+:largestcity_of_63_form a lemon:Form ;
+  lemon:writtenRep "largest city"@en .
+
+:largestcity_of_63_singular a    lemon:Form ;
+  lemon:writtenRep "largest city"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:largestcity_of_63_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:largestcity_of_63_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_largestcity_of_63 ;
+  lexinfo:prepositionalAdjunct :arg2_largestcity_of_63 .
+
+:largestcity_of_63_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :largestcity_of_63_sense_1 ;
+  lemon:reference           <http://dbpedia.org/ontology/largestCity> ;
+  lemon:subjOfProp          :arg2_largestcity_of_63 ;
+  lemon:objOfProp           :arg1_largestcity_of_63 ;
+  lemon:condition           :largestcity_of_63_sense_1_condition .
+
+:largestcity_of_63_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <http://dbpedia.org/ontology/Country> ;
+  lemon:propertyRange   <http://dbpedia.org/ontology/City> .
+
+:arg2_largestcity_of_63 lemon:marker :largestcity_of_63_form_preposition .
+## Prepositions ##
+:largestcity_of_63_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

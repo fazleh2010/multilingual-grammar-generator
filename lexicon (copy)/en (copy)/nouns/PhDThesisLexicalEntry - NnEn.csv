@@ -1,0 +1,278 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,QALD
+height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model,xsd:double,Qald9-training
+creator-of,noun,creator,creators,of,NounPPFrame,range,domain,1,dbo:creator,dbo:FictionalCharacter,dbo:Person,Qald9-training
+population-of,noun,population,-,of,NounPPFrame,range,domain,1,dbo:populationTotal,dbo:PopulatedPlace,xsd:nonNegativeInteger,Qald9-training
+causeOfDeath_of,noun,cause of death,causes of death,of,NounPPFrame,range,domain,1,dbo:deathCause,dbo:Person,xsd:String,Qald9-training
+birthYear_of,noun,birth year,-,of,NounPPFrame,range,domain,1,dbo:birthYear,dbo:Person,xsd:gYear,Qald9-training
+ingredient_of,noun,ingredient,ingredients,of,NounPPFrame,range,domain,1,dbo:ingredient,dbo:Food,owl:Thing,Qald9-training
+dissolutionDate_of,noun,dissolution date,-,of,NounPPFrame,range,domain,1,dbo:dissolutionDate,dbo:AdministrativeRegion,xsd:date,Qald9-training
+firstSeason_of,noun,first season,-,of,NounPPFrame,range,domain,1,dbo:seasonNumber,dbo:TelevisionShow,xsd:nonNegativeInteger,Qald9-training
+number_of,noun,number of locations,-,of,NounPPFrame,range,domain,1,dbo:numberOfLocations,dbo:Company,xsd:nonNegativeInteger,Qald9-training
+deathDate-of,noun,death date,-,of,NounPPFrame,range,domain,1,dbo:deathDate,dbo:Person,xsd:date,Qald9-training
+recordLabel_of,noun,record label,record labels,of,NounPPFrame,range,domain,1,dbo:RecordLabel,dbo:Genre,xsd:string,Qald9-training
+completionDate-of,noun,completion date,-,of,NounPPFrame,range,domain,1,dbo:completionDate,dbo:Ship,xsd:date,Qald9-training
+numberOfPages-of,noun,number of pages,-,of,NounPPFrame,range,domain,1,dbo:numberOfPages,dbo:WrittenWork,xsd:positiveInteger,Qald9-training
+timeZone-of,noun,time zone,time zones,of,NounPPFrame,range,domain,1,dbo:timeZone,dbo:City,xsd:string,Qald9-training
+areaCode_of,noun,area code,-,of,NounPPFrame,range,domain,1,dbo:areaCode,dbo:City,xsd:string,Qald9-training
+nickname_of,noun,nickname,Fmayor,of,NounPPFrame,range,domain,1,dbp:nickname,dbo:City,xsd:string,Qald9-training
+party-of,noun,party,parties,of,NounPPFrame,range,domain,1,dbo:party,dbo:Politician,xsd:string,Qald9-training
+president-of,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:office,dbo:Person,xsd:string,Qald9-training
+elevation-of,noun,elevation,-,of,NounPPFrame,range,domain,1,dbo:elevation,dbo:Mountain,xsd:double,Qald9-training
+foundingYear_of,noun,founding year,-,of,NounPPFrame,range,domain,1,dbo:foundingYear,dbo:Company,xsd:gYear,Qald9-training
+restingPlace-of,noun,resting place,-,of,NounPPFrame,range,domain,1,dbo:restingPlace,dbo:Person,xsd:string,Qald9-training
+artisticMovement_of,noun,artistic movement,artistic movements,of,NounPPFrame,range,domain,1,dbo:movement,dbo:Artist,owl:Thing,Qald9-training
+music_by,noun,music,musics,by,NounPPFrame,domain,range,1,dbo:musicBy,dbo:Person,dbo:Musical,Qald9-training
+wife-of,noun,wife,wives,of,NounPPFrame,range,domain,1,dbo:spouse,dbo:Person,dbo:Person,Qald9-training
+host_of,noun,host,hosts,of,NounPPFrame,range,domain,1,dbo:presenter,dbo:TelevisionShow,dbo:Person,Qald9-training
+largest_country_in,noun,largest country,-,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Country,dbo:Country,Qald9-training
+mayor_of_1,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:mayor,dbo:City,dbo:Person,Qald9-training
+mayor_of_2,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbo:leaderName,dbo:City,dbo:Person,Qald9-training
+coach_of,noun,coach,coaches,of,NounPPFrame,range,domain,1,dbo:coach,dbo:IceHockeyLeague,dbo:Person,Qald9-training
+birthPlace_of,noun,birth place,-,of,NounPPFrame,range,domain,1,dbo:birthPlace,dbo:Person,dbo:Country,Qald9-training
+location-of_1,noun,location,-,of,NounPPFrame,range,domain,1,dbo:location,dbo:Place,dbo:Place,Qald9-training
+location-of_2,noun,location,-,of,NounPPFrame,range,domain,1,dbo:locatedInArea,dbo:Mountain,dbo:Country,Qald9-training
+officialLanguage-of,noun,official language,official languages,of,NounPPFrame,range,domain,1,dbo:officialLanguage,dbo:Country,dbo:Language,Qald9-training
+largestCity_of,noun,largest city,-,of,NounPPFrame,range,domain,1,dbo:largestCity,dbo:Country,dbo:City,Qald9-training
+programmingLanguage_of,noun,programming language,programming languages,of,NounPPFrame,range,domain,1,dbo:programmingLanguage,dbo:Work,dbo:Language,Qald9-training
+editor_of,noun,editor,editors,of,NounPPFrame,range,domain,1,dbo:editor,dbo:Work,dbo:Person,Qald9-training
+capital-of,noun,capital,-,of,NounPPFrame,range,domain,1,dbo:capital,dbo:Country,dbo:City,Qald9-training
+child_of,noun,child,children,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person,Qald9-training
+nationality_of,noun,nationality,-,of,NounPPFrame,range,domain,1,dbo:nationality,dbo:Person,dbo:Country,Qald9-training
+alterEgo-of,noun,alter ego,-,of,NounPPFrame,range,domain,1,dbp:alterEgo,dbo:ComicsCharacter,dbo:Person/xsd:string,Qald9-training
+formOfGovernment-of,noun,form of government,-,of,NounPPFrame,range,domain,1,dbo:governmentType,dbo:Country,dbo:Country,Qald9-training
+wine_region_of,noun,wine region,wine regions,of,NounPPFrame,range,domain,1,dbo:wineRegion,dbo:Grape,dbo:Place,Qald9-training
+loyalty,noun,loyalty,loyalties,X,NounPPFrame,range,domain,1,dbo:connotation,dbo:Loyalty,dbo:Color,Qald9-training
+Leader-of-1,noun,leader,leaders,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Legislature,dbo:Organisation/dbo:Royalty,Qald9-training
+vice_president_of,noun,vice president,vice president,of,NounPPFrame,range,domain,1,dbo:vicePresident,dbo:Politician,dbo:Politician,Qald9-training
+musicComposer-of,noun,music composer,music composers,of,NounPPFrame,range,domain,1,dbo:musicComposer,dbo:TelevisionShow,dbo:Person,Qald9-training
+currency_of,noun,currency,currencies,of,NounPPFrame,range,domain,1,dbo:currency,dbo:Country,dbo:Currency,Qald9-training
+developer_of,noun,developer,developers,of,NounPPFrame,range,domain,1,dbo:developer,dbo:Work,dbo:Agent,Qald9-training
+deathPlace,noun,death place,-,of,NounPPFrame,range,domain,1,dbo:deathPlace,dbo:Politician,dbo:Place,Qald9-training
+father_of,noun,father,-,of,NounPPFrame,range,domain,1,dbp:father,dbo:Royalty,dbo:Person,Qald9-training
+producer-of,noun,producer,producers,of,NounPPFrame,range,domain,1,dbo:producer,dbo:Film,dbo:Company,Qald9-training
+foundationPlace_of,noun,foundation place,-,of,NounPPFrame,range,domain,1,dbo:foundationPlace,dbo:Company,dbo:City,Qald9-training
+influencer_of,noun,influencer,influencers,of,NounPPFrame,range,domain,1,dbo:influenced,dbo:Person,dbo:Person,Qald9-training
+doctoralSupervisor_of,noun,doctoral supervisor,doctoral supervisors,of,NounPPFrame,range,domain,1,dbo:doctoralAdvisor,dbo:Scientist,dbo:Person,Qald9-training
+residence-of,noun,residence,residences,of,NounPPFrame,range,domain,1,dbo:residence,dbo:Place,dbo:Person,Qald9-training
+son_of,noun,son,sons,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person,Qald9-training
+headquarter_of,noun,headquarter,-,of,NounPPFrame,range,domain,1,dbo:headquarter,dbo:Organisation,dbo:PopulatedPlace,Qald9-training
+founder-of_1,noun,founder,founders,of,NounPPFrame,range,domain,1,dbo:founder,dbo:Publisher,dbo:Agent,Qald9-training
+founder-of_2,noun,founder,founders,of,NounPPFrame,range,domain,1,dbo:foundedBy,dbo:Organisation,dbo:Pope,Qald9-training
+autobiography-of,noun,autobiography,-,of,NounPPFrame,range,domain,1,dbo:literaryGenre,dbo:Autobiography,dbo:Author,Qald9-training
+parent-of,noun,parent,parents,of,NounPPFrame,range,domain,1,dbo:parent,dbo:Person,dbo:Person,Qald9-training
+author_of,noun,author,authors,of,NounPPFrame,range,domain,1,dbo:author,dbo:Work,dbo:Person,Qald9-training
+foundation_series_of,noun,foundation series,foundation series,of,NounPPFrame,range,domain,1,dbo:series,dbo:TelevisionShow,dbo:Person,Qald9-training
+city-of,noun,city,cities,of,NounPPFrame,range,domain,1,dbo:isPartOf,dbo:AdministrativeRegion,dbo:City,Qald9-training
+founder_of,noun,founder,founders,of,NounPPFrame,range,domain,1,dbo:foundedBy,dbo:BroadcastNetwork,dbo:Company,Qald9-training
+wine_production-of,noun,wine production,wine productions,of,NounPPFrame,range,domain,1,dbo:wineProduced,dbo:Company,dbo:Location,Qald9-training
+residence_of,noun,residence,residences,of,NounPPFrame,range,domain,1,dbo:residence,dbo:Person,dbo:City,Qald9-training
+resting_place_of,noun,resting place,resting places,of,NounPPFrame,range,domain,1,dbo:restingPlace,dbo:Person,dbo:Country,Qald9-training
+composer-of,noun,music composer,music composers,of,NounPPFrame,range,domain,1,dbo:composer,dbo:TelevisionShow,dbo:Person,Qald9-training
+timeZone-of,noun,time zone,time zones,of,NounPPFrame,range,domain,1,dbo:timeZone,dbo:City/dbo:Town,xsd:string,Qald9-training
+borough-of,noun,borough,borough,of,NounPPFrame,domain,range,1,dbo:governmentType,dbo:Town,owl:Thing,Qald9-training
+membership-of,noun,member,members,of,NounPPFrame,range,domain,1,dbo:bandMember,dbo:Band,dbo:MusicalArtist,Qald9-training
+Book-in,noun,book,books,in,NounPPFrame,domain,range,1,dbo:series,dbo:Book,dbo:TelevisionShow,Qald9-training
+book_by,noun,book,books,by,NounPPFrame,domain,range,1,dbo:author,dbo:Book,dbo:Writer,Qald9-training
+king-of,noun,king,kings,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Legislature/dbo:Place,dbo:Person,Qald9-training
+successor_of,noun,successor,-,of,NounPPFrame,range,domain,1,dbo:successor,dbo:Politician,dbo:Person,Qald9-training
+game_by,noun,game,games,by,NounPPFrame,domain,range,1,dbo:publisher,dbo:VideoGame,dbo:Company/dbo:Publisher,Qald9-training
+headquarter_of,noun,headquarter,-,of,NounPPFrame,range,domain,1,dbo:location,dbo:Building,dbo:City,Qald9-training
+daughter_of,noun,daughter,daughters,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person,Qald9-training
+coach_of,noun,coach,coaches,of,NounPPFrame,range,domain,1,dbo:coach,dbo:HockeyTeam,dbo:Person,Qald9-training
+team_of,noun,team,teams,of,NounPPFrame,domain,range,1,dbo:league,dbo:HockeyTeam,dbo:IceHockeyLeague,Qald9-training
+home_stadium_of,noun,home stadium,home stadiums,of,NounPPFrame,range,domain,1,dbo:ground,dbo:SportsClub,dbo:Stadium,Qald9-training
+address-of,noun,address,addresses,of,NounPPFrame,range,domain,1,dbo:address,dbo:ArchitecturalStructure,xsd:string,Qald9-training
+album-of,noun,album,albums,of,NounPPFrame,range,domain,1,dbo:album,dbo:Song,dbo:Album,Qald9-training
+associatedMusicalArtist-of,noun,associated Musical Artist,associated Musical Artists,of,NounPPFrame,range,domain,1,dbo:associatedMusicalArtist,dbo:Band,dbo:Place,Qald9-training
+citizenship-of,noun,nationality,-,of,NounPPFrame,range,domain,1,dbo:citizenship,dbo:Person,dbo:Country,Qald9-training
+closingDate-of,noun,closing Date,closing Dates,of,NounPPFrame,range,domain,1,dbo:closingDate,dbo:Company,xsd:date,Qald9-training
+deliveryDate-of,noun,delivery Date,delivery Dates,of,NounPPFrame,range,domain,1,dbo:deliveryDate,dbo:MeanOfTransportation,xsd:date,Qald9-training
+diameter-of,noun,diameter,diameters,of,NounPPFrame,range,domain,1,dbo:diameter,dbo:Device,xsd:double,Qald9-training
+employer-of,noun,employer,employers,of,NounPPFrame,range,domain,1,dbo:employer,dbo:Person,dbo:Place,Qald9-training
+isbn-of,noun,isbn,isbns,of,NounPPFrame,range,domain,1,dbo:isbn,dbo:Book,xsd:string,Qald9-training
+firstAirDate-of,noun,first Air Date,first Air Dates,of,NounPPFrame,range,domain,1,dbo:firstAirDate,dbo:TelevisionSeason,xsd:date,Qald9-training
+firstAscentPerson-of,noun,first Ascent Person,first Ascent Persons,of,NounPPFrame,range,domain,1,dbo:firstAscentPerson,dbo:Mountain,dbo:Place,Qald9-training
+flag-of,noun,flag,flags,of,NounPPFrame,range,domain,1,dbo:flag,dbo:Place,xsd:string,Qald9-training
+governor-of,noun,governor,governors,of,NounPPFrame,range,domain,1,dbo:governor,dbo:Person,dbo:Person,Qald9-training
+lastElectionDate-of,noun,last Election Date,last Election Dates,of,NounPPFrame,range,domain,1,dbo:lastElectionDate,dbo:Organisation,xsd:date,Qald9-training
+minimumTemperature-of,noun,minimum Temperature,minimum Temperatures,of,NounPPFrame,range,domain,1,dbo:minimumTemperature,dbo:Planet,xsd:double,Qald9-training
+numberOfSeasons-of,noun,number Of Season,number Of Seasons,of,NounPPFrame,range,domain,1,dbo:numberOfSeasons,dbo:TelevisionShow,xsd:nonNegativeInteger,Qald9-training
+numberOfStudents-of,noun,number Of Student,number Of Students,of,NounPPFrame,range,domain,1,dbo:numberOfStudents,dbo:School,xsd:nonNegativeInteger,Qald9-training
+openingDate-of,noun,opening Date,opening Dates,of,NounPPFrame,range,domain,1,dbo:openingDate,dbo:ArchitecturalStructure,xsd:date,Qald9-training
+postCode-of,noun,post code,-,of,NounPPFrame,range,domain,1,dbo:postalCode,dbo:Place,xsd:nonNegativeInteger,Qald9-training
+releaseDate-of,noun,release date,-,of,NounPPFrame,range,domain,1,dbo:releaseDate,dbo:Software,xsd:date,Qald9-training
+religion-of,noun,religion,-,of,NounPPFrame,range,domain,1,dbo:religion,dbo:Person,xsd:string,Qald9-training
+boardgame_by_1,noun,boardgame,boardgames,by,NounPPFrame,domain,range,1,dbo:publisher,dbo:Work,dbo:Agent,Qald9-training
+owner_of_1,noun,owner,owners,of,NounPPFrame,range,domain,1,dbo:owner,dbo:Company,dbo:Person,Qald9-training
+astronaut_of,noun,astronaut,astronauts,of,NounPPFrame,range,domain,1,dbo:mission,dbo:Person,dbo:SpaceMission,Qald9-training
+president_of,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Country,dbo:Person,Qald9-training
+mission-of,noun,mission,missions,of,NounPPFrame,range,domain,1,dbo:programme,dbo:Event,dbo:TelevisionShow,Qald9-training
+net-income-of,noun,net income,net incomes,of,NounPPFrame,range,domain,1,dbo:netIncome,dbo:Company,xsd:string,Qald9-training
+employee-of,noun,employee,employees,of,NounPPFrame,range,domain,1,dbo:numberOfEmployees,dbo:Company,xsd:string,Qald9-training
+museum_in,noun,museum,museums,in,NounPPFrame,domain,range,1,dbo:location,dbo:Building,dbo:City,Qald9-training
+official_color_of,noun,official color,official colors,of,NounPPFrame,range,domain,1,dbo:officialSchoolColour,dbo:Agent,xsd:string,Qald9-training
+governor_of,noun,governor,governors,of,NounPPFrame,range,domain,1,dbp:governor,dbo:Place,dbo:Person,Qald9-training
+architect_of_1,noun,architect,architects,of,NounPPFrame,range,domain,1,dbo:architect,dbo:ArchitecturalStructure,dbo:Person,Qald9-training
+President-of_1,noun,president,presidents,of,NounPPFrame,range,domain,1,dbp:title,dbo:Work,dbo:Person,Qald9-training
+President-of_2,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Organisation,dbo:Person,Qald9-training
+President-of_3,noun,president,presidents,of,NounPPFrame,range,domain,1,dbo:leaderTitle,dbo:Place,dbo:Person,Qald9-training
+museums-in,noun,museum,museums,in,NounPPFrame,range,domain,1,dbo:location,dbo:Organisation,dbo:Settlement,Qald9-training
+federal-chancellor-of,noun,federal chancellor,federal chancellors,of,NounPPFrame,range,domain,1,dbp:office,dbo:Agent,dbo:City,Qald9-training
+employee-of,noun,employee,employees,of,NounPPFrame,range,domain,1,dbo:numberOfEmployees,dbo:Company,xsd:nonNegativeInteger,Qald9-training
+TV-show-with,noun,TV show,TV show,with,NounPPFrame,range,domain,1,dbo:starring,dbo:Company,dbo:Actor,Qald9-training
+music-by,noun,music,musics,by,NounPPFrame,range,domain,1,dbo:musicBy,dbo:TelevisionShow,dbo:Person,Qald9-training
+industry-of,noun,industry,industries,of,NounPPFrame,range,domain,1,dbo:industry,dbo:Agent,dbo:Food,Qald9-training
+total-amount-of-employee-of,noun,total amount of employee,total amount of employee,of,NounPPFrame,range,domain,1,dbo:employees,dbo:Event,dbo:Agent,Qald9-training
+part-of,noun,part,parts,of,NounPPFrame,domain,range,1,dbo:alliance,dbo:Agent,dbo:PoliticalParty,Qald9-training
+member-of,noun,member,members,of,NounPPFrame,range,domain,1,dbo:alliance,dbo:Agent,dbo:Company,Qald9-training
+residence-of,noun,residence,residences,of,NounPPFrame,range,domain,1,dbp:residence,dbo:Agent,dbo:Country,Qald9-training
+birthday-of,noun,birthday,birthdays,of,NounPPFrame,range,domain,1,dbo:birthDate,dbo:Agent,xsd:string,Qald9-training
+organization-of,noun,organization,organizations,of,NounPPFrame,range,domain,1,dbp:industry,dbo:Agent,dbo:Food,Qald9-training
+manager-of,noun,manager,managers,of,NounPPFrame,range,domain,1,dbo:manager,dbo:Agent,dbo:SoccerManager,Qald9-training
+birth-name-of,noun,birth name,birth names,of,NounPPFrame,range,domain,1,dbp:birthName,dbo:Person,xsd:string,Qald9-training
+ruling-party-in,noun,ruling party,ruling parties,in,NounPPFrame,range,domain,1,dbp:leaderParty,dbo:Place,dbo:Agent,Qald9-training
+episode-of,noun,episode,episodes,in,NounPPFrame,range,domain,1,dbo:series,dbo:TelevisionEpisode,dbo:Work,Qald9-training
+instrument-of,noun,instrument,instruments,in,NounPPFrame,range,domain,1,dbo:instrument,dbo:Agent,dbo:MusicalArtist,Qald9-training
+movie-with,noun,movie,movies,with,NounPPFrame,range,domain,1,dbo:starring,dbo:Company,dbo:Actor,Qald9-training
+B-sides of,noun,B-side,B-sides,of,NounPPFrame,range,domain,1,dbo:bSide,dbo:MusicalWork,dbo:CreativeWork,Qald9-training
+speciality-of,noun,speciality,specialities,of,NounPPFrame,range,domain,1,dbo:title,dbo:Person,xsd:string,Qald9-training
+king-of,noun,king,kings,of,NounPPFrame,range,domain,1,dbp:title,dbo:Agent,dbo:City,Qald9-training
+breweries-in,noun,brewery,breweries,of,NounPPFrame,range,domain,1,dbo:location,dbo:Place,dbo:Place,Qald9-training
+areaTotal-of,noun,alma mater,alma maters,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double,Qald9-training
+federal-minister_of,noun,federal minister,federal ministers,of,NounPPFrame,range,domain,1,dbo:leader,dbo:Organisation,dbo:Person,Qald9-training
+founding-date_of,noun,founding date,founding dates,of,NounPPFrame,range,domain,1,dbo:foundingDate,dbo:Organisation,xsd:date,Qald9-training
+king-of,noun,king,kings,of,NounPPFrame,range,domain,1,dbp:title,dbo:Work,dbo:Person,Qald9-training
+name-of,noun,name,names,of,NounPPFrame,range,domain,1,dbp:name,dbo:Person,xsd:string,Qald9-training
+total-population-of,noun,name,names,of,NounPPFrame,range,domain,1,dbo:populationTotal,dbo:Country,xsd:nonNegativeInteger,Qald9-training
+birth-name-of,noun,birth name,birth names,of,NounPPFrame,range,domain,1,dbo:birthName,dbo:Person,xsd:string,Qald9-training
+death_of,noun,death,-,of,NounPPFrame,range,domain,1,dbo:deathDate,dbo:Person,xsd:date,Qald9-training
+origin-of,noun,origin,-,of,NounPPFrame,range,domain,,dbo:origin,dbo:Device,dbo:Country,Qald9-training
+runtime-of,noun,runtime,-,of,NounPPFrame,range,domain,1,dbp:borders,dbo:Software,dbo:PopulatedPlace,Qald9-training
+creator_of,noun,creator,creators,of,NounPPFrame,range,domain,1,dbo:creator,dbo:Company,dbo:Organisation,Qald9-training
+main_business_of,noun,main_business_of,main businesses,of,NounPPFrame,range,domain,1,dbo:owner,dbo:Company,dbo:Band,Qald9-training
+inhabitant_of,noun,inhabitant,inhabitants,of,NounPPFrame,range,domain,1,dbo:populationTotal,dbo:Country,xsd:nonNegativeInteger,Qald9-training
+population-densty-rank-of,noun,population densty rank,-,of,NounPPFrame,range,domain,1,dbp:populationDensityRank,dbo:Place,dbo:PopulatedPlace,Qald9-training
+time-zone_in,noun,time zone,-,in,NounPPFrame,range,domain,1,dbo:timeZone,dbo:Place,dbo:Country,Qald9-training
+writer_of,noun,writer,writers,of,NounPPFrame,range,domain,1,dbp:writer,dbo:MusicalWork,dbo:Actor,Qald9-training
+form-of-government_of,noun,form of government,form of government,of,NounPPFrame,range,domain,1,dbo:governmentType,dbo:Place,dbo:Organisation,Qald9-training
+country-from,noun,country,countries,from,NounPPFrame,range,domain,1,dbo:foundationPlace,dbo:Agent,dbo:City,Qald9-training
+holiday-of,noun,holiday,holidays,of,NounPPFrame,range,domain,1,rdf:type,dbo:Country,dbo:Holiday,Qald9-training
+state_in,noun,state,states,in,NounPPFrame,range,domain,1,dbo:type,dbo:Work,dbo:Type,Qald9-training
+series_of,noun,series,serieses,of,NounPPFrame,range,domain,1,dbo:series,dbo:TelevisionEpisode,dbo:Work,Qald9-training
+root-of,noun,root,roots,of,NounPPFrame,range,domain,1,dbo:languageFamily,dbo:Language,dbo:Language,Qald9-training
+book_in,noun,book,books,in,NounPPFrame,range,domain,1,dbo:series,dbo:TelevisionEpisode,dbo:Work,Qald9-training
+timeZone-of,noun,timezone,timezones,in,NounPPFrame,range,domain,1,dbo:timeZone,dbo:City,xsd:string,Qald9-training
+first-person-to-climb_of,noun,first person to climb,-,of,NounPPFrame,range,domain,1,dbo:firstAscentPerson,dbo:Place,dbo:Agent,Qald9-training
+headquarter_of,noun,headquarter,headquarters,of,NounPPFrame,range,domain,1,dbo:location,dbo:Place,dbo:Place,Qald9-training
+first-name_of,noun,headquarter,headquarters,of,NounPPFrame,range,domain,1,dbo:alias,dbo:Person,xsd:String,Qald9-training
+movie_with,noun,movie,movies,of,NounPPFrame,range,domain,1,dbo:alias,dbo:Person,xsd:String,Qald9-training
+museums-in,noun,museum,museums,in,NounPPFrame,range,domain,1,dbp:museum,dbo:Artwork,dbo:Museum,Qald9-training
+game_by,noun,game,games,by,NounPPFrame,domain,range,1,dbo:publisher,dbo:VideoGame,dbo:Publisher,Qald9-training
+height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model/dbo:Tower/dbo:BasketballPlayer,xsd:double,Qald9-training
+TimeZone-of_3,noun,time zone,time zones,of,NounPPFrame,range,domain,1,dbp:timeZone,dbo:City,xsd:string,Qald9-training
+main_business_of,noun,main business,main businesses,of,NounPPFrame,domain,range,1,dbo:owner,dbo:Company,dbo:Person,Qald9-training
+first-name_of,noun,first name,first names,of,NounPPFrame,range,domain,1,dbo:alias,dbo:Person,xsd:String,Qald9-training
+alma-mater-of,noun,alma mater,alma maters,of,NounPPFrame,range,domain,1,dbo:almaMater,dbo:Person,dbo:EducationalInstitution,Qald9-training
+type_of,noun,type,types,of,NounPPFrame,range,domain,1,dbo:class,dbo:Insect,owl:Thing,Qald9-training
+Density_1,noun,density,densities,of,NounPPFrame,range,domain,1,dbp:densityrank,dbo:Place,xsd:nonNegativeInteger,Qald9-training
+number_of_entrance_1,noun,number of entrance,number of entrances,of,NounPPFrame,range,domain,1,dbp:entranceCount,dbo:Cave,xsd:nonNegativeInteger,Qald9-training
+entrance_of_1,noun,entrance,entrances,of,NounPPFrame,range,domain,1,dbp:entranceCount,dbo:Cave,xsd:nonNegativeInteger,Qald9-training
+mineral_of_1,noun,mineral,minerals,of,NounPPFrame,range,domain,1,dbp:mineral,dbo:Place,dbo:Currency,Qald9-training
+carb_of,noun,carb,carbs,of,NounPPFrame,range,domain,1,dbp:carbs,dbo:Food,xsd:string,Qald9-training
+province_of_1,noun,province,provinces,of,NounPPFrame,range,domain,1,dbo:province,dbo:Place,dbo:Province,Qald9-training
+race_of,noun,race,races,of,NounPPFrame,range,domain,1,dbo:races,dbo:Person,xsd:nonNegativeInteger,Qald9-training
+region_of,noun,region,regions,of,NounPPFrame,range,domain,1,dbo:wineRegion,dbo:Grape,dbo:Place,Qald9-training
+store_of,noun,store,stores,of,NounPPFrame,range,domain,1,dbo:numberOfLocations,dbo:Company,xsd:nonNegativeInteger,Qald9-training
+area_of,noun,area,areas,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double,Qald9-training
+total_area_of,noun,total area,total area,of,NounPPFrame,range,domain,1,dbo:areaTotal,dbo:Place,xsd:double,Qald9-training
+birthplace_of,noun,birthplace,birthplaces,of,NounPPFrame,range,domain,1,dbo:birthPlace,dbo:Person,dbo:Place,Qald9-training
+span_of,noun,span,spans,of,NounPPFrame,range,domain,1,dbo:mainspan,dbo:Bridge,xsd:double,Qald9-training
+visitor_of,noun,visitor,visitors,of,NounPPFrame,range,domain,1,dbo:numberOfVisitors,dbo:Museum,xsd:nonNegativeInteger,Qald9-training
+total-amount-of-men-and-women,noun,total amount of men and women,total amount of men and women,of,NounPPFrame,range,domain,1,dbp:employees,dbo:Settlement,xsd:nonNegativeInteger,Qald9-training
+province_of_2,noun,province,provinces,of,NounPPFrame,range,domain,1,dbo:state,dbo:Country,dbo:Place,Qald9-training
+result_of_1,noun,result,results,of,NounPPFrame,range,domain,1,dbo:result,dbo:Event,xsd:string,Qald9-training
+theme_of,noun,theme,themes,of,NounPPFrame,range,domain,1,dbo:openingTheme,dbo:TelevisionShow,dbo:Work,Qald9-training
+FIFA_World_ Ranking_of,noun,FIFA World Ranking,FIFA World Rankings,of,NounPPFrame,range,domain,1,dbp:fifaMin,dbo:SportsClub,dbo:Country,Qald9-training
+Player_1,noun,player,players,of,NounPPFrame,range,domain,1,dbo:instrument,dbo:Person,dbo:MusicalArtist,Qald9-training
+active_career_of,noun,active career,active careers,of,NounPPFrame,range,domain,1,dbo:activeYearsEndDate,dbo:Person,xsd:date,Qald9-training
+war_of,noun,war,wars,of,NounPPFrame,range,domain,1,dbo:battle,dbo:Person,dbo:MilitaryConflict,Qald9-training
+lowest_rank_of,noun,lowest rank,lowest rank,of,NounPPFrame,range,domain,1,dbo:fifaMin,dbo:Agent,xsd:nonNegativeInteger,Qald9-training
+page_of,noun,page,pages,of,NounPPFrame,range,domain,1,dbo:numberOfPages,dbo:WrittenWork,xsd:positiveInteger,Qald9-training
+Volcano_in,noun,Volcano,Volcanos,of,NounPPFrame,range,domain,1,dbo:numberOfPages,dbo:WrittenWork,xsd:positiveInteger,Qald9-training
+time_zone_of,noun,time zone,time zones,of,NounPPFrame,range,domain,1,dbo:timeZone,dbo:Place,dbo:Country,Qald9-test
+governor_of,noun,governor,governors,of,NounPPFrame,range,domain,1,dbp:governor,dbo:Place,dbo:Person,Qald9-test
+profession_of,noun,profession,professions,of,NounPPFrame,range,domain,1,dbo:occupation,dbo:Person,xsd:string,Qald9-test
+seat_of,noun,seat,seats,of,NounPPFrame,range,domain,1,dbo:ground,dbo:SportsClub,dbo:Stadium,Qald9-test
+flyer_program_of,noun,flyer program,flyer program of,of,NounPPFrame,range,domain,1,dbp:frequentFlyer,dbo:Company,xsd:string,Qald9-test
+goverment_type_of,noun,goverment type,goverment types,of,NounPPFrame,range,domain,1,dbo:governmentType,dbo:Place,dbo:Organisation,Qald9-test
+place_of,noun,place,places,of,NounPPFrame,range,domain,1,dbo:location,dbo:Organisation,dbo:Place,Qald9-test
+nickname_of,noun,nickname,nicknames,of,NounPPFrame,range,domain,1,foaf:nick,dbo:Person,xsd:string,Qald9-test
+birth_name_of,noun,birth name,birth name,of,NounPPFrame,range,domain,1,dbp:birthName,dbo:Person,xsd:string,Qald9-test
+mayor_of,noun,mayor,mayors,of,NounPPFrame,range,domain,1,dbp:leader,dbo:Person,dbo:City,Qald9-test
+grand-children_of,noun,grand child,grand children,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person,Qald9-test
+homepage_of,noun,homepage,homepages,of,NounPPFrame,range,domain,1,foaf:homepage,dbo:Person,xsd:string,Qald9-test
+husband_of,noun,husband_of,husband_of,of,NounPPFrame,range,domain,1,dbo:spouse,dbo:Person,dbo:Person,Qald9-test
+highest_place_of,noun,highest place,-,of,NounPPFrame,range,domain,1,dbp:highest,dbo:Place,xsd:double,Qald9-test
+nick_name_of,noun,nick name,nick names,of,NounPPFrame,range,domain,1,foaf:nick,dbo:Person,xsd:string,Qald9-test
+highest_population_density_of,noun,highest population density,-,of,NounPPFrame,range,domain,1,dbo:country,dbo:Mountain,dbo:Country,Qald9-test
+area_code,noun,area code,area codes,of,NounPPFrame,range,domain,1,dbo:areaCode,dbo:City,xsd:string,Qald9-test
+moon_of,noun,moon,moons,of,NounPPFrame,range,domain,1,dbp:satellites,dbo:Place,xsd:integer,Qald9-test
+real_name_of,noun,real name,real names,of,NounPPFrame,range,domain,1,foaf:name,dbo:Person,xsd:string,Qald9-test
+famous_for,noun,famous,famous,for,NounPPFrame,range,domain,1,dbo:knownFor,dbo:Scientist,dbo:MilitaryUnit,Qald9-test
+author_of,noun,author,authors,of,NounPPFrame,range,domain,1,dbo:author,dbo:Book,dbo:Writer,Qald9-test
+governor_of,noun,governor,governors,of,NounPPFrame,range,domain,1,dbo:region,dbo:Person,dbo:Place,Qald9-test
+wife_ of,noun,wife,wives,of,NounPPFrame,range,domain,1,dbo:spouse,dbo:Person,dbo:Person,Qald9-test
+award_of,noun,award,awards,of,NounPPFrame,range,domain,1,dbp:awards,dbo:Person,xsd:string,Qald9-test
+inhabitant_of,noun,inhabitant,inhabitants,of,NounPPFrame,range,domain,1,dbo:populationTotal,dbo:Country,xsd:double,Qald9-test
+daughter_of,noun,daughter,daughters,of,NounPPFrame,range,domain,1,dbo:child,dbo:Person,dbo:Person,Qald9-test
+student_of,noun,student,students,of,NounPPFrame,range,domain,1,dbo:numberOfStudents,dbo:School,xsd:nonNegativeInteger,Qald9-test
+revenue_of,noun,revenue,revenues,of,NounPPFrame,range,domain,1,dbo:revenue,dbo:Company,xsd:double,Qald9-test
+voice_of,noun,voice,voices,of,NounPPFrame,range,domain,1,dbp:voiceactor,dbo:Person,dbo:Person,Qald9-test
+gangster_from,noun,gangster,gangsters,from,NounPPFrame,range,domain,1,dbo:occupation,dbo:Person,xsd:string,Qald9-test
+taikonauts_of,noun,taikonaut,taikonauts,of,NounPPFrame,range,domain,1,dbo:nationality,dbo:Person,dbo:Country,Qald9-test
+volcano_of,noun,volcano,volcanoes,of,NounPPFrame,range,domain,1,dbo:locatedInArea,dbo:Mountain,dbo:Country,Qald9-test
+movies_with,noun,movie,movies,with,NounPPFrame,range,domain,1,dbo:starring,dbo:Film,dbo:Person,Qald9-test
+creator_of,noun,creator,creators,of,NounPPFrame,range,domain,1,dbo:creator,dbo:Company,dbo:Organisation,Qald9-test
+office_holder_of,noun,office holder,office holders,of,NounPPFrame,range,domain,1,dbp:incumbent,dbo:Person,dbo:Person,Qald9-test
+industry_of,noun,industry,industries,of,NounPPFrame,range,domain,1,dbo:industry,dbo:Agent,dbo:Food,Qald9-test
+parent_of,noun,parent,parents,of,NounPPFrame,range,domain,1,dbo:parent,dbo:Person,dbo:Person,Qald9-test
+father_of,noun,father,fathers,of,NounPPFrame,range,domain,1,dbo:parent,dbo:Person,dbo:Person,Qald9-test
+daughter_of,noun,daughter,daughters,of,NounPPFrame,range,domain,1,dbo:spouse,dbo:Person,dbo:Person,Qald9-test
+mission_of,noun,mission,missions,of,NounPPFrame,range,domain,1,dbp:crewMembers,dbo:Event,dbo:Person,Qald9-test
+wavelength_of,noun,wavelength,wavelengths,of,NounPPFrame,range,domain,1,dbo:wavelength,dbo:Colour,xsd:double,Qald9-test
+B-sides_of,noun,B-side,B-sides,of,NounPPFrame,range,domain,1,dbo:bSide,dbo:MusicalWork,dbo:CreativeWork,Qald9-test
+emperors_of,noun,emperor,emperors,of,NounPPFrame,range,domain,1,dbp:title,dbo:Work,dbo:Person,Qald9-test
+name_of,noun,name,names,of,NounPPFrame,range,domain,1,foaf:givenName,dbo:Person,xsd:string,Qald9-test
+name_of_the_university,noun,name of the university,names of the university,of,NounPPFrame,range,domain,1,dbo:almaMater,dbo:Person,dbo:EducationalInstitution,Qald9-test
+headquarter_of,noun,headquarter,headquarters,of,NounPPFrame,range,domain,1,dbo:headquarter,dbo:Organisation,dbo:PopulatedPlace,Qald9-test
+founding_year_of,noun,founding year,founding years,of,NounPPFrame,range,domain,1,dbo:foundingYear,dbo:Organisation,xsd:gYear,Qald9-test
+abbreviation_of,noun,abbreviation,abbreviations,of,NounPPFrame,range,domain,1,dbp:postalabbreviation,dbo:Country,xsd:langString,Qald9-test
+atmosphere_of,noun,atmosphere,atmospheres,of,NounPPFrame,range,domain,1,dbp:atmosphereComposition,dbo:Place,dbo:MilitaryUnit,Qald9-test
+famous_battle_in,noun,famous battle,famous battles,in,NounPPFrame,range,domain,1,dbo:place,dbo:Place,dbo:Place,Qald9-test
+official_website_of,noun,official website,official websites,of,NounPPFrame,range,domain,1,foaf:homepage,dbo:Agent,xsd:string,Qald9-test
+actor_of,noun,actor,actors,of,NounPPFrame,range,domain,1,dbo:starring,dbo:Work,dbo:Person,Qald9-test
+calories_of,noun,caloriy,calories,of,NounPPFrame,range,domain,1,dbp:calories,dbo:Food,xsd:integer,Qald9-test
+president_after,noun,president,presidents,after,NounPPFrame,range,domain,1,dbp:presidentEnd,dbo:Person,dbo:Person,Qald9-test
+novelist_of,noun,novelist,novelists,of,NounPPFrame,range,domain,1,dbp:author,dbo:Book,dbo:Person,Qald9-test
+record_of,noun,record,records,of,NounPPFrame,range,domain,1,dbo:releaseDate,dbo:Work,xsd:date,Qald9-test
+capital_of,noun,capital,capitals,of,NounPPFrame,range,domain,1,dbo:capital,dbo:Country,dbo:City,Qald9-test
+same_type_as,noun,same type,-,as,NounPPFrame,range,domain,1,rdf:type,dbo:Country,dbo:Holiday,Qald9-test
+founded_by,noun,founded,founded,by,NounPPFrame,range,domain,1,dbo:foundedBy,dbo:BroadcastNetwork,dbo:Company,Qald9-test
+founder_of,noun,founder,founders,by,NounPPFrame,range,domain,1,dbo:foundedBy,dbo:BroadcastNetwork,dbo:Company,Qald9-test
+danger_of,noun,danger,dangers,of,NounPPFrame,range,domain,1,dbp:hazards,dbo:Place,dbo:Disease,Qald9-test
+pages_of,noun,page,pages,of,NounPPFrame,range,domain,1,dbo:numberOfPages,dbo:Company,xsd:positiveInteger,Qald9-test
+websites_of,noun,website,websites,with,NounPPFrame,range,domain,1,foaf:homepage,dbo:Person,xsd:string,Qald9-test
+companies_with,noun,company,companies,with,NounPPFrame,range,domain,1,dbo:numberOfEmployees,dbo:Company,xsd:positiveInteger,Qald9-test
+active_player_of,noun,active player,active players,of,NounPPFrame,domain,range,1,dbo:activeYearsEndYear,dbo:BasketballPlayer,xsd:date,Qald9-test
+battle_in,noun,battle,battles,in,NounPPFrame,domain,range,1,dbo:date,dbo:MilitaryConflict,xsd:date,Qald9-test
+calory_of,noun,calory,calories,of,NounPPFrame,domain,range,1,dbp:calories,dbo:Food,xsd:integer,Qald9-test
+office_in,noun,office,offices,in,NounPPFrame,domain,range,1,dbo:commander,dbo:Event,dbo:Person,Qald9-test
+gold_medal_of,noun,gold medal,gold medals,of,NounPPFrame,range,domain,1,dbo:goldMedalist,dbo:Event,dbo:Person,Qald9-test
+frequent_flyer_program_of,noun,frequent flyer program,frequent flyer programs,of,NounPPFrame,range,domain,1,dbp:frequentFlyer,dbo:Airline,dbo:Company,Qald9-test
+studio_in,noun,studio,studios,in,NounPPFrame,range,domain,1,dbp:studio,dbo:Film,dbo:Agent,Qald9-test
+player_in,noun,player,players,in,NounPPFrame,range,domain,1,dbo:team,dbo:Person,dbo:Agent,Qald9-test
+Premier_League_of,noun,Premier League,Premier Leagues,of,NounPPFrame,range,domain,1,dbo:league,dbo:Person,dbo:Agent,Qald9-test
+hiking_trail_in ,noun,hiking trail,hiking trails,in,NounPPFrame,range,domain,1,dbp:trailheads,dbo:Place,dbo:Place,Qald9-test
+largestCity_of,noun,largest city,-,of,NounPPFrame,range,domain,1,dbo:largestCity,dbo:Country,dbo:City,Qald9-test
+famous_battle_in_2,noun,famous battle,famous battles,in,NounPPFrame,range,domain,1,dbo:date,dbo:Place,xsd:date,Qald9-test
+chancellor_of,noun,chancellor,chancellors,of,NounPPFrame,range,domain,1,dbp:incumbent,dbo:Person,dbo:Person,Qald9-test

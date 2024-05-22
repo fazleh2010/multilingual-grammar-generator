@@ -1,0 +1,2 @@
+lexicalEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition,QALD
+win,verb,win,won,won,won,TransitiveFrame,range,domain,1,dbo:goldMedalist,dbo:Event,dbo:Person,by,Qald9-test

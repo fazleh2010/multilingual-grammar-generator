@@ -1,2 +1,0 @@
-lexicalEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition
-Develop_2,verb,develop,develops,developed,developed,TransitiveFrame,range,domain,1,dbo:developer,dbo:VideoGame,dbo:Agent,by

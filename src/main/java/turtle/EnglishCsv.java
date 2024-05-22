@@ -12,10 +12,12 @@ import static grammar.datasets.sentencetemplates.TempConstants.past;
 import static grammar.datasets.sentencetemplates.TempConstants.perfect;
 import static grammar.datasets.sentencetemplates.TempConstants.present;
 import static grammar.datasets.sentencetemplates.TempConstants.present3rd;
+import static grammar.datasets.sentencetemplates.TempConstants.range;
 import static java.lang.System.exit;
 import java.util.List;
 import java.util.Map;
 import util.io.GenderUtils;
+import util.io.MatcherExample;
 import util.io.Property;
 import util.io.Spliter;
 import util.io.Tupples;
@@ -909,6 +911,9 @@ public class EnglishCsv implements TempConstants {
             String plural=this.format(this.getWrittenFormPlural(row)).toLowerCase();
             String property=Property.withPrefix(this.format(this.getReferenceIndex(row)));
             String resource=Property.withPrefix(this.format(this.getDomainIndex(row)));
+            
+            property=MatcherExample.replaceSpecial(property);
+            resource=MatcherExample.replaceSpecial(resource);
             
             String turtle = "@prefix :        <http://localhost:8080/#> .\n"
                     + "\n"

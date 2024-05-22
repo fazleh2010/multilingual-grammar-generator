@@ -1,2 +1,0 @@
-LemonEntry,partOfSpeech,writtenForm,comparative,superlative,SyntacticFrame,predFrame,sense,reference,oils:boundTo,oils:degree,domain,range,preposition,Question1,SPARQL Question 1,Question 3,SPARQL Question 3,Question 4,sparql 4,Question 5,sparql 5
-high_1,adjective,high,higher,highest,AdjectiveSuperlativeFrame,PredSynArg,1,oils:CovariantScalar,dbo:elevation,oils:high,dbo:Country,dbo:Mountain,in,,,,,,,,
