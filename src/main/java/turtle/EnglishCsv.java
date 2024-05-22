@@ -7,7 +7,6 @@ package turtle;
 
 
 import java.util.*;
-import java.util.stream.Stream;
 import static turtle.EnglishCsv.TempConstants.*;
 import util.io.GenderUtils;
 import util.io.MatcherExample;

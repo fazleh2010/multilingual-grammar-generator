@@ -19,7 +19,6 @@ import static java.util.Map.entry;
  */
 public interface CsvConstants {
     
-    public static String NounPPFrame="NounPPFrame";
 
     public static String WORD = "word";
     public static String ID = "id";
