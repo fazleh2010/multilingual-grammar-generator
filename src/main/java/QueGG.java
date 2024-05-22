@@ -25,7 +25,7 @@ public class QueGG {
 
     private static final Logger LOG = LogManager.getLogger(QueGG.class);
 
-    public static void main(String[] args) throws Exception {
+    /*public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         List<String[]> languageDBs = new ArrayList<String[]>();
@@ -39,9 +39,9 @@ public class QueGG {
             System.out.println("completed gramar generation completed!!!!" + languageDB[0]);
         }
 
-    }
+    }*/
 
-    public static void runGrammarGeneration(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;

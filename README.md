@@ -2,14 +2,6 @@
 
 This command-line tool is designed for automatic grammar generation.
 
-### Resource: lexicon and grammar
-
-| Language      |                |       |      |      |      | 
-| :------------ |:---------------| :-----|:-----|:-----|:-----|
-| English       |[Lexical Entries](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/lexicalEntries)| [Lemon](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/lemon)|[Grammar Rule Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/sentenceTemplates)|[Grammar Rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/grammar)|[Evaluation](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/en/evaluation)|
-| German        |[Lexical Entries](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/lexicalEntries)| [Lemon](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/lemon) |[Grammar Rule Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/sentenceTemplates)|[Grammar Rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/grammar)|[Evaluation](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/de/evaluation)|
-| Italian       |[Lexical Entries](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/lexicalEntries)| [Lemon](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/lemon) |[Grammar Rule Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/sentenceTemplates)|[Grammar Rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/grammar)|[Evaluation](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/it/evaluation)|
-| Spanish       |[Lexical Entries](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/lexicalEntries)| [Lemon](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/lemon)|[Grammar Rule Templates](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/sentenceTemplates)|[Grammar Rules](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/grammar)|[Evaluation](https://github.com/fazleh2010/multilingual-grammar-generator/tree/main/result/es/evaluation)|
 
 
 ## Compile And Run
@@ -32,10 +24,7 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
 {
   "languageCode" : "en",
   "inputDir" : "lexicon",
-  "outputDir" : "output",
-  "csvToTurtle" : true,
-  "turtleToProtoType" : true,
-  "protoTypeToQuestion" : false
+  "outputDir" : "output"
  }
 
 ````
@@ -61,16 +50,16 @@ Run the system:
 java -jar <jar file> <input_configuration_file> <linked_data_configuration_file>
 
 english and DBpedia
-java -jar target/QuestionGrammarGenerator.jar inputConf_en.json dataset/dbpedia_en.json 
+java -jar target/QuestionGrammarGenerator.jar conf/inputConf_en.json dataset/dbpedia_en.json 
 
 german
-java -jar target/QuestionGrammarGenerator.jar inputConf_de.json dataset/dbpedia_de.json   
+java -jar target/QuestionGrammarGenerator.jar conf/inputConf_de.json dataset/dbpedia_de.json   
 
 spanish
-java -jar target/QuestionGrammarGenerator.jar inputConf_es.json dataset/dbpedia_es.json        
+java -jar target/QuestionGrammarGenerator.jar conf/inputConf_es.json dataset/dbpedia_es.json        
 
 italain
-java -jar target/QuestionGrammarGenerator.jar inputConf_it.json dataset/dbpedia_it.json  
+java -jar target/QuestionGrammarGenerator.jar conf/inputConf_it.json dataset/dbpedia_it.json  
                                  
 ````  
 
