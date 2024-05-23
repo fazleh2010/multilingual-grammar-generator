@@ -128,30 +128,6 @@
       <version>1.18.22</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.6.2</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>junit-jupiter-params</artifactId>
-          <groupId>org.junit.jupiter</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.6.2</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>junit-platform-engine</artifactId>
-          <groupId>org.junit.platform</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -1,5 +1,0 @@
-lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,property,resource
-taikonauts_1,noun,taikonaut,taikonauts,NounPredicateFrame,range,domain,1,dbo:nationality,res:China
-taikonauts_2,noun,taikonaut,taikonauts,NounPredicateFrame,range,domain,1,dbo:nationality,res:People's_Republic_of_China
-countries_in_Africa,noun,country in Africa,countries in Africa,NounPredicateFrame,domain,range,1,dct:subject,dbc:Countries_in_Africa
-Mars,noun,Mars,Mars,NounPredicateFrame,domain,range,1,dct:subject,dbc:Mars_rovers

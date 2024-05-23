@@ -1,4 +1,0 @@
-lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,QALD
-country_of,noun,country,countries,of,NounPPFrame,range,domain,1,dbo:country,dbo:Place,dbo:Country,Qald9-test
-nickname_of,noun,nickname,nicknames,of,NounPPFrame,range,domain,1,foaf:nick,dbo:Place,xsd:string,Qald9-test
-husband_of,noun,husband_of,husband_of,of,NounPPFrame,range,domain,1,dbo:spouse,dbo:Person,dbo:Person,Qald9-test
