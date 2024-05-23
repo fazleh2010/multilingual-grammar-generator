@@ -35,7 +35,7 @@ public class QueGG {
         //languageDBs.add(new String[]{"test/inputConf_es.json", "dataset/dbpedia_es.json"});
 
         for (String[] languageDB : languageDBs) {
-            runGrammarGeneration(languageDB);
+            main1(languageDB);
             System.out.println("completed gramar generation completed!!!!" + languageDB[0]);
         }
 

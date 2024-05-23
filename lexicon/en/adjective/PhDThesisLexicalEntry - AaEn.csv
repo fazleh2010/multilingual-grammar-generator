@@ -1,0 +1,7 @@
+LemonEntry,partOfSpeech,writtenForm,SyntacticFrame,copulativeSubject,attributiveArg,sense,reference,owl:onProperty,owl:hasValue,domain,range,QALD
+australian,adjective,australian,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Australia,dbo:Film,dbo:Film,Qald9-training
+belgian,adjective,belgian,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Belgium,dbo:Film,dbo:Film,Qald9-training
+greek,adjective,greek,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Greece,dbo:Film,dbo:Film,Qald9-training
+danish,adjective,danish,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Denmark,dbo:Film,dbo:Film,Qald9-training
+algerian,adjective,algerian,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Algeria,dbo:Film,dbo:Film,Qald9-training
+andorran,adjective,andorran,AdjectiveAttributiveFrame,PredSynArg,AttrSynArg,1,owl:Restriction,dbo:country,res:Andorra,dbo:Film,dbo:Film,Qald9-training

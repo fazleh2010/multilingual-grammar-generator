@@ -1,0 +1,34 @@
+@prefix :        <http://localhost:8080/#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :greek_18_sense_1_res ;
+  lemon:entry    :greek_18 .
+
+:greek_18 a             lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:adjective ;
+  lemon:canonicalForm  :greek_18_lemma ;
+  lemon:sense          :greek_18_sense_1 ;
+  lemon:synBehavior    :greek_18_attrFrame, :greek_18_predFrame .
+
+:greek_18_lemma lemon:writtenRep "greek"@en .
+
+:greek_18_predFrame a        lexinfo:AdjectivePredicateFrame ;
+  lexinfo:copulativeSubject :greek_18_PredSynArg .
+
+:greek_18_attrFrame a     lexinfo:AdjectiveAttributiveFrame ;
+  lexinfo:attributiveArg :greek_18_AttrSynArg .
+
+:greek_18_sense_1 a  lemon:LexicalSense ;
+  lemon:reference :greek_18_sense_1_res ;
+  lemon:isA       :greek_18_AttrSynArg, :greek_18_PredSynArg .
+
+:greek_18_sense_1_res a   owl:Restriction ;
+  owl:onProperty <http://dbpedia.org/ontology/country> ;
+  owl:hasValue   <http://dbpedia.org/resource/Greece> .
