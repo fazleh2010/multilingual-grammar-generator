@@ -7,18 +7,18 @@ import org.apache.jena.sys.JenaSystem;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.List;
-import util.io.FileProcessUtils;
-import turtle.GermanTurtle;
+import util.FileProcessUtils;
+import core.turtle.GermanTurtle;
 import java.io.File;
 import java.io.IOException;
-import turtle.EnglishTurtle;
-import linkeddata.LinkedData;
-import turtle.ItalianTurtle;
-import turtle.SpanishTurtle;
-import turtle.TutleConverter;
-import util.io.FileFolderUtils;
-import util.io.InputCofiguration;
-import grammar.structure.component.Language;
+import core.turtle.EnglishTurtle;
+import core.element.LinkedData;
+import core.turtle.ItalianTurtle;
+import core.turtle.SpanishTurtle;
+import core.creation.TutleConverter;
+import util.FileFolderUtils;
+import util.InputCofiguration;
+import core.element.Language;
 
 @NoArgsConstructor
 public class QueGG {
@@ -45,8 +45,6 @@ public class QueGG {
         JenaSystem.init();
         QueGG queGG = new QueGG();
         String configFile = null, dataSetConfFile = null;
-
-        Properties batch = new Properties();
 
         try {
             if (args.length < 2) {

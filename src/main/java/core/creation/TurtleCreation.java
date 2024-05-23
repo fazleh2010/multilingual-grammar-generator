@@ -1,0 +1,153 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package core.creation;
+
+import com.google.gdata.util.common.base.Pair;
+import core.element.Language;
+import java.util.List;
+import core.element.LinkedData;
+import static core.turtle.EnglishCsv.TempConstants.*;
+
+/**
+ *
+ * @author elahi
+ */
+public class TurtleCreation  {
+
+    protected LinkedData linkedData = null;
+    protected String language = null;
+    protected String inputDir = null;
+    protected String turtleString = null;
+    protected String tutleFileName = "";
+    protected Boolean conversionFlag = false;
+    private Integer nounPPIndex = 0;
+    private Integer transitiveIndex = 0;
+    private Integer InTransitiveIndex = 0;
+    private Integer adjectiveFrameIndex = 0;
+    private Integer nounPredicateFrameIndex = 0;
+    private Integer gradableAdjectiveFrameIndex = 0;
+
+    public TurtleCreation(String inputDir, LinkedData linkedData, Language language) throws Exception {
+        this.linkedData = linkedData;
+        this.language = language.name().toLowerCase();
+        this.inputDir = inputDir;
+    }
+
+    public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex, Integer gradableAdjectiveFrameIndex) throws Exception {
+        this.nounPPIndex = nounPPIndex;
+        this.transitiveIndex = transitiveIndex;
+        this.InTransitiveIndex = InTransitiveIndex;
+        this.adjectiveFrameIndex = adjectiveFrameIndex;
+        this.gradableAdjectiveFrameIndex = gradableAdjectiveFrameIndex;
+    }
+
+    public void setSyntacticFrameIndexes(Integer nounPPIndex, Integer transitiveIndex, Integer InTransitiveIndex, Integer adjectiveFrameIndex, Integer gradableAdjectiveFrameIndex, Integer nounPredicateFrameIndex) throws Exception {
+        this.nounPPIndex = nounPPIndex;
+        this.transitiveIndex = transitiveIndex;
+        this.InTransitiveIndex = InTransitiveIndex;
+        this.adjectiveFrameIndex = adjectiveFrameIndex;
+        this.nounPredicateFrameIndex = nounPredicateFrameIndex;
+        this.gradableAdjectiveFrameIndex = gradableAdjectiveFrameIndex;
+    }
+
+    public String findSyntacticFrame(List<String[]> rows) throws Exception {
+        String syntactType = null;
+
+        Integer index = 0;
+        for (String[] row : rows) {
+            if (index == 0) {
+                syntactType = this.findSyntacticFrame(row);
+                break;
+            }
+        }
+
+        return syntactType;
+    }
+
+    public String findSyntacticFrame(String[] row) throws Exception {
+        String nounPPFrame = row[nounPPIndex];
+        /*System.out.println("::::::::::::::::::::::::::::::;::");
+        System.out.println(nounPPFrame);
+        System.out.println("TransitiveFrame::" + transitiveIndex);
+        System.out.println("InTransitivePPFrame::" + InTransitiveIndex);
+        System.out.println("AdjectiveAttributiveFrame::" + adjectiveFrameIndex);
+        System.out.println("nounPredicateFrameIndex::" + row[nounPredicateFrameIndex]);
+        System.out.println("::::::::::::::::::::::::::::::;::");*/
+
+        try {
+            if (nounPPFrame.equals(NounPPFrame)) {
+                return NounPPFrame;
+            } else if (row[transitiveIndex].contains(TransitiveFrame)) {
+                return TransitiveFrame;
+            } else if (row[InTransitiveIndex].contains(InTransitivePPFrame)) {
+                return InTransitivePPFrame;
+            } else if (row[adjectiveFrameIndex].contains(AdjectiveAttributiveFrame)) {
+                return AdjectiveAttributiveFrame;
+            } else if (row[nounPredicateFrameIndex].contains(NounPredicateFrame)) {
+                return NounPredicateFrame;
+            } else if (row[gradableAdjectiveFrameIndex].contains(AdjectiveSuperlativeFrame)) {
+                return AdjectiveSuperlativeFrame;
+            } else {
+                throw new Exception("No grammar entry is found!!!!");
+            }
+        } catch (Exception ex) {
+            throw new Exception("lexial entry:" + row[0] + " invalid entry in XSL sheet:" + ex.getMessage().toString()); //To change body of generated methods, choose Tools | Templates.   
+        }
+    }
+
+    private Pair<Boolean, String> findPrefix(String prefix) {
+        prefix = prefix.strip().trim();
+        for (String key : this.linkedData.getPrefixes().keySet()) {
+            String value = this.linkedData.getPrefixes().get(key);
+            value = value.strip().trim();
+            key = key.strip().trim();
+            if (key.equals(prefix)) {
+                return new Pair<Boolean, String>(Boolean.TRUE, value);
+            }
+
+        }
+        return new Pair<Boolean, String>(Boolean.FALSE, prefix);
+    }
+
+    public String setReference(String reference) {
+        if (reference.contains(LinkedData.http)) {
+            return reference;
+        } else if (reference.contains(LinkedData.colon)) {
+            String[] info = reference.split(LinkedData.colon);
+            String prefix = info[0].strip().trim();
+            if (linkedData.getPrefixes().containsKey(prefix)) {
+                reference = linkedData.getPrefixes().get(prefix) + info[1];
+            }
+
+        }
+        return reference;
+    }
+
+    public String getTutleFileName() {
+        return tutleFileName;
+    }
+
+    public LinkedData getLinkedData() {
+        return linkedData;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getInputDir() {
+        return inputDir;
+    }
+
+    public String getTutleString() {
+        return this.turtleString;
+    }
+
+    public Boolean getConversionFlag() {
+        return conversionFlag;
+    }
+
+}
