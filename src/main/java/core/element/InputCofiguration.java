@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util;
+package core.element;
 
 import core.element.LinkedData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import core.element.Language;
 import java.io.File;
+import util.FileProcessUtils;
 
 
 /**
@@ -24,9 +25,6 @@ public class InputCofiguration {
     private String languageCode = null;
     @JsonProperty("inputDir")
     private String inputDir = null;
-    @JsonProperty("outputDir")
-    private String outputDir = null;
-    @JsonProperty("entityDir")
 
     private LinkedData linkedData = null;
 
@@ -55,11 +53,6 @@ public class InputCofiguration {
         return inputDir + File.separator + this.languageCode;
     }
 
-    public String getOutputDir() {
-        return outputDir + File.separator + this.languageCode;
-    }
-
-
     public void setLinkedData(String fileName) throws Exception {
         this.linkedData = FileProcessUtils.getLinkedDataConf(new File(fileName));
     }
@@ -71,7 +64,7 @@ public class InputCofiguration {
    
     @Override
     public String toString() {
-        return "InputCofiguration{" + "language=" + languageCode + ", inputDir=" + getInputDir() + ", outputDir=" + getOutputDir() +  '}';
+        return "InputCofiguration{" + "language=" + languageCode + ", inputDir=" + getInputDir() +  '}';
     }
 
 }

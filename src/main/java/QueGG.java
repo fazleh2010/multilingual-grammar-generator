@@ -17,7 +17,7 @@ import core.turtle.ItalianTurtle;
 import core.turtle.SpanishTurtle;
 import core.creation.TutleConverter;
 import util.FileFolderUtils;
-import util.InputCofiguration;
+import core.element.InputCofiguration;
 import core.element.Language;
 
 @NoArgsConstructor

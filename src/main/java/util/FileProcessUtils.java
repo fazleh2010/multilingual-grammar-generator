@@ -5,6 +5,7 @@
  */
 package util;
 
+import core.element.InputCofiguration;
 import core.element.LinkedData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
