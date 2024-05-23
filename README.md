@@ -28,9 +28,9 @@ input_configuration_file: The file (inputConf.json) contains input parameter for
 ````
 The lexicon director:
 
-- lexicon/en/nouns (lexical entries of [NounPPFrame](http://example.com/docs))
-- lexicon/en/verbs (lexical entries of [TransitiveFrame](http://example.com/docs) and [InTransitiveFrame](http://example.com/docs))
-- lexicon/en/adjectives (lexical entries of [AttributiveFrame](http://example.com/docs) and [SuperlativeFrame](http://example.com/docs))
+- lexicon/en/nouns (lexical entries of [NounPPFrame](https://github.com/fazleh2010/multilingual-grammar-generator/blob/lexicon-creation/lexicon/en/nouns/PhDThesisLexicalEntry%20-%20NnEn.csv))
+- lexicon/en/verbs (lexical entries of [TransitiveFrame](https://github.com/fazleh2010/multilingual-grammar-generator/blob/lexicon-creation/lexicon/en/verbs/PhDThesisLexicalEntry%20-%20TrEn.csv) and [InTransitiveFrame](https://github.com/fazleh2010/multilingual-grammar-generator/blob/lexicon-creation/lexicon/en/verbs/PhDThesisLexicalEntry%20-%20InEn.csv))
+- lexicon/en/adjectives (lexical entries of [AttributiveFrame](https://github.com/fazleh2010/multilingual-grammar-generator/blob/lexicon-creation/lexicon/en/adjective/PhDThesisLexicalEntry%20-%20AaEn.csv) and [SuperlativeFrame](https://github.com/fazleh2010/multilingual-grammar-generator/blob/lexicon-creation/lexicon/en/adjective/PhDThesisLexicalEntry%20-%20AgEn.csv))
 - lexicon/en/DomainOrRange.csv (inflection forms of Domain and Range)
 
 The output turtle files will be found in same directory.
