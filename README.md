@@ -16,18 +16,25 @@ mvn clean package
 ```
 input_configuration_file: The file (inputConf.json) contains input parameter for the system:
 - languageCode: `en` (English), `de` (German), `it` (Italian), and `es` (Spanish)
-- inputDir: The input directory that contains lexical entries (i.e., csv files). 
-- outputDir: The output directory for the grammar (Json files).
+- inputDir: The lexicon directory that contains lexical entries (i.e., .csv files). 
 
 
 ````input configuration file
 {
   "languageCode" : "en",
-  "inputDir" : "lexicon",
-  "outputDir" : "output"
+  "inputDir" : "lexicon"
  }
 
 ````
+The lexicon director:
+
+- lexicon/en/nouns (lexical entries of NouPPFrame)
+- lexicon/en/verbs (lexical entries of TransitiveFrame and InTransitiveFrame)
+- lexicon/en/adjectives (lexical entries of AttributiveFrame and SuperlativeFrame)
+- lexicon/en/DomainOrRange.csv (inflection forms of Domain and Range)
+
+The output turtle files will be found in same directory.
+
 linked_data_configuration_file: The file (dbpedia.json) contains the input configuration for linked data.
 - endpoint: the sparql endpoint of the linked data.
 - prefix: the prefixes of Uris.
@@ -63,12 +70,7 @@ java -jar target/QuestionGrammarGenerator.jar conf/inputConf_it.json dataset/dbp
                                  
 ````  
 
-The output can be seen the folder output/
 
-- output/en/ (English)
-- output/de/ (German)
-- output/it/ (Italian)
-- output/es/ (Spanish)
 
 
 ## Developers
