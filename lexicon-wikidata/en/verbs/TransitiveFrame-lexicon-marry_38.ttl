@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_marry_38 ;
+  lemon:entry    :marry_38ed ;
+  lemon:entry    :form_marry_38_preposition .
+
+:to_marry_38 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_marry_38 ;
+  lemon:otherForm      :form_marry_38s ;
+  lemon:otherForm      :form_marry_38ed ;
+  lemon:otherForm      :form_marry_38perfect ;
+  lemon:sense          :marry_38_sense_1 ;
+  lemon:synBehavior    :marry_38_frame_transitive .
+
+:form_marry_38 a         lemon:Form ;
+  lemon:writtenRep     "marry"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_marry_38s a    lemon:Form ;
+  lemon:writtenRep "marries"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_marry_38ed a   lemon:Form ;
+  lemon:writtenRep "married"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_marry_38perfect a   lemon:Form ;
+  lemon:writtenRep "married"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:marry_38_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :marry_38_subj ;
+  lexinfo:directObject     :marry_38_obj .
+
+:marry_38_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :marry_38_sense_1 ;
+  lemon:reference   <wd:P26> ;
+  lemon:subjOfProp  :marry_38_obj ;
+  lemon:objOfProp   :marry_38_subj ;
+  lemon:condition   :marry_38_sense_1_condition .
+
+
+:marry_38_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <wd:Q19088> ;
+  lemon:propertyRange  <wd:Q19088> .
+
+
+:marry_38_obj lemon:marker :form_marry_38_preposition .
+
+## Prepositions ##
+:form_marry_38_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

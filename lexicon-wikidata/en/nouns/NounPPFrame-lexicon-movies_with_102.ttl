@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :movies_with_102 ;
+  lemon:entry    :movies_with_102_form_preposition .
+
+:movies_with_102 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :movies_with_102_form ;
+  lemon:otherForm  :movies_with_102_singular ;
+  lemon:otherForm  :movies_with_102_plural ;
+  lemon:sense          :movies_with_102_sense_1 ;
+  lemon:synBehavior    :movies_with_102_nounpp .
+
+:movies_with_102_form a lemon:Form ;
+  lemon:writtenRep "movie"@en .
+
+:movies_with_102_singular a    lemon:Form ;
+  lemon:writtenRep "movie"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:movies_with_102_plural a   lemon:Form ;
+  lemon:writtenRep "movies"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:movies_with_102_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_movies_with_102 ;
+  lexinfo:prepositionalAdjunct :arg2_movies_with_102 .
+
+:movies_with_102_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :movies_with_102_sense_1 ;
+  lemon:reference           <wd:P161> ;
+  lemon:subjOfProp          :arg2_movies_with_102 ;
+  lemon:objOfProp           :arg1_movies_with_102 ;
+  lemon:condition           :movies_with_102_sense_1_condition .
+
+:movies_with_102_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q386724> ;
+  lemon:propertyRange   <wd:Q19088> .
+
+:arg2_movies_with_102 lemon:marker :movies_with_102_form_preposition .
+## Prepositions ##
+:movies_with_102_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "with"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :employer-of_80 ;
+  lemon:entry    :employer-of_80_form_preposition .
+
+:employer-of_80 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :employer-of_80_form ;
+  lemon:otherForm  :employer-of_80_singular ;
+  lemon:otherForm  :employer-of_80_plural ;
+  lemon:sense          :employer-of_80_sense_1 ;
+  lemon:synBehavior    :employer-of_80_nounpp .
+
+:employer-of_80_form a lemon:Form ;
+  lemon:writtenRep "employer"@en .
+
+:employer-of_80_singular a    lemon:Form ;
+  lemon:writtenRep "employer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:employer-of_80_plural a   lemon:Form ;
+  lemon:writtenRep "employers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:employer-of_80_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_employer-of_80 ;
+  lexinfo:prepositionalAdjunct :arg2_employer-of_80 .
+
+:employer-of_80_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :employer-of_80_sense_1 ;
+  lemon:reference           <wd:P108> ;
+  lemon:subjOfProp          :arg2_employer-of_80 ;
+  lemon:objOfProp           :arg1_employer-of_80 ;
+  lemon:condition           :employer-of_80_sense_1_condition .
+
+:employer-of_80_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q19088> ;
+  lemon:propertyRange   <wd:Q3957> .
+
+:arg2_employer-of_80 lemon:marker :employer-of_80_form_preposition .
+## Prepositions ##
+:employer-of_80_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

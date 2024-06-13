@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :address-of_92 ;
+  lemon:entry    :address-of_92_form_preposition .
+
+:address-of_92 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :address-of_92_form ;
+  lemon:otherForm  :address-of_92_singular ;
+  lemon:otherForm  :address-of_92_plural ;
+  lemon:sense          :address-of_92_sense_1 ;
+  lemon:synBehavior    :address-of_92_nounpp .
+
+:address-of_92_form a lemon:Form ;
+  lemon:writtenRep "address"@en .
+
+:address-of_92_singular a    lemon:Form ;
+  lemon:writtenRep "address"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:address-of_92_plural a   lemon:Form ;
+  lemon:writtenRep "addresses"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:address-of_92_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_address-of_92 ;
+  lexinfo:prepositionalAdjunct :arg2_address-of_92 .
+
+:address-of_92_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :address-of_92_sense_1 ;
+  lemon:reference           <wd:P969> ;
+  lemon:subjOfProp          :arg2_address-of_92 ;
+  lemon:objOfProp           :arg1_address-of_92 ;
+  lemon:condition           :address-of_92_sense_1_condition .
+
+:address-of_92_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q41176> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#string> .
+
+:arg2_address-of_92 lemon:marker :address-of_92_form_preposition .
+## Prepositions ##
+:address-of_92_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

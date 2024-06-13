@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :student_of_83 ;
+  lemon:entry    :student_of_83_form_preposition .
+
+:student_of_83 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :student_of_83_form ;
+  lemon:otherForm  :student_of_83_singular ;
+  lemon:otherForm  :student_of_83_plural ;
+  lemon:sense          :student_of_83_sense_1 ;
+  lemon:synBehavior    :student_of_83_nounpp .
+
+:student_of_83_form a lemon:Form ;
+  lemon:writtenRep "student"@en .
+
+:student_of_83_singular a    lemon:Form ;
+  lemon:writtenRep "student"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:student_of_83_plural a   lemon:Form ;
+  lemon:writtenRep "students"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:student_of_83_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_student_of_83 ;
+  lexinfo:prepositionalAdjunct :arg2_student_of_83 .
+
+:student_of_83_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :student_of_83_sense_1 ;
+  lemon:reference           <wd:P2196> ;
+  lemon:subjOfProp          :arg2_student_of_83 ;
+  lemon:objOfProp           :arg1_student_of_83 ;
+  lemon:condition           :student_of_83_sense_1_condition .
+
+:student_of_83_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q2385804> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+:arg2_student_of_83 lemon:marker :student_of_83_form_preposition .
+## Prepositions ##
+:student_of_83_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

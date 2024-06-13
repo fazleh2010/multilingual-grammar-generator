@@ -1,0 +1,3 @@
+"lexicalEntry","partOfSpeech","writtenFormInfinitive/2ndPerson","writtenForm3rdPerson","writtenFormPast","writtenFormPerfect","SyntacticFrame","subject","directObject","sense","reference","domain","range","passivePreposition","QALD",""
+"win","verb","win","won","won","won","TransitiveFrame","range","domain","1","http://dbpedia.org/ontology/goldMedalist","wd:Q500834","wd:Q19088","by","Qald9-test",""
+"Join_2","verb","join","joins","joined","joined","TransitiveFrame","range","domain","1","http://dbpedia.org/ontology/accessioneudate","http://dbpedia.org/ontology/Country","xsd:date","by","Qald9-training",""

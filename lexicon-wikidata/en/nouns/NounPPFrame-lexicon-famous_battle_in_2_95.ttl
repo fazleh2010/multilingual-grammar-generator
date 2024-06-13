@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :famous_battle_in_2_95 ;
+  lemon:entry    :famous_battle_in_2_95_form_preposition .
+
+:famous_battle_in_2_95 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :famous_battle_in_2_95_form ;
+  lemon:otherForm  :famous_battle_in_2_95_singular ;
+  lemon:otherForm  :famous_battle_in_2_95_plural ;
+  lemon:sense          :famous_battle_in_2_95_sense_1 ;
+  lemon:synBehavior    :famous_battle_in_2_95_nounpp .
+
+:famous_battle_in_2_95_form a lemon:Form ;
+  lemon:writtenRep "famous battle"@en .
+
+:famous_battle_in_2_95_singular a    lemon:Form ;
+  lemon:writtenRep "famous battle"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:famous_battle_in_2_95_plural a   lemon:Form ;
+  lemon:writtenRep "famous battles"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:famous_battle_in_2_95_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_famous_battle_in_2_95 ;
+  lexinfo:prepositionalAdjunct :arg2_famous_battle_in_2_95 .
+
+:famous_battle_in_2_95_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :famous_battle_in_2_95_sense_1 ;
+  lemon:reference           <wd:P585> ;
+  lemon:subjOfProp          :arg2_famous_battle_in_2_95 ;
+  lemon:objOfProp           :arg1_famous_battle_in_2_95 ;
+  lemon:condition           :famous_battle_in_2_95_sense_1_condition .
+
+:famous_battle_in_2_95_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q3957> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_famous_battle_in_2_95 lemon:marker :famous_battle_in_2_95_form_preposition .
+## Prepositions ##
+:famous_battle_in_2_95_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "in"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

@@ -1,0 +1,29 @@
+lexicalEntry,partOfSpeech,writtenFormInfinitive/2ndPerson,writtenForm3rdPerson,writtenFormPast,writtenFormPerfect,SyntacticFrame,subject,directObject,sense,reference,domain,range,passivePreposition,QALD
+direct_2,verb,direct,directs,directed,directed,TransitiveFrame,range,domain,1,wd:P57,wd:Q7397,wd:Q19088,by,Qald9-training
+discover_1,verb,discover,discovers,discovered,discovered,TransitiveFrame,range,domain,1,wd:P61,wd:Q634,wd:Q19088,by,Qald9-training
+cross,verb,cross,crosses,crossed,crossed,TransitiveFrame,domain,range,1,wd:P177,wd:Q12280,wd:Q47521,by,Qald9-training
+create_2,verb,create,creates,created,created,TransitiveFrame,range,domain,1,wd:P50,wd:Q386724,wd:Q19088,by,Qald9-training
+starr_in_1,verb,starring in,starring in,starred in,starred_in,TransitiveFrame,range,domain,5,wd:P161,wd:Q386724,wd:Q19088,by,Qald9-training
+Play_3,verb,play,playes,played,played,TransitiveFrame,range,domain,1,wd:P161,wd:Q386724,wd:Q19088,by,Qald9-training
+direct_1,verb,direct,directs,directed,directed,TransitiveFrame,range,domain,1,wd:P57,wd:Q386724,wd:Q19088,by,Qald9-training
+design_2,verb,design,designs,designed,designed,TransitiveFrame,range,domain,2,wd:P287,wd:Q41176,wd:Q19088,by,Qald9-training
+cost_1,verb,cost,costs,costed,costed,TransitiveFrame,range,domain,1,wd:P2769,wd:Q386724,xsd:double,by,Qald9-training
+Write_3,verb,write,writes,wrote,written,TransitiveFrame,range,domain,3,wd:P86,wd:Q15416,wd:Q19088,by,Qald9-training
+Write_4,verb,write,writes,wrote,written,TransitiveFrame,range,domain,4,wd:P50,wd:Q7397,wd:Q19088,by,Qald9-training
+found_1,verb,found,found,founded,founded,TransitiveFrame,range,domain,1,wd:P112,wd:Q476028,wd:Q19088,by,Qald9-training
+marry_1,verb,marry,marries,married,married,TransitiveFrame,range,domain,1,wd:P26,wd:Q19088,wd:Q19088,to,Qald9-training
+produce_4,verb,produce,produces,produced,produced,TransitiveFrame,range,domain,3,wd:P176,wd:Q2095,wd:Q476028,by,Qald9-training
+produce_5,verb,produce,produce,produced,produced,TransitiveFrame,domain,range,1,wd:P57,wd:Q386724,wd:Q19088,by,Qald9-training
+distribute_1,verb,distribute,distributes,distributed,distributed,TransitiveFrame,range,domain,1,wd:P750,wd:Q15416,wd:Q476028,by,Qald9-training
+illustrate_1,verb,illustrate,illustrates,illustrated,illustrated,TransitiveFrame,range,domain,1,wd:P110,wd:Q386724,wd:Q19088,by,Qald9-training
+Play_4,verb,play,playes,played,played,TransitiveFrame,domain,range,1,wd:P136,wd:Q2188189,wd:Q19088,by,Qald9-training
+married_to,verb,marry to,marries to,married to,married to,TransitiveFrame,range,domain,1,wd:P26,wd:Q19088,wd:Q19088,by,Qald9-test
+paint,verb,paint,paints,painted,painted,TransitiveFrame,range,domain,1,wd:P50,wd:Q7397,wd:Q19088,by,Qald9-test
+graduated from,verb,graduate from,graduates from,graduated from,graduated from,TransitiveFrame,range,domain,1,wd:P69,wd:Q19088,wd:Q2385804,by,Qald9-test
+shot,verb,shot,shots,shot,shot,TransitiveFrame,range,domain,1,wd:P570,wd:Q19088,xsd:date,by,Qald9-test
+write,verb,write,writes,wrote,wrote,TransitiveFrame,range,domain,1,wd:P50,wd:Q7397,wd:Q19088,by,Qald9-test
+create,verb,create,creates,created,created,TransitiveFrame,range,domain,1,wd:P50,wd:Q7397,wd:Q19088,by,Qald9-test
+marry,verb,marry,marries,married,married,TransitiveFrame,range,domain,1,wd:P26,wd:Q19088,wd:Q19088,by,Qald9-test
+call,verb,call,calls,called,called,TransitiveFrame,range,domain,1,wd:P742,wd:Q19088,xsd:String,by,Qald9-test
+proclaim,verb,proclaim,proclaims,proclaimed,proclaimed,TransitiveFrame,range,domain,1,wd:P571,wd:Q476028,xsd:date,by,Qald9-test
+direct,verb,direct,directs,directed,directed,TransitiveFrame,range,domain,1,wd:P57,wd:Q386724,wd:Q19088,by,Qald9-test

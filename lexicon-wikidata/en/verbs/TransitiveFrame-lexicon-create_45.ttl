@@ -1,0 +1,63 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :to_create_45 ;
+  lemon:entry    :create_45ed ;
+  lemon:entry    :form_create_45_preposition .
+
+:to_create_45 a           lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lemon:canonicalForm  :form_create_45 ;
+  lemon:otherForm      :form_create_45s ;
+  lemon:otherForm      :form_create_45ed ;
+  lemon:otherForm      :form_create_45perfect ;
+  lemon:sense          :create_45_sense_1 ;
+  lemon:synBehavior    :create_45_frame_transitive .
+
+:form_create_45 a         lemon:Form ;
+  lemon:writtenRep     "create"@en ;
+  lexinfo:verbFormMood lexinfo:infinitive .
+
+:form_create_45s a    lemon:Form ;
+  lemon:writtenRep "creates"@en ;
+  lexinfo:person   lexinfo:secondPerson .
+
+:form_create_45ed a   lemon:Form ;
+  lemon:writtenRep "created"@en ;
+  lexinfo:tense    lexinfo:past .
+
+:form_create_45perfect a   lemon:Form ;
+  lemon:writtenRep "created"@en ;
+  lexinfo:tense    lexinfo:perfect ;
+  lexinfo:person   lexinfo:thirdPerson .
+
+:create_45_frame_transitive a lexinfo:TransitiveFrame ;
+  lexinfo:subject          :create_45_subj ;
+  lexinfo:directObject     :create_45_obj .
+
+:create_45_sense_1 a   lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping :create_45_sense_1 ;
+  lemon:reference   <wd:P50> ;
+  lemon:subjOfProp  :create_45_obj ;
+  lemon:objOfProp   :create_45_subj ;
+  lemon:condition   :create_45_sense_1_condition .
+
+
+:create_45_sense_1_condition a    lemon:condition ;
+  lemon:propertyDomain <wd:Q7397> ;
+  lemon:propertyRange  <wd:Q19088> .
+
+
+:create_45_obj lemon:marker :form_create_45_preposition .
+
+## Prepositions ##
+:form_create_45_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "by"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

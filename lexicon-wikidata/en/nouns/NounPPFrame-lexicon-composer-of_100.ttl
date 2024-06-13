@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :composer-of_100 ;
+  lemon:entry    :composer-of_100_form_preposition .
+
+:composer-of_100 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :composer-of_100_form ;
+  lemon:otherForm  :composer-of_100_singular ;
+  lemon:otherForm  :composer-of_100_plural ;
+  lemon:sense          :composer-of_100_sense_1 ;
+  lemon:synBehavior    :composer-of_100_nounpp .
+
+:composer-of_100_form a lemon:Form ;
+  lemon:writtenRep "music composer"@en .
+
+:composer-of_100_singular a    lemon:Form ;
+  lemon:writtenRep "music composer"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:composer-of_100_plural a   lemon:Form ;
+  lemon:writtenRep "music composers"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:composer-of_100_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_composer-of_100 ;
+  lexinfo:prepositionalAdjunct :arg2_composer-of_100 .
+
+:composer-of_100_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :composer-of_100_sense_1 ;
+  lemon:reference           <wd:P86> ;
+  lemon:subjOfProp          :arg2_composer-of_100 ;
+  lemon:objOfProp           :arg1_composer-of_100 ;
+  lemon:condition           :composer-of_100_sense_1_condition .
+
+:composer-of_100_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q15416> ;
+  lemon:propertyRange   <wd:Q19088> .
+
+:arg2_composer-of_100 lemon:marker :composer-of_100_form_preposition .
+## Prepositions ##
+:composer-of_100_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

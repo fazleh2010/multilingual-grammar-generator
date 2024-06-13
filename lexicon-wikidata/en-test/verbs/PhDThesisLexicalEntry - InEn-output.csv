@@ -1,0 +1,2 @@
+"LemonEntry","partOfSpeech","writtenFormInfinitive","writtenFormThridPerson","writtenFormPast","writtenFormPast","preposition","SyntacticFrame","subject","prepositionalAdjunct","sense","reference","domain","range","QALD"
+"die_in_2","verb","die","dies","died","died","in","IntransitivePPFrame","range","domain","1","http://dbpedia.org/property/deathCause","wd:Q19088","wd:Q12136","Qald9-test"

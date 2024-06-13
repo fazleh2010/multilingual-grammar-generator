@@ -1,0 +1,3 @@
+lemon,partOfSpeech,writtenForm (singular),writtenForm (plural),preposition,SyntacticFrame,copulativeArg,prepositionalAdjunct,sense,reference,domain,range,QALD
+height_of,noun,height,-,of,NounPPFrame,range,domain,1,dbo:height,dbo:Model,xsd:double,Qald9-training
+creator-of,noun,creator,creators,of,NounPPFrame,range,domain,1,dbo:creator,dbo:FictionalCharacter,dbo:Person,Qald9-training

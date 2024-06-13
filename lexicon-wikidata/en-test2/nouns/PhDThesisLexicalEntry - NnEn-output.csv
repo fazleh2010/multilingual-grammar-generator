@@ -1,0 +1,3 @@
+"lemon","partOfSpeech","writtenForm (singular)","writtenForm (plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","QALD"
+"height_of","noun","height","-","of","NounPPFrame","range","domain","1","wd:P2048","wd:Q4610556","xsd:double","Qald9-training"
+"creator-of","noun","creator","creators","of","NounPPFrame","range","domain","1","wd:P170","wd:Q24229398","wd:Q19088","Qald9-training"

@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :artisticmovement_of_117 ;
+  lemon:entry    :artisticmovement_of_117_form_preposition .
+
+:artisticmovement_of_117 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :artisticmovement_of_117_form ;
+  lemon:otherForm  :artisticmovement_of_117_singular ;
+  lemon:otherForm  :artisticmovement_of_117_plural ;
+  lemon:sense          :artisticmovement_of_117_sense_1 ;
+  lemon:synBehavior    :artisticmovement_of_117_nounpp .
+
+:artisticmovement_of_117_form a lemon:Form ;
+  lemon:writtenRep "artistic movement"@en .
+
+:artisticmovement_of_117_singular a    lemon:Form ;
+  lemon:writtenRep "artistic movement"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:artisticmovement_of_117_plural a   lemon:Form ;
+  lemon:writtenRep "artistic movements"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:artisticmovement_of_117_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_artisticmovement_of_117 ;
+  lexinfo:prepositionalAdjunct :arg2_artisticmovement_of_117 .
+
+:artisticmovement_of_117_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :artisticmovement_of_117_sense_1 ;
+  lemon:reference           <wd:P135> ;
+  lemon:subjOfProp          :arg2_artisticmovement_of_117 ;
+  lemon:objOfProp           :arg1_artisticmovement_of_117 ;
+  lemon:condition           :artisticmovement_of_117_sense_1_condition .
+
+:artisticmovement_of_117_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q19088> ;
+  lemon:propertyRange   <http://www.w3.org/2002/07/owl#Thing> .
+
+:arg2_artisticmovement_of_117 lemon:marker :artisticmovement_of_117_form_preposition .
+## Prepositions ##
+:artisticmovement_of_117_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+

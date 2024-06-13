@@ -35,6 +35,8 @@ public class LinkedData {
     @JsonProperty("classProperty")
     private String classProperty = null;
     
+    private LinkedHashMap<String, String> reversePrefixes = new LinkedHashMap<String, String>();
+    
 
     @JsonIgnore
     public static String dbpedia = "dbpedia";
@@ -63,6 +65,15 @@ public class LinkedData {
     public LinkedHashMap<String, String> getPrefixes() {
         this.prefix.putAll(this.gradablePrefix);
         return prefix;
+    }
+    
+    public void reversePrefixes() {
+        LinkedHashMap<String, String> prefixes = getPrefixes();
+        for (String prefix : prefixes.keySet()) {
+            String uri = prefixes.get(prefix);
+            this.reversePrefixes.put(uri, prefix);
+        }
+
     }
 
     /*LinkedHashMap<String, String> prefix = FileFolderUtils.fileToHashOrg(dataSetConfFile);
@@ -100,6 +111,10 @@ public class LinkedData {
 
     public String getClassProperty() {
         return classProperty;
+    }
+
+    public LinkedHashMap<String, String> getReversePrefixes() {
+        return reversePrefixes;
     }
     
     

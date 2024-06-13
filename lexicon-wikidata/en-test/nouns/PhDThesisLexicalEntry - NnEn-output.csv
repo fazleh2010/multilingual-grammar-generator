@@ -1,0 +1,8 @@
+"lemon","partOfSpeech","writtenForm (singular)","writtenForm (plural)","preposition","SyntacticFrame","copulativeArg","prepositionalAdjunct","sense","reference","domain","range","QALD"
+"country_of","noun","country","countries","of","NounPPFrame","range","domain","1","wd:P17","wd:Q3957","http://dbpedia.org/ontology/Country","Qald9-test"
+"nickname_of","noun","nickname","nicknames","of","NounPPFrame","range","domain","1","foaf:nick","wd:Q3957","xsd:string","Qald9-test"
+"husband_of","noun","husband","husbands","of","NounPPFrame","range","domain","1","wd:P26","wd:Q19088","wd:Q19088","Qald9-test"
+"movie_with","noun","movie","movies","with","NounPPFrame","domain","range","1","http://dbpedia.org/property/starring","wd:Q386724","wd:Q19088","Qald9-training"
+"atmosphere_of","noun","atmosphere","atmospheres","of","NounPPFrame","range","domain","1","http://dbpedia.org/property/atmosphereComposition","wd:Q634","wd:Q476028","Qald9-test"
+"profession_of_2","noun","profession","professions","of","NounPPFrame","range","domain","1","http://dbpedia.org/property/occupation","wd:Q19088","xsd:string","Qald9-test"
+"B-sides_of","noun","B-side","B-sides","of","NounPPFrame","range","domain","1","wd:P1432","wd:Q2188189","http://dbpedia.org/ontology/CreativeWork","Qald9-test"

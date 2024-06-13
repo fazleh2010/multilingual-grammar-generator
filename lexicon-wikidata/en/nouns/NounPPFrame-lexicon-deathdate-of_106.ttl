@@ -1,0 +1,52 @@
+@prefix :        <http://localhost:8080/lexicon#> .
+
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lemon:   <http://lemon-model.net/lemon#> .
+
+@base            <http://localhost:8080#> .
+
+:lexicon_en a    lemon:Lexicon ;
+  lemon:language "en" ;
+  lemon:entry    :deathdate-of_106 ;
+  lemon:entry    :deathdate-of_106_form_preposition .
+
+:deathdate-of_106 a       lemon:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lemon:canonicalForm  :deathdate-of_106_form ;
+  lemon:otherForm  :deathdate-of_106_singular ;
+  lemon:otherForm  :deathdate-of_106_plural ;
+  lemon:sense          :deathdate-of_106_sense_1 ;
+  lemon:synBehavior    :deathdate-of_106_nounpp .
+
+:deathdate-of_106_form a lemon:Form ;
+  lemon:writtenRep "death date"@en .
+
+:deathdate-of_106_singular a    lemon:Form ;
+  lemon:writtenRep "death date"@en ;
+  lexinfo:number   lexinfo:singular .
+
+:deathdate-of_106_plural a   lemon:Form ;
+  lemon:writtenRep "XX"@en ;
+  lexinfo:number    lexinfo:plural .
+
+:deathdate-of_106_nounpp a        lexinfo:NounPPFrame ;
+  lexinfo:copulativeArg        :arg1_deathdate-of_106 ;
+  lexinfo:prepositionalAdjunct :arg2_deathdate-of_106 .
+
+:deathdate-of_106_sense_1 a lemon:OntoMap, lemon:LexicalSense ;
+  lemon:ontoMapping         :deathdate-of_106_sense_1 ;
+  lemon:reference           <wd:P570> ;
+  lemon:subjOfProp          :arg2_deathdate-of_106 ;
+  lemon:objOfProp           :arg1_deathdate-of_106 ;
+  lemon:condition           :deathdate-of_106_sense_1_condition .
+
+:deathdate-of_106_sense_1_condition a lemon:condition ;
+  lemon:propertyDomain  <wd:Q19088> ;
+  lemon:propertyRange   <http://www.w3.org/2001/XMLSchema#date> .
+
+:arg2_deathdate-of_106 lemon:marker :deathdate-of_106_form_preposition .
+## Prepositions ##
+:deathdate-of_106_form_preposition a                  lemon:SynRoleMarker ;
+  lemon:canonicalForm  [ lemon:writtenRep "of"@en ] ;
+  lexinfo:partOfSpeech lexinfo:preposition .
+
